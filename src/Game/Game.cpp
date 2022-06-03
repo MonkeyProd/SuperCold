@@ -64,7 +64,8 @@ void Game::run() {
   auto player_sprites = spriteController.sprites["player"];
 
   draw_test_room(sprites);
-  draw_animated_player(player_sprites);
+  draw_animated_player(player_sprites, 300, 300);
+  draw_animated_player(player_sprites, 400, 500);
 
   while (window.isOpen()) {
     timeSinceLastUpdate += clock.restart();
@@ -101,8 +102,9 @@ void Game::draw_test_room(std::vector<sf::Sprite> sprites) {
   }
 }
 
-void Game::draw_animated_player(std::vector<sf::Sprite> sprites) {
-  AnimatedGameObject player({300, 300}, sprites);
+void Game::draw_animated_player(std::vector<sf::Sprite> sprites, float x,
+                                float y) {
+  AnimatedGameObject player({x, y}, sprites);
   player.setScale(5, 5);
   animatedLayer.push_back(player);
 }

@@ -23,7 +23,7 @@ class Game {
   std::vector<AnimatedGameObject> animatedLayer;
 
   void draw_test_room(std::vector<sf::Sprite> sprites);
-  void draw_animated_player(std::vector<sf::Sprite> sprites);
+  void draw_animated_player(std::vector<sf::Sprite> sprites, float x, float y);
 
  public:
   Game(unsigned int h = 600U, unsigned int w = 800U);
