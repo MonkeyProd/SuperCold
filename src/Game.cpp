@@ -67,6 +67,14 @@ void Game::run()
 	sf::Clock clock;
 	sf::Time timePerFrame = sf::seconds(1.0f / FPS);
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
+	sf::Texture t;
+	if (!t.loadFromFile("test_sprite.png", sf::IntRect(10, 10, 32, 32)))
+	{
+		printf("not loaded\n");
+	}
+	sf::Sprite s;
+	s.setTexture(t);
+	GameObject go(sf::Vector2f(0, 0), s);
 	while (window.isOpen())
 	{
 		timeSinceLastUpdate += clock.restart();
@@ -80,5 +88,6 @@ void Game::run()
 			}
 		}
 		draw();
+		go.draw(window);
 	}
 }
