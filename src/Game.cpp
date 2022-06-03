@@ -59,14 +59,7 @@ void Game::draw()
 	// clear and fill the window with color
 	window.clear(sf::Color(100, 100, 100));
 	// call display method for all game objects
-	window.display();
-}
 
-void Game::run()
-{
-	sf::Clock clock;
-	sf::Time timePerFrame = sf::seconds(1.0f / FPS);
-	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 	sf::Texture t;
 	if (!t.loadFromFile("test_sprite.png", sf::IntRect(10, 10, 32, 32)))
 	{
@@ -75,6 +68,16 @@ void Game::run()
 	sf::Sprite s;
 	s.setTexture(t);
 	GameObject go(sf::Vector2f(0, 0), s);
+	go.draw(window);
+
+	window.display();
+}
+
+void Game::run()
+{
+	sf::Clock clock;
+	sf::Time timePerFrame = sf::seconds(1.0f / FPS);
+	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 	while (window.isOpen())
 	{
 		timeSinceLastUpdate += clock.restart();
@@ -88,6 +91,5 @@ void Game::run()
 			}
 		}
 		draw();
-		go.draw(window);
 	}
 }
