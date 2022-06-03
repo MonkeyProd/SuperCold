@@ -38,12 +38,18 @@ void Game::ProcessEvents() {
   }
 }
 
+/**
+ * There animation state of each object in animatedLayer is changing
+ */
 void Game::update(sf::Time deltatime) {
   for (auto &object : animatedLayer) {
     object.nextState();
   }
 }
 
+/**
+ * Drawing all layers
+ */
 void Game::draw() {
   window.clear(sf::Color(16, 0, 41));
   for (auto &object : drawLayer) {
