@@ -2,7 +2,9 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
+#include "../GameObject/AnimatedGameObject.hpp"
 #include "../GameObject/GameObject.hpp"
+#include "../SpriteContoller/SpriteController.hpp"
 #include "../TileMap/TileMap.hpp"
 
 class Game {
@@ -15,6 +17,13 @@ class Game {
   void draw();
   uint8_t FPS;
   bool paused;
+  SpriteController spriteController;
+
+  std::vector<GameObject> drawLayer;
+  std::vector<AnimatedGameObject> animatedLayer;
+
+  void draw_test_room(std::vector<sf::Sprite> sprites);
+  void draw_animated_player(std::vector<sf::Sprite> sprites);
 
  public:
   Game(unsigned int h = 600U, unsigned int w = 800U);

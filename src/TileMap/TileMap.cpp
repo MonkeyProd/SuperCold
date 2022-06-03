@@ -1,13 +1,13 @@
 #include "TileMap.hpp"
 
-TileMap::TileMap() : m_tileset(), m_tile_size(){};
-TileMap::TileMap(const sf::Texture &tileset, const sf::Vector2u &tile_size)
+TileMap::TileMap(sf::Texture &tileset, const sf::Vector2u &tile_size)
     : m_tileset(tileset), m_tile_size(tile_size) {
   sf::Vector2u tileset_size = m_tileset.getSize();
   int rows = tileset_size.y / tile_size.y;
   int cols = tileset_size.x / tile_size.x;
-  for (int i = 0; i < rows + 1; i++) {
-    for (int j = 0; j < cols + 1; j++) {
+  printf("%d %d\n", rows, cols);
+  for (int i = 0; i < rows; i++) {
+    for (int j = 0; j < cols; j++) {
       sf::IntRect rect;
       rect.left = j * tile_size.x;
       rect.top = i * tile_size.y;
@@ -18,4 +18,4 @@ TileMap::TileMap(const sf::Texture &tileset, const sf::Vector2u &tile_size)
   }
 };
 
-std::vector<sf::Sprite> TileMap::get_spites() { return m_sprites; }
+std::vector<sf::Sprite> TileMap::get_sprites() { return m_sprites; }

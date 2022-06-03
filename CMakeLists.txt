@@ -5,7 +5,7 @@ include(CTest)
 include(FindPkgConfig)
 enable_testing()
 
-include_directories(include)
+include_directories(src/Assets)
 
 file(GLOB game_src "src/*/*.cpp" "src/main.cpp")
 
