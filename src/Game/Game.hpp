@@ -4,6 +4,7 @@
 
 #include "../GameObject/AnimatedGameObject.hpp"
 #include "../GameObject/GameObject.hpp"
+#include "../Player/Player.hpp"
 #include "../SpriteContoller/SpriteController.hpp"
 #include "../TileMap/TileMap.hpp"
 
@@ -14,10 +15,12 @@ class Game {
   sf::RenderWindow window;
   void ProcessEvents();
   void update(sf::Time deltatime);
-  void draw();
+  void updateAnimations(sf::Time deltatime);
+  void draw(sf::Time deltaTime);
   uint8_t FPS;
   bool paused;
   SpriteController spriteController;
+  Player player;
 
   std::vector<GameObject> drawLayer;
   std::vector<AnimatedGameObject> animatedLayer;

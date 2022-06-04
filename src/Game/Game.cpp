@@ -1,11 +1,14 @@
 #include "Game.hpp"
+
+#include "cmath"
+using std::atan2;
 Game::Game(unsigned int h, unsigned int w)
     : WINDOW_SIZE_H(h),
       WINDOW_SIZE_W(w),
       window(sf::RenderWindow(sf::VideoMode(WINDOW_SIZE_W, WINDOW_SIZE_H),
                               "Smart Slimes",
                               sf::Style::Titlebar | sf::Style::Close)),
-      FPS{10},
+      FPS{60},
       paused{false} {}
 
 void Game::ProcessEvents() {
@@ -27,10 +30,41 @@ void Game::ProcessEvents() {
             paused = !paused;
             break;
           }
-
+          case sf::Keyboard::A: {
+            player.moveLeft();
+            break;
+          }
+          case sf::Keyboard::D: {
+            player.moveRight();
+            break;
+          }
+          case sf::Keyboard::W: {
+            player.moveTop();
+            break;
+          }
+          case sf::Keyboard::S: {
+            player.moveDown();
+            break;
+          }
           default:
             break;
         }
+        break;
+      }
+      case sf::Event::KeyReleased: {
+        switch (event.key.code) {
+          case sf::Keyboard::A:
+          case sf::Keyboard::D:
+            player.resetHorizontalVelocity();
+            break;
+          case sf::Keyboard::W:
+          case sf::Keyboard::S:
+            player.resetVerticalVelocity();
+            break;
+          default:
+            break;
+        }
+        break;
       }
       default:
         break;
@@ -41,16 +75,19 @@ void Game::ProcessEvents() {
 /**
  * There animation state of each object in animatedLayer is changing
  */
-void Game::update(sf::Time deltatime) {
+void Game::update(sf::Time deltatime) {}
+
+void Game::updateAnimations(sf::Time deltatime) {
   for (auto &object : animatedLayer) {
     object.nextState();
   }
+  player.get_playerObject().nextState();
 }
 
 /**
  * Drawing all layers
  */
-void Game::draw() {
+void Game::draw(sf::Time deltaTime) {
   window.clear(sf::Color(16, 0, 41));
   for (auto &object : drawLayer) {
     window.draw(object);
@@ -58,23 +95,59 @@ void Game::draw() {
   for (auto &object : animatedLayer) {
     window.draw(object);
   }
+  player.movePlayer(deltaTime);
+
+  // TEST
+  spriteController.load_sprites("crosshair", "../src/Assets/crosshair.png",
+                                {8, 8});
+  auto sprite = spriteController.sprites["crosshair"][0];
+  auto localMousePos = sf::Mouse::getPosition(window);
+  GameObject cursor({(float)localMousePos.x - 20, (float)localMousePos.y - 20},
+                    sprite);
+  cursor.setScale(5, 5);
+
+  if (localMousePos.x < player.getPlayerPosition().x) {
+    player.mirrorSprite(false);
+  } else {
+    player.mirrorSprite(true);
+  }
+
+  window.draw(cursor);
+  window.draw(player);
+
   window.display();
 }
 
 void Game::run() {
+  sf::Vector2f startPlayerPosition(0, 0);
+  window.setMouseCursorVisible(false);
   sf::Clock clock;
   sf::Time timePerFrame = sf::seconds(1.0f / FPS);
+  sf::Time timePerAnimation = sf::seconds(1.0f / 10);
   sf::Time timeSinceLastUpdate = sf::Time::Zero;
+  sf::Time timeSinceLastAnimation = sf::Time::Zero;
 
   auto sprites = spriteController.sprites["world"];
   auto player_sprites = spriteController.sprites["player"];
 
   draw_test_room(sprites);
-  draw_animated_player(player_sprites, 300, 300);
-  draw_animated_player(player_sprites, 400, 500);
+
+  AnimatedGameObject npcObject({500, 500}, player_sprites);
+  npcObject.setScale(5, 5);
+  animatedLayer.push_back(npcObject);
+
+  // Creating player
+  AnimatedGameObject playerObject(
+      {startPlayerPosition.x - 8, startPlayerPosition.y - 8}, player_sprites);
+  playerObject.setScale(5, 5);
+
+  Player new_player(startPlayerPosition, {0, 0}, playerObject, 150);
+  player = new_player;
 
   while (window.isOpen()) {
-    timeSinceLastUpdate += clock.restart();
+    auto deltaTime = clock.restart();
+    timeSinceLastUpdate += deltaTime;
+    timeSinceLastAnimation += deltaTime;
     while (timeSinceLastUpdate > timePerFrame) {
       timeSinceLastUpdate -= timePerFrame;
       ProcessEvents();
@@ -82,7 +155,13 @@ void Game::run() {
         update(timePerFrame);
       }
     }
-    draw();
+    while (timeSinceLastAnimation > timePerAnimation) {
+      timeSinceLastAnimation -= timePerAnimation;
+      if (not paused) {
+        updateAnimations(timePerAnimation);
+      }
+    }
+    draw(deltaTime);
   }
 }
 
@@ -106,11 +185,4 @@ void Game::draw_test_room(std::vector<sf::Sprite> sprites) {
       drawLayer.push_back(floor);
     }
   }
-}
-
-void Game::draw_animated_player(std::vector<sf::Sprite> sprites, float x,
-                                float y) {
-  AnimatedGameObject player({x, y}, sprites);
-  player.setScale(5, 5);
-  animatedLayer.push_back(player);
 }

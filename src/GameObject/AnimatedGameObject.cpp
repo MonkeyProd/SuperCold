@@ -16,6 +16,13 @@ void AnimatedGameObject::draw(sf::RenderTarget &surface,
   surface.draw(m_sprites_array[animation_state], states);
 }
 
+void AnimatedGameObject::flip() {
+  for (auto &sprite : m_sprites_array) {
+    sprite.setOrigin({sprite.getLocalBounds().width, 0});
+    sprite.scale({-1, 1});
+  }
+}
+
 void AnimatedGameObject::nextState() {
   if (animation_state < m_sprites_array.size() - 1) {
     animation_state++;

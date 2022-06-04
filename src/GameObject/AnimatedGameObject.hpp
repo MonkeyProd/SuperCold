@@ -23,4 +23,5 @@ class AnimatedGameObject : public GameObject {
    * starts from begining
    */
   void nextState();
+  void flip();
 };
