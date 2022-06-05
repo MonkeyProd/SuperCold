@@ -3,17 +3,22 @@
 AnimatedGameObject::AnimatedGameObject()
     : m_cordinates({0, 0}), animation_state(0) {}
 AnimatedGameObject::AnimatedGameObject(const sf::Vector2f &cordinates,
-                                       std::vector<sf::Sprite> &sprites_array)
+                                       std::vector<sf::Sprite> &sprites_array,
+                                       bool isCollider, float scale)
     : m_cordinates(cordinates),
       m_sprites_array(sprites_array),
-      animation_state(0) {
+      animation_state(0),
+      m_isCollider(isCollider),
+      m_scale(scale) {
+  m_sprite = m_sprites_array[0];
+  setScale(scale, scale);
   setPosition(m_cordinates);
 }
 
 void AnimatedGameObject::draw(sf::RenderTarget &surface,
                               sf::RenderStates states) const {
   states.transform *= getTransform();
-  surface.draw(m_sprites_array[animation_state], states);
+  surface.draw(m_sprite, states);
 }
 
 void AnimatedGameObject::flip() {
@@ -29,4 +34,5 @@ void AnimatedGameObject::nextState() {
   } else {
     animation_state = 0;
   }
+  m_sprite = m_sprites_array[animation_state];
 }

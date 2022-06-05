@@ -33,6 +33,7 @@ void Game::ProcessEvents() {
           }
           case sf::Keyboard::A: {
             player.moveLeft();
+
             break;
           }
           case sf::Keyboard::D: {
@@ -141,8 +142,8 @@ void Game::run() {
 
   // Creating player
   AnimatedGameObject playerObject(
-      {startPlayerPosition.x - 8, startPlayerPosition.y - 8}, player_sprites);
-  playerObject.setScale(5, 5);
+      {startPlayerPosition.x - 8, startPlayerPosition.y - 8}, player_sprites,
+      false, 5);
 
   Player new_player(startPlayerPosition, {0, 0}, playerObject, 150);
   player = new_player;
@@ -179,12 +180,12 @@ void Game::draw_test_room(std::vector<sf::Sprite> sprites) {
       GameObject floor;
       if (i == size_y * 8 * scale || i == 0 || j == 0 ||
           j == size_x * 8 * scale)
-        floor = {sf::Vector2f(x_offset + i, y_offset + j), sprites[3]};
+        floor = {sf::Vector2f(x_offset + i, y_offset + j), sprites[3], true, 8};
       else {
         int sprite_id = rand() % 3;
-        floor = {sf::Vector2f(x_offset + i, y_offset + j), sprites[sprite_id]};
+        floor = {sf::Vector2f(x_offset + i, y_offset + j), sprites[sprite_id],
+                 false, 8};
       }
-      floor.setScale(scale, scale);
       drawLayer.push_back(floor);
     }
   }
