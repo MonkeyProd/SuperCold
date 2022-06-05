@@ -21,6 +21,7 @@ class Game {
   bool paused;
   SpriteController spriteController;
   Player player;
+  sf::View camera;
 
   std::vector<GameObject> drawLayer;
   std::vector<AnimatedGameObject> animatedLayer;

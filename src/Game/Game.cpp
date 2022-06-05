@@ -9,7 +9,8 @@ Game::Game(unsigned int h, unsigned int w)
                               "Smart Slimes",
                               sf::Style::Titlebar | sf::Style::Close)),
       FPS{60},
-      paused{false} {}
+      paused{false},
+	  camera(sf::FloatRect(0,0,WINDOW_SIZE_W,WINDOW_SIZE_H)) {}
 
 void Game::ProcessEvents() {
   sf::Event event;
@@ -75,7 +76,10 @@ void Game::ProcessEvents() {
 /**
  * There animation state of each object in animatedLayer is changing
  */
-void Game::update(sf::Time deltatime) {}
+void Game::update(sf::Time deltatime) {
+  camera.setCenter(player.getPlayerPosition());
+  player.movePlayer(deltatime);
+}
 
 void Game::updateAnimations(sf::Time deltatime) {
   for (auto &object : animatedLayer) {
@@ -88,6 +92,7 @@ void Game::updateAnimations(sf::Time deltatime) {
  * Drawing all layers
  */
 void Game::draw(sf::Time deltaTime) {
+  window.setView(camera);
   window.clear(sf::Color(16, 0, 41));
   for (auto &object : drawLayer) {
     window.draw(object);
@@ -95,7 +100,6 @@ void Game::draw(sf::Time deltaTime) {
   for (auto &object : animatedLayer) {
     window.draw(object);
   }
-  player.movePlayer(deltaTime);
 
   // TEST
   spriteController.load_sprites("crosshair", "../src/Assets/crosshair.png",
