@@ -10,7 +10,7 @@ Game::Game(unsigned int h, unsigned int w)
                               sf::Style::Titlebar | sf::Style::Close)),
       FPS{60},
       paused{false},
-	  camera(sf::FloatRect(0,0,WINDOW_SIZE_W,WINDOW_SIZE_H)) {}
+      camera(sf::FloatRect(0, 0, WINDOW_SIZE_W, WINDOW_SIZE_H)) {}
 
 void Game::ProcessEvents() {
   sf::Event event;
@@ -106,11 +106,10 @@ void Game::draw(sf::Time deltaTime) {
                                 {8, 8});
   auto sprite = spriteController.sprites["crosshair"][0];
   auto localMousePos = sf::Mouse::getPosition(window);
-  GameObject cursor({(float)localMousePos.x - 20, (float)localMousePos.y - 20},
-                    sprite);
+  auto worldPos = window.mapPixelToCoords(localMousePos);
+  GameObject cursor({(float)worldPos.x - 20, (float)worldPos.y - 20}, sprite);
   cursor.setScale(5, 5);
-
-  if (localMousePos.x < player.getPlayerPosition().x) {
+  if (worldPos.x < player.getPlayerPosition().x) {
     player.mirrorSprite(false);
   } else {
     player.mirrorSprite(true);
