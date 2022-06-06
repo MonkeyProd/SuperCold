@@ -6,11 +6,14 @@ Game::Game(unsigned int h, unsigned int w)
     : WINDOW_SIZE_H(h),
       WINDOW_SIZE_W(w),
       window(sf::RenderWindow(sf::VideoMode(WINDOW_SIZE_W, WINDOW_SIZE_H),
-                              "Smart Slimes",
+                              "SuperCold",
                               sf::Style::Titlebar | sf::Style::Close)),
       FPS{60},
       paused{false},
-      camera(sf::FloatRect(0, 0, WINDOW_SIZE_W, WINDOW_SIZE_H)) {}
+      camera(sf::FloatRect(0, 0, WINDOW_SIZE_W, WINDOW_SIZE_H)),
+      settingsManager() {
+  spriteController = SpriteController(settingsManager);
+}
 
 void Game::ProcessEvents() {
   sf::Event event;
@@ -49,7 +52,8 @@ void Game::ProcessEvents() {
             break;
           }
           case sf::Keyboard::LShift: {
-            player.setSpeed(settings.player_settings["run_speed"]);
+            player.setSpeed(settingsManager.get<float>(
+                settingsManager.PlayerSettings, "run_speed"));
             break;
           }
           default:
@@ -68,7 +72,8 @@ void Game::ProcessEvents() {
             player.resetVerticalVelocity();
             break;
           case sf::Keyboard::LShift: {
-            player.setSpeed(settings.player_settings["speed"]);
+            player.setSpeed(settingsManager.get<float>(
+                settingsManager.PlayerSettings, "speed"));
             break;
           }
           default:
@@ -153,8 +158,9 @@ void Game::run() {
       {startPlayerPosition.x - 8, startPlayerPosition.y - 8}, player_sprites,
       false, 5);
 
-  Player new_player(startPlayerPosition, {0, 0}, playerObject,
-                    settings.player_settings["speed"]);
+  Player new_player(
+      startPlayerPosition, {0, 0}, playerObject,
+      settingsManager.get<float>(settingsManager.PlayerSettings, "speed"));
   player = new_player;
 
   while (window.isOpen()) {

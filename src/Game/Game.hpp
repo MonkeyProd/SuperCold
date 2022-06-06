@@ -5,9 +5,9 @@
 #include "../GameObject/AnimatedGameObject.hpp"
 #include "../GameObject/GameObject.hpp"
 #include "../Player/Player.hpp"
+#include "../SettingsManager/SettingsManager.hpp"
 #include "../SpriteContoller/SpriteController.hpp"
 #include "../TileMap/TileMap.hpp"
-#include "../settings.hpp"
 
 class Game {
  private:
@@ -19,7 +19,7 @@ class Game {
   sf::RenderWindow window;
 
   SpriteController spriteController;
-  Settings settings;
+  SettingsManager settingsManager;
 
   Player player;
   sf::View camera;

@@ -1,8 +1,14 @@
 #include "SpriteController.hpp"
 
-SpriteController::SpriteController() {
-  for (auto it = texture_paths.begin(); it != texture_paths.end(); it++) {
-    load_sprites(it->first, it->second.first, it->second.second);
+SpriteController::SpriteController(SettingsManager &settingsManager) {
+  toml::table p = toml::get<toml::table>(settingsManager.SpriteSettings);
+  for (auto it = p.begin(); it != p.end(); it++) {
+    using uint = unsigned int;
+    toml::table current = toml::get<toml::table>(it->second);
+    std::string path = toml::get<std::string>(current["path"]);
+    std::pair<uint, uint> size = toml::get<decltype(size)>(current["size"]);
+    load_sprites(it->first, toml::get<std::string>(current["path"]),
+                 {size.first, size.second});
   }
 }
 

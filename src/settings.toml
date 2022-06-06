@@ -1,0 +1,10 @@
+title = "SuperColdSettings"
+
+[player]
+speed = 150.0
+run_speed = 350.0
+
+[sprites]
+world = {path = "../src/Assets/my_tileset.jpg", size = [8, 8]}
+another_world = {path = "../src/Assets/floor_tileset.png", size = [8, 8]}
+player = {path = "../src/Assets/player2.png", size = [16, 16]}
