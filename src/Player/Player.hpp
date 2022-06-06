@@ -13,7 +13,7 @@ class Player : public sf::Drawable, public sf::Transformable {
  public:
   Player();
   Player(sf::Vector2f startPosition, sf::Vector2f velocity,
-         AnimatedGameObject &playerObject, float speed = 5);
+         AnimatedGameObject &playerObject, float speed = 100);
 
   void moveLeft();
   void moveRight();
@@ -23,6 +23,7 @@ class Player : public sf::Drawable, public sf::Transformable {
   void resetVerticalVelocity();
   void movePlayer(sf::Time deltaTime);
   void mirrorSprite(bool isRight);
+  void setSpeed(float speed);
   sf::Vector2f getPlayerPosition();
 
   virtual void draw(sf::RenderTarget &surface, sf::RenderStates states) const;

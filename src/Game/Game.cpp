@@ -48,6 +48,10 @@ void Game::ProcessEvents() {
             player.moveDown();
             break;
           }
+          case sf::Keyboard::LShift: {
+            player.setSpeed(settings.player_settings["run_speed"]);
+            break;
+          }
           default:
             break;
         }
@@ -63,6 +67,10 @@ void Game::ProcessEvents() {
           case sf::Keyboard::S:
             player.resetVerticalVelocity();
             break;
+          case sf::Keyboard::LShift: {
+            player.setSpeed(settings.player_settings["speed"]);
+            break;
+          }
           default:
             break;
         }
@@ -145,7 +153,8 @@ void Game::run() {
       {startPlayerPosition.x - 8, startPlayerPosition.y - 8}, player_sprites,
       false, 5);
 
-  Player new_player(startPlayerPosition, {0, 0}, playerObject, 150);
+  Player new_player(startPlayerPosition, {0, 0}, playerObject,
+                    settings.player_settings["speed"]);
   player = new_player;
 
   while (window.isOpen()) {

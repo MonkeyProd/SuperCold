@@ -7,15 +7,20 @@
 #include "../Player/Player.hpp"
 #include "../SpriteContoller/SpriteController.hpp"
 #include "../TileMap/TileMap.hpp"
+#include "../settings.hpp"
 
 class Game {
  private:
   unsigned int WINDOW_SIZE_H;
   unsigned int WINDOW_SIZE_W;
-  sf::RenderWindow window;
   uint8_t FPS;
   bool paused;
+
+  sf::RenderWindow window;
+
   SpriteController spriteController;
+  Settings settings;
+
   Player player;
   sf::View camera;
 

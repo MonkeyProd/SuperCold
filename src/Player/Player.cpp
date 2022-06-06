@@ -19,6 +19,7 @@ void Player::moveTop() { m_velocity.y = -m_speed; }
 void Player::moveDown() { m_velocity.y = m_speed; }
 void Player::resetHorizontalVelocity() { m_velocity.x = 0; }
 void Player::resetVerticalVelocity() { m_velocity.y = 0; }
+void Player::setSpeed(float speed) { m_speed = speed; }
 void Player::movePlayer(sf::Time deltaTime) {
   move(m_velocity * deltaTime.asSeconds());
   m_position = getPosition();
