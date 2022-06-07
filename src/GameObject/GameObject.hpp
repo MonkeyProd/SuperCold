@@ -12,6 +12,7 @@ class GameObject : public sf::Drawable, public sf::Transformable {
   float m_scale;
 
   GameObject();
+  bool isCollider();
   GameObject(const sf::Vector2f &cordinates, const sf::Sprite &sprite,
              bool isCollider = false, float scale = 1);
   virtual void draw(sf::RenderTarget &surface, sf::RenderStates states) const;

@@ -27,6 +27,13 @@ void Player::movePlayer(sf::Time deltaTime) {
       m_velocity *
       deltaTime.asSeconds());  //Здесь надо подумать  как одним мувом обойтись
 }
+void Player::movePlayer(sf::Time deltaTime, sf::Vector2f velocity) {
+  move(velocity * deltaTime.asSeconds());
+  m_position = getPosition();
+  m_playerObject.move(
+      velocity *
+      deltaTime.asSeconds());  //Здесь надо подумать  как одним мувом обойтись
+}
 
 void Player::mirrorSprite(bool isRight) {
   if (isLookRight != isRight) {
@@ -34,7 +41,8 @@ void Player::mirrorSprite(bool isRight) {
     isLookRight = isRight;
   }
 }
-sf::Vector2f Player::getPlayerPosition() { return m_position; }
+sf::Vector2f Player::getPlayerPosition() const { return m_position; }
+sf::Vector2f Player::getPlayerVelocity() const { return m_velocity; }
 
 void Player::draw(sf::RenderTarget &surface, sf::RenderStates states) const {
   surface.draw(m_playerObject);

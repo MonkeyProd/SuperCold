@@ -92,7 +92,19 @@ void Game::ProcessEvents() {
  */
 void Game::update(sf::Time deltatime) {
   camera.setCenter(player.getPlayerPosition());
-  player.movePlayer(deltatime);
+  bool canMove = true;
+  for (auto &object : drawLayer) {
+    if (object.isCollider() &&
+        player.get_playerObject().check_collision(object)) {
+      printf("HEre\n");
+      canMove = false;
+      sf::Vector2f velocity = {-player.getPlayerVelocity().x * 4,
+                               -player.getPlayerVelocity().y * 4};
+      player.movePlayer(deltatime, velocity);
+      break;
+    }
+  }
+  if (canMove) player.movePlayer(deltatime);
 }
 
 void Game::updateAnimations(sf::Time deltatime) {
@@ -136,7 +148,7 @@ void Game::draw(sf::Time deltaTime) {
 }
 
 void Game::run() {
-  sf::Vector2f startPlayerPosition(0, 0);
+  sf::Vector2f startPlayerPosition(200, 200);
   window.setMouseCursorVisible(false);
   sf::Clock clock;
   sf::Time timePerFrame = sf::seconds(1.0f / FPS);

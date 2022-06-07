@@ -22,9 +22,11 @@ class Player : public sf::Drawable, public sf::Transformable {
   void resetHorizontalVelocity();
   void resetVerticalVelocity();
   void movePlayer(sf::Time deltaTime);
+  void movePlayer(sf::Time deltaTime, sf::Vector2f velocity);
   void mirrorSprite(bool isRight);
   void setSpeed(float speed);
-  sf::Vector2f getPlayerPosition();
+  sf::Vector2f getPlayerPosition() const;
+  sf::Vector2f getPlayerVelocity() const;
 
   virtual void draw(sf::RenderTarget &surface, sf::RenderStates states) const;
 

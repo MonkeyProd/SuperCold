@@ -12,6 +12,8 @@ GameObject::GameObject(const sf::Vector2f &cordinates, const sf::Sprite &sprite,
   setScale(scale, scale);
 }
 
+bool GameObject::isCollider() { return m_isCollider; }
+
 void GameObject::draw(sf::RenderTarget &surface,
                       sf::RenderStates states) const {
   states.transform *= getTransform();

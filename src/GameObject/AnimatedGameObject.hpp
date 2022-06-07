@@ -29,4 +29,18 @@ class AnimatedGameObject : public GameObject {
    */
   void nextState();
   void flip();
+  bool check_collision(GameObject &other) {
+    sf::FloatRect m_rect(getPosition(),
+                         {m_sprite.getGlobalBounds().height * m_scale,
+                          m_sprite.getGlobalBounds().width * m_scale});
+    sf::FloatRect o_rect(
+        other.getPosition(),
+        {other.m_sprite.getGlobalBounds().height * other.m_scale,
+         other.m_sprite.getGlobalBounds().width * other.m_scale});
+
+    printf("%f %f\n", m_sprite.getGlobalBounds().height,
+           m_sprite.getGlobalBounds().width);
+    printf("%f %f\n", o_rect.left, o_rect.top);
+    return m_rect.intersects(o_rect);
+  }
 };
