@@ -10,12 +10,12 @@
 class AnimatedGameObject : public GameObject {
  private:
   sf::Vector2f m_cordinates;
-  std::vector<sf::Sprite> m_sprites_array;
   int animation_state;
   bool m_isCollider;
 
  public:
   float m_scale;
+  std::vector<sf::Sprite> m_sprites_array;
   sf::Sprite m_sprite;
 
   AnimatedGameObject();
@@ -38,9 +38,6 @@ class AnimatedGameObject : public GameObject {
         {other.m_sprite.getGlobalBounds().height * other.m_scale,
          other.m_sprite.getGlobalBounds().width * other.m_scale});
 
-    printf("%f %f\n", m_sprite.getGlobalBounds().height,
-           m_sprite.getGlobalBounds().width);
-    printf("%f %f\n", o_rect.left, o_rect.top);
     return m_rect.intersects(o_rect);
   }
 };

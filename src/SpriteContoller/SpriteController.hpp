@@ -13,7 +13,10 @@
 
 struct SpriteController {
   std::map<std::string, sf::Texture> textures;
-  std::map<std::string, std::vector<sf::Sprite>> sprites;
+  std::map<std::string, std::vector<sf::Sprite>> spriteArrays;
+  std::map<std::string, sf::Sprite> spriteObjects;
+
+  std::pair<int, int> tilemap_size;
 
   SpriteController() = default;
   SpriteController(SettingsManager &settingsManager);
@@ -33,4 +36,8 @@ struct SpriteController {
    */
   std::vector<sf::Sprite> make_sprite(sf::Texture &texture,
                                       sf::Vector2u tilesize);
+
+  void configureSprites(toml::value TileIndexSettings);
+
+  int indexesToindex(int i, int j);
 };

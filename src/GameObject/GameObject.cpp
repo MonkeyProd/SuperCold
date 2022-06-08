@@ -28,17 +28,11 @@ bool GameObject::check_collision(GameObject &other) {
       other.getPosition(),
       {other.m_sprite.getGlobalBounds().height * other.m_scale,
        other.m_sprite.getGlobalBounds().width * other.m_scale});
-
-  printf("%f %f\n", m_sprite.getGlobalBounds().height,
-         m_sprite.getGlobalBounds().width);
-  printf("%f %f\n", o_rect.left, o_rect.top);
   return m_rect.intersects(o_rect);
 }
 bool GameObject::check_collision(sf::FloatRect &otherFloatRect) {
   sf::FloatRect m_rect(getPosition(),
                        {m_sprite.getGlobalBounds().height * m_scale,
                         m_sprite.getGlobalBounds().width * m_scale});
-  printf("%f %f\n", getPosition().x, getPosition().y);
-  printf("%f %f\n", otherFloatRect.left, otherFloatRect.top);
   return m_rect.intersects(otherFloatRect);
 }

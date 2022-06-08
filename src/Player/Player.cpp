@@ -1,15 +1,31 @@
 #include "Player.hpp"
 
-Player::Player()
-    : m_position{0, 0}, m_velocity{0, 0}, m_playerObject{}, m_speed(5){};
-
 Player::Player(sf::Vector2f startPosition, sf::Vector2f velocity,
-               AnimatedGameObject &playerObject, float speed)
+               std::vector<sf::Sprite> playerRunForward,
+               std::vector<sf::Sprite> playerRunBack,
+               std::vector<sf::Sprite> playerRunLeft,
+               std::vector<sf::Sprite> playerRunRight,
+               std::vector<sf::Sprite> playerForward,
+               std::vector<sf::Sprite> playerBack,
+               std::vector<sf::Sprite> playerLeft,
+               std::vector<sf::Sprite> playerRight, float speed)
     : m_position(startPosition),
       m_velocity(velocity),
-      m_playerObject(playerObject),
+      m_playerRunForward(playerRunForward),
+      m_playerRunBack(playerRunBack),
+      m_playerRunLeft(playerRunLeft),
+      m_playerRunRight(playerRunRight),
+      m_playerForward(playerForward),
+      m_playerBack(playerBack),
+      m_playerLeft(playerLeft),
+      m_playerRight(playerRight),
       m_speed(speed),
-      isLookRight(true) {}
+      isLookRight(true) {
+  AnimatedGameObject playerObject({startPosition.x - 8, startPosition.y - 8},
+                                  m_playerForward, false, 4);
+  m_playerObject = playerObject;
+  m_current_state = m_playerForward;
+}
 
 AnimatedGameObject &Player::get_playerObject() { return m_playerObject; }
 
@@ -21,6 +37,22 @@ void Player::resetHorizontalVelocity() { m_velocity.x = 0; }
 void Player::resetVerticalVelocity() { m_velocity.y = 0; }
 void Player::setSpeed(float speed) { m_speed = speed; }
 void Player::movePlayer(sf::Time deltaTime) {
+  if (m_velocity.y > 0) {
+    m_playerObject.m_sprites_array = m_playerRunForward;
+    m_current_state = m_playerForward;
+  } else if (m_velocity.y < 0) {
+    m_playerObject.m_sprites_array = m_playerRunBack;
+    m_current_state = m_playerBack;
+  } else if (m_velocity.x < 0) {
+    m_playerObject.m_sprites_array = m_playerRunLeft;
+    m_current_state = m_playerLeft;
+  } else if (m_velocity.x > 0) {
+    m_playerObject.m_sprites_array = m_playerRunRight;
+    m_current_state = m_playerRight;
+  }
+  if (m_velocity.x == 0 && m_velocity.y == 0) {
+    m_playerObject.m_sprites_array = m_current_state;
+  }
   move(m_velocity * deltaTime.asSeconds());
   m_position = getPosition();
   m_playerObject.move(
@@ -54,5 +86,11 @@ sf::FloatRect Player::getNextPosition(sf::Time deltaTime) const {
   return nextPosition;
 }
 void Player::draw(sf::RenderTarget &surface, sf::RenderStates states) const {
+  sf::CircleShape shadow(20);
+  shadow.setPosition({m_playerObject.getPosition().x + 10,
+                      m_playerObject.getPosition().y + 45});
+  shadow.setScale(1.3, 1);
+  shadow.setFillColor(sf::Color(50, 50, 50, 100));
+  surface.draw(shadow);
   surface.draw(m_playerObject);
 }

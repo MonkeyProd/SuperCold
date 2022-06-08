@@ -13,6 +13,15 @@ Game::Game(unsigned int h, unsigned int w)
       camera(sf::FloatRect(0, 0, WINDOW_SIZE_W, WINDOW_SIZE_H)),
       settingsManager() {
   spriteController = SpriteController(settingsManager);
+  player = Player({200, 200}, {0, 0},
+                  spriteController.spriteArrays["player_run_forward"],
+                  spriteController.spriteArrays["player_run_back"],
+                  spriteController.spriteArrays["player_run_left"],
+                  spriteController.spriteArrays["player_run_right"],
+                  spriteController.spriteArrays["player_forward"],
+                  spriteController.spriteArrays["player_back"],
+                  spriteController.spriteArrays["player_left"],
+                  spriteController.spriteArrays["player_right"]);
 }
 
 void Game::ProcessEvents() {
@@ -91,7 +100,7 @@ void Game::ProcessEvents() {
  * There animation state of each object in animatedLayer is changing
  */
 void Game::update(sf::Time deltatime) {
-  camera.setCenter(player.getPlayerPosition());
+  camera.setCenter(player.get_playerObject().getPosition());
   bool canMove = true;
   sf::FloatRect playerNextPosition = player.getNextPosition(deltatime);
   for (auto &object : drawLayer) {
@@ -126,7 +135,7 @@ void Game::draw(sf::Time deltaTime) {
   // TEST
   spriteController.load_sprites("crosshair", "../src/Assets/crosshair.png",
                                 {8, 8});
-  auto sprite = spriteController.sprites["crosshair"][0];
+  auto sprite = spriteController.spriteArrays["crosshair"][0];
   auto localMousePos = sf::Mouse::getPosition(window);
   auto worldPos = window.mapPixelToCoords(localMousePos);
   GameObject cursor({(float)worldPos.x - 20, (float)worldPos.y - 20}, sprite);
@@ -152,24 +161,10 @@ void Game::run() {
   sf::Time timeSinceLastUpdate = sf::Time::Zero;
   sf::Time timeSinceLastAnimation = sf::Time::Zero;
 
-  auto sprites = spriteController.sprites["world"];
-  auto player_sprites = spriteController.sprites["player"];
+  auto sprites = spriteController.spriteArrays["world"];
+  auto player_sprites = spriteController.spriteArrays["player"];
 
   draw_test_room(sprites);
-
-  AnimatedGameObject npcObject({500, 500}, player_sprites);
-  npcObject.setScale(5, 5);
-  animatedLayer.push_back(npcObject);
-
-  // Creating player
-  AnimatedGameObject playerObject(
-      {startPlayerPosition.x - 8, startPlayerPosition.y - 8}, player_sprites,
-      false, 5);
-
-  Player new_player(
-      startPlayerPosition, {0, 0}, playerObject,
-      settingsManager.get<float>(settingsManager.PlayerSettings, "speed"));
-  player = new_player;
 
   while (window.isOpen()) {
     auto deltaTime = clock.restart();
@@ -194,20 +189,32 @@ void Game::run() {
 
 void Game::draw_test_room(std::vector<sf::Sprite> sprites) {
   int scale = 8;
-  int size_x = 10;
-  int size_y = 10;
+  int size_x = 20;
+  int size_y = 20;
   int x_offset = 100;
   int y_offset = 100;
   for (int i = 0; i <= size_y * 8 * scale; i += 8 * scale) {
     for (int j = 0; j <= size_x * 8 * scale; j += 8 * scale) {
       GameObject floor;
+
       if (i == size_y * 8 * scale || i == 0 || j == 0 ||
           j == size_x * 8 * scale)
-        floor = {sf::Vector2f(x_offset + i, y_offset + j), sprites[3], true, 8};
-      else {
+        floor = {sf::Vector2f(x_offset + i, y_offset + j),
+                 spriteController.spriteObjects["wall"], true, 8};
+      else if (j == 8 * scale) {
+        floor = {sf::Vector2f(x_offset + i, y_offset + j),
+                 spriteController.spriteObjects["floor_shadow_top"], false, 8};
+      } else if (i == 8 * scale) {
+        floor = {sf::Vector2f(x_offset + i, y_offset + j),
+                 spriteController.spriteObjects["floor_shadow_left"], false, 8};
+      } else if (i == 8 * scale * (size_x - 1)) {
+        floor = {sf::Vector2f(x_offset + i, y_offset + j),
+                 spriteController.spriteObjects["floor_shadow_right"], false,
+                 8};
+      } else {
         int sprite_id = rand() % 3;
-        floor = {sf::Vector2f(x_offset + i, y_offset + j), sprites[sprite_id],
-                 false, 8};
+        floor = {sf::Vector2f(x_offset + i, y_offset + j),
+                 spriteController.spriteObjects["floor"], false, 8};
       }
       drawLayer.push_back(floor);
     }
