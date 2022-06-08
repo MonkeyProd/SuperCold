@@ -271,7 +271,7 @@ void Game::run() {
 
   for (int i = 0; i < 3; i++) {
     EyeEnemy enemy(
-        {(float)(rand() % 700) + 300, (float)(rand() % 700) + 300},
+        {(float)(rand() % 1300) + 200, (float)(rand() % 1300) + 200},
         spriteController.spriteArrays["enemy_move"],
         spriteController.spriteArrays["enemy_attack"],
         spriteController.spriteArrays["enemy_hit"],

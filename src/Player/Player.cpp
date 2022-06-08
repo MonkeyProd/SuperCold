@@ -62,7 +62,6 @@ void Player::resetVerticalVelocity() {
 void Player::setSpeed(float speed) { m_speed = speed; }
 void Player::movePlayer(sf::Time deltaTime) {
   if ((isMoveHorizontal || isMoveVertical) && !isStepping) {
-    printf("HERE\n");
     m_footstepsSound.setBuffer(m_sbuffer);
     m_footstepsSound.play();
     isStepping = true;

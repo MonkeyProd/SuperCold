@@ -29,7 +29,6 @@ void EyeEnemy::hit(int damage) {
   }
   hitSound.setBuffer(m_sbuffer);
   hitSound.play();
-  printf("Hit\n");
   isHitted = true;
   m_health -= damage;
   if (m_health <= 0) {
