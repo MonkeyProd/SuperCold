@@ -60,6 +60,42 @@ void Game::ProcessEvents() {
             player.moveDown();
             break;
           }
+          case sf::Keyboard::Left: {
+            bulletLayer.push_back(
+                Bullet{{player.get_playerObject().getPosition().x,
+                        player.get_playerObject().getPosition().y + 40},
+                       {-200, 0},
+                       spriteController.spriteArrays["simple_bullet"],
+                       Bullet::BulletSide::Left});
+            break;
+          }
+          case sf::Keyboard::Right: {
+            bulletLayer.push_back(
+                Bullet{{player.get_playerObject().getPosition().x,
+                        player.get_playerObject().getPosition().y + 40},
+                       {200, 0},
+                       spriteController.spriteArrays["simple_bullet"],
+                       Bullet::BulletSide::Right});
+            break;
+          }
+          case sf::Keyboard::Up: {
+            bulletLayer.push_back(
+                Bullet{{player.get_playerObject().getPosition().x + 20,
+                        player.get_playerObject().getPosition().y},
+                       {0, -200},
+                       spriteController.spriteArrays["simple_bullet"],
+                       Bullet::BulletSide::Up});
+            break;
+          }
+          case sf::Keyboard::Down: {
+            bulletLayer.push_back(
+                Bullet{{player.get_playerObject().getPosition().x + 40,
+                        player.get_playerObject().getPosition().y},
+                       {0, 200},
+                       spriteController.spriteArrays["simple_bullet"],
+                       Bullet::BulletSide::Down});
+            break;
+          }
           case sf::Keyboard::LShift: {
             player.setSpeed(settingsManager.get<float>(
                 settingsManager.PlayerSettings, "run_speed"));
@@ -110,11 +146,34 @@ void Game::update(sf::Time deltatime) {
     }
   }
   if (canMove) player.movePlayer(deltatime);
+  for (auto &bullet : bulletLayer) {
+    bool isCollided = false;
+    sf::FloatRect bulletRect(
+        bullet.getBulletObject().getPosition(),
+        {bullet.getBulletObject().m_sprite.getGlobalBounds().height *
+             bullet.getBulletObject().m_scale,
+         bullet.getBulletObject().m_sprite.getGlobalBounds().width *
+             bullet.getBulletObject().m_scale});
+    for (auto &object : drawLayer) {
+      if (object.isCollider() && object.check_collision(bulletRect)) {
+        isCollided = true;
+        break;
+      }
+    }
+    if (!isCollided && bullet.isExist)
+      bullet.moveBullet(deltatime);
+    else {
+      bullet.isExist = false;
+    }
+  }
 }
 
 void Game::updateAnimations(sf::Time deltatime) {
   for (auto &object : animatedLayer) {
     object.nextState();
+  }
+  for (auto &object : bulletLayer) {
+    object.getBulletObject().nextState();
   }
   player.get_playerObject().nextState();
 }
@@ -148,7 +207,9 @@ void Game::draw(sf::Time deltaTime) {
 
   window.draw(cursor);
   window.draw(player);
-
+  for (auto &object : bulletLayer) {
+    if (object.isExist) window.draw(object);
+  }
   window.display();
 }
 

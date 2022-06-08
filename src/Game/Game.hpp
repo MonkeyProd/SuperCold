@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
+#include "../Bullet/Bullet.hpp"
 #include "../GameObject/AnimatedGameObject.hpp"
 #include "../GameObject/GameObject.hpp"
 #include "../Player/Player.hpp"
@@ -26,6 +27,7 @@ class Game {
   sf::View camera;
 
   std::vector<GameObject> drawLayer;
+  std::vector<Bullet> bulletLayer;
   std::vector<AnimatedGameObject> animatedLayer;
 
   void ProcessEvents();

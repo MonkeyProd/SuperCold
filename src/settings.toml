@@ -19,6 +19,7 @@ player_forward     = {path = "../src/Assets/player_forward.png",      size = [18
 player_back        = {path = "../src/Assets/player_back.png",         size = [18, 18]}
 player_left        = {path = "../src/Assets/player_left.png",         size = [18, 18]}
 player_right       = {path = "../src/Assets/player_right.png",        size = [18, 18]}
+simple_bullet       = {path = "../src/Assets/simple_bullet.png",        size = [16, 7]}
 
 [tileindex]
 floor              = [0, 0]
