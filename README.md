@@ -1,3 +1,3 @@
-![](https://tokei.rs/b1/github/MonkeyProd/SuperCold/tree/dev/GameObject)
+![](https://tokei.rs/b1/github/MonkeyProd/SuperCold)
 
 # A SFML Game.
