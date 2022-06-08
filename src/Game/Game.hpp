@@ -8,6 +8,7 @@
 #include "../SettingsManager/SettingsManager.hpp"
 #include "../SpriteContoller/SpriteController.hpp"
 #include "../TileMap/TileMap.hpp"
+#include "Utils/debug.hpp"
 
 class Game {
  private:

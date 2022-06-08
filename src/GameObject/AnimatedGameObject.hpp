@@ -11,12 +11,12 @@ class AnimatedGameObject : public GameObject {
  private:
   sf::Vector2f m_cordinates;
   std::vector<sf::Sprite> m_sprites_array;
-  sf::Sprite m_sprite;
   int animation_state;
   bool m_isCollider;
 
  public:
   float m_scale;
+  sf::Sprite m_sprite;
 
   AnimatedGameObject();
   AnimatedGameObject(const sf::Vector2f &cordinates,

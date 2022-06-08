@@ -27,6 +27,7 @@ class Player : public sf::Drawable, public sf::Transformable {
   void setSpeed(float speed);
   sf::Vector2f getPlayerPosition() const;
   sf::Vector2f getPlayerVelocity() const;
+  sf::FloatRect getNextPosition(sf::Time deltaTime) const;
 
   virtual void draw(sf::RenderTarget &surface, sf::RenderStates states) const;
 

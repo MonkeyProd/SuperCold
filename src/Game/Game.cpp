@@ -93,14 +93,10 @@ void Game::ProcessEvents() {
 void Game::update(sf::Time deltatime) {
   camera.setCenter(player.getPlayerPosition());
   bool canMove = true;
+  sf::FloatRect playerNextPosition = player.getNextPosition(deltatime);
   for (auto &object : drawLayer) {
-    if (object.isCollider() &&
-        player.get_playerObject().check_collision(object)) {
-      printf("HEre\n");
+    if (object.isCollider() && object.check_collision(playerNextPosition)) {
       canMove = false;
-      sf::Vector2f velocity = {-player.getPlayerVelocity().x * 4,
-                               -player.getPlayerVelocity().y * 4};
-      player.movePlayer(deltatime, velocity);
       break;
     }
   }

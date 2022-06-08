@@ -43,7 +43,16 @@ void Player::mirrorSprite(bool isRight) {
 }
 sf::Vector2f Player::getPlayerPosition() const { return m_position; }
 sf::Vector2f Player::getPlayerVelocity() const { return m_velocity; }
-
+sf::FloatRect Player::getNextPosition(sf::Time deltaTime) const {
+  sf::FloatRect nextPosition(m_playerObject.getPosition(),
+                             {m_playerObject.m_sprite.getGlobalBounds().height *
+                                  m_playerObject.m_scale,
+                              m_playerObject.m_sprite.getGlobalBounds().width *
+                                  m_playerObject.m_scale});
+  nextPosition.top += m_velocity.y * deltaTime.asSeconds();
+  nextPosition.left += m_velocity.x * deltaTime.asSeconds();
+  return nextPosition;
+}
 void Player::draw(sf::RenderTarget &surface, sf::RenderStates states) const {
   surface.draw(m_playerObject);
 }

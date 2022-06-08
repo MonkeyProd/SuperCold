@@ -17,4 +17,5 @@ class GameObject : public sf::Drawable, public sf::Transformable {
              bool isCollider = false, float scale = 1);
   virtual void draw(sf::RenderTarget &surface, sf::RenderStates states) const;
   bool check_collision(GameObject &other);
+  bool check_collision(sf::FloatRect &otherFloatRect);
 };
