@@ -6,4 +6,5 @@ SettingsManager::SettingsManager(std::string path) {
   SpriteSettings = toml::find(table, "sprites");
   TileMapSettings = toml::find(table, "tilemap");
   TileIndexes = toml::find(table, "tileindex");
+  SoundSettings = toml::find(table, "sounds");
 }

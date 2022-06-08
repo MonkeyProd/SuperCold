@@ -9,6 +9,7 @@ struct SettingsManager {
   toml::value SpriteSettings;
   toml::value TileIndexes;
   toml::value TileMapSettings;
+  toml::value SoundSettings;
 
   template <typename T>
   T get(toml::value settingsType, std::string key) {

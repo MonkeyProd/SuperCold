@@ -29,10 +29,16 @@ void AnimatedGameObject::flip() {
 }
 
 void AnimatedGameObject::nextState() {
-  if (animation_state < m_sprites_array.size() - 1) {
-    animation_state++;
-  } else {
-    animation_state = 0;
+  if (!isFinished) {
+    if (animation_state < m_sprites_array.size() - 1) {
+      animation_state++;
+    } else {
+      if (!stopAtEnd) {
+        animation_state = 0;
+      } else {
+        isFinished = true;
+      }
+    }
+    m_sprite = m_sprites_array[animation_state];
   }
-  m_sprite = m_sprites_array[animation_state];
 }

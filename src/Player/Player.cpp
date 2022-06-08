@@ -8,7 +8,8 @@ Player::Player(sf::Vector2f startPosition, sf::Vector2f velocity,
                std::vector<sf::Sprite> playerForward,
                std::vector<sf::Sprite> playerBack,
                std::vector<sf::Sprite> playerLeft,
-               std::vector<sf::Sprite> playerRight, float speed)
+               std::vector<sf::Sprite> playerRight, std::string footsteps_path,
+               float speed)
     : m_position(startPosition),
       m_velocity(velocity),
       m_playerRunForward(playerRunForward),
@@ -25,18 +26,52 @@ Player::Player(sf::Vector2f startPosition, sf::Vector2f velocity,
                                   m_playerForward, false, 4);
   m_playerObject = playerObject;
   m_current_state = m_playerForward;
+  m_sbuffer.loadFromFile(footsteps_path);
+  m_footstepsSound.setBuffer(m_sbuffer);
+  m_footstepsSound.setVolume(80);
+  m_footstepsSound.setPitch(1);
+  m_footstepsSound.setLoop(true);
 }
 
 AnimatedGameObject &Player::get_playerObject() { return m_playerObject; }
 
-void Player::moveLeft() { m_velocity.x = -m_speed; }
-void Player::moveRight() { m_velocity.x = m_speed; }
-void Player::moveTop() { m_velocity.y = -m_speed; }
-void Player::moveDown() { m_velocity.y = m_speed; }
-void Player::resetHorizontalVelocity() { m_velocity.x = 0; }
-void Player::resetVerticalVelocity() { m_velocity.y = 0; }
+void Player::moveLeft() {
+  m_velocity.x = -m_speed;
+  isMoveHorizontal = true;
+}
+void Player::moveRight() {
+  m_velocity.x = m_speed;
+  isMoveHorizontal = true;
+}
+void Player::moveTop() {
+  m_velocity.y = -m_speed;
+  isMoveVertical = true;
+}
+void Player::moveDown() {
+  m_velocity.y = m_speed;
+  isMoveVertical = true;
+}
+void Player::resetHorizontalVelocity() {
+  m_velocity.x = 0;
+  isMoveHorizontal = false;
+}
+void Player::resetVerticalVelocity() {
+  m_velocity.y = 0;
+  isMoveVertical = false;
+}
 void Player::setSpeed(float speed) { m_speed = speed; }
 void Player::movePlayer(sf::Time deltaTime) {
+  if ((isMoveHorizontal || isMoveVertical) && !isStepping) {
+    printf("HERE\n");
+    m_footstepsSound.setBuffer(m_sbuffer);
+    m_footstepsSound.play();
+    isStepping = true;
+  } else {
+    if (isStepping && !(isMoveHorizontal || isMoveVertical)) {
+      m_footstepsSound.pause();
+      isStepping = false;
+    }
+  }
   if (m_velocity.y > 0) {
     m_playerObject.m_sprites_array = m_playerRunForward;
     m_current_state = m_playerForward;

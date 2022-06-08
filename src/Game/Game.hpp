@@ -1,8 +1,10 @@
 #pragma once
+#include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
 #include "../Bullet/Bullet.hpp"
+#include "../Enemies/EyeEnemy.hpp"
 #include "../GameObject/AnimatedGameObject.hpp"
 #include "../GameObject/GameObject.hpp"
 #include "../Player/Player.hpp"
@@ -29,6 +31,9 @@ class Game {
   std::vector<GameObject> drawLayer;
   std::vector<Bullet> bulletLayer;
   std::vector<AnimatedGameObject> animatedLayer;
+
+  // TEMP
+  std::vector<EyeEnemy> enemies;
 
   void ProcessEvents();
   void update(sf::Time deltatime);

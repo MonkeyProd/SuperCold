@@ -8,18 +8,22 @@ run_speed          = 350.0
 size               = [10, 10]
 
 [sprites]
-world              = {path = "../src/Assets/my_tileset.jpg",          size = [8, 8]}
-another_world      = {path = "../src/Assets/floor_tileset.png",       size = [8, 8]}
+world              = {path = "../src/Assets/my_tileset.jpg",          size = [8, 8]  }
+another_world      = {path = "../src/Assets/floor_tileset.png",       size = [8, 8]  }
 old_player         = {path = "../src/Assets/player2.png",             size = [16, 16]}
 player_run_forward = {path = "../src/Assets/player_run_forward.png",  size = [18, 18]}
 player_run_back    = {path = "../src/Assets/player_run_back.png",     size = [18, 18]}
 player_run_left    = {path = "../src/Assets/player_run_left.png",     size = [18, 18]}
-player_run_right   = {path = "../src/Assets/player_run_right.png",     size = [18, 18]}
+player_run_right   = {path = "../src/Assets/player_run_right.png",    size = [18, 18]}
 player_forward     = {path = "../src/Assets/player_forward.png",      size = [18, 18]}
 player_back        = {path = "../src/Assets/player_back.png",         size = [18, 18]}
 player_left        = {path = "../src/Assets/player_left.png",         size = [18, 18]}
 player_right       = {path = "../src/Assets/player_right.png",        size = [18, 18]}
-simple_bullet       = {path = "../src/Assets/simple_bullet.png",        size = [16, 7]}
+simple_bullet      = {path = "../src/Assets/simple_bullet.png",       size = [16, 7] }
+enemy_move         = {path = "../src/Assets/eye_enemy_move.png",      size = [41, 32]}
+enemy_attack       = {path = "../src/Assets/eye_enemy_attack.png",    size = [41, 32]}
+enemy_hit          = {path = "../src/Assets/eye_enemy_hit.png",       size = [41, 32]}
+enemy_death        = {path = "../src/Assets/eye_enemy_death.png",      size = [56, 32]}
 
 [tileindex]
 floor              = [0, 0]
@@ -27,3 +31,8 @@ floor_shadow_left  = [0, 1]
 floor_shadow_top   = [0, 2]
 floor_shadow_right = [0, 3]
 wall               = [0, 4]
+
+[sounds]
+bg_music           = "../src/Assets/music.wav"
+footsteps          = "../src/Assets/footsteps2.wav"
+enemy_hit          = "../src/Assets/enemy_hit.wav"

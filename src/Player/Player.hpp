@@ -1,4 +1,5 @@
 #pragma once
+#include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
 #include "../GameObject/AnimatedGameObject.hpp"
@@ -19,9 +20,16 @@ class Player : public sf::Drawable, public sf::Transformable {
 
   std::vector<sf::Sprite> m_current_state;
 
+  sf::SoundBuffer m_sbuffer;
+  sf::Sound m_footstepsSound;
+
   AnimatedGameObject m_playerObject;
   float m_speed;
   bool isLookRight;
+  bool isMoveHorizontal = false;
+  bool isMoveVertical = false;
+  bool isStepping = false;
+  ;
 
  public:
   Player() = default;
@@ -32,7 +40,8 @@ class Player : public sf::Drawable, public sf::Transformable {
          std::vector<sf::Sprite> playerRunRight,
          std::vector<sf::Sprite> playerForward,
          std::vector<sf::Sprite> playerBack, std::vector<sf::Sprite> playerLeft,
-         std::vector<sf::Sprite> playerRight, float speed = 100);
+         std::vector<sf::Sprite> playerRight, std::string footsteps_path,
+         float speed = 100);
 
   void moveLeft();
   void moveRight();

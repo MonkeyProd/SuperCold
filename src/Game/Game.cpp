@@ -13,15 +13,16 @@ Game::Game(unsigned int h, unsigned int w)
       camera(sf::FloatRect(0, 0, WINDOW_SIZE_W, WINDOW_SIZE_H)),
       settingsManager() {
   spriteController = SpriteController(settingsManager);
-  player = Player({200, 200}, {0, 0},
-                  spriteController.spriteArrays["player_run_forward"],
-                  spriteController.spriteArrays["player_run_back"],
-                  spriteController.spriteArrays["player_run_left"],
-                  spriteController.spriteArrays["player_run_right"],
-                  spriteController.spriteArrays["player_forward"],
-                  spriteController.spriteArrays["player_back"],
-                  spriteController.spriteArrays["player_left"],
-                  spriteController.spriteArrays["player_right"]);
+  player = Player(
+      {200, 200}, {0, 0}, spriteController.spriteArrays["player_run_forward"],
+      spriteController.spriteArrays["player_run_back"],
+      spriteController.spriteArrays["player_run_left"],
+      spriteController.spriteArrays["player_run_right"],
+      spriteController.spriteArrays["player_forward"],
+      spriteController.spriteArrays["player_back"],
+      spriteController.spriteArrays["player_left"],
+      spriteController.spriteArrays["player_right"],
+      toml::find<std::string>(settingsManager.SoundSettings, "footsteps"));
 }
 
 void Game::ProcessEvents() {
@@ -146,6 +147,21 @@ void Game::update(sf::Time deltatime) {
     }
   }
   if (canMove) player.movePlayer(deltatime);
+
+  for (auto &object : enemies) {
+    bool canEnemyMove = true;
+    sf::FloatRect enemyRect = player.getNextPosition(deltatime);
+    for (auto &object_t : enemies) {
+      if (&object != &object_t)
+        if (object_t.getEnemyObject().check_collision(enemyRect)) {
+          canEnemyMove = false;
+          break;
+        }
+    }
+    if (canEnemyMove)
+      object.moveTowards(player.get_playerObject().getPosition(), deltatime);
+  }
+
   for (auto &bullet : bulletLayer) {
     bool isCollided = false;
     sf::FloatRect bulletRect(
@@ -166,6 +182,24 @@ void Game::update(sf::Time deltatime) {
       bullet.isExist = false;
     }
   }
+
+  for (auto &bullet : bulletLayer) {
+    bool isCollided = false;
+    sf::FloatRect bulletRect(
+        bullet.getBulletObject().getPosition(),
+        {bullet.getBulletObject().m_sprite.getGlobalBounds().height *
+             bullet.getBulletObject().m_scale,
+         bullet.getBulletObject().m_sprite.getGlobalBounds().width *
+             bullet.getBulletObject().m_scale});
+    for (auto &object : enemies) {
+      if (bullet.isExist &&
+          object.getEnemyObject().check_collision(bulletRect)) {
+        object.hit(25);
+        bullet.isExist = false;
+        break;
+      }
+    }
+  }
 }
 
 void Game::updateAnimations(sf::Time deltatime) {
@@ -174,6 +208,9 @@ void Game::updateAnimations(sf::Time deltatime) {
   }
   for (auto &object : bulletLayer) {
     object.getBulletObject().nextState();
+  }
+  for (auto &object : enemies) {
+    object.getEnemyObject().nextState();
   }
   player.get_playerObject().nextState();
 }
@@ -206,6 +243,9 @@ void Game::draw(sf::Time deltaTime) {
   }
 
   window.draw(cursor);
+  for (auto &object : enemies) {
+    window.draw(object);
+  }
   window.draw(player);
   for (auto &object : bulletLayer) {
     if (object.isExist) window.draw(object);
@@ -214,6 +254,13 @@ void Game::draw(sf::Time deltaTime) {
 }
 
 void Game::run() {
+  sf::SoundBuffer buffer;
+  buffer.loadFromFile(
+      toml::find<std::string>(settingsManager.SoundSettings, "bg_music"));
+  sf::Sound bg_music;
+  bg_music.setBuffer(buffer);
+  bg_music.setVolume(10);
+  bg_music.play();
   sf::Vector2f startPlayerPosition(200, 200);
   window.setMouseCursorVisible(false);
   sf::Clock clock;
@@ -221,6 +268,18 @@ void Game::run() {
   sf::Time timePerAnimation = sf::seconds(1.0f / 10);
   sf::Time timeSinceLastUpdate = sf::Time::Zero;
   sf::Time timeSinceLastAnimation = sf::Time::Zero;
+
+  for (int i = 0; i < 3; i++) {
+    EyeEnemy enemy(
+        {(float)(rand() % 700) + 300, (float)(rand() % 700) + 300},
+        spriteController.spriteArrays["enemy_move"],
+        spriteController.spriteArrays["enemy_attack"],
+        spriteController.spriteArrays["enemy_hit"],
+        spriteController.spriteArrays["enemy_death"], 70, 110,
+        toml::find<std::string>(settingsManager.SoundSettings, "enemy_hit"));
+
+    enemies.push_back(enemy);
+  }
 
   auto sprites = spriteController.spriteArrays["world"];
   auto player_sprites = spriteController.spriteArrays["player"];
