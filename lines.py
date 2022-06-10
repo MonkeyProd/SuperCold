@@ -20,7 +20,7 @@ total = 0
 
 for match in matches:
 	with open(match, 'r') as f:
-		l = sum(1 for _ in f)
+		l = sum(1 for line in f if (len(line)>2 and not line.strip().startswith("/")))
 		total += l
 		print(l, match)
 

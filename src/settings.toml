@@ -36,3 +36,9 @@ wall               = [0, 4]
 bg_music           = "../src/Assets/music.wav"
 footsteps          = "../src/Assets/footsteps2.wav"
 enemy_hit          = "../src/Assets/enemy_hit.wav"
+
+[world]
+size_multiplyer = 64
+frequency       = 4.0
+amplitude       = 1.3
+lacunarity      = 0.5

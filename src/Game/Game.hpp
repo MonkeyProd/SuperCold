@@ -11,6 +11,7 @@
 #include "../SettingsManager/SettingsManager.hpp"
 #include "../SpriteContoller/SpriteController.hpp"
 #include "../TileMap/TileMap.hpp"
+#include "../external/SimplexNoise/SimplexNoise.hpp"
 #include "Utils/debug.hpp"
 
 class Game {
@@ -27,6 +28,7 @@ class Game {
 
   Player player;
   sf::View camera;
+  sf::View map;
 
   std::vector<GameObject> drawLayer;
   std::vector<Bullet> bulletLayer;
@@ -40,6 +42,7 @@ class Game {
   void updateAnimations(sf::Time deltatime);
 
   void draw(sf::Time deltaTime);
+  void draw_world(std::vector<sf::Sprite> sprites);
   void draw_test_room(std::vector<sf::Sprite> sprites);
   void draw_animated_player(std::vector<sf::Sprite> sprites, float x, float y);
 
