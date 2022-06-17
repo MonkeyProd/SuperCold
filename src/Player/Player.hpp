@@ -6,52 +6,113 @@
 #include "../SpriteContoller/SpriteController.hpp"
 
 class Player : public sf::Drawable, public sf::Transformable {
-  using spritesMap = std::map<std::string, std::vector<sf::Sprite>>;
+	using spritesMap = std::map<std::string, std::vector<sf::Sprite>>;
 
-  sf::Vector2f m_velocity;
-  sf::Vector2f m_position;
+	sf::Vector2f m_velocity;
+	sf::Vector2f m_position;
 
-  std::map<std::string, std::vector<sf::Sprite>> m_playerSprites;
+	std::map<std::string, std::vector<sf::Sprite>> m_playerSprites;
 
-  std::vector<sf::Sprite> m_current_state;
+	std::vector<sf::Sprite> m_current_state;
 
-  sf::SoundBuffer m_sbuffer;
-  sf::Sound m_footstepsSound;
+	sf::SoundBuffer m_sbuffer;
+	sf::Sound m_footstepsSound;
 
-  GameObject m_playerObject;
-  float m_speed;
-  bool isLookRight;
-  bool isMoveHorizontal = false;
-  bool isMoveVertical = false;
-  bool isStepping = false;
-  int health;
-  int initial_health;
+	GameObject m_playerObject;
+	float m_speed;
+	bool isLookRight;
+	bool isMoveHorizontal = false;
+	bool isMoveVertical = false;
+	bool isStepping = false;
+	int health;
+	int initial_health;
 
- public:
-  enum HorizontalDirection { Left, Right };
-  enum VerticalDirection { Top, Down };
-  Player() = default;
-  Player(sf::Vector2f startPosition, sf::Vector2f velocity,
-         spritesMap playerSprites, std::string footsteps_path,
-         float speed = 100, int health = 100);
+  public:
+	enum HorizontalDirection { Left, Right };
+	enum VerticalDirection { Top, Down };
+	Player() = default;
 
-  void changeXDirection(HorizontalDirection direction);
-  void changeYDirection(VerticalDirection direction);
+	/**
+	 * @brief Класс Игрока
+	 *
+	 * @param startPosition начальное положение
+	 * @param velocity начальный вектор скорости
+	 * @param playerSprites словарь со всеми спрайтами игрока
+	 * @param footsteps_path название аудио с звуком шагов
+	 * @param speed скорость игрока
+	 * @param health количество здоровья игрока
+	 */
+	Player(sf::Vector2f startPosition, sf::Vector2f velocity,
+	       spritesMap playerSprites, std::string footsteps_path,
+	       float speed = 100, int health = 100);
 
-  void resetHorizontalVelocity();
-  void resetVerticalVelocity();
+	/**
+	 * @brief Метод, меняющий горизонатальную составляющую скорости игрока
+	 *
+	 * @param direction направление изменения скорости
+	 */
+	void changeXDirection(HorizontalDirection direction);
 
-  void movePlayer(sf::Time deltaTime);
+	/**
+	 * @brief Метод, меняющий вертикальную составляющую скорости игрока
+	 *
+	 * @param direction направление изменения скорости
+	 */
+	void changeYDirection(VerticalDirection direction);
 
-  void setSpeed(float speed);
-  bool isDead() const;
-  void resetHealth();
+	/**
+	 * @brief Метод, сбрасывающий горизонтальную состовляющую скорости игрока
+	 */
+	void resetHorizontalVelocity();
 
-  sf::Vector2f getPlayerPosition() const;
-  sf::Vector2f getPlayerVelocity() const;
-  sf::FloatRect getNextPosition(sf::Time deltaTime) const;
+	/**
+	 * @brief Метод, сбрасывающий вертикальную состовляющую скорости игрока
+	 */
+	void resetVerticalVelocity();
 
-  virtual void draw(sf::RenderTarget &surface, sf::RenderStates states) const;
+	/**
+	 * @brief Метод, перемещающий игрока
+	 * @param deltaTime deltaTime
+	 */
+	void movePlayer(sf::Time deltaTime);
 
-  GameObject &get_playerObject();
+	/**
+	 * @brief Метод, изменяющий скорость игрока
+	 * @param speed новая скорость
+	 */
+	void setSpeed(float speed);
+
+	/**
+	 * @brief Метод, возращающий bool - статус смерти игрока
+	 */
+	bool isDead() const;
+
+	/**
+	 * @brief Метод, восстанавливающий исходное здровье игрока
+	 */
+	void resetHealth();
+
+	/**
+	 * @brief Метод, возращающий положение игрока
+	 */
+	sf::Vector2f getPlayerPosition() const;
+
+	/**
+	 * @brief Метод, возращающий скорость игрока
+	 */
+	sf::Vector2f getPlayerVelocity() const;
+
+	/**
+	 * @brief Метод, возращающий FloatRect - положение игрока в следующий момент
+	 * времени(необходим для проверки коллизии)
+	 * @param deltaTime deltaTime
+	 */
+	sf::FloatRect getNextPosition(sf::Time deltaTime) const;
+
+	virtual void draw(sf::RenderTarget &surface, sf::RenderStates states) const;
+
+	/**
+	 * @brief Метод, возращающий GameObject игрока
+	 */
+	GameObject &get_playerObject();
 };

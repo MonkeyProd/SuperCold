@@ -8,49 +8,87 @@
  * have animation state which says what sprite index use to draw
  */
 class GameObject : public sf::Drawable, public sf::Transformable {
- private:
-  sf::Vector2f m_cordinates;
-  sf::Vector2f m_boxCollider;
+  private:
+	sf::Vector2f m_cordinates;
+	sf::Vector2f m_boxCollider;
 
-  int animation_state;
-  bool m_isCollider;
-  bool isAnimated = false;
-  bool isFinished = false;
+	int animation_state;
+	bool m_isCollider;
+	bool isAnimated = false;
+	bool isFinished = false;
 
- public:
-  float m_scale;
-  bool stopAtEnd = false;
+  public:
+	float m_scale;
+	bool stopAtEnd = false;
 
-  std::vector<sf::Sprite> m_sprites_array;
-  sf::Sprite m_sprite;
+	std::vector<sf::Sprite> m_sprites_array;
+	sf::Sprite m_sprite;
 
-  GameObject();
-  GameObject(const sf::Vector2f &cordinates,
-             std::vector<sf::Sprite> &sprites_array, bool isCollider = false,
-             float scale = 1, sf::Vector2f boxCollider = {0, 0});
+	GameObject();
+	/**
+	 * @brief Класс игрового объекта
+	 *
+	 * @param cordinates положение игрвого объекта
+	 * @param sprites_array вектор спрайтов(для анимации)
+	 * @param isCollider bool - является ли игровой объект коллайдером
+	 * @param scale коэффициент увеличения спрайта игрового объекта
+	 * @param boxCollider размеры квадрата коллизии игрового объекта
+	 */
+	GameObject(const sf::Vector2f &cordinates,
+	           std::vector<sf::Sprite> &sprites_array, bool isCollider = false,
+	           float scale = 1, sf::Vector2f boxCollider = {0, 0});
 
-  GameObject(const sf::Vector2f &cordinates, const sf::Sprite &sprite,
-             bool isCollider = false, float scale = 1,
-             sf::Vector2f boxCollider = {0, 0});
+	/**
+	 * @brief Класс игрового объекта
+	 *
+	 * @param cordinates положение игрвого объекта
+	 * @param sprite спрайт игрового объекта
+	 * @param isCollider bool - является ли игровой объект коллайдером
+	 * @param scale коэффициент увеличения спрайта игрового объекта
+	 * @param boxCollider размеры квадрата коллизии игрового объекта
+	 */
+	GameObject(const sf::Vector2f &cordinates, const sf::Sprite &sprite,
+	           bool isCollider = false, float scale = 1,
+	           sf::Vector2f boxCollider = {0, 0});
 
-  virtual void draw(sf::RenderTarget &surface, sf::RenderStates states) const;
-  /**
-   * nextState method change animation state to next one if animation ended it
-   * starts from begining
-   */
-  void nextState();
-  bool isCollider() const;
+	virtual void draw(sf::RenderTarget &surface, sf::RenderStates states) const;
 
-  void resetAnimation();
+	/**
+	 * @brief Метод меняющий спрайт анимации игрового объекта на следующий
+	 */
+	void nextState();
+	/**
+	 * @brief Метод, возращающий bool - является ли игровой объекта коллайдером
+	 */
+	bool isCollider() const;
 
-  bool check_collision(GameObject &other) const;
-  bool check_collision(sf::FloatRect &otherFloatRect) const;
-  sf::FloatRect getGameObjectRect() const;
+	/**
+	 * @brief Метод сброса анимации до начального спрайта
+	 */
+	void resetAnimation();
 
-  bool isLastAnimationState() {
-    if (animation_state == m_sprites_array.size() - 1) {
-      return true;
-    }
-    return false;
-  }
+	/**
+	 * @brief Метод, возрающий bool - пересеклись ли два игровых объекта
+	 *
+	 * @param other игровой объект с которым проверяем пересечение
+	 */
+	bool check_collision(GameObject &other) const;
+
+	/**
+	 * @brief Метод, возрающий bool - пересеклись ли игровой объект и FloatRect
+	 *
+	 * @param otherFloatRect FloatRect с которым проверяем пересечение
+	 */
+	bool check_collision(sf::FloatRect &otherFloatRect) const;
+
+	/**
+	 * @brief Метод, возрающий FloatRect игрового объекта
+	 */
+	sf::FloatRect getGameObjectRect() const;
+
+	/**
+	 * @brief Метод, возрающий bool - является ли текущий спрайт последним в
+	 * анимации
+	 */
+	bool isLastAnimationState() const;
 };
