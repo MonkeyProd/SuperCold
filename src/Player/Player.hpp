@@ -29,7 +29,8 @@ class Player : public sf::Drawable, public sf::Transformable {
   bool isMoveHorizontal = false;
   bool isMoveVertical = false;
   bool isStepping = false;
-  ;
+  int health;
+  int initial_health;
 
  public:
   Player() = default;
@@ -41,7 +42,8 @@ class Player : public sf::Drawable, public sf::Transformable {
          std::vector<sf::Sprite> playerForward,
          std::vector<sf::Sprite> playerBack, std::vector<sf::Sprite> playerLeft,
          std::vector<sf::Sprite> playerRight, std::string footsteps_path,
-         float speed = 100);
+         float speed = 100,
+		 int health = 100);
 
   void moveLeft();
   void moveRight();
@@ -53,6 +55,8 @@ class Player : public sf::Drawable, public sf::Transformable {
   void movePlayer(sf::Time deltaTime, sf::Vector2f velocity);
   void mirrorSprite(bool isRight);
   void setSpeed(float speed);
+  bool isDead() const;
+  void resetHealth();
   sf::Vector2f getPlayerPosition() const;
   sf::Vector2f getPlayerVelocity() const;
   sf::FloatRect getNextPosition(sf::Time deltaTime) const;
