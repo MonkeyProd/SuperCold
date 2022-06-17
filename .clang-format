@@ -1,0 +1,9 @@
+﻿---
+FixNamespaceComments: 'true'
+IndentWidth: '4'
+Language: Cpp
+NamespaceIndentation: All
+TabWidth: '4'
+UseTab: ForIndentation
+
+...
