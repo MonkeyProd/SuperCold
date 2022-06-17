@@ -1,11 +1,11 @@
 #pragma once
 #include <SFML/Audio.hpp>
 
-#include "../GameObject/AnimatedGameObject.hpp"
+#include "../GameObject/GameObject.hpp"
 #include "cmath"
 
 class EyeEnemy : public sf::Drawable, public sf::Transformable {
-  AnimatedGameObject m_EyeEnemyObject;
+  GameObject m_EyeEnemyObject;
   int m_health;
   int initial_health;
   float m_speed;
@@ -34,6 +34,6 @@ class EyeEnemy : public sf::Drawable, public sf::Transformable {
   sf::FloatRect getNextPosition(sf::Time deltaTime,
                                 sf::Vector2f positionTowards) const;
   virtual void draw(sf::RenderTarget &surface, sf::RenderStates states) const;
-  AnimatedGameObject &getEnemyObject();
+  GameObject &getEnemyObject();
   bool getDead() const;
 };
