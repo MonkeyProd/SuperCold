@@ -1,3 +1,9 @@
-![](https://tokei.rs/b1/github/MonkeyProd/SuperCold/tree/dev/GameObject)
+# SuperCold
 
-# A SFML Game.
+### _Простая игра написанная на SFML_
+
+### Использованные библиотеки:
+
+-   SFML
+-   TOML
+-   SimplexNoise
