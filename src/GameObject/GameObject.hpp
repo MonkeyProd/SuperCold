@@ -10,6 +10,8 @@
 class GameObject : public sf::Drawable, public sf::Transformable {
  private:
   sf::Vector2f m_cordinates;
+  sf::Vector2f m_boxCollider;
+
   int animation_state;
   bool m_isCollider;
   bool isAnimated = false;
@@ -25,10 +27,11 @@ class GameObject : public sf::Drawable, public sf::Transformable {
   GameObject();
   GameObject(const sf::Vector2f &cordinates,
              std::vector<sf::Sprite> &sprites_array, bool isCollider = false,
-             float scale = 1);
+             float scale = 1, sf::Vector2f boxCollider = {0, 0});
 
   GameObject(const sf::Vector2f &cordinates, const sf::Sprite &sprite,
-             bool isCollider = false, float scale = 1);
+             bool isCollider = false, float scale = 1,
+             sf::Vector2f boxCollider = {0, 0});
 
   virtual void draw(sf::RenderTarget &surface, sf::RenderStates states) const;
   /**

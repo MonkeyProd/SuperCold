@@ -3,17 +3,32 @@
 SpriteController::SpriteController(SettingsManager &settingsManager) {
   tilemap_size = toml::find<decltype(tilemap_size)>(
       settingsManager.TileMapSettings, "size");
-  toml::table p = toml::get<toml::table>(settingsManager.SpriteSettings);
-  for (auto it = p.begin(); it != p.end(); it++) {
+  toml::table generalSpritesTable =
+      toml::get<toml::table>(settingsManager.SpriteSettings);
+  processSettings(generalSpritesTable);
+
+  toml::table playerSpritesTable =
+      toml::get<toml::table>(settingsManager.PlayerSpritesSettings);
+  processSettings(playerSpritesTable, true);
+
+  configureSprites(settingsManager.TileIndexes);
+}
+
+void SpriteController::processSettings(toml::table &table,
+                                       bool isPlayerSettings) {
+  for (auto it = table.begin(); it != table.end(); it++) {
     using uint = unsigned int;
     toml::table current = toml::get<toml::table>(it->second);
     std::string path = toml::get<std::string>(current["path"]);
     std::pair<uint, uint> size = toml::get<decltype(size)>(current["size"]);
-    load_sprites(it->first, toml::get<std::string>(current["path"]),
-                 {size.first, size.second});
+    if (isPlayerSettings)
+      load_player_sprites(it->first, toml::get<std::string>(current["path"]),
+                          {size.first, size.second});
+    else
+      load_sprites(it->first, toml::get<std::string>(current["path"]),
+                   {size.first, size.second});
     printf("%s loaded.\n", it->first.c_str());
   }
-  configureSprites(settingsManager.TileIndexes);
 }
 
 void SpriteController::load_textures(std::string name, std::string path) {
@@ -28,6 +43,12 @@ void SpriteController::load_sprites(std::string name, std::string path,
                                     sf::Vector2u tilesize) {
   load_textures(name, path);
   spriteArrays[name] = make_sprite(textures[name], tilesize);
+}
+
+void SpriteController::load_player_sprites(std::string name, std::string path,
+                                           sf::Vector2u tilesize) {
+  load_textures(name, path);
+  playerSprites[name] = make_sprite(textures[name], tilesize);
 }
 
 std::vector<sf::Sprite> SpriteController::make_sprite(sf::Texture &texture,

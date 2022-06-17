@@ -11,7 +11,6 @@
 #include "../SpriteContoller/SpriteController.hpp"
 #include "../TileMap/TileMap.hpp"
 #include "../external/SimplexNoise/SimplexNoise.hpp"
-#include "Utils/debug.hpp"
 
 class Game {
  private:

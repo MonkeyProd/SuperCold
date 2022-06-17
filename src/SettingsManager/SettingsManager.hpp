@@ -6,6 +6,7 @@
 struct SettingsManager {
   SettingsManager(std::string settingsPath = "../src/settings.toml");
   toml::value PlayerSettings;
+  toml::value PlayerSpritesSettings;
   toml::value SpriteSettings;
   toml::value TileIndexes;
   toml::value TileMapSettings;

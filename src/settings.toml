@@ -11,6 +11,13 @@ size               = [10, 10]
 world              = {path = "../src/Assets/my_tileset.jpg",          size = [8, 8]  }
 another_world      = {path = "../src/Assets/floor_tileset.png",       size = [8, 8]  }
 old_player         = {path = "../src/Assets/player2.png",             size = [16, 16]}
+simple_bullet      = {path = "../src/Assets/simple_bullet.png",       size = [16, 7] }
+enemy_move         = {path = "../src/Assets/eye_enemy_move.png",      size = [41, 32]}
+enemy_attack       = {path = "../src/Assets/eye_enemy_attack.png",    size = [41, 32]}
+enemy_hit          = {path = "../src/Assets/eye_enemy_hit.png",       size = [41, 32]}
+enemy_death        = {path = "../src/Assets/eye_enemy_death.png",      size = [56, 32]}
+
+[player_sprites]
 player_run_forward = {path = "../src/Assets/player_run_forward.png",  size = [18, 18]}
 player_run_back    = {path = "../src/Assets/player_run_back.png",     size = [18, 18]}
 player_run_left    = {path = "../src/Assets/player_run_left.png",     size = [18, 18]}
@@ -19,11 +26,6 @@ player_forward     = {path = "../src/Assets/player_forward.png",      size = [18
 player_back        = {path = "../src/Assets/player_back.png",         size = [18, 18]}
 player_left        = {path = "../src/Assets/player_left.png",         size = [18, 18]}
 player_right       = {path = "../src/Assets/player_right.png",        size = [18, 18]}
-simple_bullet      = {path = "../src/Assets/simple_bullet.png",       size = [16, 7] }
-enemy_move         = {path = "../src/Assets/eye_enemy_move.png",      size = [41, 32]}
-enemy_attack       = {path = "../src/Assets/eye_enemy_attack.png",    size = [41, 32]}
-enemy_hit          = {path = "../src/Assets/eye_enemy_hit.png",       size = [41, 32]}
-enemy_death        = {path = "../src/Assets/eye_enemy_death.png",      size = [56, 32]}
 
 [tileindex]
 floor              = [0, 0]

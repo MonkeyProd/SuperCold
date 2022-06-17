@@ -1,14 +1,17 @@
 #include "GameObject.hpp"
 
+#include "../Utils/debug.hpp"
+
 GameObject::GameObject() : m_cordinates({0, 0}), animation_state(0) {}
 GameObject::GameObject(const sf::Vector2f &cordinates,
                        std::vector<sf::Sprite> &sprites_array, bool isCollider,
-                       float scale)
+                       float scale, sf::Vector2f boxCollider)
     : m_cordinates(cordinates),
       m_sprites_array(sprites_array),
       animation_state(0),
       m_isCollider(isCollider),
-      m_scale(scale) {
+      m_scale(scale),
+      m_boxCollider(boxCollider) {
   m_sprite = m_sprites_array[0];
   setScale(scale, scale);
   setPosition(m_cordinates);
@@ -16,11 +19,12 @@ GameObject::GameObject(const sf::Vector2f &cordinates,
 }
 
 GameObject::GameObject(const sf::Vector2f &cordinates, const sf::Sprite &sprite,
-                       bool isCollider, float scale)
+                       bool isCollider, float scale, sf::Vector2f boxCollider)
     : m_cordinates(cordinates),
       m_sprite(sprite),
       m_isCollider(isCollider),
-      m_scale(scale) {
+      m_scale(scale),
+      m_boxCollider(boxCollider) {
   setPosition(m_cordinates);
   setScale(scale, scale);
 }
@@ -32,6 +36,7 @@ void GameObject::resetAnimation() { animation_state = 0; }
 void GameObject::draw(sf::RenderTarget &surface,
                       sf::RenderStates states) const {
   states.transform *= getTransform();
+  surface.draw(debugRectangle(getGameObjectRect()));
   surface.draw(m_sprite, states);
 }
 
@@ -48,9 +53,14 @@ bool GameObject::check_collision(sf::FloatRect &otherFloatRect) const {
 }
 
 sf::FloatRect GameObject::getGameObjectRect() const {
-  return {getPosition(),
-          {m_sprite.getGlobalBounds().height * m_scale,
-           m_sprite.getGlobalBounds().width * m_scale}};
+  if (m_boxCollider == sf::Vector2f{0, 0})
+    return {getPosition(),
+            {m_sprite.getGlobalBounds().height * m_scale,
+             m_sprite.getGlobalBounds().width * m_scale}};
+  else
+    return {{getPosition().x + m_sprite.getGlobalBounds().width / 2,
+             getPosition().y + m_sprite.getGlobalBounds().height / 2},
+            {m_boxCollider.x, m_boxCollider.y}};
 }
 
 void GameObject::nextState() {

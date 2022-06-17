@@ -1,33 +1,20 @@
 #include "Player.hpp"
 
 Player::Player(sf::Vector2f startPosition, sf::Vector2f velocity,
-               std::vector<sf::Sprite> playerRunForward,
-               std::vector<sf::Sprite> playerRunBack,
-               std::vector<sf::Sprite> playerRunLeft,
-               std::vector<sf::Sprite> playerRunRight,
-               std::vector<sf::Sprite> playerForward,
-               std::vector<sf::Sprite> playerBack,
-               std::vector<sf::Sprite> playerLeft,
-               std::vector<sf::Sprite> playerRight, std::string footsteps_path,
+               spritesMap playerSprites, std::string footsteps_path,
                float speed, int p_health)
-    : m_position(startPosition),
-      m_velocity(velocity),
-      m_playerRunForward(playerRunForward),
-      m_playerRunBack(playerRunBack),
-      m_playerRunLeft(playerRunLeft),
-      m_playerRunRight(playerRunRight),
-      m_playerForward(playerForward),
-      m_playerBack(playerBack),
-      m_playerLeft(playerLeft),
-      m_playerRight(playerRight),
+    : m_velocity(velocity),
+      m_position(startPosition),
+      m_playerSprites(playerSprites),
       m_speed(speed),
       isLookRight(true),
       health(p_health),
       initial_health(p_health) {
   GameObject playerObject({startPosition.x - 8, startPosition.y - 8},
-                          m_playerForward, false, 4);
+                          m_playerSprites["player_forward"], false, 4,
+                          {60, 60});
   m_playerObject = playerObject;
-  m_current_state = m_playerForward;
+  m_current_state = m_playerSprites["player_forward"];
   m_sbuffer.loadFromFile(footsteps_path);
   m_footstepsSound.setBuffer(m_sbuffer);
   m_footstepsSound.setVolume(80);
@@ -37,22 +24,15 @@ Player::Player(sf::Vector2f startPosition, sf::Vector2f velocity,
 
 GameObject &Player::get_playerObject() { return m_playerObject; }
 
-void Player::moveLeft() {
-  m_velocity.x = -m_speed;
+void Player::changeXDirection(HorizontalDirection direction) {
+  m_velocity.x = direction == HorizontalDirection::Left ? -m_speed : m_speed;
   isMoveHorizontal = true;
 }
-void Player::moveRight() {
-  m_velocity.x = m_speed;
-  isMoveHorizontal = true;
-}
-void Player::moveTop() {
-  m_velocity.y = -m_speed;
+void Player::changeYDirection(VerticalDirection direction) {
+  m_velocity.y = direction == VerticalDirection::Top ? -m_speed : m_speed;
   isMoveVertical = true;
 }
-void Player::moveDown() {
-  m_velocity.y = m_speed;
-  isMoveVertical = true;
-}
+
 void Player::resetHorizontalVelocity() {
   m_velocity.x = 0;
   isMoveHorizontal = false;
@@ -61,6 +41,7 @@ void Player::resetVerticalVelocity() {
   m_velocity.y = 0;
   isMoveVertical = false;
 }
+
 void Player::setSpeed(float speed) { m_speed = speed; }
 
 bool Player::isDead() const { return health <= 0; }
@@ -79,17 +60,17 @@ void Player::movePlayer(sf::Time deltaTime) {
     }
   }
   if (m_velocity.y > 0) {
-    m_playerObject.m_sprites_array = m_playerRunForward;
-    m_current_state = m_playerForward;
+    m_playerObject.m_sprites_array = m_playerSprites["player_run_forward"];
+    m_current_state = m_playerSprites["player_forward"];
   } else if (m_velocity.y < 0) {
-    m_playerObject.m_sprites_array = m_playerRunBack;
-    m_current_state = m_playerBack;
+    m_playerObject.m_sprites_array = m_playerSprites["player_run_back"];
+    m_current_state = m_playerSprites["player_back"];
   } else if (m_velocity.x < 0) {
-    m_playerObject.m_sprites_array = m_playerRunLeft;
-    m_current_state = m_playerLeft;
+    m_playerObject.m_sprites_array = m_playerSprites["player_run_left"];
+    m_current_state = m_playerSprites["player_left"];
   } else if (m_velocity.x > 0) {
-    m_playerObject.m_sprites_array = m_playerRunRight;
-    m_current_state = m_playerRight;
+    m_playerObject.m_sprites_array = m_playerSprites["player_run_right"];
+    m_current_state = m_playerSprites["player_right"];
   }
   if (m_velocity.x == 0 && m_velocity.y == 0) {
     m_playerObject.m_sprites_array = m_current_state;

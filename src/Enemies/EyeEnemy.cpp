@@ -11,7 +11,7 @@ EyeEnemy::EyeEnemy(sf::Vector2f startPosition,
       m_takeDamageSprites(takeDamageSprites),
       m_deathSprites(deathSprites),
       m_speed(speed),
-      m_EyeEnemyObject(startPosition, moveSprites, true, 2.8),
+      m_EyeEnemyObject(startPosition, moveSprites, true, 2.8, {50, 50}),
       m_attack_distance(attack_distance),
       m_health(health),
       initial_health(health) {
@@ -47,12 +47,7 @@ void EyeEnemy::hit(int damage) {
 sf::FloatRect EyeEnemy::getNextPosition(sf::Time deltaTime,
                                         sf::Vector2f positionTowards) const {
   sf::Vector2f velocity = calculateTowardsVector(positionTowards);
-  sf::FloatRect nextPosition(
-      m_EyeEnemyObject.getPosition(),
-      {m_EyeEnemyObject.m_sprite.getGlobalBounds().height *
-           m_EyeEnemyObject.m_scale,
-       m_EyeEnemyObject.m_sprite.getGlobalBounds().width *
-           m_EyeEnemyObject.m_scale});
+  sf::FloatRect nextPosition = m_EyeEnemyObject.getGameObjectRect();
   nextPosition.top += velocity.y * deltaTime.asSeconds();
   nextPosition.left += velocity.x * deltaTime.asSeconds();
   return nextPosition;

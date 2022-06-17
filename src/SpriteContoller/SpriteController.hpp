@@ -15,19 +15,25 @@ struct SpriteController {
   std::map<std::string, sf::Texture> textures;
   std::map<std::string, std::vector<sf::Sprite>> spriteArrays;
   std::map<std::string, sf::Sprite> spriteObjects;
+  std::map<std::string, std::vector<sf::Sprite>> playerSprites;
 
   std::pair<int, int> tilemap_size;
 
   SpriteController() = default;
   SpriteController(SettingsManager &settingsManager);
 
+  void processSettings(toml::table &table, bool isPlayerSettings = false);
+
   /**
    * load_texture(name, path) load texture from path and load it to textures map
    */
   void load_textures(std::string name, std::string path);
+
+  void load_player_sprites(std::string name, std::string path,
+                           sf::Vector2u tilesize);
   /**
-   * load_sprites(name, path) load texture from path and load it to textures map
-   * make sprite array from it and load it to sprites map
+   * load_sprites(name, path) load texture from path and load it to textures
+   * map make sprite array from it and load it to sprites map
    */
   void load_sprites(std::string name, std::string path, sf::Vector2u tilesize);
   /**

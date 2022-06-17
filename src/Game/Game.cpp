@@ -16,14 +16,7 @@ Game::Game(unsigned int h, unsigned int w)
       difficulty(1) {
   spriteController = SpriteController(settingsManager);
   player = Player(
-      {0, 100}, {0, 0}, spriteController.spriteArrays["player_run_forward"],
-      spriteController.spriteArrays["player_run_back"],
-      spriteController.spriteArrays["player_run_left"],
-      spriteController.spriteArrays["player_run_right"],
-      spriteController.spriteArrays["player_forward"],
-      spriteController.spriteArrays["player_back"],
-      spriteController.spriteArrays["player_left"],
-      spriteController.spriteArrays["player_right"],
+      {0, 100}, {0, 0}, spriteController.playerSprites,
       toml::find<std::string>(settingsManager.SoundSettings, "footsteps"));
   auto sprites = spriteController.spriteArrays["world"];
   previousPlayerPosition = sf::Vector2i(player.getPlayerPosition() / 64.0f);
@@ -57,10 +50,10 @@ void Game::ProcessEvents() {
       if (Left) shootBullet({-200, 0});
       if (Right) shootBullet({200, 0});
       if (Q) window.close();
-      if (W) player.moveTop();
-      if (A) player.moveLeft();
-      if (S) player.moveDown();
-      if (D) player.moveRight();
+      if (W) player.changeYDirection(Player::VerticalDirection::Top);
+      if (A) player.changeXDirection(Player::HorizontalDirection::Left);
+      if (S) player.changeYDirection(Player::VerticalDirection::Down);
+      if (D) player.changeXDirection(Player::HorizontalDirection::Right);
       if (W and S) player.resetVerticalVelocity();
       if (A and D) player.resetHorizontalVelocity();
       if (not(W or S)) player.resetVerticalVelocity();
@@ -93,13 +86,15 @@ void Game::update(sf::Time deltatime) {
 
   for (auto &object : enemies) {
     bool canEnemyMove = true;
-    sf::FloatRect enemyRect = player.getNextPosition(deltatime);
+    sf::FloatRect enemyRect = object.getNextPosition(
+        deltatime, player.get_playerObject().getPosition());
     for (auto &object_t : enemies) {
-      if (&object != &object_t)
+      if (&object != &object_t) {
         if (object_t.getEnemyObject().check_collision(enemyRect)) {
           canEnemyMove = false;
           break;
         }
+      }
     }
     if (canEnemyMove)
       object.moveTowards(player.get_playerObject().getPosition(), deltatime);
@@ -270,11 +265,17 @@ void Game::draw_world(std::vector<sf::Sprite> sprites) {
       if (floor_start < normalized && normalized < floor_end) {
         rectt.setFillColor(sf::Color(255, 0, 0));  // wall
         tile = {sf::Vector2f(x * size, y * size),
-                spriteController.spriteObjects["wall"], true, 6};
+                spriteController.spriteObjects["wall"],
+                true,
+                8,
+                {60, 60}};
       } else if (normalized > floor_end) {
         rectt.setFillColor(sf::Color(0, 250, 0));  // floor
         tile = {sf::Vector2f(x * size, y * size),
-                spriteController.spriteObjects["floor"], false, 6};
+                spriteController.spriteObjects["floor"],
+                false,
+                8,
+                {60, 60}};
       }
       drawLayer.push_back(tile);
     }

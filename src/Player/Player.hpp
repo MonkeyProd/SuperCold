@@ -6,17 +6,12 @@
 #include "../SpriteContoller/SpriteController.hpp"
 
 class Player : public sf::Drawable, public sf::Transformable {
+  using spritesMap = std::map<std::string, std::vector<sf::Sprite>>;
+
   sf::Vector2f m_velocity;
   sf::Vector2f m_position;
 
-  std::vector<sf::Sprite> m_playerRunForward;
-  std::vector<sf::Sprite> m_playerRunBack;
-  std::vector<sf::Sprite> m_playerRunLeft;
-  std::vector<sf::Sprite> m_playerRunRight;
-  std::vector<sf::Sprite> m_playerForward;
-  std::vector<sf::Sprite> m_playerBack;
-  std::vector<sf::Sprite> m_playerLeft;
-  std::vector<sf::Sprite> m_playerRight;
+  std::map<std::string, std::vector<sf::Sprite>> m_playerSprites;
 
   std::vector<sf::Sprite> m_current_state;
 
@@ -33,21 +28,15 @@ class Player : public sf::Drawable, public sf::Transformable {
   int initial_health;
 
  public:
+  enum HorizontalDirection { Left, Right };
+  enum VerticalDirection { Top, Down };
   Player() = default;
   Player(sf::Vector2f startPosition, sf::Vector2f velocity,
-         std::vector<sf::Sprite> playerRunForward,
-         std::vector<sf::Sprite> playerRunBack,
-         std::vector<sf::Sprite> playerRunLeft,
-         std::vector<sf::Sprite> playerRunRight,
-         std::vector<sf::Sprite> playerForward,
-         std::vector<sf::Sprite> playerBack, std::vector<sf::Sprite> playerLeft,
-         std::vector<sf::Sprite> playerRight, std::string footsteps_path,
+         spritesMap playerSprites, std::string footsteps_path,
          float speed = 100, int health = 100);
 
-  void moveLeft();
-  void moveRight();
-  void moveTop();
-  void moveDown();
+  void changeXDirection(HorizontalDirection direction);
+  void changeYDirection(VerticalDirection direction);
 
   void resetHorizontalVelocity();
   void resetVerticalVelocity();
