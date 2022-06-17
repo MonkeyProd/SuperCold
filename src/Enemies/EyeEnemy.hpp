@@ -7,6 +7,7 @@
 class EyeEnemy : public sf::Drawable, public sf::Transformable {
   AnimatedGameObject m_EyeEnemyObject;
   int m_health;
+  int initial_health;
   float m_speed;
   float m_attack_distance;
   bool isHitted = false;
@@ -34,4 +35,5 @@ class EyeEnemy : public sf::Drawable, public sf::Transformable {
                                 sf::Vector2f positionTowards) const;
   virtual void draw(sf::RenderTarget &surface, sf::RenderStates states) const;
   AnimatedGameObject &getEnemyObject();
+  bool getDead() const;
 };
