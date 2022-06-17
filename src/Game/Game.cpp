@@ -12,7 +12,8 @@ Game::Game(unsigned int h, unsigned int w)
 	  paused{false},
 	  camera(sf::FloatRect(0, 0, WINDOW_SIZE_W, WINDOW_SIZE_H)),
 	  map(sf::FloatRect(0, 0, WINDOW_SIZE_W * 2, WINDOW_SIZE_H * 2)),
-	  settingsManager()
+	  settingsManager(),
+	  difficulty(1)
 {
 	spriteController = SpriteController(settingsManager);
 	player = Player(
@@ -44,7 +45,6 @@ void Game::ProcessEvents()
 		}
 		case sf::Event::KeyPressed:
 		{
-			// printf("pizda\n");
 			switch (event.key.code)
 			{
 			case sf::Keyboard::Q:
@@ -55,27 +55,6 @@ void Game::ProcessEvents()
 			case sf::Keyboard::Space:
 			{
 				paused = !paused;
-				break;
-			}
-			case sf::Keyboard::A:
-			{
-				player.moveLeft();
-
-				break;
-			}
-			case sf::Keyboard::D:
-			{
-				player.moveRight();
-				break;
-			}
-			case sf::Keyboard::W:
-			{
-				player.moveTop();
-				break;
-			}
-			case sf::Keyboard::S:
-			{
-				player.moveDown();
 				break;
 			}
 			case sf::Keyboard::Left:
@@ -133,14 +112,6 @@ void Game::ProcessEvents()
 		{
 			switch (event.key.code)
 			{
-			case sf::Keyboard::A:
-			case sf::Keyboard::D:
-				player.resetHorizontalVelocity();
-				break;
-			case sf::Keyboard::W:
-			case sf::Keyboard::S:
-				player.resetVerticalVelocity();
-				break;
 			case sf::Keyboard::LShift:
 			{
 				player.setSpeed(settingsManager.get<float>(
@@ -155,6 +126,29 @@ void Game::ProcessEvents()
 		default:
 			break;
 		}
+	}
+	if (not paused)
+	{
+		auto Top{sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)};
+		auto Down{sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)};
+		auto Left{sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)};
+		auto Right{sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)};
+		if (Top)
+			player.moveTop();
+		if (Left)
+			player.moveLeft();
+		if (Down)
+			player.moveDown();
+		if (Right)
+			player.moveRight();
+		if (Top and Down)
+			player.resetVerticalVelocity();
+		if (Left and Right)
+			player.resetHorizontalVelocity();
+		if (not(Top or Down))
+			player.resetVerticalVelocity();
+		if (not(Left or Right))
+			player.resetHorizontalVelocity();
 	}
 }
 
@@ -231,11 +225,20 @@ void Game::update(sf::Time deltatime)
 				 bullet.getBulletObject().m_scale});
 		for (auto &object : enemies)
 		{
-			if (bullet.isExist &&
+			if (bullet.isExist and (not object.getDead()) and
 				object.getEnemyObject().check_collision(bulletRect))
 			{
 				object.hit(25);
 				bullet.isExist = false;
+
+				// check if all enemies killed
+				auto alive_number = std::count_if(enemies.cbegin(), enemies.cend(), [](EyeEnemy e)
+												  { return not e.getDead(); });
+				if (alive_number == 0)
+				{
+					difficulty *= 2;
+					new_wave();
+				}
 				break;
 			}
 		}
@@ -341,18 +344,7 @@ void Game::run()
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 	sf::Time timeSinceLastAnimation = sf::Time::Zero;
 
-	for (int i = 0; i < 3; i++)
-	{
-		EyeEnemy enemy(
-			{(float)(rand() % 1300) + 200, (float)(rand() % 1300) + 200},
-			spriteController.spriteArrays["enemy_move"],
-			spriteController.spriteArrays["enemy_attack"],
-			spriteController.spriteArrays["enemy_hit"],
-			spriteController.spriteArrays["enemy_death"], 70, 110,
-			toml::find<std::string>(settingsManager.SoundSettings, "enemy_hit"));
-
-		enemies.push_back(enemy);
-	}
+	new_wave();
 
 	auto sprites = spriteController.spriteArrays["world"];
 	auto player_sprites = spriteController.spriteArrays["player"];
@@ -479,5 +471,23 @@ void Game::draw_test_room(std::vector<sf::Sprite> sprites)
 			}
 			drawLayer.push_back(floor);
 		}
+	}
+}
+
+void Game::new_wave()
+{
+	enemies.clear();
+	player.resetHealth();
+	for (int i = 0; i < difficulty; i++)
+	{
+		EyeEnemy enemy(
+			{(float)(rand() % 1300) + 200, (float)(rand() % 1300) + 200},
+			spriteController.spriteArrays["enemy_move"],
+			spriteController.spriteArrays["enemy_attack"],
+			spriteController.spriteArrays["enemy_hit"],
+			spriteController.spriteArrays["enemy_death"], 70, 110,
+			toml::find<std::string>(settingsManager.SoundSettings, "enemy_hit"), difficulty * 30);
+
+		enemies.push_back(enemy);
 	}
 }
