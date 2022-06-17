@@ -11,12 +11,12 @@ Game::Game(unsigned int h, unsigned int w)
 	  FPS{60},
 	  paused{false},
 	  camera(sf::FloatRect(0, 0, WINDOW_SIZE_W, WINDOW_SIZE_H)),
-	  map(sf::FloatRect(0, 0, WINDOW_SIZE_W * 5, WINDOW_SIZE_H * 5)),
+	  map(sf::FloatRect(0, 0, WINDOW_SIZE_W * 2, WINDOW_SIZE_H * 2)),
 	  settingsManager()
 {
 	spriteController = SpriteController(settingsManager);
 	player = Player(
-		{200, 200}, {0, 0}, spriteController.spriteArrays["player_run_forward"],
+		{0, 0}, {0, 0}, spriteController.spriteArrays["player_run_forward"],
 		spriteController.spriteArrays["player_run_back"],
 		spriteController.spriteArrays["player_run_left"],
 		spriteController.spriteArrays["player_run_right"],
@@ -26,6 +26,7 @@ Game::Game(unsigned int h, unsigned int w)
 		spriteController.spriteArrays["player_right"],
 		toml::find<std::string>(settingsManager.SoundSettings, "footsteps"));
 	auto sprites = spriteController.spriteArrays["world"];
+	previousPlayerPosition = sf::Vector2i(player.getPlayerPosition() / 64.0f);
 	draw_world(sprites);
 }
 
@@ -239,6 +240,18 @@ void Game::update(sf::Time deltatime)
 			}
 		}
 	}
+
+	sf::Vector2i currentPlayerPos(player.getPlayerPosition());
+	currentPlayerPos /= 64;
+	auto delta = currentPlayerPos - previousPlayerPosition;
+	if (fabs(delta.x) > 1.0f or fabs(delta.y) > 1.0f)
+	{
+		auto sprites = spriteController.spriteArrays["world"];
+		std::cout << "updating world" << std::endl;
+		drawLayer.clear();
+		previousPlayerPosition = sf::Vector2i(player.getPlayerPosition() / 64.0f);
+		draw_world(sprites);
+	}
 }
 
 void Game::updateAnimations(sf::Time deltatime)
@@ -263,6 +276,7 @@ void Game::updateAnimations(sf::Time deltatime)
  */
 void Game::draw(sf::Time deltaTime)
 {
+
 	if (paused)
 		window.setView(map);
 	else
@@ -286,6 +300,7 @@ void Game::draw(sf::Time deltaTime)
 	auto worldPos = window.mapPixelToCoords(localMousePos);
 	GameObject cursor({(float)worldPos.x - 20, (float)worldPos.y - 20}, sprite);
 	cursor.setScale(5, 5);
+
 	if (worldPos.x < player.getPlayerPosition().x)
 	{
 		player.mirrorSprite(false);
@@ -370,6 +385,11 @@ void Game::run()
 	}
 }
 
+/**
+ * @brief генерация и отрисовка игрового мира в области вокруг игрока
+ *
+ * @param sprites спрайты игрового мира
+ */
 void Game::draw_world(std::vector<sf::Sprite> sprites)
 {
 	toml::find<float>(settingsManager.WorldGenSettings, "frequency");
@@ -380,17 +400,19 @@ void Game::draw_world(std::vector<sf::Sprite> sprites)
 	sf::Vector2f cord(sf::Mouse::getPosition());
 	cord.x /= WINDOW_SIZE_W;
 	cord.y /= WINDOW_SIZE_H;
-	// float lacunarity = 1.0f * cord.x;
 	float lacunarity = toml::find<float>(settingsManager.WorldGenSettings, "lacunarity");
-	std::cout << "lacunarity: " << lacunarity << std::endl;
 	float persistence = 1 / lacunarity;
 	SimplexNoise n(frequency, amplitude, lacunarity, persistence);
-	for (int i = -100; i < 100; i++)
+	sf::View currentView = window.getView();
+	int genWidth{currentView.getSize().x / size + 5};
+	int genHeight{currentView.getSize().y / size + 5};
+	for (int i = -genWidth; i < genWidth; i++)
 	{
-		for (int j = -100; j < 100; j++)
+		for (int j = -genHeight; j < genHeight; j++)
 		{
-			auto sample = n.fractal(7, i, j);
-			// auto sample = SimplexNoise::noise(static_cast<float>(i * size), static_cast<float>(j * size));
+			auto x{i + previousPlayerPosition.x};
+			auto y{j + previousPlayerPosition.y};
+			auto sample = n.fractal(7, x, y);
 			auto normalized = (sample + 1.0f) * 0.5f * 255.0f;
 			sf::RectangleShape rectt(sf::Vector2f(size, size));
 			rectt.setPosition(i * size, j * size);
@@ -402,17 +424,15 @@ void Game::draw_world(std::vector<sf::Sprite> sprites)
 			if (floor_start < normalized && normalized < floor_end)
 			{
 				rectt.setFillColor(sf::Color(255, 0, 0)); // wall
-				tile = {sf::Vector2f(i * size, j * size),
-						spriteController.spriteObjects["wall"], true, 8};
+				tile = {sf::Vector2f(x * size, y * size),
+						spriteController.spriteObjects["wall"], true, 6};
 			}
 			else if (normalized > floor_end)
 			{
 				rectt.setFillColor(sf::Color(0, 250, 0)); // floor
-				tile = {sf::Vector2f(i * size, j * size),
-						spriteController.spriteObjects["floor"], false, 8};
+				tile = {sf::Vector2f(x * size, y * size),
+						spriteController.spriteObjects["floor"], false, 6};
 			}
-			// window.draw(rectt);
-			// window.display();
 			drawLayer.push_back(tile);
 		}
 	}

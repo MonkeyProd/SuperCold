@@ -25,8 +25,9 @@ class Game {
 
   SpriteController spriteController;
   SettingsManager settingsManager;
-
+  
   Player player;
+  sf::Vector2i previousPlayerPosition;
   sf::View camera;
   sf::View map;
 
