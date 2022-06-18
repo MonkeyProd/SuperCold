@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1has__specialized__from" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::has_specialized_from</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">decltypehas_specialized_from_impl::check&lt; T &gt;nullptr</basecompoundref>
+    <includes refid="traits_8hpp" local="no">traits.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>decltypehas_specialized_from_impl::check&lt; T &gt;nullptr</label>
+      </node>
+      <node id="1">
+        <label>toml::detail::has_specialized_from&lt; T &gt;</label>
+        <link refid="structtoml_1_1detail_1_1has__specialized__from"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>decltypehas_specialized_from_impl::check&lt; T &gt;nullptr</label>
+      </node>
+      <node id="1">
+        <label>toml::detail::has_specialized_from&lt; T &gt;</label>
+        <link refid="structtoml_1_1detail_1_1has__specialized__from"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="external/toml/traits.hpp" line="139" column="1" bodyfile="external/toml/traits.hpp" bodystart="139" bodyend="139"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

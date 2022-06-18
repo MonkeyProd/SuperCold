@@ -1,0 +1,220 @@
+\hypertarget{struct_sprite_controller}{}\doxysection{Sprite\+Controller Struct Reference}
+\label{struct_sprite_controller}\index{SpriteController@{SpriteController}}
+
+
+{\ttfamily \#include $<$Sprite\+Controller.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_sprite_controller_aac5a0f22d0352dfd0c65d6d6afef17b2}{Sprite\+Controller}} ()=default
+\item 
+\mbox{\hyperlink{struct_sprite_controller_ac3d16a7c596a1d902609bfdae067486c}{Sprite\+Controller}} (\mbox{\hyperlink{struct_settings_manager}{Settings\+Manager}} \&settings\+Manager)
+\begin{DoxyCompactList}\small\item\em Структура, содержащая все спрайты и текстуры \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_sprite_controller_a4577c1599ea1c8f19d43a74c594761c1}{process\+Settings}} (\mbox{\hyperlink{namespacetoml_af7d788a576baa570efd4793cd5df8ac7}{toml\+::table}} \&table, bool is\+Player\+Settings=false)
+\begin{DoxyCompactList}\small\item\em Метод, обрабатывающий определенную таблицу из настроек с спрайтами \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_sprite_controller_af9482166cace7967a3fb19e8d0df3c0b}{load\+\_\+textures}} (std\+::string name, std\+::string path)
+\begin{DoxyCompactList}\small\item\em Метод, обрабатывающий текстуры \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_sprite_controller_a5e91b1913a8d7a9632026ff93a9fa1d8}{load\+\_\+player\+\_\+sprites}} (std\+::string name, std\+::string path, sf\+::\+Vector2u tilesize)
+\begin{DoxyCompactList}\small\item\em Метод, создающий спрайты игрока \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_sprite_controller_a1d73b2cec05eb020e7ee4a6435c92e71}{load\+\_\+sprites}} (std\+::string name, std\+::string path, sf\+::\+Vector2u tilesize)
+\begin{DoxyCompactList}\small\item\em Метод, создающий спрайты \end{DoxyCompactList}\item 
+std\+::vector$<$ sf\+::\+Sprite $>$ \mbox{\hyperlink{struct_sprite_controller_a0ddb1f4ff383ebd14a452f271d2f1fa6}{make\+\_\+sprite}} (sf\+::\+Texture \&texture, sf\+::\+Vector2u tilesize)
+\begin{DoxyCompactList}\small\item\em Метод, создающий спрайты из текстуры \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_sprite_controller_a529e7967e5fc699531c6e08cc7b13673}{configure\+Sprites}} (\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} Tile\+Index\+Settings)
+\begin{DoxyCompactList}\small\item\em Метод, организующий из спрайтов и индексов тайлов заданных в настройках словарь \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{struct_sprite_controller_a27cf3219ac2d2db0bf1ca23bdcaba440}{indexes\+Toindex}} (int i, int j)
+\begin{DoxyCompactList}\small\item\em Метод, преобразующий индексы двумерного массива в индексы одномерного \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ std\+::string, sf\+::\+Texture $>$ \mbox{\hyperlink{struct_sprite_controller_acfc91683dc36a7adafc5af19aa70dd5f}{textures}}
+\item 
+std\+::map$<$ std\+::string, std\+::vector$<$ sf\+::\+Sprite $>$ $>$ \mbox{\hyperlink{struct_sprite_controller_af49b52fcd4d4c2cc2a49331c8451e8cc}{sprite\+Arrays}}
+\item 
+std\+::map$<$ std\+::string, sf\+::\+Sprite $>$ \mbox{\hyperlink{struct_sprite_controller_a887a16f5061546dbc8f495d074dcc273}{sprite\+Objects}}
+\item 
+std\+::map$<$ std\+::string, std\+::vector$<$ sf\+::\+Sprite $>$ $>$ \mbox{\hyperlink{struct_sprite_controller_add3155cf6de5cb39ebad7c6fbe627c10}{player\+Sprites}}
+\item 
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{struct_sprite_controller_a1f0ea61b2c6a86e05a1f8e93ab09111b}{tilemap\+\_\+size}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_sprite_controller_aac5a0f22d0352dfd0c65d6d6afef17b2}\label{struct_sprite_controller_aac5a0f22d0352dfd0c65d6d6afef17b2}} 
+\index{SpriteController@{SpriteController}!SpriteController@{SpriteController}}
+\index{SpriteController@{SpriteController}!SpriteController@{SpriteController}}
+\doxysubsubsection{\texorpdfstring{SpriteController()}{SpriteController()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Sprite\+Controller\+::\+Sprite\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{struct_sprite_controller_ac3d16a7c596a1d902609bfdae067486c}\label{struct_sprite_controller_ac3d16a7c596a1d902609bfdae067486c}} 
+\index{SpriteController@{SpriteController}!SpriteController@{SpriteController}}
+\index{SpriteController@{SpriteController}!SpriteController@{SpriteController}}
+\doxysubsubsection{\texorpdfstring{SpriteController()}{SpriteController()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Sprite\+Controller\+::\+Sprite\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_settings_manager}{Settings\+Manager}} \&}]{settings\+Manager }\end{DoxyParamCaption})}
+
+
+
+Структура, содержащая все спрайты и текстуры 
+
+
+\begin{DoxyParams}{Parameters}
+{\em settings\+Manager} & ссылка на структуру с настройками \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_sprite_controller_a529e7967e5fc699531c6e08cc7b13673}\label{struct_sprite_controller_a529e7967e5fc699531c6e08cc7b13673}} 
+\index{SpriteController@{SpriteController}!configureSprites@{configureSprites}}
+\index{configureSprites@{configureSprites}!SpriteController@{SpriteController}}
+\doxysubsubsection{\texorpdfstring{configureSprites()}{configureSprites()}}
+{\footnotesize\ttfamily void Sprite\+Controller\+::configure\+Sprites (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}}}]{Tile\+Index\+Settings }\end{DoxyParamCaption})}
+
+
+
+Метод, организующий из спрайтов и индексов тайлов заданных в настройках словарь 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tile\+Index\+Settings} & настройки, задающие для каждого тайла его название и его индексы \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_sprite_controller_a27cf3219ac2d2db0bf1ca23bdcaba440}\label{struct_sprite_controller_a27cf3219ac2d2db0bf1ca23bdcaba440}} 
+\index{SpriteController@{SpriteController}!indexesToindex@{indexesToindex}}
+\index{indexesToindex@{indexesToindex}!SpriteController@{SpriteController}}
+\doxysubsubsection{\texorpdfstring{indexesToindex()}{indexesToindex()}}
+{\footnotesize\ttfamily int Sprite\+Controller\+::indexes\+Toindex (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})}
+
+
+
+Метод, преобразующий индексы двумерного массива в индексы одномерного 
+
+\mbox{\Hypertarget{struct_sprite_controller_a5e91b1913a8d7a9632026ff93a9fa1d8}\label{struct_sprite_controller_a5e91b1913a8d7a9632026ff93a9fa1d8}} 
+\index{SpriteController@{SpriteController}!load\_player\_sprites@{load\_player\_sprites}}
+\index{load\_player\_sprites@{load\_player\_sprites}!SpriteController@{SpriteController}}
+\doxysubsubsection{\texorpdfstring{load\_player\_sprites()}{load\_player\_sprites()}}
+{\footnotesize\ttfamily void Sprite\+Controller\+::load\+\_\+player\+\_\+sprites (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{path,  }\item[{sf\+::\+Vector2u}]{tilesize }\end{DoxyParamCaption})}
+
+
+
+Метод, создающий спрайты игрока 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & название спрайта \\
+\hline
+{\em path} & путь до текстуры \\
+\hline
+{\em tilesize} & размер тайлов в текстуре \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_sprite_controller_a1d73b2cec05eb020e7ee4a6435c92e71}\label{struct_sprite_controller_a1d73b2cec05eb020e7ee4a6435c92e71}} 
+\index{SpriteController@{SpriteController}!load\_sprites@{load\_sprites}}
+\index{load\_sprites@{load\_sprites}!SpriteController@{SpriteController}}
+\doxysubsubsection{\texorpdfstring{load\_sprites()}{load\_sprites()}}
+{\footnotesize\ttfamily void Sprite\+Controller\+::load\+\_\+sprites (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{path,  }\item[{sf\+::\+Vector2u}]{tilesize }\end{DoxyParamCaption})}
+
+
+
+Метод, создающий спрайты 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & название спрайта \\
+\hline
+{\em path} & путь до текстуры \\
+\hline
+{\em tilesize} & размер тайлов в текстуре \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_sprite_controller_af9482166cace7967a3fb19e8d0df3c0b}\label{struct_sprite_controller_af9482166cace7967a3fb19e8d0df3c0b}} 
+\index{SpriteController@{SpriteController}!load\_textures@{load\_textures}}
+\index{load\_textures@{load\_textures}!SpriteController@{SpriteController}}
+\doxysubsubsection{\texorpdfstring{load\_textures()}{load\_textures()}}
+{\footnotesize\ttfamily void Sprite\+Controller\+::load\+\_\+textures (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{path }\end{DoxyParamCaption})}
+
+
+
+Метод, обрабатывающий текстуры 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & название текстуры \\
+\hline
+{\em path} & путь до текстуры \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_sprite_controller_a0ddb1f4ff383ebd14a452f271d2f1fa6}\label{struct_sprite_controller_a0ddb1f4ff383ebd14a452f271d2f1fa6}} 
+\index{SpriteController@{SpriteController}!make\_sprite@{make\_sprite}}
+\index{make\_sprite@{make\_sprite}!SpriteController@{SpriteController}}
+\doxysubsubsection{\texorpdfstring{make\_sprite()}{make\_sprite()}}
+{\footnotesize\ttfamily std\+::vector$<$ sf\+::\+Sprite $>$ Sprite\+Controller\+::make\+\_\+sprite (\begin{DoxyParamCaption}\item[{sf\+::\+Texture \&}]{texture,  }\item[{sf\+::\+Vector2u}]{tilesize }\end{DoxyParamCaption})}
+
+
+
+Метод, создающий спрайты из текстуры 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture} & ссылка на текстуру \\
+\hline
+{\em tilesize} & размер тайлов в текстуре \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{struct_sprite_controller_a4577c1599ea1c8f19d43a74c594761c1}\label{struct_sprite_controller_a4577c1599ea1c8f19d43a74c594761c1}} 
+\index{SpriteController@{SpriteController}!processSettings@{processSettings}}
+\index{processSettings@{processSettings}!SpriteController@{SpriteController}}
+\doxysubsubsection{\texorpdfstring{processSettings()}{processSettings()}}
+{\footnotesize\ttfamily void Sprite\+Controller\+::process\+Settings (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetoml_af7d788a576baa570efd4793cd5df8ac7}{toml\+::table}} \&}]{table,  }\item[{bool}]{is\+Player\+Settings = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Метод, обрабатывающий определенную таблицу из настроек с спрайтами 
+
+
+\begin{DoxyParams}{Parameters}
+{\em table} & ссылка на таблицу \\
+\hline
+{\em is\+Player\+Settings} & является ли настройками игрока \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_sprite_controller_add3155cf6de5cb39ebad7c6fbe627c10}\label{struct_sprite_controller_add3155cf6de5cb39ebad7c6fbe627c10}} 
+\index{SpriteController@{SpriteController}!playerSprites@{playerSprites}}
+\index{playerSprites@{playerSprites}!SpriteController@{SpriteController}}
+\doxysubsubsection{\texorpdfstring{playerSprites}{playerSprites}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::vector$<$sf\+::\+Sprite$>$ $>$ Sprite\+Controller\+::player\+Sprites}
+
+\mbox{\Hypertarget{struct_sprite_controller_af49b52fcd4d4c2cc2a49331c8451e8cc}\label{struct_sprite_controller_af49b52fcd4d4c2cc2a49331c8451e8cc}} 
+\index{SpriteController@{SpriteController}!spriteArrays@{spriteArrays}}
+\index{spriteArrays@{spriteArrays}!SpriteController@{SpriteController}}
+\doxysubsubsection{\texorpdfstring{spriteArrays}{spriteArrays}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, std\+::vector$<$sf\+::\+Sprite$>$ $>$ Sprite\+Controller\+::sprite\+Arrays}
+
+\mbox{\Hypertarget{struct_sprite_controller_a887a16f5061546dbc8f495d074dcc273}\label{struct_sprite_controller_a887a16f5061546dbc8f495d074dcc273}} 
+\index{SpriteController@{SpriteController}!spriteObjects@{spriteObjects}}
+\index{spriteObjects@{spriteObjects}!SpriteController@{SpriteController}}
+\doxysubsubsection{\texorpdfstring{spriteObjects}{spriteObjects}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, sf\+::\+Sprite$>$ Sprite\+Controller\+::sprite\+Objects}
+
+\mbox{\Hypertarget{struct_sprite_controller_acfc91683dc36a7adafc5af19aa70dd5f}\label{struct_sprite_controller_acfc91683dc36a7adafc5af19aa70dd5f}} 
+\index{SpriteController@{SpriteController}!textures@{textures}}
+\index{textures@{textures}!SpriteController@{SpriteController}}
+\doxysubsubsection{\texorpdfstring{textures}{textures}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, sf\+::\+Texture$>$ Sprite\+Controller\+::textures}
+
+\mbox{\Hypertarget{struct_sprite_controller_a1f0ea61b2c6a86e05a1f8e93ab09111b}\label{struct_sprite_controller_a1f0ea61b2c6a86e05a1f8e93ab09111b}} 
+\index{SpriteController@{SpriteController}!tilemap\_size@{tilemap\_size}}
+\index{tilemap\_size@{tilemap\_size}!SpriteController@{SpriteController}}
+\doxysubsubsection{\texorpdfstring{tilemap\_size}{tilemap\_size}}
+{\footnotesize\ttfamily std\+::pair$<$int, int$>$ Sprite\+Controller\+::tilemap\+\_\+size}
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Sprite\+Contoller/\mbox{\hyperlink{_sprite_controller_8hpp}{Sprite\+Controller.\+hpp}}\item 
+Sprite\+Contoller/\mbox{\hyperlink{_sprite_controller_8cpp}{Sprite\+Controller.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,57 @@
+\hypertarget{result_8hpp}{}\doxysection{external/toml/result.hpp File Reference}
+\label{result_8hpp}\index{external/toml/result.hpp@{external/toml/result.hpp}}
+{\ttfamily \#include \char`\"{}traits.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$new$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1success}{toml\+::success$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1failure}{toml\+::failure$<$ T $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1result}{toml\+::result$<$ T, E $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1none__t}{toml\+::detail\+::none\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetoml}{toml}}
+\item 
+namespace \mbox{\hyperlink{namespacetoml_1_1detail}{toml\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\success$<$ typename std\+::remove\+\_\+cv$<$ typename std\+::remove\+\_\+reference$<$ T $>$\+::type $>$\+::type $>$ \mbox{\hyperlink{namespacetoml_a6e429ce41fe363c8d981d8c929fd26f6}{toml\+::ok}} (T \&\&v)
+\item 
+{\footnotesize template$<$typename T $>$ }\\failure$<$ typename std\+::remove\+\_\+cv$<$ typename std\+::remove\+\_\+reference$<$ T $>$\+::type $>$\+::type $>$ \mbox{\hyperlink{namespacetoml_aaa49b96abbd03a5fd434e4098839efaf}{toml\+::err}} (T \&\&v)
+\item 
+success$<$ std\+::string $>$ \mbox{\hyperlink{namespacetoml_a3b84098da4d3adedec5a981c193acc42}{toml\+::ok}} (const char $\ast$literal)
+\item 
+failure$<$ std\+::string $>$ \mbox{\hyperlink{namespacetoml_afa1cf81c964183c111288be08f39982e}{toml\+::err}} (const char $\ast$literal)
+\item 
+{\footnotesize template$<$typename T , typename E $>$ }\\void \mbox{\hyperlink{namespacetoml_a1732c45ca02aef231eab61bcb0da0cd1}{toml\+::swap}} (result$<$ T, E $>$ \&lhs, result$<$ T, E $>$ \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_1_1detail_acca1a6e00fc61468632be91a176b05aa}{toml\+::detail\+::operator==}} (const none\+\_\+t \&, const none\+\_\+t \&) noexcept
+\item 
+bool \mbox{\hyperlink{namespacetoml_1_1detail_a3537431c41937e784f86fb9eaad76ca0}{toml\+::detail\+::operator!=}} (const none\+\_\+t \&, const none\+\_\+t \&) noexcept
+\item 
+bool \mbox{\hyperlink{namespacetoml_1_1detail_a7485f7981881219eb777858cdf664987}{toml\+::detail\+::operator$<$}} (const none\+\_\+t \&, const none\+\_\+t \&) noexcept
+\item 
+bool \mbox{\hyperlink{namespacetoml_1_1detail_aa34f918cd10f91bcd2e97816cf65cf9e}{toml\+::detail\+::operator$<$=}} (const none\+\_\+t \&, const none\+\_\+t \&) noexcept
+\item 
+bool \mbox{\hyperlink{namespacetoml_1_1detail_a40c65a35c7312e7659f9eef2792ebf82}{toml\+::detail\+::operator$>$}} (const none\+\_\+t \&, const none\+\_\+t \&) noexcept
+\item 
+bool \mbox{\hyperlink{namespacetoml_1_1detail_a963a4432d8f9d1ca8e46c0584146bec1}{toml\+::detail\+::operator$>$=}} (const none\+\_\+t \&, const none\+\_\+t \&) noexcept
+\item 
+{\footnotesize template$<$typename charT , typename traitsT $>$ }\\std\+::basic\+\_\+ostream$<$ charT, traitsT $>$ \& \mbox{\hyperlink{namespacetoml_1_1detail_a498c1f69bf8f9885641b4db79720e8c2}{toml\+::detail\+::operator$<$$<$}} (std\+::basic\+\_\+ostream$<$ charT, traitsT $>$ \&os, const none\+\_\+t \&)
+\item 
+failure$<$ none\+\_\+t $>$ \mbox{\hyperlink{namespacetoml_1_1detail_af16c59120242cf5708a3d4763ef84fda}{toml\+::detail\+::none}} () noexcept
+\end{DoxyCompactItemize}

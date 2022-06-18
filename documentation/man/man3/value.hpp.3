@@ -1,0 +1,150 @@
+.TH "external/toml/value.hpp" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+external/toml/value.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cassert>\fP
+.br
+\fC#include 'comments\&.hpp'\fP
+.br
+\fC#include 'exception\&.hpp'\fP
+.br
+\fC#include 'into\&.hpp'\fP
+.br
+\fC#include 'region\&.hpp'\fP
+.br
+\fC#include 'source_location\&.hpp'\fP
+.br
+\fC#include 'storage\&.hpp'\fP
+.br
+\fC#include 'traits\&.hpp'\fP
+.br
+\fC#include 'types\&.hpp'\fP
+.br
+\fC#include 'utility\&.hpp'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtoml::detail::switch_cast< T >\fP"
+.br
+.ti -1c
+.RI "class \fBtoml::basic_value< Comment, Table, Array >\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBtoml\fP"
+.br
+.ti -1c
+.RI "namespace \fBtoml::detail\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTOML11_GENERATE_SWITCH_CASTER\fP(TYPE)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "using \fBtoml::value\fP = basic_value< \fBTOML11_DEFAULT_COMMENT_STRATEGY\fP, std::unordered_map, std::vector >"
+.br
+.ti -1c
+.RI "using \fBtoml::array\fP = typename value::array_type"
+.br
+.ti -1c
+.RI "using \fBtoml::table\fP = typename value::table_type"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename Value > region_base const * \fBtoml::detail::get_region\fP (const Value &v)"
+.br
+.ti -1c
+.RI "template<typename Value > void \fBtoml::detail::change_region\fP (Value &v, region reg)"
+.br
+.ti -1c
+.RI "template<value_t Expected, typename Value > void \fBtoml::detail::throw_bad_cast\fP (const std::string &funcname, value_t actual, const Value &v)"
+.br
+.ti -1c
+.RI "template<typename Value > void \fBtoml::detail::throw_key_not_found_error\fP (const Value &v, const key &ky)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> bool \fBtoml::operator==\fP (const basic_value< C, T, A > &lhs, const basic_value< C, T, A > &rhs)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> bool \fBtoml::operator!=\fP (const basic_value< C, T, A > &lhs, const basic_value< C, T, A > &rhs)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::enable_if< detail::conjunction< detail::is_comparable< typenamebasic_value< C, T, A >::array_type >, detail::is_comparable< typenamebasic_value< C, T, A >::table_type > >::value, bool >::type \fBtoml::operator<\fP (const basic_value< C, T, A > &lhs, const basic_value< C, T, A > &rhs)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::enable_if< detail::conjunction< detail::is_comparable< typenamebasic_value< C, T, A >::array_type >, detail::is_comparable< typenamebasic_value< C, T, A >::table_type > >::value, bool >::type \fBtoml::operator<=\fP (const basic_value< C, T, A > &lhs, const basic_value< C, T, A > &rhs)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::enable_if< detail::conjunction< detail::is_comparable< typenamebasic_value< C, T, A >::array_type >, detail::is_comparable< typenamebasic_value< C, T, A >::table_type > >::value, bool >::type \fBtoml::operator>\fP (const basic_value< C, T, A > &lhs, const basic_value< C, T, A > &rhs)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::enable_if< detail::conjunction< detail::is_comparable< typenamebasic_value< C, T, A >::array_type >, detail::is_comparable< typenamebasic_value< C, T, A >::table_type > >::value, bool >::type \fBtoml::operator>=\fP (const basic_value< C, T, A > &lhs, const basic_value< C, T, A > &rhs)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::string \fBtoml::format_error\fP (const std::string &err_msg, const basic_value< C, T, A > &v, const std::string &comment, std::vector< std::string > hints={}, const bool colorize=\fBTOML11_ERROR_MESSAGE_COLORIZED\fP)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::string \fBtoml::format_error\fP (const std::string &err_msg, const \fBtoml::basic_value\fP< C, T, A > &v1, const std::string &comment1, const \fBtoml::basic_value\fP< C, T, A > &v2, const std::string &comment2, std::vector< std::string > hints={}, const bool colorize=\fBTOML11_ERROR_MESSAGE_COLORIZED\fP)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::string \fBtoml::format_error\fP (const std::string &err_msg, const \fBtoml::basic_value\fP< C, T, A > &v1, const std::string &comment1, const \fBtoml::basic_value\fP< C, T, A > &v2, const std::string &comment2, const \fBtoml::basic_value\fP< C, T, A > &v3, const std::string &comment3, std::vector< std::string > hints={}, const bool colorize=\fBTOML11_ERROR_MESSAGE_COLORIZED\fP)"
+.br
+.ti -1c
+.RI "template<typename Visitor , typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> detail::return_type_of_t< Visitor, const \fBtoml::boolean\fP & > \fBtoml::visit\fP (Visitor &&visitor, const \fBtoml::basic_value\fP< C, T, A > &v)"
+.br
+.ti -1c
+.RI "template<typename Visitor , typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> detail::return_type_of_t< Visitor, \fBtoml::boolean\fP & > \fBtoml::visit\fP (Visitor &&visitor, \fBtoml::basic_value\fP< C, T, A > &v)"
+.br
+.ti -1c
+.RI "template<typename Visitor , typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> detail::return_type_of_t< Visitor, \fBtoml::boolean\fP && > \fBtoml::visit\fP (Visitor &&visitor, \fBtoml::basic_value\fP< C, T, A > &&v)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define TOML11_GENERATE_SWITCH_CASTER(TYPE)"
+\fBValue:\fP
+.PP
+.nf
+    template<>                                                           \
+    struct switch_cast<value_t::TYPE>                                    \
+    {                                                                    \
+        template<typename Value>                                         \
+        static typename Value::TYPE##_type& invoke(Value& v)             \
+        {                                                                \
+            return v\&.as_##TYPE();                                        \
+        }                                                                \
+        template<typename Value>                                         \
+        static typename Value::TYPE##_type const& invoke(const Value& v) \
+        {                                                                \
+            return v\&.as_##TYPE();                                        \
+        }                                                                \
+        template<typename Value>                                         \
+        static typename Value::TYPE##_type&& invoke(Value&& v)           \
+        {                                                                \
+            return std::move(v)\&.as_##TYPE();                             \
+        }                                                                \
+    };                                                                   \
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

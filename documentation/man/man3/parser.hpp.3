@@ -1,0 +1,152 @@
+.TH "external/toml/parser.hpp" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+external/toml/parser.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cstring>\fP
+.br
+\fC#include <fstream>\fP
+.br
+\fC#include <sstream>\fP
+.br
+\fC#include 'combinator\&.hpp'\fP
+.br
+\fC#include 'lexer\&.hpp'\fP
+.br
+\fC#include 'region\&.hpp'\fP
+.br
+\fC#include 'result\&.hpp'\fP
+.br
+\fC#include 'types\&.hpp'\fP
+.br
+\fC#include 'value\&.hpp'\fP
+.br
+
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBtoml\fP"
+.br
+.ti -1c
+.RI "namespace \fBtoml::detail\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "result< std::pair< boolean, region >, std::string > \fBtoml::detail::parse_boolean\fP (location &loc)"
+.br
+.ti -1c
+.RI "result< std::pair< integer, region >, std::string > \fBtoml::detail::parse_binary_integer\fP (location &loc)"
+.br
+.ti -1c
+.RI "result< std::pair< integer, region >, std::string > \fBtoml::detail::parse_octal_integer\fP (location &loc)"
+.br
+.ti -1c
+.RI "result< std::pair< integer, region >, std::string > \fBtoml::detail::parse_hexadecimal_integer\fP (location &loc)"
+.br
+.ti -1c
+.RI "result< std::pair< integer, region >, std::string > \fBtoml::detail::parse_integer\fP (location &loc)"
+.br
+.ti -1c
+.RI "result< std::pair< floating, region >, std::string > \fBtoml::detail::parse_floating\fP (location &loc)"
+.br
+.ti -1c
+.RI "std::string \fBtoml::detail::read_utf8_codepoint\fP (const region &reg, const location &loc)"
+.br
+.ti -1c
+.RI "result< std::string, std::string > \fBtoml::detail::parse_escape_sequence\fP (location &loc)"
+.br
+.ti -1c
+.RI "std::ptrdiff_t \fBtoml::detail::check_utf8_validity\fP (const std::string &reg)"
+.br
+.ti -1c
+.RI "result< std::pair< \fBtoml::string\fP, region >, std::string > \fBtoml::detail::parse_ml_basic_string\fP (location &loc)"
+.br
+.ti -1c
+.RI "result< std::pair< \fBtoml::string\fP, region >, std::string > \fBtoml::detail::parse_basic_string\fP (location &loc)"
+.br
+.ti -1c
+.RI "result< std::pair< \fBtoml::string\fP, region >, std::string > \fBtoml::detail::parse_ml_literal_string\fP (location &loc)"
+.br
+.ti -1c
+.RI "result< std::pair< \fBtoml::string\fP, region >, std::string > \fBtoml::detail::parse_literal_string\fP (location &loc)"
+.br
+.ti -1c
+.RI "result< std::pair< \fBtoml::string\fP, region >, std::string > \fBtoml::detail::parse_string\fP (location &loc)"
+.br
+.ti -1c
+.RI "result< std::pair< local_date, region >, std::string > \fBtoml::detail::parse_local_date\fP (location &loc)"
+.br
+.ti -1c
+.RI "result< std::pair< local_time, region >, std::string > \fBtoml::detail::parse_local_time\fP (location &loc)"
+.br
+.ti -1c
+.RI "result< std::pair< local_datetime, region >, std::string > \fBtoml::detail::parse_local_datetime\fP (location &loc)"
+.br
+.ti -1c
+.RI "result< std::pair< offset_datetime, region >, std::string > \fBtoml::detail::parse_offset_datetime\fP (location &loc)"
+.br
+.ti -1c
+.RI "result< std::pair< key, region >, std::string > \fBtoml::detail::parse_simple_key\fP (location &loc)"
+.br
+.ti -1c
+.RI "result< std::pair< std::vector< key >, region >, std::string > \fBtoml::detail::parse_key\fP (location &loc)"
+.br
+.ti -1c
+.RI "template<typename Value > result< Value, std::string > \fBtoml::detail::parse_value\fP (location &)"
+.br
+.ti -1c
+.RI "template<typename Value > result< std::pair< typename Value::array_type, region >, std::string > \fBtoml::detail::parse_array\fP (location &loc)"
+.br
+.ti -1c
+.RI "template<typename Value > result< std::pair< std::pair< std::vector< key >, region >, Value >, std::string > \fBtoml::detail::parse_key_value_pair\fP (location &loc)"
+.br
+.ti -1c
+.RI "template<typename InputIterator > std::string \fBtoml::detail::format_dotted_keys\fP (InputIterator first, const InputIterator last)"
+.br
+.ti -1c
+.RI "result< std::pair< std::vector< key >, region >, std::string > \fBtoml::detail::parse_table_key\fP (location &loc)"
+.br
+.ti -1c
+.RI "template<typename Value > result< std::pair< typename Value::table_type, region >, std::string > \fBtoml::detail::parse_inline_table\fP (location &loc)"
+.br
+.ti -1c
+.RI "template<typename Value , typename Iterator > bool \fBtoml::detail::is_valid_forward_table_definition\fP (const Value &fwd, const Value &inserting, Iterator key_first, Iterator key_curr, Iterator key_last)"
+.br
+.ti -1c
+.RI "template<typename Value , typename InputIterator > result< bool, std::string > \fBtoml::detail::insert_nested_key\fP (typename Value::table_type &root, const Value &v, InputIterator iter, const InputIterator last, region key_reg, const bool is_array_of_table=false)"
+.br
+.ti -1c
+.RI "result< value_t, std::string > \fBtoml::detail::guess_number_type\fP (const location &l)"
+.br
+.ti -1c
+.RI "result< value_t, std::string > \fBtoml::detail::guess_value_type\fP (const location &loc)"
+.br
+.ti -1c
+.RI "template<typename Value , typename T > result< Value, std::string > \fBtoml::detail::parse_value_helper\fP (result< std::pair< T, region >, std::string > rslt)"
+.br
+.ti -1c
+.RI "result< std::pair< std::vector< key >, region >, std::string > \fBtoml::detail::parse_array_table_key\fP (location &loc)"
+.br
+.ti -1c
+.RI "template<typename Value > result< typename Value::table_type, std::string > \fBtoml::detail::parse_ml_table\fP (location &loc)"
+.br
+.ti -1c
+.RI "template<typename Value > result< Value, std::string > \fBtoml::detail::parse_toml_file\fP (location &loc)"
+.br
+.ti -1c
+.RI "template<typename Comment  = TOML11_DEFAULT_COMMENT_STRATEGY, template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> basic_value< Comment, Table, Array > \fBtoml::parse\fP (std::istream &is, const std::string &fname='unknown file')"
+.br
+.ti -1c
+.RI "template<typename Comment  = TOML11_DEFAULT_COMMENT_STRATEGY, template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> basic_value< Comment, Table, Array > \fBtoml::parse\fP (const std::string &fname)"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

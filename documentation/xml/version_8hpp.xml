@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="version_8hpp" kind="file" language="C++">
+    <compoundname>version.hpp</compoundname>
+    <includedby refid="string_8hpp" local="yes">external/toml/string.hpp</includedby>
+    <includedby refid="traits_8hpp" local="yes">external/toml/traits.hpp</includedby>
+    <includedby refid="utility_8hpp" local="yes">external/toml/utility.hpp</includedby>
+    <invincdepgraph>
+      <node id="8">
+        <label>Game/Game.cpp</label>
+        <link refid="_game_8cpp"/>
+      </node>
+      <node id="7">
+        <label>Game/Game.hpp</label>
+        <link refid="_game_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>Player/Player.cpp</label>
+        <link refid="_player_8cpp"/>
+      </node>
+      <node id="12">
+        <label>Player/Player.hpp</label>
+        <link refid="_player_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>SettingsManager/SettingsManager.cpp</label>
+        <link refid="_settings_manager_8cpp"/>
+      </node>
+      <node id="6">
+        <label>SettingsManager/SettingsManager.hpp</label>
+        <link refid="_settings_manager_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>SpriteContoller/SpriteController.cpp</label>
+        <link refid="_sprite_controller_8cpp"/>
+      </node>
+      <node id="11">
+        <label>SpriteContoller/SpriteController.hpp</label>
+        <link refid="_sprite_controller_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>external/toml.hpp</label>
+        <link refid="toml_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>external/toml/combinator.hpp</label>
+        <link refid="combinator_8hpp"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>external/toml/get.hpp</label>
+        <link refid="get_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>external/toml/lexer.hpp</label>
+        <link refid="lexer_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>external/toml/literal.hpp</label>
+        <link refid="literal_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>external/toml/parser.hpp</label>
+        <link refid="parser_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>external/toml/result.hpp</label>
+        <link refid="result_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>external/toml/serializer.hpp</label>
+        <link refid="serializer_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>external/toml/storage.hpp</label>
+        <link refid="storage_8hpp"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>external/toml/string.hpp</label>
+        <link refid="string_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>external/toml/traits.hpp</label>
+        <link refid="traits_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>external/toml/types.hpp</label>
+        <link refid="types_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>external/toml/utility.hpp</label>
+        <link refid="utility_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>external/toml/value.hpp</label>
+        <link refid="value_8hpp"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>external/toml/version.hpp</label>
+        <link refid="version_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="version_8hpp_1ae2def2b8fc1b9b5b433d98536f3e9fc0" prot="public" static="no">
+        <name>TOML11_CPLUSPLUS_STANDARD_VERSION</name>
+        <initializer>__cplusplus</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/version.hpp" line="35" column="12" bodyfile="external/toml/version.hpp" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>TOML11_VERSION_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_VERSION_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>file<sp/>checks<sp/>C++<sp/>version.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/>error<sp/>&quot;__cplusplus<sp/>is<sp/>not<sp/>defined&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Since<sp/>MSVC<sp/>does<sp/>not<sp/>define<sp/>`__cplusplus`<sp/>correctly<sp/>unless<sp/>you<sp/>pass</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>`/Zc:__cplusplus`<sp/>when<sp/>compiling,<sp/>the<sp/>workaround<sp/>macros<sp/>are<sp/>added.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Those<sp/>enables<sp/>you<sp/>to<sp/>define<sp/>version<sp/>manually<sp/>or<sp/>to<sp/>use<sp/>MSVC<sp/>specific</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>version<sp/>macro<sp/>automatically.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>value<sp/>of<sp/>`__cplusplus`<sp/>macro<sp/>is<sp/>defined<sp/>in<sp/>the<sp/>C++<sp/>standard<sp/>spec,<sp/>but</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/>MSVC<sp/>ignores<sp/>the<sp/>value,<sp/>maybe<sp/>because<sp/>of<sp/>backward<sp/>compatibility.<sp/>Instead,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">//<sp/>MSVC<sp/>defines<sp/>_MSVC_LANG<sp/>that<sp/>has<sp/>the<sp/>same<sp/>value<sp/>as<sp/>__cplusplus<sp/>defined<sp/>in</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//<sp/>the<sp/>C++<sp/>standard.<sp/>First<sp/>we<sp/>check<sp/>the<sp/>manual<sp/>version<sp/>definition,<sp/>and<sp/>then</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/>we<sp/>check<sp/>if<sp/>_MSVC_LANG<sp/>is<sp/>defined.<sp/>If<sp/>neither,<sp/>use<sp/>normal<sp/>`__cplusplus`.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/>FYI:<sp/>https://docs.microsoft.com/en-us/cpp/build/reference/zc-cplusplus?view=msvc-170</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>https://docs.microsoft.com/en-us/cpp/preprocessor/predefined-macros?view=msvc-170</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/><sp/><sp/>defined(TOML11_ENFORCE_CXX11)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>TOML11_CPLUSPLUS_STANDARD_VERSION<sp/>201103L</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(TOML11_ENFORCE_CXX14)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>TOML11_CPLUSPLUS_STANDARD_VERSION<sp/>201402L</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(TOML11_ENFORCE_CXX17)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>TOML11_CPLUSPLUS_STANDARD_VERSION<sp/>201703L</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(TOML11_ENFORCE_CXX20)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>TOML11_CPLUSPLUS_STANDARD_VERSION<sp/>202002L</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(_MSVC_LANG)<sp/>&amp;&amp;<sp/>defined(_MSC_VER)<sp/>&amp;&amp;<sp/>1910<sp/>&lt;=<sp/>_MSC_VER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>TOML11_CPLUSPLUS_STANDARD_VERSION<sp/>_MSVC_LANG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="version_8hpp_1ae2def2b8fc1b9b5b433d98536f3e9fc0" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>TOML11_CPLUSPLUS_STANDARD_VERSION<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>TOML11_CPLUSPLUS_STANDARD_VERSION<sp/>&lt;<sp/>201103L<sp/>&amp;&amp;<sp/>_MSC_VER<sp/>&lt;<sp/>1900</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/><sp/><sp/>error<sp/>&quot;toml11<sp/>requires<sp/>C++11<sp/>or<sp/>later.&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="comment">//<sp/>TOML11_VERSION_HPP</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="external/toml/version.hpp"/>
+  </compounddef>
+</doxygen>

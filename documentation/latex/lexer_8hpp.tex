@@ -1,0 +1,215 @@
+\hypertarget{lexer_8hpp}{}\doxysection{external/toml/lexer.hpp File Reference}
+\label{lexer_8hpp}\index{external/toml/lexer.hpp@{external/toml/lexer.hpp}}
+{\ttfamily \#include $<$istream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include \char`\"{}combinator.\+hpp\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetoml}{toml}}
+\item 
+namespace \mbox{\hyperlink{namespacetoml_1_1detail}{toml\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ac7bf17f8d4dc3c5659ffc3b1d658c85d}{toml\+::detail\+::lex\+\_\+wschar}} = either$<$ character$<$\textquotesingle{} \textquotesingle{}$>$, character$<$\textquotesingle{}\textbackslash{}t\textquotesingle{}$>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_aa4764c4543fe43f20ebe118900be3b4e}{toml\+::detail\+::lex\+\_\+ws}} = repeat$<$ lex\+\_\+wschar, at\+\_\+least$<$ 1 $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_aa3980f427dea6e7f32dbb27ebb0f6938}{toml\+::detail\+::lex\+\_\+newline}} = either$<$ character$<$\textquotesingle{}\textbackslash{}n\textquotesingle{}$>$, sequence$<$ character$<$\textquotesingle{}\textbackslash{}r\textquotesingle{}$>$, character$<$\textquotesingle{}\textbackslash{}n\textquotesingle{}$>$ $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a05023831e0f603bb1989173cc47eebfb}{toml\+::detail\+::lex\+\_\+lower}} = in\+\_\+range$<$ \textquotesingle{}a\textquotesingle{}, \textquotesingle{}z\textquotesingle{}$>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_af9d7fe29a21faae157bbc0abcda53d71}{toml\+::detail\+::lex\+\_\+upper}} = in\+\_\+range$<$ \textquotesingle{}A\textquotesingle{}, \textquotesingle{}Z\textquotesingle{}$>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ae3b5c20d0cbf39902d96aed0f277ad29}{toml\+::detail\+::lex\+\_\+alpha}} = either$<$ lex\+\_\+lower, lex\+\_\+upper $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a2b4ff1a83c2fd653a41fee9c2f99ef85}{toml\+::detail\+::lex\+\_\+digit}} = in\+\_\+range$<$ \textquotesingle{}0\textquotesingle{}, \textquotesingle{}9\textquotesingle{}$>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ad001fcd65e7b382be5e6663c3e67a5f5}{toml\+::detail\+::lex\+\_\+nonzero}} = in\+\_\+range$<$ \textquotesingle{}1\textquotesingle{}, \textquotesingle{}9\textquotesingle{}$>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_af15582df216f73c6dd408250079d3dd2}{toml\+::detail\+::lex\+\_\+oct\+\_\+dig}} = in\+\_\+range$<$ \textquotesingle{}0\textquotesingle{}, \textquotesingle{}7\textquotesingle{}$>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a0635206174bdcd7655b68381085eb069}{toml\+::detail\+::lex\+\_\+bin\+\_\+dig}} = in\+\_\+range$<$ \textquotesingle{}0\textquotesingle{}, \textquotesingle{}1\textquotesingle{}$>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a025148279b3ac493b7d4580c46234c6b}{toml\+::detail\+::lex\+\_\+hex\+\_\+dig}} = either$<$ lex\+\_\+digit, in\+\_\+range$<$ \textquotesingle{}A\textquotesingle{}, \textquotesingle{}F\textquotesingle{}$>$, in\+\_\+range$<$ \textquotesingle{}a\textquotesingle{}, \textquotesingle{}f\textquotesingle{}$>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_afd5521d961afa561b2afb6e548a039fa}{toml\+::detail\+::lex\+\_\+hex\+\_\+prefix}} = sequence$<$ character$<$ \textquotesingle{}0\textquotesingle{}$>$, character$<$ \textquotesingle{}x\textquotesingle{}$>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a499f9a36f3343d3f17e5a7153e3bf59e}{toml\+::detail\+::lex\+\_\+oct\+\_\+prefix}} = sequence$<$ character$<$ \textquotesingle{}0\textquotesingle{}$>$, character$<$ \textquotesingle{}o\textquotesingle{}$>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a3f18b89dab3284a619f05d13f85a2768}{toml\+::detail\+::lex\+\_\+bin\+\_\+prefix}} = sequence$<$ character$<$ \textquotesingle{}0\textquotesingle{}$>$, character$<$ \textquotesingle{}b\textquotesingle{}$>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ae6ea8729a358b4358013a26f2c5ad7f6}{toml\+::detail\+::lex\+\_\+underscore}} = character$<$ \textquotesingle{}\+\_\+\textquotesingle{}$>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a71761487f89b65f7d6b8651c2502c862}{toml\+::detail\+::lex\+\_\+plus}} = character$<$\textquotesingle{}+\textquotesingle{}$>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a4d77ce0fb97c15898c8147f6e00e09c1}{toml\+::detail\+::lex\+\_\+minus}} = character$<$\textquotesingle{}-\/\textquotesingle{}$>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_aa460f848608f0e2e574793cddc0573bf}{toml\+::detail\+::lex\+\_\+sign}} = either$<$ lex\+\_\+plus, lex\+\_\+minus $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a428ef9ab81fcee23dcaee8d26b60519b}{toml\+::detail\+::lex\+\_\+unsigned\+\_\+dec\+\_\+int}} = either$<$ sequence$<$ lex\+\_\+nonzero, repeat$<$ either$<$ lex\+\_\+digit, sequence$<$ lex\+\_\+underscore, lex\+\_\+digit $>$ $>$, at\+\_\+least$<$ 1 $>$ $>$ $>$, lex\+\_\+digit $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_aae64ab0b317cac4c0d292cb7f3bbb148}{toml\+::detail\+::lex\+\_\+dec\+\_\+int}} = sequence$<$ maybe$<$ lex\+\_\+sign $>$, lex\+\_\+unsigned\+\_\+dec\+\_\+int $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a984b36f711b1f2ce0efb7727780711b2}{toml\+::detail\+::lex\+\_\+hex\+\_\+int}} = sequence$<$ lex\+\_\+hex\+\_\+prefix, sequence$<$ lex\+\_\+hex\+\_\+dig, repeat$<$ either$<$ lex\+\_\+hex\+\_\+dig, sequence$<$ lex\+\_\+underscore, lex\+\_\+hex\+\_\+dig $>$ $>$, unlimited $>$ $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a2dbbc06428b2f620dff747c8ad025296}{toml\+::detail\+::lex\+\_\+oct\+\_\+int}} = sequence$<$ lex\+\_\+oct\+\_\+prefix, sequence$<$ lex\+\_\+oct\+\_\+dig, repeat$<$ either$<$ lex\+\_\+oct\+\_\+dig, sequence$<$ lex\+\_\+underscore, lex\+\_\+oct\+\_\+dig $>$ $>$, unlimited $>$ $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_af013ea8ff098f4f4673379e03cc6b3c8}{toml\+::detail\+::lex\+\_\+bin\+\_\+int}} = sequence$<$ lex\+\_\+bin\+\_\+prefix, sequence$<$ lex\+\_\+bin\+\_\+dig, repeat$<$ either$<$ lex\+\_\+bin\+\_\+dig, sequence$<$ lex\+\_\+underscore, lex\+\_\+bin\+\_\+dig $>$ $>$, unlimited $>$ $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a6561b4b85190a1372db3b5ebf8d907ca}{toml\+::detail\+::lex\+\_\+integer}} = either$<$ lex\+\_\+bin\+\_\+int, lex\+\_\+oct\+\_\+int, lex\+\_\+hex\+\_\+int, lex\+\_\+dec\+\_\+int $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a8e0525edc60ce7d086afba1156c253a5}{toml\+::detail\+::lex\+\_\+inf}} = sequence$<$ character$<$ \textquotesingle{}i\textquotesingle{}$>$, character$<$ \textquotesingle{}n\textquotesingle{}$>$, character$<$ \textquotesingle{}f\textquotesingle{}$>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a71a34c099e0e9f0ab093d0ea1b12f40b}{toml\+::detail\+::lex\+\_\+nan}} = sequence$<$ character$<$ \textquotesingle{}n\textquotesingle{}$>$, character$<$ \textquotesingle{}a\textquotesingle{}$>$, character$<$ \textquotesingle{}n\textquotesingle{}$>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a36dd3c356538a06bf772dff1f68f4395}{toml\+::detail\+::lex\+\_\+special\+\_\+float}} = sequence$<$ maybe$<$ lex\+\_\+sign $>$, either$<$ lex\+\_\+inf, lex\+\_\+nan $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_aa25d4ba275ae1f40af543f5022a92e03}{toml\+::detail\+::lex\+\_\+zero\+\_\+prefixable\+\_\+int}} = sequence$<$ lex\+\_\+digit, repeat$<$ either$<$ lex\+\_\+digit, sequence$<$ lex\+\_\+underscore, lex\+\_\+digit $>$ $>$, unlimited $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a85db68fd0ff4f3e8ef5e2f724c69b2ae}{toml\+::detail\+::lex\+\_\+fractional\+\_\+part}} = sequence$<$ character$<$\textquotesingle{}.\textquotesingle{}$>$, lex\+\_\+zero\+\_\+prefixable\+\_\+int $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a31a412a6d30f145052736c2146caa537}{toml\+::detail\+::lex\+\_\+exponent\+\_\+part}} = sequence$<$ either$<$ character$<$ \textquotesingle{}e\textquotesingle{}$>$, character$<$ \textquotesingle{}E\textquotesingle{}$>$ $>$, maybe$<$ lex\+\_\+sign $>$, lex\+\_\+zero\+\_\+prefixable\+\_\+int $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a8daef6997b8b736e5ab84cc87a098faa}{toml\+::detail\+::lex\+\_\+float}} = either$<$ lex\+\_\+special\+\_\+float, sequence$<$ lex\+\_\+dec\+\_\+int, either$<$ lex\+\_\+exponent\+\_\+part, sequence$<$ lex\+\_\+fractional\+\_\+part, maybe$<$ lex\+\_\+exponent\+\_\+part $>$ $>$ $>$ $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a919c004ab6fcf386a48dc1d9f8c14810}{toml\+::detail\+::lex\+\_\+true}} = sequence$<$ character$<$ \textquotesingle{}t\textquotesingle{}$>$, character$<$ \textquotesingle{}r\textquotesingle{}$>$, character$<$ \textquotesingle{}u\textquotesingle{}$>$, character$<$ \textquotesingle{}e\textquotesingle{}$>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a0ecb9049d53f96fdcb8a4197cee1f1cd}{toml\+::detail\+::lex\+\_\+false}} = sequence$<$ character$<$ \textquotesingle{}f\textquotesingle{}$>$, character$<$ \textquotesingle{}a\textquotesingle{}$>$, character$<$ \textquotesingle{}l\textquotesingle{}$>$, character$<$ \textquotesingle{}s\textquotesingle{}$>$, character$<$ \textquotesingle{}e\textquotesingle{}$>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a7671328f8aa5111c17690007785740a8}{toml\+::detail\+::lex\+\_\+boolean}} = either$<$ lex\+\_\+true, lex\+\_\+false $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ae9ba25a0cf44d45f938633d9f98497f7}{toml\+::detail\+::lex\+\_\+date\+\_\+fullyear}} = repeat$<$ lex\+\_\+digit, exactly$<$ 4 $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a927136439b70b42ecd3ba8a0ab3f7974}{toml\+::detail\+::lex\+\_\+date\+\_\+month}} = repeat$<$ lex\+\_\+digit, exactly$<$ 2 $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ab2c0719100fa8a864ddb2c96498f9d70}{toml\+::detail\+::lex\+\_\+date\+\_\+mday}} = repeat$<$ lex\+\_\+digit, exactly$<$ 2 $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_afee91a1bbf934a673353a6c0b8f7399b}{toml\+::detail\+::lex\+\_\+time\+\_\+delim}} = either$<$ character$<$ \textquotesingle{}T\textquotesingle{}$>$, character$<$ \textquotesingle{}t\textquotesingle{}$>$, character$<$\textquotesingle{} \textquotesingle{}$>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_acb4f25d375836faf1f80d8d3e0e38048}{toml\+::detail\+::lex\+\_\+time\+\_\+hour}} = repeat$<$ lex\+\_\+digit, exactly$<$ 2 $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a2a1352d8b03359d2fb4a3ee4d8ec2257}{toml\+::detail\+::lex\+\_\+time\+\_\+minute}} = repeat$<$ lex\+\_\+digit, exactly$<$ 2 $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ad8e7380ce04876377c1bfbaea7a3e6f2}{toml\+::detail\+::lex\+\_\+time\+\_\+second}} = repeat$<$ lex\+\_\+digit, exactly$<$ 2 $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a1a93d2909adf93573ffd035aa3f10049}{toml\+::detail\+::lex\+\_\+time\+\_\+secfrac}} = sequence$<$ character$<$\textquotesingle{}.\textquotesingle{}$>$, repeat$<$ lex\+\_\+digit, at\+\_\+least$<$ 1 $>$ $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a1181e3129c03e74c99f3c472717feeb6}{toml\+::detail\+::lex\+\_\+time\+\_\+numoffset}} = sequence$<$ either$<$ character$<$\textquotesingle{}+\textquotesingle{}$>$, character$<$\textquotesingle{}-\/\textquotesingle{}$>$ $>$, sequence$<$ lex\+\_\+time\+\_\+hour, character$<$\textquotesingle{}\+:\textquotesingle{}$>$, lex\+\_\+time\+\_\+minute $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ae504e6a2cc016902020170f268a49684}{toml\+::detail\+::lex\+\_\+time\+\_\+offset}} = either$<$ character$<$ \textquotesingle{}Z\textquotesingle{}$>$, character$<$ \textquotesingle{}z\textquotesingle{}$>$, lex\+\_\+time\+\_\+numoffset $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_aecd31d8cb2a83b8531651eb372e7fb9e}{toml\+::detail\+::lex\+\_\+partial\+\_\+time}} = sequence$<$ lex\+\_\+time\+\_\+hour, character$<$\textquotesingle{}\+:\textquotesingle{}$>$, lex\+\_\+time\+\_\+minute, character$<$\textquotesingle{}\+:\textquotesingle{}$>$, lex\+\_\+time\+\_\+second, maybe$<$ lex\+\_\+time\+\_\+secfrac $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_acdbe275e956596491a7484a80412d304}{toml\+::detail\+::lex\+\_\+full\+\_\+date}} = sequence$<$ lex\+\_\+date\+\_\+fullyear, character$<$\textquotesingle{}-\/\textquotesingle{}$>$, lex\+\_\+date\+\_\+month, character$<$\textquotesingle{}-\/\textquotesingle{}$>$, lex\+\_\+date\+\_\+mday $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a9202d92a5fb9cca4c3104822a77aca5a}{toml\+::detail\+::lex\+\_\+full\+\_\+time}} = sequence$<$ lex\+\_\+partial\+\_\+time, lex\+\_\+time\+\_\+offset $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a62943f99ac9f409472e9c96a66caf974}{toml\+::detail\+::lex\+\_\+offset\+\_\+date\+\_\+time}} = sequence$<$ lex\+\_\+full\+\_\+date, lex\+\_\+time\+\_\+delim, lex\+\_\+full\+\_\+time $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a297d9b07170f58b25a5117ac392ad6c6}{toml\+::detail\+::lex\+\_\+local\+\_\+date\+\_\+time}} = sequence$<$ lex\+\_\+full\+\_\+date, lex\+\_\+time\+\_\+delim, lex\+\_\+partial\+\_\+time $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ad11561967410e3c654ad739a2f587a7d}{toml\+::detail\+::lex\+\_\+local\+\_\+date}} = lex\+\_\+full\+\_\+date
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_af6ea0012fec43b41013072d3d53549cd}{toml\+::detail\+::lex\+\_\+local\+\_\+time}} = lex\+\_\+partial\+\_\+time
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a3155594677bd8c4e38274fe77355010c}{toml\+::detail\+::lex\+\_\+quotation\+\_\+mark}} = character$<$\textquotesingle{}\char`\"{}\textquotesingle{}$>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_aec1294963c6ef5431b4cfc6c86d002c5}{toml\+::detail\+::lex\+\_\+basic\+\_\+unescaped}} = exclude$<$ either$<$ in\+\_\+range$<$ 0x00, 0x08 $>$, in\+\_\+range$<$ 0x0A, 0x1F $>$, character$<$ 0x22 $>$, character$<$ 0x5C $>$, character$<$ 0x7F $>$ $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a2eb5cf3923397dc92772022fef312184}{toml\+::detail\+::lex\+\_\+escape}} = character$<$\textquotesingle{}\textbackslash{}\textbackslash{}\textquotesingle{}$>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ac358f0ec9f2cca0f88f3474fe90eb24e}{toml\+::detail\+::lex\+\_\+escape\+\_\+unicode\+\_\+short}} = sequence$<$ character$<$ \textquotesingle{}u\textquotesingle{}$>$, repeat$<$ lex\+\_\+hex\+\_\+dig, exactly$<$ 4 $>$ $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a8ab53c0a704f3bbb59ba1e2a32df69d5}{toml\+::detail\+::lex\+\_\+escape\+\_\+unicode\+\_\+long}} = sequence$<$ character$<$ \textquotesingle{}U\textquotesingle{}$>$, repeat$<$ lex\+\_\+hex\+\_\+dig, exactly$<$ 8 $>$ $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a81932b240b8a893c27d09e8edad50793}{toml\+::detail\+::lex\+\_\+escape\+\_\+seq\+\_\+char}} = either$<$ character$<$\textquotesingle{}\char`\"{}\textquotesingle{}$>$, character$<$\textquotesingle{}\textbackslash{}\textbackslash{}\textquotesingle{}$>$, character$<$\textquotesingle{}b\textquotesingle{}$>$, character$<$\textquotesingle{}f\textquotesingle{}$>$, character$<$\textquotesingle{}n\textquotesingle{}$>$, character$<$\textquotesingle{}r\textquotesingle{}$>$, character$<$\textquotesingle{}t\textquotesingle{}$>$, lex\+\_\+escape\+\_\+unicode\+\_\+short, lex\+\_\+escape\+\_\+unicode\+\_\+long $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a29d9dc51d2881df91b5b6acd76b6162a}{toml\+::detail\+::lex\+\_\+escaped}} = sequence$<$ lex\+\_\+escape, lex\+\_\+escape\+\_\+seq\+\_\+char $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_aebadf1c44accc5bcbc937d7deb8926b2}{toml\+::detail\+::lex\+\_\+basic\+\_\+char}} = either$<$ lex\+\_\+basic\+\_\+unescaped, lex\+\_\+escaped $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ae49b0e275794a4261393ae7690ad97c0}{toml\+::detail\+::lex\+\_\+basic\+\_\+string}} = sequence$<$ lex\+\_\+quotation\+\_\+mark, repeat$<$ lex\+\_\+basic\+\_\+char, unlimited $>$, lex\+\_\+quotation\+\_\+mark $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ad7dd527e55b4f43d1ffd185706ddd563}{toml\+::detail\+::lex\+\_\+ml\+\_\+basic\+\_\+string\+\_\+delim}} = repeat$<$ lex\+\_\+quotation\+\_\+mark, exactly$<$ 3 $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a4710bfd179a92890b7dc420ad906398c}{toml\+::detail\+::lex\+\_\+ml\+\_\+basic\+\_\+string\+\_\+open}} = lex\+\_\+ml\+\_\+basic\+\_\+string\+\_\+delim
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_af10a68ab50933e48e42cb07e199b8026}{toml\+::detail\+::lex\+\_\+ml\+\_\+basic\+\_\+string\+\_\+close}} = sequence$<$ repeat$<$ lex\+\_\+quotation\+\_\+mark, exactly$<$ 3 $>$ $>$, maybe$<$ lex\+\_\+quotation\+\_\+mark $>$, maybe$<$ lex\+\_\+quotation\+\_\+mark $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a0f30233a80f10f9476f05b3521c399e4}{toml\+::detail\+::lex\+\_\+ml\+\_\+basic\+\_\+unescaped}} = exclude$<$ either$<$ in\+\_\+range$<$ 0x00, 0x08 $>$, in\+\_\+range$<$ 0x0A, 0x1F $>$, character$<$ 0x5C $>$, character$<$ 0x7F $>$, lex\+\_\+ml\+\_\+basic\+\_\+string\+\_\+delim $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ad93723b727428250409beb0def53e052}{toml\+::detail\+::lex\+\_\+ml\+\_\+basic\+\_\+escaped\+\_\+newline}} = sequence$<$ lex\+\_\+escape, maybe$<$ lex\+\_\+ws $>$, lex\+\_\+newline, repeat$<$ either$<$ lex\+\_\+ws, lex\+\_\+newline $>$, unlimited $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a5f3752922415e8ffccef5b94da334277}{toml\+::detail\+::lex\+\_\+ml\+\_\+basic\+\_\+char}} = either$<$ lex\+\_\+ml\+\_\+basic\+\_\+unescaped, lex\+\_\+escaped $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a699b6ace625229fd4a59ddfc20540afb}{toml\+::detail\+::lex\+\_\+ml\+\_\+basic\+\_\+body}} = repeat$<$ either$<$ lex\+\_\+ml\+\_\+basic\+\_\+char, lex\+\_\+newline, lex\+\_\+ml\+\_\+basic\+\_\+escaped\+\_\+newline $>$, unlimited $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ad3e7c1125bde7cd94c488fec04709840}{toml\+::detail\+::lex\+\_\+ml\+\_\+basic\+\_\+string}} = sequence$<$ lex\+\_\+ml\+\_\+basic\+\_\+string\+\_\+open, lex\+\_\+ml\+\_\+basic\+\_\+body, lex\+\_\+ml\+\_\+basic\+\_\+string\+\_\+close $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a2196adf6c5a859a0e7c116e95e74a228}{toml\+::detail\+::lex\+\_\+literal\+\_\+char}} = exclude$<$ either$<$ in\+\_\+range$<$ 0x00, 0x08 $>$, in\+\_\+range$<$ 0x0A, 0x1F $>$, character$<$ 0x7F $>$, character$<$ 0x27 $>$ $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ae5158b05e0137f8955716b4ec9817721}{toml\+::detail\+::lex\+\_\+apostrophe}} = character$<$\textquotesingle{}\textbackslash{}\textquotesingle{}\textquotesingle{}$>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a855add8c630c2f39425aa6cdef64ff81}{toml\+::detail\+::lex\+\_\+literal\+\_\+string}} = sequence$<$ lex\+\_\+apostrophe, repeat$<$ lex\+\_\+literal\+\_\+char, unlimited $>$, lex\+\_\+apostrophe $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ab7e7de5eb5ff6f317fdbb2905fa65596}{toml\+::detail\+::lex\+\_\+ml\+\_\+literal\+\_\+string\+\_\+delim}} = repeat$<$ lex\+\_\+apostrophe, exactly$<$ 3 $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a9398cd7ca0c3d28d1e0713875342e45d}{toml\+::detail\+::lex\+\_\+ml\+\_\+literal\+\_\+string\+\_\+open}} = lex\+\_\+ml\+\_\+literal\+\_\+string\+\_\+delim
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a370721aed5cba52722117a2392488315}{toml\+::detail\+::lex\+\_\+ml\+\_\+literal\+\_\+string\+\_\+close}} = sequence$<$ repeat$<$ lex\+\_\+apostrophe, exactly$<$ 3 $>$ $>$, maybe$<$ lex\+\_\+apostrophe $>$, maybe$<$ lex\+\_\+apostrophe $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a56eeb7e4da5b0e753b007b1d589979c4}{toml\+::detail\+::lex\+\_\+ml\+\_\+literal\+\_\+char}} = exclude$<$ either$<$ in\+\_\+range$<$ 0x00, 0x08 $>$, in\+\_\+range$<$ 0x0A, 0x1F $>$, character$<$ 0x7F $>$, lex\+\_\+ml\+\_\+literal\+\_\+string\+\_\+delim $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a165d3115d9b0d12e9504905f1b60a98e}{toml\+::detail\+::lex\+\_\+ml\+\_\+literal\+\_\+body}} = repeat$<$ either$<$ lex\+\_\+ml\+\_\+literal\+\_\+char, lex\+\_\+newline $>$, unlimited $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_af9cd6a5bf2796cd269fea48ceff84e5a}{toml\+::detail\+::lex\+\_\+ml\+\_\+literal\+\_\+string}} = sequence$<$ lex\+\_\+ml\+\_\+literal\+\_\+string\+\_\+open, lex\+\_\+ml\+\_\+literal\+\_\+body, lex\+\_\+ml\+\_\+literal\+\_\+string\+\_\+close $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a3d9ae3795483e46cecfdfb59dd7f7100}{toml\+::detail\+::lex\+\_\+string}} = either$<$ lex\+\_\+ml\+\_\+basic\+\_\+string, lex\+\_\+basic\+\_\+string, lex\+\_\+ml\+\_\+literal\+\_\+string, lex\+\_\+literal\+\_\+string $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a64aaca38f4bfe70571cbc5617d819882}{toml\+::detail\+::lex\+\_\+dot\+\_\+sep}} = sequence$<$ maybe$<$ lex\+\_\+ws $>$, character$<$\textquotesingle{}.\textquotesingle{}$>$, maybe$<$ lex\+\_\+ws $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a2f702d4313fe2ac67fd0c2f1742dcce5}{toml\+::detail\+::lex\+\_\+unquoted\+\_\+key}} = repeat$<$ either$<$ lex\+\_\+alpha, lex\+\_\+digit, character$<$\textquotesingle{}-\/\textquotesingle{}$>$, character$<$ \textquotesingle{}\+\_\+\textquotesingle{}$>$ $>$, at\+\_\+least$<$ 1 $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a3a4513e58ef451b84323b8b0c3a258de}{toml\+::detail\+::lex\+\_\+quoted\+\_\+key}} = either$<$ lex\+\_\+basic\+\_\+string, lex\+\_\+literal\+\_\+string $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ae93b1903493d646ec1a140235464f1d4}{toml\+::detail\+::lex\+\_\+simple\+\_\+key}} = either$<$ lex\+\_\+unquoted\+\_\+key, lex\+\_\+quoted\+\_\+key $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a4ee49b15200140685dfa0af9d047bfac}{toml\+::detail\+::lex\+\_\+dotted\+\_\+key}} = sequence$<$ lex\+\_\+simple\+\_\+key, repeat$<$ sequence$<$ lex\+\_\+dot\+\_\+sep, lex\+\_\+simple\+\_\+key $>$, at\+\_\+least$<$ 1 $>$ $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ac618265e125df43229e410c901e2040b}{toml\+::detail\+::lex\+\_\+key}} = either$<$ lex\+\_\+dotted\+\_\+key, lex\+\_\+simple\+\_\+key $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ab50a41870ad72a264ceacdadb1a7b2eb}{toml\+::detail\+::lex\+\_\+keyval\+\_\+sep}} = sequence$<$ maybe$<$ lex\+\_\+ws $>$, character$<$\textquotesingle{}=\textquotesingle{}$>$, maybe$<$ lex\+\_\+ws $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_ac09b022c3f7396f40a68c22e4a3994f4}{toml\+::detail\+::lex\+\_\+std\+\_\+table\+\_\+open}} = character$<$\textquotesingle{}\mbox{[}\textquotesingle{}$>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a7247c6d4cced8521dc414f7298b4b3cc}{toml\+::detail\+::lex\+\_\+std\+\_\+table\+\_\+close}} = character$<$\textquotesingle{}\mbox{]}\textquotesingle{}$>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a08384b38e2ca12c2cba506823b8cca99}{toml\+::detail\+::lex\+\_\+std\+\_\+table}} = sequence$<$ lex\+\_\+std\+\_\+table\+\_\+open, maybe$<$ lex\+\_\+ws $>$, lex\+\_\+key, maybe$<$ lex\+\_\+ws $>$, lex\+\_\+std\+\_\+table\+\_\+close $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a3adf2405694d9ad9c6bc96ac09bc9480}{toml\+::detail\+::lex\+\_\+array\+\_\+table\+\_\+open}} = sequence$<$ lex\+\_\+std\+\_\+table\+\_\+open, lex\+\_\+std\+\_\+table\+\_\+open $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_af880914dd476983a64559a8d0b5f37ce}{toml\+::detail\+::lex\+\_\+array\+\_\+table\+\_\+close}} = sequence$<$ lex\+\_\+std\+\_\+table\+\_\+close, lex\+\_\+std\+\_\+table\+\_\+close $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a4a390c5b8558d9567b4b7a2200f9b687}{toml\+::detail\+::lex\+\_\+array\+\_\+table}} = sequence$<$ lex\+\_\+array\+\_\+table\+\_\+open, maybe$<$ lex\+\_\+ws $>$, lex\+\_\+key, maybe$<$ lex\+\_\+ws $>$, lex\+\_\+array\+\_\+table\+\_\+close $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a261b193aa8c2b7d6a4a1a6b3979fdf8b}{toml\+::detail\+::lex\+\_\+utf8\+\_\+1byte}} = in\+\_\+range$<$ 0x00, 0x7F $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a4eca73034e806b3ab59e82084a7c2712}{toml\+::detail\+::lex\+\_\+utf8\+\_\+2byte}} = sequence$<$ in\+\_\+range$<$ static\+\_\+cast$<$ char $>$(0x\+C2), static\+\_\+cast$<$ char $>$(0x\+DF)$>$, in\+\_\+range$<$ static\+\_\+cast$<$ char $>$(0x80), static\+\_\+cast$<$ char $>$(0x\+BF)$>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a38aa1626200c3489422eb632252c7885}{toml\+::detail\+::lex\+\_\+utf8\+\_\+3byte}} = sequence$<$ either$<$ sequence$<$ character$<$ static\+\_\+cast$<$ char $>$(0x\+E0)$>$, in\+\_\+range$<$ static\+\_\+cast$<$ char $>$(0x\+A0), static\+\_\+cast$<$ char $>$(0x\+BF)$>$ $>$, sequence$<$ in\+\_\+range$<$ static\+\_\+cast$<$ char $>$(0x\+E1), static\+\_\+cast$<$ char $>$(0x\+EC)$>$, in\+\_\+range$<$ static\+\_\+cast$<$ char $>$(0x80), static\+\_\+cast$<$ char $>$(0x\+BF)$>$ $>$, sequence$<$ character$<$ static\+\_\+cast$<$ char $>$(0x\+ED)$>$, in\+\_\+range$<$ static\+\_\+cast$<$ char $>$(0x80), static\+\_\+cast$<$ char $>$(0x9F)$>$ $>$, sequence$<$ in\+\_\+range$<$ static\+\_\+cast$<$ char $>$(0x\+EE), static\+\_\+cast$<$ char $>$(0x\+EF)$>$, in\+\_\+range$<$ static\+\_\+cast$<$ char $>$(0x80), static\+\_\+cast$<$ char $>$(0x\+BF)$>$ $>$ $>$, in\+\_\+range$<$ static\+\_\+cast$<$ char $>$(0x80), static\+\_\+cast$<$ char $>$(0x\+BF)$>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_afb49d12e7def5e88f9e18b38b9f8c84e}{toml\+::detail\+::lex\+\_\+utf8\+\_\+4byte}} = sequence$<$ either$<$ sequence$<$ character$<$ static\+\_\+cast$<$ char $>$(0x\+F0)$>$, in\+\_\+range$<$ static\+\_\+cast$<$ char $>$(0x90), static\+\_\+cast$<$ char $>$(0x\+BF)$>$ $>$, sequence$<$ in\+\_\+range$<$ static\+\_\+cast$<$ char $>$(0x\+F1), static\+\_\+cast$<$ char $>$(0x\+F3)$>$, in\+\_\+range$<$ static\+\_\+cast$<$ char $>$(0x80), static\+\_\+cast$<$ char $>$(0x\+BF)$>$ $>$, sequence$<$ character$<$ static\+\_\+cast$<$ char $>$(0x\+F4)$>$, in\+\_\+range$<$ static\+\_\+cast$<$ char $>$(0x80), static\+\_\+cast$<$ char $>$(0x8F)$>$ $>$ $>$, in\+\_\+range$<$ static\+\_\+cast$<$ char $>$(0x80), static\+\_\+cast$<$ char $>$(0x\+BF)$>$, in\+\_\+range$<$ static\+\_\+cast$<$ char $>$(0x80), static\+\_\+cast$<$ char $>$(0x\+BF)$>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_abf47de50b232d85be96528a76e4e0dd0}{toml\+::detail\+::lex\+\_\+utf8\+\_\+code}} = either$<$ lex\+\_\+utf8\+\_\+1byte, lex\+\_\+utf8\+\_\+2byte, lex\+\_\+utf8\+\_\+3byte, lex\+\_\+utf8\+\_\+4byte $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a1bb9446a7558b22fe5b51436a7a0d771}{toml\+::detail\+::lex\+\_\+comment\+\_\+start\+\_\+symbol}} = character$<$\textquotesingle{}\#\textquotesingle{}$>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_acfdbc55f5cd14fc8a973248e9cede270}{toml\+::detail\+::lex\+\_\+non\+\_\+eol\+\_\+ascii}} = either$<$ character$<$ 0x09 $>$, in\+\_\+range$<$ 0x20, 0x7E $>$ $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_1_1detail_a912468f3d502bd2135ca6b61b947347a}{toml\+::detail\+::lex\+\_\+comment}} = sequence$<$ lex\+\_\+comment\+\_\+start\+\_\+symbol, repeat$<$ either$<$ lex\+\_\+non\+\_\+eol\+\_\+ascii, lex\+\_\+utf8\+\_\+2byte, lex\+\_\+utf8\+\_\+3byte, lex\+\_\+utf8\+\_\+4byte $>$, unlimited $>$ $>$
+\end{DoxyCompactItemize}

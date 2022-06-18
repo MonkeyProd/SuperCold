@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1in__range" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::in_range</compoundname>
+    <includes refid="combinator_8hpp" local="no">combinator.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>char</type>
+        <declname>Low</declname>
+        <defname>Low</defname>
+      </param>
+      <param>
+        <type>char</type>
+        <declname>Up</declname>
+        <defname>Up</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structtoml_1_1detail_1_1in__range_1af134b9bec2b5ad95b1948b7281c79265" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr char</type>
+        <definition>constexpr char toml::detail::in_range&lt; L, U &gt;::upper</definition>
+        <argsstring></argsstring>
+        <name>upper</name>
+        <qualifiedname>toml::detail::in_range::upper</qualifiedname>
+        <initializer>= Up</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/combinator.hpp" line="87" column="27" bodyfile="external/toml/combinator.hpp" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtoml_1_1detail_1_1in__range_1acabc43c5b9b742134cf6f1c6b7cc0707" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr char</type>
+        <definition>constexpr char toml::detail::in_range&lt; L, U &gt;::lower</definition>
+        <argsstring></argsstring>
+        <name>lower</name>
+        <qualifiedname>toml::detail::in_range::lower</qualifiedname>
+        <initializer>= Low</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/combinator.hpp" line="88" column="27" bodyfile="external/toml/combinator.hpp" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structtoml_1_1detail_1_1in__range_1a54e0c96642e26f3faf3521cae04cd7e6" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1result" kindref="compound">result</ref>&lt; <ref refid="structtoml_1_1detail_1_1region" kindref="compound">region</ref>, <ref refid="structtoml_1_1detail_1_1none__t" kindref="compound">none_t</ref> &gt;</type>
+        <definition>static result&lt; region, none_t &gt; toml::detail::in_range&lt; Low, Up &gt;::invoke</definition>
+        <argsstring>(location &amp;loc)</argsstring>
+        <name>invoke</name>
+        <qualifiedname>toml::detail::in_range::invoke</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1location" kindref="compound">location</ref> &amp;</type>
+          <declname>loc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/combinator.hpp" line="91" column="5" bodyfile="external/toml/combinator.hpp" bodystart="91" bodyend="104"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/combinator.hpp" line="82" column="1" bodyfile="external/toml/combinator.hpp" bodystart="83" bodyend="105"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1detail_1_1in__range_1a54e0c96642e26f3faf3521cae04cd7e6" prot="public" virt="non-virtual"><scope>toml::detail::in_range</scope><name>invoke</name></member>
+      <member refid="structtoml_1_1detail_1_1in__range_1acabc43c5b9b742134cf6f1c6b7cc0707" prot="public" virt="non-virtual"><scope>toml::detail::in_range</scope><name>lower</name></member>
+      <member refid="structtoml_1_1detail_1_1in__range_1af134b9bec2b5ad95b1948b7281c79265" prot="public" virt="non-virtual"><scope>toml::detail::in_range</scope><name>upper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

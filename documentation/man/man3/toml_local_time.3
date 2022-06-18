@@ -1,0 +1,108 @@
+.TH "toml::local_time" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::local_time
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <datetime\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBlocal_time\fP (int h, int m, int s, int ms=0, int us=0, int ns=0)"
+.br
+.ti -1c
+.RI "\fBlocal_time\fP (const std::tm &t)"
+.br
+.ti -1c
+.RI "template<typename Rep , typename Period > \fBlocal_time\fP (const std::chrono::duration< Rep, Period > &t)"
+.br
+.ti -1c
+.RI "\fBoperator std::chrono::nanoseconds\fP () const"
+.br
+.ti -1c
+.RI "\fBlocal_time\fP ()=default"
+.br
+.ti -1c
+.RI "\fB~local_time\fP ()=default"
+.br
+.ti -1c
+.RI "\fBlocal_time\fP (\fBlocal_time\fP const &)=default"
+.br
+.ti -1c
+.RI "\fBlocal_time\fP (\fBlocal_time\fP &&)=default"
+.br
+.ti -1c
+.RI "\fBlocal_time\fP & \fBoperator=\fP (\fBlocal_time\fP const &)=default"
+.br
+.ti -1c
+.RI "\fBlocal_time\fP & \fBoperator=\fP (\fBlocal_time\fP &&)=default"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::uint8_t \fBhour\fP"
+.br
+.ti -1c
+.RI "std::uint8_t \fBminute\fP"
+.br
+.ti -1c
+.RI "std::uint8_t \fBsecond\fP"
+.br
+.ti -1c
+.RI "std::uint16_t \fBmillisecond\fP"
+.br
+.ti -1c
+.RI "std::uint16_t \fBmicrosecond\fP"
+.br
+.ti -1c
+.RI "std::uint16_t \fBnanosecond\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "toml::local_time::local_time (int h, int m, int s, int ms = \fC0\fP, int us = \fC0\fP, int ns = \fC0\fP)\fC [inline]\fP"
+
+.SS "toml::local_time::local_time (const std::tm & t)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "template<typename Rep , typename Period > toml::local_time::local_time (const std::chrono::duration< Rep, Period > & t)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "toml::local_time::local_time ()\fC [default]\fP"
+
+.SS "toml::local_time::~local_time ()\fC [default]\fP"
+
+.SS "toml::local_time::local_time (\fBlocal_time\fP const &)\fC [default]\fP"
+
+.SS "toml::local_time::local_time (\fBlocal_time\fP &&)\fC [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "toml::local_time::operator std::chrono::nanoseconds () const\fC [inline]\fP"
+
+.SS "\fBlocal_time\fP & toml::local_time::operator= (\fBlocal_time\fP &&)\fC [default]\fP"
+
+.SS "\fBlocal_time\fP & toml::local_time::operator= (\fBlocal_time\fP const &)\fC [default]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "std::uint8_t toml::local_time::hour"
+
+.SS "std::uint16_t toml::local_time::microsecond"
+
+.SS "std::uint16_t toml::local_time::millisecond"
+
+.SS "std::uint8_t toml::local_time::minute"
+
+.SS "std::uint16_t toml::local_time::nanosecond"
+
+.SS "std::uint8_t toml::local_time::second"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

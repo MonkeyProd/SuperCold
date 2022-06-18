@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="class_priority_queue" kind="class" language="C++" prot="public">
+    <compoundname>PriorityQueue</compoundname>
+    <includes refid="_priority_queue_8hpp" local="no">PriorityQueue.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_priority_queue_1a7c10fee230ce3ca6fe4f4faac7201b7d" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::pair&lt; T, int &gt; &gt;</type>
+        <definition>std::vector&lt;std::pair&lt;T, int&gt; &gt; PriorityQueue&lt; T &gt;::elements</definition>
+        <argsstring></argsstring>
+        <name>elements</name>
+        <qualifiedname>PriorityQueue::elements</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/PriorityQueue/PriorityQueue.hpp" line="8" column="13" bodyfile="external/PriorityQueue/PriorityQueue.hpp" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_priority_queue_1a4a79eee1e9e5e843ddb2619ebe1b673d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>PriorityQueue&lt; T &gt;::PriorityQueue</definition>
+        <argsstring>()</argsstring>
+        <name>PriorityQueue</name>
+        <qualifiedname>PriorityQueue::PriorityQueue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/PriorityQueue/PriorityQueue.hpp" line="11" column="1" bodyfile="external/PriorityQueue/PriorityQueue.hpp" bodystart="11" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="class_priority_queue_1a47d74ea71a1a4898b553844ee8b8b319" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int PriorityQueue&lt; T &gt;::size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <qualifiedname>PriorityQueue::size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/PriorityQueue/PriorityQueue.hpp" line="12" column="5" bodyfile="external/PriorityQueue/PriorityQueue.hpp" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_priority_queue_1a25c1da5a4abc2afb550f7cebedb77a22" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void PriorityQueue&lt; T &gt;::enqueue</definition>
+        <argsstring>(T item, int priority)</argsstring>
+        <name>enqueue</name>
+        <qualifiedname>PriorityQueue::enqueue</qualifiedname>
+        <param>
+          <type>T</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>priority</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/PriorityQueue/PriorityQueue.hpp" line="14" column="6" bodyfile="external/PriorityQueue/PriorityQueue.hpp" bodystart="14" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_priority_queue_1adda733898ca6edd52da7aad2b768412c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t PriorityQueue&lt; T &gt;::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <qualifiedname>PriorityQueue::size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/PriorityQueue/PriorityQueue.hpp" line="18" column="8" bodyfile="external/PriorityQueue/PriorityQueue.hpp" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_priority_queue_1a401493ab0e4ad8cc8d03d6f5e645d82c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PriorityQueue&lt; T &gt;::empty</definition>
+        <argsstring>() const</argsstring>
+        <name>empty</name>
+        <qualifiedname>PriorityQueue::empty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/PriorityQueue/PriorityQueue.hpp" line="20" column="6" bodyfile="external/PriorityQueue/PriorityQueue.hpp" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_priority_queue_1a650ca139f969eded8f8cd0e8c2a812b0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T PriorityQueue&lt; T &gt;::dequeue</definition>
+        <argsstring>()</argsstring>
+        <name>dequeue</name>
+        <qualifiedname>PriorityQueue::dequeue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/PriorityQueue/PriorityQueue.hpp" line="22" column="3" bodyfile="external/PriorityQueue/PriorityQueue.hpp" bodystart="22" bodyend="34"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/PriorityQueue/PriorityQueue.hpp" line="5" column="12" bodyfile="external/PriorityQueue/PriorityQueue.hpp" bodystart="5" bodyend="35"/>
+    <listofallmembers>
+      <member refid="class_priority_queue_1a650ca139f969eded8f8cd0e8c2a812b0" prot="public" virt="non-virtual"><scope>PriorityQueue</scope><name>dequeue</name></member>
+      <member refid="class_priority_queue_1a7c10fee230ce3ca6fe4f4faac7201b7d" prot="private" virt="non-virtual"><scope>PriorityQueue</scope><name>elements</name></member>
+      <member refid="class_priority_queue_1a401493ab0e4ad8cc8d03d6f5e645d82c" prot="public" virt="non-virtual"><scope>PriorityQueue</scope><name>empty</name></member>
+      <member refid="class_priority_queue_1a25c1da5a4abc2afb550f7cebedb77a22" prot="public" virt="non-virtual"><scope>PriorityQueue</scope><name>enqueue</name></member>
+      <member refid="class_priority_queue_1a4a79eee1e9e5e843ddb2619ebe1b673d" prot="public" virt="non-virtual"><scope>PriorityQueue</scope><name>PriorityQueue</name></member>
+      <member refid="class_priority_queue_1a47d74ea71a1a4898b553844ee8b8b319" prot="public" virt="non-virtual"><scope>PriorityQueue</scope><name>size</name></member>
+      <member refid="class_priority_queue_1adda733898ca6edd52da7aad2b768412c" prot="public" virt="non-virtual"><scope>PriorityQueue</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

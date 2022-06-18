@@ -1,0 +1,83 @@
+.TH "external/toml/color.hpp" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+external/toml/color.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cstdint>\fP
+.br
+\fC#include <ostream>\fP
+.br
+
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBtoml\fP"
+.br
+.ti -1c
+.RI "namespace \fBtoml::color_ansi\fP"
+.br
+.ti -1c
+.RI "namespace \fBtoml::color_ansi::detail\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTOML11_ERROR_MESSAGE_COLORIZED\fP   false"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBtoml::color_ansi::detail::colorize_index\fP ()"
+.br
+.ti -1c
+.RI "std::ostream & \fBtoml::color_ansi::colorize\fP (std::ostream &os)"
+.br
+.ti -1c
+.RI "std::ostream & \fBtoml::color_ansi::nocolorize\fP (std::ostream &os)"
+.br
+.ti -1c
+.RI "std::ostream & \fBtoml::color_ansi::reset\fP (std::ostream &os)"
+.br
+.ti -1c
+.RI "std::ostream & \fBtoml::color_ansi::bold\fP (std::ostream &os)"
+.br
+.ti -1c
+.RI "std::ostream & \fBtoml::color_ansi::grey\fP (std::ostream &os)"
+.br
+.ti -1c
+.RI "std::ostream & \fBtoml::color_ansi::red\fP (std::ostream &os)"
+.br
+.ti -1c
+.RI "std::ostream & \fBtoml::color_ansi::green\fP (std::ostream &os)"
+.br
+.ti -1c
+.RI "std::ostream & \fBtoml::color_ansi::yellow\fP (std::ostream &os)"
+.br
+.ti -1c
+.RI "std::ostream & \fBtoml::color_ansi::blue\fP (std::ostream &os)"
+.br
+.ti -1c
+.RI "std::ostream & \fBtoml::color_ansi::magenta\fP (std::ostream &os)"
+.br
+.ti -1c
+.RI "std::ostream & \fBtoml::color_ansi::cyan\fP (std::ostream &os)"
+.br
+.ti -1c
+.RI "std::ostream & \fBtoml::color_ansi::white\fP (std::ostream &os)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define TOML11_ERROR_MESSAGE_COLORIZED   false"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

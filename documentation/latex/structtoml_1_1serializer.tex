@@ -1,0 +1,251 @@
+\hypertarget{structtoml_1_1serializer}{}\doxysection{toml\+::serializer\texorpdfstring{$<$}{<} Value \texorpdfstring{$>$}{>} Struct Template Reference}
+\label{structtoml_1_1serializer}\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+
+
+{\ttfamily \#include $<$serializer.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{structtoml_1_1serializer_a289af9a8134b9bebd7ae11fcf180edd0}{value\+\_\+type}} = Value
+\item 
+using \mbox{\hyperlink{structtoml_1_1serializer_abdccf89d2127b64339cbec8d60875fac}{key\+\_\+type}} = typename value\+\_\+type\+::key\+\_\+type
+\item 
+using \mbox{\hyperlink{structtoml_1_1serializer_a24ee51d297a38c2440eb55e068bdcc3f}{comment\+\_\+type}} = typename value\+\_\+type\+::comment\+\_\+type
+\item 
+using \mbox{\hyperlink{structtoml_1_1serializer_aa0e43fd356a0704db389830954ea8a5c}{boolean\+\_\+type}} = typename value\+\_\+type\+::boolean\+\_\+type
+\item 
+using \mbox{\hyperlink{structtoml_1_1serializer_ae910b7bcf853207cc206c51ba2f26d08}{integer\+\_\+type}} = typename value\+\_\+type\+::integer\+\_\+type
+\item 
+using \mbox{\hyperlink{structtoml_1_1serializer_a3181ea8262bdac5c3a3cf6a44d0d723d}{floating\+\_\+type}} = typename value\+\_\+type\+::floating\+\_\+type
+\item 
+using \mbox{\hyperlink{structtoml_1_1serializer_aeee27a638d2ee95e74defdfea7d4410b}{string\+\_\+type}} = typename value\+\_\+type\+::string\+\_\+type
+\item 
+using \mbox{\hyperlink{structtoml_1_1serializer_aad34a2e52cf294b8ba231bf932c45f93}{local\+\_\+time\+\_\+type}} = typename value\+\_\+type\+::local\+\_\+time\+\_\+type
+\item 
+using \mbox{\hyperlink{structtoml_1_1serializer_acf43899fe2312613ea63677806c2a621}{local\+\_\+date\+\_\+type}} = typename value\+\_\+type\+::local\+\_\+date\+\_\+type
+\item 
+using \mbox{\hyperlink{structtoml_1_1serializer_ac3c6292664bb7b3e68a8221378796c59}{local\+\_\+datetime\+\_\+type}} = typename value\+\_\+type\+::local\+\_\+datetime\+\_\+type
+\item 
+using \mbox{\hyperlink{structtoml_1_1serializer_a90eb8fe2fc663b4a8a6724dd6c6b0c80}{offset\+\_\+datetime\+\_\+type}} = typename value\+\_\+type\+::offset\+\_\+datetime\+\_\+type
+\item 
+using \mbox{\hyperlink{structtoml_1_1serializer_a87fd1783a4b3fbb519cf8270b920d410}{array\+\_\+type}} = typename value\+\_\+type\+::array\+\_\+type
+\item 
+using \mbox{\hyperlink{structtoml_1_1serializer_a4ab4df36b0794463a6bea750e388b698}{table\+\_\+type}} = typename value\+\_\+type\+::table\+\_\+type
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structtoml_1_1serializer_a84a3932550107d11bf1223609f8bd01a}{serializer}} (const std\+::size\+\_\+t w=80u, const int float\+\_\+prec=std\+::numeric\+\_\+limits$<$ \mbox{\hyperlink{namespacetoml_a54f4b85eab8f0d6e6f0149c5ba338f6a}{toml\+::floating}} $>$\+::max\+\_\+digits10, const bool can\+\_\+be\+\_\+inlined=false, const bool no\+\_\+comment=false, std\+::vector$<$ \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml\+::key}} $>$ ks=\{\}, const bool value\+\_\+has\+\_\+comment=false)
+\item 
+\mbox{\hyperlink{structtoml_1_1serializer_ac1e249df1614b27b9819ccc9772162ee}{$\sim$serializer}} ()=default
+\item 
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer_a92e26d9fd3b54fd506a9942ddca60e91}{operator()}} (const \mbox{\hyperlink{structtoml_1_1serializer_aa0e43fd356a0704db389830954ea8a5c}{boolean\+\_\+type}} \&b) const
+\item 
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer_aa225f69324db49f17a685372566153ba}{operator()}} (const \mbox{\hyperlink{structtoml_1_1serializer_ae910b7bcf853207cc206c51ba2f26d08}{integer\+\_\+type}} i) const
+\item 
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer_a56a3ab647d90ef720a5df4244ffea907}{operator()}} (const \mbox{\hyperlink{structtoml_1_1serializer_a3181ea8262bdac5c3a3cf6a44d0d723d}{floating\+\_\+type}} f) const
+\item 
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer_a48ee444425e4cb38a940a4279fe6a0e5}{operator()}} (const \mbox{\hyperlink{structtoml_1_1serializer_aeee27a638d2ee95e74defdfea7d4410b}{string\+\_\+type}} \&s) const
+\item 
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer_a54f15fa8aaccec66cf550b7ab7d37959}{operator()}} (const \mbox{\hyperlink{structtoml_1_1serializer_acf43899fe2312613ea63677806c2a621}{local\+\_\+date\+\_\+type}} \&d) const
+\item 
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer_a362f6a9f47afba74bc653aaff2388000}{operator()}} (const \mbox{\hyperlink{structtoml_1_1serializer_aad34a2e52cf294b8ba231bf932c45f93}{local\+\_\+time\+\_\+type}} \&t) const
+\item 
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer_ad4adb3b92ec055c155cb3495ffe18ed5}{operator()}} (const \mbox{\hyperlink{structtoml_1_1serializer_ac3c6292664bb7b3e68a8221378796c59}{local\+\_\+datetime\+\_\+type}} \&dt) const
+\item 
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer_a97fc2e4b7f228f61a36a879578c7bdce}{operator()}} (const \mbox{\hyperlink{structtoml_1_1serializer_a90eb8fe2fc663b4a8a6724dd6c6b0c80}{offset\+\_\+datetime\+\_\+type}} \&odt) const
+\item 
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer_a287dc8a92f56b63530d158a19345bdae}{operator()}} (const \mbox{\hyperlink{structtoml_1_1serializer_a87fd1783a4b3fbb519cf8270b920d410}{array\+\_\+type}} \&v) const
+\item 
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer_abc0f11a88e2ca31685003719ab651555}{operator()}} (const \mbox{\hyperlink{structtoml_1_1serializer_a4ab4df36b0794463a6bea750e388b698}{table\+\_\+type}} \&v) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{structtoml_1_1serializer_a87fd1783a4b3fbb519cf8270b920d410}\label{structtoml_1_1serializer_a87fd1783a4b3fbb519cf8270b920d410}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!array\_type@{array\_type}}
+\index{array\_type@{array\_type}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{array\_type}{array\_type}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+using \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::array\+\_\+type =  typename value\+\_\+type\+::array\+\_\+type}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_aa0e43fd356a0704db389830954ea8a5c}\label{structtoml_1_1serializer_aa0e43fd356a0704db389830954ea8a5c}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!boolean\_type@{boolean\_type}}
+\index{boolean\_type@{boolean\_type}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{boolean\_type}{boolean\_type}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+using \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::boolean\+\_\+type =  typename value\+\_\+type\+::boolean\+\_\+type}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_a24ee51d297a38c2440eb55e068bdcc3f}\label{structtoml_1_1serializer_a24ee51d297a38c2440eb55e068bdcc3f}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!comment\_type@{comment\_type}}
+\index{comment\_type@{comment\_type}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{comment\_type}{comment\_type}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+using \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::comment\+\_\+type =  typename value\+\_\+type\+::comment\+\_\+type}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_a3181ea8262bdac5c3a3cf6a44d0d723d}\label{structtoml_1_1serializer_a3181ea8262bdac5c3a3cf6a44d0d723d}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!floating\_type@{floating\_type}}
+\index{floating\_type@{floating\_type}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{floating\_type}{floating\_type}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+using \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::floating\+\_\+type =  typename value\+\_\+type\+::floating\+\_\+type}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_ae910b7bcf853207cc206c51ba2f26d08}\label{structtoml_1_1serializer_ae910b7bcf853207cc206c51ba2f26d08}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!integer\_type@{integer\_type}}
+\index{integer\_type@{integer\_type}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{integer\_type}{integer\_type}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+using \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::integer\+\_\+type =  typename value\+\_\+type\+::integer\+\_\+type}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_abdccf89d2127b64339cbec8d60875fac}\label{structtoml_1_1serializer_abdccf89d2127b64339cbec8d60875fac}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!key\_type@{key\_type}}
+\index{key\_type@{key\_type}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{key\_type}{key\_type}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+using \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::key\+\_\+type =  typename value\+\_\+type\+::key\+\_\+type}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_acf43899fe2312613ea63677806c2a621}\label{structtoml_1_1serializer_acf43899fe2312613ea63677806c2a621}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!local\_date\_type@{local\_date\_type}}
+\index{local\_date\_type@{local\_date\_type}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{local\_date\_type}{local\_date\_type}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+using \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::local\+\_\+date\+\_\+type =  typename value\+\_\+type\+::local\+\_\+date\+\_\+type}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_ac3c6292664bb7b3e68a8221378796c59}\label{structtoml_1_1serializer_ac3c6292664bb7b3e68a8221378796c59}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!local\_datetime\_type@{local\_datetime\_type}}
+\index{local\_datetime\_type@{local\_datetime\_type}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{local\_datetime\_type}{local\_datetime\_type}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+using \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::local\+\_\+datetime\+\_\+type =  typename value\+\_\+type\+::local\+\_\+datetime\+\_\+type}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_aad34a2e52cf294b8ba231bf932c45f93}\label{structtoml_1_1serializer_aad34a2e52cf294b8ba231bf932c45f93}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!local\_time\_type@{local\_time\_type}}
+\index{local\_time\_type@{local\_time\_type}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{local\_time\_type}{local\_time\_type}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+using \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::local\+\_\+time\+\_\+type =  typename value\+\_\+type\+::local\+\_\+time\+\_\+type}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_a90eb8fe2fc663b4a8a6724dd6c6b0c80}\label{structtoml_1_1serializer_a90eb8fe2fc663b4a8a6724dd6c6b0c80}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!offset\_datetime\_type@{offset\_datetime\_type}}
+\index{offset\_datetime\_type@{offset\_datetime\_type}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{offset\_datetime\_type}{offset\_datetime\_type}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+using \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::offset\+\_\+datetime\+\_\+type =  typename value\+\_\+type\+::offset\+\_\+datetime\+\_\+type}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_aeee27a638d2ee95e74defdfea7d4410b}\label{structtoml_1_1serializer_aeee27a638d2ee95e74defdfea7d4410b}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!string\_type@{string\_type}}
+\index{string\_type@{string\_type}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{string\_type}{string\_type}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+using \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::string\+\_\+type =  typename value\+\_\+type\+::string\+\_\+type}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_a4ab4df36b0794463a6bea750e388b698}\label{structtoml_1_1serializer_a4ab4df36b0794463a6bea750e388b698}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!table\_type@{table\_type}}
+\index{table\_type@{table\_type}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{table\_type}{table\_type}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+using \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::table\+\_\+type =  typename value\+\_\+type\+::table\+\_\+type}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_a289af9a8134b9bebd7ae11fcf180edd0}\label{structtoml_1_1serializer_a289af9a8134b9bebd7ae11fcf180edd0}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+using \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::value\+\_\+type =  Value}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structtoml_1_1serializer_a84a3932550107d11bf1223609f8bd01a}\label{structtoml_1_1serializer_a84a3932550107d11bf1223609f8bd01a}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!serializer@{serializer}}
+\index{serializer@{serializer}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{serializer()}{serializer()}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+\mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::serializer (\begin{DoxyParamCaption}\item[{const std\+::size\+\_\+t}]{w = {\ttfamily 80u},  }\item[{const int}]{float\+\_\+prec = {\ttfamily std\+:\+:numeric\+\_\+limits$<$\mbox{\hyperlink{namespacetoml_a54f4b85eab8f0d6e6f0149c5ba338f6a}{toml\+::floating}}$>$\+:\+:max\+\_\+digits10},  }\item[{const bool}]{can\+\_\+be\+\_\+inlined = {\ttfamily false},  }\item[{const bool}]{no\+\_\+comment = {\ttfamily false},  }\item[{std\+::vector$<$ \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml\+::key}} $>$}]{ks = {\ttfamily \{\}},  }\item[{const bool}]{value\+\_\+has\+\_\+comment = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_ac1e249df1614b27b9819ccc9772162ee}\label{structtoml_1_1serializer_ac1e249df1614b27b9819ccc9772162ee}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!````~serializer@{$\sim$serializer}}
+\index{````~serializer@{$\sim$serializer}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$serializer()}{~serializer()}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+\mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::$\sim$\mbox{\hyperlink{structtoml_1_1serializer}{serializer}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structtoml_1_1serializer_a287dc8a92f56b63530d158a19345bdae}\label{structtoml_1_1serializer_a287dc8a92f56b63530d158a19345bdae}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/10]}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1serializer_a87fd1783a4b3fbb519cf8270b920d410}{array\+\_\+type}} \&}]{v }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_a92e26d9fd3b54fd506a9942ddca60e91}\label{structtoml_1_1serializer_a92e26d9fd3b54fd506a9942ddca60e91}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/10]}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1serializer_aa0e43fd356a0704db389830954ea8a5c}{boolean\+\_\+type}} \&}]{b }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_a56a3ab647d90ef720a5df4244ffea907}\label{structtoml_1_1serializer_a56a3ab647d90ef720a5df4244ffea907}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [3/10]}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1serializer_a3181ea8262bdac5c3a3cf6a44d0d723d}{floating\+\_\+type}}}]{f }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_aa225f69324db49f17a685372566153ba}\label{structtoml_1_1serializer_aa225f69324db49f17a685372566153ba}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [4/10]}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1serializer_ae910b7bcf853207cc206c51ba2f26d08}{integer\+\_\+type}}}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_a54f15fa8aaccec66cf550b7ab7d37959}\label{structtoml_1_1serializer_a54f15fa8aaccec66cf550b7ab7d37959}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [5/10]}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1serializer_acf43899fe2312613ea63677806c2a621}{local\+\_\+date\+\_\+type}} \&}]{d }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_ad4adb3b92ec055c155cb3495ffe18ed5}\label{structtoml_1_1serializer_ad4adb3b92ec055c155cb3495ffe18ed5}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [6/10]}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1serializer_ac3c6292664bb7b3e68a8221378796c59}{local\+\_\+datetime\+\_\+type}} \&}]{dt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_a362f6a9f47afba74bc653aaff2388000}\label{structtoml_1_1serializer_a362f6a9f47afba74bc653aaff2388000}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [7/10]}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1serializer_aad34a2e52cf294b8ba231bf932c45f93}{local\+\_\+time\+\_\+type}} \&}]{t }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_a97fc2e4b7f228f61a36a879578c7bdce}\label{structtoml_1_1serializer_a97fc2e4b7f228f61a36a879578c7bdce}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [8/10]}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1serializer_a90eb8fe2fc663b4a8a6724dd6c6b0c80}{offset\+\_\+datetime\+\_\+type}} \&}]{odt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_a48ee444425e4cb38a940a4279fe6a0e5}\label{structtoml_1_1serializer_a48ee444425e4cb38a940a4279fe6a0e5}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [9/10]}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1serializer_aeee27a638d2ee95e74defdfea7d4410b}{string\+\_\+type}} \&}]{s }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1serializer_abc0f11a88e2ca31685003719ab651555}\label{structtoml_1_1serializer_abc0f11a88e2ca31685003719ab651555}} 
+\index{toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!toml::serializer$<$ Value $>$@{toml::serializer$<$ Value $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [10/10]}}
+{\footnotesize\ttfamily template$<$typename Value $>$ \\
+std\+::string \mbox{\hyperlink{structtoml_1_1serializer}{toml\+::serializer}}$<$ Value $>$\+::operator() (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1serializer_a4ab4df36b0794463a6bea750e388b698}{table\+\_\+type}} \&}]{v }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+external/toml/\mbox{\hyperlink{serializer_8hpp}{serializer.\+hpp}}\end{DoxyCompactItemize}

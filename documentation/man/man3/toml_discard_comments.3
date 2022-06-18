@@ -1,0 +1,393 @@
+.TH "toml::discard_comments" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::discard_comments
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <comments\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBsize_type\fP = std::size_t"
+.br
+.ti -1c
+.RI "using \fBdifference_type\fP = std::ptrdiff_t"
+.br
+.ti -1c
+.RI "using \fBvalue_type\fP = std::string"
+.br
+.ti -1c
+.RI "using \fBreference\fP = std::string &"
+.br
+.ti -1c
+.RI "using \fBconst_reference\fP = std::string const  &"
+.br
+.ti -1c
+.RI "using \fBpointer\fP = std::string *"
+.br
+.ti -1c
+.RI "using \fBconst_pointer\fP = std::string const  *"
+.br
+.ti -1c
+.RI "using \fBiterator\fP = \fBdetail::empty_iterator\fP< std::string, false >"
+.br
+.ti -1c
+.RI "using \fBconst_iterator\fP = \fBdetail::empty_iterator\fP< std::string, true >"
+.br
+.ti -1c
+.RI "using \fBreverse_iterator\fP = \fBdetail::empty_iterator\fP< std::string, false >"
+.br
+.ti -1c
+.RI "using \fBconst_reverse_iterator\fP = \fBdetail::empty_iterator\fP< std::string, true >"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBdiscard_comments\fP ()=default"
+.br
+.ti -1c
+.RI "\fB~discard_comments\fP ()=default"
+.br
+.ti -1c
+.RI "\fBdiscard_comments\fP (\fBdiscard_comments\fP const &)=default"
+.br
+.ti -1c
+.RI "\fBdiscard_comments\fP (\fBdiscard_comments\fP &&)=default"
+.br
+.ti -1c
+.RI "\fBdiscard_comments\fP & \fBoperator=\fP (\fBdiscard_comments\fP const &)=default"
+.br
+.ti -1c
+.RI "\fBdiscard_comments\fP & \fBoperator=\fP (\fBdiscard_comments\fP &&)=default"
+.br
+.ti -1c
+.RI "\fBdiscard_comments\fP (const std::vector< std::string > &) noexcept"
+.br
+.ti -1c
+.RI "\fBdiscard_comments\fP (std::vector< std::string > &&) noexcept"
+.br
+.ti -1c
+.RI "\fBdiscard_comments\fP & \fBoperator=\fP (const std::vector< std::string > &) noexcept"
+.br
+.ti -1c
+.RI "\fBdiscard_comments\fP & \fBoperator=\fP (std::vector< std::string > &&) noexcept"
+.br
+.ti -1c
+.RI "\fBdiscard_comments\fP (const \fBpreserve_comments\fP &) noexcept"
+.br
+.ti -1c
+.RI "\fBdiscard_comments\fP (\fBsize_type\fP) noexcept"
+.br
+.ti -1c
+.RI "\fBdiscard_comments\fP (\fBsize_type\fP, const std::string &) noexcept"
+.br
+.ti -1c
+.RI "\fBdiscard_comments\fP (std::initializer_list< std::string >) noexcept"
+.br
+.ti -1c
+.RI "template<typename InputIterator > \fBdiscard_comments\fP (InputIterator, InputIterator) noexcept"
+.br
+.ti -1c
+.RI "template<typename InputIterator > void \fBassign\fP (InputIterator, InputIterator) noexcept"
+.br
+.ti -1c
+.RI "void \fBassign\fP (std::initializer_list< std::string >) noexcept"
+.br
+.ti -1c
+.RI "void \fBassign\fP (\fBsize_type\fP, const std::string &) noexcept"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBinsert\fP (\fBconst_iterator\fP, const std::string &)"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBinsert\fP (\fBconst_iterator\fP, std::string &&)"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBinsert\fP (\fBconst_iterator\fP, \fBsize_type\fP, const std::string &)"
+.br
+.ti -1c
+.RI "template<typename InputIterator > \fBiterator\fP \fBinsert\fP (\fBconst_iterator\fP, InputIterator, InputIterator)"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBinsert\fP (\fBconst_iterator\fP, std::initializer_list< std::string >)"
+.br
+.ti -1c
+.RI "template<typename \&.\&.\&. Ts> \fBiterator\fP \fBemplace\fP (\fBconst_iterator\fP, Ts &&\&.\&.\&.)"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBerase\fP (\fBconst_iterator\fP)"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBerase\fP (\fBconst_iterator\fP, \fBconst_iterator\fP)"
+.br
+.ti -1c
+.RI "void \fBswap\fP (\fBdiscard_comments\fP &)"
+.br
+.ti -1c
+.RI "void \fBpush_back\fP (const std::string &)"
+.br
+.ti -1c
+.RI "void \fBpush_back\fP (std::string &&)"
+.br
+.ti -1c
+.RI "void \fBpop_back\fP ()"
+.br
+.ti -1c
+.RI "template<typename \&.\&.\&. Ts> void \fBemplace_back\fP (Ts &&\&.\&.\&.)"
+.br
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.ti -1c
+.RI "\fBsize_type\fP \fBsize\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBsize_type\fP \fBmax_size\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBsize_type\fP \fBcapacity\fP () const noexcept"
+.br
+.ti -1c
+.RI "bool \fBempty\fP () const noexcept"
+.br
+.ti -1c
+.RI "void \fBreserve\fP (\fBsize_type\fP)"
+.br
+.ti -1c
+.RI "void \fBresize\fP (\fBsize_type\fP)"
+.br
+.ti -1c
+.RI "void \fBresize\fP (\fBsize_type\fP, const std::string &)"
+.br
+.ti -1c
+.RI "void \fBshrink_to_fit\fP ()"
+.br
+.ti -1c
+.RI "\fBreference\fP \fBoperator[]\fP (const \fBsize_type\fP) noexcept"
+.br
+.ti -1c
+.RI "\fBconst_reference\fP \fBoperator[]\fP (const \fBsize_type\fP) const noexcept"
+.br
+.ti -1c
+.RI "\fBreference\fP \fBat\fP (const \fBsize_type\fP)"
+.br
+.ti -1c
+.RI "\fBconst_reference\fP \fBat\fP (const \fBsize_type\fP) const"
+.br
+.ti -1c
+.RI "\fBreference\fP \fBfront\fP () noexcept"
+.br
+.ti -1c
+.RI "\fBconst_reference\fP \fBfront\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBreference\fP \fBback\fP () noexcept"
+.br
+.ti -1c
+.RI "\fBconst_reference\fP \fBback\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBpointer\fP \fBdata\fP () noexcept"
+.br
+.ti -1c
+.RI "\fBconst_pointer\fP \fBdata\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBbegin\fP () noexcept"
+.br
+.ti -1c
+.RI "\fBiterator\fP \fBend\fP () noexcept"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBbegin\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBend\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBcbegin\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBcend\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBreverse_iterator\fP \fBrbegin\fP () noexcept"
+.br
+.ti -1c
+.RI "\fBreverse_iterator\fP \fBrend\fP () noexcept"
+.br
+.ti -1c
+.RI "\fBconst_reverse_iterator\fP \fBrbegin\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBconst_reverse_iterator\fP \fBrend\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBconst_reverse_iterator\fP \fBcrbegin\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBconst_reverse_iterator\fP \fBcrend\fP () const noexcept"
+.br
+.in -1c
+.SH "Member Typedef Documentation"
+.PP 
+.SS "using \fBtoml::discard_comments::const_iterator\fP =  \fBdetail::empty_iterator\fP<std::string, true>"
+
+.SS "using \fBtoml::discard_comments::const_pointer\fP =  std::string const*"
+
+.SS "using \fBtoml::discard_comments::const_reference\fP =  std::string const&"
+
+.SS "using \fBtoml::discard_comments::const_reverse_iterator\fP =  \fBdetail::empty_iterator\fP<std::string, true>"
+
+.SS "using \fBtoml::discard_comments::difference_type\fP =  std::ptrdiff_t"
+
+.SS "using \fBtoml::discard_comments::iterator\fP =  \fBdetail::empty_iterator\fP<std::string, false>"
+
+.SS "using \fBtoml::discard_comments::pointer\fP =  std::string*"
+
+.SS "using \fBtoml::discard_comments::reference\fP =  std::string&"
+
+.SS "using \fBtoml::discard_comments::reverse_iterator\fP =  \fBdetail::empty_iterator\fP<std::string, false>"
+
+.SS "using \fBtoml::discard_comments::size_type\fP =  std::size_t"
+
+.SS "using \fBtoml::discard_comments::value_type\fP =  std::string"
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "toml::discard_comments::discard_comments ()\fC [default]\fP"
+
+.SS "toml::discard_comments::~discard_comments ()\fC [default]\fP"
+
+.SS "toml::discard_comments::discard_comments (\fBdiscard_comments\fP const &)\fC [default]\fP"
+
+.SS "toml::discard_comments::discard_comments (\fBdiscard_comments\fP &&)\fC [default]\fP"
+
+.SS "toml::discard_comments::discard_comments (const std::vector< std::string > &)\fC [inline]\fP, \fC [explicit]\fP, \fC [noexcept]\fP"
+
+.SS "toml::discard_comments::discard_comments (std::vector< std::string > &&)\fC [inline]\fP, \fC [explicit]\fP, \fC [noexcept]\fP"
+
+.SS "toml::discard_comments::discard_comments (const \fBpreserve_comments\fP &)\fC [inline]\fP, \fC [explicit]\fP, \fC [noexcept]\fP"
+
+.SS "toml::discard_comments::discard_comments (\fBsize_type\fP)\fC [inline]\fP, \fC [explicit]\fP, \fC [noexcept]\fP"
+
+.SS "toml::discard_comments::discard_comments (\fBsize_type\fP, const std::string &)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "toml::discard_comments::discard_comments (std::initializer_list< std::string >)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename InputIterator > toml::discard_comments::discard_comments (InputIterator, InputIterator)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename InputIterator > void toml::discard_comments::assign (InputIterator, InputIterator)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "void toml::discard_comments::assign (\fBsize_type\fP, const std::string &)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "void toml::discard_comments::assign (std::initializer_list< std::string >)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBreference\fP toml::discard_comments::at (const size_type)\fC [inline]\fP"
+
+.SS "\fBconst_reference\fP toml::discard_comments::at (const size_type) const\fC [inline]\fP"
+
+.SS "\fBconst_reference\fP toml::discard_comments::back () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBreference\fP toml::discard_comments::back ()\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBconst_iterator\fP toml::discard_comments::begin () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBiterator\fP toml::discard_comments::begin ()\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBsize_type\fP toml::discard_comments::capacity () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBconst_iterator\fP toml::discard_comments::cbegin () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBconst_iterator\fP toml::discard_comments::cend () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "void toml::discard_comments::clear ()\fC [inline]\fP"
+
+.SS "\fBconst_reverse_iterator\fP toml::discard_comments::crbegin () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBconst_reverse_iterator\fP toml::discard_comments::crend () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBconst_pointer\fP toml::discard_comments::data () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBpointer\fP toml::discard_comments::data ()\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename \&.\&.\&. Ts> \fBiterator\fP toml::discard_comments::emplace (\fBconst_iterator\fP, Ts && \&.\&.\&.)\fC [inline]\fP"
+
+.SS "template<typename \&.\&.\&. Ts> void toml::discard_comments::emplace_back (Ts && \&.\&.\&.)\fC [inline]\fP"
+
+.SS "bool toml::discard_comments::empty () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBconst_iterator\fP toml::discard_comments::end () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBiterator\fP toml::discard_comments::end ()\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBiterator\fP toml::discard_comments::erase (\fBconst_iterator\fP)\fC [inline]\fP"
+
+.SS "\fBiterator\fP toml::discard_comments::erase (\fBconst_iterator\fP, \fBconst_iterator\fP)\fC [inline]\fP"
+
+.SS "\fBconst_reference\fP toml::discard_comments::front () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBreference\fP toml::discard_comments::front ()\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBiterator\fP toml::discard_comments::insert (\fBconst_iterator\fP, const std::string &)\fC [inline]\fP"
+
+.SS "template<typename InputIterator > \fBiterator\fP toml::discard_comments::insert (\fBconst_iterator\fP, InputIterator, InputIterator)\fC [inline]\fP"
+
+.SS "\fBiterator\fP toml::discard_comments::insert (\fBconst_iterator\fP, \fBsize_type\fP, const std::string &)\fC [inline]\fP"
+
+.SS "\fBiterator\fP toml::discard_comments::insert (\fBconst_iterator\fP, std::initializer_list< std::string >)\fC [inline]\fP"
+
+.SS "\fBiterator\fP toml::discard_comments::insert (\fBconst_iterator\fP, std::string &&)\fC [inline]\fP"
+
+.SS "\fBsize_type\fP toml::discard_comments::max_size () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBdiscard_comments\fP & toml::discard_comments::operator= (const std::vector< std::string > &)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBdiscard_comments\fP & toml::discard_comments::operator= (\fBdiscard_comments\fP &&)\fC [default]\fP"
+
+.SS "\fBdiscard_comments\fP & toml::discard_comments::operator= (\fBdiscard_comments\fP const &)\fC [default]\fP"
+
+.SS "\fBdiscard_comments\fP & toml::discard_comments::operator= (std::vector< std::string > &&)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBconst_reference\fP toml::discard_comments::operator[] (const size_type) const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBreference\fP toml::discard_comments::operator[] (const size_type)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "void toml::discard_comments::pop_back ()\fC [inline]\fP"
+
+.SS "void toml::discard_comments::push_back (const std::string &)\fC [inline]\fP"
+
+.SS "void toml::discard_comments::push_back (std::string &&)\fC [inline]\fP"
+
+.SS "\fBconst_reverse_iterator\fP toml::discard_comments::rbegin () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBreverse_iterator\fP toml::discard_comments::rbegin ()\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBconst_reverse_iterator\fP toml::discard_comments::rend () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBreverse_iterator\fP toml::discard_comments::rend ()\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "void toml::discard_comments::reserve (\fBsize_type\fP)\fC [inline]\fP"
+
+.SS "void toml::discard_comments::resize (\fBsize_type\fP)\fC [inline]\fP"
+
+.SS "void toml::discard_comments::resize (\fBsize_type\fP, const std::string &)\fC [inline]\fP"
+
+.SS "void toml::discard_comments::shrink_to_fit ()\fC [inline]\fP"
+
+.SS "\fBsize_type\fP toml::discard_comments::size () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "void toml::discard_comments::swap (\fBdiscard_comments\fP &)\fC [inline]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

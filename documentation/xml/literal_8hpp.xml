@@ -1,0 +1,569 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="literal_8hpp" kind="file" language="C++">
+    <compoundname>literal.hpp</compoundname>
+    <includes refid="parser_8hpp" local="yes">parser.hpp</includes>
+    <includedby refid="toml_8hpp" local="yes">external/toml.hpp</includedby>
+    <incdepgraph>
+      <node id="20">
+        <label>color.hpp</label>
+        <link refid="color_8hpp"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>combinator.hpp</label>
+        <link refid="combinator_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>comments.hpp</label>
+        <link refid="comments_8hpp"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>datetime.hpp</label>
+        <link refid="datetime_8hpp"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>exception.hpp</label>
+        <link refid="exception_8hpp"/>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>from.hpp</label>
+        <link refid="from_8hpp"/>
+      </node>
+      <node id="26">
+        <label>into.hpp</label>
+        <link refid="into_8hpp"/>
+      </node>
+      <node id="36">
+        <label>lexer.hpp</label>
+        <link refid="lexer_8hpp"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>external/toml/literal.hpp</label>
+        <link refid="literal_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>parser.hpp</label>
+        <link refid="parser_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>region.hpp</label>
+        <link refid="region_8hpp"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>result.hpp</label>
+        <link refid="result_8hpp"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>source_location.hpp</label>
+        <link refid="source__location_8hpp"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>storage.hpp</label>
+        <link refid="storage_8hpp"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>string.hpp</label>
+        <link refid="string_8hpp"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>traits.hpp</label>
+        <link refid="traits_8hpp"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>types.hpp</label>
+        <link refid="types_8hpp"/>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>utility.hpp</label>
+        <link refid="utility_8hpp"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>value.hpp</label>
+        <link refid="value_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>version.hpp</label>
+        <link refid="version_8hpp"/>
+      </node>
+      <node id="18">
+        <label>algorithm</label>
+      </node>
+      <node id="10">
+        <label>array</label>
+      </node>
+      <node id="7">
+        <label>cassert</label>
+      </node>
+      <node id="8">
+        <label>cctype</label>
+      </node>
+      <node id="28">
+        <label>chrono</label>
+      </node>
+      <node id="21">
+        <label>cstdint</label>
+      </node>
+      <node id="9">
+        <label>cstdio</label>
+      </node>
+      <node id="42">
+        <label>cstdlib</label>
+      </node>
+      <node id="3">
+        <label>cstring</label>
+      </node>
+      <node id="43">
+        <label>ctime</label>
+      </node>
+      <node id="29">
+        <label>forward_list</label>
+      </node>
+      <node id="4">
+        <label>fstream</label>
+      </node>
+      <node id="19">
+        <label>initializer_list</label>
+      </node>
+      <node id="11">
+        <label>iomanip</label>
+      </node>
+      <node id="37">
+        <label>istream</label>
+      </node>
+      <node id="12">
+        <label>iterator</label>
+      </node>
+      <node id="13">
+        <label>limits</label>
+      </node>
+      <node id="16">
+        <label>memory</label>
+      </node>
+      <node id="34">
+        <label>new</label>
+      </node>
+      <node id="22">
+        <label>ostream</label>
+      </node>
+      <node id="5">
+        <label>sstream</label>
+      </node>
+      <node id="33">
+        <label>stdexcept</label>
+      </node>
+      <node id="30">
+        <label>string</label>
+      </node>
+      <node id="31">
+        <label>tuple</label>
+      </node>
+      <node id="14">
+        <label>type_traits</label>
+      </node>
+      <node id="39">
+        <label>unordered_map</label>
+      </node>
+      <node id="32">
+        <label>utility</label>
+      </node>
+      <node id="17">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>Game/Game.cpp</label>
+        <link refid="_game_8cpp"/>
+      </node>
+      <node id="4">
+        <label>Game/Game.hpp</label>
+        <link refid="_game_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Player/Player.cpp</label>
+        <link refid="_player_8cpp"/>
+      </node>
+      <node id="9">
+        <label>Player/Player.hpp</label>
+        <link refid="_player_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>SettingsManager/SettingsManager.cpp</label>
+        <link refid="_settings_manager_8cpp"/>
+      </node>
+      <node id="3">
+        <label>SettingsManager/SettingsManager.hpp</label>
+        <link refid="_settings_manager_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>SpriteContoller/SpriteController.cpp</label>
+        <link refid="_sprite_controller_8cpp"/>
+      </node>
+      <node id="8">
+        <label>SpriteContoller/SpriteController.hpp</label>
+        <link refid="_sprite_controller_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>external/toml.hpp</label>
+        <link refid="toml_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>external/toml/literal.hpp</label>
+        <link refid="literal_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacetoml">toml</innernamespace>
+    <innernamespace refid="namespacetoml_1_1literals" inline="yes">toml::literals</innernamespace>
+    <innernamespace refid="namespacetoml_1_1literals_1_1toml__literals" inline="yes">toml::literals::toml_literals</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>Copyright<sp/>Toru<sp/>Niina<sp/>2019.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Distributed<sp/>under<sp/>the<sp/>MIT<sp/>License.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>TOML11_LITERAL_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_LITERAL_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="parser_8hpp" kindref="compound">parser.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacetoml" kindref="compound">toml</ref></highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="9" refid="namespacetoml_1_1literals" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">literals</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11" refid="namespacetoml_1_1literals_1_1toml__literals" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">toml_literals</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/>implementation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">inline<sp/>::toml::basic_value&lt;TOML11_DEFAULT_COMMENT_STRATEGY,<sp/>std::unordered_map,<sp/>std::vector&gt;</highlight></codeline>
+<codeline lineno="16" refid="namespacetoml_1_1literals_1_1toml__literals_1a1fce2e7bf1c3e9c72746c794fba65eba" refkind="member"><highlight class="normal"><ref refid="namespacetoml_1_1literals_1_1toml__literals_1a1fce2e7bf1c3e9c72746c794fba65eba" kindref="member">literal_internal_impl</ref>(<ref refid="structtoml_1_1detail_1_1location" kindref="compound">::toml::detail::location</ref><sp/>loc)</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">value_type<sp/>=<sp/><ref refid="classtoml_1_1basic__value" kindref="compound">::toml::basic_value</ref>&lt;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="comments_8hpp_1ac5952aa66c2a24cfdbb3d82f70f22618" kindref="member">TOML11_DEFAULT_COMMENT_STRATEGY</ref>,<sp/>std::unordered_map,<sp/>std::vector&gt;;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>there<sp/>are<sp/>some<sp/>comments<sp/>or<sp/>empty<sp/>lines,<sp/>skip<sp/>them.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">skip_line<sp/>=<sp/><ref refid="structtoml_1_1detail_1_1repeat" kindref="compound">::toml::detail::repeat</ref>&lt;<ref refid="structtoml_1_1detail_1_1sequence" kindref="compound">toml::detail::sequence</ref>&lt;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structtoml_1_1detail_1_1maybe" kindref="compound">::toml::detail::maybe&lt;::toml::detail::lex_ws&gt;</ref>,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structtoml_1_1detail_1_1maybe" kindref="compound">::toml::detail::maybe&lt;::toml::detail::lex_comment&gt;</ref>,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structtoml_1_1detail_1_1either" kindref="compound">::toml::detail::lex_newline</ref></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&gt;,<sp/><ref refid="structtoml_1_1detail_1_1at__least" kindref="compound">::toml::detail::at_least&lt;1&gt;</ref>&gt;;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>skip_line::invoke(loc);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>there<sp/>are<sp/>some<sp/>whitespaces<sp/>before<sp/>a<sp/>value,<sp/>skip<sp/>them.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">skip_ws<sp/>=<sp/><ref refid="structtoml_1_1detail_1_1repeat" kindref="compound">::toml::detail::repeat</ref>&lt;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespacetoml_1_1detail_1aa4764c4543fe43f20ebe118900be3b4e" kindref="member">::toml::detail::lex_ws</ref>,<sp/><ref refid="structtoml_1_1detail_1_1at__least" kindref="compound">::toml::detail::at_least&lt;1&gt;</ref>&gt;;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>skip_ws::invoke(loc);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>to<sp/>distinguish<sp/>arrays<sp/>and<sp/>tables,<sp/>first<sp/>check<sp/>it<sp/>is<sp/>a<sp/>table<sp/>or<sp/>not.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;[1,2,3]&quot;_toml;<sp/><sp/><sp/>//<sp/>this<sp/>is<sp/>an<sp/>array</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;[table]&quot;_toml;<sp/><sp/><sp/>//<sp/>a<sp/>table<sp/>that<sp/>has<sp/>an<sp/>empty<sp/>table<sp/>named<sp/>&quot;table&quot;<sp/>inside.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;[[1,2,3]]&quot;_toml;<sp/>//<sp/>this<sp/>is<sp/>an<sp/>array<sp/>of<sp/>arrays</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;[[table]]&quot;_toml;<sp/>//<sp/>this<sp/>is<sp/>a<sp/>table<sp/>that<sp/>has<sp/>an<sp/>array<sp/>of<sp/>tables<sp/>inside.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;[[1]]&quot;_toml;<sp/><sp/><sp/><sp/><sp/>//<sp/>this<sp/>can<sp/>be<sp/>both...<sp/>(currently<sp/>it<sp/>becomes<sp/>a<sp/>table)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;1<sp/>=<sp/>[{}]&quot;_toml;<sp/><sp/>//<sp/>this<sp/>is<sp/>a<sp/>table<sp/>that<sp/>has<sp/>an<sp/>array<sp/>of<sp/>table<sp/>named<sp/>1.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;[[1,]]&quot;_toml;<sp/><sp/><sp/><sp/>//<sp/>this<sp/>is<sp/>an<sp/>array<sp/>of<sp/>arrays.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>&quot;[[1],]&quot;_toml;<sp/><sp/><sp/><sp/>//<sp/>this<sp/>also.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>the_front<sp/>=<sp/>loc.<ref refid="structtoml_1_1detail_1_1location_1a3fec075fe10382a901104613f84b37ee" kindref="member">iter</ref>();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_table_key<sp/>=<sp/>::toml::detail::lex_std_table::invoke(loc);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>loc.<ref refid="structtoml_1_1detail_1_1location_1ae7029e5f4aa2ab85280107391972cff0" kindref="member">reset</ref>(the_front);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_aots_key<sp/><sp/>=<sp/>::toml::detail::lex_array_table::invoke(loc);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>loc.<ref refid="structtoml_1_1detail_1_1location_1ae7029e5f4aa2ab85280107391972cff0" kindref="member">reset</ref>(the_front);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>If<sp/>it<sp/>is<sp/>neither<sp/>a<sp/>table-key<sp/>or<sp/>a<sp/>array-of-table-key,<sp/>it<sp/>may<sp/>be<sp/>a<sp/>value.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!is_table_key<sp/>&amp;&amp;<sp/>!is_aots_key)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>data<sp/>=<sp/>::toml::detail::parse_value&lt;value_type&gt;(loc))</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data.unwrap();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Note<sp/>that<sp/>still<sp/>it<sp/>can<sp/>be<sp/>a<sp/>table,<sp/>because<sp/>the<sp/>literal<sp/>might<sp/>be<sp/>something</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>like<sp/>the<sp/>following.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>```cpp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>R&quot;(<sp/>//<sp/>c++11<sp/>raw<sp/>string<sp/>literals</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>key<sp/>=<sp/>&quot;value&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>int<sp/>=<sp/>42</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>)&quot;_toml;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>```</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>It<sp/>is<sp/>a<sp/>valid<sp/>toml<sp/>file.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>It<sp/>should<sp/>be<sp/>parsed<sp/>as<sp/>if<sp/>we<sp/>parse<sp/>a<sp/>file<sp/>with<sp/>this<sp/>content.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>data<sp/>=<sp/>::toml::detail::parse_toml_file&lt;value_type&gt;(loc))</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>data.unwrap();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>none<sp/>of<sp/>them.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>::toml::syntax_error(data.unwrap_err(),<sp/><ref refid="structtoml_1_1source__location" kindref="compound">source_location</ref>(loc));</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal">inline<sp/>::toml::basic_value&lt;TOML11_DEFAULT_COMMENT_STRATEGY,<sp/>std::unordered_map,<sp/>std::vector&gt;</highlight></codeline>
+<codeline lineno="85" refid="namespacetoml_1_1literals_1_1toml__literals_1a20a98173d1553ae30b2f0d51029186b6" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">operator</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>_toml(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>str,<sp/>std::size_t<sp/>len)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structtoml_1_1detail_1_1location" kindref="compound">::toml::detail::location</ref><sp/>loc(</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string(</highlight><highlight class="stringliteral">&quot;TOML<sp/>literal<sp/>encoded<sp/>in<sp/>a<sp/>C++<sp/>code&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;char&gt;(str,<sp/>str<sp/>+<sp/>len));</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>literal<sp/>length<sp/>does<sp/>not<sp/>include<sp/>the<sp/>null<sp/>character<sp/>at<sp/>the<sp/>end.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacetoml_1_1literals_1_1toml__literals_1a1fce2e7bf1c3e9c72746c794fba65eba" kindref="member">literal_internal_impl</ref>(std::move(loc));</highlight></codeline>
+<codeline lineno="92"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">//<sp/>value<sp/>of<sp/>__cplusplus<sp/>in<sp/>C++2a/20<sp/>mode<sp/>is<sp/>not<sp/>fixed<sp/>yet<sp/>along<sp/>compilers.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment">//<sp/>So<sp/>here<sp/>we<sp/>use<sp/>the<sp/>feature<sp/>test<sp/>macro<sp/>for<sp/>`char8_t`<sp/>itself.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(__cpp_char8_t)<sp/>&amp;&amp;<sp/>__cpp_char8_t<sp/>&gt;=<sp/>201811L</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment">//<sp/>value<sp/>of<sp/>u8&quot;&quot;<sp/>literal<sp/>has<sp/>been<sp/>changed<sp/>from<sp/>char<sp/>to<sp/>char8_t<sp/>and<sp/>char8_t<sp/>is</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment">//<sp/>NOT<sp/>compatible<sp/>to<sp/>char</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal">inline<sp/>::toml::basic_value&lt;TOML11_DEFAULT_COMMENT_STRATEGY,<sp/>std::unordered_map,<sp/>std::vector&gt;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="keyword">operator</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal"><sp/>_toml(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char8_t</highlight><highlight class="normal">*<sp/>str,<sp/>std::size_t<sp/>len)</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structtoml_1_1detail_1_1location" kindref="compound">::toml::detail::location</ref><sp/>loc(</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string(</highlight><highlight class="stringliteral">&quot;TOML<sp/>literal<sp/>encoded<sp/>in<sp/>a<sp/>C++<sp/>code&quot;</highlight><highlight class="normal">),</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;char&gt;(</highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="keyword">const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(str),</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="keyword">const<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(str)<sp/>+<sp/>len));</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="namespacetoml_1_1literals_1_1toml__literals_1a1fce2e7bf1c3e9c72746c794fba65eba" kindref="member">literal_internal_impl</ref>(std::move(loc));</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>toml_literals</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>literals</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>toml</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="comment">//TOML11_LITERAL_HPP</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="external/toml/literal.hpp"/>
+  </compounddef>
+</doxygen>

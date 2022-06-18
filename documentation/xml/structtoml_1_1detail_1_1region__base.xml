@@ -1,0 +1,307 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1region__base" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::region_base</compoundname>
+    <derivedcompoundref refid="structtoml_1_1detail_1_1location" prot="public" virt="non-virtual">toml::detail::location</derivedcompoundref>
+    <derivedcompoundref refid="structtoml_1_1detail_1_1region" prot="public" virt="non-virtual">toml::detail::region</derivedcompoundref>
+    <includes refid="region_8hpp" local="no">region.hpp</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtoml_1_1detail_1_1region__base_1a08c9ceab879d163a77495e3f06016773" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::detail::region_base::region_base</definition>
+        <argsstring>()=default</argsstring>
+        <name>region_base</name>
+        <qualifiedname>toml::detail::region_base::region_base</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="36" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1region__base_1a03b6d40d385dc3569e04c7c391f0caa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual toml::detail::region_base::~region_base</definition>
+        <argsstring>()=default</argsstring>
+        <name>~region_base</name>
+        <qualifiedname>toml::detail::region_base::~region_base</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="37" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1region__base_1ad0dd93def6c58fc497e5c4227598fb44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::detail::region_base::region_base</definition>
+        <argsstring>(const region_base &amp;)=default</argsstring>
+        <name>region_base</name>
+        <qualifiedname>toml::detail::region_base::region_base</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1detail_1_1region__base" kindref="compound">region_base</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="38" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1region__base_1ab34101de3563323eebaa0ae54d153882" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::detail::region_base::region_base</definition>
+        <argsstring>(region_base &amp;&amp;)=default</argsstring>
+        <name>region_base</name>
+        <qualifiedname>toml::detail::region_base::region_base</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1region__base" kindref="compound">region_base</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="39" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1region__base_1a78a6213303cb281dc95fea399b63e87c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1region__base" kindref="compound">region_base</ref> &amp;</type>
+        <definition>region_base &amp; toml::detail::region_base::operator=</definition>
+        <argsstring>(const region_base &amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::detail::region_base::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1detail_1_1region__base" kindref="compound">region_base</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="40" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1region__base_1a0ac9b607cecc602f7c5835e5eaa74051" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1region__base" kindref="compound">region_base</ref> &amp;</type>
+        <definition>region_base &amp; toml::detail::region_base::operator=</definition>
+        <argsstring>(region_base &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::detail::region_base::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1region__base" kindref="compound">region_base</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="41" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1region__base_1a04d30cc67ae064dcb5124a6d6c0d8829" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool toml::detail::region_base::is_ok</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>is_ok</name>
+        <qualifiedname>toml::detail::region_base::is_ok</qualifiedname>
+        <reimplementedby refid="structtoml_1_1detail_1_1location_1a7f06f6621d30b69718c08e8ee2f33644">is_ok</reimplementedby>
+        <reimplementedby refid="structtoml_1_1detail_1_1region_1a87508e13996dd9305fcbb7a99d7d12d1">is_ok</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="43" column="18" bodyfile="external/toml/region.hpp" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1region__base_1a851763061c8dd8e925192f5e71973b2f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="virtual">
+        <type>char</type>
+        <definition>virtual char toml::detail::region_base::front</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>front</name>
+        <qualifiedname>toml::detail::region_base::front</qualifiedname>
+        <reimplementedby refid="structtoml_1_1detail_1_1location_1ad4f73b6a94e92e67b423bd75242eae08">front</reimplementedby>
+        <reimplementedby refid="structtoml_1_1detail_1_1region_1aabbe7b0acd319dc04b4bf1cb685c8274">front</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="44" column="18" bodyfile="external/toml/region.hpp" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1region__base_1a47be03c05f51e0f1521961f4bf91675b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string toml::detail::region_base::str</definition>
+        <argsstring>() const</argsstring>
+        <name>str</name>
+        <qualifiedname>toml::detail::region_base::str</qualifiedname>
+        <reimplementedby refid="structtoml_1_1detail_1_1location_1ad3cad7912b60d06e682a2539ad4b4b68">str</reimplementedby>
+        <reimplementedby refid="structtoml_1_1detail_1_1region_1ab29b9569c262fd0d1068501c05f49ea7">str</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="46" column="25" bodyfile="external/toml/region.hpp" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1region__base_1af1e9c07f9510f553e33277207249b980" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string toml::detail::region_base::name</definition>
+        <argsstring>() const</argsstring>
+        <name>name</name>
+        <qualifiedname>toml::detail::region_base::name</qualifiedname>
+        <reimplementedby refid="structtoml_1_1detail_1_1location_1ad6a386a1bb61633d7dc51025ee4bd6be">name</reimplementedby>
+        <reimplementedby refid="structtoml_1_1detail_1_1region_1ab2940e58e40a9dc9da8bce16372cefec">name</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="47" column="25" bodyfile="external/toml/region.hpp" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1region__base_1a94f53e54f87a6b18b673c93c5c16c5b1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string toml::detail::region_base::line</definition>
+        <argsstring>() const</argsstring>
+        <name>line</name>
+        <qualifiedname>toml::detail::region_base::line</qualifiedname>
+        <reimplementedby refid="structtoml_1_1detail_1_1location_1a4df51ed73488866dcc16c61553c3ef00">line</reimplementedby>
+        <reimplementedby refid="structtoml_1_1detail_1_1region_1a0a02f9cb4afd77d5a09ce5292ef24297">line</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="48" column="25" bodyfile="external/toml/region.hpp" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1region__base_1ad676f2456819ebd43cc6402f017c3ff8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string toml::detail::region_base::line_num</definition>
+        <argsstring>() const</argsstring>
+        <name>line_num</name>
+        <qualifiedname>toml::detail::region_base::line_num</qualifiedname>
+        <reimplementedby refid="structtoml_1_1detail_1_1location_1ad1787cf196aab7a9a04d0cf273ed5b60">line_num</reimplementedby>
+        <reimplementedby refid="structtoml_1_1detail_1_1region_1acb64ba397c4915b0dc28890da4c6c01a">line_num</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="49" column="25" bodyfile="external/toml/region.hpp" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1region__base_1abb3aa3ca6b0a0cd80e257ceb2a83877c" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="virtual">
+        <type>std::size_t</type>
+        <definition>virtual std::size_t toml::detail::region_base::size</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>size</name>
+        <qualifiedname>toml::detail::region_base::size</qualifiedname>
+        <reimplementedby refid="structtoml_1_1detail_1_1location_1a941c7837aa01b07e838b83bf9c7484b1">size</reimplementedby>
+        <reimplementedby refid="structtoml_1_1detail_1_1region_1a5aed78b6f0ba4b17996afe7ac282d089">size</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="52" column="25" bodyfile="external/toml/region.hpp" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1region__base_1a5d9badf7c1617c3dbf220128beed9e69" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="virtual">
+        <type>std::size_t</type>
+        <definition>virtual std::size_t toml::detail::region_base::before</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>before</name>
+        <qualifiedname>toml::detail::region_base::before</qualifiedname>
+        <reimplementedby refid="structtoml_1_1detail_1_1location_1a2dbfb73f0f406069dfaff748f78bef41">before</reimplementedby>
+        <reimplementedby refid="structtoml_1_1detail_1_1region_1a5975656927543592fe533b4a0317652c">before</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="54" column="25" bodyfile="external/toml/region.hpp" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1region__base_1a029632182c4df5911f569e8220f7ad84" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="virtual">
+        <type>std::size_t</type>
+        <definition>virtual std::size_t toml::detail::region_base::after</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>after</name>
+        <qualifiedname>toml::detail::region_base::after</qualifiedname>
+        <reimplementedby refid="structtoml_1_1detail_1_1location_1a45b2634c7accd215659b3e672248e1ba">after</reimplementedby>
+        <reimplementedby refid="structtoml_1_1detail_1_1region_1a35d9eb4ee3b9a461e5f5a6c14cf76ea7">after</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="56" column="25" bodyfile="external/toml/region.hpp" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1region__base_1a628ff6c7e336fc99b9d7c6b884066d55" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>virtual std::vector&lt; std::string &gt; toml::detail::region_base::comments</definition>
+        <argsstring>() const</argsstring>
+        <name>comments</name>
+        <qualifiedname>toml::detail::region_base::comments</qualifiedname>
+        <reimplementedby refid="structtoml_1_1detail_1_1region_1acf4d7a029b56c38ec3f1dcfa29f2968f">comments</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="58" column="25" bodyfile="external/toml/region.hpp" bodystart="58" bodyend="58"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>toml::detail::location</label>
+        <link refid="structtoml_1_1detail_1_1location"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>toml::detail::region</label>
+        <link refid="structtoml_1_1detail_1_1region"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>toml::detail::region_base</label>
+        <link refid="structtoml_1_1detail_1_1region__base"/>
+      </node>
+    </inheritancegraph>
+    <location file="external/toml/region.hpp" line="34" column="1" bodyfile="external/toml/region.hpp" bodystart="35" bodyend="63"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1detail_1_1region__base_1a029632182c4df5911f569e8220f7ad84" prot="public" virt="virtual"><scope>toml::detail::region_base</scope><name>after</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1a5d9badf7c1617c3dbf220128beed9e69" prot="public" virt="virtual"><scope>toml::detail::region_base</scope><name>before</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1a628ff6c7e336fc99b9d7c6b884066d55" prot="public" virt="virtual"><scope>toml::detail::region_base</scope><name>comments</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1a851763061c8dd8e925192f5e71973b2f" prot="public" virt="virtual"><scope>toml::detail::region_base</scope><name>front</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1a04d30cc67ae064dcb5124a6d6c0d8829" prot="public" virt="virtual"><scope>toml::detail::region_base</scope><name>is_ok</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1a94f53e54f87a6b18b673c93c5c16c5b1" prot="public" virt="virtual"><scope>toml::detail::region_base</scope><name>line</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1ad676f2456819ebd43cc6402f017c3ff8" prot="public" virt="virtual"><scope>toml::detail::region_base</scope><name>line_num</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1af1e9c07f9510f553e33277207249b980" prot="public" virt="virtual"><scope>toml::detail::region_base</scope><name>name</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1a78a6213303cb281dc95fea399b63e87c" prot="public" virt="non-virtual"><scope>toml::detail::region_base</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1a0ac9b607cecc602f7c5835e5eaa74051" prot="public" virt="non-virtual"><scope>toml::detail::region_base</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1a08c9ceab879d163a77495e3f06016773" prot="public" virt="non-virtual"><scope>toml::detail::region_base</scope><name>region_base</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1ad0dd93def6c58fc497e5c4227598fb44" prot="public" virt="non-virtual"><scope>toml::detail::region_base</scope><name>region_base</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1ab34101de3563323eebaa0ae54d153882" prot="public" virt="non-virtual"><scope>toml::detail::region_base</scope><name>region_base</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1abb3aa3ca6b0a0cd80e257ceb2a83877c" prot="public" virt="virtual"><scope>toml::detail::region_base</scope><name>size</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1a47be03c05f51e0f1521961f4bf91675b" prot="public" virt="virtual"><scope>toml::detail::region_base</scope><name>str</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1a03b6d40d385dc3569e04c7c391f0caa7" prot="public" virt="virtual"><scope>toml::detail::region_base</scope><name>~region_base</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

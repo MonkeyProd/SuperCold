@@ -1,0 +1,52 @@
+.TH "toml::syntax_error" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::syntax_error
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <exception\&.hpp>\fP
+.PP
+Inherits \fBtoml::exception\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsyntax_error\fP (const std::string &what_arg, const \fBsource_location\fP &loc)"
+.br
+.ti -1c
+.RI "virtual \fB~syntax_error\fP () noexcept override=default"
+.br
+.ti -1c
+.RI "virtual const char * \fBwhat\fP () const noexcept override"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::string \fBwhat_\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "toml::syntax_error::syntax_error (const std::string & what_arg, const \fBsource_location\fP & loc)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "virtual toml::syntax_error::~syntax_error ()\fC [override]\fP, \fC [virtual]\fP, \fC [default]\fP, \fC [noexcept]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual const char * toml::syntax_error::what () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP, \fC [noexcept]\fP"
+
+.PP
+Reimplemented from \fBtoml::exception\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "std::string toml::syntax_error::what_\fC [protected]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

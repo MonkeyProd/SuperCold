@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1switch__cast" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::switch_cast</compoundname>
+    <includes refid="value_8hpp" local="no">value.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type><ref refid="namespacetoml_1a99b223fe1b911188b415ace2e80d9aaa" kindref="member">value_t</ref></type>
+        <declname>T</declname>
+        <defname>T</defname>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/value.hpp" line="131" column="1" bodyfile="external/toml/value.hpp" bodystart="131" bodyend="131"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

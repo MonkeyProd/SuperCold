@@ -1,0 +1,830 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="class_player" kind="class" language="C++" prot="public">
+    <compoundname>Player</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">sf::Drawable</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">sf::Transformable</basecompoundref>
+    <includes refid="_player_8hpp" local="no">Player.hpp</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="class_player_1a6417427f49bce40279688684b104873e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>HorizontalDirection</name>
+        <qualifiedname>Player::HorizontalDirection</qualifiedname>
+        <enumvalue id="class_player_1a6417427f49bce40279688684b104873ea52a7540bc447dcd5b888131396d3980e" prot="public">
+          <name>Left</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_player_1a6417427f49bce40279688684b104873eae36562fe9960c3bdac70addfd9694b97" prot="public">
+          <name>Right</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="32" column="1" bodyfile="Player/Player.hpp" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="enum" id="class_player_1a66803c23350d38a1dc046e427e65a28b" prot="public" static="no" strong="no">
+        <type></type>
+        <name>VerticalDirection</name>
+        <qualifiedname>Player::VerticalDirection</qualifiedname>
+        <enumvalue id="class_player_1a66803c23350d38a1dc046e427e65a28baca072b70fed2ebffcc5f03347a23910f" prot="public">
+          <name>Top</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_player_1a66803c23350d38a1dc046e427e65a28baf654e304331768c532162a09347a597f" prot="public">
+          <name>Down</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="33" column="1" bodyfile="Player/Player.hpp" bodystart="33" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="class_player_1a706dce26c2937bf8deae8b2b2daac85e" prot="private" static="no">
+        <type>std::map&lt; std::string, std::vector&lt; sf::Sprite &gt; &gt;</type>
+        <definition>using Player::spritesMap =  std::map&lt;std::string, std::vector&lt;sf::Sprite&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>spritesMap</name>
+        <qualifiedname>Player::spritesMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="9" column="1" bodyfile="Player/Player.hpp" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_player_1a59323f7c0100a4b82ae0fa149ebddad7" prot="private" static="no" mutable="no">
+        <type>sf::Vector2f</type>
+        <definition>sf::Vector2f Player::m_velocity</definition>
+        <argsstring></argsstring>
+        <name>m_velocity</name>
+        <qualifiedname>Player::m_velocity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="11" column="14" bodyfile="Player/Player.hpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a36aa39fc04866810640a5e361b8c8246" prot="private" static="no" mutable="no">
+        <type>sf::Vector2f</type>
+        <definition>sf::Vector2f Player::m_position</definition>
+        <argsstring></argsstring>
+        <name>m_position</name>
+        <qualifiedname>Player::m_position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="12" column="14" bodyfile="Player/Player.hpp" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1aeb75043efced6b80517ca2f42e78f7a2" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::vector&lt; sf::Sprite &gt; &gt;</type>
+        <definition>std::map&lt;std::string, std::vector&lt;sf::Sprite&gt; &gt; Player::m_playerSprites</definition>
+        <argsstring></argsstring>
+        <name>m_playerSprites</name>
+        <qualifiedname>Player::m_playerSprites</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="14" column="10" bodyfile="Player/Player.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1ae027a688d3dd1a3adda299770e66509c" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; sf::Sprite &gt;</type>
+        <definition>std::vector&lt;sf::Sprite&gt; Player::m_current_state</definition>
+        <argsstring></argsstring>
+        <name>m_current_state</name>
+        <qualifiedname>Player::m_current_state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="16" column="13" bodyfile="Player/Player.hpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a36e3e507f32eedb9fc3830e97a5eaf7b" prot="private" static="no" mutable="no">
+        <type>sf::SoundBuffer</type>
+        <definition>sf::SoundBuffer Player::m_sbuffer</definition>
+        <argsstring></argsstring>
+        <name>m_sbuffer</name>
+        <qualifiedname>Player::m_sbuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="18" column="17" bodyfile="Player/Player.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1ac9b93595d2781210f207f51d149da826" prot="private" static="no" mutable="no">
+        <type>sf::Sound</type>
+        <definition>sf::Sound Player::m_footstepsSound</definition>
+        <argsstring></argsstring>
+        <name>m_footstepsSound</name>
+        <qualifiedname>Player::m_footstepsSound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="19" column="11" bodyfile="Player/Player.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1af4bbe400617501d3187c9c5e0af964cf" prot="private" static="no" mutable="yes">
+        <type><ref refid="class_game_object" kindref="compound">GameObject</ref></type>
+        <definition>GameObject Player::m_playerObject</definition>
+        <argsstring></argsstring>
+        <name>m_playerObject</name>
+        <qualifiedname>Player::m_playerObject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="21" column="20" bodyfile="Player/Player.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1ac872b310930295033b218f1551a27e34" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Player::m_speed</definition>
+        <argsstring></argsstring>
+        <name>m_speed</name>
+        <qualifiedname>Player::m_speed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="22" column="7" bodyfile="Player/Player.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a644df021e396cefde747927684e5c0ae" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Player::isLookRight</definition>
+        <argsstring></argsstring>
+        <name>isLookRight</name>
+        <qualifiedname>Player::isLookRight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="23" column="6" bodyfile="Player/Player.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a19e0657ba31cacc7ee061e6644d2f6c8" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Player::isMoveHorizontal</definition>
+        <argsstring></argsstring>
+        <name>isMoveHorizontal</name>
+        <qualifiedname>Player::isMoveHorizontal</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="24" column="6" bodyfile="Player/Player.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a5a8c5264f28132c5045f22b1ed195288" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Player::isMoveVertical</definition>
+        <argsstring></argsstring>
+        <name>isMoveVertical</name>
+        <qualifiedname>Player::isMoveVertical</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="25" column="6" bodyfile="Player/Player.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1a2bac893dbd82eae11ab5b0ce2267848a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Player::isStepping</definition>
+        <argsstring></argsstring>
+        <name>isStepping</name>
+        <qualifiedname>Player::isStepping</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="26" column="6" bodyfile="Player/Player.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1aad33b52bfe73c4c978a3135172f286a0" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Player::health</definition>
+        <argsstring></argsstring>
+        <name>health</name>
+        <qualifiedname>Player::health</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="27" column="5" bodyfile="Player/Player.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1ace6767c5a59bf43661d440e57d2092fc" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Player::initial_health</definition>
+        <argsstring></argsstring>
+        <name>initial_health</name>
+        <qualifiedname>Player::initial_health</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="28" column="5" bodyfile="Player/Player.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_player_1afa4380a7745f89140781ff6139a95e8d" prot="private" static="no" mutable="yes">
+        <type>bool</type>
+        <definition>bool Player::getting_hit</definition>
+        <argsstring></argsstring>
+        <name>getting_hit</name>
+        <qualifiedname>Player::getting_hit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="29" column="14" bodyfile="Player/Player.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_player_1aaa23b3bf80e8c0267cf08d4fe4d6ddc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Player::Player</definition>
+        <argsstring>()=default</argsstring>
+        <name>Player</name>
+        <qualifiedname>Player::Player</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="34" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a400d3b686e76277c1260868eb0666cea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Player::Player</definition>
+        <argsstring>(sf::Vector2f startPosition, sf::Vector2f velocity, spritesMap playerSprites, std::string footsteps_path, float speed=100, int health=100)</argsstring>
+        <name>Player</name>
+        <qualifiedname>Player::Player</qualifiedname>
+        <param>
+          <type>sf::Vector2f</type>
+          <declname>startPosition</declname>
+        </param>
+        <param>
+          <type>sf::Vector2f</type>
+          <declname>velocity</declname>
+        </param>
+        <param>
+          <type>spritesMap</type>
+          <declname>playerSprites</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>footsteps_path</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>speed</declname>
+          <defval>100</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>health</declname>
+          <defval>100</defval>
+        </param>
+        <briefdescription>
+<para>Класс Игрока </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>startPosition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>начальное положение </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>velocity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>начальный вектор скорости </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>playerSprites</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>словарь со всеми спрайтами игрока </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>footsteps_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>название аудио с звуком шагов </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>speed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>скорость игрока </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>health</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>количество здоровья игрока </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="46" column="1" bodyfile="Player/Player.cpp" bodystart="3" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1aad3c144f1b0a873343c0d29e2c246f9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::changeXDirection</definition>
+        <argsstring>(HorizontalDirection direction)</argsstring>
+        <name>changeXDirection</name>
+        <qualifiedname>Player::changeXDirection</qualifiedname>
+        <param>
+          <type><ref refid="class_player_1a6417427f49bce40279688684b104873e" kindref="member">HorizontalDirection</ref></type>
+          <declname>direction</declname>
+        </param>
+        <briefdescription>
+<para>Метод, меняющий горизонатальную составляющую скорости игрока </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>direction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>направление изменения скорости </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="55" column="6" bodyfile="Player/Player.cpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a24381e37c2effe27e485d599a3f052dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::changeYDirection</definition>
+        <argsstring>(VerticalDirection direction)</argsstring>
+        <name>changeYDirection</name>
+        <qualifiedname>Player::changeYDirection</qualifiedname>
+        <param>
+          <type><ref refid="class_player_1a66803c23350d38a1dc046e427e65a28b" kindref="member">VerticalDirection</ref></type>
+          <declname>direction</declname>
+        </param>
+        <briefdescription>
+<para>Метод, меняющий вертикальную составляющую скорости игрока </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>direction</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>направление изменения скорости </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="62" column="6" bodyfile="Player/Player.cpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a807c71a57cf852267b56b169d1a44189" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::resetHorizontalVelocity</definition>
+        <argsstring>()</argsstring>
+        <name>resetHorizontalVelocity</name>
+        <qualifiedname>Player::resetHorizontalVelocity</qualifiedname>
+        <briefdescription>
+<para>Метод, сбрасывающий горизонтальную состовляющую скорости игрока </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="67" column="6" bodyfile="Player/Player.cpp" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a044c295511873ba2febd45f1240039b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::resetVerticalVelocity</definition>
+        <argsstring>()</argsstring>
+        <name>resetVerticalVelocity</name>
+        <qualifiedname>Player::resetVerticalVelocity</qualifiedname>
+        <briefdescription>
+<para>Метод, сбрасывающий вертикальную состовляющую скорости игрока </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="72" column="6" bodyfile="Player/Player.cpp" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1ab660e7d5e7a230174836f24cc063bb32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::movePlayer</definition>
+        <argsstring>(sf::Time deltaTime)</argsstring>
+        <name>movePlayer</name>
+        <qualifiedname>Player::movePlayer</qualifiedname>
+        <param>
+          <type>sf::Time</type>
+          <declname>deltaTime</declname>
+        </param>
+        <briefdescription>
+<para>Метод, перемещающий игрока </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>deltaTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>deltaTime </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="78" column="6" bodyfile="Player/Player.cpp" bodystart="47" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a63fa8020722cad7d4992e014021c2aae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::setSpeed</definition>
+        <argsstring>(float speed)</argsstring>
+        <name>setSpeed</name>
+        <qualifiedname>Player::setSpeed</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>speed</declname>
+        </param>
+        <briefdescription>
+<para>Метод, изменяющий скорость игрока </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>speed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>новая скорость </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="84" column="6" bodyfile="Player/Player.cpp" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a20665e4647baa8f898a62021e6204450" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Player::isDead</definition>
+        <argsstring>() const</argsstring>
+        <name>isDead</name>
+        <qualifiedname>Player::isDead</qualifiedname>
+        <briefdescription>
+<para>Метод, возращающий bool - статус смерти игрока </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true мертв </para>
+</simplesect>
+<simplesect kind="return"><para>false жив </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="92" column="6" bodyfile="Player/Player.cpp" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a713060327f44fd131d978419405a135e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::resetHealth</definition>
+        <argsstring>()</argsstring>
+        <name>resetHealth</name>
+        <qualifiedname>Player::resetHealth</qualifiedname>
+        <briefdescription>
+<para>Метод, восстанавливающий исходное здровье игрока </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="97" column="6" bodyfile="Player/Player.cpp" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1ab4a90f61dc538a483ada397ae91f8d0c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>sf::Vector2f</type>
+        <definition>sf::Vector2f Player::getPlayerPosition</definition>
+        <argsstring>() const</argsstring>
+        <name>getPlayerPosition</name>
+        <qualifiedname>Player::getPlayerPosition</qualifiedname>
+        <briefdescription>
+<para>Метод, возращающий положение игрока </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>sf::Vector2f позиция </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="103" column="14" bodyfile="Player/Player.cpp" bodystart="81" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1ad37cff9cbcfa6f84ec5d38dad928d0d8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>sf::Vector2f</type>
+        <definition>sf::Vector2f Player::getPlayerVelocity</definition>
+        <argsstring>() const</argsstring>
+        <name>getPlayerVelocity</name>
+        <qualifiedname>Player::getPlayerVelocity</qualifiedname>
+        <briefdescription>
+<para>Метод, возращающий скорость игрока </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>sf::Vector2f скорость </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="109" column="14" bodyfile="Player/Player.cpp" bodystart="83" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a544d55599d7d3784e0e9c30de5ba7d88" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>sf::FloatRect</type>
+        <definition>sf::FloatRect Player::getNextPosition</definition>
+        <argsstring>(sf::Time deltaTime) const</argsstring>
+        <name>getNextPosition</name>
+        <qualifiedname>Player::getNextPosition</qualifiedname>
+        <param>
+          <type>sf::Time</type>
+          <declname>deltaTime</declname>
+        </param>
+        <briefdescription>
+<para>Метод, возращающий FloatRect - положение игрока в следующий момент времени(необходим для проверки коллизии) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>deltaTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>deltaTime </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>sf::FloatRect </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="117" column="15" bodyfile="Player/Player.cpp" bodystart="85" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1ae91c3922502ccebc4092331f24fae0e2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Player::draw</definition>
+        <argsstring>(sf::RenderTarget &amp;surface, sf::RenderStates states) const</argsstring>
+        <name>draw</name>
+        <qualifiedname>Player::draw</qualifiedname>
+        <param>
+          <type>sf::RenderTarget &amp;</type>
+          <declname>surface</declname>
+        </param>
+        <param>
+          <type>sf::RenderStates</type>
+          <declname>states</declname>
+        </param>
+        <briefdescription>
+<para>отрисовка игрока на поверхность </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>surface</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>поверхность </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>states</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>состояние </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="125" column="14" bodyfile="Player/Player.cpp" bodystart="92" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a1c319149b99835f95957682a43cc40b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_game_object" kindref="compound">GameObject</ref> &amp;</type>
+        <definition>GameObject &amp; Player::get_playerObject</definition>
+        <argsstring>()</argsstring>
+        <name>get_playerObject</name>
+        <qualifiedname>Player::get_playerObject</qualifiedname>
+        <briefdescription>
+<para>Метод, возращающий <ref refid="class_game_object" kindref="compound">GameObject</ref> игрока </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para><ref refid="class_game_object" kindref="compound">GameObject</ref>&amp; </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="136" column="12" bodyfile="Player/Player.cpp" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a0c1684c2398384c0a6661b94d719024e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::getHit</definition>
+        <argsstring>(int hp)</argsstring>
+        <name>getHit</name>
+        <qualifiedname>Player::getHit</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>hp</declname>
+        </param>
+        <briefdescription>
+<para>Нанести урон игроку </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>количество урона </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="143" column="6" bodyfile="Player/Player.cpp" bodystart="116" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="class_player_1a86822bc6c1cd5580b5ee4b4bfbba669a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Player::nextState</definition>
+        <argsstring>()</argsstring>
+        <name>nextState</name>
+        <qualifiedname>Player::nextState</qualifiedname>
+        <briefdescription>
+<para>Метод меняющий спрайт анимации игрока на следующий </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Player/Player.hpp" line="148" column="6" bodyfile="Player/Player.cpp" bodystart="121" bodyend="127"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Player</label>
+        <link refid="class_player"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sf::Drawable</label>
+      </node>
+      <node id="3">
+        <label>sf::Transformable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Player</label>
+        <link refid="class_player"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sf::Drawable</label>
+      </node>
+      <node id="3">
+        <label>sf::Transformable</label>
+      </node>
+    </collaborationgraph>
+    <location file="Player/Player.hpp" line="8" column="1" bodyfile="Player/Player.hpp" bodystart="8" bodyend="149"/>
+    <listofallmembers>
+      <member refid="class_player_1aad3c144f1b0a873343c0d29e2c246f9b" prot="public" virt="non-virtual"><scope>Player</scope><name>changeXDirection</name></member>
+      <member refid="class_player_1a24381e37c2effe27e485d599a3f052dc" prot="public" virt="non-virtual"><scope>Player</scope><name>changeYDirection</name></member>
+      <member refid="class_player_1a66803c23350d38a1dc046e427e65a28baf654e304331768c532162a09347a597f" prot="public" virt="non-virtual"><scope>Player</scope><name>Down</name></member>
+      <member refid="class_player_1ae91c3922502ccebc4092331f24fae0e2" prot="public" virt="virtual"><scope>Player</scope><name>draw</name></member>
+      <member refid="class_player_1a1c319149b99835f95957682a43cc40b3" prot="public" virt="non-virtual"><scope>Player</scope><name>get_playerObject</name></member>
+      <member refid="class_player_1a0c1684c2398384c0a6661b94d719024e" prot="public" virt="non-virtual"><scope>Player</scope><name>getHit</name></member>
+      <member refid="class_player_1a544d55599d7d3784e0e9c30de5ba7d88" prot="public" virt="non-virtual"><scope>Player</scope><name>getNextPosition</name></member>
+      <member refid="class_player_1ab4a90f61dc538a483ada397ae91f8d0c" prot="public" virt="non-virtual"><scope>Player</scope><name>getPlayerPosition</name></member>
+      <member refid="class_player_1ad37cff9cbcfa6f84ec5d38dad928d0d8" prot="public" virt="non-virtual"><scope>Player</scope><name>getPlayerVelocity</name></member>
+      <member refid="class_player_1afa4380a7745f89140781ff6139a95e8d" prot="private" virt="non-virtual"><scope>Player</scope><name>getting_hit</name></member>
+      <member refid="class_player_1aad33b52bfe73c4c978a3135172f286a0" prot="private" virt="non-virtual"><scope>Player</scope><name>health</name></member>
+      <member refid="class_player_1a6417427f49bce40279688684b104873e" prot="public" virt="non-virtual"><scope>Player</scope><name>HorizontalDirection</name></member>
+      <member refid="class_player_1ace6767c5a59bf43661d440e57d2092fc" prot="private" virt="non-virtual"><scope>Player</scope><name>initial_health</name></member>
+      <member refid="class_player_1a20665e4647baa8f898a62021e6204450" prot="public" virt="non-virtual"><scope>Player</scope><name>isDead</name></member>
+      <member refid="class_player_1a644df021e396cefde747927684e5c0ae" prot="private" virt="non-virtual"><scope>Player</scope><name>isLookRight</name></member>
+      <member refid="class_player_1a19e0657ba31cacc7ee061e6644d2f6c8" prot="private" virt="non-virtual"><scope>Player</scope><name>isMoveHorizontal</name></member>
+      <member refid="class_player_1a5a8c5264f28132c5045f22b1ed195288" prot="private" virt="non-virtual"><scope>Player</scope><name>isMoveVertical</name></member>
+      <member refid="class_player_1a2bac893dbd82eae11ab5b0ce2267848a" prot="private" virt="non-virtual"><scope>Player</scope><name>isStepping</name></member>
+      <member refid="class_player_1a6417427f49bce40279688684b104873ea52a7540bc447dcd5b888131396d3980e" prot="public" virt="non-virtual"><scope>Player</scope><name>Left</name></member>
+      <member refid="class_player_1ae027a688d3dd1a3adda299770e66509c" prot="private" virt="non-virtual"><scope>Player</scope><name>m_current_state</name></member>
+      <member refid="class_player_1ac9b93595d2781210f207f51d149da826" prot="private" virt="non-virtual"><scope>Player</scope><name>m_footstepsSound</name></member>
+      <member refid="class_player_1af4bbe400617501d3187c9c5e0af964cf" prot="private" virt="non-virtual"><scope>Player</scope><name>m_playerObject</name></member>
+      <member refid="class_player_1aeb75043efced6b80517ca2f42e78f7a2" prot="private" virt="non-virtual"><scope>Player</scope><name>m_playerSprites</name></member>
+      <member refid="class_player_1a36aa39fc04866810640a5e361b8c8246" prot="private" virt="non-virtual"><scope>Player</scope><name>m_position</name></member>
+      <member refid="class_player_1a36e3e507f32eedb9fc3830e97a5eaf7b" prot="private" virt="non-virtual"><scope>Player</scope><name>m_sbuffer</name></member>
+      <member refid="class_player_1ac872b310930295033b218f1551a27e34" prot="private" virt="non-virtual"><scope>Player</scope><name>m_speed</name></member>
+      <member refid="class_player_1a59323f7c0100a4b82ae0fa149ebddad7" prot="private" virt="non-virtual"><scope>Player</scope><name>m_velocity</name></member>
+      <member refid="class_player_1ab660e7d5e7a230174836f24cc063bb32" prot="public" virt="non-virtual"><scope>Player</scope><name>movePlayer</name></member>
+      <member refid="class_player_1a86822bc6c1cd5580b5ee4b4bfbba669a" prot="public" virt="non-virtual"><scope>Player</scope><name>nextState</name></member>
+      <member refid="class_player_1aaa23b3bf80e8c0267cf08d4fe4d6ddc1" prot="public" virt="non-virtual"><scope>Player</scope><name>Player</name></member>
+      <member refid="class_player_1a400d3b686e76277c1260868eb0666cea" prot="public" virt="non-virtual"><scope>Player</scope><name>Player</name></member>
+      <member refid="class_player_1a713060327f44fd131d978419405a135e" prot="public" virt="non-virtual"><scope>Player</scope><name>resetHealth</name></member>
+      <member refid="class_player_1a807c71a57cf852267b56b169d1a44189" prot="public" virt="non-virtual"><scope>Player</scope><name>resetHorizontalVelocity</name></member>
+      <member refid="class_player_1a044c295511873ba2febd45f1240039b9" prot="public" virt="non-virtual"><scope>Player</scope><name>resetVerticalVelocity</name></member>
+      <member refid="class_player_1a6417427f49bce40279688684b104873eae36562fe9960c3bdac70addfd9694b97" prot="public" virt="non-virtual"><scope>Player</scope><name>Right</name></member>
+      <member refid="class_player_1a63fa8020722cad7d4992e014021c2aae" prot="public" virt="non-virtual"><scope>Player</scope><name>setSpeed</name></member>
+      <member refid="class_player_1a706dce26c2937bf8deae8b2b2daac85e" prot="private" virt="non-virtual"><scope>Player</scope><name>spritesMap</name></member>
+      <member refid="class_player_1a66803c23350d38a1dc046e427e65a28baca072b70fed2ebffcc5f03347a23910f" prot="public" virt="non-virtual"><scope>Player</scope><name>Top</name></member>
+      <member refid="class_player_1a66803c23350d38a1dc046e427e65a28b" prot="public" virt="non-virtual"><scope>Player</scope><name>VerticalDirection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

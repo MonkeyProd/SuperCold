@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="namespacetoml_1_1color__ansi_1_1detail" kind="namespace" language="C++">
+    <compoundname>toml::color_ansi::detail</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetoml_1_1color__ansi_1_1detail_1ad8cb594ca9d736802cbfec21812b8a83" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int toml::color_ansi::detail::colorize_index</definition>
+        <argsstring>()</argsstring>
+        <name>colorize_index</name>
+        <qualifiedname>toml::color_ansi::detail::colorize_index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/color.hpp" line="20" column="12" bodyfile="external/toml/color.hpp" bodystart="20" bodyend="24"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/color.hpp" line="18" column="1"/>
+  </compounddef>
+</doxygen>

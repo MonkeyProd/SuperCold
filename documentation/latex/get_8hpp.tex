@@ -1,0 +1,143 @@
+\hypertarget{get_8hpp}{}\doxysection{external/toml/get.hpp File Reference}
+\label{get_8hpp}\index{external/toml/get.hpp@{external/toml/get.hpp}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include \char`\"{}from.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}result.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}value.\+hpp\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetoml}{toml}}
+\item 
+namespace \mbox{\hyperlink{namespacetoml_1_1detail}{toml\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T, basic\+\_\+value$<$ C, M, V $>$ $>$\+::value, T $>$ \& \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{toml\+::get}} (basic\+\_\+value$<$ C, M, V $>$ \&v)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T, basic\+\_\+value$<$ C, M, V $>$ $>$\+::value, T $>$ const \& \mbox{\hyperlink{namespacetoml_ad4cf0aabc6151d86a55f9961c8af8401}{toml\+::get}} (const basic\+\_\+value$<$ C, M, V $>$ \&v)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T, basic\+\_\+value$<$ C, M, V $>$ $>$\+::value, T $>$ \mbox{\hyperlink{namespacetoml_a989e56af2b30adcdd248621a4a9b1a47}{toml\+::get}} (basic\+\_\+value$<$ C, M, V $>$ \&\&v)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+same$<$ T, basic\+\_\+value$<$ C, M, V $>$ $>$\+::value, T $>$ \& \mbox{\hyperlink{namespacetoml_a786250bd7babba1948976732c51c6b81}{toml\+::get}} (basic\+\_\+value$<$ C, M, V $>$ \&v)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+same$<$ T, basic\+\_\+value$<$ C, M, V $>$ $>$\+::value, T $>$ const \& \mbox{\hyperlink{namespacetoml_a3e185035e8f2ab69a5d440a4aaf2969c}{toml\+::get}} (const basic\+\_\+value$<$ C, M, V $>$ \&v)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+same$<$ T, basic\+\_\+value$<$ C, M, V $>$ $>$\+::value, T $>$ \mbox{\hyperlink{namespacetoml_a2507fecad69911d76353aa93246eb522}{toml\+::get}} (basic\+\_\+value$<$ C, M, V $>$ \&\&v)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::conjunction$<$ detail\+::is\+\_\+basic\+\_\+value$<$ T $>$, detail\+::negation$<$ std\+::is\+\_\+same$<$ T, basic\+\_\+value$<$ C, M, V $>$ $>$ $>$ $>$\+::value, T $>$ \mbox{\hyperlink{namespacetoml_ac293b2bf8f667bc9067b331c69ddc873}{toml\+::get}} (const basic\+\_\+value$<$ C, M, V $>$ \&v)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::conjunction$<$ std\+::is\+\_\+integral$<$ T $>$, detail\+::negation$<$ std\+::is\+\_\+same$<$ T, bool $>$ $>$, detail\+::negation$<$ detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T, basic\+\_\+value$<$ C, M, V $>$ $>$ $>$ $>$\+::value, T $>$ \mbox{\hyperlink{namespacetoml_a3c8a49c51cac201ed7e4f48e8cb04959}{toml\+::get}} (const basic\+\_\+value$<$ C, M, V $>$ \&v)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::conjunction$<$ std\+::is\+\_\+floating\+\_\+point$<$ T $>$, detail\+::negation$<$ detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T, basic\+\_\+value$<$ C, M, V $>$ $>$ $>$ $>$\+::value, T $>$ \mbox{\hyperlink{namespacetoml_a9bac8bbf4a0c5bc6bf7c99435615bdf6}{toml\+::get}} (const basic\+\_\+value$<$ C, M, V $>$ \&v)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+same$<$ T, std\+::string $>$\+::value, std\+::string $>$ \& \mbox{\hyperlink{namespacetoml_afb591e6dea05e661f52f42f9becb8ca7}{toml\+::get}} (basic\+\_\+value$<$ C, M, V $>$ \&v)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+same$<$ T, std\+::string $>$\+::value, std\+::string $>$ const \& \mbox{\hyperlink{namespacetoml_a4ffa4465e68d373d9cf5674f6f3796e5}{toml\+::get}} (const basic\+\_\+value$<$ C, M, V $>$ \&v)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+same$<$ T, std\+::string $>$\+::value, std\+::string $>$ \mbox{\hyperlink{namespacetoml_a243231571ef463242860d778ece5df22}{toml\+::get}} (basic\+\_\+value$<$ C, M, V $>$ \&\&v)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::is\+\_\+chrono\+\_\+duration$<$ T $>$\+::value, T $>$ \mbox{\hyperlink{namespacetoml_a9eba384204ba88c885ba78f190e597ca}{toml\+::get}} (const basic\+\_\+value$<$ C, M, V $>$ \&v)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+same$<$ std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point, T $>$\+::value, T $>$ \mbox{\hyperlink{namespacetoml_ae3fca75622011b715337332629c981ae}{toml\+::get}} (const basic\+\_\+value$<$ C, M, V $>$ \&v)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::conjunction$<$ detail\+::is\+\_\+container$<$ T $>$, detail\+::has\+\_\+push\+\_\+back\+\_\+method$<$ T $>$, detail\+::negation$<$ detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T, basic\+\_\+value$<$ C, M, V $>$ $>$ $>$ $>$\+::value, T $>$ \mbox{\hyperlink{namespacetoml_af0cc01c108aec88344680eb65b44e960}{toml\+::get}} (const basic\+\_\+value$<$ C, M, V $>$ \&)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::conjunction$<$ detail\+::is\+\_\+container$<$ T $>$, detail\+::negation$<$ detail\+::has\+\_\+push\+\_\+back\+\_\+method$<$ T $>$ $>$, detail\+::negation$<$ detail\+::has\+\_\+specialized\+\_\+from$<$ T $>$ $>$, detail\+::negation$<$ detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T, basic\+\_\+value$<$ C, M, V $>$ $>$ $>$ $>$\+::value, T $>$ \mbox{\hyperlink{namespacetoml_aee3e3b3d3eb31f0dc6245a8327653660}{toml\+::get}} (const basic\+\_\+value$<$ C, M, V $>$ \&)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::is\+\_\+std\+\_\+pair$<$ T $>$\+::value, T $>$ \mbox{\hyperlink{namespacetoml_aa0df34dae6aa7a4a11cfb1947d8ddb5b}{toml\+::get}} (const basic\+\_\+value$<$ C, M, V $>$ \&)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::is\+\_\+std\+\_\+tuple$<$ T $>$\+::value, T $>$ \mbox{\hyperlink{namespacetoml_a29b9f4101e99205196c82f4e730834e0}{toml\+::get}} (const basic\+\_\+value$<$ C, M, V $>$ \&)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::conjunction$<$ detail\+::is\+\_\+map$<$ T $>$, detail\+::negation$<$ detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T, basic\+\_\+value$<$ C, M, V $>$ $>$ $>$ $>$\+::value, T $>$ \mbox{\hyperlink{namespacetoml_abcbebb2ff72de8c58b583b166d7a95b3}{toml\+::get}} (const basic\+\_\+value$<$ C, M, V $>$ \&)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::conjunction$<$ detail\+::negation$<$ detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T, basic\+\_\+value$<$ C, M, V $>$ $>$ $>$, detail\+::has\+\_\+from\+\_\+toml\+\_\+method$<$ T, C, M, V $>$, std\+::is\+\_\+default\+\_\+constructible$<$ T $>$ $>$\+::value, T $>$ \mbox{\hyperlink{namespacetoml_abef8b9991456ebfde59a8dede286381f}{toml\+::get}} (const basic\+\_\+value$<$ C, M, V $>$ \&)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::has\+\_\+specialized\+\_\+from$<$ T $>$\+::value, T $>$ \mbox{\hyperlink{namespacetoml_ab8a821e13ec13374c93121d4bcb7b905}{toml\+::get}} (const basic\+\_\+value$<$ C, M, V $>$ \&)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::conjunction$<$ detail\+::negation$<$ detail\+::is\+\_\+basic\+\_\+value$<$ T $>$ $>$, std\+::is\+\_\+constructible$<$ T, const basic\+\_\+value$<$ C, M, V $>$ \& $>$, detail\+::negation$<$ detail\+::has\+\_\+from\+\_\+toml\+\_\+method$<$ T, C, M, V $>$ $>$, detail\+::negation$<$ detail\+::has\+\_\+specialized\+\_\+from$<$ T $>$ $>$ $>$\+::value, T $>$ \mbox{\hyperlink{namespacetoml_a9d037a90a8e081bed62df5ca627d02ed}{toml\+::get}} (const basic\+\_\+value$<$ C, M, V $>$ \&)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::is\+\_\+std\+\_\+forward\+\_\+list$<$ T $>$\+::value, T $>$ \mbox{\hyperlink{namespacetoml_a0178f381bdc520b67d66d37548771b9e}{toml\+::get}} (const basic\+\_\+value$<$ C, M, V $>$ \&v)
+\item 
+{\footnotesize template$<$typename T , typename Array , std\+::size\+\_\+t ... I$>$ }\\T \mbox{\hyperlink{namespacetoml_1_1detail_abff645e8280dd4d9dc6bc27368527b84}{toml\+::detail\+::get\+\_\+tuple\+\_\+impl}} (const Array \&a, index\+\_\+sequence$<$ I... $>$)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\basic\+\_\+value$<$ C, M, V $>$ const \& \mbox{\hyperlink{namespacetoml_a3c294619df763838622f55f8d0bab275}{toml\+::find}} (const basic\+\_\+value$<$ C, M, V $>$ \&v, const key \&ky)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\basic\+\_\+value$<$ C, M, V $>$ \& \mbox{\hyperlink{namespacetoml_a57daf4370cfd8c90e4354a67c4391abc}{toml\+::find}} (basic\+\_\+value$<$ C, M, V $>$ \&v, const key \&ky)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\basic\+\_\+value$<$ C, M, V $>$ \mbox{\hyperlink{namespacetoml_a30a1ca648afb042d6ba0831910d85e4e}{toml\+::find}} (basic\+\_\+value$<$ C, M, V $>$ \&\&v, const key \&ky)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\basic\+\_\+value$<$ C, M, V $>$ const \& \mbox{\hyperlink{namespacetoml_ab1954c060b780114811ab1da388c3e2b}{toml\+::find}} (const basic\+\_\+value$<$ C, M, V $>$ \&v, const std\+::size\+\_\+t idx)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\basic\+\_\+value$<$ C, M, V $>$ \& \mbox{\hyperlink{namespacetoml_a26f69885639420ef31ef10e486f3caaf}{toml\+::find}} (basic\+\_\+value$<$ C, M, V $>$ \&v, const std\+::size\+\_\+t idx)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\basic\+\_\+value$<$ C, M, V $>$ \mbox{\hyperlink{namespacetoml_a24f09b8264fee895e6a5feca2c8a4477}{toml\+::find}} (basic\+\_\+value$<$ C, M, V $>$ \&\&v, const std\+::size\+\_\+t idx)
+\item 
+{\footnotesize template$<$typename T $>$ }\\enable\+\_\+if\+\_\+t$<$ conjunction$<$ std\+::is\+\_\+integral$<$ remove\+\_\+cvref\+\_\+t$<$ T $>$ $>$, negation$<$ std\+::is\+\_\+same$<$ remove\+\_\+cvref\+\_\+t$<$ T $>$, bool $>$ $>$ $>$\+::value, std\+::size\+\_\+t $>$ \mbox{\hyperlink{namespacetoml_1_1detail_a2a5edd1d651144d5a8f504363b5b46ed}{toml\+::detail\+::key\+\_\+cast}} (T \&\&v) noexcept
+\item 
+{\footnotesize template$<$typename T $>$ }\\enable\+\_\+if\+\_\+t$<$ negation$<$ conjunction$<$ std\+::is\+\_\+integral$<$ remove\+\_\+cvref\+\_\+t$<$ T $>$ $>$, negation$<$ std\+::is\+\_\+same$<$ remove\+\_\+cvref\+\_\+t$<$ T $>$, bool $>$ $>$ $>$ $>$\+::value, std\+::string $>$ \mbox{\hyperlink{namespacetoml_1_1detail_ad4438aabaa3c4a6dbd0c4d051e41b858}{toml\+::detail\+::key\+\_\+cast}} (T \&\&v) noexcept
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V, typename Key1 , typename Key2 , typename ... Keys$>$ }\\const basic\+\_\+value$<$ C, M, V $>$ \& \mbox{\hyperlink{namespacetoml_af3c0c34f5507c422247af7d089d41bbd}{toml\+::find}} (const basic\+\_\+value$<$ C, M, V $>$ \&v, Key1 \&\&k1, Key2 \&\&k2, Keys \&\&... keys)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V, typename Key1 , typename Key2 , typename ... Keys$>$ }\\basic\+\_\+value$<$ C, M, V $>$ \& \mbox{\hyperlink{namespacetoml_af20a927273ab3d6c4b270f0ea9067e1c}{toml\+::find}} (basic\+\_\+value$<$ C, M, V $>$ \&v, Key1 \&\&k1, Key2 \&\&k2, Keys \&\&... keys)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V, typename Key1 , typename Key2 , typename ... Keys$>$ }\\basic\+\_\+value$<$ C, M, V $>$ \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{toml\+::find}} (basic\+\_\+value$<$ C, M, V $>$ \&\&v, Key1 \&\&k1, Key2 \&\&k2, Keys \&\&... keys)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\basic\+\_\+value$<$ C, M, V $>$ const \& \mbox{\hyperlink{namespacetoml_aee831fac191301c5d2821d231881fb5c}{toml\+::get\+\_\+or}} (const basic\+\_\+value$<$ C, M, V $>$ \&v, const basic\+\_\+value$<$ C, M, V $>$ \&)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\basic\+\_\+value$<$ C, M, V $>$ \& \mbox{\hyperlink{namespacetoml_a1d885346ca0b949a7cf0b1db758df3b2}{toml\+::get\+\_\+or}} (basic\+\_\+value$<$ C, M, V $>$ \&v, basic\+\_\+value$<$ C, M, V $>$ \&)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\basic\+\_\+value$<$ C, M, V $>$ \mbox{\hyperlink{namespacetoml_ad2f02e282c74dbe85633195bcbeb12fd}{toml\+::get\+\_\+or}} (basic\+\_\+value$<$ C, M, V $>$ \&\&v, basic\+\_\+value$<$ C, M, V $>$ \&\&)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T, basic\+\_\+value$<$ C, M, V $>$ $>$\+::value, T $>$ const \& \mbox{\hyperlink{namespacetoml_afacd7cc578e3096def891b08b528ba4f}{toml\+::get\+\_\+or}} (const basic\+\_\+value$<$ C, M, V $>$ \&v, const T \&opt)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T, basic\+\_\+value$<$ C, M, V $>$ $>$\+::value, T $>$ \& \mbox{\hyperlink{namespacetoml_ae36ea4e5ddfb2c21fbae483c9fbea6c2}{toml\+::get\+\_\+or}} (basic\+\_\+value$<$ C, M, V $>$ \&v, T \&opt)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ detail\+::remove\+\_\+cvref\+\_\+t$<$ T $>$, basic\+\_\+value$<$ C, M, V $>$ $>$\+::value, detail\+::remove\+\_\+cvref\+\_\+t$<$ T $>$ $>$ \mbox{\hyperlink{namespacetoml_a50d35e799ef030f68fa55752e1529b65}{toml\+::get\+\_\+or}} (basic\+\_\+value$<$ C, M, V $>$ \&\&v, T \&\&opt)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+same$<$ detail\+::remove\+\_\+cvref\+\_\+t$<$ T $>$, std\+::string $>$\+::value, std\+::string $>$ const \& \mbox{\hyperlink{namespacetoml_a9fb4cd871c358e0e89054107a67c3a9d}{toml\+::get\+\_\+or}} (const basic\+\_\+value$<$ C, M, V $>$ \&v, const T \&opt)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+same$<$ T, std\+::string $>$\+::value, std\+::string $>$ \& \mbox{\hyperlink{namespacetoml_aac8e620fd3e66be36a2824c9b52dcc0e}{toml\+::get\+\_\+or}} (basic\+\_\+value$<$ C, M, V $>$ \&v, T \&opt)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+same$<$ detail\+::remove\+\_\+cvref\+\_\+t$<$ T $>$, std\+::string $>$\+::value, std\+::string $>$ \mbox{\hyperlink{namespacetoml_ad9698c78ddd0589b54b897d8608cd21e}{toml\+::get\+\_\+or}} (basic\+\_\+value$<$ C, M, V $>$ \&\&v, T \&\&opt)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::is\+\_\+string\+\_\+literal$<$ typename std\+::remove\+\_\+reference$<$ T $>$\+::type $>$\+::value, std\+::string $>$ \mbox{\hyperlink{namespacetoml_a7869ca35179f064c2195076544b3b96a}{toml\+::get\+\_\+or}} (const basic\+\_\+value$<$ C, M, V $>$ \&v, T \&\&opt)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::conjunction$<$ detail\+::negation$<$ detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ detail\+::remove\+\_\+cvref\+\_\+t$<$ T $>$, basic\+\_\+value$<$ C, M, V $>$ $>$ $>$, detail\+::negation$<$ std\+::is\+\_\+same$<$ std\+::string, detail\+::remove\+\_\+cvref\+\_\+t$<$ T $>$ $>$ $>$, detail\+::negation$<$ detail\+::is\+\_\+string\+\_\+literal$<$ typename std\+::remove\+\_\+reference$<$ T $>$\+::type $>$ $>$ $>$\+::value, detail\+::remove\+\_\+cvref\+\_\+t$<$ T $>$ $>$ \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{toml\+::get\+\_\+or}} (const basic\+\_\+value$<$ C, M, V $>$ \&v, T \&\&opt)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\basic\+\_\+value$<$ C, M, V $>$ const \& \mbox{\hyperlink{namespacetoml_a34fb7cea6c5ed3988dd2d3944bfd6b2a}{toml\+::find\+\_\+or}} (const basic\+\_\+value$<$ C, M, V $>$ \&v, const key \&ky, const basic\+\_\+value$<$ C, M, V $>$ \&opt)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\basic\+\_\+value$<$ C, M, V $>$ \& \mbox{\hyperlink{namespacetoml_a9f06b255c9a103b100d9cf14d3131257}{toml\+::find\+\_\+or}} (basic\+\_\+value$<$ C, M, V $>$ \&v, const \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml\+::key}} \&ky, basic\+\_\+value$<$ C, M, V $>$ \&opt)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\basic\+\_\+value$<$ C, M, V $>$ \mbox{\hyperlink{namespacetoml_a4c93db3c4b16b3f2b42c2cd82b882083}{toml\+::find\+\_\+or}} (basic\+\_\+value$<$ C, M, V $>$ \&\&v, const \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml\+::key}} \&ky, basic\+\_\+value$<$ C, M, V $>$ \&\&opt)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T, basic\+\_\+value$<$ C, M, V $>$ $>$\+::value, T $>$ const \& \mbox{\hyperlink{namespacetoml_ae34c8f79d2e88bcb39be9e90cf055357}{toml\+::find\+\_\+or}} (const basic\+\_\+value$<$ C, M, V $>$ \&v, const key \&ky, const T \&opt)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T, basic\+\_\+value$<$ C, M, V $>$ $>$\+::value, T $>$ \& \mbox{\hyperlink{namespacetoml_ac5860e02c6a476e5c04a4b36ecd1b1f8}{toml\+::find\+\_\+or}} (basic\+\_\+value$<$ C, M, V $>$ \&v, const \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml\+::key}} \&ky, T \&opt)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T, basic\+\_\+value$<$ C, M, V $>$ $>$\+::value, detail\+::remove\+\_\+cvref\+\_\+t$<$ T $>$ $>$ \mbox{\hyperlink{namespacetoml_aacd5809ef81c57540e113e43c0c2579b}{toml\+::find\+\_\+or}} (basic\+\_\+value$<$ C, M, V $>$ \&\&v, const \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml\+::key}} \&ky, T \&\&opt)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+same$<$ T, std\+::string $>$\+::value, std\+::string $>$ const \& \mbox{\hyperlink{namespacetoml_abbb32281594436244c5651bec4530c8f}{toml\+::find\+\_\+or}} (const basic\+\_\+value$<$ C, M, V $>$ \&v, const key \&ky, const T \&opt)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+same$<$ T, std\+::string $>$\+::value, std\+::string $>$ \& \mbox{\hyperlink{namespacetoml_a5e892647ff31ca9ef13960e1e231dd5f}{toml\+::find\+\_\+or}} (basic\+\_\+value$<$ C, M, V $>$ \&v, const \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml\+::key}} \&ky, T \&opt)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ std\+::is\+\_\+same$<$ T, std\+::string $>$\+::value, std\+::string $>$ \mbox{\hyperlink{namespacetoml_a38b0517d3598ba4c326f3ce08c5d11c0}{toml\+::find\+\_\+or}} (basic\+\_\+value$<$ C, M, V $>$ \&\&v, const \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml\+::key}} \&ky, T \&\&opt)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::is\+\_\+string\+\_\+literal$<$ typename std\+::remove\+\_\+reference$<$ T $>$\+::type $>$\+::value, std\+::string $>$ \mbox{\hyperlink{namespacetoml_a9ff07b39606121da2f748ab9dd4f12d4}{toml\+::find\+\_\+or}} (const basic\+\_\+value$<$ C, M, V $>$ \&v, const \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml\+::key}} \&ky, T \&\&opt)
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\detail\+::enable\+\_\+if\+\_\+t$<$ detail\+::conjunction$<$ detail\+::negation$<$ detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ detail\+::remove\+\_\+cvref\+\_\+t$<$ T $>$, basic\+\_\+value$<$ C, M, V $>$ $>$ $>$, detail\+::negation$<$ std\+::is\+\_\+same$<$ std\+::string, detail\+::remove\+\_\+cvref\+\_\+t$<$ T $>$ $>$ $>$, detail\+::negation$<$ detail\+::is\+\_\+string\+\_\+literal$<$ typename std\+::remove\+\_\+reference$<$ T $>$\+::type $>$ $>$ $>$\+::value, detail\+::remove\+\_\+cvref\+\_\+t$<$ T $>$ $>$ \mbox{\hyperlink{namespacetoml_a98bb90cdc1f8d715b958e772c4f18700}{toml\+::find\+\_\+or}} (const basic\+\_\+value$<$ C, M, V $>$ \&v, const \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml\+::key}} \&ky, T \&\&opt)
+\item 
+{\footnotesize template$<$typename Value , typename ... Ks, typename detail\+::enable\+\_\+if\+\_\+t$<$(sizeof...(Ks) $>$ 1), std\+::nullptr\+\_\+t $>$  = nullptr$>$ }\\auto \mbox{\hyperlink{namespacetoml_acf4a80d2e36cd2bfe2b78ead81c34c82}{toml\+::find\+\_\+or}} (Value \&\&v, const \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml\+::key}} \&ky, Ks \&\&... keys) -\/$>$ decltype(find\+\_\+or(std\+::forward$<$ Value $>$(v), ky, detail\+::last\+\_\+one(std\+::forward$<$ Ks $>$(keys)...)))
+\item 
+{\footnotesize template$<$typename T , typename Value , typename ... Ks, typename detail\+::enable\+\_\+if\+\_\+t$<$(sizeof...(Ks) $>$ 1), std\+::nullptr\+\_\+t $>$  = nullptr$>$ }\\auto \mbox{\hyperlink{namespacetoml_ac1041238bb8c4958d4e9fc3fd9cc3e13}{toml\+::find\+\_\+or}} (Value \&\&v, const \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml\+::key}} \&ky, Ks \&\&... keys) -\/$>$ decltype(find\+\_\+or$<$ T $>$(std\+::forward$<$ Value $>$(v), ky, detail\+::last\+\_\+one(std\+::forward$<$ Ks $>$(keys)...)))
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\result$<$ T, std\+::string $>$ \mbox{\hyperlink{namespacetoml_a303d95485a58e3396a677b8e852b6481}{toml\+::expect}} (const basic\+\_\+value$<$ C, M, V $>$ \&v) noexcept
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\result$<$ T, std\+::string $>$ \mbox{\hyperlink{namespacetoml_a09489518c2b4f07d78dbee504f905e38}{toml\+::expect}} (const basic\+\_\+value$<$ C, M, V $>$ \&v, const \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml\+::key}} \&k) noexcept
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename C , template$<$ typename ... $>$ class M, template$<$ typename ... $>$ class V$>$ }\\decltype(\+::toml\+::get$<$ T $>$(std\+::declval$<$ basic\+\_\+value$<$ C, M, V $>$ const \& $>$())) \mbox{\hyperlink{namespacetoml_a31abd17e078e497fb224d79260910b8d}{toml\+::find}} (const basic\+\_\+value$<$ C, M, V $>$ \&v, const key \&ky)
+\end{DoxyCompactItemize}

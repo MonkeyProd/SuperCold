@@ -1,0 +1,251 @@
+\hypertarget{class_game_object}{}\doxysection{Game\+Object Class Reference}
+\label{class_game_object}\index{GameObject@{GameObject}}
+
+
+{\ttfamily \#include $<$Game\+Object.\+hpp$>$}
+
+Inheritance diagram for Game\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game_object}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_object_a0348e3ee2e83d56eafca7a3547f432c4}{Game\+Object}} ()
+\item 
+\mbox{\hyperlink{class_game_object_afe6901fa803678a6d4a200c981ca884e}{Game\+Object}} (const sf\+::\+Vector2f \&cordinates, std\+::vector$<$ sf\+::\+Sprite $>$ \&sprites\+\_\+array, bool \mbox{\hyperlink{class_game_object_af94ded297ad54bbe84cdaf5ad5100a56}{is\+Collider}}=false, float scale=1, sf\+::\+Vector2f box\+Collider=\{0, 0\})
+\begin{DoxyCompactList}\small\item\em Класс игрового объекта \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object_a5422e96f91a615083abce4b4b2d1bf27}{Game\+Object}} (const sf\+::\+Vector2f \&cordinates, const sf\+::\+Sprite \&sprite, bool \mbox{\hyperlink{class_game_object_af94ded297ad54bbe84cdaf5ad5100a56}{is\+Collider}}=false, float scale=1, sf\+::\+Vector2f box\+Collider=\{0, 0\})
+\begin{DoxyCompactList}\small\item\em Класс игрового объекта \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_game_object_aefc09c7e8ead168e820f6c7af3b7b839}{draw}} (sf\+::\+Render\+Target \&surface, sf\+::\+Render\+States states) const
+\item 
+void \mbox{\hyperlink{class_game_object_a60d8eb6676c260a5909944b4b55dad50}{next\+State}} ()
+\begin{DoxyCompactList}\small\item\em Метод меняющий спрайт анимации игрового объекта на следующий \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_object_af94ded297ad54bbe84cdaf5ad5100a56}{is\+Collider}} () const
+\begin{DoxyCompactList}\small\item\em Метод, возращающий bool -\/ является ли игровой объекта коллайдером \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_object_ae110f3b758e45ec3ea0bfe57c284e648}{reset\+Animation}} ()
+\begin{DoxyCompactList}\small\item\em Метод сброса анимации до начального спрайта \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_object_a6e9241cf0aaaff0c9b5565888f65ebf3}{check\+\_\+collision}} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \&other) const
+\begin{DoxyCompactList}\small\item\em Метод, возрающий bool -\/ пересеклись ли два игровых объекта \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_object_a172713ec092f0e08d3cb5af8450e5bb3}{check\+\_\+collision}} (sf\+::\+Float\+Rect \&other\+Float\+Rect) const
+\begin{DoxyCompactList}\small\item\em Метод, возрающий bool -\/ пересеклись ли игровой объект и Float\+Rect. \end{DoxyCompactList}\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{class_game_object_a80cf3649948d6cd1cf8bf9277fcee741}{get\+Game\+Object\+Rect}} () const
+\begin{DoxyCompactList}\small\item\em Метод, возрающий Float\+Rect игрового объекта \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_game_object_aebea2b95e12565a10167ef989a31fdb5}{is\+Last\+Animation\+State}} () const
+\begin{DoxyCompactList}\small\item\em Метод, возрающий bool -\/ является ли текущий спрайт последним в анимации \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_game_object_aeacf313d6a432fd7ec7c4197f85a2dc1}{m\+\_\+scale}}
+\item 
+bool \mbox{\hyperlink{class_game_object_a6ebdcd772800641b74d3771a3a4ceb79}{stop\+At\+End}} = false
+\item 
+std\+::vector$<$ sf\+::\+Sprite $>$ \mbox{\hyperlink{class_game_object_a27942e782c75e53e83b8acc57758f0b5}{m\+\_\+sprites\+\_\+array}}
+\item 
+sf\+::\+Sprite \mbox{\hyperlink{class_game_object_aa5d62b9e42b89d3a7ee972e987f62833}{m\+\_\+sprite}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_game_object}{Game\+Object}} class have animation state which says what sprite index use to draw 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_object_a0348e3ee2e83d56eafca7a3547f432c4}\label{class_game_object_a0348e3ee2e83d56eafca7a3547f432c4}} 
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_game_object_afe6901fa803678a6d4a200c981ca884e}\label{class_game_object_afe6901fa803678a6d4a200c981ca884e}} 
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2f \&}]{cordinates,  }\item[{std\+::vector$<$ sf\+::\+Sprite $>$ \&}]{sprites\+\_\+array,  }\item[{bool}]{is\+Collider = {\ttfamily false},  }\item[{float}]{scale = {\ttfamily 1},  }\item[{sf\+::\+Vector2f}]{box\+Collider = {\ttfamily \{0,~0\}} }\end{DoxyParamCaption})}
+
+
+
+Класс игрового объекта 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cordinates} & положение игрвого объекта \\
+\hline
+{\em sprites\+\_\+array} & вектор спрайтов(для анимации) \\
+\hline
+{\em is\+Collider} & bool -\/ является ли игровой объект коллайдером \\
+\hline
+{\em scale} & коэффициент увеличения спрайта игрового объекта \\
+\hline
+{\em box\+Collider} & размеры квадрата коллизии игрового объекта \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_a5422e96f91a615083abce4b4b2d1bf27}\label{class_game_object_a5422e96f91a615083abce4b4b2d1bf27}} 
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\index{GameObject@{GameObject}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{GameObject()}{GameObject()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Game\+Object\+::\+Game\+Object (\begin{DoxyParamCaption}\item[{const sf\+::\+Vector2f \&}]{cordinates,  }\item[{const sf\+::\+Sprite \&}]{sprite,  }\item[{bool}]{is\+Collider = {\ttfamily false},  }\item[{float}]{scale = {\ttfamily 1},  }\item[{sf\+::\+Vector2f}]{box\+Collider = {\ttfamily \{0,~0\}} }\end{DoxyParamCaption})}
+
+
+
+Класс игрового объекта 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cordinates} & положение игрвого объекта \\
+\hline
+{\em sprite} & спрайт игрового объекта \\
+\hline
+{\em is\+Collider} & bool -\/ является ли игровой объект коллайдером \\
+\hline
+{\em scale} & коэффициент увеличения спрайта игрового объекта \\
+\hline
+{\em box\+Collider} & размеры квадрата коллизии игрового объекта \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_object_a6e9241cf0aaaff0c9b5565888f65ebf3}\label{class_game_object_a6e9241cf0aaaff0c9b5565888f65ebf3}} 
+\index{GameObject@{GameObject}!check\_collision@{check\_collision}}
+\index{check\_collision@{check\_collision}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{check\_collision()}{check\_collision()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Game\+Object\+::check\+\_\+collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_object}{Game\+Object}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Метод, возрающий bool -\/ пересеклись ли два игровых объекта 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & игровой объект с которым проверяем пересечение \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true есть пересечение 
+
+false нет пересечения 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_a172713ec092f0e08d3cb5af8450e5bb3}\label{class_game_object_a172713ec092f0e08d3cb5af8450e5bb3}} 
+\index{GameObject@{GameObject}!check\_collision@{check\_collision}}
+\index{check\_collision@{check\_collision}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{check\_collision()}{check\_collision()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Game\+Object\+::check\+\_\+collision (\begin{DoxyParamCaption}\item[{sf\+::\+Float\+Rect \&}]{other\+Float\+Rect }\end{DoxyParamCaption}) const}
+
+
+
+Метод, возрающий bool -\/ пересеклись ли игровой объект и Float\+Rect. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other\+Float\+Rect} & Float\+Rect с которым проверяем пересечение \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true пересечение есть 
+
+false пересечения нет 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_aefc09c7e8ead168e820f6c7af3b7b839}\label{class_game_object_aefc09c7e8ead168e820f6c7af3b7b839}} 
+\index{GameObject@{GameObject}!draw@{draw}}
+\index{draw@{draw}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Game\+Object\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{surface,  }\item[{sf\+::\+Render\+States}]{states }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_game_object_a80cf3649948d6cd1cf8bf9277fcee741}\label{class_game_object_a80cf3649948d6cd1cf8bf9277fcee741}} 
+\index{GameObject@{GameObject}!getGameObjectRect@{getGameObjectRect}}
+\index{getGameObjectRect@{getGameObjectRect}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{getGameObjectRect()}{getGameObjectRect()}}
+{\footnotesize\ttfamily sf\+::\+Float\+Rect Game\+Object\+::get\+Game\+Object\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Метод, возрающий Float\+Rect игрового объекта 
+
+\begin{DoxyReturn}{Returns}
+sf\+::\+Float\+Rect 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_af94ded297ad54bbe84cdaf5ad5100a56}\label{class_game_object_af94ded297ad54bbe84cdaf5ad5100a56}} 
+\index{GameObject@{GameObject}!isCollider@{isCollider}}
+\index{isCollider@{isCollider}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{isCollider()}{isCollider()}}
+{\footnotesize\ttfamily bool Game\+Object\+::is\+Collider (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Метод, возращающий bool -\/ является ли игровой объекта коллайдером 
+
+\begin{DoxyReturn}{Returns}
+true является 
+
+false не является 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_aebea2b95e12565a10167ef989a31fdb5}\label{class_game_object_aebea2b95e12565a10167ef989a31fdb5}} 
+\index{GameObject@{GameObject}!isLastAnimationState@{isLastAnimationState}}
+\index{isLastAnimationState@{isLastAnimationState}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{isLastAnimationState()}{isLastAnimationState()}}
+{\footnotesize\ttfamily bool Game\+Object\+::is\+Last\+Animation\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Метод, возрающий bool -\/ является ли текущий спрайт последним в анимации 
+
+\begin{DoxyReturn}{Returns}
+true да, является 
+
+false нет, не является 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_a60d8eb6676c260a5909944b4b55dad50}\label{class_game_object_a60d8eb6676c260a5909944b4b55dad50}} 
+\index{GameObject@{GameObject}!nextState@{nextState}}
+\index{nextState@{nextState}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{nextState()}{nextState()}}
+{\footnotesize\ttfamily void Game\+Object\+::next\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод меняющий спрайт анимации игрового объекта на следующий 
+
+\mbox{\Hypertarget{class_game_object_ae110f3b758e45ec3ea0bfe57c284e648}\label{class_game_object_ae110f3b758e45ec3ea0bfe57c284e648}} 
+\index{GameObject@{GameObject}!resetAnimation@{resetAnimation}}
+\index{resetAnimation@{resetAnimation}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{resetAnimation()}{resetAnimation()}}
+{\footnotesize\ttfamily void Game\+Object\+::reset\+Animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод сброса анимации до начального спрайта 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_game_object_aeacf313d6a432fd7ec7c4197f85a2dc1}\label{class_game_object_aeacf313d6a432fd7ec7c4197f85a2dc1}} 
+\index{GameObject@{GameObject}!m\_scale@{m\_scale}}
+\index{m\_scale@{m\_scale}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{m\_scale}{m\_scale}}
+{\footnotesize\ttfamily float Game\+Object\+::m\+\_\+scale}
+
+\mbox{\Hypertarget{class_game_object_aa5d62b9e42b89d3a7ee972e987f62833}\label{class_game_object_aa5d62b9e42b89d3a7ee972e987f62833}} 
+\index{GameObject@{GameObject}!m\_sprite@{m\_sprite}}
+\index{m\_sprite@{m\_sprite}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{m\_sprite}{m\_sprite}}
+{\footnotesize\ttfamily sf\+::\+Sprite Game\+Object\+::m\+\_\+sprite}
+
+\mbox{\Hypertarget{class_game_object_a27942e782c75e53e83b8acc57758f0b5}\label{class_game_object_a27942e782c75e53e83b8acc57758f0b5}} 
+\index{GameObject@{GameObject}!m\_sprites\_array@{m\_sprites\_array}}
+\index{m\_sprites\_array@{m\_sprites\_array}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{m\_sprites\_array}{m\_sprites\_array}}
+{\footnotesize\ttfamily std\+::vector$<$sf\+::\+Sprite$>$ Game\+Object\+::m\+\_\+sprites\+\_\+array}
+
+\mbox{\Hypertarget{class_game_object_a6ebdcd772800641b74d3771a3a4ceb79}\label{class_game_object_a6ebdcd772800641b74d3771a3a4ceb79}} 
+\index{GameObject@{GameObject}!stopAtEnd@{stopAtEnd}}
+\index{stopAtEnd@{stopAtEnd}!GameObject@{GameObject}}
+\doxysubsubsection{\texorpdfstring{stopAtEnd}{stopAtEnd}}
+{\footnotesize\ttfamily bool Game\+Object\+::stop\+At\+End = false}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Object/\mbox{\hyperlink{_game_object_8hpp}{Game\+Object.\+hpp}}\item 
+Game\+Object/\mbox{\hyperlink{_game_object_8cpp}{Game\+Object.\+cpp}}\end{DoxyCompactItemize}

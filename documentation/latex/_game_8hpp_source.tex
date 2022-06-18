@@ -1,0 +1,70 @@
+\hypertarget{_game_8hpp_source}{}\doxysection{Game.\+hpp}
+\label{_game_8hpp_source}\index{Game/Game.hpp@{Game/Game.hpp}}
+\mbox{\hyperlink{_game_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <SFML/Audio.hpp>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}../Bullet/Bullet.hpp"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}../Enemies/EyeEnemy.hpp"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}../GameObject/GameObject.hpp"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}../Player/Player.hpp"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}../SettingsManager/SettingsManager.hpp"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}../SpriteContoller/SpriteController.hpp"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}../TileMap/TileMap.hpp"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}../external/SimplexNoise/SimplexNoise.hpp"{}}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_game}{Game}} \{}
+\DoxyCodeLine{17   \textcolor{keyword}{private}:}
+\DoxyCodeLine{18     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} WINDOW\_SIZE\_H;}
+\DoxyCodeLine{19     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} WINDOW\_SIZE\_W;}
+\DoxyCodeLine{20     uint8\_t FPS;}
+\DoxyCodeLine{21     \textcolor{keywordtype}{bool} paused;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     sf::RenderWindow window;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \mbox{\hyperlink{struct_sprite_controller}{SpriteController}} spriteController;}
+\DoxyCodeLine{26     \mbox{\hyperlink{struct_settings_manager}{SettingsManager}} settingsManager;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \mbox{\hyperlink{class_player}{Player}} player;}
+\DoxyCodeLine{29     sf::Vector2i previousPlayerPosition;}
+\DoxyCodeLine{30     sf::View camera;}
+\DoxyCodeLine{31     sf::View map;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     std::vector<GameObject> drawLayer;}
+\DoxyCodeLine{34     std::vector<Bullet> bulletLayer;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{comment}{// TEMP}}
+\DoxyCodeLine{37     std::vector<EyeEnemy> enemies;}
+\DoxyCodeLine{38     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} difficulty;}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} ProcessEvents();}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} update(sf::Time deltatime);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} updateAnimations(sf::Time deltatime);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} draw(sf::Time deltaTime);}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} draw\_world(std::vector<sf::Sprite> sprites);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{79     \textcolor{keywordtype}{void} draw\_test\_room(std::vector<sf::Sprite> sprites);}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{88     \textcolor{keywordtype}{void} draw\_animated\_player(std::vector<sf::Sprite> sprites, \textcolor{keywordtype}{float} x,}
+\DoxyCodeLine{89                               \textcolor{keywordtype}{float} y);}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} new\_wave();}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97     \textcolor{comment}{//Механики}}
+\DoxyCodeLine{103 \textcolor{comment}{}    \textcolor{keywordtype}{void} shootBullet(sf::Vector2f velocity);}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105   \textcolor{keyword}{public}:}
+\DoxyCodeLine{112     \mbox{\hyperlink{class_game_a6294956d986beb8a655513e6e444a83b}{Game}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} h = 600U, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} w = 800U);}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{118     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_a1ab78f5ed0d5ea879157357cf2fb2afa}{run}}();}
+\DoxyCodeLine{119 \};}
+
+\end{DoxyCode}

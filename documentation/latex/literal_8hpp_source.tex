@@ -1,0 +1,119 @@
+\hypertarget{literal_8hpp_source}{}\doxysection{literal.\+hpp}
+\label{literal_8hpp_source}\index{external/toml/literal.hpp@{external/toml/literal.hpp}}
+\mbox{\hyperlink{literal_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//     Copyright Toru Niina 2019.}}
+\DoxyCodeLine{2 \textcolor{comment}{// Distributed under the MIT License.}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifndef TOML11\_LITERAL\_HPP}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TOML11\_LITERAL\_HPP}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{parser_8hpp}{parser.hpp}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetoml}{toml}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{inline} \textcolor{keyword}{namespace }literals}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{keyword}{inline} \textcolor{keyword}{namespace }toml\_literals}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{comment}{// implementation}}
+\DoxyCodeLine{15 inline ::toml::basic\_value<TOML11\_DEFAULT\_COMMENT\_STRATEGY, std::unordered\_map, std::vector>}
+\DoxyCodeLine{16 \mbox{\hyperlink{namespacetoml_1_1literals_1_1toml__literals_a1fce2e7bf1c3e9c72746c794fba65eba}{literal\_internal\_impl}}(\mbox{\hyperlink{structtoml_1_1detail_1_1location}{::toml::detail::location}} loc)}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \textcolor{keyword}{using }value\_type = \mbox{\hyperlink{classtoml_1_1basic__value}{::toml::basic\_value}}<}
+\DoxyCodeLine{19         \mbox{\hyperlink{comments_8hpp_ac5952aa66c2a24cfdbb3d82f70f22618}{TOML11\_DEFAULT\_COMMENT\_STRATEGY}}, std::unordered\_map, std::vector>;}
+\DoxyCodeLine{20     \textcolor{comment}{// if there are some comments or empty lines, skip them.}}
+\DoxyCodeLine{21     \textcolor{keyword}{using }skip\_line = \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{::toml::detail::repeat}}<\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{toml::detail::sequence}}<}
+\DoxyCodeLine{22             \mbox{\hyperlink{structtoml_1_1detail_1_1maybe}{::toml::detail::maybe<::toml::detail::lex\_ws>}},}
+\DoxyCodeLine{23             \mbox{\hyperlink{structtoml_1_1detail_1_1maybe}{::toml::detail::maybe<::toml::detail::lex\_comment>}},}
+\DoxyCodeLine{24             \mbox{\hyperlink{structtoml_1_1detail_1_1either}{::toml::detail::lex\_newline}}}
+\DoxyCodeLine{25         >, \mbox{\hyperlink{structtoml_1_1detail_1_1at__least}{::toml::detail::at\_least<1>}}>;}
+\DoxyCodeLine{26     skip\_line::invoke(loc);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{comment}{// if there are some whitespaces before a value, skip them.}}
+\DoxyCodeLine{29     \textcolor{keyword}{using }skip\_ws = \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{::toml::detail::repeat}}<}
+\DoxyCodeLine{30         \mbox{\hyperlink{namespacetoml_1_1detail_aa4764c4543fe43f20ebe118900be3b4e}{::toml::detail::lex\_ws}}, \mbox{\hyperlink{structtoml_1_1detail_1_1at__least}{::toml::detail::at\_least<1>}}>;}
+\DoxyCodeLine{31     skip\_ws::invoke(loc);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{comment}{// to distinguish arrays and tables, first check it is a table or not.}}
+\DoxyCodeLine{34     \textcolor{comment}{//}}
+\DoxyCodeLine{35     \textcolor{comment}{// "{}[1,2,3]"{}\_toml;   // this is an array}}
+\DoxyCodeLine{36     \textcolor{comment}{// "{}[table]"{}\_toml;   // a table that has an empty table named "{}table"{} inside.}}
+\DoxyCodeLine{37     \textcolor{comment}{// "{}[[1,2,3]]"{}\_toml; // this is an array of arrays}}
+\DoxyCodeLine{38     \textcolor{comment}{// "{}[[table]]"{}\_toml; // this is a table that has an array of tables inside.}}
+\DoxyCodeLine{39     \textcolor{comment}{//}}
+\DoxyCodeLine{40     \textcolor{comment}{// "{}[[1]]"{}\_toml;     // this can be both... (currently it becomes a table)}}
+\DoxyCodeLine{41     \textcolor{comment}{// "{}1 = [\{\}]"{}\_toml;  // this is a table that has an array of table named 1.}}
+\DoxyCodeLine{42     \textcolor{comment}{// "{}[[1,]]"{}\_toml;    // this is an array of arrays.}}
+\DoxyCodeLine{43     \textcolor{comment}{// "{}[[1],]"{}\_toml;    // this also.}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keyword}{const} \textcolor{keyword}{auto} the\_front = loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_a3fec075fe10382a901104613f84b37ee}{iter}}();}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keyword}{const} \textcolor{keywordtype}{bool} is\_table\_key = ::toml::detail::lex\_std\_table::invoke(loc);}
+\DoxyCodeLine{48     loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_ae7029e5f4aa2ab85280107391972cff0}{reset}}(the\_front);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keyword}{const} \textcolor{keywordtype}{bool} is\_aots\_key  = ::toml::detail::lex\_array\_table::invoke(loc);}
+\DoxyCodeLine{51     loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_ae7029e5f4aa2ab85280107391972cff0}{reset}}(the\_front);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{comment}{// If it is neither a table-\/key or a array-\/of-\/table-\/key, it may be a value.}}
+\DoxyCodeLine{54     \textcolor{keywordflow}{if}(!is\_table\_key \&\& !is\_aots\_key)}
+\DoxyCodeLine{55     \{}
+\DoxyCodeLine{56         \textcolor{keywordflow}{if}(\textcolor{keyword}{auto} data = ::toml::detail::parse\_value<value\_type>(loc))}
+\DoxyCodeLine{57         \{}
+\DoxyCodeLine{58             \textcolor{keywordflow}{return} data.unwrap();}
+\DoxyCodeLine{59         \}}
+\DoxyCodeLine{60     \}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{comment}{// Note that still it can be a table, because the literal might be something}}
+\DoxyCodeLine{63     \textcolor{comment}{// like the following.}}
+\DoxyCodeLine{64     \textcolor{comment}{// ```cpp}}
+\DoxyCodeLine{65     \textcolor{comment}{// R"{}( // c++11 raw string literals}}
+\DoxyCodeLine{66     \textcolor{comment}{//   key = "{}value"{}}}
+\DoxyCodeLine{67     \textcolor{comment}{//   int = 42}}
+\DoxyCodeLine{68     \textcolor{comment}{// )"{}\_toml;}}
+\DoxyCodeLine{69     \textcolor{comment}{// ```}}
+\DoxyCodeLine{70     \textcolor{comment}{// It is a valid toml file.}}
+\DoxyCodeLine{71     \textcolor{comment}{// It should be parsed as if we parse a file with this content.}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keywordflow}{if}(\textcolor{keyword}{auto} data = ::toml::detail::parse\_toml\_file<value\_type>(loc))}
+\DoxyCodeLine{74     \{}
+\DoxyCodeLine{75         \textcolor{keywordflow}{return} data.unwrap();}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77     \textcolor{keywordflow}{else} \textcolor{comment}{// none of them.}}
+\DoxyCodeLine{78     \{}
+\DoxyCodeLine{79         throw ::toml::syntax\_error(data.unwrap\_err(), \mbox{\hyperlink{structtoml_1_1source__location}{source\_location}}(loc));}
+\DoxyCodeLine{80     \}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 inline ::toml::basic\_value<TOML11\_DEFAULT\_COMMENT\_STRATEGY, std::unordered\_map, std::vector>}
+\DoxyCodeLine{85 \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_toml(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* str, std::size\_t len)}
+\DoxyCodeLine{86 \{}
+\DoxyCodeLine{87     \mbox{\hyperlink{structtoml_1_1detail_1_1location}{::toml::detail::location}} loc(}
+\DoxyCodeLine{88             std::string(\textcolor{stringliteral}{"{}TOML literal encoded in a C++ code"{}}),}
+\DoxyCodeLine{89             std::vector<char>(str, str + len));}
+\DoxyCodeLine{90     \textcolor{comment}{// literal length does not include the null character at the end.}}
+\DoxyCodeLine{91     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1literals_1_1toml__literals_a1fce2e7bf1c3e9c72746c794fba65eba}{literal\_internal\_impl}}(std::move(loc));}
+\DoxyCodeLine{92 \}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{comment}{// value of \_\_cplusplus in C++2a/20 mode is not fixed yet along compilers.}}
+\DoxyCodeLine{95 \textcolor{comment}{// So here we use the feature test macro for `char8\_t` itself.}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#if defined(\_\_cpp\_char8\_t) \&\& \_\_cpp\_char8\_t >= 201811L}}
+\DoxyCodeLine{97 \textcolor{comment}{// value of u8"{}"{} literal has been changed from char to char8\_t and char8\_t is}}
+\DoxyCodeLine{98 \textcolor{comment}{// NOT compatible to char}}
+\DoxyCodeLine{99 inline ::toml::basic\_value<TOML11\_DEFAULT\_COMMENT\_STRATEGY, std::unordered\_map, std::vector>}
+\DoxyCodeLine{100 \textcolor{keyword}{operator}\textcolor{stringliteral}{"{}"{}} \_toml(\textcolor{keyword}{const} \textcolor{keywordtype}{char8\_t}* str, std::size\_t len)}
+\DoxyCodeLine{101 \{}
+\DoxyCodeLine{102     \mbox{\hyperlink{structtoml_1_1detail_1_1location}{::toml::detail::location}} loc(}
+\DoxyCodeLine{103             std::string(\textcolor{stringliteral}{"{}TOML literal encoded in a C++ code"{}}),}
+\DoxyCodeLine{104             std::vector<char>(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(str),}
+\DoxyCodeLine{105                               \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const }\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(str) + len));}
+\DoxyCodeLine{106     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1literals_1_1toml__literals_a1fce2e7bf1c3e9c72746c794fba65eba}{literal\_internal\_impl}}(std::move(loc));}
+\DoxyCodeLine{107 \}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 \} \textcolor{comment}{// toml\_literals}}
+\DoxyCodeLine{111 \} \textcolor{comment}{// literals}}
+\DoxyCodeLine{112 \} \textcolor{comment}{// toml}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#endif}\textcolor{comment}{//TOML11\_LITERAL\_HPP}}
+
+\end{DoxyCode}

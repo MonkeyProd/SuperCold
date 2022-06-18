@@ -1,0 +1,280 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1local__datetime" kind="struct" language="C++" prot="public">
+    <compoundname>toml::local_datetime</compoundname>
+    <includes refid="datetime_8hpp" local="no">datetime.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtoml_1_1local__datetime_1a67661503e7b2843effbb0672bf081364" prot="public" static="no" mutable="no">
+        <type><ref refid="structtoml_1_1local__date" kindref="compound">local_date</ref></type>
+        <definition>local_date toml::local_datetime::date</definition>
+        <argsstring></argsstring>
+        <name>date</name>
+        <qualifiedname>toml::local_datetime::date</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="367" column="16" bodyfile="external/toml/datetime.hpp" bodystart="367" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtoml_1_1local__datetime_1aef74396c27a3a98071c518dbbde230fe" prot="public" static="no" mutable="no">
+        <type><ref refid="structtoml_1_1local__time" kindref="compound">local_time</ref></type>
+        <definition>local_time toml::local_datetime::time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <qualifiedname>toml::local_datetime::time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="368" column="16" bodyfile="external/toml/datetime.hpp" bodystart="368" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtoml_1_1local__datetime_1a254dcececa30720639f84f072ccf8380" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::local_datetime::local_datetime</definition>
+        <argsstring>(local_date d, local_time t)</argsstring>
+        <name>local_datetime</name>
+        <qualifiedname>toml::local_datetime::local_datetime</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1local__date" kindref="compound">local_date</ref></type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type><ref refid="structtoml_1_1local__time" kindref="compound">local_time</ref></type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="370" column="5" bodyfile="external/toml/datetime.hpp" bodystart="370" bodyend="370"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1local__datetime_1a5392efc57d6b0fc68f267798b7dc8e65" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::local_datetime::local_datetime</definition>
+        <argsstring>(const std::tm &amp;t)</argsstring>
+        <name>local_datetime</name>
+        <qualifiedname>toml::local_datetime::local_datetime</qualifiedname>
+        <param>
+          <type>const std::tm &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="372" column="14" bodyfile="external/toml/datetime.hpp" bodystart="372" bodyend="372"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1local__datetime_1a7f4d5cf5654aa1a65cc22625dc5844f9" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::local_datetime::local_datetime</definition>
+        <argsstring>(const std::chrono::system_clock::time_point &amp;tp)</argsstring>
+        <name>local_datetime</name>
+        <qualifiedname>toml::local_datetime::local_datetime</qualifiedname>
+        <param>
+          <type>const std::chrono::system_clock::time_point &amp;</type>
+          <declname>tp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="374" column="14" bodyfile="external/toml/datetime.hpp" bodystart="374" bodyend="392"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1local__datetime_1aa457a64948bb1c012c43e36d4a7f4dab" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::local_datetime::local_datetime</definition>
+        <argsstring>(const std::time_t t)</argsstring>
+        <name>local_datetime</name>
+        <qualifiedname>toml::local_datetime::local_datetime</qualifiedname>
+        <param>
+          <type>const std::time_t</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="394" column="14" bodyfile="external/toml/datetime.hpp" bodystart="394" bodyend="396"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1local__datetime_1a18c240e01afbe23ae1d46577b13d5229" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::local_datetime::operator std::chrono::system_clock::time_point</definition>
+        <argsstring>() const</argsstring>
+        <name>operator std::chrono::system_clock::time_point</name>
+        <qualifiedname>toml::local_datetime::time_point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="398" column="5" bodyfile="external/toml/datetime.hpp" bodystart="398" bodyend="428"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1local__datetime_1a608dc5ac903be59d77c72dda9db3d588" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::local_datetime::operator std::time_t</definition>
+        <argsstring>() const</argsstring>
+        <name>operator std::time_t</name>
+        <qualifiedname>toml::local_datetime::time_t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="430" column="5" bodyfile="external/toml/datetime.hpp" bodystart="430" bodyend="434"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1local__datetime_1a3a8d9a41123839fe943e96202d6c66ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::local_datetime::local_datetime</definition>
+        <argsstring>()=default</argsstring>
+        <name>local_datetime</name>
+        <qualifiedname>toml::local_datetime::local_datetime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="436" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1local__datetime_1a674473e3479c2dac1240c23a576867b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::local_datetime::~local_datetime</definition>
+        <argsstring>()=default</argsstring>
+        <name>~local_datetime</name>
+        <qualifiedname>toml::local_datetime::~local_datetime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="437" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1local__datetime_1a82e479900e34c2c92e5e2af6ead37e9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::local_datetime::local_datetime</definition>
+        <argsstring>(local_datetime const &amp;)=default</argsstring>
+        <name>local_datetime</name>
+        <qualifiedname>toml::local_datetime::local_datetime</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1local__datetime" kindref="compound">local_datetime</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="438" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1local__datetime_1a00aa1062cf158059f8c825d8008ee06e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::local_datetime::local_datetime</definition>
+        <argsstring>(local_datetime &amp;&amp;)=default</argsstring>
+        <name>local_datetime</name>
+        <qualifiedname>toml::local_datetime::local_datetime</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1local__datetime" kindref="compound">local_datetime</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="439" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1local__datetime_1ac77710c49af1b2d157de567f02cb5700" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1local__datetime" kindref="compound">local_datetime</ref> &amp;</type>
+        <definition>local_datetime &amp; toml::local_datetime::operator=</definition>
+        <argsstring>(local_datetime const &amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::local_datetime::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1local__datetime" kindref="compound">local_datetime</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="440" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1local__datetime_1acfa49dc26316e048ac5c2cfa5ed032c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1local__datetime" kindref="compound">local_datetime</ref> &amp;</type>
+        <definition>local_datetime &amp; toml::local_datetime::operator=</definition>
+        <argsstring>(local_datetime &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::local_datetime::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1local__datetime" kindref="compound">local_datetime</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="441" column="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>toml::local_date</label>
+        <link refid="structtoml_1_1local__date"/>
+      </node>
+      <node id="1">
+        <label>toml::local_datetime</label>
+        <link refid="structtoml_1_1local__datetime"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>date</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>time</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>toml::local_time</label>
+        <link refid="structtoml_1_1local__time"/>
+      </node>
+    </collaborationgraph>
+    <location file="external/toml/datetime.hpp" line="365" column="1" bodyfile="external/toml/datetime.hpp" bodystart="366" bodyend="442"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1local__datetime_1a67661503e7b2843effbb0672bf081364" prot="public" virt="non-virtual"><scope>toml::local_datetime</scope><name>date</name></member>
+      <member refid="structtoml_1_1local__datetime_1a254dcececa30720639f84f072ccf8380" prot="public" virt="non-virtual"><scope>toml::local_datetime</scope><name>local_datetime</name></member>
+      <member refid="structtoml_1_1local__datetime_1a5392efc57d6b0fc68f267798b7dc8e65" prot="public" virt="non-virtual"><scope>toml::local_datetime</scope><name>local_datetime</name></member>
+      <member refid="structtoml_1_1local__datetime_1a7f4d5cf5654aa1a65cc22625dc5844f9" prot="public" virt="non-virtual"><scope>toml::local_datetime</scope><name>local_datetime</name></member>
+      <member refid="structtoml_1_1local__datetime_1aa457a64948bb1c012c43e36d4a7f4dab" prot="public" virt="non-virtual"><scope>toml::local_datetime</scope><name>local_datetime</name></member>
+      <member refid="structtoml_1_1local__datetime_1a3a8d9a41123839fe943e96202d6c66ef" prot="public" virt="non-virtual"><scope>toml::local_datetime</scope><name>local_datetime</name></member>
+      <member refid="structtoml_1_1local__datetime_1a82e479900e34c2c92e5e2af6ead37e9a" prot="public" virt="non-virtual"><scope>toml::local_datetime</scope><name>local_datetime</name></member>
+      <member refid="structtoml_1_1local__datetime_1a00aa1062cf158059f8c825d8008ee06e" prot="public" virt="non-virtual"><scope>toml::local_datetime</scope><name>local_datetime</name></member>
+      <member refid="structtoml_1_1local__datetime_1a18c240e01afbe23ae1d46577b13d5229" prot="public" virt="non-virtual"><scope>toml::local_datetime</scope><name>operator std::chrono::system_clock::time_point</name></member>
+      <member refid="structtoml_1_1local__datetime_1a608dc5ac903be59d77c72dda9db3d588" prot="public" virt="non-virtual"><scope>toml::local_datetime</scope><name>operator std::time_t</name></member>
+      <member refid="structtoml_1_1local__datetime_1ac77710c49af1b2d157de567f02cb5700" prot="public" virt="non-virtual"><scope>toml::local_datetime</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1local__datetime_1acfa49dc26316e048ac5c2cfa5ed032c7" prot="public" virt="non-virtual"><scope>toml::local_datetime</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1local__datetime_1aef74396c27a3a98071c518dbbde230fe" prot="public" virt="non-virtual"><scope>toml::local_datetime</scope><name>time</name></member>
+      <member refid="structtoml_1_1local__datetime_1a674473e3479c2dac1240c23a576867b1" prot="public" virt="non-virtual"><scope>toml::local_datetime</scope><name>~local_datetime</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

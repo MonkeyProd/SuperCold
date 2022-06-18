@@ -1,0 +1,47 @@
+.TH "TileMap" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TileMap
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <TileMap\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBTileMap\fP (sf::Texture &tileset, const sf::Vector2u &tile_size)"
+.br
+.RI "Класс, создающий вектор спрайтов из текстуры "
+.ti -1c
+.RI "std::vector< sf::Sprite > \fBget_sprites\fP ()"
+.br
+.RI "Метод, возращающий созданный вектор спрайтов "
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "TileMap::TileMap (sf::Texture & tileset, const sf::Vector2u & tile_size)"
+
+.PP
+Класс, создающий вектор спрайтов из текстуры 
+.PP
+\fBParameters\fP
+.RS 4
+\fItileset\fP ссылка на текстуру 
+.br
+\fItile_size\fP размер тайлов в текстуре 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "std::vector< sf::Sprite > TileMap::get_sprites ()"
+
+.PP
+Метод, возращающий созданный вектор спрайтов 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

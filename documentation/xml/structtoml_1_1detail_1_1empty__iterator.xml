@@ -1,0 +1,391 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1empty__iterator" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::empty_iterator</compoundname>
+    <includes refid="comments_8hpp" local="no">comments.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>bool</type>
+        <declname>is_const</declname>
+        <defname>is_const</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structtoml_1_1detail_1_1empty__iterator_1a9f1a4cc97e6da5a390a021e7e224646f" prot="public" static="no">
+        <type>T</type>
+        <definition>using toml::detail::empty_iterator&lt; T, is_const &gt;::value_type =  T</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <qualifiedname>toml::detail::empty_iterator::value_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="282" column="5" bodyfile="external/toml/comments.hpp" bodystart="282" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1detail_1_1empty__iterator_1afd8d138a3f8470c84e5555e5d0002600" prot="public" static="no">
+        <type>typename std::conditional&lt; is_const, T const  &amp;, T &amp; &gt;::type</type>
+        <definition>using toml::detail::empty_iterator&lt; T, is_const &gt;::reference_type =  typename std::conditional&lt;is_const, T const&amp;, T&amp;&gt;::type</definition>
+        <argsstring></argsstring>
+        <name>reference_type</name>
+        <qualifiedname>toml::detail::empty_iterator::reference_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="283" column="5" bodyfile="external/toml/comments.hpp" bodystart="283" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1detail_1_1empty__iterator_1ac4841e4b798384b9e40a28c701189eec" prot="public" static="no">
+        <type>typename std::conditional&lt; is_const, T const  *, T * &gt;::type</type>
+        <definition>using toml::detail::empty_iterator&lt; T, is_const &gt;::pointer_type =  typename std::conditional&lt;is_const, T const*, T*&gt;::type</definition>
+        <argsstring></argsstring>
+        <name>pointer_type</name>
+        <qualifiedname>toml::detail::empty_iterator::pointer_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="284" column="5" bodyfile="external/toml/comments.hpp" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1detail_1_1empty__iterator_1a52043ae567fbca9752a880c764f17b3b" prot="public" static="no">
+        <type>std::ptrdiff_t</type>
+        <definition>using toml::detail::empty_iterator&lt; T, is_const &gt;::difference_type =  std::ptrdiff_t</definition>
+        <argsstring></argsstring>
+        <name>difference_type</name>
+        <qualifiedname>toml::detail::empty_iterator::difference_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="285" column="5" bodyfile="external/toml/comments.hpp" bodystart="285" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1detail_1_1empty__iterator_1ad4f2954ecc081e138e9ec964fa9e7af6" prot="public" static="no">
+        <type>std::random_access_iterator_tag</type>
+        <definition>using toml::detail::empty_iterator&lt; T, is_const &gt;::iterator_category =  std::random_access_iterator_tag</definition>
+        <argsstring></argsstring>
+        <name>iterator_category</name>
+        <qualifiedname>toml::detail::empty_iterator::iterator_category</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="286" column="5" bodyfile="external/toml/comments.hpp" bodystart="286" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtoml_1_1detail_1_1empty__iterator_1a6055dee805e8bd637dfece2e8321c241" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::detail::empty_iterator&lt; T, is_const &gt;::empty_iterator</definition>
+        <argsstring>()=default</argsstring>
+        <name>empty_iterator</name>
+        <qualifiedname>toml::detail::empty_iterator::empty_iterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="288" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1empty__iterator_1a78d89516d755c2951faa1ea5ffd12363" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::detail::empty_iterator&lt; T, is_const &gt;::~empty_iterator</definition>
+        <argsstring>()=default</argsstring>
+        <name>~empty_iterator</name>
+        <qualifiedname>toml::detail::empty_iterator::~empty_iterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="289" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1empty__iterator_1a5418dc2fa747e49f0c6cc38781d431fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::detail::empty_iterator&lt; T, is_const &gt;::empty_iterator</definition>
+        <argsstring>(empty_iterator const &amp;)=default</argsstring>
+        <name>empty_iterator</name>
+        <qualifiedname>toml::detail::empty_iterator::empty_iterator</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1empty__iterator" kindref="compound">empty_iterator</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="290" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1empty__iterator_1acebda47ed2afc471843b58c20ba4e508" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::detail::empty_iterator&lt; T, is_const &gt;::empty_iterator</definition>
+        <argsstring>(empty_iterator &amp;&amp;)=default</argsstring>
+        <name>empty_iterator</name>
+        <qualifiedname>toml::detail::empty_iterator::empty_iterator</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1empty__iterator" kindref="compound">empty_iterator</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="291" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1empty__iterator_1abcdf95298c996aa5c2cd2c3ec033df70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1empty__iterator" kindref="compound">empty_iterator</ref> &amp;</type>
+        <definition>empty_iterator &amp; toml::detail::empty_iterator&lt; T, is_const &gt;::operator=</definition>
+        <argsstring>(empty_iterator const &amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::detail::empty_iterator::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1empty__iterator" kindref="compound">empty_iterator</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="292" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1empty__iterator_1a561cceecac787eb4bab60319081cd057" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1empty__iterator" kindref="compound">empty_iterator</ref> &amp;</type>
+        <definition>empty_iterator &amp; toml::detail::empty_iterator&lt; T, is_const &gt;::operator=</definition>
+        <argsstring>(empty_iterator &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::detail::empty_iterator::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1empty__iterator" kindref="compound">empty_iterator</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="293" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1empty__iterator_1a0234cede9e0dff0e30ae7a8c9ff998e7" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1empty__iterator_1afd8d138a3f8470c84e5555e5d0002600" kindref="member">reference_type</ref></type>
+        <definition>reference_type toml::detail::empty_iterator&lt; T, is_const &gt;::operator*</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>operator*</name>
+        <qualifiedname>toml::detail::empty_iterator::operator*</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="296" column="20" bodyfile="external/toml/comments.hpp" bodystart="296" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1empty__iterator_1a5642bc998d18cd25d9d12c6dce3a985d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1empty__iterator_1ac4841e4b798384b9e40a28c701189eec" kindref="member">pointer_type</ref></type>
+        <definition>pointer_type toml::detail::empty_iterator&lt; T, is_const &gt;::operator-&gt;</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>operator-&gt;</name>
+        <qualifiedname>toml::detail::empty_iterator::operator-&gt;</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="297" column="20" bodyfile="external/toml/comments.hpp" bodystart="297" bodyend="297"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1empty__iterator_1a4bc711805315504bac8a65459bce2dc4" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1empty__iterator_1afd8d138a3f8470c84e5555e5d0002600" kindref="member">reference_type</ref></type>
+        <definition>reference_type toml::detail::empty_iterator&lt; T, is_const &gt;::operator[]</definition>
+        <argsstring>(difference_type) const noexcept</argsstring>
+        <name>operator[]</name>
+        <qualifiedname>toml::detail::empty_iterator::operator[]</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1empty__iterator_1a52043ae567fbca9752a880c764f17b3b" kindref="member">difference_type</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="298" column="20" bodyfile="external/toml/comments.hpp" bodystart="298" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1empty__iterator_1aa4af3557a678228c4753e91712e22859" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1empty__iterator" kindref="compound">empty_iterator</ref> &amp;</type>
+        <definition>empty_iterator &amp; toml::detail::empty_iterator&lt; T, is_const &gt;::operator++</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>operator++</name>
+        <qualifiedname>toml::detail::empty_iterator::operator++</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="301" column="20" bodyfile="external/toml/comments.hpp" bodystart="301" bodyend="301"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1empty__iterator_1ab06b83b28b4a223d737e6e76e14b68da" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1empty__iterator" kindref="compound">empty_iterator</ref></type>
+        <definition>empty_iterator toml::detail::empty_iterator&lt; T, is_const &gt;::operator++</definition>
+        <argsstring>(int) noexcept</argsstring>
+        <name>operator++</name>
+        <qualifiedname>toml::detail::empty_iterator::operator++</qualifiedname>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="302" column="21" bodyfile="external/toml/comments.hpp" bodystart="302" bodyend="302"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1empty__iterator_1a910a4cd9b59262e0c9d26903f6661d5c" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1empty__iterator" kindref="compound">empty_iterator</ref> &amp;</type>
+        <definition>empty_iterator &amp; toml::detail::empty_iterator&lt; T, is_const &gt;::operator--</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>operator--</name>
+        <qualifiedname>toml::detail::empty_iterator::operator--</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="303" column="20" bodyfile="external/toml/comments.hpp" bodystart="303" bodyend="303"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1empty__iterator_1aed57ef076c8d1e0b116d3c1786f39d50" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1empty__iterator" kindref="compound">empty_iterator</ref></type>
+        <definition>empty_iterator toml::detail::empty_iterator&lt; T, is_const &gt;::operator--</definition>
+        <argsstring>(int) noexcept</argsstring>
+        <name>operator--</name>
+        <qualifiedname>toml::detail::empty_iterator::operator--</qualifiedname>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="304" column="21" bodyfile="external/toml/comments.hpp" bodystart="304" bodyend="304"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1empty__iterator_1ab4d768294133163ecbe082fdc0ef97f5" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1empty__iterator" kindref="compound">empty_iterator</ref> &amp;</type>
+        <definition>empty_iterator &amp; toml::detail::empty_iterator&lt; T, is_const &gt;::operator+=</definition>
+        <argsstring>(difference_type) noexcept</argsstring>
+        <name>operator+=</name>
+        <qualifiedname>toml::detail::empty_iterator::operator+=</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1empty__iterator_1a52043ae567fbca9752a880c764f17b3b" kindref="member">difference_type</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="306" column="20" bodyfile="external/toml/comments.hpp" bodystart="306" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1empty__iterator_1a9745d6d8f688d4b202bbe1323ebe1bee" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1empty__iterator" kindref="compound">empty_iterator</ref> &amp;</type>
+        <definition>empty_iterator &amp; toml::detail::empty_iterator&lt; T, is_const &gt;::operator-=</definition>
+        <argsstring>(difference_type) noexcept</argsstring>
+        <name>operator-=</name>
+        <qualifiedname>toml::detail::empty_iterator::operator-=</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1empty__iterator_1a52043ae567fbca9752a880c764f17b3b" kindref="member">difference_type</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="307" column="20" bodyfile="external/toml/comments.hpp" bodystart="307" bodyend="307"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1empty__iterator_1a571a62dc3e2a7b4272b91b23ded1f0c8" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1empty__iterator" kindref="compound">empty_iterator</ref></type>
+        <definition>empty_iterator toml::detail::empty_iterator&lt; T, is_const &gt;::operator+</definition>
+        <argsstring>(difference_type) const noexcept</argsstring>
+        <name>operator+</name>
+        <qualifiedname>toml::detail::empty_iterator::operator+</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1empty__iterator_1a52043ae567fbca9752a880c764f17b3b" kindref="member">difference_type</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="309" column="21" bodyfile="external/toml/comments.hpp" bodystart="309" bodyend="309"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1empty__iterator_1a3382f51a45f4410789f85312614eaa57" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1empty__iterator" kindref="compound">empty_iterator</ref></type>
+        <definition>empty_iterator toml::detail::empty_iterator&lt; T, is_const &gt;::operator-</definition>
+        <argsstring>(difference_type) const noexcept</argsstring>
+        <name>operator-</name>
+        <qualifiedname>toml::detail::empty_iterator::operator-</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1empty__iterator_1a52043ae567fbca9752a880c764f17b3b" kindref="member">difference_type</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="310" column="21" bodyfile="external/toml/comments.hpp" bodystart="310" bodyend="310"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/comments.hpp" line="280" column="1" bodyfile="external/toml/comments.hpp" bodystart="281" bodyend="311"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1a52043ae567fbca9752a880c764f17b3b" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>difference_type</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1a6055dee805e8bd637dfece2e8321c241" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>empty_iterator</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1a5418dc2fa747e49f0c6cc38781d431fd" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>empty_iterator</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1acebda47ed2afc471843b58c20ba4e508" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>empty_iterator</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1ad4f2954ecc081e138e9ec964fa9e7af6" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>iterator_category</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1a0234cede9e0dff0e30ae7a8c9ff998e7" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>operator*</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1a571a62dc3e2a7b4272b91b23ded1f0c8" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>operator+</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1aa4af3557a678228c4753e91712e22859" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>operator++</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1ab06b83b28b4a223d737e6e76e14b68da" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>operator++</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1ab4d768294133163ecbe082fdc0ef97f5" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>operator+=</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1a3382f51a45f4410789f85312614eaa57" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>operator-</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1a910a4cd9b59262e0c9d26903f6661d5c" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>operator--</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1aed57ef076c8d1e0b116d3c1786f39d50" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>operator--</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1a9745d6d8f688d4b202bbe1323ebe1bee" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>operator-=</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1a5642bc998d18cd25d9d12c6dce3a985d" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>operator-&gt;</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1abcdf95298c996aa5c2cd2c3ec033df70" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1a561cceecac787eb4bab60319081cd057" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1a4bc711805315504bac8a65459bce2dc4" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>operator[]</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1ac4841e4b798384b9e40a28c701189eec" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>pointer_type</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1afd8d138a3f8470c84e5555e5d0002600" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>reference_type</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1a9f1a4cc97e6da5a390a021e7e224646f" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>value_type</name></member>
+      <member refid="structtoml_1_1detail_1_1empty__iterator_1a78d89516d755c2951faa1ea5ffd12363" prot="public" virt="non-virtual"><scope>toml::detail::empty_iterator</scope><name>~empty_iterator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

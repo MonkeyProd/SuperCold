@@ -1,0 +1,63 @@
+\hypertarget{utility_8hpp}{}\doxysection{external/toml/utility.hpp File Reference}
+\label{utility_8hpp}\index{external/toml/utility.hpp@{external/toml/utility.hpp}}
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include \char`\"{}traits.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}version.\+hpp\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1last__one__in__pack}{toml\+::detail\+::last\+\_\+one\+\_\+in\+\_\+pack$<$ T, Ts $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1last__one__in__pack_3_01_t_01_4}{toml\+::detail\+::last\+\_\+one\+\_\+in\+\_\+pack$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetoml}{toml}}
+\item 
+namespace \mbox{\hyperlink{namespacetoml_1_1detail}{toml\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{utility_8hpp_a28c00536f5754c5b80444b4465845f2f}{TOML11\+\_\+\+MARK\+\_\+\+AS\+\_\+\+DEPRECATED}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename ... Ts$>$ }\\using \mbox{\hyperlink{namespacetoml_1_1detail_ad27577d7780fe6c12bcfbd24aac4505e}{toml\+::detail\+::last\+\_\+one\+\_\+in\+\_\+pack\+\_\+t}} = typename last\+\_\+one\+\_\+in\+\_\+pack$<$ Ts... $>$\+::type
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T , typename ... Ts$>$ }\\std\+::unique\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{namespacetoml_ab85090fe18497486c537b90fbe0215b2}{toml\+::make\+\_\+unique}} (Ts \&\&... args)
+\item 
+{\footnotesize template$<$typename Container $>$ }\\void \mbox{\hyperlink{namespacetoml_1_1detail_a5d61bd97884ec716d0ef899fdbfb58df}{toml\+::detail\+::try\+\_\+reserve\+\_\+impl}} (Container \&container, std\+::size\+\_\+t N, std\+::true\+\_\+type)
+\item 
+{\footnotesize template$<$typename Container $>$ }\\void \mbox{\hyperlink{namespacetoml_1_1detail_a0ac875aa0263cdf9143cffca6bcfdf94}{toml\+::detail\+::try\+\_\+reserve\+\_\+impl}} (Container \&, std\+::size\+\_\+t, std\+::false\+\_\+type) noexcept
+\item 
+{\footnotesize template$<$typename Container $>$ }\\void \mbox{\hyperlink{namespacetoml_a43b2eee284e11d113543783cd1e44026}{toml\+::try\+\_\+reserve}} (Container \&container, std\+::size\+\_\+t N)
+\item 
+std\+::string \mbox{\hyperlink{namespacetoml_1_1detail_ac1897d7064049a64fe8cba37fa11650f}{toml\+::detail\+::concat\+\_\+to\+\_\+string\+\_\+impl}} (std\+::ostringstream \&oss)
+\item 
+{\footnotesize template$<$typename T , typename ... Ts$>$ }\\std\+::string \mbox{\hyperlink{namespacetoml_1_1detail_a0d8d8d8589fcb2ecb697682ebc7b409b}{toml\+::detail\+::concat\+\_\+to\+\_\+string\+\_\+impl}} (std\+::ostringstream \&oss, T \&\&head, Ts \&\&... tail)
+\item 
+{\footnotesize template$<$typename ... Ts$>$ }\\std\+::string \mbox{\hyperlink{namespacetoml_adea2ccfef76e94dc32396c306a550c27}{toml\+::concat\+\_\+to\+\_\+string}} (Ts \&\&... args)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespacetoml_a144e8677775017ad83a192909e812a7e}{toml\+::from\+\_\+string}} (const std\+::string \&str, T opt)
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \&\& \mbox{\hyperlink{namespacetoml_1_1detail_a9381dda5d5adbfc55bdb38355ac9969f}{toml\+::detail\+::last\+\_\+one}} (T \&\&tail) noexcept
+\item 
+{\footnotesize template$<$typename T , typename ... Ts$>$ }\\enable\+\_\+if\+\_\+t$<$(sizeof...(Ts) $>$ 0), last\+\_\+one\+\_\+in\+\_\+pack\+\_\+t$<$ Ts \&\&... $>$ $>$ \mbox{\hyperlink{namespacetoml_1_1detail_ad1be9dc4ceeafd0a75d86489e7288a8a}{toml\+::detail\+::last\+\_\+one}} (T \&\&, Ts \&\&... tail)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{utility_8hpp_a28c00536f5754c5b80444b4465845f2f}\label{utility_8hpp_a28c00536f5754c5b80444b4465845f2f}} 
+\index{utility.hpp@{utility.hpp}!TOML11\_MARK\_AS\_DEPRECATED@{TOML11\_MARK\_AS\_DEPRECATED}}
+\index{TOML11\_MARK\_AS\_DEPRECATED@{TOML11\_MARK\_AS\_DEPRECATED}!utility.hpp@{utility.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_MARK\_AS\_DEPRECATED}{TOML11\_MARK\_AS\_DEPRECATED}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+MARK\+\_\+\+AS\+\_\+\+DEPRECATED}
+

@@ -1,0 +1,457 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="class_simplex_noise" kind="class" language="C++" prot="public">
+    <compoundname>SimplexNoise</compoundname>
+    <includes refid="_simplex_noise_8hpp" local="no">SimplexNoise.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_simplex_noise_1a6b245c487b4e40f0f8e3af70d6a8c6a7" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float SimplexNoise::mFrequency</definition>
+        <argsstring></argsstring>
+        <name>mFrequency</name>
+        <qualifiedname>SimplexNoise::mFrequency</qualifiedname>
+        <briefdescription>
+<para>Frequency (&quot;width&quot;) of the first octave of noise (default to 1.0) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/SimplexNoise/SimplexNoise.hpp" line="52" column="7" bodyfile="external/SimplexNoise/SimplexNoise.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_simplex_noise_1a898a0509aa688943d143842f31a8601f" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float SimplexNoise::mAmplitude</definition>
+        <argsstring></argsstring>
+        <name>mAmplitude</name>
+        <qualifiedname>SimplexNoise::mAmplitude</qualifiedname>
+        <briefdescription>
+<para>Amplitude (&quot;height&quot;) of the first octave of noise (default to 1.0) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/SimplexNoise/SimplexNoise.hpp" line="53" column="7" bodyfile="external/SimplexNoise/SimplexNoise.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_simplex_noise_1a99450f3a7f0bb9409ed3872e8c7f6eac" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float SimplexNoise::mLacunarity</definition>
+        <argsstring></argsstring>
+        <name>mLacunarity</name>
+        <qualifiedname>SimplexNoise::mLacunarity</qualifiedname>
+        <briefdescription>
+<para>Lacunarity specifies the frequency multiplier between successive octaves (default to 2.0). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/SimplexNoise/SimplexNoise.hpp" line="54" column="7" bodyfile="external/SimplexNoise/SimplexNoise.hpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_simplex_noise_1a5e6d372078f2f2067371b7d5735004a3" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float SimplexNoise::mPersistence</definition>
+        <argsstring></argsstring>
+        <name>mPersistence</name>
+        <qualifiedname>SimplexNoise::mPersistence</qualifiedname>
+        <briefdescription>
+<para>Persistence is the loss of amplitude between successive octaves (usually 1/lacunarity) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/SimplexNoise/SimplexNoise.hpp" line="55" column="7" bodyfile="external/SimplexNoise/SimplexNoise.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_simplex_noise_1ac7bd445e9b5e2d5aecb30c5f5840528c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float SimplexNoise::noise</definition>
+        <argsstring>(float x)</argsstring>
+        <name>noise</name>
+        <qualifiedname>SimplexNoise::noise</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>1D Perlin simplex noise</para>
+<para>Takes around 74ns on an AMD APU.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>float coordinate</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Noise value in the range[-1; 1], value of 0 on all integer coordinates. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/SimplexNoise/SimplexNoise.hpp" line="21" column="14" bodyfile="external/SimplexNoise/SimplexNoise.cpp" bodystart="181" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="class_simplex_noise_1a0b42e3da3917901946b978991559496f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float SimplexNoise::noise</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>noise</name>
+        <qualifiedname>SimplexNoise::noise</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>2D Perlin simplex noise</para>
+<para>Takes around 150ns on an AMD APU.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>float coordinate </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>float coordinate</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Noise value in the range[-1; 1], value of 0 on all integer coordinates. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/SimplexNoise/SimplexNoise.hpp" line="23" column="14" bodyfile="external/SimplexNoise/SimplexNoise.cpp" bodystart="221" bodyend="310"/>
+      </memberdef>
+      <memberdef kind="function" id="class_simplex_noise_1a1b029db3e2753dface743eef4c0d5307" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float SimplexNoise::noise</definition>
+        <argsstring>(float x, float y, float z)</argsstring>
+        <name>noise</name>
+        <qualifiedname>SimplexNoise::noise</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>3D Perlin simplex noise</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>float coordinate </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>float coordinate </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>float coordinate</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Noise value in the range[-1; 1], value of 0 on all integer coordinates. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/SimplexNoise/SimplexNoise.hpp" line="25" column="14" bodyfile="external/SimplexNoise/SimplexNoise.cpp" bodystart="321" bodyend="471"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_simplex_noise_1a868146cbed0ee0137b641b5b828a4c75" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float SimplexNoise::fractal</definition>
+        <argsstring>(size_t octaves, float x) const</argsstring>
+        <name>fractal</name>
+        <qualifiedname>SimplexNoise::fractal</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>octaves</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fractal/Fractional Brownian Motion (fBm) summation of 1D Perlin Simplex noise</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">octaves</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of fraction of noise to sum </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>float coordinate</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Noise value in the range[-1; 1], value of 0 on all integer coordinates. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/SimplexNoise/SimplexNoise.hpp" line="28" column="7" bodyfile="external/SimplexNoise/SimplexNoise.cpp" bodystart="481" bodyend="498"/>
+      </memberdef>
+      <memberdef kind="function" id="class_simplex_noise_1a4914fce2d033b3ed90d84b2602df362f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float SimplexNoise::fractal</definition>
+        <argsstring>(size_t octaves, float x, float y) const</argsstring>
+        <name>fractal</name>
+        <qualifiedname>SimplexNoise::fractal</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>octaves</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fractal/Fractional Brownian Motion (fBm) summation of 2D Perlin Simplex noise</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">octaves</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of fraction of noise to sum </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>x float coordinate </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>y float coordinate</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Noise value in the range[-1; 1], value of 0 on all integer coordinates. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/SimplexNoise/SimplexNoise.hpp" line="29" column="7" bodyfile="external/SimplexNoise/SimplexNoise.cpp" bodystart="509" bodyend="526"/>
+      </memberdef>
+      <memberdef kind="function" id="class_simplex_noise_1a6081db3a6e38029897928d72ef715297" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float SimplexNoise::fractal</definition>
+        <argsstring>(size_t octaves, float x, float y, float z) const</argsstring>
+        <name>fractal</name>
+        <qualifiedname>SimplexNoise::fractal</qualifiedname>
+        <param>
+          <type>size_t</type>
+          <declname>octaves</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fractal/Fractional Brownian Motion (fBm) summation of 3D Perlin Simplex noise</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">octaves</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of fraction of noise to sum </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>x float coordinate </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>y float coordinate </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>z float coordinate</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Noise value in the range[-1; 1], value of 0 on all integer coordinates. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/SimplexNoise/SimplexNoise.hpp" line="30" column="7" bodyfile="external/SimplexNoise/SimplexNoise.cpp" bodystart="538" bodyend="555"/>
+      </memberdef>
+      <memberdef kind="function" id="class_simplex_noise_1a6981510da521395c25be9e9ad2fdbda0" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SimplexNoise::SimplexNoise</definition>
+        <argsstring>(float frequency=1.0f, float amplitude=1.0f, float lacunarity=2.0f, float persistence=0.5f)</argsstring>
+        <name>SimplexNoise</name>
+        <qualifiedname>SimplexNoise::SimplexNoise</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>frequency</declname>
+          <defval>1.0f</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>amplitude</declname>
+          <defval>1.0f</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>lacunarity</declname>
+          <defval>2.0f</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>persistence</declname>
+          <defval>0.5f</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor of to initialize a fractal noise summation</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">frequency</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frequency (&quot;width&quot;) of the first octave of noise (default to 1.0) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">amplitude</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Amplitude (&quot;height&quot;) of the first octave of noise (default to 1.0) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">lacunarity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lacunarity specifies the frequency multiplier between successive octaves (default to 2.0). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">persistence</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Persistence is the loss of amplitude between successive octaves (usually 1/lacunarity) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/SimplexNoise/SimplexNoise.hpp" line="40" column="10" bodyfile="external/SimplexNoise/SimplexNoise.hpp" bodystart="40" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A Perlin Simplex Noise C++ Implementation (1D, 2D, 3D, 4D). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/SimplexNoise/SimplexNoise.hpp" line="17" column="1" bodyfile="external/SimplexNoise/SimplexNoise.hpp" bodystart="18" bodyend="56"/>
+    <listofallmembers>
+      <member refid="class_simplex_noise_1a868146cbed0ee0137b641b5b828a4c75" prot="public" virt="non-virtual"><scope>SimplexNoise</scope><name>fractal</name></member>
+      <member refid="class_simplex_noise_1a4914fce2d033b3ed90d84b2602df362f" prot="public" virt="non-virtual"><scope>SimplexNoise</scope><name>fractal</name></member>
+      <member refid="class_simplex_noise_1a6081db3a6e38029897928d72ef715297" prot="public" virt="non-virtual"><scope>SimplexNoise</scope><name>fractal</name></member>
+      <member refid="class_simplex_noise_1a898a0509aa688943d143842f31a8601f" prot="private" virt="non-virtual"><scope>SimplexNoise</scope><name>mAmplitude</name></member>
+      <member refid="class_simplex_noise_1a6b245c487b4e40f0f8e3af70d6a8c6a7" prot="private" virt="non-virtual"><scope>SimplexNoise</scope><name>mFrequency</name></member>
+      <member refid="class_simplex_noise_1a99450f3a7f0bb9409ed3872e8c7f6eac" prot="private" virt="non-virtual"><scope>SimplexNoise</scope><name>mLacunarity</name></member>
+      <member refid="class_simplex_noise_1a5e6d372078f2f2067371b7d5735004a3" prot="private" virt="non-virtual"><scope>SimplexNoise</scope><name>mPersistence</name></member>
+      <member refid="class_simplex_noise_1ac7bd445e9b5e2d5aecb30c5f5840528c" prot="public" virt="non-virtual"><scope>SimplexNoise</scope><name>noise</name></member>
+      <member refid="class_simplex_noise_1a0b42e3da3917901946b978991559496f" prot="public" virt="non-virtual"><scope>SimplexNoise</scope><name>noise</name></member>
+      <member refid="class_simplex_noise_1a1b029db3e2753dface743eef4c0d5307" prot="public" virt="non-virtual"><scope>SimplexNoise</scope><name>noise</name></member>
+      <member refid="class_simplex_noise_1a6981510da521395c25be9e9ad2fdbda0" prot="public" virt="non-virtual"><scope>SimplexNoise</scope><name>SimplexNoise</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

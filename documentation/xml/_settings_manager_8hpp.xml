@@ -1,0 +1,521 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="_settings_manager_8hpp" kind="file" language="C++">
+    <compoundname>SettingsManager.hpp</compoundname>
+    <includes local="no">string</includes>
+    <includes refid="toml_8hpp" local="yes">../external/toml.hpp</includes>
+    <includedby refid="_game_8hpp" local="yes">Game/Game.hpp</includedby>
+    <includedby refid="_settings_manager_8cpp" local="yes">SettingsManager/SettingsManager.cpp</includedby>
+    <includedby refid="_sprite_controller_8hpp" local="yes">SpriteContoller/SpriteController.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>SettingsManager/SettingsManager.hpp</label>
+        <link refid="_settings_manager_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../external/toml.hpp</label>
+        <link refid="toml_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>color.hpp</label>
+        <link refid="color_8hpp"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>combinator.hpp</label>
+        <link refid="combinator_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>comments.hpp</label>
+        <link refid="comments_8hpp"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>datetime.hpp</label>
+        <link refid="datetime_8hpp"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>exception.hpp</label>
+        <link refid="exception_8hpp"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>from.hpp</label>
+        <link refid="from_8hpp"/>
+      </node>
+      <node id="53">
+        <label>toml/get.hpp</label>
+        <link refid="get_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>into.hpp</label>
+        <link refid="into_8hpp"/>
+      </node>
+      <node id="37">
+        <label>lexer.hpp</label>
+        <link refid="lexer_8hpp"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>toml/literal.hpp</label>
+        <link refid="literal_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>toml/macros.hpp</label>
+        <link refid="macros_8hpp"/>
+      </node>
+      <node id="4">
+        <label>toml/parser.hpp</label>
+        <link refid="parser_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>region.hpp</label>
+        <link refid="region_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>result.hpp</label>
+        <link refid="result_8hpp"/>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>toml/serializer.hpp</label>
+        <link refid="serializer_8hpp"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>source_location.hpp</label>
+        <link refid="source__location_8hpp"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>storage.hpp</label>
+        <link refid="storage_8hpp"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>string.hpp</label>
+        <link refid="string_8hpp"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>traits.hpp</label>
+        <link refid="traits_8hpp"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>types.hpp</label>
+        <link refid="types_8hpp"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>utility.hpp</label>
+        <link refid="utility_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>value.hpp</label>
+        <link refid="value_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>version.hpp</label>
+        <link refid="version_8hpp"/>
+      </node>
+      <node id="20">
+        <label>algorithm</label>
+      </node>
+      <node id="12">
+        <label>array</label>
+      </node>
+      <node id="9">
+        <label>cassert</label>
+      </node>
+      <node id="10">
+        <label>cctype</label>
+      </node>
+      <node id="30">
+        <label>chrono</label>
+      </node>
+      <node id="52">
+        <label>cmath</label>
+      </node>
+      <node id="23">
+        <label>cstdint</label>
+      </node>
+      <node id="11">
+        <label>cstdio</label>
+      </node>
+      <node id="43">
+        <label>cstdlib</label>
+      </node>
+      <node id="5">
+        <label>cstring</label>
+      </node>
+      <node id="44">
+        <label>ctime</label>
+      </node>
+      <node id="31">
+        <label>forward_list</label>
+      </node>
+      <node id="6">
+        <label>fstream</label>
+      </node>
+      <node id="21">
+        <label>initializer_list</label>
+      </node>
+      <node id="13">
+        <label>iomanip</label>
+      </node>
+      <node id="38">
+        <label>istream</label>
+      </node>
+      <node id="14">
+        <label>iterator</label>
+      </node>
+      <node id="15">
+        <label>limits</label>
+      </node>
+      <node id="18">
+        <label>memory</label>
+      </node>
+      <node id="35">
+        <label>new</label>
+      </node>
+      <node id="24">
+        <label>ostream</label>
+      </node>
+      <node id="7">
+        <label>sstream</label>
+      </node>
+      <node id="34">
+        <label>stdexcept</label>
+      </node>
+      <node id="2">
+        <label>string</label>
+      </node>
+      <node id="32">
+        <label>tuple</label>
+      </node>
+      <node id="16">
+        <label>type_traits</label>
+      </node>
+      <node id="40">
+        <label>unordered_map</label>
+      </node>
+      <node id="33">
+        <label>utility</label>
+      </node>
+      <node id="19">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>Game/Game.cpp</label>
+        <link refid="_game_8cpp"/>
+      </node>
+      <node id="2">
+        <label>Game/Game.hpp</label>
+        <link refid="_game_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Player/Player.cpp</label>
+        <link refid="_player_8cpp"/>
+      </node>
+      <node id="7">
+        <label>Player/Player.hpp</label>
+        <link refid="_player_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>SettingsManager/SettingsManager.cpp</label>
+        <link refid="_settings_manager_8cpp"/>
+      </node>
+      <node id="1">
+        <label>SettingsManager/SettingsManager.hpp</label>
+        <link refid="_settings_manager_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>SpriteContoller/SpriteController.cpp</label>
+        <link refid="_sprite_controller_8cpp"/>
+      </node>
+      <node id="6">
+        <label>SpriteContoller/SpriteController.hpp</label>
+        <link refid="_sprite_controller_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_settings_manager" prot="public">SettingsManager</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../external/toml.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="struct_settings_manager" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_settings_manager" kindref="compound">SettingsManager</ref><sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_settings_manager_1a2119526925795063fb9caa66369378f4" kindref="member">SettingsManager</ref>(std::string<sp/>settingsPath<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;../src/settings.toml&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="13" refid="struct_settings_manager_1a15ccfc6f931cf2f2397404af3f736c37" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classtoml_1_1basic__value" kindref="compound">toml::value</ref><sp/><ref refid="struct_settings_manager_1a15ccfc6f931cf2f2397404af3f736c37" kindref="member">PlayerSettings</ref>;</highlight></codeline>
+<codeline lineno="14" refid="struct_settings_manager_1a893b9700ce887c2ed882734a79103e2e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classtoml_1_1basic__value" kindref="compound">toml::value</ref><sp/><ref refid="struct_settings_manager_1a893b9700ce887c2ed882734a79103e2e" kindref="member">PlayerSpritesSettings</ref>;</highlight></codeline>
+<codeline lineno="15" refid="struct_settings_manager_1ae4e520284c80862d1cdaa65bb9babe33" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classtoml_1_1basic__value" kindref="compound">toml::value</ref><sp/><ref refid="struct_settings_manager_1ae4e520284c80862d1cdaa65bb9babe33" kindref="member">SpriteSettings</ref>;</highlight></codeline>
+<codeline lineno="16" refid="struct_settings_manager_1a3f7cbe2df5252425dad51a14717aa5ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classtoml_1_1basic__value" kindref="compound">toml::value</ref><sp/><ref refid="struct_settings_manager_1a3f7cbe2df5252425dad51a14717aa5ed" kindref="member">TileIndexes</ref>;</highlight></codeline>
+<codeline lineno="17" refid="struct_settings_manager_1a4a6dcaf49011e8ffcf59bad2dadd6ee3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classtoml_1_1basic__value" kindref="compound">toml::value</ref><sp/><ref refid="struct_settings_manager_1a4a6dcaf49011e8ffcf59bad2dadd6ee3" kindref="member">TileMapSettings</ref>;</highlight></codeline>
+<codeline lineno="18" refid="struct_settings_manager_1a3a40f202005ee4e41fe21aa3bb1325c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classtoml_1_1basic__value" kindref="compound">toml::value</ref><sp/><ref refid="struct_settings_manager_1a3a40f202005ee4e41fe21aa3bb1325c6" kindref="member">SoundSettings</ref>;</highlight></codeline>
+<codeline lineno="19" refid="struct_settings_manager_1a215f392c415ffc5683eadddaaf5cf9df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classtoml_1_1basic__value" kindref="compound">toml::value</ref><sp/><ref refid="struct_settings_manager_1a215f392c415ffc5683eadddaaf5cf9df" kindref="member">WorldGenSettings</ref>;</highlight></codeline>
+<codeline lineno="20" refid="struct_settings_manager_1acafe44796fd170428ec15650a828f952" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classtoml_1_1basic__value" kindref="compound">toml::value</ref><sp/><ref refid="struct_settings_manager_1acafe44796fd170428ec15650a828f952" kindref="member">EnemySettings</ref>;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="struct_settings_manager_1a18c3e03920b6891fc5d212b2b97c367a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;<sp/>T<sp/><ref refid="struct_settings_manager_1a18c3e03920b6891fc5d212b2b97c367a" kindref="member">get</ref>(<ref refid="classtoml_1_1basic__value" kindref="compound">toml::value</ref><sp/>settingsType,<sp/>std::string<sp/><ref refid="namespacetoml_1ab00c292fbb2e761ef69fdafd6b813348" kindref="member">key</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>toml::find&lt;T&gt;(settingsType,<sp/><ref refid="namespacetoml_1ab00c292fbb2e761ef69fdafd6b813348" kindref="member">key</ref>);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="SettingsManager/SettingsManager.hpp"/>
+  </compounddef>
+</doxygen>

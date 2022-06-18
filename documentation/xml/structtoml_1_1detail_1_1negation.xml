@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1negation" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::negation</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::integral_constant&lt; bool, !static_cast&lt; bool &gt;(T::value)&gt;</basecompoundref>
+    <includes refid="traits_8hpp" local="no">traits.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>std::integral_constant&lt; bool, !static_cast&lt; bool &gt;(T::value)&gt;</label>
+      </node>
+      <node id="1">
+        <label>toml::detail::negation&lt; T &gt;</label>
+        <link refid="structtoml_1_1detail_1_1negation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>std::integral_constant&lt; bool, !static_cast&lt; bool &gt;(T::value)&gt;</label>
+      </node>
+      <node id="1">
+        <label>toml::detail::negation&lt; T &gt;</label>
+        <link refid="structtoml_1_1detail_1_1negation"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="external/toml/traits.hpp" line="173" column="1" bodyfile="external/toml/traits.hpp" bodystart="173" bodyend="173"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

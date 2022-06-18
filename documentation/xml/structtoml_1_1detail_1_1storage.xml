@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1storage" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::storage</compoundname>
+    <includes refid="storage_8hpp" local="no">storage.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structtoml_1_1detail_1_1storage_1a5dab02baac3ccf1b2fbdea3c9ef623db" prot="public" static="no">
+        <type>T</type>
+        <definition>using toml::detail::storage&lt; T &gt;::value_type =  T</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <qualifiedname>toml::detail::storage::value_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/storage.hpp" line="17" column="5" bodyfile="external/toml/storage.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structtoml_1_1detail_1_1storage_1af90d40b45a16dcdd38eab2c489ebd55e" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="structtoml_1_1detail_1_1storage_1a5dab02baac3ccf1b2fbdea3c9ef623db" kindref="member">value_type</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;value_type&gt; toml::detail::storage&lt; T &gt;::ptr</definition>
+        <argsstring></argsstring>
+        <name>ptr</name>
+        <qualifiedname>toml::detail::storage::ptr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/storage.hpp" line="38" column="21" bodyfile="external/toml/storage.hpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtoml_1_1detail_1_1storage_1a70672f4086669b80945527c4a05af630" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::detail::storage&lt; T &gt;::storage</definition>
+        <argsstring>(value_type const &amp;v)</argsstring>
+        <name>storage</name>
+        <qualifiedname>toml::detail::storage::storage</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1storage_1a5dab02baac3ccf1b2fbdea3c9ef623db" kindref="member">value_type</ref> const &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/storage.hpp" line="19" column="14" bodyfile="external/toml/storage.hpp" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1storage_1a6c02d691962dfb93418c5ff56f5d857f" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::detail::storage&lt; T &gt;::storage</definition>
+        <argsstring>(value_type &amp;&amp;v)</argsstring>
+        <name>storage</name>
+        <qualifiedname>toml::detail::storage::storage</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1storage_1a5dab02baac3ccf1b2fbdea3c9ef623db" kindref="member">value_type</ref> &amp;&amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/storage.hpp" line="20" column="14" bodyfile="external/toml/storage.hpp" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1storage_1a4309e00c77968b8b5610fde05ea2a290" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::detail::storage&lt; T &gt;::~storage</definition>
+        <argsstring>()=default</argsstring>
+        <name>~storage</name>
+        <qualifiedname>toml::detail::storage::~storage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/storage.hpp" line="21" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1storage_1a05af1d73db7beb1fb4c2ad9c1fd8bb9e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::detail::storage&lt; T &gt;::storage</definition>
+        <argsstring>(const storage &amp;rhs)</argsstring>
+        <name>storage</name>
+        <qualifiedname>toml::detail::storage::storage</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1detail_1_1storage" kindref="compound">storage</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/storage.hpp" line="22" column="5" bodyfile="external/toml/storage.hpp" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1storage_1ad8c8f2f6ea3e7ee5aa06b1128a6cae9a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1storage" kindref="compound">storage</ref> &amp;</type>
+        <definition>storage &amp; toml::detail::storage&lt; T &gt;::operator=</definition>
+        <argsstring>(const storage &amp;rhs)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::detail::storage::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1detail_1_1storage" kindref="compound">storage</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/storage.hpp" line="23" column="13" bodyfile="external/toml/storage.hpp" bodystart="23" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1storage_1abf6395019fb3a2713a4028e49d43aaa6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::detail::storage&lt; T &gt;::storage</definition>
+        <argsstring>(storage &amp;&amp;)=default</argsstring>
+        <name>storage</name>
+        <qualifiedname>toml::detail::storage::storage</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1storage" kindref="compound">storage</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/storage.hpp" line="28" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1storage_1ad4585ed057af1f8ac6aea67714681436" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1storage" kindref="compound">storage</ref> &amp;</type>
+        <definition>storage &amp; toml::detail::storage&lt; T &gt;::operator=</definition>
+        <argsstring>(storage &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::detail::storage::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1storage" kindref="compound">storage</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/storage.hpp" line="29" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1storage_1ad01c804b05feedb4ecdcdcda802f6b5c" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool toml::detail::storage&lt; T &gt;::is_ok</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>is_ok</name>
+        <qualifiedname>toml::detail::storage::is_ok</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/storage.hpp" line="31" column="10" bodyfile="external/toml/storage.hpp" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1storage_1aeb1f1a474f031cf3209955feb5068927" prot="public" static="no" const="no" explicit="no" inline="yes" refqual="lvalue" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1storage_1a5dab02baac3ccf1b2fbdea3c9ef623db" kindref="member">value_type</ref> &amp;</type>
+        <definition>value_type &amp; toml::detail::storage&lt; T &gt;::value</definition>
+        <argsstring>() &amp;noexcept</argsstring>
+        <name>value</name>
+        <qualifiedname>toml::detail::storage::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/storage.hpp" line="33" column="22" bodyfile="external/toml/storage.hpp" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1storage_1afa545865d1d61dacd4d4ef4934c8d4f3" prot="public" static="no" const="yes" explicit="no" inline="yes" refqual="lvalue" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1storage_1a5dab02baac3ccf1b2fbdea3c9ef623db" kindref="member">value_type</ref> const &amp;</type>
+        <definition>value_type const  &amp; toml::detail::storage&lt; T &gt;::value</definition>
+        <argsstring>() const &amp;noexcept</argsstring>
+        <name>value</name>
+        <qualifiedname>toml::detail::storage::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/storage.hpp" line="34" column="22" bodyfile="external/toml/storage.hpp" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1storage_1a3b5200fe999cbfefd34f822d4f955a26" prot="public" static="no" const="no" explicit="no" inline="yes" refqual="rvalue" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1storage_1a5dab02baac3ccf1b2fbdea3c9ef623db" kindref="member">value_type</ref> &amp;&amp;</type>
+        <definition>value_type &amp;&amp; toml::detail::storage&lt; T &gt;::value</definition>
+        <argsstring>() &amp;&amp;noexcept</argsstring>
+        <name>value</name>
+        <qualifiedname>toml::detail::storage::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/storage.hpp" line="35" column="21" bodyfile="external/toml/storage.hpp" bodystart="35" bodyend="35"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/storage.hpp" line="15" column="1" bodyfile="external/toml/storage.hpp" bodystart="16" bodyend="39"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1detail_1_1storage_1ad01c804b05feedb4ecdcdcda802f6b5c" prot="public" virt="non-virtual"><scope>toml::detail::storage</scope><name>is_ok</name></member>
+      <member refid="structtoml_1_1detail_1_1storage_1ad8c8f2f6ea3e7ee5aa06b1128a6cae9a" prot="public" virt="non-virtual"><scope>toml::detail::storage</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1detail_1_1storage_1ad4585ed057af1f8ac6aea67714681436" prot="public" virt="non-virtual"><scope>toml::detail::storage</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1detail_1_1storage_1af90d40b45a16dcdd38eab2c489ebd55e" prot="private" virt="non-virtual"><scope>toml::detail::storage</scope><name>ptr</name></member>
+      <member refid="structtoml_1_1detail_1_1storage_1a70672f4086669b80945527c4a05af630" prot="public" virt="non-virtual"><scope>toml::detail::storage</scope><name>storage</name></member>
+      <member refid="structtoml_1_1detail_1_1storage_1a6c02d691962dfb93418c5ff56f5d857f" prot="public" virt="non-virtual"><scope>toml::detail::storage</scope><name>storage</name></member>
+      <member refid="structtoml_1_1detail_1_1storage_1a05af1d73db7beb1fb4c2ad9c1fd8bb9e" prot="public" virt="non-virtual"><scope>toml::detail::storage</scope><name>storage</name></member>
+      <member refid="structtoml_1_1detail_1_1storage_1abf6395019fb3a2713a4028e49d43aaa6" prot="public" virt="non-virtual"><scope>toml::detail::storage</scope><name>storage</name></member>
+      <member refid="structtoml_1_1detail_1_1storage_1aeb1f1a474f031cf3209955feb5068927" prot="public" virt="non-virtual"><scope>toml::detail::storage</scope><name>value</name></member>
+      <member refid="structtoml_1_1detail_1_1storage_1afa545865d1d61dacd4d4ef4934c8d4f3" prot="public" virt="non-virtual"><scope>toml::detail::storage</scope><name>value</name></member>
+      <member refid="structtoml_1_1detail_1_1storage_1a3b5200fe999cbfefd34f822d4f955a26" prot="public" virt="non-virtual"><scope>toml::detail::storage</scope><name>value</name></member>
+      <member refid="structtoml_1_1detail_1_1storage_1a5dab02baac3ccf1b2fbdea3c9ef623db" prot="public" virt="non-virtual"><scope>toml::detail::storage</scope><name>value_type</name></member>
+      <member refid="structtoml_1_1detail_1_1storage_1a4309e00c77968b8b5610fde05ea2a290" prot="public" virt="non-virtual"><scope>toml::detail::storage</scope><name>~storage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1type__to__enum" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::type_to_enum</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">std::conditional::type</basecompoundref>
+    <includes refid="types_8hpp" local="no">types.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>typename Value</type>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>std::conditional&lt; std::is_same&lt; T, Value::array_type &gt;::value, value_t_constant&lt; value_t::array &gt;, std::conditional&lt; std::is_same&lt; T, Value::table_type &gt;::value, value_t_constant&lt; value_t::table &gt;, value_t_constant&lt; value_t::empty &gt; &gt;::type &gt;::type</label>
+      </node>
+      <node id="1">
+        <label>toml::detail::type_to_enum&lt; T, Value &gt;</label>
+        <link refid="structtoml_1_1detail_1_1type__to__enum"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>std::conditional&lt; std::is_same&lt; T, Value::array_type &gt;::value, value_t_constant&lt; value_t::array &gt;, std::conditional&lt; std::is_same&lt; T, Value::table_type &gt;::value, value_t_constant&lt; value_t::table &gt;, value_t_constant&lt; value_t::empty &gt; &gt;::type &gt;::type</label>
+      </node>
+      <node id="1">
+        <label>toml::detail::type_to_enum&lt; T, Value &gt;</label>
+        <link refid="structtoml_1_1detail_1_1type__to__enum"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="external/toml/types.hpp" line="133" column="1" bodyfile="external/toml/types.hpp" bodystart="141" bodyend="141"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

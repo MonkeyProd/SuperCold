@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1none__t" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::none_t</compoundname>
+    <includes refid="result_8hpp" local="no">result.hpp</includes>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/result.hpp" line="700" column="1" bodyfile="external/toml/result.hpp" bodystart="700" bodyend="700"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

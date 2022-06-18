@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1type__error" kind="struct" language="C++" prot="public">
+    <compoundname>toml::type_error</compoundname>
+    <basecompoundref refid="structtoml_1_1exception" prot="public" virt="non-virtual">toml::exception</basecompoundref>
+    <includes refid="exception_8hpp" local="no">exception.hpp</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="structtoml_1_1type__error_1a2ae2e26e66ee8286715593acbb95a0de" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string toml::type_error::what_</definition>
+        <argsstring></argsstring>
+        <name>what_</name>
+        <qualifiedname>toml::type_error::what_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/exception.hpp" line="48" column="17" bodyfile="external/toml/exception.hpp" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtoml_1_1type__error_1a4b277e28265efe160bcb302c9ae06cd2" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::type_error::type_error</definition>
+        <argsstring>(const std::string &amp;what_arg, const source_location &amp;loc)</argsstring>
+        <name>type_error</name>
+        <qualifiedname>toml::type_error::type_error</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>what_arg</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structtoml_1_1source__location" kindref="compound">source_location</ref> &amp;</type>
+          <declname>loc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/exception.hpp" line="41" column="14" bodyfile="external/toml/exception.hpp" bodystart="41" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1type__error_1a1a89fcdfcc10022b6a72c90a2910d1fe" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="virtual">
+        <type></type>
+        <definition>virtual toml::type_error::~type_error</definition>
+        <argsstring>() noexcept override=default</argsstring>
+        <name>~type_error</name>
+        <qualifiedname>toml::type_error::~type_error</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/exception.hpp" line="44" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1type__error_1a0db8ccaf65ad1753fb620812ed2879a5" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="virtual">
+        <type>const char *</type>
+        <definition>virtual const char * toml::type_error::what</definition>
+        <argsstring>() const noexcept override</argsstring>
+        <name>what</name>
+        <qualifiedname>toml::type_error::what</qualifiedname>
+        <reimplements refid="structtoml_1_1exception_1ace56a61a2a06706ecdfe2789d04e5a37">what</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/exception.hpp" line="45" column="24" bodyfile="external/toml/exception.hpp" bodystart="45" bodyend="45"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>std::exception</label>
+      </node>
+      <node id="2">
+        <label>toml::exception</label>
+        <link refid="structtoml_1_1exception"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>toml::type_error</label>
+        <link refid="structtoml_1_1type__error"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>std::exception</label>
+      </node>
+      <node id="2">
+        <label>toml::exception</label>
+        <link refid="structtoml_1_1exception"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>loc_</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>toml::source_location</label>
+        <link refid="structtoml_1_1source__location"/>
+      </node>
+      <node id="1">
+        <label>toml::type_error</label>
+        <link refid="structtoml_1_1type__error"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="external/toml/exception.hpp" line="38" column="1" bodyfile="external/toml/exception.hpp" bodystart="39" bodyend="49"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1exception_1afe1e36cc229fd25c66844c0b1d7b0031" prot="public" virt="non-virtual"><scope>toml::type_error</scope><name>exception</name></member>
+      <member refid="structtoml_1_1exception_1a108a011fc33bf295860cf104a05e10bd" prot="protected" virt="non-virtual"><scope>toml::type_error</scope><name>loc_</name></member>
+      <member refid="structtoml_1_1exception_1a11530f5a06324266a9462e6042efc72a" prot="public" virt="virtual"><scope>toml::type_error</scope><name>location</name></member>
+      <member refid="structtoml_1_1type__error_1a4b277e28265efe160bcb302c9ae06cd2" prot="public" virt="non-virtual"><scope>toml::type_error</scope><name>type_error</name></member>
+      <member refid="structtoml_1_1type__error_1a0db8ccaf65ad1753fb620812ed2879a5" prot="public" virt="virtual"><scope>toml::type_error</scope><name>what</name></member>
+      <member refid="structtoml_1_1type__error_1a2ae2e26e66ee8286715593acbb95a0de" prot="protected" virt="non-virtual"><scope>toml::type_error</scope><name>what_</name></member>
+      <member refid="structtoml_1_1exception_1a693921187555fc0f8ae857fab5f977fc" prot="public" virt="virtual"><scope>toml::type_error</scope><name>~exception</name></member>
+      <member refid="structtoml_1_1type__error_1a1a89fcdfcc10022b6a72c90a2910d1fe" prot="public" virt="virtual"><scope>toml::type_error</scope><name>~type_error</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

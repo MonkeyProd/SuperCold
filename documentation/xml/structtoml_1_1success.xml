@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1success" kind="struct" language="C++" prot="public">
+    <compoundname>toml::success</compoundname>
+    <includes refid="result_8hpp" local="no">result.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structtoml_1_1success_1a6a797a805131731620d2e2b20bf5e767" prot="public" static="no">
+        <type>T</type>
+        <definition>using toml::success&lt; T &gt;::value_type =  T</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <qualifiedname>toml::success::value_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="20" column="5" bodyfile="external/toml/result.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtoml_1_1success_1a74e072dc16fcaa3ea1ca3c20e7845373" prot="public" static="no" mutable="no">
+        <type><ref refid="structtoml_1_1success_1a6a797a805131731620d2e2b20bf5e767" kindref="member">value_type</ref></type>
+        <definition>value_type toml::success&lt; T &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <qualifiedname>toml::success::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="21" column="16" bodyfile="external/toml/result.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtoml_1_1success_1a3e5aa0d4e59a65f9a7718b74873d9fe4" prot="public" static="no" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::success&lt; T &gt;::success</definition>
+        <argsstring>(const value_type &amp;v) noexcept(std::is_nothrow_copy_constructible&lt; value_type &gt;::value)</argsstring>
+        <name>success</name>
+        <qualifiedname>toml::success::success</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1success_1a6a797a805131731620d2e2b20bf5e767" kindref="member">value_type</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="23" column="14" bodyfile="external/toml/result.hpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1success_1a69a0dc510abe1a11b68a9e2ff6206f31" prot="public" static="no" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::success&lt; T &gt;::success</definition>
+        <argsstring>(value_type &amp;&amp;v) noexcept(std::is_nothrow_move_constructible&lt; value_type &gt;::value)</argsstring>
+        <name>success</name>
+        <qualifiedname>toml::success::success</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1success_1a6a797a805131731620d2e2b20bf5e767" kindref="member">value_type</ref> &amp;&amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="27" column="14" bodyfile="external/toml/result.hpp" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1success_1a1d916354b6c04ca12f2a82869297ffb1" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>toml::success&lt; T &gt;::success</definition>
+        <argsstring>(U &amp;&amp;v)</argsstring>
+        <name>success</name>
+        <qualifiedname>toml::success::success</qualifiedname>
+        <param>
+          <type>U &amp;&amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="33" column="14" bodyfile="external/toml/result.hpp" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1success_1a202ec4019579d7c80a0ec11e6289afae" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>toml::success&lt; T &gt;::success</definition>
+        <argsstring>(const success&lt; U &gt; &amp;v)</argsstring>
+        <name>success</name>
+        <qualifiedname>toml::success::success</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1success" kindref="compound">success</ref>&lt; U &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="36" column="14" bodyfile="external/toml/result.hpp" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1success_1a9dd0a8d2cf9af2b7f94b90e8aeac2cdf" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>toml::success&lt; T &gt;::success</definition>
+        <argsstring>(success&lt; U &gt; &amp;&amp;v)</argsstring>
+        <name>success</name>
+        <qualifiedname>toml::success::success</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1success" kindref="compound">success</ref>&lt; U &gt; &amp;&amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="38" column="14" bodyfile="external/toml/result.hpp" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1success_1a80d8c137e1c48df618fc7272bf6cc571" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::success&lt; T &gt;::~success</definition>
+        <argsstring>()=default</argsstring>
+        <name>~success</name>
+        <qualifiedname>toml::success::~success</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="40" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1success_1aee941da490143d770efa00440ff989e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::success&lt; T &gt;::success</definition>
+        <argsstring>(const success &amp;)=default</argsstring>
+        <name>success</name>
+        <qualifiedname>toml::success::success</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1success" kindref="compound">success</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="41" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1success_1af3f374a9674b312eeae1617f02de21d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::success&lt; T &gt;::success</definition>
+        <argsstring>(success &amp;&amp;)=default</argsstring>
+        <name>success</name>
+        <qualifiedname>toml::success::success</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1success" kindref="compound">success</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="42" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1success_1a3e0dcc99f7d355e52a774967d9640bea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1success" kindref="compound">success</ref> &amp;</type>
+        <definition>success &amp; toml::success&lt; T &gt;::operator=</definition>
+        <argsstring>(const success &amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::success::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1success" kindref="compound">success</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="43" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1success_1a799a68a3a2b0d4ca379a1e1da75d6ede" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1success" kindref="compound">success</ref> &amp;</type>
+        <definition>success &amp; toml::success&lt; T &gt;::operator=</definition>
+        <argsstring>(success &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::success::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1success" kindref="compound">success</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="44" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/result.hpp" line="18" column="1" bodyfile="external/toml/result.hpp" bodystart="19" bodyend="45"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1success_1a3e0dcc99f7d355e52a774967d9640bea" prot="public" virt="non-virtual"><scope>toml::success</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1success_1a799a68a3a2b0d4ca379a1e1da75d6ede" prot="public" virt="non-virtual"><scope>toml::success</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1success_1a3e5aa0d4e59a65f9a7718b74873d9fe4" prot="public" virt="non-virtual"><scope>toml::success</scope><name>success</name></member>
+      <member refid="structtoml_1_1success_1a69a0dc510abe1a11b68a9e2ff6206f31" prot="public" virt="non-virtual"><scope>toml::success</scope><name>success</name></member>
+      <member refid="structtoml_1_1success_1a1d916354b6c04ca12f2a82869297ffb1" prot="public" virt="non-virtual"><scope>toml::success</scope><name>success</name></member>
+      <member refid="structtoml_1_1success_1a202ec4019579d7c80a0ec11e6289afae" prot="public" virt="non-virtual"><scope>toml::success</scope><name>success</name></member>
+      <member refid="structtoml_1_1success_1a9dd0a8d2cf9af2b7f94b90e8aeac2cdf" prot="public" virt="non-virtual"><scope>toml::success</scope><name>success</name></member>
+      <member refid="structtoml_1_1success_1aee941da490143d770efa00440ff989e8" prot="public" virt="non-virtual"><scope>toml::success</scope><name>success</name></member>
+      <member refid="structtoml_1_1success_1af3f374a9674b312eeae1617f02de21d6" prot="public" virt="non-virtual"><scope>toml::success</scope><name>success</name></member>
+      <member refid="structtoml_1_1success_1a74e072dc16fcaa3ea1ca3c20e7845373" prot="public" virt="non-virtual"><scope>toml::success</scope><name>value</name></member>
+      <member refid="structtoml_1_1success_1a6a797a805131731620d2e2b20bf5e767" prot="public" virt="non-virtual"><scope>toml::success</scope><name>value_type</name></member>
+      <member refid="structtoml_1_1success_1a80d8c137e1c48df618fc7272bf6cc571" prot="public" virt="non-virtual"><scope>toml::success</scope><name>~success</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1last__one__in__pack" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::last_one_in_pack</compoundname>
+    <includes refid="utility_8hpp" local="no">utility.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>typename ...</type>
+        <declname>Ts</declname>
+        <defname>Ts</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structtoml_1_1detail_1_1last__one__in__pack_1ac2bcda5a619e4f192519a63660f5cbdc" prot="public" static="no">
+        <type>typename <ref refid="structtoml_1_1detail_1_1last__one__in__pack" kindref="compound">last_one_in_pack</ref>&lt; Ts... &gt;::type</type>
+        <definition>using toml::detail::last_one_in_pack&lt; T, Ts &gt;::type =  typename last_one_in_pack&lt;Ts...&gt;::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>toml::detail::last_one_in_pack::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/utility.hpp" line="124" column="5" bodyfile="external/toml/utility.hpp" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/utility.hpp" line="122" column="1" bodyfile="external/toml/utility.hpp" bodystart="123" bodyend="125"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1detail_1_1last__one__in__pack_1ac2bcda5a619e4f192519a63660f5cbdc" prot="public" virt="non-virtual"><scope>toml::detail::last_one_in_pack</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

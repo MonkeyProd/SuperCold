@@ -1,0 +1,94 @@
+.TH "toml::success< T >" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::success< T >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <result\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBvalue_type\fP = T"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsuccess\fP (const \fBvalue_type\fP &v) noexcept(std::is_nothrow_copy_constructible< \fBvalue_type\fP >\fB::value\fP)"
+.br
+.ti -1c
+.RI "\fBsuccess\fP (\fBvalue_type\fP &&v) noexcept(std::is_nothrow_move_constructible< \fBvalue_type\fP >\fB::value\fP)"
+.br
+.ti -1c
+.RI "template<typename U > \fBsuccess\fP (U &&v)"
+.br
+.ti -1c
+.RI "template<typename U > \fBsuccess\fP (const \fBsuccess\fP< U > &v)"
+.br
+.ti -1c
+.RI "template<typename U > \fBsuccess\fP (\fBsuccess\fP< U > &&v)"
+.br
+.ti -1c
+.RI "\fB~success\fP ()=default"
+.br
+.ti -1c
+.RI "\fBsuccess\fP (const \fBsuccess\fP &)=default"
+.br
+.ti -1c
+.RI "\fBsuccess\fP (\fBsuccess\fP &&)=default"
+.br
+.ti -1c
+.RI "\fBsuccess\fP & \fBoperator=\fP (const \fBsuccess\fP &)=default"
+.br
+.ti -1c
+.RI "\fBsuccess\fP & \fBoperator=\fP (\fBsuccess\fP &&)=default"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBvalue_type\fP \fBvalue\fP"
+.br
+.in -1c
+.SH "Member Typedef Documentation"
+.PP 
+.SS "template<typename T > using \fBtoml::success\fP< T >::value_type =  T"
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T > \fBtoml::success\fP< T >::success (const \fBvalue_type\fP & v)\fC [inline]\fP, \fC [explicit]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T > \fBtoml::success\fP< T >::success (\fBvalue_type\fP && v)\fC [inline]\fP, \fC [explicit]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T > template<typename U > \fBtoml::success\fP< T >::success (U && v)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "template<typename T > template<typename U > \fBtoml::success\fP< T >::success (const \fBsuccess\fP< U > & v)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "template<typename T > template<typename U > \fBtoml::success\fP< T >::success (\fBsuccess\fP< U > && v)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "template<typename T > \fBtoml::success\fP< T >::~\fBsuccess\fP ()\fC [default]\fP"
+
+.SS "template<typename T > \fBtoml::success\fP< T >::success (const \fBsuccess\fP< T > &)\fC [default]\fP"
+
+.SS "template<typename T > \fBtoml::success\fP< T >::success (\fBsuccess\fP< T > &&)\fC [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T > \fBsuccess\fP & \fBtoml::success\fP< T >::operator= (const \fBsuccess\fP< T > &)\fC [default]\fP"
+
+.SS "template<typename T > \fBsuccess\fP & \fBtoml::success\fP< T >::operator= (\fBsuccess\fP< T > &&)\fC [default]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "template<typename T > \fBvalue_type\fP \fBtoml::success\fP< T >::value"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

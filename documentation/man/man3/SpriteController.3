@@ -1,0 +1,185 @@
+.TH "SpriteController" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SpriteController
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SpriteController\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSpriteController\fP ()=default"
+.br
+.ti -1c
+.RI "\fBSpriteController\fP (\fBSettingsManager\fP &settingsManager)"
+.br
+.RI "Структура, содержащая все спрайты и текстуры "
+.ti -1c
+.RI "void \fBprocessSettings\fP (\fBtoml::table\fP &table, bool isPlayerSettings=false)"
+.br
+.RI "Метод, обрабатывающий определенную таблицу из настроек с спрайтами "
+.ti -1c
+.RI "void \fBload_textures\fP (std::string name, std::string path)"
+.br
+.RI "Метод, обрабатывающий текстуры "
+.ti -1c
+.RI "void \fBload_player_sprites\fP (std::string name, std::string path, sf::Vector2u tilesize)"
+.br
+.RI "Метод, создающий спрайты игрока "
+.ti -1c
+.RI "void \fBload_sprites\fP (std::string name, std::string path, sf::Vector2u tilesize)"
+.br
+.RI "Метод, создающий спрайты "
+.ti -1c
+.RI "std::vector< sf::Sprite > \fBmake_sprite\fP (sf::Texture &texture, sf::Vector2u tilesize)"
+.br
+.RI "Метод, создающий спрайты из текстуры "
+.ti -1c
+.RI "void \fBconfigureSprites\fP (\fBtoml::value\fP TileIndexSettings)"
+.br
+.RI "Метод, организующий из спрайтов и индексов тайлов заданных в настройках словарь "
+.ti -1c
+.RI "int \fBindexesToindex\fP (int i, int j)"
+.br
+.RI "Метод, преобразующий индексы двумерного массива в индексы одномерного "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::map< std::string, sf::Texture > \fBtextures\fP"
+.br
+.ti -1c
+.RI "std::map< std::string, std::vector< sf::Sprite > > \fBspriteArrays\fP"
+.br
+.ti -1c
+.RI "std::map< std::string, sf::Sprite > \fBspriteObjects\fP"
+.br
+.ti -1c
+.RI "std::map< std::string, std::vector< sf::Sprite > > \fBplayerSprites\fP"
+.br
+.ti -1c
+.RI "std::pair< int, int > \fBtilemap_size\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "SpriteController::SpriteController ()\fC [default]\fP"
+
+.SS "SpriteController::SpriteController (\fBSettingsManager\fP & settingsManager)"
+
+.PP
+Структура, содержащая все спрайты и текстуры 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsettingsManager\fP ссылка на структуру с настройками 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void SpriteController::configureSprites (\fBtoml::value\fP TileIndexSettings)"
+
+.PP
+Метод, организующий из спрайтов и индексов тайлов заданных в настройках словарь 
+.PP
+\fBParameters\fP
+.RS 4
+\fITileIndexSettings\fP настройки, задающие для каждого тайла его название и его индексы 
+.RE
+.PP
+
+.SS "int SpriteController::indexesToindex (int i, int j)"
+
+.PP
+Метод, преобразующий индексы двумерного массива в индексы одномерного 
+.SS "void SpriteController::load_player_sprites (std::string name, std::string path, sf::Vector2u tilesize)"
+
+.PP
+Метод, создающий спрайты игрока 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP название спрайта 
+.br
+\fIpath\fP путь до текстуры 
+.br
+\fItilesize\fP размер тайлов в текстуре 
+.RE
+.PP
+
+.SS "void SpriteController::load_sprites (std::string name, std::string path, sf::Vector2u tilesize)"
+
+.PP
+Метод, создающий спрайты 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP название спрайта 
+.br
+\fIpath\fP путь до текстуры 
+.br
+\fItilesize\fP размер тайлов в текстуре 
+.RE
+.PP
+
+.SS "void SpriteController::load_textures (std::string name, std::string path)"
+
+.PP
+Метод, обрабатывающий текстуры 
+.PP
+\fBParameters\fP
+.RS 4
+\fIname\fP название текстуры 
+.br
+\fIpath\fP путь до текстуры 
+.RE
+.PP
+
+.SS "std::vector< sf::Sprite > SpriteController::make_sprite (sf::Texture & texture, sf::Vector2u tilesize)"
+
+.PP
+Метод, создающий спрайты из текстуры 
+.PP
+\fBParameters\fP
+.RS 4
+\fItexture\fP ссылка на текстуру 
+.br
+\fItilesize\fP размер тайлов в текстуре 
+.RE
+.PP
+
+.SS "void SpriteController::processSettings (\fBtoml::table\fP & table, bool isPlayerSettings = \fCfalse\fP)"
+
+.PP
+Метод, обрабатывающий определенную таблицу из настроек с спрайтами 
+.PP
+\fBParameters\fP
+.RS 4
+\fItable\fP ссылка на таблицу 
+.br
+\fIisPlayerSettings\fP является ли настройками игрока 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "std::map<std::string, std::vector<sf::Sprite> > SpriteController::playerSprites"
+
+.SS "std::map<std::string, std::vector<sf::Sprite> > SpriteController::spriteArrays"
+
+.SS "std::map<std::string, sf::Sprite> SpriteController::spriteObjects"
+
+.SS "std::map<std::string, sf::Texture> SpriteController::textures"
+
+.SS "std::pair<int, int> SpriteController::tilemap_size"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

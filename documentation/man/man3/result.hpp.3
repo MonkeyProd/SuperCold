@@ -1,0 +1,97 @@
+.TH "external/toml/result.hpp" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+external/toml/result.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'traits\&.hpp'\fP
+.br
+\fC#include <type_traits>\fP
+.br
+\fC#include <stdexcept>\fP
+.br
+\fC#include <utility>\fP
+.br
+\fC#include <new>\fP
+.br
+\fC#include <string>\fP
+.br
+\fC#include <sstream>\fP
+.br
+\fC#include <cassert>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtoml::success< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::failure< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::result< T, E >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::none_t\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBtoml\fP"
+.br
+.ti -1c
+.RI "namespace \fBtoml::detail\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T > success< typename std::remove_cv< typename std::remove_reference< T >::type >::type > \fBtoml::ok\fP (T &&v)"
+.br
+.ti -1c
+.RI "template<typename T > failure< typename std::remove_cv< typename std::remove_reference< T >::type >::type > \fBtoml::err\fP (T &&v)"
+.br
+.ti -1c
+.RI "success< std::string > \fBtoml::ok\fP (const char *literal)"
+.br
+.ti -1c
+.RI "failure< std::string > \fBtoml::err\fP (const char *literal)"
+.br
+.ti -1c
+.RI "template<typename T , typename E > void \fBtoml::swap\fP (result< T, E > &lhs, result< T, E > &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::detail::operator==\fP (const none_t &, const none_t &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBtoml::detail::operator!=\fP (const none_t &, const none_t &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBtoml::detail::operator<\fP (const none_t &, const none_t &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBtoml::detail::operator<=\fP (const none_t &, const none_t &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBtoml::detail::operator>\fP (const none_t &, const none_t &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBtoml::detail::operator>=\fP (const none_t &, const none_t &) noexcept"
+.br
+.ti -1c
+.RI "template<typename charT , typename traitsT > std::basic_ostream< charT, traitsT > & \fBtoml::detail::operator<<\fP (std::basic_ostream< charT, traitsT > &os, const none_t &)"
+.br
+.ti -1c
+.RI "failure< none_t > \fBtoml::detail::none\fP () noexcept"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

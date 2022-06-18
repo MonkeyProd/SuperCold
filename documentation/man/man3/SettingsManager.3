@@ -1,0 +1,102 @@
+.TH "SettingsManager" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SettingsManager
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SettingsManager\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSettingsManager\fP (std::string settingsPath='\&.\&./src/settings\&.toml')"
+.br
+.RI "Структура содержащий все настройки игры "
+.ti -1c
+.RI "template<typename T > T \fBget\fP (\fBtoml::value\fP settingsType, std::string key)"
+.br
+.RI "Метод, возращающий настройку по ключу "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBtoml::value\fP \fBPlayerSettings\fP"
+.br
+.ti -1c
+.RI "\fBtoml::value\fP \fBPlayerSpritesSettings\fP"
+.br
+.ti -1c
+.RI "\fBtoml::value\fP \fBSpriteSettings\fP"
+.br
+.ti -1c
+.RI "\fBtoml::value\fP \fBTileIndexes\fP"
+.br
+.ti -1c
+.RI "\fBtoml::value\fP \fBTileMapSettings\fP"
+.br
+.ti -1c
+.RI "\fBtoml::value\fP \fBSoundSettings\fP"
+.br
+.ti -1c
+.RI "\fBtoml::value\fP \fBWorldGenSettings\fP"
+.br
+.ti -1c
+.RI "\fBtoml::value\fP \fBEnemySettings\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "SettingsManager::SettingsManager (std::string settingsPath = \fC'\&.\&./src/settings\&.toml'\fP)"
+
+.PP
+Структура содержащий все настройки игры 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsettingsPath\fP путь к файлу настроек игры (toml) 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T > T SettingsManager::get (\fBtoml::value\fP settingsType, std::string key)\fC [inline]\fP"
+
+.PP
+Метод, возращающий настройку по ключу 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsettingsType\fP интересующий список настроек 
+.br
+\fIkey\fP ключ(название) настройки 
+.br
+\fIT\fP тип настройки 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBtoml::value\fP SettingsManager::EnemySettings"
+
+.SS "\fBtoml::value\fP SettingsManager::PlayerSettings"
+
+.SS "\fBtoml::value\fP SettingsManager::PlayerSpritesSettings"
+
+.SS "\fBtoml::value\fP SettingsManager::SoundSettings"
+
+.SS "\fBtoml::value\fP SettingsManager::SpriteSettings"
+
+.SS "\fBtoml::value\fP SettingsManager::TileIndexes"
+
+.SS "\fBtoml::value\fP SettingsManager::TileMapSettings"
+
+.SS "\fBtoml::value\fP SettingsManager::WorldGenSettings"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

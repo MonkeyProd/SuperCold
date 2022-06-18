@@ -1,0 +1,703 @@
+\hypertarget{structtoml_1_1result}{}\doxysection{toml\+::result\texorpdfstring{$<$}{<} T, E \texorpdfstring{$>$}{>} Struct Template Reference}
+\label{structtoml_1_1result}\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+
+
+{\ttfamily \#include $<$result.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} = T
+\item 
+using \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} = E
+\item 
+using \mbox{\hyperlink{structtoml_1_1result_a31a580d4f033ebbfe90d079604d81b57}{success\+\_\+type}} = \mbox{\hyperlink{structtoml_1_1success}{success}}$<$ \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} $>$
+\item 
+using \mbox{\hyperlink{structtoml_1_1result_a8ae6354b5d46aa704147b437d457659f}{failure\+\_\+type}} = \mbox{\hyperlink{structtoml_1_1failure}{failure}}$<$ \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structtoml_1_1result_abb5c70134f5098179bd0a18a54013b6a}{result}} (const \mbox{\hyperlink{structtoml_1_1result_a31a580d4f033ebbfe90d079604d81b57}{success\+\_\+type}} \&s)
+\item 
+\mbox{\hyperlink{structtoml_1_1result_a49edc34d5c02916c1f4e7b855944ab16}{result}} (const \mbox{\hyperlink{structtoml_1_1result_a8ae6354b5d46aa704147b437d457659f}{failure\+\_\+type}} \&f)
+\item 
+\mbox{\hyperlink{structtoml_1_1result_ae9d45fbc91dcbdd969d9e74b02378bfc}{result}} (\mbox{\hyperlink{structtoml_1_1result_a31a580d4f033ebbfe90d079604d81b57}{success\+\_\+type}} \&\&s)
+\item 
+\mbox{\hyperlink{structtoml_1_1result_a866478463fb60e52676ce1d8b53aacb1}{result}} (\mbox{\hyperlink{structtoml_1_1result_a8ae6354b5d46aa704147b437d457659f}{failure\+\_\+type}} \&\&f)
+\item 
+{\footnotesize template$<$typename U $>$ }\\\mbox{\hyperlink{structtoml_1_1result_a9838251b92a633be231e7c7321b5b5da}{result}} (const \mbox{\hyperlink{structtoml_1_1success}{success}}$<$ U $>$ \&s)
+\item 
+{\footnotesize template$<$typename U $>$ }\\\mbox{\hyperlink{structtoml_1_1result_a3850c14cafad48d0b8125f3aa40fdbd5}{result}} (const \mbox{\hyperlink{structtoml_1_1failure}{failure}}$<$ U $>$ \&f)
+\item 
+{\footnotesize template$<$typename U $>$ }\\\mbox{\hyperlink{structtoml_1_1result_a61f5f132611cb03c10c41e1a5daa932d}{result}} (\mbox{\hyperlink{structtoml_1_1success}{success}}$<$ U $>$ \&\&s)
+\item 
+{\footnotesize template$<$typename U $>$ }\\\mbox{\hyperlink{structtoml_1_1result_ac39c73e30e7d69ed37b5a9ee02f462c3}{result}} (\mbox{\hyperlink{structtoml_1_1failure}{failure}}$<$ U $>$ \&\&f)
+\item 
+\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result_a30f3850c24490fc803732d46e2820bd7}{operator=}} (const \mbox{\hyperlink{structtoml_1_1result_a31a580d4f033ebbfe90d079604d81b57}{success\+\_\+type}} \&s)
+\item 
+\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result_ab33b6448c67e824e41e5ef1fc34cc151}{operator=}} (const \mbox{\hyperlink{structtoml_1_1result_a8ae6354b5d46aa704147b437d457659f}{failure\+\_\+type}} \&f)
+\item 
+\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result_a88fbb386e3543e877dd461962353cc5c}{operator=}} (\mbox{\hyperlink{structtoml_1_1result_a31a580d4f033ebbfe90d079604d81b57}{success\+\_\+type}} \&\&s)
+\item 
+\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result_a68c977ca158072f962cfbe53893d5857}{operator=}} (\mbox{\hyperlink{structtoml_1_1result_a8ae6354b5d46aa704147b437d457659f}{failure\+\_\+type}} \&\&f)
+\item 
+{\footnotesize template$<$typename U $>$ }\\\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result_a763be5d95afd897b9d7027dad089bd96}{operator=}} (const \mbox{\hyperlink{structtoml_1_1success}{success}}$<$ U $>$ \&s)
+\item 
+{\footnotesize template$<$typename U $>$ }\\\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result_acafef59ec18b0716ab5f71f6839c3242}{operator=}} (const \mbox{\hyperlink{structtoml_1_1failure}{failure}}$<$ U $>$ \&f)
+\item 
+{\footnotesize template$<$typename U $>$ }\\\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result_a91cf4c2a8cb7fe7304a42731a2bdcb99}{operator=}} (\mbox{\hyperlink{structtoml_1_1success}{success}}$<$ U $>$ \&\&s)
+\item 
+{\footnotesize template$<$typename U $>$ }\\\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result_a359ff21d89a0c9d60c8deb250e7cc757}{operator=}} (\mbox{\hyperlink{structtoml_1_1failure}{failure}}$<$ U $>$ \&\&f)
+\item 
+\mbox{\hyperlink{structtoml_1_1result_ab0a40e53bea82cf6df46059b7d942513}{$\sim$result}} () noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1result_ad193e83ebbf862a65ab8fc9191a4f39e}{result}} (const \mbox{\hyperlink{structtoml_1_1result}{result}} \&other)
+\item 
+\mbox{\hyperlink{structtoml_1_1result_a323424143e2a547e76adfb0d073a4b42}{result}} (\mbox{\hyperlink{structtoml_1_1result}{result}} \&\&other)
+\item 
+{\footnotesize template$<$typename U , typename F $>$ }\\\mbox{\hyperlink{structtoml_1_1result_afe756e1b20d750ac1e1d4da9c5ce0829}{result}} (const \mbox{\hyperlink{structtoml_1_1result}{result}}$<$ U, F $>$ \&other)
+\item 
+{\footnotesize template$<$typename U , typename F $>$ }\\\mbox{\hyperlink{structtoml_1_1result_aded304df3cb1bbc7892b679855de7d6a}{result}} (\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ U, F $>$ \&\&other)
+\item 
+\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result_a00768edefd8c25f615ac3863b32bd7b0}{operator=}} (const \mbox{\hyperlink{structtoml_1_1result}{result}} \&other)
+\item 
+\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result_af63cf8be2e1fd03494c8fe7fb4720d59}{operator=}} (\mbox{\hyperlink{structtoml_1_1result}{result}} \&\&other)
+\item 
+{\footnotesize template$<$typename U , typename F $>$ }\\\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result_a7e4251cecdbb6dfebba1a38f851eb6d5}{operator=}} (const \mbox{\hyperlink{structtoml_1_1result}{result}}$<$ U, F $>$ \&other)
+\item 
+{\footnotesize template$<$typename U , typename F $>$ }\\\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result_adbe6e97791bc55a564ac83e4ff3cf3b0}{operator=}} (\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ U, F $>$ \&\&other)
+\item 
+bool \mbox{\hyperlink{structtoml_1_1result_a024b6a6a853f3b3efa5097261f86dc05}{is\+\_\+ok}} () const noexcept
+\item 
+bool \mbox{\hyperlink{structtoml_1_1result_aae92ef3abc3bbc32a92789b87c772b75}{is\+\_\+err}} () const noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1result_ac9c61e85e9d6cde9c51a197c8e79e36e}{operator bool}} () const noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \& \mbox{\hyperlink{structtoml_1_1result_ac75aa56aa20416f01244e1936b74dbc3}{unwrap}} () \&
+\item 
+\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} const \& \mbox{\hyperlink{structtoml_1_1result_ab7174af4f142252c8cc979e229ae4dc2}{unwrap}} () const \&
+\item 
+\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \&\& \mbox{\hyperlink{structtoml_1_1result_a1fdcfafe6ab6972e537f6347d4400769}{unwrap}} () \&\&
+\item 
+\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \& \mbox{\hyperlink{structtoml_1_1result_a9228eb4b14467fc5ca9cda8df9105dc6}{unwrap\+\_\+or}} (\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \&opt) \&
+\item 
+\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} const \& \mbox{\hyperlink{structtoml_1_1result_aba9a87bb14037085457bad30853ea637}{unwrap\+\_\+or}} (\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} const \&opt) const \&
+\item 
+\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \mbox{\hyperlink{structtoml_1_1result_af8d1ded0824e0d8d761aeb65136b01ee}{unwrap\+\_\+or}} (\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} opt) \&\&
+\item 
+\mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \& \mbox{\hyperlink{structtoml_1_1result_a9f8688e18874027ce0ccc1eb4dc49486}{unwrap\+\_\+err}} () \&
+\item 
+\mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} const \& \mbox{\hyperlink{structtoml_1_1result_a4aab3e92f73bb52232dbf00e8f602e89}{unwrap\+\_\+err}} () const \&
+\item 
+\mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \&\& \mbox{\hyperlink{structtoml_1_1result_ae291950945f17b68b167c4bb08b25db0}{unwrap\+\_\+err}} () \&\&
+\item 
+\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \& \mbox{\hyperlink{structtoml_1_1result_a6a550aa27274597c925efbb701d4f608}{as\+\_\+ok}} () \&noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} const \& \mbox{\hyperlink{structtoml_1_1result_a87108031541f7813654221c315a816b7}{as\+\_\+ok}} () const \&noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \&\& \mbox{\hyperlink{structtoml_1_1result_af74c72007f5d55e6b763886a49856504}{as\+\_\+ok}} () \&\&noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \& \mbox{\hyperlink{structtoml_1_1result_afee245eac77ff9a41a15be21915379b8}{as\+\_\+err}} () \&noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} const \& \mbox{\hyperlink{structtoml_1_1result_a1ad98c8a6902cdc12dcd546b7e64a04c}{as\+\_\+err}} () const \&noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \&\& \mbox{\hyperlink{structtoml_1_1result_a186ab05799b4fb772404c336af481db4}{as\+\_\+err}} () \&\&noexcept
+\item 
+{\footnotesize template$<$typename F $>$ }\\\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ \mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \& $>$, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} $>$ \mbox{\hyperlink{structtoml_1_1result_adda76790d56057a8322936b1e7e4bdd6}{map}} (F \&\&f) \&
+\item 
+{\footnotesize template$<$typename F $>$ }\\\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ \mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} const \& $>$, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} $>$ \mbox{\hyperlink{structtoml_1_1result_a5c2c18bb1f0e546005c333a2a6acb910}{map}} (F \&\&f) const \&
+\item 
+{\footnotesize template$<$typename F $>$ }\\\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ \mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \&\& $>$, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} $>$ \mbox{\hyperlink{structtoml_1_1result_a5e5fbb4f290ed2261b7a05baecd4e432}{map}} (F \&\&f) \&\&
+\item 
+{\footnotesize template$<$typename F $>$ }\\\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}}, \mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \& $>$ $>$ \mbox{\hyperlink{structtoml_1_1result_af76865b12e262577815a22a88d75bedc}{map\+\_\+err}} (F \&\&f) \&
+\item 
+{\footnotesize template$<$typename F $>$ }\\\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}}, \mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} const \& $>$ $>$ \mbox{\hyperlink{structtoml_1_1result_a6c772fd3f6e8fe6698b4577a2cf63a8a}{map\+\_\+err}} (F \&\&f) const \&
+\item 
+{\footnotesize template$<$typename F $>$ }\\\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}}, \mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \&\& $>$ $>$ \mbox{\hyperlink{structtoml_1_1result_aee813a8d32a6aeb1f99a33d785c6fbd0}{map\+\_\+err}} (F \&\&f) \&\&
+\item 
+{\footnotesize template$<$typename F , typename U $>$ }\\\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \& $>$ \mbox{\hyperlink{structtoml_1_1result_a3ae1569365d92269f87f02e57272065f}{map\+\_\+or\+\_\+else}} (F \&\&f, U \&\&opt) \&
+\item 
+{\footnotesize template$<$typename F , typename U $>$ }\\\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} const \& $>$ \mbox{\hyperlink{structtoml_1_1result_aa6c2c36c32c801aebdd4ae616ae04dbf}{map\+\_\+or\+\_\+else}} (F \&\&f, U \&\&opt) const \&
+\item 
+{\footnotesize template$<$typename F , typename U $>$ }\\\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \&\& $>$ \mbox{\hyperlink{structtoml_1_1result_a9be00b6a49a77c9e8b774435bb25d218}{map\+\_\+or\+\_\+else}} (F \&\&f, U \&\&opt) \&\&
+\item 
+{\footnotesize template$<$typename F , typename U $>$ }\\\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \& $>$ \mbox{\hyperlink{structtoml_1_1result_a77a0dc0f5ce631875002dabda340956a}{map\+\_\+err\+\_\+or\+\_\+else}} (F \&\&f, U \&\&opt) \&
+\item 
+{\footnotesize template$<$typename F , typename U $>$ }\\\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} const \& $>$ \mbox{\hyperlink{structtoml_1_1result_a87c421920b55d3810aa219eb52338c26}{map\+\_\+err\+\_\+or\+\_\+else}} (F \&\&f, U \&\&opt) const \&
+\item 
+{\footnotesize template$<$typename F , typename U $>$ }\\\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \&\& $>$ \mbox{\hyperlink{structtoml_1_1result_aad0d8e20f4429912d9d701a741276d90}{map\+\_\+err\+\_\+or\+\_\+else}} (F \&\&f, U \&\&opt) \&\&
+\item 
+{\footnotesize template$<$typename F $>$ }\\\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \& $>$ \mbox{\hyperlink{structtoml_1_1result_af490dbce4dfa4f2d14708de7d71f868e}{and\+\_\+then}} (F \&\&f) \&
+\item 
+{\footnotesize template$<$typename F $>$ }\\\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} const \& $>$ \mbox{\hyperlink{structtoml_1_1result_ad52c61fc853ce3f0bb642076ac77998f}{and\+\_\+then}} (F \&\&f) const \&
+\item 
+{\footnotesize template$<$typename F $>$ }\\\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \&\& $>$ \mbox{\hyperlink{structtoml_1_1result_a3684938c7e98c2d205b0becb52213afd}{and\+\_\+then}} (F \&\&f) \&\&
+\item 
+{\footnotesize template$<$typename F $>$ }\\\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \& $>$ \mbox{\hyperlink{structtoml_1_1result_a7a78f15aac6d4b32cb36d908c9b5dcf4}{or\+\_\+else}} (F \&\&f) \&
+\item 
+{\footnotesize template$<$typename F $>$ }\\\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} const \& $>$ \mbox{\hyperlink{structtoml_1_1result_a3ed934110d93a9bcd56cb40b6e0ac9fc}{or\+\_\+else}} (F \&\&f) const \&
+\item 
+{\footnotesize template$<$typename F $>$ }\\\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \&\& $>$ \mbox{\hyperlink{structtoml_1_1result_a71052f26332d7dba21276d9e52b164a9}{or\+\_\+else}} (F \&\&f) \&\&
+\item 
+\mbox{\hyperlink{structtoml_1_1result}{result}} \mbox{\hyperlink{structtoml_1_1result_a717089e4d0699dbe2d5f0d92a310fa29}{and\+\_\+other}} (const \mbox{\hyperlink{structtoml_1_1result}{result}} \&other) const \&
+\item 
+\mbox{\hyperlink{structtoml_1_1result}{result}} \mbox{\hyperlink{structtoml_1_1result_ae99c425ae60dd7f6859a7bd65e6495e8}{and\+\_\+other}} (\mbox{\hyperlink{structtoml_1_1result}{result}} \&\&other) \&\&
+\item 
+\mbox{\hyperlink{structtoml_1_1result}{result}} \mbox{\hyperlink{structtoml_1_1result_a99dfe27384c1c22b534e81eea0417d3f}{or\+\_\+other}} (const \mbox{\hyperlink{structtoml_1_1result}{result}} \&other) const \&
+\item 
+\mbox{\hyperlink{structtoml_1_1result}{result}} \mbox{\hyperlink{structtoml_1_1result_ac0dfc2b4cce4d2de37704ab11b43187e}{or\+\_\+other}} (\mbox{\hyperlink{structtoml_1_1result}{result}} \&\&other) \&\&
+\item 
+void \mbox{\hyperlink{structtoml_1_1result_a297145575c860f7b007c9e18d7c5513c}{swap}} (\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ T, E $>$ \&other)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}\label{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!error\_type@{error\_type}}
+\index{error\_type@{error\_type}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{error\_type}{error\_type}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+using \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::error\+\_\+type =  E}
+
+\mbox{\Hypertarget{structtoml_1_1result_a8ae6354b5d46aa704147b437d457659f}\label{structtoml_1_1result_a8ae6354b5d46aa704147b437d457659f}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!failure\_type@{failure\_type}}
+\index{failure\_type@{failure\_type}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{failure\_type}{failure\_type}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+using \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::failure\+\_\+type =  \mbox{\hyperlink{structtoml_1_1failure}{failure}}$<$\mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}}$>$}
+
+\mbox{\Hypertarget{structtoml_1_1result_a31a580d4f033ebbfe90d079604d81b57}\label{structtoml_1_1result_a31a580d4f033ebbfe90d079604d81b57}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!success\_type@{success\_type}}
+\index{success\_type@{success\_type}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{success\_type}{success\_type}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+using \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::success\+\_\+type =  \mbox{\hyperlink{structtoml_1_1success}{success}}$<$\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}}$>$}
+
+\mbox{\Hypertarget{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}\label{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+using \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::value\+\_\+type =  T}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structtoml_1_1result_abb5c70134f5098179bd0a18a54013b6a}\label{structtoml_1_1result_abb5c70134f5098179bd0a18a54013b6a}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!result@{result}}
+\index{result@{result}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}\hspace{0.1cm}{\footnotesize\ttfamily [1/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::result (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1result_a31a580d4f033ebbfe90d079604d81b57}{success\+\_\+type}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a49edc34d5c02916c1f4e7b855944ab16}\label{structtoml_1_1result_a49edc34d5c02916c1f4e7b855944ab16}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!result@{result}}
+\index{result@{result}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}\hspace{0.1cm}{\footnotesize\ttfamily [2/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::result (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1result_a8ae6354b5d46aa704147b437d457659f}{failure\+\_\+type}} \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_ae9d45fbc91dcbdd969d9e74b02378bfc}\label{structtoml_1_1result_ae9d45fbc91dcbdd969d9e74b02378bfc}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!result@{result}}
+\index{result@{result}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}\hspace{0.1cm}{\footnotesize\ttfamily [3/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1result_a31a580d4f033ebbfe90d079604d81b57}{success\+\_\+type}} \&\&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a866478463fb60e52676ce1d8b53aacb1}\label{structtoml_1_1result_a866478463fb60e52676ce1d8b53aacb1}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!result@{result}}
+\index{result@{result}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}\hspace{0.1cm}{\footnotesize\ttfamily [4/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1result_a8ae6354b5d46aa704147b437d457659f}{failure\+\_\+type}} \&\&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a9838251b92a633be231e7c7321b5b5da}\label{structtoml_1_1result_a9838251b92a633be231e7c7321b5b5da}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!result@{result}}
+\index{result@{result}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}\hspace{0.1cm}{\footnotesize\ttfamily [5/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename U $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::result (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1success}{success}}$<$ U $>$ \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a3850c14cafad48d0b8125f3aa40fdbd5}\label{structtoml_1_1result_a3850c14cafad48d0b8125f3aa40fdbd5}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!result@{result}}
+\index{result@{result}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}\hspace{0.1cm}{\footnotesize\ttfamily [6/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename U $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::result (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1failure}{failure}}$<$ U $>$ \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a61f5f132611cb03c10c41e1a5daa932d}\label{structtoml_1_1result_a61f5f132611cb03c10c41e1a5daa932d}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!result@{result}}
+\index{result@{result}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}\hspace{0.1cm}{\footnotesize\ttfamily [7/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename U $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1success}{success}}$<$ U $>$ \&\&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_ac39c73e30e7d69ed37b5a9ee02f462c3}\label{structtoml_1_1result_ac39c73e30e7d69ed37b5a9ee02f462c3}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!result@{result}}
+\index{result@{result}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}\hspace{0.1cm}{\footnotesize\ttfamily [8/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename U $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1failure}{failure}}$<$ U $>$ \&\&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_ab0a40e53bea82cf6df46059b7d942513}\label{structtoml_1_1result_ab0a40e53bea82cf6df46059b7d942513}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!````~result@{$\sim$result}}
+\index{````~result@{$\sim$result}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$result()}{~result()}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::$\sim$\mbox{\hyperlink{structtoml_1_1result}{result}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_ad193e83ebbf862a65ab8fc9191a4f39e}\label{structtoml_1_1result_ad193e83ebbf862a65ab8fc9191a4f39e}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!result@{result}}
+\index{result@{result}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}\hspace{0.1cm}{\footnotesize\ttfamily [9/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::result (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1result}{result}}$<$ T, E $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a323424143e2a547e76adfb0d073a4b42}\label{structtoml_1_1result_a323424143e2a547e76adfb0d073a4b42}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!result@{result}}
+\index{result@{result}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}\hspace{0.1cm}{\footnotesize\ttfamily [10/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ T, E $>$ \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_afe756e1b20d750ac1e1d4da9c5ce0829}\label{structtoml_1_1result_afe756e1b20d750ac1e1d4da9c5ce0829}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!result@{result}}
+\index{result@{result}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}\hspace{0.1cm}{\footnotesize\ttfamily [11/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename U , typename F $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::result (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1result}{result}}$<$ U, F $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_aded304df3cb1bbc7892b679855de7d6a}\label{structtoml_1_1result_aded304df3cb1bbc7892b679855de7d6a}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!result@{result}}
+\index{result@{result}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{result()}{result()}\hspace{0.1cm}{\footnotesize\ttfamily [12/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename U , typename F $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ U, F $>$ \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structtoml_1_1result_a717089e4d0699dbe2d5f0d92a310fa29}\label{structtoml_1_1result_a717089e4d0699dbe2d5f0d92a310fa29}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!and\_other@{and\_other}}
+\index{and\_other@{and\_other}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{and\_other()}{and\_other()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}} \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::and\+\_\+other (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1result}{result}}$<$ T, E $>$ \&}]{other }\end{DoxyParamCaption}) const \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_ae99c425ae60dd7f6859a7bd65e6495e8}\label{structtoml_1_1result_ae99c425ae60dd7f6859a7bd65e6495e8}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!and\_other@{and\_other}}
+\index{and\_other@{and\_other}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{and\_other()}{and\_other()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}} \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::and\+\_\+other (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ T, E $>$ \&\&}]{other }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_af490dbce4dfa4f2d14708de7d71f868e}\label{structtoml_1_1result_af490dbce4dfa4f2d14708de7d71f868e}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!and\_then@{and\_then}}
+\index{and\_then@{and\_then}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{and\_then()}{and\_then()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename F $>$ \\
+\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \& $>$ \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::and\+\_\+then (\begin{DoxyParamCaption}\item[{F \&\&}]{f }\end{DoxyParamCaption}) \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a3684938c7e98c2d205b0becb52213afd}\label{structtoml_1_1result_a3684938c7e98c2d205b0becb52213afd}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!and\_then@{and\_then}}
+\index{and\_then@{and\_then}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{and\_then()}{and\_then()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename F $>$ \\
+\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \&\& $>$ \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::and\+\_\+then (\begin{DoxyParamCaption}\item[{F \&\&}]{f }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_ad52c61fc853ce3f0bb642076ac77998f}\label{structtoml_1_1result_ad52c61fc853ce3f0bb642076ac77998f}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!and\_then@{and\_then}}
+\index{and\_then@{and\_then}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{and\_then()}{and\_then()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename F $>$ \\
+\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} const  \& $>$ \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::and\+\_\+then (\begin{DoxyParamCaption}\item[{F \&\&}]{f }\end{DoxyParamCaption}) const \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a186ab05799b4fb772404c336af481db4}\label{structtoml_1_1result_a186ab05799b4fb772404c336af481db4}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!as\_err@{as\_err}}
+\index{as\_err@{as\_err}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{as\_err()}{as\_err()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \&\& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::as\+\_\+err (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_afee245eac77ff9a41a15be21915379b8}\label{structtoml_1_1result_afee245eac77ff9a41a15be21915379b8}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!as\_err@{as\_err}}
+\index{as\_err@{as\_err}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{as\_err()}{as\_err()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::as\+\_\+err (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) \&\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a1ad98c8a6902cdc12dcd546b7e64a04c}\label{structtoml_1_1result_a1ad98c8a6902cdc12dcd546b7e64a04c}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!as\_err@{as\_err}}
+\index{as\_err@{as\_err}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{as\_err()}{as\_err()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} const  \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::as\+\_\+err (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const \&\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_af74c72007f5d55e6b763886a49856504}\label{structtoml_1_1result_af74c72007f5d55e6b763886a49856504}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!as\_ok@{as\_ok}}
+\index{as\_ok@{as\_ok}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{as\_ok()}{as\_ok()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \&\& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::as\+\_\+ok (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a6a550aa27274597c925efbb701d4f608}\label{structtoml_1_1result_a6a550aa27274597c925efbb701d4f608}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!as\_ok@{as\_ok}}
+\index{as\_ok@{as\_ok}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{as\_ok()}{as\_ok()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::as\+\_\+ok (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) \&\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a87108031541f7813654221c315a816b7}\label{structtoml_1_1result_a87108031541f7813654221c315a816b7}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!as\_ok@{as\_ok}}
+\index{as\_ok@{as\_ok}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{as\_ok()}{as\_ok()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} const  \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::as\+\_\+ok (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const \&\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_aae92ef3abc3bbc32a92789b87c772b75}\label{structtoml_1_1result_aae92ef3abc3bbc32a92789b87c772b75}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!is\_err@{is\_err}}
+\index{is\_err@{is\_err}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{is\_err()}{is\_err()}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+bool \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::is\+\_\+err (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a024b6a6a853f3b3efa5097261f86dc05}\label{structtoml_1_1result_a024b6a6a853f3b3efa5097261f86dc05}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!is\_ok@{is\_ok}}
+\index{is\_ok@{is\_ok}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{is\_ok()}{is\_ok()}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+bool \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::is\+\_\+ok (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_adda76790d56057a8322936b1e7e4bdd6}\label{structtoml_1_1result_adda76790d56057a8322936b1e7e4bdd6}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!map@{map}}
+\index{map@{map}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{map()}{map()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename F $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ \mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \& $>$, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} $>$ \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::map (\begin{DoxyParamCaption}\item[{F \&\&}]{f }\end{DoxyParamCaption}) \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a5e5fbb4f290ed2261b7a05baecd4e432}\label{structtoml_1_1result_a5e5fbb4f290ed2261b7a05baecd4e432}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!map@{map}}
+\index{map@{map}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{map()}{map()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename F $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ \mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \&\& $>$, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} $>$ \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::map (\begin{DoxyParamCaption}\item[{F \&\&}]{f }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a5c2c18bb1f0e546005c333a2a6acb910}\label{structtoml_1_1result_a5c2c18bb1f0e546005c333a2a6acb910}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!map@{map}}
+\index{map@{map}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{map()}{map()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename F $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ \mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} const  \& $>$, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} $>$ \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::map (\begin{DoxyParamCaption}\item[{F \&\&}]{f }\end{DoxyParamCaption}) const \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_af76865b12e262577815a22a88d75bedc}\label{structtoml_1_1result_af76865b12e262577815a22a88d75bedc}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!map\_err@{map\_err}}
+\index{map\_err@{map\_err}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{map\_err()}{map\_err()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename F $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}}, \mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \& $>$ $>$ \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::map\+\_\+err (\begin{DoxyParamCaption}\item[{F \&\&}]{f }\end{DoxyParamCaption}) \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_aee813a8d32a6aeb1f99a33d785c6fbd0}\label{structtoml_1_1result_aee813a8d32a6aeb1f99a33d785c6fbd0}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!map\_err@{map\_err}}
+\index{map\_err@{map\_err}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{map\_err()}{map\_err()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename F $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}}, \mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \&\& $>$ $>$ \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::map\+\_\+err (\begin{DoxyParamCaption}\item[{F \&\&}]{f }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a6c772fd3f6e8fe6698b4577a2cf63a8a}\label{structtoml_1_1result_a6c772fd3f6e8fe6698b4577a2cf63a8a}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!map\_err@{map\_err}}
+\index{map\_err@{map\_err}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{map\_err()}{map\_err()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename F $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}}, \mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} const  \& $>$ $>$ \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::map\+\_\+err (\begin{DoxyParamCaption}\item[{F \&\&}]{f }\end{DoxyParamCaption}) const \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a77a0dc0f5ce631875002dabda340956a}\label{structtoml_1_1result_a77a0dc0f5ce631875002dabda340956a}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!map\_err\_or\_else@{map\_err\_or\_else}}
+\index{map\_err\_or\_else@{map\_err\_or\_else}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{map\_err\_or\_else()}{map\_err\_or\_else()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename F , typename U $>$ \\
+\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \& $>$ \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::map\+\_\+err\+\_\+or\+\_\+else (\begin{DoxyParamCaption}\item[{F \&\&}]{f,  }\item[{U \&\&}]{opt }\end{DoxyParamCaption}) \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_aad0d8e20f4429912d9d701a741276d90}\label{structtoml_1_1result_aad0d8e20f4429912d9d701a741276d90}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!map\_err\_or\_else@{map\_err\_or\_else}}
+\index{map\_err\_or\_else@{map\_err\_or\_else}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{map\_err\_or\_else()}{map\_err\_or\_else()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename F , typename U $>$ \\
+\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \&\& $>$ \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::map\+\_\+err\+\_\+or\+\_\+else (\begin{DoxyParamCaption}\item[{F \&\&}]{f,  }\item[{U \&\&}]{opt }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a87c421920b55d3810aa219eb52338c26}\label{structtoml_1_1result_a87c421920b55d3810aa219eb52338c26}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!map\_err\_or\_else@{map\_err\_or\_else}}
+\index{map\_err\_or\_else@{map\_err\_or\_else}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{map\_err\_or\_else()}{map\_err\_or\_else()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename F , typename U $>$ \\
+\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} const  \& $>$ \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::map\+\_\+err\+\_\+or\+\_\+else (\begin{DoxyParamCaption}\item[{F \&\&}]{f,  }\item[{U \&\&}]{opt }\end{DoxyParamCaption}) const \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a3ae1569365d92269f87f02e57272065f}\label{structtoml_1_1result_a3ae1569365d92269f87f02e57272065f}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!map\_or\_else@{map\_or\_else}}
+\index{map\_or\_else@{map\_or\_else}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{map\_or\_else()}{map\_or\_else()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename F , typename U $>$ \\
+\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \& $>$ \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::map\+\_\+or\+\_\+else (\begin{DoxyParamCaption}\item[{F \&\&}]{f,  }\item[{U \&\&}]{opt }\end{DoxyParamCaption}) \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a9be00b6a49a77c9e8b774435bb25d218}\label{structtoml_1_1result_a9be00b6a49a77c9e8b774435bb25d218}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!map\_or\_else@{map\_or\_else}}
+\index{map\_or\_else@{map\_or\_else}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{map\_or\_else()}{map\_or\_else()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename F , typename U $>$ \\
+\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \&\& $>$ \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::map\+\_\+or\+\_\+else (\begin{DoxyParamCaption}\item[{F \&\&}]{f,  }\item[{U \&\&}]{opt }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_aa6c2c36c32c801aebdd4ae616ae04dbf}\label{structtoml_1_1result_aa6c2c36c32c801aebdd4ae616ae04dbf}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!map\_or\_else@{map\_or\_else}}
+\index{map\_or\_else@{map\_or\_else}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{map\_or\_else()}{map\_or\_else()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename F , typename U $>$ \\
+\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} const  \& $>$ \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::map\+\_\+or\+\_\+else (\begin{DoxyParamCaption}\item[{F \&\&}]{f,  }\item[{U \&\&}]{opt }\end{DoxyParamCaption}) const \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_ac9c61e85e9d6cde9c51a197c8e79e36e}\label{structtoml_1_1result_ac9c61e85e9d6cde9c51a197c8e79e36e}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::operator bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_acafef59ec18b0716ab5f71f6839c3242}\label{structtoml_1_1result_acafef59ec18b0716ab5f71f6839c3242}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename U $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1failure}{failure}}$<$ U $>$ \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_ab33b6448c67e824e41e5ef1fc34cc151}\label{structtoml_1_1result_ab33b6448c67e824e41e5ef1fc34cc151}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1result_a8ae6354b5d46aa704147b437d457659f}{failure\+\_\+type}} \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a00768edefd8c25f615ac3863b32bd7b0}\label{structtoml_1_1result_a00768edefd8c25f615ac3863b32bd7b0}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1result}{result}}$<$ T, E $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a7e4251cecdbb6dfebba1a38f851eb6d5}\label{structtoml_1_1result_a7e4251cecdbb6dfebba1a38f851eb6d5}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [4/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename U , typename F $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1result}{result}}$<$ U, F $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a763be5d95afd897b9d7027dad089bd96}\label{structtoml_1_1result_a763be5d95afd897b9d7027dad089bd96}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [5/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename U $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1success}{success}}$<$ U $>$ \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a30f3850c24490fc803732d46e2820bd7}\label{structtoml_1_1result_a30f3850c24490fc803732d46e2820bd7}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [6/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1result_a31a580d4f033ebbfe90d079604d81b57}{success\+\_\+type}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a359ff21d89a0c9d60c8deb250e7cc757}\label{structtoml_1_1result_a359ff21d89a0c9d60c8deb250e7cc757}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [7/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename U $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1failure}{failure}}$<$ U $>$ \&\&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a68c977ca158072f962cfbe53893d5857}\label{structtoml_1_1result_a68c977ca158072f962cfbe53893d5857}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [8/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1result_a8ae6354b5d46aa704147b437d457659f}{failure\+\_\+type}} \&\&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_af63cf8be2e1fd03494c8fe7fb4720d59}\label{structtoml_1_1result_af63cf8be2e1fd03494c8fe7fb4720d59}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [9/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ T, E $>$ \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_adbe6e97791bc55a564ac83e4ff3cf3b0}\label{structtoml_1_1result_adbe6e97791bc55a564ac83e4ff3cf3b0}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [10/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename U , typename F $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ U, F $>$ \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a91cf4c2a8cb7fe7304a42731a2bdcb99}\label{structtoml_1_1result_a91cf4c2a8cb7fe7304a42731a2bdcb99}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [11/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename U $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1success}{success}}$<$ U $>$ \&\&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a88fbb386e3543e877dd461962353cc5c}\label{structtoml_1_1result_a88fbb386e3543e877dd461962353cc5c}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [12/12]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}} \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1result_a31a580d4f033ebbfe90d079604d81b57}{success\+\_\+type}} \&\&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a7a78f15aac6d4b32cb36d908c9b5dcf4}\label{structtoml_1_1result_a7a78f15aac6d4b32cb36d908c9b5dcf4}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!or\_else@{or\_else}}
+\index{or\_else@{or\_else}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{or\_else()}{or\_else()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename F $>$ \\
+\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \& $>$ \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::or\+\_\+else (\begin{DoxyParamCaption}\item[{F \&\&}]{f }\end{DoxyParamCaption}) \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a71052f26332d7dba21276d9e52b164a9}\label{structtoml_1_1result_a71052f26332d7dba21276d9e52b164a9}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!or\_else@{or\_else}}
+\index{or\_else@{or\_else}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{or\_else()}{or\_else()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename F $>$ \\
+\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \&\& $>$ \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::or\+\_\+else (\begin{DoxyParamCaption}\item[{F \&\&}]{f }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a3ed934110d93a9bcd56cb40b6e0ac9fc}\label{structtoml_1_1result_a3ed934110d93a9bcd56cb40b6e0ac9fc}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!or\_else@{or\_else}}
+\index{or\_else@{or\_else}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{or\_else()}{or\_else()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+template$<$typename F $>$ \\
+\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{detail\+::return\+\_\+type\+\_\+of\+\_\+t}}$<$ F, \mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} const  \& $>$ \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::or\+\_\+else (\begin{DoxyParamCaption}\item[{F \&\&}]{f }\end{DoxyParamCaption}) const \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a99dfe27384c1c22b534e81eea0417d3f}\label{structtoml_1_1result_a99dfe27384c1c22b534e81eea0417d3f}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!or\_other@{or\_other}}
+\index{or\_other@{or\_other}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{or\_other()}{or\_other()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}} \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::or\+\_\+other (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1result}{result}}$<$ T, E $>$ \&}]{other }\end{DoxyParamCaption}) const \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_ac0dfc2b4cce4d2de37704ab11b43187e}\label{structtoml_1_1result_ac0dfc2b4cce4d2de37704ab11b43187e}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!or\_other@{or\_other}}
+\index{or\_other@{or\_other}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{or\_other()}{or\_other()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result}{result}} \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::or\+\_\+other (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ T, E $>$ \&\&}]{other }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a297145575c860f7b007c9e18d7c5513c}\label{structtoml_1_1result_a297145575c860f7b007c9e18d7c5513c}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!swap@{swap}}
+\index{swap@{swap}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+void \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::swap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1result}{result}}$<$ T, E $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_ac75aa56aa20416f01244e1936b74dbc3}\label{structtoml_1_1result_ac75aa56aa20416f01244e1936b74dbc3}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!unwrap@{unwrap}}
+\index{unwrap@{unwrap}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{unwrap()}{unwrap()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::unwrap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a1fdcfafe6ab6972e537f6347d4400769}\label{structtoml_1_1result_a1fdcfafe6ab6972e537f6347d4400769}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!unwrap@{unwrap}}
+\index{unwrap@{unwrap}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{unwrap()}{unwrap()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \&\& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::unwrap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_ab7174af4f142252c8cc979e229ae4dc2}\label{structtoml_1_1result_ab7174af4f142252c8cc979e229ae4dc2}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!unwrap@{unwrap}}
+\index{unwrap@{unwrap}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{unwrap()}{unwrap()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} const  \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::unwrap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a9f8688e18874027ce0ccc1eb4dc49486}\label{structtoml_1_1result_a9f8688e18874027ce0ccc1eb4dc49486}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!unwrap\_err@{unwrap\_err}}
+\index{unwrap\_err@{unwrap\_err}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{unwrap\_err()}{unwrap\_err()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::unwrap\+\_\+err (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_ae291950945f17b68b167c4bb08b25db0}\label{structtoml_1_1result_ae291950945f17b68b167c4bb08b25db0}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!unwrap\_err@{unwrap\_err}}
+\index{unwrap\_err@{unwrap\_err}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{unwrap\_err()}{unwrap\_err()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} \&\& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::unwrap\+\_\+err (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a4aab3e92f73bb52232dbf00e8f602e89}\label{structtoml_1_1result_a4aab3e92f73bb52232dbf00e8f602e89}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!unwrap\_err@{unwrap\_err}}
+\index{unwrap\_err@{unwrap\_err}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{unwrap\_err()}{unwrap\_err()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result_a54617f433b2c626d7304c4cf8af61601}{error\+\_\+type}} const  \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::unwrap\+\_\+err (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_a9228eb4b14467fc5ca9cda8df9105dc6}\label{structtoml_1_1result_a9228eb4b14467fc5ca9cda8df9105dc6}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!unwrap\_or@{unwrap\_or}}
+\index{unwrap\_or@{unwrap\_or}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{unwrap\_or()}{unwrap\_or()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::unwrap\+\_\+or (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \&}]{opt }\end{DoxyParamCaption}) \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_aba9a87bb14037085457bad30853ea637}\label{structtoml_1_1result_aba9a87bb14037085457bad30853ea637}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!unwrap\_or@{unwrap\_or}}
+\index{unwrap\_or@{unwrap\_or}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{unwrap\_or()}{unwrap\_or()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} const  \& \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::unwrap\+\_\+or (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} const \&}]{opt }\end{DoxyParamCaption}) const \&\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1result_af8d1ded0824e0d8d761aeb65136b01ee}\label{structtoml_1_1result_af8d1ded0824e0d8d761aeb65136b01ee}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!unwrap\_or@{unwrap\_or}}
+\index{unwrap\_or@{unwrap\_or}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{unwrap\_or()}{unwrap\_or()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}} \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::unwrap\+\_\+or (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1result_add7f22b3480a86a5af3053529815617b}{value\+\_\+type}}}]{opt }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structtoml_1_1result_a164eaf2931830770dbbc22f16b08e4ad}\label{structtoml_1_1result_a164eaf2931830770dbbc22f16b08e4ad}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!fail@{fail}}
+\index{fail@{fail}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{fail}{fail}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result_a8ae6354b5d46aa704147b437d457659f}{failure\+\_\+type}} \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::fail}
+
+\mbox{\Hypertarget{structtoml_1_1result_a1cd008a6d4136271139a0b0a4b8fe254}\label{structtoml_1_1result_a1cd008a6d4136271139a0b0a4b8fe254}} 
+\index{toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}!succ@{succ}}
+\index{succ@{succ}!toml::result$<$ T, E $>$@{toml::result$<$ T, E $>$}}
+\doxysubsubsection{\texorpdfstring{succ}{succ}}
+{\footnotesize\ttfamily template$<$typename T , typename E $>$ \\
+\mbox{\hyperlink{structtoml_1_1result_a31a580d4f033ebbfe90d079604d81b57}{success\+\_\+type}} \mbox{\hyperlink{structtoml_1_1result}{toml\+::result}}$<$ T, E $>$\+::succ}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+external/toml/\mbox{\hyperlink{result_8hpp}{result.\+hpp}}\end{DoxyCompactItemize}

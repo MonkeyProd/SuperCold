@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="debug_8hpp" kind="file" language="C++">
+    <compoundname>debug.hpp</compoundname>
+    <includes local="no">SFML/Graphics.hpp</includes>
+    <includedby refid="_game_object_8cpp" local="yes">GameObject/GameObject.cpp</includedby>
+    <includedby refid="debug_8cpp" local="yes">Utils/debug.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Utils/debug.hpp</label>
+        <link refid="debug_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>GameObject/GameObject.cpp</label>
+        <link refid="_game_object_8cpp"/>
+      </node>
+      <node id="3">
+        <label>Utils/debug.cpp</label>
+        <link refid="debug_8cpp"/>
+      </node>
+      <node id="1">
+        <label>Utils/debug.hpp</label>
+        <link refid="debug_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="debug_8hpp_1a5c4e13e5264af66224327d49e8823c8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>sf::RectangleShape</type>
+        <definition>sf::RectangleShape debugRectangle</definition>
+        <argsstring>(sf::FloatRect rect)</argsstring>
+        <name>debugRectangle</name>
+        <param>
+          <type>sf::FloatRect</type>
+          <declname>rect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/debug.hpp" line="5" column="20" bodyfile="Utils/debug.cpp" bodystart="3" bodyend="11" declfile="Utils/debug.hpp" declline="5" declcolumn="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SFML/Graphics.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal">sf::RectangleShape<sp/><ref refid="debug_8hpp_1a5c4e13e5264af66224327d49e8823c8c" kindref="member">debugRectangle</ref>(sf::FloatRect<sp/>rect);</highlight></codeline>
+    </programlisting>
+    <location file="Utils/debug.hpp"/>
+  </compounddef>
+</doxygen>

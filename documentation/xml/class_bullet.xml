@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="class_bullet" kind="class" language="C++" prot="public">
+    <compoundname>Bullet</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">sf::Drawable</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">sf::Transformable</basecompoundref>
+    <includes refid="_bullet_8hpp" local="no">Bullet.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_bullet_1a423dd7de23c2df68f812c6537eb194a7" prot="private" static="no" mutable="no">
+        <type><ref refid="class_game_object" kindref="compound">GameObject</ref></type>
+        <definition>GameObject Bullet::m_bulletObject</definition>
+        <argsstring></argsstring>
+        <name>m_bulletObject</name>
+        <qualifiedname>Bullet::m_bulletObject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Bullet/Bullet.hpp" line="6" column="12" bodyfile="Bullet/Bullet.hpp" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bullet_1a5ff781b721a87eba76e76f51c808a405" prot="private" static="no" mutable="no">
+        <type>sf::Vector2f</type>
+        <definition>sf::Vector2f Bullet::m_velocity</definition>
+        <argsstring></argsstring>
+        <name>m_velocity</name>
+        <qualifiedname>Bullet::m_velocity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Bullet/Bullet.hpp" line="7" column="14" bodyfile="Bullet/Bullet.hpp" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_bullet_1a4e82f6af5a1d101985e7a44c67c54cb0" prot="private" static="no" mutable="no">
+        <type>sf::Time</type>
+        <definition>sf::Time Bullet::m_lifetime</definition>
+        <argsstring></argsstring>
+        <name>m_lifetime</name>
+        <qualifiedname>Bullet::m_lifetime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Bullet/Bullet.hpp" line="8" column="10" bodyfile="Bullet/Bullet.hpp" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_bullet_1a71ece5d5c6319b00bdfbeff7b34ee8b9" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Bullet::isExist</definition>
+        <argsstring></argsstring>
+        <name>isExist</name>
+        <qualifiedname>Bullet::isExist</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Bullet/Bullet.hpp" line="11" column="6" bodyfile="Bullet/Bullet.hpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_bullet_1a4fe0996e6c2eb192aa4e4a0352e97fd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Bullet::Bullet</definition>
+        <argsstring>(sf::Vector2f startPosition, sf::Vector2f velocity, std::vector&lt; sf::Sprite &gt; bulletSprite)</argsstring>
+        <name>Bullet</name>
+        <qualifiedname>Bullet::Bullet</qualifiedname>
+        <param>
+          <type>sf::Vector2f</type>
+          <declname>startPosition</declname>
+        </param>
+        <param>
+          <type>sf::Vector2f</type>
+          <declname>velocity</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; sf::Sprite &gt;</type>
+          <declname>bulletSprite</declname>
+        </param>
+        <briefdescription>
+<para>Класс, пули </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>startPosition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>начальное положение </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>velocity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>вектор скорости </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>bulletSprite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>спрайты пули </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Bullet/Bullet.hpp" line="20" column="1" bodyfile="Bullet/Bullet.cpp" bodystart="3" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bullet_1a60eeb26c22016b37796b3692967dbc14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_game_object" kindref="compound">GameObject</ref> &amp;</type>
+        <definition>GameObject &amp; Bullet::getBulletObject</definition>
+        <argsstring>()</argsstring>
+        <name>getBulletObject</name>
+        <qualifiedname>Bullet::getBulletObject</qualifiedname>
+        <briefdescription>
+<para>Метод, возращающий <ref refid="class_game_object" kindref="compound">GameObject</ref> пули </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Bullet/Bullet.hpp" line="26" column="12" bodyfile="Bullet/Bullet.cpp" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bullet_1af9f7169b3201360123c51fd576cb574f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Bullet::moveBullet</definition>
+        <argsstring>(sf::Time deltaTime)</argsstring>
+        <name>moveBullet</name>
+        <qualifiedname>Bullet::moveBullet</qualifiedname>
+        <param>
+          <type>sf::Time</type>
+          <declname>deltaTime</declname>
+        </param>
+        <briefdescription>
+<para>Метод, передвигающий пулю </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>deltaTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>deltaTime </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Bullet/Bullet.hpp" line="33" column="6" bodyfile="Bullet/Bullet.cpp" bodystart="31" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bullet_1a4259372b1668f44bb726620a4f44181b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Bullet::draw</definition>
+        <argsstring>(sf::RenderTarget &amp;surface, sf::RenderStates states) const</argsstring>
+        <name>draw</name>
+        <qualifiedname>Bullet::draw</qualifiedname>
+        <param>
+          <type>sf::RenderTarget &amp;</type>
+          <declname>surface</declname>
+        </param>
+        <param>
+          <type>sf::RenderStates</type>
+          <declname>states</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Bullet/Bullet.hpp" line="35" column="14" bodyfile="Bullet/Bullet.cpp" bodystart="16" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_bullet_1a426f205484be59d9eff8b2f652135ce3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>sf::FloatRect</type>
+        <definition>sf::FloatRect Bullet::getBulletRect</definition>
+        <argsstring>()</argsstring>
+        <name>getBulletRect</name>
+        <qualifiedname>Bullet::getBulletRect</qualifiedname>
+        <briefdescription>
+<para>Метод, возращающий FloatRect пули </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Bullet/Bullet.hpp" line="40" column="15" bodyfile="Bullet/Bullet.cpp" bodystart="20" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Bullet</label>
+        <link refid="class_bullet"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sf::Drawable</label>
+      </node>
+      <node id="3">
+        <label>sf::Transformable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Bullet</label>
+        <link refid="class_bullet"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sf::Drawable</label>
+      </node>
+      <node id="3">
+        <label>sf::Transformable</label>
+      </node>
+    </collaborationgraph>
+    <location file="Bullet/Bullet.hpp" line="5" column="1" bodyfile="Bullet/Bullet.hpp" bodystart="5" bodyend="41"/>
+    <listofallmembers>
+      <member refid="class_bullet_1a4fe0996e6c2eb192aa4e4a0352e97fd9" prot="public" virt="non-virtual"><scope>Bullet</scope><name>Bullet</name></member>
+      <member refid="class_bullet_1a4259372b1668f44bb726620a4f44181b" prot="public" virt="virtual"><scope>Bullet</scope><name>draw</name></member>
+      <member refid="class_bullet_1a60eeb26c22016b37796b3692967dbc14" prot="public" virt="non-virtual"><scope>Bullet</scope><name>getBulletObject</name></member>
+      <member refid="class_bullet_1a426f205484be59d9eff8b2f652135ce3" prot="public" virt="non-virtual"><scope>Bullet</scope><name>getBulletRect</name></member>
+      <member refid="class_bullet_1a71ece5d5c6319b00bdfbeff7b34ee8b9" prot="public" virt="non-virtual"><scope>Bullet</scope><name>isExist</name></member>
+      <member refid="class_bullet_1a423dd7de23c2df68f812c6537eb194a7" prot="private" virt="non-virtual"><scope>Bullet</scope><name>m_bulletObject</name></member>
+      <member refid="class_bullet_1a4e82f6af5a1d101985e7a44c67c54cb0" prot="private" virt="non-virtual"><scope>Bullet</scope><name>m_lifetime</name></member>
+      <member refid="class_bullet_1a5ff781b721a87eba76e76f51c808a405" prot="private" virt="non-virtual"><scope>Bullet</scope><name>m_velocity</name></member>
+      <member refid="class_bullet_1af9f7169b3201360123c51fd576cb574f" prot="public" virt="non-virtual"><scope>Bullet</scope><name>moveBullet</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

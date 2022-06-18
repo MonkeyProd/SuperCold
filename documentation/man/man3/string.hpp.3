@@ -1,0 +1,138 @@
+.TH "external/toml/string.hpp" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+external/toml/string.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'version\&.hpp'\fP
+.br
+\fC#include <cstdint>\fP
+.br
+\fC#include <algorithm>\fP
+.br
+\fC#include <string>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtoml::string\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBtoml\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum class \fBtoml::string_t\fP : std::uint8_t { \fBtoml::basic\fP = 0, \fBtoml::literal\fP = 1 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBtoml::operator==\fP (const string &lhs, const string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator!=\fP (const string &lhs, const string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<\fP (const string &lhs, const string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>\fP (const string &lhs, const string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<=\fP (const string &lhs, const string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>=\fP (const string &lhs, const string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator==\fP (const string &lhs, const std::string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator!=\fP (const string &lhs, const std::string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<\fP (const string &lhs, const std::string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>\fP (const string &lhs, const std::string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<=\fP (const string &lhs, const std::string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>=\fP (const string &lhs, const std::string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator==\fP (const std::string &lhs, const string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator!=\fP (const std::string &lhs, const string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<\fP (const std::string &lhs, const string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>\fP (const std::string &lhs, const string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<=\fP (const std::string &lhs, const string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>=\fP (const std::string &lhs, const string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator==\fP (const string &lhs, const char *rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator!=\fP (const string &lhs, const char *rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<\fP (const string &lhs, const char *rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>\fP (const string &lhs, const char *rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<=\fP (const string &lhs, const char *rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>=\fP (const string &lhs, const char *rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator==\fP (const char *lhs, const string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator!=\fP (const char *lhs, const string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<\fP (const char *lhs, const string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>\fP (const char *lhs, const string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<=\fP (const char *lhs, const string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>=\fP (const char *lhs, const string &rhs)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBtoml::operator<<\fP (std::basic_ostream< charT, traits > &os, const string &s)"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

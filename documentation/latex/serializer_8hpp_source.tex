@@ -1,0 +1,928 @@
+\hypertarget{serializer_8hpp_source}{}\doxysection{serializer.\+hpp}
+\label{serializer_8hpp_source}\index{external/toml/serializer.hpp@{external/toml/serializer.hpp}}
+\mbox{\hyperlink{serializer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//     Copyright Toru Niina 2019.}}
+\DoxyCodeLine{2 \textcolor{comment}{// Distributed under the MIT License.}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifndef TOML11\_SERIALIZER\_HPP}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TOML11\_SERIALIZER\_HPP}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <cstdio>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <limits>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{lexer_8hpp}{lexer.hpp}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{value_8hpp}{value.hpp}}"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetoml}{toml}}}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{comment}{// This function serialize a key. It checks a string is a bare key and}}
+\DoxyCodeLine{17 \textcolor{comment}{// escapes special characters if the string is not compatible to a bare key.}}
+\DoxyCodeLine{18 \textcolor{comment}{// ```cpp}}
+\DoxyCodeLine{19 \textcolor{comment}{// std::string k("{}non.bare.key"{}); // the key itself includes `.`s.}}
+\DoxyCodeLine{20 \textcolor{comment}{// std::string formatted = toml::format\_key(k);}}
+\DoxyCodeLine{21 \textcolor{comment}{// assert(formatted == "{}\(\backslash\)"{}non.bare.key\(\backslash\)"{}"{});}}
+\DoxyCodeLine{22 \textcolor{comment}{// ```}}
+\DoxyCodeLine{23 \textcolor{comment}{//}}
+\DoxyCodeLine{24 \textcolor{comment}{// This function is exposed to make it easy to write a user-\/defined serializer.}}
+\DoxyCodeLine{25 \textcolor{comment}{// Since toml restricts characters available in a bare key, generally a string}}
+\DoxyCodeLine{26 \textcolor{comment}{// should be escaped. But checking whether a string needs to be surrounded by}}
+\DoxyCodeLine{27 \textcolor{comment}{// a `"{}` and escaping some special character is boring.}}
+\DoxyCodeLine{28 \textcolor{keyword}{template}<\textcolor{keyword}{typename} \textcolor{keywordtype}{char}T, \textcolor{keyword}{typename} traits, \textcolor{keyword}{typename} Alloc>}
+\DoxyCodeLine{29 std::basic\_string<charT, traits, Alloc>}
+\DoxyCodeLine{30 \mbox{\hyperlink{namespacetoml_abcb26a66988b38ebb8f5e48b1aa36dbc}{format\_key}}(\textcolor{keyword}{const} std::basic\_string<charT, traits, Alloc>\& k)}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32     \textcolor{keywordflow}{if}(k.empty())}
+\DoxyCodeLine{33     \{}
+\DoxyCodeLine{34         \textcolor{keywordflow}{return} std::string(\textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)"{}"{}});}
+\DoxyCodeLine{35     \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{comment}{// check the key can be a bare (unquoted) key}}
+\DoxyCodeLine{38     \mbox{\hyperlink{structtoml_1_1detail_1_1location}{detail::location}} loc(k, std::vector<char>(k.begin(), k.end()));}
+\DoxyCodeLine{39     detail::lex\_unquoted\_key::invoke(loc);}
+\DoxyCodeLine{40     \textcolor{keywordflow}{if}(loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_a3fec075fe10382a901104613f84b37ee}{iter}}() == loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_ad2b13df42c4b6202d006830c3fa5eee6}{end}}())}
+\DoxyCodeLine{41     \{}
+\DoxyCodeLine{42         \textcolor{keywordflow}{return} k; \textcolor{comment}{// all the tokens are consumed. the key is unquoted-\/key.}}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{comment}{//if it includes special characters, then format it in a "{}quoted"{} key.}}
+\DoxyCodeLine{46     std::basic\_string<charT, traits, Alloc> serialized(\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}});}
+\DoxyCodeLine{47     \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} c : k)}
+\DoxyCodeLine{48     \{}
+\DoxyCodeLine{49         \textcolor{keywordflow}{switch}(c)}
+\DoxyCodeLine{50         \{}
+\DoxyCodeLine{51             \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'}: \{serialized += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"{}}; \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{52             \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)"{}'}: \{serialized += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)"{}"{}}; \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{53             \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)b'}: \{serialized += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)b"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{54             \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)t'}: \{serialized += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)t"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{55             \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)f'}: \{serialized += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)f"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{56             \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)n'}: \{serialized += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)n"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{57             \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)r'}: \{serialized += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)r"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{58             default  : \{serialized += c;      \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{59         \}}
+\DoxyCodeLine{60     \}}
+\DoxyCodeLine{61     serialized += \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{62     \textcolor{keywordflow}{return} serialized;}
+\DoxyCodeLine{63 \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{keyword}{template}<\textcolor{keyword}{typename} \textcolor{keywordtype}{char}T, \textcolor{keyword}{typename} traits, \textcolor{keyword}{typename} Alloc>}
+\DoxyCodeLine{66 std::basic\_string<charT, traits, Alloc>}
+\DoxyCodeLine{67 \mbox{\hyperlink{namespacetoml_ac3d6191211e58a592190751a6c5ca92f}{format\_keys}}(\textcolor{keyword}{const} std::vector<std::basic\_string<charT, traits, Alloc>>\& keys)}
+\DoxyCodeLine{68 \{}
+\DoxyCodeLine{69     \textcolor{keywordflow}{if}(keys.empty())}
+\DoxyCodeLine{70     \{}
+\DoxyCodeLine{71         \textcolor{keywordflow}{return} std::string(\textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)"{}"{}});}
+\DoxyCodeLine{72     \}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     std::basic\_string<charT, traits, Alloc> serialized;}
+\DoxyCodeLine{75     \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& ky : keys)}
+\DoxyCodeLine{76     \{}
+\DoxyCodeLine{77         serialized += \mbox{\hyperlink{namespacetoml_abcb26a66988b38ebb8f5e48b1aa36dbc}{format\_key}}(ky);}
+\DoxyCodeLine{78         serialized += charT(\textcolor{charliteral}{'.'});}
+\DoxyCodeLine{79     \}}
+\DoxyCodeLine{80     serialized.pop\_back(); \textcolor{comment}{// remove the last dot '.'}}
+\DoxyCodeLine{81     \textcolor{keywordflow}{return} serialized;}
+\DoxyCodeLine{82 \}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value>}
+\DoxyCodeLine{85 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1serializer}{serializer}}}
+\DoxyCodeLine{86 \{}
+\DoxyCodeLine{87     \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{structtoml_1_1detail_1_1is__basic__value}{detail::is\_basic\_value<Value>::value}},}
+\DoxyCodeLine{88                   \textcolor{stringliteral}{"{}toml::serializer is for toml::value and its variants, "{}}}
+\DoxyCodeLine{89                   \textcolor{stringliteral}{"{}toml::basic\_value<...>."{}});}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1serializer_a289af9a8134b9bebd7ae11fcf180edd0}{value\_type}}           = Value;}
+\DoxyCodeLine{92     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1serializer_abdccf89d2127b64339cbec8d60875fac}{key\_type}}             = \textcolor{keyword}{typename} value\_type::key\_type            ;}
+\DoxyCodeLine{93     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1serializer_a24ee51d297a38c2440eb55e068bdcc3f}{comment\_type}}         = \textcolor{keyword}{typename} value\_type::comment\_type        ;}
+\DoxyCodeLine{94     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1serializer_aa0e43fd356a0704db389830954ea8a5c}{boolean\_type}}         = \textcolor{keyword}{typename} value\_type::boolean\_type        ;}
+\DoxyCodeLine{95     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1serializer_ae910b7bcf853207cc206c51ba2f26d08}{integer\_type}}         = \textcolor{keyword}{typename} value\_type::integer\_type        ;}
+\DoxyCodeLine{96     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1serializer_a3181ea8262bdac5c3a3cf6a44d0d723d}{floating\_type}}        = \textcolor{keyword}{typename} value\_type::floating\_type       ;}
+\DoxyCodeLine{97     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1serializer_aeee27a638d2ee95e74defdfea7d4410b}{string\_type}}          = \textcolor{keyword}{typename} value\_type::string\_type         ;}
+\DoxyCodeLine{98     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1serializer_aad34a2e52cf294b8ba231bf932c45f93}{local\_time\_type}}      = \textcolor{keyword}{typename} value\_type::local\_time\_type     ;}
+\DoxyCodeLine{99     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1serializer_acf43899fe2312613ea63677806c2a621}{local\_date\_type}}      = \textcolor{keyword}{typename} value\_type::local\_date\_type     ;}
+\DoxyCodeLine{100     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1serializer_ac3c6292664bb7b3e68a8221378796c59}{local\_datetime\_type}}  = \textcolor{keyword}{typename} value\_type::local\_datetime\_type ;}
+\DoxyCodeLine{101     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1serializer_a90eb8fe2fc663b4a8a6724dd6c6b0c80}{offset\_datetime\_type}} = \textcolor{keyword}{typename} value\_type::offset\_datetime\_type;}
+\DoxyCodeLine{102     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1serializer_a87fd1783a4b3fbb519cf8270b920d410}{array\_type}}           = \textcolor{keyword}{typename} value\_type::array\_type          ;}
+\DoxyCodeLine{103     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1serializer_a4ab4df36b0794463a6bea750e388b698}{table\_type}}           = \textcolor{keyword}{typename} value\_type::table\_type          ;}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105     \mbox{\hyperlink{structtoml_1_1serializer_a84a3932550107d11bf1223609f8bd01a}{serializer}}(\textcolor{keyword}{const} std::size\_t w              = 80u,}
+\DoxyCodeLine{106                \textcolor{keyword}{const} \textcolor{keywordtype}{int}         float\_prec     = std::numeric\_limits<toml::floating>::max\_digits10,}
+\DoxyCodeLine{107                \textcolor{keyword}{const} \textcolor{keywordtype}{bool}        can\_be\_inlined = \textcolor{keyword}{false},}
+\DoxyCodeLine{108                \textcolor{keyword}{const} \textcolor{keywordtype}{bool}        no\_comment     = \textcolor{keyword}{false},}
+\DoxyCodeLine{109                std::vector<toml::key> ks        = \{\},}
+\DoxyCodeLine{110                \textcolor{keyword}{const} \textcolor{keywordtype}{bool}     value\_has\_comment = \textcolor{keyword}{false})}
+\DoxyCodeLine{111         : can\_be\_inlined\_(can\_be\_inlined), no\_comment\_(no\_comment),}
+\DoxyCodeLine{112           value\_has\_comment\_(value\_has\_comment \&\& !no\_comment),}
+\DoxyCodeLine{113           float\_prec\_(float\_prec), width\_(w), keys\_(std::move(ks))}
+\DoxyCodeLine{114     \{\}}
+\DoxyCodeLine{115     \mbox{\hyperlink{structtoml_1_1serializer_ac1e249df1614b27b9819ccc9772162ee}{\string~serializer}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117     std::string \mbox{\hyperlink{structtoml_1_1serializer_a92e26d9fd3b54fd506a9942ddca60e91}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_aa0e43fd356a0704db389830954ea8a5c}{boolean\_type}}\& b)\textcolor{keyword}{ const}}
+\DoxyCodeLine{118 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{119         \textcolor{keywordflow}{return} b ? \textcolor{stringliteral}{"{}true"{}} : \textcolor{stringliteral}{"{}false"{}};}
+\DoxyCodeLine{120     \}}
+\DoxyCodeLine{121     std::string \mbox{\hyperlink{structtoml_1_1serializer_aa225f69324db49f17a685372566153ba}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_ae910b7bcf853207cc206c51ba2f26d08}{integer\_type}} i)\textcolor{keyword}{ const}}
+\DoxyCodeLine{122 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{123         \textcolor{keywordflow}{return} std::to\_string(i);}
+\DoxyCodeLine{124     \}}
+\DoxyCodeLine{125     std::string \mbox{\hyperlink{structtoml_1_1serializer_a56a3ab647d90ef720a5df4244ffea907}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_a3181ea8262bdac5c3a3cf6a44d0d723d}{floating\_type}} f)\textcolor{keyword}{ const}}
+\DoxyCodeLine{126 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{127         \textcolor{keywordflow}{if}(std::isnan(f))}
+\DoxyCodeLine{128         \{}
+\DoxyCodeLine{129             \textcolor{keywordflow}{if}(std::signbit(f))}
+\DoxyCodeLine{130             \{}
+\DoxyCodeLine{131                 \textcolor{keywordflow}{return} std::string(\textcolor{stringliteral}{"{}-\/nan"{}});}
+\DoxyCodeLine{132             \}}
+\DoxyCodeLine{133             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{134             \{}
+\DoxyCodeLine{135                 \textcolor{keywordflow}{return} std::string(\textcolor{stringliteral}{"{}nan"{}});}
+\DoxyCodeLine{136             \}}
+\DoxyCodeLine{137         \}}
+\DoxyCodeLine{138         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(!std::isfinite(f))}
+\DoxyCodeLine{139         \{}
+\DoxyCodeLine{140             \textcolor{keywordflow}{if}(std::signbit(f))}
+\DoxyCodeLine{141             \{}
+\DoxyCodeLine{142                 \textcolor{keywordflow}{return} std::string(\textcolor{stringliteral}{"{}-\/inf"{}});}
+\DoxyCodeLine{143             \}}
+\DoxyCodeLine{144             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{145             \{}
+\DoxyCodeLine{146                 \textcolor{keywordflow}{return} std::string(\textcolor{stringliteral}{"{}inf"{}});}
+\DoxyCodeLine{147             \}}
+\DoxyCodeLine{148         \}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150         \textcolor{keyword}{const} \textcolor{keyword}{auto} fmt = \textcolor{stringliteral}{"{}\%.*g"{}};}
+\DoxyCodeLine{151         \textcolor{keyword}{const} \textcolor{keyword}{auto} bsz = std::snprintf(\textcolor{keyword}{nullptr}, 0, fmt, this-\/>float\_prec\_, f);}
+\DoxyCodeLine{152         \textcolor{comment}{// +1 for null character(\(\backslash\)0)}}
+\DoxyCodeLine{153         std::vector<char> buf(\textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(bsz + 1), \textcolor{charliteral}{'\(\backslash\)0'});}
+\DoxyCodeLine{154         std::snprintf(buf.data(), buf.size(), fmt, this-\/>float\_prec\_, f);}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156         std::string token(buf.begin(), std::prev(buf.end()));}
+\DoxyCodeLine{157         \textcolor{keywordflow}{if}(!token.empty() \&\& token.back() == \textcolor{charliteral}{'.'}) \textcolor{comment}{// 1. => 1.0}}
+\DoxyCodeLine{158         \{}
+\DoxyCodeLine{159             token += \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{160         \}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162         \textcolor{keyword}{const} \textcolor{keyword}{auto} e = std::find\_if(}
+\DoxyCodeLine{163             token.cbegin(), token.cend(), [](\textcolor{keyword}{const} \textcolor{keywordtype}{char} c) noexcept -\/> \textcolor{keywordtype}{bool} \{}
+\DoxyCodeLine{164                 return c == \textcolor{stringliteral}{'e'} || c == \textcolor{stringliteral}{'E'};}
+\DoxyCodeLine{165             \});}
+\DoxyCodeLine{166         \textcolor{keyword}{const} \textcolor{keyword}{auto} has\_exponent = (token.cend() != e);}
+\DoxyCodeLine{167         \textcolor{keyword}{const} \textcolor{keyword}{auto} has\_fraction = (token.cend() != \mbox{\hyperlink{namespacetoml_a31abd17e078e497fb224d79260910b8d}{std::find}}(}
+\DoxyCodeLine{168             token.cbegin(), token.cend(), \textcolor{charliteral}{'.'}));}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170         \textcolor{keywordflow}{if}(!has\_exponent \&\& !has\_fraction)}
+\DoxyCodeLine{171         \{}
+\DoxyCodeLine{172             \textcolor{comment}{// the resulting value does not have any float specific part!}}
+\DoxyCodeLine{173             token += \textcolor{stringliteral}{"{}.0"{}};}
+\DoxyCodeLine{174         \}}
+\DoxyCodeLine{175         \textcolor{keywordflow}{return} token;}
+\DoxyCodeLine{176     \}}
+\DoxyCodeLine{177     std::string \mbox{\hyperlink{structtoml_1_1serializer_a48ee444425e4cb38a940a4279fe6a0e5}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_aeee27a638d2ee95e74defdfea7d4410b}{string\_type}}\& s)\textcolor{keyword}{ const}}
+\DoxyCodeLine{178 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{179         \textcolor{keywordflow}{if}(s.kind == \mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19aaf17aaabc20bfe045075927934fed52d2}{string\_t::basic}})}
+\DoxyCodeLine{180         \{}
+\DoxyCodeLine{181             \textcolor{keywordflow}{if}((\mbox{\hyperlink{namespacetoml_a31abd17e078e497fb224d79260910b8d}{std::find}}(s.str.cbegin(), s.str.cend(), \textcolor{charliteral}{'\(\backslash\)n'}) != s.str.cend() ||}
+\DoxyCodeLine{182                 \mbox{\hyperlink{namespacetoml_a31abd17e078e497fb224d79260910b8d}{std::find}}(s.str.cbegin(), s.str.cend(), \textcolor{charliteral}{'\(\backslash\)"{}'}) != s.str.cend()) \&\&}
+\DoxyCodeLine{183                this-\/>width\_ != (std::numeric\_limits<std::size\_t>::max)())}
+\DoxyCodeLine{184             \{}
+\DoxyCodeLine{185                 \textcolor{comment}{// if linefeed or double-\/quote is contained,}}
+\DoxyCodeLine{186                 \textcolor{comment}{// make it multiline basic string.}}
+\DoxyCodeLine{187                 \textcolor{keyword}{const} \textcolor{keyword}{auto} escaped = this-\/>escape\_ml\_basic\_string(s.str);}
+\DoxyCodeLine{188                 std::string open(\textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)"{}\(\backslash\)"{}"{}});}
+\DoxyCodeLine{189                 std::string close(\textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)"{}\(\backslash\)"{}"{}});}
+\DoxyCodeLine{190                 \textcolor{keywordflow}{if}(escaped.find(\textcolor{charliteral}{'\(\backslash\)n'}) != std::string::npos ||}
+\DoxyCodeLine{191                    this-\/>width\_ < escaped.size() + 6)}
+\DoxyCodeLine{192                 \{}
+\DoxyCodeLine{193                     \textcolor{comment}{// if the string body contains newline or is enough long,}}
+\DoxyCodeLine{194                     \textcolor{comment}{// add newlines after and before delimiters.}}
+\DoxyCodeLine{195                     open += \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{196                     close = std::string(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)n"{}}) + close;}
+\DoxyCodeLine{197                 \}}
+\DoxyCodeLine{198                 \textcolor{keywordflow}{return} open + escaped + close;}
+\DoxyCodeLine{199             \}}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201             \textcolor{comment}{// no linefeed. try to make it oneline-\/string.}}
+\DoxyCodeLine{202             std::string oneline = this-\/>escape\_basic\_string(s.str);}
+\DoxyCodeLine{203             \textcolor{keywordflow}{if}(oneline.size() + 2 < width\_ || width\_ < 2)}
+\DoxyCodeLine{204             \{}
+\DoxyCodeLine{205                 \textcolor{keyword}{const} std::string quote(\textcolor{stringliteral}{"{}\(\backslash\)"{}"{}});}
+\DoxyCodeLine{206                 \textcolor{keywordflow}{return} quote + oneline + quote;}
+\DoxyCodeLine{207             \}}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209             \textcolor{comment}{// the line is too long compared to the specified width.}}
+\DoxyCodeLine{210             \textcolor{comment}{// split it into multiple lines.}}
+\DoxyCodeLine{211             std::string token(\textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)"{}\(\backslash\)"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{212             \textcolor{keywordflow}{while}(!oneline.empty())}
+\DoxyCodeLine{213             \{}
+\DoxyCodeLine{214                 \textcolor{keywordflow}{if}(oneline.size() < width\_)}
+\DoxyCodeLine{215                 \{}
+\DoxyCodeLine{216                     token += oneline;}
+\DoxyCodeLine{217                     oneline.clear();}
+\DoxyCodeLine{218                 \}}
+\DoxyCodeLine{219                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(oneline.at(width\_-\/2) == \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'})}
+\DoxyCodeLine{220                 \{}
+\DoxyCodeLine{221                     token += oneline.substr(0, width\_-\/2);}
+\DoxyCodeLine{222                     token += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)n"{}};}
+\DoxyCodeLine{223                     oneline.erase(0, width\_-\/2);}
+\DoxyCodeLine{224                 \}}
+\DoxyCodeLine{225                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{226                 \{}
+\DoxyCodeLine{227                     token += oneline.substr(0, width\_-\/1);}
+\DoxyCodeLine{228                     token += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)n"{}};}
+\DoxyCodeLine{229                     oneline.erase(0, width\_-\/1);}
+\DoxyCodeLine{230                 \}}
+\DoxyCodeLine{231             \}}
+\DoxyCodeLine{232             \textcolor{keywordflow}{return} token + std::string(\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)n\(\backslash\)"{}\(\backslash\)"{}\(\backslash\)"{}"{}});}
+\DoxyCodeLine{233         \}}
+\DoxyCodeLine{234         \textcolor{keywordflow}{else} \textcolor{comment}{// the string `s` is literal-\/string.}}
+\DoxyCodeLine{235         \{}
+\DoxyCodeLine{236             \textcolor{keywordflow}{if}(\mbox{\hyperlink{namespacetoml_a31abd17e078e497fb224d79260910b8d}{std::find}}(s.str.cbegin(), s.str.cend(), \textcolor{charliteral}{'\(\backslash\)n'}) != s.str.cend() ||}
+\DoxyCodeLine{237                \mbox{\hyperlink{namespacetoml_a31abd17e078e497fb224d79260910b8d}{std::find}}(s.str.cbegin(), s.str.cend(), \textcolor{charliteral}{'\(\backslash\)''}) != s.str.cend() )}
+\DoxyCodeLine{238             \{}
+\DoxyCodeLine{239                 std::string open(\textcolor{stringliteral}{"{}'''"{}});}
+\DoxyCodeLine{240                 \textcolor{keywordflow}{if}(this-\/>width\_ + 6 < s.str.size())}
+\DoxyCodeLine{241                 \{}
+\DoxyCodeLine{242                     open += \textcolor{charliteral}{'\(\backslash\)n'}; \textcolor{comment}{// the first newline is ignored by TOML spec}}
+\DoxyCodeLine{243                 \}}
+\DoxyCodeLine{244                 \textcolor{keyword}{const} std::string close(\textcolor{stringliteral}{"{}'''"{}});}
+\DoxyCodeLine{245                 \textcolor{keywordflow}{return} open + s.str + close;}
+\DoxyCodeLine{246             \}}
+\DoxyCodeLine{247             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{248             \{}
+\DoxyCodeLine{249                 \textcolor{keyword}{const} std::string quote(\textcolor{stringliteral}{"{}'"{}});}
+\DoxyCodeLine{250                 \textcolor{keywordflow}{return} quote + s.str + quote;}
+\DoxyCodeLine{251             \}}
+\DoxyCodeLine{252         \}}
+\DoxyCodeLine{253     \}}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{255     std::string \mbox{\hyperlink{structtoml_1_1serializer_a54f15fa8aaccec66cf550b7ab7d37959}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_acf43899fe2312613ea63677806c2a621}{local\_date\_type}}\& d)\textcolor{keyword}{ const}}
+\DoxyCodeLine{256 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{257         std::ostringstream oss;}
+\DoxyCodeLine{258         oss << d;}
+\DoxyCodeLine{259         \textcolor{keywordflow}{return} oss.str();}
+\DoxyCodeLine{260     \}}
+\DoxyCodeLine{261     std::string \mbox{\hyperlink{structtoml_1_1serializer_a362f6a9f47afba74bc653aaff2388000}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_aad34a2e52cf294b8ba231bf932c45f93}{local\_time\_type}}\& t)\textcolor{keyword}{ const}}
+\DoxyCodeLine{262 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{263         std::ostringstream oss;}
+\DoxyCodeLine{264         oss << t;}
+\DoxyCodeLine{265         \textcolor{keywordflow}{return} oss.str();}
+\DoxyCodeLine{266     \}}
+\DoxyCodeLine{267     std::string \mbox{\hyperlink{structtoml_1_1serializer_ad4adb3b92ec055c155cb3495ffe18ed5}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_ac3c6292664bb7b3e68a8221378796c59}{local\_datetime\_type}}\& dt)\textcolor{keyword}{ const}}
+\DoxyCodeLine{268 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{269         std::ostringstream oss;}
+\DoxyCodeLine{270         oss << dt;}
+\DoxyCodeLine{271         \textcolor{keywordflow}{return} oss.str();}
+\DoxyCodeLine{272     \}}
+\DoxyCodeLine{273     std::string \mbox{\hyperlink{structtoml_1_1serializer_a97fc2e4b7f228f61a36a879578c7bdce}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_a90eb8fe2fc663b4a8a6724dd6c6b0c80}{offset\_datetime\_type}}\& odt)\textcolor{keyword}{ const}}
+\DoxyCodeLine{274 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{275         std::ostringstream oss;}
+\DoxyCodeLine{276         oss << odt;}
+\DoxyCodeLine{277         \textcolor{keywordflow}{return} oss.str();}
+\DoxyCodeLine{278     \}}
+\DoxyCodeLine{279 }
+\DoxyCodeLine{280     std::string \mbox{\hyperlink{structtoml_1_1serializer_a287dc8a92f56b63530d158a19345bdae}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_a87fd1783a4b3fbb519cf8270b920d410}{array\_type}}\& v)\textcolor{keyword}{ const}}
+\DoxyCodeLine{281 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{282         \textcolor{keywordflow}{if}(v.empty())}
+\DoxyCodeLine{283         \{}
+\DoxyCodeLine{284             \textcolor{keywordflow}{return} std::string(\textcolor{stringliteral}{"{}[]"{}});}
+\DoxyCodeLine{285         \}}
+\DoxyCodeLine{286         \textcolor{keywordflow}{if}(this-\/>is\_array\_of\_tables(v))}
+\DoxyCodeLine{287         \{}
+\DoxyCodeLine{288             \textcolor{keywordflow}{return} make\_array\_of\_tables(v);}
+\DoxyCodeLine{289         \}}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291         \textcolor{comment}{// not an array of tables. normal array.}}
+\DoxyCodeLine{292         \textcolor{comment}{// first, try to make it inline if none of the elements have a comment.}}
+\DoxyCodeLine{293         \textcolor{keywordflow}{if}( ! this-\/>has\_comment\_inside(v))}
+\DoxyCodeLine{294         \{}
+\DoxyCodeLine{295             \textcolor{keyword}{const} \textcolor{keyword}{auto} inl = this-\/>make\_inline\_array(v);}
+\DoxyCodeLine{296             \textcolor{keywordflow}{if}(inl.size() < this-\/>width\_ \&\&}
+\DoxyCodeLine{297                \mbox{\hyperlink{namespacetoml_a31abd17e078e497fb224d79260910b8d}{std::find}}(inl.cbegin(), inl.cend(), \textcolor{charliteral}{'\(\backslash\)n'}) == inl.cend())}
+\DoxyCodeLine{298             \{}
+\DoxyCodeLine{299                 \textcolor{keywordflow}{return} inl;}
+\DoxyCodeLine{300             \}}
+\DoxyCodeLine{301         \}}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{303         \textcolor{comment}{// if the length exceeds this-\/>width\_, print multiline array.}}
+\DoxyCodeLine{304         \textcolor{comment}{// key = [}}
+\DoxyCodeLine{305         \textcolor{comment}{//   \# ...}}
+\DoxyCodeLine{306         \textcolor{comment}{//   42,}}
+\DoxyCodeLine{307         \textcolor{comment}{//   ...}}
+\DoxyCodeLine{308         \textcolor{comment}{// ]}}
+\DoxyCodeLine{309         std::string token;}
+\DoxyCodeLine{310         std::string current\_line;}
+\DoxyCodeLine{311         token += \textcolor{stringliteral}{"{}[\(\backslash\)n"{}};}
+\DoxyCodeLine{312         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& item : v)}
+\DoxyCodeLine{313         \{}
+\DoxyCodeLine{314             \textcolor{keywordflow}{if}( ! item.comments().empty() \&\& !no\_comment\_)}
+\DoxyCodeLine{315             \{}
+\DoxyCodeLine{316                 \textcolor{comment}{// if comment exists, the element must be the only element in the line.}}
+\DoxyCodeLine{317                 \textcolor{comment}{// e.g. the following is not allowed.}}
+\DoxyCodeLine{318                 \textcolor{comment}{// ```toml}}
+\DoxyCodeLine{319                 \textcolor{comment}{// array = [}}
+\DoxyCodeLine{320                 \textcolor{comment}{// \# comment for what?}}
+\DoxyCodeLine{321                 \textcolor{comment}{// 1, 2, 3, 4, 5}}
+\DoxyCodeLine{322                 \textcolor{comment}{// ]}}
+\DoxyCodeLine{323                 \textcolor{comment}{// ```}}
+\DoxyCodeLine{324                 \textcolor{keywordflow}{if}(!current\_line.empty())}
+\DoxyCodeLine{325                 \{}
+\DoxyCodeLine{326                     \textcolor{keywordflow}{if}(current\_line.back() != \textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{327                     \{}
+\DoxyCodeLine{328                         current\_line += \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{329                     \}}
+\DoxyCodeLine{330                     token += current\_line;}
+\DoxyCodeLine{331                     current\_line.clear();}
+\DoxyCodeLine{332                 \}}
+\DoxyCodeLine{333                 \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& c : item.comments())}
+\DoxyCodeLine{334                 \{}
+\DoxyCodeLine{335                     token += \textcolor{charliteral}{'\#'};}
+\DoxyCodeLine{336                     token += c;}
+\DoxyCodeLine{337                     token += \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{338                 \}}
+\DoxyCodeLine{339                 token += \mbox{\hyperlink{namespacetoml_afdb46445ef5dd69d0f3405f62b0d76b5}{toml::visit}}(*\textcolor{keyword}{this}, item);}
+\DoxyCodeLine{340                 \textcolor{keywordflow}{if}(!token.empty() \&\& token.back() == \textcolor{charliteral}{'\(\backslash\)n'}) \{token.pop\_back();\}}
+\DoxyCodeLine{341                 token += \textcolor{stringliteral}{"{},\(\backslash\)n"{}};}
+\DoxyCodeLine{342                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{343             \}}
+\DoxyCodeLine{344             std::string next\_elem;}
+\DoxyCodeLine{345             \textcolor{keywordflow}{if}(item.is\_table())}
+\DoxyCodeLine{346             \{}
+\DoxyCodeLine{347                 \mbox{\hyperlink{structtoml_1_1serializer}{serializer}} ser(*\textcolor{keyword}{this});}
+\DoxyCodeLine{348                 ser.can\_be\_inlined\_ = \textcolor{keyword}{true};}
+\DoxyCodeLine{349                 ser.width\_ = (std::numeric\_limits<std::size\_t>::max)();}
+\DoxyCodeLine{350                 next\_elem += \mbox{\hyperlink{namespacetoml_afdb46445ef5dd69d0f3405f62b0d76b5}{toml::visit}}(ser, item);}
+\DoxyCodeLine{351             \}}
+\DoxyCodeLine{352             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{353             \{}
+\DoxyCodeLine{354                 next\_elem += \mbox{\hyperlink{namespacetoml_afdb46445ef5dd69d0f3405f62b0d76b5}{toml::visit}}(*\textcolor{keyword}{this}, item);}
+\DoxyCodeLine{355             \}}
+\DoxyCodeLine{356 }
+\DoxyCodeLine{357             \textcolor{comment}{// comma before newline.}}
+\DoxyCodeLine{358             \textcolor{keywordflow}{if}(!next\_elem.empty() \&\& next\_elem.back() == \textcolor{charliteral}{'\(\backslash\)n'}) \{next\_elem.pop\_back();\}}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{360             \textcolor{comment}{// if current line does not exceeds the width limit, continue.}}
+\DoxyCodeLine{361             \textcolor{keywordflow}{if}(current\_line.size() + next\_elem.size() + 1 < this-\/>width\_)}
+\DoxyCodeLine{362             \{}
+\DoxyCodeLine{363                 current\_line += next\_elem;}
+\DoxyCodeLine{364                 current\_line += \textcolor{charliteral}{','};}
+\DoxyCodeLine{365             \}}
+\DoxyCodeLine{366             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(current\_line.empty())}
+\DoxyCodeLine{367             \{}
+\DoxyCodeLine{368                 \textcolor{comment}{// if current line was empty, force put the next\_elem because}}
+\DoxyCodeLine{369                 \textcolor{comment}{// next\_elem is not splittable}}
+\DoxyCodeLine{370                 token += next\_elem;}
+\DoxyCodeLine{371                 token += \textcolor{stringliteral}{"{},\(\backslash\)n"{}};}
+\DoxyCodeLine{372                 \textcolor{comment}{// current\_line is kept empty}}
+\DoxyCodeLine{373             \}}
+\DoxyCodeLine{374             \textcolor{keywordflow}{else} \textcolor{comment}{// reset current\_line}}
+\DoxyCodeLine{375             \{}
+\DoxyCodeLine{376                 assert(current\_line.back() == \textcolor{charliteral}{','});}
+\DoxyCodeLine{377                 token += current\_line;}
+\DoxyCodeLine{378                 token += \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{379                 current\_line = next\_elem;}
+\DoxyCodeLine{380                 current\_line += \textcolor{charliteral}{','};}
+\DoxyCodeLine{381             \}}
+\DoxyCodeLine{382         \}}
+\DoxyCodeLine{383         \textcolor{keywordflow}{if}(!current\_line.empty())}
+\DoxyCodeLine{384         \{}
+\DoxyCodeLine{385             \textcolor{keywordflow}{if}(!current\_line.empty() \&\& current\_line.back() != \textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{386             \{}
+\DoxyCodeLine{387                 current\_line += \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{388             \}}
+\DoxyCodeLine{389             token += current\_line;}
+\DoxyCodeLine{390         \}}
+\DoxyCodeLine{391         token += \textcolor{stringliteral}{"{}]\(\backslash\)n"{}};}
+\DoxyCodeLine{392         \textcolor{keywordflow}{return} token;}
+\DoxyCodeLine{393     \}}
+\DoxyCodeLine{394 }
+\DoxyCodeLine{395     \textcolor{comment}{// templatize for any table-\/like container}}
+\DoxyCodeLine{396     std::string \mbox{\hyperlink{structtoml_1_1serializer_abc0f11a88e2ca31685003719ab651555}{operator()}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_a4ab4df36b0794463a6bea750e388b698}{table\_type}}\& v)\textcolor{keyword}{ const}}
+\DoxyCodeLine{397 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{398         \textcolor{comment}{// if an element has a comment, then it can't be inlined.}}
+\DoxyCodeLine{399         \textcolor{comment}{// table = \{\# how can we write a comment for this? key = "{}value"{}\}}}
+\DoxyCodeLine{400         \textcolor{keywordflow}{if}(this-\/>can\_be\_inlined\_ \&\& !(this-\/>has\_comment\_inside(v)))}
+\DoxyCodeLine{401         \{}
+\DoxyCodeLine{402             std::string token;}
+\DoxyCodeLine{403             \textcolor{keywordflow}{if}(!this-\/>keys\_.empty())}
+\DoxyCodeLine{404             \{}
+\DoxyCodeLine{405                 token += \mbox{\hyperlink{namespacetoml_abcb26a66988b38ebb8f5e48b1aa36dbc}{format\_key}}(this-\/>keys\_.back());}
+\DoxyCodeLine{406                 token += \textcolor{stringliteral}{"{} = "{}};}
+\DoxyCodeLine{407             \}}
+\DoxyCodeLine{408             token += this-\/>make\_inline\_table(v);}
+\DoxyCodeLine{409             \textcolor{keywordflow}{if}(token.size() < this-\/>width\_ \&\&}
+\DoxyCodeLine{410                token.end() == \mbox{\hyperlink{namespacetoml_a31abd17e078e497fb224d79260910b8d}{std::find}}(token.begin(), token.end(), \textcolor{charliteral}{'\(\backslash\)n'}))}
+\DoxyCodeLine{411             \{}
+\DoxyCodeLine{412                 \textcolor{keywordflow}{return} token;}
+\DoxyCodeLine{413             \}}
+\DoxyCodeLine{414         \}}
+\DoxyCodeLine{415 }
+\DoxyCodeLine{416         std::string token;}
+\DoxyCodeLine{417         \textcolor{keywordflow}{if}(!keys\_.empty())}
+\DoxyCodeLine{418         \{}
+\DoxyCodeLine{419             token += \textcolor{charliteral}{'['};}
+\DoxyCodeLine{420             token += \mbox{\hyperlink{namespacetoml_ac3d6191211e58a592190751a6c5ca92f}{format\_keys}}(keys\_);}
+\DoxyCodeLine{421             token += \textcolor{stringliteral}{"{}]\(\backslash\)n"{}};}
+\DoxyCodeLine{422         \}}
+\DoxyCodeLine{423         token += this-\/>make\_multiline\_table(v);}
+\DoxyCodeLine{424         \textcolor{keywordflow}{return} token;}
+\DoxyCodeLine{425     \}}
+\DoxyCodeLine{426 }
+\DoxyCodeLine{427   \textcolor{keyword}{private}:}
+\DoxyCodeLine{428 }
+\DoxyCodeLine{429     std::string escape\_basic\_string(\textcolor{keyword}{const} std::string\& s)\textcolor{keyword}{ const}}
+\DoxyCodeLine{430 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{431         \textcolor{comment}{//XXX assuming `s` is a valid utf-\/8 sequence.}}
+\DoxyCodeLine{432         std::string retval;}
+\DoxyCodeLine{433         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} c : s)}
+\DoxyCodeLine{434         \{}
+\DoxyCodeLine{435             \textcolor{keywordflow}{switch}(c)}
+\DoxyCodeLine{436             \{}
+\DoxyCodeLine{437                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'}: \{retval += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"{}}; \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{438                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)"{}'}: \{retval += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)"{}"{}}; \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{439                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)b'}: \{retval += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)b"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{440                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)t'}: \{retval += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)t"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{441                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)f'}: \{retval += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)f"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{442                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)n'}: \{retval += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)n"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{443                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)r'}: \{retval += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)r"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{444                 default  :}
+\DoxyCodeLine{445                 \{}
+\DoxyCodeLine{446                     \textcolor{keywordflow}{if}((0x00 <= c \&\& c <= 0x08) || (0x0A <= c \&\& c <= 0x1F) || c == 0x7F)}
+\DoxyCodeLine{447                     \{}
+\DoxyCodeLine{448                         retval += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)u00"{}};}
+\DoxyCodeLine{449                         retval += char(48 + (c / 16));}
+\DoxyCodeLine{450                         retval += char((c \% 16 < 10 ? 48 : 55) + (c \% 16));}
+\DoxyCodeLine{451                     \}}
+\DoxyCodeLine{452                     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{453                     \{}
+\DoxyCodeLine{454                         retval += c;}
+\DoxyCodeLine{455                     \}}
+\DoxyCodeLine{456                 \}}
+\DoxyCodeLine{457             \}}
+\DoxyCodeLine{458         \}}
+\DoxyCodeLine{459         \textcolor{keywordflow}{return} retval;}
+\DoxyCodeLine{460     \}}
+\DoxyCodeLine{461 }
+\DoxyCodeLine{462     std::string escape\_ml\_basic\_string(\textcolor{keyword}{const} std::string\& s)\textcolor{keyword}{ const}}
+\DoxyCodeLine{463 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{464         std::string retval;}
+\DoxyCodeLine{465         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} i=s.cbegin(), e=s.cend(); i!=e; ++i)}
+\DoxyCodeLine{466         \{}
+\DoxyCodeLine{467             \textcolor{keywordflow}{switch}(*i)}
+\DoxyCodeLine{468             \{}
+\DoxyCodeLine{469                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'}: \{retval += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"{}}; \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{470                 \textcolor{comment}{// One or two consecutive "{}s are allowed.}}
+\DoxyCodeLine{471                 \textcolor{comment}{// Later we will check there are no three consecutive "{}s.}}
+\DoxyCodeLine{472                 \textcolor{comment}{//   case '\(\backslash\)"{}': \{retval += "{}\(\backslash\)\(\backslash\)\(\backslash\)"{}"{}; break;\}}}
+\DoxyCodeLine{473                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)b'}: \{retval += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)b"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{474                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)t'}: \{retval += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)t"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{475                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)f'}: \{retval += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)f"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{476                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)n'}: \{retval += \textcolor{stringliteral}{"{}\(\backslash\)n"{}};   \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{477                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)r'}:}
+\DoxyCodeLine{478                 \{}
+\DoxyCodeLine{479                     \textcolor{keywordflow}{if}(std::next(i) != e \&\& *std::next(i) == \textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{480                     \{}
+\DoxyCodeLine{481                         retval += \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{482                         ++i;}
+\DoxyCodeLine{483                     \}}
+\DoxyCodeLine{484                     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{485                     \{}
+\DoxyCodeLine{486                         retval += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)r"{}};}
+\DoxyCodeLine{487                     \}}
+\DoxyCodeLine{488                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{489                 \}}
+\DoxyCodeLine{490                 default  :}
+\DoxyCodeLine{491                 \{}
+\DoxyCodeLine{492                     \textcolor{keyword}{const} \textcolor{keyword}{auto} c = *i;}
+\DoxyCodeLine{493                     \textcolor{keywordflow}{if}((0x00 <= c \&\& c <= 0x08) || (0x0A <= c \&\& c <= 0x1F) || c == 0x7F)}
+\DoxyCodeLine{494                     \{}
+\DoxyCodeLine{495                         retval += \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)u00"{}};}
+\DoxyCodeLine{496                         retval += char(48 + (c / 16));}
+\DoxyCodeLine{497                         retval += char((c \% 16 < 10 ? 48 : 55) + (c \% 16));}
+\DoxyCodeLine{498                     \}}
+\DoxyCodeLine{499                     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{500                     \{}
+\DoxyCodeLine{501                         retval += c;}
+\DoxyCodeLine{502                     \}}
+\DoxyCodeLine{503                 \}}
+\DoxyCodeLine{504 }
+\DoxyCodeLine{505             \}}
+\DoxyCodeLine{506         \}}
+\DoxyCodeLine{507         \textcolor{comment}{// Only 1 or 2 consecutive `"{}`s are allowed in multiline basic string.}}
+\DoxyCodeLine{508         \textcolor{comment}{// 3 consecutive `"{}`s are considered as a closing delimiter.}}
+\DoxyCodeLine{509         \textcolor{comment}{// We need to check if there are 3 or more consecutive `"{}`s and insert}}
+\DoxyCodeLine{510         \textcolor{comment}{// backslash to break them down into several short `"{}`s like the `str6`}}
+\DoxyCodeLine{511         \textcolor{comment}{// in the following example.}}
+\DoxyCodeLine{512         \textcolor{comment}{// ```toml}}
+\DoxyCodeLine{513         \textcolor{comment}{// str4 = "{}"{}"{}Here are two quotation marks: "{}"{}. Simple enough."{}"{}"{}}}
+\DoxyCodeLine{514         \textcolor{comment}{// \# str5 = "{}"{}"{}Here are three quotation marks: "{}"{}"{}."{}"{}"{}  \# INVALID}}
+\DoxyCodeLine{515         \textcolor{comment}{// str5 = "{}"{}"{}Here are three quotation marks: "{}"{}\(\backslash\)"{}."{}"{}"{}}}
+\DoxyCodeLine{516         \textcolor{comment}{// str6 = "{}"{}"{}Here are fifteen quotation marks: "{}"{}\(\backslash\)"{}"{}"{}\(\backslash\)"{}"{}"{}\(\backslash\)"{}"{}"{}\(\backslash\)"{}"{}"{}\(\backslash\)"{}."{}"{}"{}}}
+\DoxyCodeLine{517         \textcolor{comment}{// ```}}
+\DoxyCodeLine{518         \textcolor{keyword}{auto} found\_3\_quotes = retval.find(\textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)"{}\(\backslash\)"{}"{}});}
+\DoxyCodeLine{519         \textcolor{keywordflow}{while}(found\_3\_quotes != std::string::npos)}
+\DoxyCodeLine{520         \{}
+\DoxyCodeLine{521             retval.replace(found\_3\_quotes, 3, \textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)"{}\(\backslash\)\(\backslash\)\(\backslash\)"{}"{}});}
+\DoxyCodeLine{522             found\_3\_quotes = retval.find(\textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)"{}\(\backslash\)"{}"{}});}
+\DoxyCodeLine{523         \}}
+\DoxyCodeLine{524         \textcolor{keywordflow}{return} retval;}
+\DoxyCodeLine{525     \}}
+\DoxyCodeLine{526 }
+\DoxyCodeLine{527     \textcolor{comment}{// if an element of a table or an array has a comment, it cannot be inlined.}}
+\DoxyCodeLine{528     \textcolor{keywordtype}{bool} has\_comment\_inside(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_a87fd1783a4b3fbb519cf8270b920d410}{array\_type}}\& a) \textcolor{keyword}{const} \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{529     \{}
+\DoxyCodeLine{530         \textcolor{comment}{// if no\_comment is set, comments would not be written.}}
+\DoxyCodeLine{531         \textcolor{keywordflow}{if}(this-\/>no\_comment\_) \{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{532 }
+\DoxyCodeLine{533         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& v : a)}
+\DoxyCodeLine{534         \{}
+\DoxyCodeLine{535             \textcolor{keywordflow}{if}(!v.comments().empty()) \{\textcolor{keywordflow}{return} \textcolor{keyword}{true};\}}
+\DoxyCodeLine{536         \}}
+\DoxyCodeLine{537         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{538     \}}
+\DoxyCodeLine{539     \textcolor{keywordtype}{bool} has\_comment\_inside(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_a4ab4df36b0794463a6bea750e388b698}{table\_type}}\& t) \textcolor{keyword}{const} \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{540     \{}
+\DoxyCodeLine{541         \textcolor{comment}{// if no\_comment is set, comments would not be written.}}
+\DoxyCodeLine{542         \textcolor{keywordflow}{if}(this-\/>no\_comment\_) \{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{543 }
+\DoxyCodeLine{544         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& kv : t)}
+\DoxyCodeLine{545         \{}
+\DoxyCodeLine{546             \textcolor{keywordflow}{if}(!kv.second.comments().empty()) \{\textcolor{keywordflow}{return} \textcolor{keyword}{true};\}}
+\DoxyCodeLine{547         \}}
+\DoxyCodeLine{548         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{549     \}}
+\DoxyCodeLine{550 }
+\DoxyCodeLine{551     std::string make\_inline\_array(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_a87fd1783a4b3fbb519cf8270b920d410}{array\_type}}\& v)\textcolor{keyword}{ const}}
+\DoxyCodeLine{552 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{553         assert(!has\_comment\_inside(v));}
+\DoxyCodeLine{554         std::string token;}
+\DoxyCodeLine{555         token += \textcolor{charliteral}{'['};}
+\DoxyCodeLine{556         \textcolor{keywordtype}{bool} is\_first = \textcolor{keyword}{true};}
+\DoxyCodeLine{557         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& item : v)}
+\DoxyCodeLine{558         \{}
+\DoxyCodeLine{559             \textcolor{keywordflow}{if}(is\_first) \{is\_first = \textcolor{keyword}{false};\} \textcolor{keywordflow}{else} \{token += \textcolor{charliteral}{','};\}}
+\DoxyCodeLine{560             token += \mbox{\hyperlink{namespacetoml_afdb46445ef5dd69d0f3405f62b0d76b5}{visit}}(\mbox{\hyperlink{structtoml_1_1serializer_a84a3932550107d11bf1223609f8bd01a}{serializer}}(}
+\DoxyCodeLine{561                 (std::numeric\_limits<std::size\_t>::max)(), this-\/>float\_prec\_,}
+\DoxyCodeLine{562                 \textcolor{comment}{/* inlined */} \textcolor{keyword}{true}, \textcolor{comment}{/*no comment*/} \textcolor{keyword}{false}, \textcolor{comment}{/*keys*/} \{\},}
+\DoxyCodeLine{563                 \textcolor{comment}{/*has\_comment*/} !item.comments().\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaaa2e4822a98337283e39f7b60acf85ec9}{empty}}()), item);}
+\DoxyCodeLine{564         \}}
+\DoxyCodeLine{565         token += \textcolor{charliteral}{']'};}
+\DoxyCodeLine{566         \textcolor{keywordflow}{return} token;}
+\DoxyCodeLine{567     \}}
+\DoxyCodeLine{568 }
+\DoxyCodeLine{569     std::string make\_inline\_table(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_a4ab4df36b0794463a6bea750e388b698}{table\_type}}\& v)\textcolor{keyword}{ const}}
+\DoxyCodeLine{570 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{571         assert(!has\_comment\_inside(v));}
+\DoxyCodeLine{572         assert(this-\/>can\_be\_inlined\_);}
+\DoxyCodeLine{573         std::string token;}
+\DoxyCodeLine{574         token += \textcolor{charliteral}{'\{'};}
+\DoxyCodeLine{575         \textcolor{keywordtype}{bool} is\_first = \textcolor{keyword}{true};}
+\DoxyCodeLine{576         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& kv : v)}
+\DoxyCodeLine{577         \{}
+\DoxyCodeLine{578             \textcolor{comment}{// in inline tables, trailing comma is not allowed (toml-\/lang \#569).}}
+\DoxyCodeLine{579             \textcolor{keywordflow}{if}(is\_first) \{is\_first = \textcolor{keyword}{false};\} \textcolor{keywordflow}{else} \{token += \textcolor{charliteral}{','};\}}
+\DoxyCodeLine{580             token += \mbox{\hyperlink{namespacetoml_abcb26a66988b38ebb8f5e48b1aa36dbc}{format\_key}}(kv.first);}
+\DoxyCodeLine{581             token += \textcolor{charliteral}{'='};}
+\DoxyCodeLine{582             token += \mbox{\hyperlink{namespacetoml_afdb46445ef5dd69d0f3405f62b0d76b5}{visit}}(\mbox{\hyperlink{structtoml_1_1serializer_a84a3932550107d11bf1223609f8bd01a}{serializer}}(}
+\DoxyCodeLine{583                 (std::numeric\_limits<std::size\_t>::max)(), this-\/>float\_prec\_,}
+\DoxyCodeLine{584                 \textcolor{comment}{/* inlined */} \textcolor{keyword}{true}, \textcolor{comment}{/*no comment*/} \textcolor{keyword}{false}, \textcolor{comment}{/*keys*/} \{\},}
+\DoxyCodeLine{585                 \textcolor{comment}{/*has\_comment*/} !kv.second.comments().\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaaa2e4822a98337283e39f7b60acf85ec9}{empty}}()), kv.second);}
+\DoxyCodeLine{586         \}}
+\DoxyCodeLine{587         token += \textcolor{charliteral}{'\}'};}
+\DoxyCodeLine{588         \textcolor{keywordflow}{return} token;}
+\DoxyCodeLine{589     \}}
+\DoxyCodeLine{590 }
+\DoxyCodeLine{591     std::string make\_multiline\_table(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_a4ab4df36b0794463a6bea750e388b698}{table\_type}}\& v)\textcolor{keyword}{ const}}
+\DoxyCodeLine{592 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{593         std::string token;}
+\DoxyCodeLine{594 }
+\DoxyCodeLine{595         \textcolor{comment}{// print non-\/table elements first.}}
+\DoxyCodeLine{596         \textcolor{comment}{// ```toml}}
+\DoxyCodeLine{597         \textcolor{comment}{// [foo]         \# a table we're writing now here}}
+\DoxyCodeLine{598         \textcolor{comment}{// key = "{}value"{} \# <-\/ non-\/table element, "{}key"{}}}
+\DoxyCodeLine{599         \textcolor{comment}{// \# ...}}
+\DoxyCodeLine{600         \textcolor{comment}{// [foo.bar] \# <-\/ table element, "{}bar"{}}}
+\DoxyCodeLine{601         \textcolor{comment}{// ```}}
+\DoxyCodeLine{602         \textcolor{comment}{// because after printing [foo.bar], the remaining non-\/table values will}}
+\DoxyCodeLine{603         \textcolor{comment}{// be assigned into [foo.bar], not [foo]. Those values should be printed}}
+\DoxyCodeLine{604         \textcolor{comment}{// earlier.}}
+\DoxyCodeLine{605         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& kv : v)}
+\DoxyCodeLine{606         \{}
+\DoxyCodeLine{607             \textcolor{keywordflow}{if}(kv.second.is\_table() || is\_array\_of\_tables(kv.second))}
+\DoxyCodeLine{608             \{}
+\DoxyCodeLine{609                 \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{610             \}}
+\DoxyCodeLine{611 }
+\DoxyCodeLine{612             token += write\_comments(kv.second);}
+\DoxyCodeLine{613 }
+\DoxyCodeLine{614             \textcolor{keyword}{const} \textcolor{keyword}{auto} key\_and\_sep    = \mbox{\hyperlink{namespacetoml_abcb26a66988b38ebb8f5e48b1aa36dbc}{format\_key}}(kv.first) + \textcolor{stringliteral}{"{} = "{}};}
+\DoxyCodeLine{615             \textcolor{keyword}{const} \textcolor{keyword}{auto} residual\_width = (this-\/>width\_ > key\_and\_sep.size()) ?}
+\DoxyCodeLine{616                                         this-\/>width\_ -\/ key\_and\_sep.size() : 0;}
+\DoxyCodeLine{617             token += key\_and\_sep;}
+\DoxyCodeLine{618             token += \mbox{\hyperlink{namespacetoml_afdb46445ef5dd69d0f3405f62b0d76b5}{visit}}(\mbox{\hyperlink{structtoml_1_1serializer_a84a3932550107d11bf1223609f8bd01a}{serializer}}(residual\_width, this-\/>float\_prec\_,}
+\DoxyCodeLine{619                 \textcolor{comment}{/*can be inlined*/} \textcolor{keyword}{true}, \textcolor{comment}{/*no comment*/} \textcolor{keyword}{false}, \textcolor{comment}{/*keys*/} \{\},}
+\DoxyCodeLine{620                 \textcolor{comment}{/*has\_comment*/} !kv.second.comments().\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaaa2e4822a98337283e39f7b60acf85ec9}{empty}}()), kv.second);}
+\DoxyCodeLine{621 }
+\DoxyCodeLine{622             \textcolor{keywordflow}{if}(token.back() != \textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{623             \{}
+\DoxyCodeLine{624                 token += \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{625             \}}
+\DoxyCodeLine{626         \}}
+\DoxyCodeLine{627 }
+\DoxyCodeLine{628         \textcolor{comment}{// normal tables / array of tables}}
+\DoxyCodeLine{629 }
+\DoxyCodeLine{630         \textcolor{comment}{// after multiline table appeared, the other tables cannot be inline}}
+\DoxyCodeLine{631         \textcolor{comment}{// because the table would be assigned into the table.}}
+\DoxyCodeLine{632         \textcolor{comment}{// [foo]}}
+\DoxyCodeLine{633         \textcolor{comment}{// ...}}
+\DoxyCodeLine{634         \textcolor{comment}{// bar = \{...\} \# <-\/ bar will be a member of [foo].}}
+\DoxyCodeLine{635         \textcolor{keywordtype}{bool} multiline\_table\_printed = \textcolor{keyword}{false};}
+\DoxyCodeLine{636         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& kv : v)}
+\DoxyCodeLine{637         \{}
+\DoxyCodeLine{638             \textcolor{keywordflow}{if}(!kv.second.is\_table() \&\& !is\_array\_of\_tables(kv.second))}
+\DoxyCodeLine{639             \{}
+\DoxyCodeLine{640                 \textcolor{keywordflow}{continue}; \textcolor{comment}{// other stuff are already serialized. skip them.}}
+\DoxyCodeLine{641             \}}
+\DoxyCodeLine{642 }
+\DoxyCodeLine{643             std::vector<toml::key> ks(this-\/>keys\_);}
+\DoxyCodeLine{644             ks.push\_back(kv.first);}
+\DoxyCodeLine{645 }
+\DoxyCodeLine{646             \textcolor{keyword}{auto} tmp = \mbox{\hyperlink{namespacetoml_afdb46445ef5dd69d0f3405f62b0d76b5}{visit}}(\mbox{\hyperlink{structtoml_1_1serializer_a84a3932550107d11bf1223609f8bd01a}{serializer}}(this-\/>width\_, this-\/>float\_prec\_,}
+\DoxyCodeLine{647                 !multiline\_table\_printed, this-\/>no\_comment\_, ks,}
+\DoxyCodeLine{648                 \textcolor{comment}{/*has\_comment*/} !kv.second.comments().empty()), kv.second);}
+\DoxyCodeLine{649 }
+\DoxyCodeLine{650             \textcolor{comment}{// If it is the first time to print a multi-\/line table, it would be}}
+\DoxyCodeLine{651             \textcolor{comment}{// helpful to separate normal key-\/value pair and subtables by a}}
+\DoxyCodeLine{652             \textcolor{comment}{// newline.}}
+\DoxyCodeLine{653             \textcolor{comment}{// (this checks if the current key-\/value pair contains newlines.}}
+\DoxyCodeLine{654             \textcolor{comment}{//  but it is not perfect because multi-\/line string can also contain}}
+\DoxyCodeLine{655             \textcolor{comment}{//  a newline. in such a case, an empty line will be written) TODO}}
+\DoxyCodeLine{656             \textcolor{keywordflow}{if}((!multiline\_table\_printed) \&\&}
+\DoxyCodeLine{657                \mbox{\hyperlink{namespacetoml_a31abd17e078e497fb224d79260910b8d}{std::find}}(tmp.cbegin(), tmp.cend(), \textcolor{charliteral}{'\(\backslash\)n'}) != tmp.cend())}
+\DoxyCodeLine{658             \{}
+\DoxyCodeLine{659                 multiline\_table\_printed = \textcolor{keyword}{true};}
+\DoxyCodeLine{660                 token += \textcolor{charliteral}{'\(\backslash\)n'}; \textcolor{comment}{// separate key-\/value pairs and subtables}}
+\DoxyCodeLine{661 }
+\DoxyCodeLine{662                 token += write\_comments(kv.second);}
+\DoxyCodeLine{663                 token += tmp;}
+\DoxyCodeLine{664 }
+\DoxyCodeLine{665                 \textcolor{comment}{// care about recursive tables (all tables in each level prints}}
+\DoxyCodeLine{666                 \textcolor{comment}{// newline and there will be a full of newlines)}}
+\DoxyCodeLine{667                 \textcolor{keywordflow}{if}(tmp.substr(tmp.size() -\/ 2, 2) != \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}} \&\&}
+\DoxyCodeLine{668                    tmp.substr(tmp.size() -\/ 4, 4) != \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n\(\backslash\)r\(\backslash\)n"{}} )}
+\DoxyCodeLine{669                 \{}
+\DoxyCodeLine{670                     token += \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{671                 \}}
+\DoxyCodeLine{672             \}}
+\DoxyCodeLine{673             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{674             \{}
+\DoxyCodeLine{675                 token += write\_comments(kv.second);}
+\DoxyCodeLine{676                 token += tmp;}
+\DoxyCodeLine{677                 token += \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{678             \}}
+\DoxyCodeLine{679         \}}
+\DoxyCodeLine{680         \textcolor{keywordflow}{return} token;}
+\DoxyCodeLine{681     \}}
+\DoxyCodeLine{682 }
+\DoxyCodeLine{683     std::string make\_array\_of\_tables(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_a87fd1783a4b3fbb519cf8270b920d410}{array\_type}}\& v)\textcolor{keyword}{ const}}
+\DoxyCodeLine{684 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{685         \textcolor{comment}{// if it's not inlined, we need to add `[[table.key]]`.}}
+\DoxyCodeLine{686         \textcolor{comment}{// but if it can be inlined, we can format it as the following.}}
+\DoxyCodeLine{687         \textcolor{comment}{// ```}}
+\DoxyCodeLine{688         \textcolor{comment}{// table.key = [}}
+\DoxyCodeLine{689         \textcolor{comment}{//   \{...\},}}
+\DoxyCodeLine{690         \textcolor{comment}{//   \# comment}}
+\DoxyCodeLine{691         \textcolor{comment}{//   \{...\},}}
+\DoxyCodeLine{692         \textcolor{comment}{// ]}}
+\DoxyCodeLine{693         \textcolor{comment}{// ```}}
+\DoxyCodeLine{694         \textcolor{comment}{// This function checks if inlinization is possible or not, and then}}
+\DoxyCodeLine{695         \textcolor{comment}{// format the array-\/of-\/tables in a proper way.}}
+\DoxyCodeLine{696         \textcolor{comment}{//}}
+\DoxyCodeLine{697         \textcolor{comment}{// Note about comments:}}
+\DoxyCodeLine{698         \textcolor{comment}{//}}
+\DoxyCodeLine{699         \textcolor{comment}{// If the array itself has a comment (value\_has\_comment\_ == true), we}}
+\DoxyCodeLine{700         \textcolor{comment}{// should try to make it inline.}}
+\DoxyCodeLine{701         \textcolor{comment}{// ```toml}}
+\DoxyCodeLine{702         \textcolor{comment}{// \# comment about array}}
+\DoxyCodeLine{703         \textcolor{comment}{// array = [}}
+\DoxyCodeLine{704         \textcolor{comment}{//   \# comment about table element}}
+\DoxyCodeLine{705         \textcolor{comment}{//   \{of = "{}table"{}\}}}
+\DoxyCodeLine{706         \textcolor{comment}{// ]}}
+\DoxyCodeLine{707         \textcolor{comment}{// ```}}
+\DoxyCodeLine{708         \textcolor{comment}{// If it is formatted as a multiline table, the two comments becomes}}
+\DoxyCodeLine{709         \textcolor{comment}{// indistinguishable.}}
+\DoxyCodeLine{710         \textcolor{comment}{// ```toml}}
+\DoxyCodeLine{711         \textcolor{comment}{// \# comment about array}}
+\DoxyCodeLine{712         \textcolor{comment}{// \# comment about table element}}
+\DoxyCodeLine{713         \textcolor{comment}{// [[array]]}}
+\DoxyCodeLine{714         \textcolor{comment}{// of = "{}table"{}}}
+\DoxyCodeLine{715         \textcolor{comment}{// ```}}
+\DoxyCodeLine{716         \textcolor{comment}{// So we need to try to make it inline, and it force-\/inlines regardless}}
+\DoxyCodeLine{717         \textcolor{comment}{// of the line width limit.}}
+\DoxyCodeLine{718         \textcolor{comment}{//     It may fail if the element of a table has comment. In that case,}}
+\DoxyCodeLine{719         \textcolor{comment}{// the array-\/of-\/tables will be formatted as a multiline table.}}
+\DoxyCodeLine{720         \textcolor{keywordflow}{if}(this-\/>can\_be\_inlined\_ || this-\/>value\_has\_comment\_)}
+\DoxyCodeLine{721         \{}
+\DoxyCodeLine{722             std::string token;}
+\DoxyCodeLine{723             \textcolor{keywordflow}{if}(!keys\_.empty())}
+\DoxyCodeLine{724             \{}
+\DoxyCodeLine{725                 token += \mbox{\hyperlink{namespacetoml_abcb26a66988b38ebb8f5e48b1aa36dbc}{format\_key}}(keys\_.back());}
+\DoxyCodeLine{726                 token += \textcolor{stringliteral}{"{} = "{}};}
+\DoxyCodeLine{727             \}}
+\DoxyCodeLine{728 }
+\DoxyCodeLine{729             \textcolor{keywordtype}{bool} failed = \textcolor{keyword}{false};}
+\DoxyCodeLine{730             token += \textcolor{stringliteral}{"{}[\(\backslash\)n"{}};}
+\DoxyCodeLine{731             \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& item : v)}
+\DoxyCodeLine{732             \{}
+\DoxyCodeLine{733                 \textcolor{comment}{// if an element of the table has a comment, the table}}
+\DoxyCodeLine{734                 \textcolor{comment}{// cannot be inlined.}}
+\DoxyCodeLine{735                 \textcolor{keywordflow}{if}(this-\/>has\_comment\_inside(item.as\_table()))}
+\DoxyCodeLine{736                 \{}
+\DoxyCodeLine{737                     failed = \textcolor{keyword}{true};}
+\DoxyCodeLine{738                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{739                 \}}
+\DoxyCodeLine{740                 \textcolor{comment}{// write comments for the table itself}}
+\DoxyCodeLine{741                 token += write\_comments(item);}
+\DoxyCodeLine{742 }
+\DoxyCodeLine{743                 \textcolor{keyword}{const} \textcolor{keyword}{auto} t = this-\/>make\_inline\_table(item.as\_table());}
+\DoxyCodeLine{744 }
+\DoxyCodeLine{745                 \textcolor{keywordflow}{if}(t.size() + 1 > width\_ || \textcolor{comment}{// +1 for the last comma \{...\},}}
+\DoxyCodeLine{746                    \mbox{\hyperlink{namespacetoml_a31abd17e078e497fb224d79260910b8d}{std::find}}(t.cbegin(), t.cend(), \textcolor{charliteral}{'\(\backslash\)n'}) != t.cend())}
+\DoxyCodeLine{747                 \{}
+\DoxyCodeLine{748                     \textcolor{comment}{// if the value itself has a comment, ignore the line width limit}}
+\DoxyCodeLine{749                     \textcolor{keywordflow}{if}( ! this-\/>value\_has\_comment\_)}
+\DoxyCodeLine{750                     \{}
+\DoxyCodeLine{751                         failed = \textcolor{keyword}{true};}
+\DoxyCodeLine{752                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{753                     \}}
+\DoxyCodeLine{754                 \}}
+\DoxyCodeLine{755                 token += t;}
+\DoxyCodeLine{756                 token += \textcolor{stringliteral}{"{},\(\backslash\)n"{}};}
+\DoxyCodeLine{757             \}}
+\DoxyCodeLine{758 }
+\DoxyCodeLine{759             \textcolor{keywordflow}{if}( ! failed)}
+\DoxyCodeLine{760             \{}
+\DoxyCodeLine{761                 token += \textcolor{stringliteral}{"{}]\(\backslash\)n"{}};}
+\DoxyCodeLine{762                 \textcolor{keywordflow}{return} token;}
+\DoxyCodeLine{763             \}}
+\DoxyCodeLine{764             \textcolor{comment}{// if failed, serialize them as [[array.of.tables]].}}
+\DoxyCodeLine{765         \}}
+\DoxyCodeLine{766 }
+\DoxyCodeLine{767         std::string token;}
+\DoxyCodeLine{768         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& item : v)}
+\DoxyCodeLine{769         \{}
+\DoxyCodeLine{770             token += write\_comments(item);}
+\DoxyCodeLine{771             token += \textcolor{stringliteral}{"{}[["{}};}
+\DoxyCodeLine{772             token += \mbox{\hyperlink{namespacetoml_ac3d6191211e58a592190751a6c5ca92f}{format\_keys}}(keys\_);}
+\DoxyCodeLine{773             token += \textcolor{stringliteral}{"{}]]\(\backslash\)n"{}};}
+\DoxyCodeLine{774             token += this-\/>make\_multiline\_table(item.as\_table());}
+\DoxyCodeLine{775         \}}
+\DoxyCodeLine{776         \textcolor{keywordflow}{return} token;}
+\DoxyCodeLine{777     \}}
+\DoxyCodeLine{778 }
+\DoxyCodeLine{779     std::string write\_comments(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_a289af9a8134b9bebd7ae11fcf180edd0}{value\_type}}\& v)\textcolor{keyword}{ const}}
+\DoxyCodeLine{780 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{781         std::string retval;}
+\DoxyCodeLine{782         \textcolor{keywordflow}{if}(this-\/>no\_comment\_) \{\textcolor{keywordflow}{return} retval;\}}
+\DoxyCodeLine{783 }
+\DoxyCodeLine{784         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& c : v.comments())}
+\DoxyCodeLine{785         \{}
+\DoxyCodeLine{786             retval += \textcolor{charliteral}{'\#'};}
+\DoxyCodeLine{787             retval += c;}
+\DoxyCodeLine{788             retval += \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{789         \}}
+\DoxyCodeLine{790         \textcolor{keywordflow}{return} retval;}
+\DoxyCodeLine{791     \}}
+\DoxyCodeLine{792 }
+\DoxyCodeLine{793     \textcolor{keywordtype}{bool} is\_array\_of\_tables(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_a289af9a8134b9bebd7ae11fcf180edd0}{value\_type}}\& v)\textcolor{keyword}{ const}}
+\DoxyCodeLine{794 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{795         \textcolor{keywordflow}{if}(!v.is\_array() || v.as\_array().empty()) \{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{796         \textcolor{keywordflow}{return} is\_array\_of\_tables(v.as\_array());}
+\DoxyCodeLine{797     \}}
+\DoxyCodeLine{798     \textcolor{keywordtype}{bool} is\_array\_of\_tables(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_a87fd1783a4b3fbb519cf8270b920d410}{array\_type}}\& v)\textcolor{keyword}{ const}}
+\DoxyCodeLine{799 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{800         \textcolor{comment}{// Since TOML v0.5.0, heterogeneous arrays are allowed. So we need to}}
+\DoxyCodeLine{801         \textcolor{comment}{// check all the element in an array to check if the array is an array}}
+\DoxyCodeLine{802         \textcolor{comment}{// of tables.}}
+\DoxyCodeLine{803         \textcolor{keywordflow}{return} std::all\_of(v.begin(), v.end(), [](\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1serializer_a289af9a8134b9bebd7ae11fcf180edd0}{value\_type}}\& elem) \{}
+\DoxyCodeLine{804                 return elem.is\_table();}
+\DoxyCodeLine{805             \});}
+\DoxyCodeLine{806     \}}
+\DoxyCodeLine{807 }
+\DoxyCodeLine{808   \textcolor{keyword}{private}:}
+\DoxyCodeLine{809 }
+\DoxyCodeLine{810     \textcolor{keywordtype}{bool}        can\_be\_inlined\_;}
+\DoxyCodeLine{811     \textcolor{keywordtype}{bool}        no\_comment\_;}
+\DoxyCodeLine{812     \textcolor{keywordtype}{bool}        value\_has\_comment\_;}
+\DoxyCodeLine{813     \textcolor{keywordtype}{int}         float\_prec\_;}
+\DoxyCodeLine{814     std::size\_t width\_;}
+\DoxyCodeLine{815     std::vector<toml::key> keys\_;}
+\DoxyCodeLine{816 \};}
+\DoxyCodeLine{817 }
+\DoxyCodeLine{818 \textcolor{keyword}{template}<\textcolor{keyword}{typename} C,}
+\DoxyCodeLine{819          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{820 std::string}
+\DoxyCodeLine{821 \mbox{\hyperlink{namespacetoml_a63b9229f5457581fe01b48f68b06bfe7}{format}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, std::size\_t w = 80u,}
+\DoxyCodeLine{822        \textcolor{keywordtype}{int} fprec = std::numeric\_limits<toml::floating>::max\_digits10,}
+\DoxyCodeLine{823        \textcolor{keywordtype}{bool} no\_comment = \textcolor{keyword}{false}, \textcolor{keywordtype}{bool} force\_inline = \textcolor{keyword}{false})}
+\DoxyCodeLine{824 \{}
+\DoxyCodeLine{825     \textcolor{keyword}{using }value\_type = \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}};}
+\DoxyCodeLine{826     \textcolor{comment}{// if value is a table, it is considered to be a root object.}}
+\DoxyCodeLine{827     \textcolor{comment}{// the root object can't be an inline table.}}
+\DoxyCodeLine{828     \textcolor{keywordflow}{if}(v.\mbox{\hyperlink{classtoml_1_1basic__value_a93c66a2b01a1022e57fc21ad5a781c1a}{is\_table}}())}
+\DoxyCodeLine{829     \{}
+\DoxyCodeLine{830         std::ostringstream oss;}
+\DoxyCodeLine{831         \textcolor{keywordflow}{if}(!v.\mbox{\hyperlink{classtoml_1_1basic__value_a8f30566aaf9f5bdbaeaea4f177b16ff3}{comments}}().empty())}
+\DoxyCodeLine{832         \{}
+\DoxyCodeLine{833             oss << v.\mbox{\hyperlink{classtoml_1_1basic__value_a8f30566aaf9f5bdbaeaea4f177b16ff3}{comments}}();}
+\DoxyCodeLine{834             oss << \textcolor{charliteral}{'\(\backslash\)n'}; \textcolor{comment}{// to split the file comment from the first element}}
+\DoxyCodeLine{835         \}}
+\DoxyCodeLine{836         \textcolor{keyword}{const} \textcolor{keyword}{auto} serialized = \mbox{\hyperlink{namespacetoml_afdb46445ef5dd69d0f3405f62b0d76b5}{visit}}(\mbox{\hyperlink{structtoml_1_1serializer}{serializer<value\_type>}}(w, fprec, \textcolor{keyword}{false}, no\_comment), v);}
+\DoxyCodeLine{837         oss << serialized;}
+\DoxyCodeLine{838         \textcolor{keywordflow}{return} oss.str();}
+\DoxyCodeLine{839     \}}
+\DoxyCodeLine{840     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_afdb46445ef5dd69d0f3405f62b0d76b5}{visit}}(\mbox{\hyperlink{structtoml_1_1serializer}{serializer<value\_type>}}(w, fprec, force\_inline), v);}
+\DoxyCodeLine{841 \}}
+\DoxyCodeLine{842 }
+\DoxyCodeLine{843 \textcolor{keyword}{namespace }detail}
+\DoxyCodeLine{844 \{}
+\DoxyCodeLine{845 \textcolor{keyword}{template}<\textcolor{keyword}{typename} \textcolor{keywordtype}{char}T, \textcolor{keyword}{typename} traits>}
+\DoxyCodeLine{846 \textcolor{keywordtype}{int} \mbox{\hyperlink{namespacetoml_1_1detail_a5324a986a4a9e40953dd971a0079a461}{comment\_index}}(std::basic\_ostream<charT, traits>\&)}
+\DoxyCodeLine{847 \{}
+\DoxyCodeLine{848     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} index = std::ios\_base::xalloc();}
+\DoxyCodeLine{849     \textcolor{keywordflow}{return} index;}
+\DoxyCodeLine{850 \}}
+\DoxyCodeLine{851 \} \textcolor{comment}{// detail}}
+\DoxyCodeLine{852 }
+\DoxyCodeLine{853 \textcolor{keyword}{template}<\textcolor{keyword}{typename} \textcolor{keywordtype}{char}T, \textcolor{keyword}{typename} traits>}
+\DoxyCodeLine{854 std::basic\_ostream<charT, traits>\&}
+\DoxyCodeLine{855 \mbox{\hyperlink{namespacetoml_aa91272393b6055932099c3978967c361}{nocomment}}(std::basic\_ostream<charT, traits>\& os)}
+\DoxyCodeLine{856 \{}
+\DoxyCodeLine{857     \textcolor{comment}{// by default, it is zero. and by default, it shows comments.}}
+\DoxyCodeLine{858     os.iword(\mbox{\hyperlink{namespacetoml_1_1detail_a5324a986a4a9e40953dd971a0079a461}{detail::comment\_index}}(os)) = 1;}
+\DoxyCodeLine{859     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{860 \}}
+\DoxyCodeLine{861 }
+\DoxyCodeLine{862 \textcolor{keyword}{template}<\textcolor{keyword}{typename} \textcolor{keywordtype}{char}T, \textcolor{keyword}{typename} traits>}
+\DoxyCodeLine{863 std::basic\_ostream<charT, traits>\&}
+\DoxyCodeLine{864 \mbox{\hyperlink{namespacetoml_a6de013bda68e2aad137f8fdadecb53f6}{showcomment}}(std::basic\_ostream<charT, traits>\& os)}
+\DoxyCodeLine{865 \{}
+\DoxyCodeLine{866     \textcolor{comment}{// by default, it is zero. and by default, it shows comments.}}
+\DoxyCodeLine{867     os.iword(\mbox{\hyperlink{namespacetoml_1_1detail_a5324a986a4a9e40953dd971a0079a461}{detail::comment\_index}}(os)) = 0;}
+\DoxyCodeLine{868     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{869 \}}
+\DoxyCodeLine{870 }
+\DoxyCodeLine{871 \textcolor{keyword}{template}<\textcolor{keyword}{typename} charT, \textcolor{keyword}{typename} traits, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{872          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{873 std::basic\_ostream<charT, traits>\&}
+\DoxyCodeLine{874 \mbox{\hyperlink{namespacetoml_a11b17eff44b8e4b0b49c85cc34e241c7}{operator<<}}(std::basic\_ostream<charT, traits>\& os, \textcolor{keyword}{const} basic\_value<C, M, V>\& v)}
+\DoxyCodeLine{875 \{}
+\DoxyCodeLine{876     \textcolor{keyword}{using }value\_type = basic\_value<C, M, V>;}
+\DoxyCodeLine{877 }
+\DoxyCodeLine{878     \textcolor{comment}{// get status of std::setw().}}
+\DoxyCodeLine{879     \textcolor{keyword}{const} \textcolor{keyword}{auto} w     = \textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(os.width());}
+\DoxyCodeLine{880     \textcolor{keyword}{const} \textcolor{keywordtype}{int}  fprec = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(os.precision());}
+\DoxyCodeLine{881     os.width(0);}
+\DoxyCodeLine{882 }
+\DoxyCodeLine{883     \textcolor{comment}{// by default, iword is initialized by 0. And by default, toml11 outputs}}
+\DoxyCodeLine{884     \textcolor{comment}{// comments. So `0` means showcomment. 1 means nocommnet.}}
+\DoxyCodeLine{885     \textcolor{keyword}{const} \textcolor{keywordtype}{bool} no\_comment = (1 == os.iword(\mbox{\hyperlink{namespacetoml_1_1detail_a5324a986a4a9e40953dd971a0079a461}{detail::comment\_index}}(os)));}
+\DoxyCodeLine{886 }
+\DoxyCodeLine{887     \textcolor{keywordflow}{if}(!no\_comment \&\& v.is\_table() \&\& !v.comments().empty())}
+\DoxyCodeLine{888     \{}
+\DoxyCodeLine{889         os << v.comments();}
+\DoxyCodeLine{890         os << \textcolor{charliteral}{'\(\backslash\)n'}; \textcolor{comment}{// to split the file comment from the first element}}
+\DoxyCodeLine{891     \}}
+\DoxyCodeLine{892     \textcolor{comment}{// the root object can't be an inline table. so pass `false`.}}
+\DoxyCodeLine{893     \textcolor{keyword}{const} \textcolor{keyword}{auto} serialized = \mbox{\hyperlink{namespacetoml_afdb46445ef5dd69d0f3405f62b0d76b5}{visit}}(serializer<value\_type>(w, fprec, no\_comment, \textcolor{keyword}{false}), v);}
+\DoxyCodeLine{894     os << serialized;}
+\DoxyCodeLine{895 }
+\DoxyCodeLine{896     \textcolor{comment}{// if v is a non-\/table value, and has only one comment, then}}
+\DoxyCodeLine{897     \textcolor{comment}{// put a comment just after a value. in the following way.}}
+\DoxyCodeLine{898     \textcolor{comment}{//}}
+\DoxyCodeLine{899     \textcolor{comment}{// ```toml}}
+\DoxyCodeLine{900     \textcolor{comment}{// key = "{}value"{} \# comment.}}
+\DoxyCodeLine{901     \textcolor{comment}{// ```}}
+\DoxyCodeLine{902     \textcolor{comment}{//}}
+\DoxyCodeLine{903     \textcolor{comment}{// Since the top-\/level toml object is a table, one who want to put a}}
+\DoxyCodeLine{904     \textcolor{comment}{// non-\/table toml value must use this in a following way.}}
+\DoxyCodeLine{905     \textcolor{comment}{//}}
+\DoxyCodeLine{906     \textcolor{comment}{// ```cpp}}
+\DoxyCodeLine{907     \textcolor{comment}{// toml::value v;}}
+\DoxyCodeLine{908     \textcolor{comment}{// std::cout << "{}user-\/defined-\/key = "{} << v << std::endl;}}
+\DoxyCodeLine{909     \textcolor{comment}{// ```}}
+\DoxyCodeLine{910     \textcolor{comment}{//}}
+\DoxyCodeLine{911     \textcolor{comment}{// In this case, it is impossible to put comments before key-\/value pair.}}
+\DoxyCodeLine{912     \textcolor{comment}{// The only way to preserve comments is to put all of them after a value.}}
+\DoxyCodeLine{913     \textcolor{keywordflow}{if}(!no\_comment \&\& !v.is\_table() \&\& !v.comments().empty())}
+\DoxyCodeLine{914     \{}
+\DoxyCodeLine{915         os << \textcolor{stringliteral}{"{} \#"{}};}
+\DoxyCodeLine{916         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& c : v.comments()) \{os << c;\}}
+\DoxyCodeLine{917     \}}
+\DoxyCodeLine{918     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{919 \}}
+\DoxyCodeLine{920 }
+\DoxyCodeLine{921 \} \textcolor{comment}{// toml}}
+\DoxyCodeLine{922 \textcolor{preprocessor}{\#endif}\textcolor{comment}{// TOML11\_SERIALIZER\_HPP}}
+
+\end{DoxyCode}

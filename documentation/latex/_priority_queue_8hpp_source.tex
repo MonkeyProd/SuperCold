@@ -1,0 +1,41 @@
+\hypertarget{_priority_queue_8hpp_source}{}\doxysection{Priority\+Queue.\+hpp}
+\label{_priority_queue_8hpp_source}\index{external/PriorityQueue/PriorityQueue.hpp@{external/PriorityQueue/PriorityQueue.hpp}}
+\mbox{\hyperlink{_priority_queue_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{class }\mbox{\hyperlink{class_priority_queue}{PriorityQueue}} \{}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7   \textcolor{keyword}{private}:}
+\DoxyCodeLine{8     std::vector<std::pair<T, int>> elements;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10   \textcolor{keyword}{public}:}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_priority_queue_a4a79eee1e9e5e843ddb2619ebe1b673d}{PriorityQueue}}() \{\}}
+\DoxyCodeLine{12     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_priority_queue_a47d74ea71a1a4898b553844ee8b8b319}{size}}() \{ \textcolor{keywordflow}{return} elements.size(); \}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_priority_queue_a25c1da5a4abc2afb550f7cebedb77a22}{enqueue}}(T item, \textcolor{keywordtype}{int} priority) \{}
+\DoxyCodeLine{15         elements.push\_back(std::make\_pair(item, priority));}
+\DoxyCodeLine{16     \}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordtype}{size\_t} \mbox{\hyperlink{class_priority_queue_adda733898ca6edd52da7aad2b768412c}{size}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} elements.size(); \}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_priority_queue_a401493ab0e4ad8cc8d03d6f5e645d82c}{empty}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_priority_queue_a47d74ea71a1a4898b553844ee8b8b319}{size}}() == 0; \}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     T \mbox{\hyperlink{class_priority_queue_a650ca139f969eded8f8cd0e8c2a812b0}{dequeue}}() \{}
+\DoxyCodeLine{23         \textcolor{keywordtype}{int} bestIndex = 0;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < elements.size(); i++) \{}
+\DoxyCodeLine{26             \textcolor{keywordflow}{if} (elements[i].second < elements[bestIndex].second) \{}
+\DoxyCodeLine{27                 bestIndex = i;}
+\DoxyCodeLine{28             \}}
+\DoxyCodeLine{29         \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         T bestItem = elements[bestIndex].first;}
+\DoxyCodeLine{32         elements[bestIndex].second = 100000;}
+\DoxyCodeLine{33         \textcolor{keywordflow}{return} bestItem;}
+\DoxyCodeLine{34     \}}
+\DoxyCodeLine{35 \};}
+
+\end{DoxyCode}

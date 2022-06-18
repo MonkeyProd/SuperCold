@@ -1,0 +1,53 @@
+\hypertarget{_game_object_8hpp_source}{}\doxysection{Game\+Object.\+hpp}
+\label{_game_object_8hpp_source}\index{GameObject/GameObject.hpp@{GameObject/GameObject.hpp}}
+\mbox{\hyperlink{_game_object_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_game_object_8hpp}{GameObject.hpp}}"{}}}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_game_object}{GameObject}} : \textcolor{keyword}{public} sf::Drawable, \textcolor{keyword}{public} sf::Transformable \{}
+\DoxyCodeLine{11   \textcolor{keyword}{private}:}
+\DoxyCodeLine{12     sf::Vector2f m\_cordinates;}
+\DoxyCodeLine{13     sf::Vector2f m\_boxCollider;}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keywordtype}{int} animation\_state;}
+\DoxyCodeLine{16     \textcolor{keywordtype}{bool} m\_isCollider;}
+\DoxyCodeLine{17     \textcolor{keywordtype}{bool} isAnimated = \textcolor{keyword}{false};}
+\DoxyCodeLine{18     \textcolor{keywordtype}{bool} isFinished = \textcolor{keyword}{false};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20   \textcolor{keyword}{public}:}
+\DoxyCodeLine{21     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_game_object_aeacf313d6a432fd7ec7c4197f85a2dc1}{m\_scale}};}
+\DoxyCodeLine{22     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_a6ebdcd772800641b74d3771a3a4ceb79}{stopAtEnd}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     std::vector<sf::Sprite> \mbox{\hyperlink{class_game_object_a27942e782c75e53e83b8acc57758f0b5}{m\_sprites\_array}};}
+\DoxyCodeLine{25     sf::Sprite \mbox{\hyperlink{class_game_object_aa5d62b9e42b89d3a7ee972e987f62833}{m\_sprite}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \mbox{\hyperlink{class_game_object_a0348e3ee2e83d56eafca7a3547f432c4}{GameObject}}();}
+\DoxyCodeLine{37     \mbox{\hyperlink{class_game_object_a0348e3ee2e83d56eafca7a3547f432c4}{GameObject}}(\textcolor{keyword}{const} sf::Vector2f \&cordinates,}
+\DoxyCodeLine{38                std::vector<sf::Sprite> \&sprites\_array, \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_af94ded297ad54bbe84cdaf5ad5100a56}{isCollider}} = \textcolor{keyword}{false},}
+\DoxyCodeLine{39                \textcolor{keywordtype}{float} scale = 1, sf::Vector2f boxCollider = \{0, 0\});}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{50     \mbox{\hyperlink{class_game_object_a0348e3ee2e83d56eafca7a3547f432c4}{GameObject}}(\textcolor{keyword}{const} sf::Vector2f \&cordinates, \textcolor{keyword}{const} sf::Sprite \&sprite,}
+\DoxyCodeLine{51                \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_af94ded297ad54bbe84cdaf5ad5100a56}{isCollider}} = \textcolor{keyword}{false}, \textcolor{keywordtype}{float} scale = 1,}
+\DoxyCodeLine{52                sf::Vector2f boxCollider = \{0, 0\});}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_aefc09c7e8ead168e820f6c7af3b7b839}{draw}}(sf::RenderTarget \&surface, sf::RenderStates states) \textcolor{keyword}{const};}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{59     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_a60d8eb6676c260a5909944b4b55dad50}{nextState}}();}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{66     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_af94ded297ad54bbe84cdaf5ad5100a56}{isCollider}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_game_object_ae110f3b758e45ec3ea0bfe57c284e648}{resetAnimation}}();}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{80     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_a6e9241cf0aaaff0c9b5565888f65ebf3}{check\_collision}}(\mbox{\hyperlink{class_game_object}{GameObject}} \&other) \textcolor{keyword}{const};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{89     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_a6e9241cf0aaaff0c9b5565888f65ebf3}{check\_collision}}(sf::FloatRect \&otherFloatRect) \textcolor{keyword}{const};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{96     sf::FloatRect \mbox{\hyperlink{class_game_object_a80cf3649948d6cd1cf8bf9277fcee741}{getGameObjectRect}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{105     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_game_object_aebea2b95e12565a10167ef989a31fdb5}{isLastAnimationState}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{106 \};}
+
+\end{DoxyCode}

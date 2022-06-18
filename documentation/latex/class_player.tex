@@ -1,0 +1,342 @@
+\hypertarget{class_player}{}\doxysection{Player Class Reference}
+\label{class_player}\index{Player@{Player}}
+
+
+{\ttfamily \#include $<$Player.\+hpp$>$}
+
+Inheritance diagram for Player\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_player}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_player_a6417427f49bce40279688684b104873e}{Horizontal\+Direction}} \{ \mbox{\hyperlink{class_player_a6417427f49bce40279688684b104873ea52a7540bc447dcd5b888131396d3980e}{Left}}
+, \mbox{\hyperlink{class_player_a6417427f49bce40279688684b104873eae36562fe9960c3bdac70addfd9694b97}{Right}}
+ \}
+\item 
+enum \mbox{\hyperlink{class_player_a66803c23350d38a1dc046e427e65a28b}{Vertical\+Direction}} \{ \mbox{\hyperlink{class_player_a66803c23350d38a1dc046e427e65a28baca072b70fed2ebffcc5f03347a23910f}{Top}}
+, \mbox{\hyperlink{class_player_a66803c23350d38a1dc046e427e65a28baf654e304331768c532162a09347a597f}{Down}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_aaa23b3bf80e8c0267cf08d4fe4d6ddc1}{Player}} ()=default
+\item 
+\mbox{\hyperlink{class_player_a400d3b686e76277c1260868eb0666cea}{Player}} (sf\+::\+Vector2f start\+Position, sf\+::\+Vector2f velocity, sprites\+Map player\+Sprites, std\+::string footsteps\+\_\+path, float speed=100, int health=100)
+\begin{DoxyCompactList}\small\item\em Класс Игрока \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_aad3c144f1b0a873343c0d29e2c246f9b}{change\+XDirection}} (\mbox{\hyperlink{class_player_a6417427f49bce40279688684b104873e}{Horizontal\+Direction}} direction)
+\begin{DoxyCompactList}\small\item\em Метод, меняющий горизонатальную составляющую скорости игрока \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a24381e37c2effe27e485d599a3f052dc}{change\+YDirection}} (\mbox{\hyperlink{class_player_a66803c23350d38a1dc046e427e65a28b}{Vertical\+Direction}} direction)
+\begin{DoxyCompactList}\small\item\em Метод, меняющий вертикальную составляющую скорости игрока \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a807c71a57cf852267b56b169d1a44189}{reset\+Horizontal\+Velocity}} ()
+\begin{DoxyCompactList}\small\item\em Метод, сбрасывающий горизонтальную состовляющую скорости игрока \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a044c295511873ba2febd45f1240039b9}{reset\+Vertical\+Velocity}} ()
+\begin{DoxyCompactList}\small\item\em Метод, сбрасывающий вертикальную состовляющую скорости игрока \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_ab660e7d5e7a230174836f24cc063bb32}{move\+Player}} (sf\+::\+Time delta\+Time)
+\begin{DoxyCompactList}\small\item\em Метод, перемещающий игрока \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a63fa8020722cad7d4992e014021c2aae}{set\+Speed}} (float speed)
+\begin{DoxyCompactList}\small\item\em Метод, изменяющий скорость игрока \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_a20665e4647baa8f898a62021e6204450}{is\+Dead}} () const
+\begin{DoxyCompactList}\small\item\em Метод, возращающий bool -\/ статус смерти игрока \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a713060327f44fd131d978419405a135e}{reset\+Health}} ()
+\begin{DoxyCompactList}\small\item\em Метод, восстанавливающий исходное здровье игрока \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_player_ab4a90f61dc538a483ada397ae91f8d0c}{get\+Player\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Метод, возращающий положение игрока \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_player_ad37cff9cbcfa6f84ec5d38dad928d0d8}{get\+Player\+Velocity}} () const
+\begin{DoxyCompactList}\small\item\em Метод, возращающий скорость игрока \end{DoxyCompactList}\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{class_player_a544d55599d7d3784e0e9c30de5ba7d88}{get\+Next\+Position}} (sf\+::\+Time delta\+Time) const
+\begin{DoxyCompactList}\small\item\em Метод, возращающий Float\+Rect -\/ положение игрока в следующий момент времени(необходим для проверки коллизии) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_player_ae91c3922502ccebc4092331f24fae0e2}{draw}} (sf\+::\+Render\+Target \&surface, sf\+::\+Render\+States states) const
+\begin{DoxyCompactList}\small\item\em отрисовка игрока на поверхность \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object}{Game\+Object}} \& \mbox{\hyperlink{class_player_a1c319149b99835f95957682a43cc40b3}{get\+\_\+player\+Object}} ()
+\begin{DoxyCompactList}\small\item\em Метод, возращающий \mbox{\hyperlink{class_game_object}{Game\+Object}} игрока \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a0c1684c2398384c0a6661b94d719024e}{get\+Hit}} (int hp)
+\begin{DoxyCompactList}\small\item\em Нанести урон игроку \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_a86822bc6c1cd5580b5ee4b4bfbba669a}{next\+State}} ()
+\begin{DoxyCompactList}\small\item\em Метод меняющий спрайт анимации игрока на следующий \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_player_a6417427f49bce40279688684b104873e}\label{class_player_a6417427f49bce40279688684b104873e}} 
+\index{Player@{Player}!HorizontalDirection@{HorizontalDirection}}
+\index{HorizontalDirection@{HorizontalDirection}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{HorizontalDirection}{HorizontalDirection}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_player_a6417427f49bce40279688684b104873e}{Player\+::\+Horizontal\+Direction}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Left@{Left}!Player@{Player}}\index{Player@{Player}!Left@{Left}}}\mbox{\Hypertarget{class_player_a6417427f49bce40279688684b104873ea52a7540bc447dcd5b888131396d3980e}\label{class_player_a6417427f49bce40279688684b104873ea52a7540bc447dcd5b888131396d3980e}} 
+Left&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Right@{Right}!Player@{Player}}\index{Player@{Player}!Right@{Right}}}\mbox{\Hypertarget{class_player_a6417427f49bce40279688684b104873eae36562fe9960c3bdac70addfd9694b97}\label{class_player_a6417427f49bce40279688684b104873eae36562fe9960c3bdac70addfd9694b97}} 
+Right&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{class_player_a66803c23350d38a1dc046e427e65a28b}\label{class_player_a66803c23350d38a1dc046e427e65a28b}} 
+\index{Player@{Player}!VerticalDirection@{VerticalDirection}}
+\index{VerticalDirection@{VerticalDirection}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{VerticalDirection}{VerticalDirection}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_player_a66803c23350d38a1dc046e427e65a28b}{Player\+::\+Vertical\+Direction}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Top@{Top}!Player@{Player}}\index{Player@{Player}!Top@{Top}}}\mbox{\Hypertarget{class_player_a66803c23350d38a1dc046e427e65a28baca072b70fed2ebffcc5f03347a23910f}\label{class_player_a66803c23350d38a1dc046e427e65a28baca072b70fed2ebffcc5f03347a23910f}} 
+Top&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Down@{Down}!Player@{Player}}\index{Player@{Player}!Down@{Down}}}\mbox{\Hypertarget{class_player_a66803c23350d38a1dc046e427e65a28baf654e304331768c532162a09347a597f}\label{class_player_a66803c23350d38a1dc046e427e65a28baf654e304331768c532162a09347a597f}} 
+Down&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_player_aaa23b3bf80e8c0267cf08d4fe4d6ddc1}\label{class_player_aaa23b3bf80e8c0267cf08d4fe4d6ddc1}} 
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{class_player_a400d3b686e76277c1260868eb0666cea}\label{class_player_a400d3b686e76277c1260868eb0666cea}} 
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{start\+Position,  }\item[{sf\+::\+Vector2f}]{velocity,  }\item[{sprites\+Map}]{player\+Sprites,  }\item[{std\+::string}]{footsteps\+\_\+path,  }\item[{float}]{speed = {\ttfamily 100},  }\item[{int}]{health = {\ttfamily 100} }\end{DoxyParamCaption})}
+
+
+
+Класс Игрока 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Position} & начальное положение \\
+\hline
+{\em velocity} & начальный вектор скорости \\
+\hline
+{\em player\+Sprites} & словарь со всеми спрайтами игрока \\
+\hline
+{\em footsteps\+\_\+path} & название аудио с звуком шагов \\
+\hline
+{\em speed} & скорость игрока \\
+\hline
+{\em health} & количество здоровья игрока \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_player_aad3c144f1b0a873343c0d29e2c246f9b}\label{class_player_aad3c144f1b0a873343c0d29e2c246f9b}} 
+\index{Player@{Player}!changeXDirection@{changeXDirection}}
+\index{changeXDirection@{changeXDirection}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{changeXDirection()}{changeXDirection()}}
+{\footnotesize\ttfamily void Player\+::change\+XDirection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player_a6417427f49bce40279688684b104873e}{Horizontal\+Direction}}}]{direction }\end{DoxyParamCaption})}
+
+
+
+Метод, меняющий горизонатальную составляющую скорости игрока 
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & направление изменения скорости \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_player_a24381e37c2effe27e485d599a3f052dc}\label{class_player_a24381e37c2effe27e485d599a3f052dc}} 
+\index{Player@{Player}!changeYDirection@{changeYDirection}}
+\index{changeYDirection@{changeYDirection}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{changeYDirection()}{changeYDirection()}}
+{\footnotesize\ttfamily void Player\+::change\+YDirection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player_a66803c23350d38a1dc046e427e65a28b}{Vertical\+Direction}}}]{direction }\end{DoxyParamCaption})}
+
+
+
+Метод, меняющий вертикальную составляющую скорости игрока 
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & направление изменения скорости \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_player_ae91c3922502ccebc4092331f24fae0e2}\label{class_player_ae91c3922502ccebc4092331f24fae0e2}} 
+\index{Player@{Player}!draw@{draw}}
+\index{draw@{draw}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Player\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{surface,  }\item[{sf\+::\+Render\+States}]{states }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+отрисовка игрока на поверхность 
+
+
+\begin{DoxyParams}{Parameters}
+{\em surface} & поверхность \\
+\hline
+{\em states} & состояние \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_player_a1c319149b99835f95957682a43cc40b3}\label{class_player_a1c319149b99835f95957682a43cc40b3}} 
+\index{Player@{Player}!get\_playerObject@{get\_playerObject}}
+\index{get\_playerObject@{get\_playerObject}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{get\_playerObject()}{get\_playerObject()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_game_object}{Game\+Object}} \& Player\+::get\+\_\+player\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод, возращающий \mbox{\hyperlink{class_game_object}{Game\+Object}} игрока 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_game_object}{Game\+Object}}\& 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_a0c1684c2398384c0a6661b94d719024e}\label{class_player_a0c1684c2398384c0a6661b94d719024e}} 
+\index{Player@{Player}!getHit@{getHit}}
+\index{getHit@{getHit}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getHit()}{getHit()}}
+{\footnotesize\ttfamily void Player\+::get\+Hit (\begin{DoxyParamCaption}\item[{int}]{hp }\end{DoxyParamCaption})}
+
+
+
+Нанести урон игроку 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hp} & количество урона \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_player_a544d55599d7d3784e0e9c30de5ba7d88}\label{class_player_a544d55599d7d3784e0e9c30de5ba7d88}} 
+\index{Player@{Player}!getNextPosition@{getNextPosition}}
+\index{getNextPosition@{getNextPosition}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getNextPosition()}{getNextPosition()}}
+{\footnotesize\ttfamily sf\+::\+Float\+Rect Player\+::get\+Next\+Position (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{delta\+Time }\end{DoxyParamCaption}) const}
+
+
+
+Метод, возращающий Float\+Rect -\/ положение игрока в следующий момент времени(необходим для проверки коллизии) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & delta\+Time \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sf\+::\+Float\+Rect 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_ab4a90f61dc538a483ada397ae91f8d0c}\label{class_player_ab4a90f61dc538a483ada397ae91f8d0c}} 
+\index{Player@{Player}!getPlayerPosition@{getPlayerPosition}}
+\index{getPlayerPosition@{getPlayerPosition}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getPlayerPosition()}{getPlayerPosition()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Player\+::get\+Player\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Метод, возращающий положение игрока 
+
+\begin{DoxyReturn}{Returns}
+sf\+::\+Vector2f позиция 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_ad37cff9cbcfa6f84ec5d38dad928d0d8}\label{class_player_ad37cff9cbcfa6f84ec5d38dad928d0d8}} 
+\index{Player@{Player}!getPlayerVelocity@{getPlayerVelocity}}
+\index{getPlayerVelocity@{getPlayerVelocity}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getPlayerVelocity()}{getPlayerVelocity()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Player\+::get\+Player\+Velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Метод, возращающий скорость игрока 
+
+\begin{DoxyReturn}{Returns}
+sf\+::\+Vector2f скорость 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_a20665e4647baa8f898a62021e6204450}\label{class_player_a20665e4647baa8f898a62021e6204450}} 
+\index{Player@{Player}!isDead@{isDead}}
+\index{isDead@{isDead}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{isDead()}{isDead()}}
+{\footnotesize\ttfamily bool Player\+::is\+Dead (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Метод, возращающий bool -\/ статус смерти игрока 
+
+\begin{DoxyReturn}{Returns}
+true мертв 
+
+false жив 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_ab660e7d5e7a230174836f24cc063bb32}\label{class_player_ab660e7d5e7a230174836f24cc063bb32}} 
+\index{Player@{Player}!movePlayer@{movePlayer}}
+\index{movePlayer@{movePlayer}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{movePlayer()}{movePlayer()}}
+{\footnotesize\ttfamily void Player\+::move\+Player (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{delta\+Time }\end{DoxyParamCaption})}
+
+
+
+Метод, перемещающий игрока 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & delta\+Time \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_player_a86822bc6c1cd5580b5ee4b4bfbba669a}\label{class_player_a86822bc6c1cd5580b5ee4b4bfbba669a}} 
+\index{Player@{Player}!nextState@{nextState}}
+\index{nextState@{nextState}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{nextState()}{nextState()}}
+{\footnotesize\ttfamily void Player\+::next\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод меняющий спрайт анимации игрока на следующий 
+
+\mbox{\Hypertarget{class_player_a713060327f44fd131d978419405a135e}\label{class_player_a713060327f44fd131d978419405a135e}} 
+\index{Player@{Player}!resetHealth@{resetHealth}}
+\index{resetHealth@{resetHealth}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{resetHealth()}{resetHealth()}}
+{\footnotesize\ttfamily void Player\+::reset\+Health (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод, восстанавливающий исходное здровье игрока 
+
+\mbox{\Hypertarget{class_player_a807c71a57cf852267b56b169d1a44189}\label{class_player_a807c71a57cf852267b56b169d1a44189}} 
+\index{Player@{Player}!resetHorizontalVelocity@{resetHorizontalVelocity}}
+\index{resetHorizontalVelocity@{resetHorizontalVelocity}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{resetHorizontalVelocity()}{resetHorizontalVelocity()}}
+{\footnotesize\ttfamily void Player\+::reset\+Horizontal\+Velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод, сбрасывающий горизонтальную состовляющую скорости игрока 
+
+\mbox{\Hypertarget{class_player_a044c295511873ba2febd45f1240039b9}\label{class_player_a044c295511873ba2febd45f1240039b9}} 
+\index{Player@{Player}!resetVerticalVelocity@{resetVerticalVelocity}}
+\index{resetVerticalVelocity@{resetVerticalVelocity}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{resetVerticalVelocity()}{resetVerticalVelocity()}}
+{\footnotesize\ttfamily void Player\+::reset\+Vertical\+Velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод, сбрасывающий вертикальную состовляющую скорости игрока 
+
+\mbox{\Hypertarget{class_player_a63fa8020722cad7d4992e014021c2aae}\label{class_player_a63fa8020722cad7d4992e014021c2aae}} 
+\index{Player@{Player}!setSpeed@{setSpeed}}
+\index{setSpeed@{setSpeed}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setSpeed()}{setSpeed()}}
+{\footnotesize\ttfamily void Player\+::set\+Speed (\begin{DoxyParamCaption}\item[{float}]{speed }\end{DoxyParamCaption})}
+
+
+
+Метод, изменяющий скорость игрока 
+
+
+\begin{DoxyParams}{Parameters}
+{\em speed} & новая скорость \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Player/\mbox{\hyperlink{_player_8hpp}{Player.\+hpp}}\item 
+Player/\mbox{\hyperlink{_player_8cpp}{Player.\+cpp}}\end{DoxyCompactItemize}

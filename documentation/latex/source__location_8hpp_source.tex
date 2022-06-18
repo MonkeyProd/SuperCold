@@ -1,0 +1,239 @@
+\hypertarget{source__location_8hpp_source}{}\doxysection{source\+\_\+location.\+hpp}
+\label{source__location_8hpp_source}\index{external/toml/source\_location.hpp@{external/toml/source\_location.hpp}}
+\mbox{\hyperlink{source__location_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//     Copyright Toru Niina 2019.}}
+\DoxyCodeLine{2 \textcolor{comment}{// Distributed under the MIT License.}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifndef TOML11\_SOURCE\_LOCATION\_HPP}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TOML11\_SOURCE\_LOCATION\_HPP}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{region_8hpp}{region.hpp}}"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetoml}{toml}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{comment}{// A struct to contain location in a toml file.}}
+\DoxyCodeLine{14 \textcolor{comment}{// The interface imitates std::experimental::source\_location,}}
+\DoxyCodeLine{15 \textcolor{comment}{// but not completely the same.}}
+\DoxyCodeLine{16 \textcolor{comment}{//}}
+\DoxyCodeLine{17 \textcolor{comment}{// It would be constructed by toml::value. It can be used to generate}}
+\DoxyCodeLine{18 \textcolor{comment}{// user-\/defined error messages.}}
+\DoxyCodeLine{19 \textcolor{comment}{//}}
+\DoxyCodeLine{20 \textcolor{comment}{// -\/ std::uint\_least32\_t line() const noexcept}}
+\DoxyCodeLine{21 \textcolor{comment}{//   -\/ returns the line number where the region is on.}}
+\DoxyCodeLine{22 \textcolor{comment}{// -\/ std::uint\_least32\_t column() const noexcept}}
+\DoxyCodeLine{23 \textcolor{comment}{//   -\/ returns the column number where the region starts.}}
+\DoxyCodeLine{24 \textcolor{comment}{// -\/ std::uint\_least32\_t region() const noexcept}}
+\DoxyCodeLine{25 \textcolor{comment}{//   -\/ returns the size of the region.}}
+\DoxyCodeLine{26 \textcolor{comment}{//}}
+\DoxyCodeLine{27 \textcolor{comment}{// +-\/-\/ line()       +-\/-\/ region of interest (region() == 9)}}
+\DoxyCodeLine{28 \textcolor{comment}{// v            .-\/-\/-\/+-\/-\/-\/.}}
+\DoxyCodeLine{29 \textcolor{comment}{// 12 | value = "{}foo bar"{}}}
+\DoxyCodeLine{30 \textcolor{comment}{//              \string^}}
+\DoxyCodeLine{31 \textcolor{comment}{//              +-\/-\/ column()}}
+\DoxyCodeLine{32 \textcolor{comment}{//}}
+\DoxyCodeLine{33 \textcolor{comment}{// -\/ std::string const\& file\_name() const noexcept;}}
+\DoxyCodeLine{34 \textcolor{comment}{//   -\/ name of the file.}}
+\DoxyCodeLine{35 \textcolor{comment}{// -\/ std::string const\& line\_str() const noexcept;}}
+\DoxyCodeLine{36 \textcolor{comment}{//   -\/ the whole line that contains the region of interest.}}
+\DoxyCodeLine{37 \textcolor{comment}{//}}
+\DoxyCodeLine{38 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1source__location}{source\_location}}}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40   \textcolor{keyword}{public}:}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \mbox{\hyperlink{structtoml_1_1source__location_aae50d4f17890b39cd20741581a3a737e}{source\_location}}()}
+\DoxyCodeLine{43         : line\_num\_(1), column\_num\_(1), region\_size\_(1),}
+\DoxyCodeLine{44           file\_name\_(\textcolor{stringliteral}{"{}unknown file"{}}), line\_str\_(\textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{45     \{\}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1source__location_a725dde5bd1f81f1b864ae493e238204a}{source\_location}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1region__base}{detail::region\_base}}* reg)}
+\DoxyCodeLine{48         : line\_num\_(1), column\_num\_(1), region\_size\_(1),}
+\DoxyCodeLine{49           file\_name\_(\textcolor{stringliteral}{"{}unknown file"{}}), line\_str\_(\textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{50     \{}
+\DoxyCodeLine{51         \textcolor{keywordflow}{if}(reg)}
+\DoxyCodeLine{52         \{}
+\DoxyCodeLine{53             \textcolor{keywordflow}{if}(reg-\/>\mbox{\hyperlink{structtoml_1_1detail_1_1region__base_ad676f2456819ebd43cc6402f017c3ff8}{line\_num}}() != \mbox{\hyperlink{structtoml_1_1detail_1_1region__base}{detail::region\_base}}().\mbox{\hyperlink{structtoml_1_1detail_1_1region__base_ad676f2456819ebd43cc6402f017c3ff8}{line\_num}}())}
+\DoxyCodeLine{54             \{}
+\DoxyCodeLine{55                 line\_num\_ = \textcolor{keyword}{static\_cast<}std::uint\_least32\_t\textcolor{keyword}{>}(}
+\DoxyCodeLine{56                         std::stoul(reg-\/>\mbox{\hyperlink{structtoml_1_1detail_1_1region__base_ad676f2456819ebd43cc6402f017c3ff8}{line\_num}}()));}
+\DoxyCodeLine{57             \}}
+\DoxyCodeLine{58             column\_num\_  = \textcolor{keyword}{static\_cast<}std::uint\_least32\_t\textcolor{keyword}{>}(reg-\/>\mbox{\hyperlink{structtoml_1_1detail_1_1region__base_a5d9badf7c1617c3dbf220128beed9e69}{before}}() + 1);}
+\DoxyCodeLine{59             region\_size\_ = \textcolor{keyword}{static\_cast<}std::uint\_least32\_t\textcolor{keyword}{>}(reg-\/>\mbox{\hyperlink{structtoml_1_1detail_1_1region__base_abb3aa3ca6b0a0cd80e257ceb2a83877c}{size}}());}
+\DoxyCodeLine{60             file\_name\_   = reg-\/>\mbox{\hyperlink{structtoml_1_1detail_1_1region__base_af1e9c07f9510f553e33277207249b980}{name}}();}
+\DoxyCodeLine{61             line\_str\_    = reg-\/>\mbox{\hyperlink{structtoml_1_1detail_1_1region__base_a94f53e54f87a6b18b673c93c5c16c5b1}{line}}();}
+\DoxyCodeLine{62         \}}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1source__location_a13ac40c2252efdaf517d173d176d655f}{source\_location}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1region}{detail::region}}\& reg)}
+\DoxyCodeLine{66         : line\_num\_(static\_cast<std::uint\_least32\_t>(std::stoul(reg.line\_num()))),}
+\DoxyCodeLine{67           column\_num\_(static\_cast<std::uint\_least32\_t>(reg.before() + 1)),}
+\DoxyCodeLine{68           region\_size\_(static\_cast<std::uint\_least32\_t>(reg.size())),}
+\DoxyCodeLine{69           file\_name\_(reg.name()),}
+\DoxyCodeLine{70           line\_str\_ (reg.\mbox{\hyperlink{structtoml_1_1source__location_a5d102e507cca2f75dadbc18a797f1c4c}{line}}())}
+\DoxyCodeLine{71     \{\}}
+\DoxyCodeLine{72     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1source__location_a395083a9e3b611083b1ce2e05e0c5a53}{source\_location}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1location}{detail::location}}\& loc)}
+\DoxyCodeLine{73         : line\_num\_(static\_cast<std::uint\_least32\_t>(std::stoul(loc.line\_num()))),}
+\DoxyCodeLine{74           column\_num\_(static\_cast<std::uint\_least32\_t>(loc.before() + 1)),}
+\DoxyCodeLine{75           region\_size\_(static\_cast<std::uint\_least32\_t>(loc.size())),}
+\DoxyCodeLine{76           file\_name\_(loc.name()),}
+\DoxyCodeLine{77           line\_str\_ (loc.\mbox{\hyperlink{structtoml_1_1source__location_a5d102e507cca2f75dadbc18a797f1c4c}{line}}())}
+\DoxyCodeLine{78     \{\}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \mbox{\hyperlink{structtoml_1_1source__location_a6d846958faefc95bbd78feda0a5cb842}{\string~source\_location}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{81     \mbox{\hyperlink{structtoml_1_1source__location_a0bc8f34db7b888042c66f85ac6a1e974}{source\_location}}(\mbox{\hyperlink{structtoml_1_1source__location}{source\_location}} \textcolor{keyword}{const}\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{82     \mbox{\hyperlink{structtoml_1_1source__location_a8d8336394ba0d157bc0a8d804b0c6eba}{source\_location}}(\mbox{\hyperlink{structtoml_1_1source__location}{source\_location}} \&\&)     = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{83     \mbox{\hyperlink{structtoml_1_1source__location}{source\_location}}\& \mbox{\hyperlink{structtoml_1_1source__location_a36db8b33e030793ab9901a62c203cb75}{operator=}}(\mbox{\hyperlink{structtoml_1_1source__location}{source\_location}} \textcolor{keyword}{const}\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{84     \mbox{\hyperlink{structtoml_1_1source__location}{source\_location}}\& \mbox{\hyperlink{structtoml_1_1source__location_abc87f7adc367477a733bf41556a41804}{operator=}}(\mbox{\hyperlink{structtoml_1_1source__location}{source\_location}} \&\&)     = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     std::uint\_least32\_t \mbox{\hyperlink{structtoml_1_1source__location_a5d102e507cca2f75dadbc18a797f1c4c}{line}}()      const noexcept \{\textcolor{keywordflow}{return} line\_num\_;\}}
+\DoxyCodeLine{87     std::uint\_least32\_t \mbox{\hyperlink{structtoml_1_1source__location_a77c60f2dfe88dca8c78032cbb5f26fde}{column}}()    const noexcept \{\textcolor{keywordflow}{return} column\_num\_;\}}
+\DoxyCodeLine{88     std::uint\_least32\_t \mbox{\hyperlink{structtoml_1_1source__location_a378a57f56208219c5c3205713c0fa272}{region}}()    const noexcept \{\textcolor{keywordflow}{return} region\_size\_;\}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     std::string \textcolor{keyword}{const}\&  \mbox{\hyperlink{structtoml_1_1source__location_a981e64ae5ff2ee9ca10df468ea7a1fd5}{file\_name}}() const noexcept \{\textcolor{keywordflow}{return} file\_name\_;\}}
+\DoxyCodeLine{91     std::string \textcolor{keyword}{const}\&  \mbox{\hyperlink{structtoml_1_1source__location_ac4354c562704e9873f63e83464fdd135}{line\_str}}()  const noexcept \{\textcolor{keywordflow}{return} line\_str\_;\}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93   \textcolor{keyword}{private}:}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     std::uint\_least32\_t line\_num\_;}
+\DoxyCodeLine{96     std::uint\_least32\_t column\_num\_;}
+\DoxyCodeLine{97     std::uint\_least32\_t region\_size\_;}
+\DoxyCodeLine{98     std::string         file\_name\_;}
+\DoxyCodeLine{99     std::string         line\_str\_;}
+\DoxyCodeLine{100 \};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{keyword}{namespace }detail}
+\DoxyCodeLine{103 \{}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105 \textcolor{comment}{// internal error message generation.}}
+\DoxyCodeLine{106 \textcolor{keyword}{inline} std::string \mbox{\hyperlink{namespacetoml_1_1detail_ada573c450f0429aedaae47101e581ac8}{format\_underline}}(\textcolor{keyword}{const} std::string\& message,}
+\DoxyCodeLine{107         \textcolor{keyword}{const} std::vector<std::pair<source\_location, std::string>>\& loc\_com,}
+\DoxyCodeLine{108         \textcolor{keyword}{const} std::vector<std::string>\& helps = \{\},}
+\DoxyCodeLine{109         \textcolor{keyword}{const} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_1_1color__ansi_a6e1ecccc13035c2997d726599056a16e}{colorize}} = \mbox{\hyperlink{color_8hpp_a63d2da22da25b1656684d1514d81f4dc}{TOML11\_ERROR\_MESSAGE\_COLORIZED}})}
+\DoxyCodeLine{110 \{}
+\DoxyCodeLine{111     std::size\_t line\_num\_width = 0;}
+\DoxyCodeLine{112     \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& lc : loc\_com)}
+\DoxyCodeLine{113     \{}
+\DoxyCodeLine{114         std::uint\_least32\_t line = lc.first.line();}
+\DoxyCodeLine{115         std::size\_t        digit = 0;}
+\DoxyCodeLine{116         \textcolor{keywordflow}{while}(line != 0)}
+\DoxyCodeLine{117         \{}
+\DoxyCodeLine{118             line  /= 10;}
+\DoxyCodeLine{119             digit +=  1;}
+\DoxyCodeLine{120         \}}
+\DoxyCodeLine{121         line\_num\_width = (std::max)(line\_num\_width, digit);}
+\DoxyCodeLine{122     \}}
+\DoxyCodeLine{123     \textcolor{comment}{// 1 is the minimum width}}
+\DoxyCodeLine{124     line\_num\_width = std::max<std::size\_t>(line\_num\_width, 1);}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126     std::ostringstream retval;}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128     \textcolor{keywordflow}{if}(\mbox{\hyperlink{namespacetoml_1_1color__ansi_a6e1ecccc13035c2997d726599056a16e}{colorize}})}
+\DoxyCodeLine{129     \{}
+\DoxyCodeLine{130         retval << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a6e1ecccc13035c2997d726599056a16e}{color::colorize}}; \textcolor{comment}{// turn on ANSI color}}
+\DoxyCodeLine{131     \}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133     \textcolor{comment}{// XXX}}
+\DoxyCodeLine{134     \textcolor{comment}{// Here, before `colorize` support, it does not output `[error]` prefix}}
+\DoxyCodeLine{135     \textcolor{comment}{// automatically. So some user may output it manually and this change may}}
+\DoxyCodeLine{136     \textcolor{comment}{// duplicate the prefix. To avoid it, check the first 7 characters and}}
+\DoxyCodeLine{137     \textcolor{comment}{// if it is "{}[error]"{}, it removes that part from the message shown.}}
+\DoxyCodeLine{138     \textcolor{keywordflow}{if}(message.size() > 7 \&\& message.substr(0, 7) == \textcolor{stringliteral}{"{}[error]"{}})}
+\DoxyCodeLine{139     \{}
+\DoxyCodeLine{140         retval << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a23d94feb862d8473abe1914077a9f89d}{color::bold}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_aac70aec9b5ba7000caaefcd4dcdc44e6}{color::red}} << \textcolor{stringliteral}{"{}[error]"{}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a747ea7fa9a8299101bb7ca4eaa74a502}{color::reset}}}
+\DoxyCodeLine{141                << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a23d94feb862d8473abe1914077a9f89d}{color::bold}} << message.substr(7) << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a747ea7fa9a8299101bb7ca4eaa74a502}{color::reset}} << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{142     \}}
+\DoxyCodeLine{143     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{144     \{}
+\DoxyCodeLine{145         retval << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a23d94feb862d8473abe1914077a9f89d}{color::bold}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_aac70aec9b5ba7000caaefcd4dcdc44e6}{color::red}} << \textcolor{stringliteral}{"{}[error] "{}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a747ea7fa9a8299101bb7ca4eaa74a502}{color::reset}}}
+\DoxyCodeLine{146                << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a23d94feb862d8473abe1914077a9f89d}{color::bold}} << message << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a747ea7fa9a8299101bb7ca4eaa74a502}{color::reset}} << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{147     \}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149     \textcolor{keyword}{const} \textcolor{keyword}{auto} format\_one\_location = [line\_num\_width]}
+\DoxyCodeLine{150         (std::ostringstream\& oss,}
+\DoxyCodeLine{151          \textcolor{keyword}{const} source\_location\& loc, \textcolor{keyword}{const} std::string\& comment) -\/> \textcolor{keywordtype}{void}}
+\DoxyCodeLine{152         \{}
+\DoxyCodeLine{153             oss << \textcolor{charliteral}{' '} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a23d94feb862d8473abe1914077a9f89d}{color::bold}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a2b1a36bda005425861cb71d6b754f12e}{color::blue}}}
+\DoxyCodeLine{154                 << std::setw(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(line\_num\_width))}
+\DoxyCodeLine{155                 << std::right << loc.line() << \textcolor{stringliteral}{"{} | "{}}  << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a747ea7fa9a8299101bb7ca4eaa74a502}{color::reset}}}
+\DoxyCodeLine{156                 << loc.line\_str() << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158             oss << \mbox{\hyperlink{namespacetoml_1_1detail_af3e0c1dfeb7087f3a96b5a52cfc1d21e}{make\_string}}(line\_num\_width + 1, \textcolor{charliteral}{' '})}
+\DoxyCodeLine{159                 << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a23d94feb862d8473abe1914077a9f89d}{color::bold}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a2b1a36bda005425861cb71d6b754f12e}{color::blue}} << \textcolor{stringliteral}{"{} | "{}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a747ea7fa9a8299101bb7ca4eaa74a502}{color::reset}}}
+\DoxyCodeLine{160                 << \mbox{\hyperlink{namespacetoml_1_1detail_af3e0c1dfeb7087f3a96b5a52cfc1d21e}{make\_string}}(loc.column()-\/1 \textcolor{comment}{/*1-\/origin*/}, \textcolor{charliteral}{' '});}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162             \textcolor{keywordflow}{if}(loc.region() == 1)}
+\DoxyCodeLine{163             \{}
+\DoxyCodeLine{164                 \textcolor{comment}{// invalid}}
+\DoxyCodeLine{165                 \textcolor{comment}{// \string^-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{166                 oss << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a23d94feb862d8473abe1914077a9f89d}{color::bold}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_aac70aec9b5ba7000caaefcd4dcdc44e6}{color::red}} << \textcolor{stringliteral}{"{}\string^-\/-\/-\/"{}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a747ea7fa9a8299101bb7ca4eaa74a502}{color::reset}};}
+\DoxyCodeLine{167             \}}
+\DoxyCodeLine{168             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{169             \{}
+\DoxyCodeLine{170                 \textcolor{comment}{// invalid}}
+\DoxyCodeLine{171                 \textcolor{comment}{// \string~\string~\string~\string~\string~\string~\string~}}
+\DoxyCodeLine{172                 \textcolor{keyword}{const} \textcolor{keyword}{auto} underline\_len = (std::min)(}
+\DoxyCodeLine{173                     \textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(loc.region()), loc.line\_str().size());}
+\DoxyCodeLine{174                 oss << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a23d94feb862d8473abe1914077a9f89d}{color::bold}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_aac70aec9b5ba7000caaefcd4dcdc44e6}{color::red}}}
+\DoxyCodeLine{175                     << \mbox{\hyperlink{namespacetoml_1_1detail_af3e0c1dfeb7087f3a96b5a52cfc1d21e}{make\_string}}(underline\_len, \textcolor{charliteral}{'\string~'}) << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a747ea7fa9a8299101bb7ca4eaa74a502}{color::reset}};}
+\DoxyCodeLine{176             \}}
+\DoxyCodeLine{177             oss << \textcolor{charliteral}{' '};}
+\DoxyCodeLine{178             oss << comment;}
+\DoxyCodeLine{179             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{180         \};}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182     assert(!loc\_com.empty());}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184     \textcolor{comment}{// -\/-\/> example.toml}}
+\DoxyCodeLine{185     \textcolor{comment}{//   |}}
+\DoxyCodeLine{186     retval << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a23d94feb862d8473abe1914077a9f89d}{color::bold}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a2b1a36bda005425861cb71d6b754f12e}{color::blue}} << \textcolor{stringliteral}{"{} -\/-\/> "{}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a747ea7fa9a8299101bb7ca4eaa74a502}{color::reset}}}
+\DoxyCodeLine{187            << loc\_com.front().first.file\_name() << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{188     retval << \mbox{\hyperlink{namespacetoml_1_1detail_af3e0c1dfeb7087f3a96b5a52cfc1d21e}{make\_string}}(line\_num\_width + 1, \textcolor{charliteral}{' '})}
+\DoxyCodeLine{189            << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a23d94feb862d8473abe1914077a9f89d}{color::bold}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a2b1a36bda005425861cb71d6b754f12e}{color::blue}} << \textcolor{stringliteral}{"{} |\(\backslash\)n"{}}  << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a747ea7fa9a8299101bb7ca4eaa74a502}{color::reset}};}
+\DoxyCodeLine{190     \textcolor{comment}{// 1 | key value}}
+\DoxyCodeLine{191     \textcolor{comment}{//   |    \string^-\/-\/-\/ missing =}}
+\DoxyCodeLine{192     format\_one\_location(retval, loc\_com.front().first, loc\_com.front().second);}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194     \textcolor{comment}{// process the rest of the locations}}
+\DoxyCodeLine{195     \textcolor{keywordflow}{for}(std::size\_t i=1; i<loc\_com.size(); ++i)}
+\DoxyCodeLine{196     \{}
+\DoxyCodeLine{197         \textcolor{keyword}{const} \textcolor{keyword}{auto}\& prev = loc\_com.at(i-\/1);}
+\DoxyCodeLine{198         \textcolor{keyword}{const} \textcolor{keyword}{auto}\& curr = loc\_com.at(i);}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200         retval << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{201         \textcolor{comment}{// if the filenames are the same, print "{}..."{}}}
+\DoxyCodeLine{202         \textcolor{keywordflow}{if}(prev.first.file\_name() == curr.first.file\_name())}
+\DoxyCodeLine{203         \{}
+\DoxyCodeLine{204             retval << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a23d94feb862d8473abe1914077a9f89d}{color::bold}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a2b1a36bda005425861cb71d6b754f12e}{color::blue}} << \textcolor{stringliteral}{"{} ...\(\backslash\)n"{}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a747ea7fa9a8299101bb7ca4eaa74a502}{color::reset}};}
+\DoxyCodeLine{205         \}}
+\DoxyCodeLine{206         \textcolor{keywordflow}{else} \textcolor{comment}{// if filename differs, print "{} -\/-\/> filename.toml"{} again}}
+\DoxyCodeLine{207         \{}
+\DoxyCodeLine{208             retval << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a23d94feb862d8473abe1914077a9f89d}{color::bold}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a2b1a36bda005425861cb71d6b754f12e}{color::blue}} << \textcolor{stringliteral}{"{} -\/-\/> "{}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a747ea7fa9a8299101bb7ca4eaa74a502}{color::reset}}}
+\DoxyCodeLine{209                    << curr.first.file\_name() << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{210             retval << \mbox{\hyperlink{namespacetoml_1_1detail_af3e0c1dfeb7087f3a96b5a52cfc1d21e}{make\_string}}(line\_num\_width + 1, \textcolor{charliteral}{' '})}
+\DoxyCodeLine{211                    << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a23d94feb862d8473abe1914077a9f89d}{color::bold}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a2b1a36bda005425861cb71d6b754f12e}{color::blue}} << \textcolor{stringliteral}{"{} |\(\backslash\)n"{}}  << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a747ea7fa9a8299101bb7ca4eaa74a502}{color::reset}};}
+\DoxyCodeLine{212         \}}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214         format\_one\_location(retval, curr.first, curr.second);}
+\DoxyCodeLine{215     \}}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217     \textcolor{keywordflow}{if}(!helps.empty())}
+\DoxyCodeLine{218     \{}
+\DoxyCodeLine{219         retval << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{220         retval << \mbox{\hyperlink{namespacetoml_1_1detail_af3e0c1dfeb7087f3a96b5a52cfc1d21e}{make\_string}}(line\_num\_width + 1, \textcolor{charliteral}{' '});}
+\DoxyCodeLine{221         retval << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a23d94feb862d8473abe1914077a9f89d}{color::bold}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a2b1a36bda005425861cb71d6b754f12e}{color::blue}} << \textcolor{stringliteral}{"{} |"{}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a747ea7fa9a8299101bb7ca4eaa74a502}{color::reset}};}
+\DoxyCodeLine{222         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& help : helps)}
+\DoxyCodeLine{223         \{}
+\DoxyCodeLine{224             retval << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a23d94feb862d8473abe1914077a9f89d}{color::bold}} << \textcolor{stringliteral}{"{}\(\backslash\)nHint: "{}} << \mbox{\hyperlink{namespacetoml_1_1color__ansi_a747ea7fa9a8299101bb7ca4eaa74a502}{color::reset}};}
+\DoxyCodeLine{225             retval << help;}
+\DoxyCodeLine{226         \}}
+\DoxyCodeLine{227     \}}
+\DoxyCodeLine{228     \textcolor{keywordflow}{return} retval.str();}
+\DoxyCodeLine{229 \}}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231 \} \textcolor{comment}{// detail}}
+\DoxyCodeLine{232 \} \textcolor{comment}{// toml}}
+\DoxyCodeLine{233 \textcolor{preprocessor}{\#endif}\textcolor{comment}{// TOML11\_SOURCE\_LOCATION\_HPP}}
+
+\end{DoxyCode}

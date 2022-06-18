@@ -1,0 +1,29 @@
+\hypertarget{_bullet_8hpp_source}{}\doxysection{Bullet.\+hpp}
+\label{_bullet_8hpp_source}\index{Bullet/Bullet.hpp@{Bullet/Bullet.hpp}}
+\mbox{\hyperlink{_bullet_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <../GameObject/GameObject.hpp>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_bullet}{Bullet}} : \textcolor{keyword}{public} sf::Drawable, \textcolor{keyword}{public} sf::Transformable \{}
+\DoxyCodeLine{6     \mbox{\hyperlink{class_game_object}{GameObject}} m\_bulletObject;}
+\DoxyCodeLine{7     sf::Vector2f m\_velocity;}
+\DoxyCodeLine{8     sf::Time m\_lifetime;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10   \textcolor{keyword}{public}:}
+\DoxyCodeLine{11     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_bullet_a71ece5d5c6319b00bdfbeff7b34ee8b9}{isExist}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{20     \mbox{\hyperlink{class_bullet_a4fe0996e6c2eb192aa4e4a0352e97fd9}{Bullet}}(sf::Vector2f startPosition, sf::Vector2f velocity,}
+\DoxyCodeLine{21            std::vector<sf::Sprite> bulletSprite);}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{26     \mbox{\hyperlink{class_game_object}{GameObject}} \&\mbox{\hyperlink{class_bullet_a60eeb26c22016b37796b3692967dbc14}{getBulletObject}}();}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_bullet_af9f7169b3201360123c51fd576cb574f}{moveBullet}}(sf::Time deltaTime);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_bullet_a4259372b1668f44bb726620a4f44181b}{draw}}(sf::RenderTarget \&surface, sf::RenderStates states) \textcolor{keyword}{const};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{40     sf::FloatRect \mbox{\hyperlink{class_bullet_a426f205484be59d9eff8b2f652135ce3}{getBulletRect}}();}
+\DoxyCodeLine{41 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,18 @@
+.TH "toml::detail::is_container< T >" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::detail::is_container< T >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <traits\&.hpp>\fP
+.PP
+Inherits \fBtoml::detail::conjunction< negation< is_map< T > >, negation< std::is_same< T, std::string > >, has_iterator< T >, has_value_type< T > >\fP\&.
+.PP
+Inherited by \fBtoml::detail::is_container< T & >\fP, \fBtoml::detail::is_container< T const & >\fP, \fBtoml::detail::is_container< T const volatile & >\fP, and \fBtoml::detail::is_container< T volatile & >\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

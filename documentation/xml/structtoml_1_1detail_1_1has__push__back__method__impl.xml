@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1has__push__back__method__impl" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::has_push_back_method_impl</compoundname>
+    <includes refid="traits_8hpp" local="no">traits.hpp</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structtoml_1_1detail_1_1has__push__back__method__impl_1a6481c413a9a2ddaa07d0e4e490363703" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::false_type</type>
+        <definition>static std::false_type toml::detail::has_push_back_method_impl::check</definition>
+        <argsstring>(...)</argsstring>
+        <name>check</name>
+        <qualifiedname>toml::detail::has_push_back_method_impl::check</qualifiedname>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/traits.hpp" line="61" column="39"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1has__push__back__method__impl_1a6aa616c8cd936a896d4e91c57834574a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::true_type</type>
+        <definition>static std::true_type toml::detail::has_push_back_method_impl::check</definition>
+        <argsstring>(decltype(std::declval&lt; T &gt;().push_back(std::declval&lt; typename T::value_type &gt;())) *)</argsstring>
+        <name>check</name>
+        <qualifiedname>toml::detail::has_push_back_method_impl::check</qualifiedname>
+        <param>
+          <type>decltype(std::declval&lt; T &gt;().push_back(std::declval&lt; typename T::value_type &gt;())) *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/traits.hpp" line="62" column="39"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/traits.hpp" line="59" column="1" bodyfile="external/toml/traits.hpp" bodystart="60" bodyend="64"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1detail_1_1has__push__back__method__impl_1a6481c413a9a2ddaa07d0e4e490363703" prot="public" virt="non-virtual"><scope>toml::detail::has_push_back_method_impl</scope><name>check</name></member>
+      <member refid="structtoml_1_1detail_1_1has__push__back__method__impl_1a6aa616c8cd936a896d4e91c57834574a" prot="public" virt="non-virtual"><scope>toml::detail::has_push_back_method_impl</scope><name>check</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1has__iterator__impl" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::has_iterator_impl</compoundname>
+    <includes refid="traits_8hpp" local="no">traits.hpp</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structtoml_1_1detail_1_1has__iterator__impl_1a3fa0efcf1d739740edc44d259a62ab38" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::true_type</type>
+        <definition>static std::true_type toml::detail::has_iterator_impl::check</definition>
+        <argsstring>(typename T::iterator *)</argsstring>
+        <name>check</name>
+        <qualifiedname>toml::detail::has_iterator_impl::check</qualifiedname>
+        <param>
+          <type>typename T::iterator *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/traits.hpp" line="35" column="39"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1has__iterator__impl_1af33c063bd5b1d984e7c9be27dad0e189" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::false_type</type>
+        <definition>static std::false_type toml::detail::has_iterator_impl::check</definition>
+        <argsstring>(...)</argsstring>
+        <name>check</name>
+        <qualifiedname>toml::detail::has_iterator_impl::check</qualifiedname>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/traits.hpp" line="36" column="39"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/traits.hpp" line="33" column="1" bodyfile="external/toml/traits.hpp" bodystart="34" bodyend="37"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1detail_1_1has__iterator__impl_1a3fa0efcf1d739740edc44d259a62ab38" prot="public" virt="non-virtual"><scope>toml::detail::has_iterator_impl</scope><name>check</name></member>
+      <member refid="structtoml_1_1detail_1_1has__iterator__impl_1af33c063bd5b1d984e7c9be27dad0e189" prot="public" virt="non-virtual"><scope>toml::detail::has_iterator_impl</scope><name>check</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,1295 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1discard__comments" kind="struct" language="C++" prot="public">
+    <compoundname>toml::discard_comments</compoundname>
+    <includes refid="comments_8hpp" local="no">comments.hpp</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structtoml_1_1discard__comments_1a56ea098784a9d1e3a9ecb8ba69fb9462" prot="public" static="no">
+        <type>std::size_t</type>
+        <definition>using toml::discard_comments::size_type =  std::size_t</definition>
+        <argsstring></argsstring>
+        <name>size_type</name>
+        <qualifiedname>toml::discard_comments::size_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="354" column="5" bodyfile="external/toml/comments.hpp" bodystart="354" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1discard__comments_1ace384cea962939ee8daa86457e2b0177" prot="public" static="no">
+        <type>std::ptrdiff_t</type>
+        <definition>using toml::discard_comments::difference_type =  std::ptrdiff_t</definition>
+        <argsstring></argsstring>
+        <name>difference_type</name>
+        <qualifiedname>toml::discard_comments::difference_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="355" column="5" bodyfile="external/toml/comments.hpp" bodystart="355" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1discard__comments_1a2c2e958054df31f5997f2fc43c829fb0" prot="public" static="no">
+        <type>std::string</type>
+        <definition>using toml::discard_comments::value_type =  std::string</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <qualifiedname>toml::discard_comments::value_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="356" column="5" bodyfile="external/toml/comments.hpp" bodystart="356" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1discard__comments_1aaebf4059da8e84eabf6c1129e36f54c3" prot="public" static="no">
+        <type>std::string &amp;</type>
+        <definition>using toml::discard_comments::reference =  std::string&amp;</definition>
+        <argsstring></argsstring>
+        <name>reference</name>
+        <qualifiedname>toml::discard_comments::reference</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="357" column="5" bodyfile="external/toml/comments.hpp" bodystart="357" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1discard__comments_1a0333a4066d6853fe0f3b62c5bfc300ce" prot="public" static="no">
+        <type>std::string const  &amp;</type>
+        <definition>using toml::discard_comments::const_reference =  std::string const&amp;</definition>
+        <argsstring></argsstring>
+        <name>const_reference</name>
+        <qualifiedname>toml::discard_comments::const_reference</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="358" column="5" bodyfile="external/toml/comments.hpp" bodystart="358" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1discard__comments_1ab86fa50599b11437a54243bb84370ae0" prot="public" static="no">
+        <type>std::string *</type>
+        <definition>using toml::discard_comments::pointer =  std::string*</definition>
+        <argsstring></argsstring>
+        <name>pointer</name>
+        <qualifiedname>toml::discard_comments::pointer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="359" column="5" bodyfile="external/toml/comments.hpp" bodystart="359" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1discard__comments_1af10fea60bfc0bb44af3bc4cb0677067d" prot="public" static="no">
+        <type>std::string const  *</type>
+        <definition>using toml::discard_comments::const_pointer =  std::string const*</definition>
+        <argsstring></argsstring>
+        <name>const_pointer</name>
+        <qualifiedname>toml::discard_comments::const_pointer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="360" column="5" bodyfile="external/toml/comments.hpp" bodystart="360" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1discard__comments_1a34d9175c22073985c7e973f4ea4dd31b" prot="public" static="no">
+        <type><ref refid="structtoml_1_1detail_1_1empty__iterator" kindref="compound">detail::empty_iterator</ref>&lt; std::string, false &gt;</type>
+        <definition>using toml::discard_comments::iterator =  detail::empty_iterator&lt;std::string, false&gt;</definition>
+        <argsstring></argsstring>
+        <name>iterator</name>
+        <qualifiedname>toml::discard_comments::iterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="361" column="5" bodyfile="external/toml/comments.hpp" bodystart="361" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1discard__comments_1ae93cfb7b2ffd2128694971bbd0ef5b31" prot="public" static="no">
+        <type><ref refid="structtoml_1_1detail_1_1empty__iterator" kindref="compound">detail::empty_iterator</ref>&lt; std::string, true &gt;</type>
+        <definition>using toml::discard_comments::const_iterator =  detail::empty_iterator&lt;std::string, true&gt;</definition>
+        <argsstring></argsstring>
+        <name>const_iterator</name>
+        <qualifiedname>toml::discard_comments::const_iterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="362" column="5" bodyfile="external/toml/comments.hpp" bodystart="362" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1discard__comments_1a6bf4623f402c7cab2f9d7d19825f10bd" prot="public" static="no">
+        <type><ref refid="structtoml_1_1detail_1_1empty__iterator" kindref="compound">detail::empty_iterator</ref>&lt; std::string, false &gt;</type>
+        <definition>using toml::discard_comments::reverse_iterator =  detail::empty_iterator&lt;std::string, false&gt;</definition>
+        <argsstring></argsstring>
+        <name>reverse_iterator</name>
+        <qualifiedname>toml::discard_comments::reverse_iterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="363" column="5" bodyfile="external/toml/comments.hpp" bodystart="363" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1discard__comments_1a633f05c319d929cb1962affca100200e" prot="public" static="no">
+        <type><ref refid="structtoml_1_1detail_1_1empty__iterator" kindref="compound">detail::empty_iterator</ref>&lt; std::string, true &gt;</type>
+        <definition>using toml::discard_comments::const_reverse_iterator =  detail::empty_iterator&lt;std::string, true&gt;</definition>
+        <argsstring></argsstring>
+        <name>const_reverse_iterator</name>
+        <qualifiedname>toml::discard_comments::const_reverse_iterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="364" column="5" bodyfile="external/toml/comments.hpp" bodystart="364" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a42663a637d1ab9bab824e9177d01beb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::discard_comments::discard_comments</definition>
+        <argsstring>()=default</argsstring>
+        <name>discard_comments</name>
+        <qualifiedname>toml::discard_comments::discard_comments</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="366" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1ab86cf5cd7850df0a111cc1c4b3429741" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::discard_comments::~discard_comments</definition>
+        <argsstring>()=default</argsstring>
+        <name>~discard_comments</name>
+        <qualifiedname>toml::discard_comments::~discard_comments</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="367" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a4efeb706722ac083ad93c3762e06cb73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::discard_comments::discard_comments</definition>
+        <argsstring>(discard_comments const &amp;)=default</argsstring>
+        <name>discard_comments</name>
+        <qualifiedname>toml::discard_comments::discard_comments</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments" kindref="compound">discard_comments</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="368" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a221030bb500d414371e8c5795f1bb948" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::discard_comments::discard_comments</definition>
+        <argsstring>(discard_comments &amp;&amp;)=default</argsstring>
+        <name>discard_comments</name>
+        <qualifiedname>toml::discard_comments::discard_comments</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments" kindref="compound">discard_comments</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="369" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a363af56d64004b9c763a94fe93436e82" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments" kindref="compound">discard_comments</ref> &amp;</type>
+        <definition>discard_comments &amp; toml::discard_comments::operator=</definition>
+        <argsstring>(discard_comments const &amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::discard_comments::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments" kindref="compound">discard_comments</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="370" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1aa4de88dab919efdf9d88155e187dbaea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments" kindref="compound">discard_comments</ref> &amp;</type>
+        <definition>discard_comments &amp; toml::discard_comments::operator=</definition>
+        <argsstring>(discard_comments &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::discard_comments::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments" kindref="compound">discard_comments</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="371" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a33bd9ec9ac858c32968f4e3ac30c44d3" prot="public" static="no" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::discard_comments::discard_comments</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;) noexcept</argsstring>
+        <name>discard_comments</name>
+        <qualifiedname>toml::discard_comments::discard_comments</qualifiedname>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="373" column="14" bodyfile="external/toml/comments.hpp" bodystart="373" bodyend="373"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a1cddf47097c920eaceac0b38b467207a" prot="public" static="no" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::discard_comments::discard_comments</definition>
+        <argsstring>(std::vector&lt; std::string &gt; &amp;&amp;) noexcept</argsstring>
+        <name>discard_comments</name>
+        <qualifiedname>toml::discard_comments::discard_comments</qualifiedname>
+        <param>
+          <type>std::vector&lt; std::string &gt; &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="374" column="14" bodyfile="external/toml/comments.hpp" bodystart="374" bodyend="374"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a9f39751a26bc84ebba27c2c96f363a2d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments" kindref="compound">discard_comments</ref> &amp;</type>
+        <definition>discard_comments &amp; toml::discard_comments::operator=</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;) noexcept</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::discard_comments::operator=</qualifiedname>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="375" column="22" bodyfile="external/toml/comments.hpp" bodystart="375" bodyend="375"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a981d88263764f923214a337c097f2ea1" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments" kindref="compound">discard_comments</ref> &amp;</type>
+        <definition>discard_comments &amp; toml::discard_comments::operator=</definition>
+        <argsstring>(std::vector&lt; std::string &gt; &amp;&amp;) noexcept</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::discard_comments::operator=</qualifiedname>
+        <param>
+          <type>std::vector&lt; std::string &gt; &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="376" column="22" bodyfile="external/toml/comments.hpp" bodystart="376" bodyend="376"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1af9f1d2a30636f723bcf912a41c7e0d0e" prot="public" static="no" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::discard_comments::discard_comments</definition>
+        <argsstring>(const preserve_comments &amp;) noexcept</argsstring>
+        <name>discard_comments</name>
+        <qualifiedname>toml::discard_comments::discard_comments</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1preserve__comments" kindref="compound">preserve_comments</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="378" column="14" bodyfile="external/toml/comments.hpp" bodystart="378" bodyend="378"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1ad66a95b8cb49d9455ae208317ed0f11d" prot="public" static="no" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::discard_comments::discard_comments</definition>
+        <argsstring>(size_type) noexcept</argsstring>
+        <name>discard_comments</name>
+        <qualifiedname>toml::discard_comments::discard_comments</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments_1a56ea098784a9d1e3a9ecb8ba69fb9462" kindref="member">size_type</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="380" column="14" bodyfile="external/toml/comments.hpp" bodystart="380" bodyend="380"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a6ee1d03607a11fc31837661b6f20e54a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::discard_comments::discard_comments</definition>
+        <argsstring>(size_type, const std::string &amp;) noexcept</argsstring>
+        <name>discard_comments</name>
+        <qualifiedname>toml::discard_comments::discard_comments</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments_1a56ea098784a9d1e3a9ecb8ba69fb9462" kindref="member">size_type</ref></type>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="381" column="5" bodyfile="external/toml/comments.hpp" bodystart="381" bodyend="381"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a2f6188656c0f15bb37fef9f023b59705" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::discard_comments::discard_comments</definition>
+        <argsstring>(std::initializer_list&lt; std::string &gt;) noexcept</argsstring>
+        <name>discard_comments</name>
+        <qualifiedname>toml::discard_comments::discard_comments</qualifiedname>
+        <param>
+          <type>std::initializer_list&lt; std::string &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="382" column="5" bodyfile="external/toml/comments.hpp" bodystart="382" bodyend="382"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1ae26136d55e7129e9bdabaf04c8bd4c1f" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename InputIterator</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>toml::discard_comments::discard_comments</definition>
+        <argsstring>(InputIterator, InputIterator) noexcept</argsstring>
+        <name>discard_comments</name>
+        <qualifiedname>toml::discard_comments::discard_comments</qualifiedname>
+        <param>
+          <type>InputIterator</type>
+        </param>
+        <param>
+          <type>InputIterator</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="384" column="5" bodyfile="external/toml/comments.hpp" bodystart="384" bodyend="384"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a87c511fb659ee1454dffd0f96631a3f8" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename InputIterator</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void toml::discard_comments::assign</definition>
+        <argsstring>(InputIterator, InputIterator) noexcept</argsstring>
+        <name>assign</name>
+        <qualifiedname>toml::discard_comments::assign</qualifiedname>
+        <param>
+          <type>InputIterator</type>
+        </param>
+        <param>
+          <type>InputIterator</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="387" column="10" bodyfile="external/toml/comments.hpp" bodystart="387" bodyend="387"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1ae2a8e8b7acc25bb5dfcdb467e5492676" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void toml::discard_comments::assign</definition>
+        <argsstring>(std::initializer_list&lt; std::string &gt;) noexcept</argsstring>
+        <name>assign</name>
+        <qualifiedname>toml::discard_comments::assign</qualifiedname>
+        <param>
+          <type>std::initializer_list&lt; std::string &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="388" column="10" bodyfile="external/toml/comments.hpp" bodystart="388" bodyend="388"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a8167e1820abb50574544836643f93a04" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void toml::discard_comments::assign</definition>
+        <argsstring>(size_type, const std::string &amp;) noexcept</argsstring>
+        <name>assign</name>
+        <qualifiedname>toml::discard_comments::assign</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments_1a56ea098784a9d1e3a9ecb8ba69fb9462" kindref="member">size_type</ref></type>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="389" column="10" bodyfile="external/toml/comments.hpp" bodystart="389" bodyend="389"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1ab32391def59713e7e99517c3d07ab60a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a34d9175c22073985c7e973f4ea4dd31b" kindref="member">iterator</ref></type>
+        <definition>iterator toml::discard_comments::insert</definition>
+        <argsstring>(const_iterator, const std::string &amp;)</argsstring>
+        <name>insert</name>
+        <qualifiedname>toml::discard_comments::insert</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments_1ae93cfb7b2ffd2128694971bbd0ef5b31" kindref="member">const_iterator</ref></type>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="391" column="14" bodyfile="external/toml/comments.hpp" bodystart="391" bodyend="391"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1ad868e3c5d73b970a037d19b06ce374f2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a34d9175c22073985c7e973f4ea4dd31b" kindref="member">iterator</ref></type>
+        <definition>iterator toml::discard_comments::insert</definition>
+        <argsstring>(const_iterator, std::string &amp;&amp;)</argsstring>
+        <name>insert</name>
+        <qualifiedname>toml::discard_comments::insert</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments_1ae93cfb7b2ffd2128694971bbd0ef5b31" kindref="member">const_iterator</ref></type>
+        </param>
+        <param>
+          <type>std::string &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="392" column="14" bodyfile="external/toml/comments.hpp" bodystart="392" bodyend="392"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a89e16a0e5ad65ef56df2334417b89baa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a34d9175c22073985c7e973f4ea4dd31b" kindref="member">iterator</ref></type>
+        <definition>iterator toml::discard_comments::insert</definition>
+        <argsstring>(const_iterator, size_type, const std::string &amp;)</argsstring>
+        <name>insert</name>
+        <qualifiedname>toml::discard_comments::insert</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments_1ae93cfb7b2ffd2128694971bbd0ef5b31" kindref="member">const_iterator</ref></type>
+        </param>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments_1a56ea098784a9d1e3a9ecb8ba69fb9462" kindref="member">size_type</ref></type>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="393" column="14" bodyfile="external/toml/comments.hpp" bodystart="393" bodyend="393"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1af0bc07b4d771c436258270971593fb43" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename InputIterator</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structtoml_1_1discard__comments_1a34d9175c22073985c7e973f4ea4dd31b" kindref="member">iterator</ref></type>
+        <definition>iterator toml::discard_comments::insert</definition>
+        <argsstring>(const_iterator, InputIterator, InputIterator)</argsstring>
+        <name>insert</name>
+        <qualifiedname>toml::discard_comments::insert</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments_1ae93cfb7b2ffd2128694971bbd0ef5b31" kindref="member">const_iterator</ref></type>
+        </param>
+        <param>
+          <type>InputIterator</type>
+        </param>
+        <param>
+          <type>InputIterator</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="395" column="14" bodyfile="external/toml/comments.hpp" bodystart="395" bodyend="395"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a8d18a7114f93b4484f50e246d0ab5cc3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a34d9175c22073985c7e973f4ea4dd31b" kindref="member">iterator</ref></type>
+        <definition>iterator toml::discard_comments::insert</definition>
+        <argsstring>(const_iterator, std::initializer_list&lt; std::string &gt;)</argsstring>
+        <name>insert</name>
+        <qualifiedname>toml::discard_comments::insert</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments_1ae93cfb7b2ffd2128694971bbd0ef5b31" kindref="member">const_iterator</ref></type>
+        </param>
+        <param>
+          <type>std::initializer_list&lt; std::string &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="396" column="14" bodyfile="external/toml/comments.hpp" bodystart="396" bodyend="396"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1adcab0832a954d33ef1faf3991aad7f9c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ...</type>
+            <declname>Ts</declname>
+            <defname>Ts</defname>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structtoml_1_1discard__comments_1a34d9175c22073985c7e973f4ea4dd31b" kindref="member">iterator</ref></type>
+        <definition>iterator toml::discard_comments::emplace</definition>
+        <argsstring>(const_iterator, Ts &amp;&amp;...)</argsstring>
+        <name>emplace</name>
+        <qualifiedname>toml::discard_comments::emplace</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments_1ae93cfb7b2ffd2128694971bbd0ef5b31" kindref="member">const_iterator</ref></type>
+        </param>
+        <param>
+          <type>Ts &amp;&amp;</type>
+          <declname>...</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="399" column="14" bodyfile="external/toml/comments.hpp" bodystart="399" bodyend="399"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a11709634f00e1df4a8ac217f5ee8fcd7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a34d9175c22073985c7e973f4ea4dd31b" kindref="member">iterator</ref></type>
+        <definition>iterator toml::discard_comments::erase</definition>
+        <argsstring>(const_iterator)</argsstring>
+        <name>erase</name>
+        <qualifiedname>toml::discard_comments::erase</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments_1ae93cfb7b2ffd2128694971bbd0ef5b31" kindref="member">const_iterator</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="400" column="14" bodyfile="external/toml/comments.hpp" bodystart="400" bodyend="400"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1aae028ac78ca649ca71783f342a76bd75" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a34d9175c22073985c7e973f4ea4dd31b" kindref="member">iterator</ref></type>
+        <definition>iterator toml::discard_comments::erase</definition>
+        <argsstring>(const_iterator, const_iterator)</argsstring>
+        <name>erase</name>
+        <qualifiedname>toml::discard_comments::erase</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments_1ae93cfb7b2ffd2128694971bbd0ef5b31" kindref="member">const_iterator</ref></type>
+        </param>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments_1ae93cfb7b2ffd2128694971bbd0ef5b31" kindref="member">const_iterator</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="401" column="14" bodyfile="external/toml/comments.hpp" bodystart="401" bodyend="401"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1aebeadd8a52403f084105bc1a70420453" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void toml::discard_comments::swap</definition>
+        <argsstring>(discard_comments &amp;)</argsstring>
+        <name>swap</name>
+        <qualifiedname>toml::discard_comments::swap</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments" kindref="compound">discard_comments</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="403" column="10" bodyfile="external/toml/comments.hpp" bodystart="403" bodyend="403"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1ada1fe49d35200627884297734121b71e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void toml::discard_comments::push_back</definition>
+        <argsstring>(const std::string &amp;)</argsstring>
+        <name>push_back</name>
+        <qualifiedname>toml::discard_comments::push_back</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="405" column="10" bodyfile="external/toml/comments.hpp" bodystart="405" bodyend="405"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a73930f5a3618c5f8903647c9446966ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void toml::discard_comments::push_back</definition>
+        <argsstring>(std::string &amp;&amp;)</argsstring>
+        <name>push_back</name>
+        <qualifiedname>toml::discard_comments::push_back</qualifiedname>
+        <param>
+          <type>std::string &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="406" column="10" bodyfile="external/toml/comments.hpp" bodystart="406" bodyend="406"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1ad4cd1784382bb79f7c767adc3a72a044" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void toml::discard_comments::pop_back</definition>
+        <argsstring>()</argsstring>
+        <name>pop_back</name>
+        <qualifiedname>toml::discard_comments::pop_back</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="407" column="10" bodyfile="external/toml/comments.hpp" bodystart="407" bodyend="407"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1ae3cb0474333c677ad03cfc2adc5919f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename ...</type>
+            <declname>Ts</declname>
+            <defname>Ts</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void toml::discard_comments::emplace_back</definition>
+        <argsstring>(Ts &amp;&amp;...)</argsstring>
+        <name>emplace_back</name>
+        <qualifiedname>toml::discard_comments::emplace_back</qualifiedname>
+        <param>
+          <type>Ts &amp;&amp;</type>
+          <declname>...</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="410" column="10" bodyfile="external/toml/comments.hpp" bodystart="410" bodyend="410"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1aba10675773e02669c1c323006ab0a39e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void toml::discard_comments::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>toml::discard_comments::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="412" column="10" bodyfile="external/toml/comments.hpp" bodystart="412" bodyend="412"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a3a3382348b3bd1fb1f2d6574960a8001" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a56ea098784a9d1e3a9ecb8ba69fb9462" kindref="member">size_type</ref></type>
+        <definition>size_type toml::discard_comments::size</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>size</name>
+        <qualifiedname>toml::discard_comments::size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="414" column="15" bodyfile="external/toml/comments.hpp" bodystart="414" bodyend="414"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a02805c0e2a42eaff92adb3e862133308" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a56ea098784a9d1e3a9ecb8ba69fb9462" kindref="member">size_type</ref></type>
+        <definition>size_type toml::discard_comments::max_size</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>max_size</name>
+        <qualifiedname>toml::discard_comments::max_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="415" column="15" bodyfile="external/toml/comments.hpp" bodystart="415" bodyend="415"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a8714b45fd25f7740a1e791d94ff8645d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a56ea098784a9d1e3a9ecb8ba69fb9462" kindref="member">size_type</ref></type>
+        <definition>size_type toml::discard_comments::capacity</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>capacity</name>
+        <qualifiedname>toml::discard_comments::capacity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="416" column="15" bodyfile="external/toml/comments.hpp" bodystart="416" bodyend="416"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a12fa292c8fd8a7669e666e957ab3b998" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool toml::discard_comments::empty</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>empty</name>
+        <qualifiedname>toml::discard_comments::empty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="417" column="15" bodyfile="external/toml/comments.hpp" bodystart="417" bodyend="417"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a6b0551510cbd487e6ad283fbb7b27f99" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void toml::discard_comments::reserve</definition>
+        <argsstring>(size_type)</argsstring>
+        <name>reserve</name>
+        <qualifiedname>toml::discard_comments::reserve</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments_1a56ea098784a9d1e3a9ecb8ba69fb9462" kindref="member">size_type</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="419" column="10" bodyfile="external/toml/comments.hpp" bodystart="419" bodyend="419"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a09c3d6f96f89ee0ad2e74a05fa9c25f7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void toml::discard_comments::resize</definition>
+        <argsstring>(size_type)</argsstring>
+        <name>resize</name>
+        <qualifiedname>toml::discard_comments::resize</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments_1a56ea098784a9d1e3a9ecb8ba69fb9462" kindref="member">size_type</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="420" column="10" bodyfile="external/toml/comments.hpp" bodystart="420" bodyend="420"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a6be3907c469b84d9d2fa532a3a5d2c01" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void toml::discard_comments::resize</definition>
+        <argsstring>(size_type, const std::string &amp;)</argsstring>
+        <name>resize</name>
+        <qualifiedname>toml::discard_comments::resize</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1discard__comments_1a56ea098784a9d1e3a9ecb8ba69fb9462" kindref="member">size_type</ref></type>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="421" column="10" bodyfile="external/toml/comments.hpp" bodystart="421" bodyend="421"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a364056118aae025b1afa0fd704a12854" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void toml::discard_comments::shrink_to_fit</definition>
+        <argsstring>()</argsstring>
+        <name>shrink_to_fit</name>
+        <qualifiedname>toml::discard_comments::shrink_to_fit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="422" column="10" bodyfile="external/toml/comments.hpp" bodystart="422" bodyend="422"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a094add2b8544cec13501aed3a9994a17" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1aaebf4059da8e84eabf6c1129e36f54c3" kindref="member">reference</ref></type>
+        <definition>reference toml::discard_comments::operator[]</definition>
+        <argsstring>(const size_type) noexcept</argsstring>
+        <name>operator[]</name>
+        <qualifiedname>toml::discard_comments::operator[]</qualifiedname>
+        <param>
+          <type>const</type>
+          <declname>size_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="428" column="21" bodyfile="external/toml/comments.hpp" bodystart="428" bodyend="428"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a8c2d6626f4efa7f488a28e13ad717c98" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a0333a4066d6853fe0f3b62c5bfc300ce" kindref="member">const_reference</ref></type>
+        <definition>const_reference toml::discard_comments::operator[]</definition>
+        <argsstring>(const size_type) const noexcept</argsstring>
+        <name>operator[]</name>
+        <qualifiedname>toml::discard_comments::operator[]</qualifiedname>
+        <param>
+          <type>const</type>
+          <declname>size_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="429" column="21" bodyfile="external/toml/comments.hpp" bodystart="429" bodyend="429"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a7baa29b39d1960a392cb71ec4ecbdb49" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1aaebf4059da8e84eabf6c1129e36f54c3" kindref="member">reference</ref></type>
+        <definition>reference toml::discard_comments::at</definition>
+        <argsstring>(const size_type)</argsstring>
+        <name>at</name>
+        <qualifiedname>toml::discard_comments::at</qualifiedname>
+        <param>
+          <type>const</type>
+          <declname>size_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="430" column="21" bodyfile="external/toml/comments.hpp" bodystart="430" bodyend="430"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a4f615bfca432e0389630b7ddb0142957" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a0333a4066d6853fe0f3b62c5bfc300ce" kindref="member">const_reference</ref></type>
+        <definition>const_reference toml::discard_comments::at</definition>
+        <argsstring>(const size_type) const</argsstring>
+        <name>at</name>
+        <qualifiedname>toml::discard_comments::at</qualifiedname>
+        <param>
+          <type>const</type>
+          <declname>size_type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="431" column="21" bodyfile="external/toml/comments.hpp" bodystart="431" bodyend="431"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1affec86e3c4720f176e1fb3769c58a9da" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1aaebf4059da8e84eabf6c1129e36f54c3" kindref="member">reference</ref></type>
+        <definition>reference toml::discard_comments::front</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>front</name>
+        <qualifiedname>toml::discard_comments::front</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="432" column="21" bodyfile="external/toml/comments.hpp" bodystart="432" bodyend="432"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a3ff5b4d3b124970303e54e605e314e8f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a0333a4066d6853fe0f3b62c5bfc300ce" kindref="member">const_reference</ref></type>
+        <definition>const_reference toml::discard_comments::front</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>front</name>
+        <qualifiedname>toml::discard_comments::front</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="433" column="21" bodyfile="external/toml/comments.hpp" bodystart="433" bodyend="433"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a93482ee700acdac84cc90363b83fa79d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1aaebf4059da8e84eabf6c1129e36f54c3" kindref="member">reference</ref></type>
+        <definition>reference toml::discard_comments::back</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>back</name>
+        <qualifiedname>toml::discard_comments::back</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="434" column="21" bodyfile="external/toml/comments.hpp" bodystart="434" bodyend="434"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a4308122f4784ad30322e47e5e909e157" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a0333a4066d6853fe0f3b62c5bfc300ce" kindref="member">const_reference</ref></type>
+        <definition>const_reference toml::discard_comments::back</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>back</name>
+        <qualifiedname>toml::discard_comments::back</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="435" column="21" bodyfile="external/toml/comments.hpp" bodystart="435" bodyend="435"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a95f0e294de7e0116e589b0decc4ca96d" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1ab86fa50599b11437a54243bb84370ae0" kindref="member">pointer</ref></type>
+        <definition>pointer toml::discard_comments::data</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>data</name>
+        <qualifiedname>toml::discard_comments::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="437" column="21" bodyfile="external/toml/comments.hpp" bodystart="437" bodyend="437"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1afb30e4a2bb7e616e8dd8ba2a097899dd" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1af10fea60bfc0bb44af3bc4cb0677067d" kindref="member">const_pointer</ref></type>
+        <definition>const_pointer toml::discard_comments::data</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>data</name>
+        <qualifiedname>toml::discard_comments::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="438" column="21" bodyfile="external/toml/comments.hpp" bodystart="438" bodyend="438"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a9f6d7dfdcc0e670b633b832eccd77e2a" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a34d9175c22073985c7e973f4ea4dd31b" kindref="member">iterator</ref></type>
+        <definition>iterator toml::discard_comments::begin</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>begin</name>
+        <qualifiedname>toml::discard_comments::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="440" column="20" bodyfile="external/toml/comments.hpp" bodystart="440" bodyend="440"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a7f45f81179c1702e12b759ce2de818cc" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a34d9175c22073985c7e973f4ea4dd31b" kindref="member">iterator</ref></type>
+        <definition>iterator toml::discard_comments::end</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>end</name>
+        <qualifiedname>toml::discard_comments::end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="441" column="20" bodyfile="external/toml/comments.hpp" bodystart="441" bodyend="441"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a941831a98a8dce7bdf8600e73942683f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1ae93cfb7b2ffd2128694971bbd0ef5b31" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator toml::discard_comments::begin</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>begin</name>
+        <qualifiedname>toml::discard_comments::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="442" column="20" bodyfile="external/toml/comments.hpp" bodystart="442" bodyend="442"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1abddcba08307e3047710ae02dbb8e5dd9" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1ae93cfb7b2ffd2128694971bbd0ef5b31" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator toml::discard_comments::end</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>end</name>
+        <qualifiedname>toml::discard_comments::end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="443" column="20" bodyfile="external/toml/comments.hpp" bodystart="443" bodyend="443"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a965ecbc676ffb7e8130c5b82ea0a2380" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1ae93cfb7b2ffd2128694971bbd0ef5b31" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator toml::discard_comments::cbegin</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>cbegin</name>
+        <qualifiedname>toml::discard_comments::cbegin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="444" column="20" bodyfile="external/toml/comments.hpp" bodystart="444" bodyend="444"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a7e307d3097df07ed2dc219f50bdeeba7" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1ae93cfb7b2ffd2128694971bbd0ef5b31" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator toml::discard_comments::cend</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>cend</name>
+        <qualifiedname>toml::discard_comments::cend</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="445" column="20" bodyfile="external/toml/comments.hpp" bodystart="445" bodyend="445"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a8363d829cd239f5c56c87c492bf85bd3" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a6bf4623f402c7cab2f9d7d19825f10bd" kindref="member">reverse_iterator</ref></type>
+        <definition>reverse_iterator toml::discard_comments::rbegin</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>rbegin</name>
+        <qualifiedname>toml::discard_comments::rbegin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="447" column="28" bodyfile="external/toml/comments.hpp" bodystart="447" bodyend="447"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a94e7560f7d1247536689b9f89f239eb5" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a6bf4623f402c7cab2f9d7d19825f10bd" kindref="member">reverse_iterator</ref></type>
+        <definition>reverse_iterator toml::discard_comments::rend</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>rend</name>
+        <qualifiedname>toml::discard_comments::rend</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="448" column="28" bodyfile="external/toml/comments.hpp" bodystart="448" bodyend="448"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1ac2eb159f70facf530e774608c41af354" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a633f05c319d929cb1962affca100200e" kindref="member">const_reverse_iterator</ref></type>
+        <definition>const_reverse_iterator toml::discard_comments::rbegin</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>rbegin</name>
+        <qualifiedname>toml::discard_comments::rbegin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="449" column="28" bodyfile="external/toml/comments.hpp" bodystart="449" bodyend="449"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a26333b47ad4a3a0b34fd9ab217dc913c" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a633f05c319d929cb1962affca100200e" kindref="member">const_reverse_iterator</ref></type>
+        <definition>const_reverse_iterator toml::discard_comments::rend</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>rend</name>
+        <qualifiedname>toml::discard_comments::rend</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="450" column="28" bodyfile="external/toml/comments.hpp" bodystart="450" bodyend="450"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a1a0c08e19a02cbda17c8de758843877d" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a633f05c319d929cb1962affca100200e" kindref="member">const_reverse_iterator</ref></type>
+        <definition>const_reverse_iterator toml::discard_comments::crbegin</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>crbegin</name>
+        <qualifiedname>toml::discard_comments::crbegin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="451" column="28" bodyfile="external/toml/comments.hpp" bodystart="451" bodyend="451"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1discard__comments_1a5ceb534f93a634f8121462949976777b" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1discard__comments_1a633f05c319d929cb1962affca100200e" kindref="member">const_reverse_iterator</ref></type>
+        <definition>const_reverse_iterator toml::discard_comments::crend</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>crend</name>
+        <qualifiedname>toml::discard_comments::crend</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/comments.hpp" line="452" column="28" bodyfile="external/toml/comments.hpp" bodystart="452" bodyend="452"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/comments.hpp" line="352" column="1" bodyfile="external/toml/comments.hpp" bodystart="353" bodyend="453"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1discard__comments_1a87c511fb659ee1454dffd0f96631a3f8" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>assign</name></member>
+      <member refid="structtoml_1_1discard__comments_1ae2a8e8b7acc25bb5dfcdb467e5492676" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>assign</name></member>
+      <member refid="structtoml_1_1discard__comments_1a8167e1820abb50574544836643f93a04" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>assign</name></member>
+      <member refid="structtoml_1_1discard__comments_1a7baa29b39d1960a392cb71ec4ecbdb49" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>at</name></member>
+      <member refid="structtoml_1_1discard__comments_1a4f615bfca432e0389630b7ddb0142957" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>at</name></member>
+      <member refid="structtoml_1_1discard__comments_1a93482ee700acdac84cc90363b83fa79d" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>back</name></member>
+      <member refid="structtoml_1_1discard__comments_1a4308122f4784ad30322e47e5e909e157" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>back</name></member>
+      <member refid="structtoml_1_1discard__comments_1a9f6d7dfdcc0e670b633b832eccd77e2a" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>begin</name></member>
+      <member refid="structtoml_1_1discard__comments_1a941831a98a8dce7bdf8600e73942683f" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>begin</name></member>
+      <member refid="structtoml_1_1discard__comments_1a8714b45fd25f7740a1e791d94ff8645d" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>capacity</name></member>
+      <member refid="structtoml_1_1discard__comments_1a965ecbc676ffb7e8130c5b82ea0a2380" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>cbegin</name></member>
+      <member refid="structtoml_1_1discard__comments_1a7e307d3097df07ed2dc219f50bdeeba7" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>cend</name></member>
+      <member refid="structtoml_1_1discard__comments_1aba10675773e02669c1c323006ab0a39e" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>clear</name></member>
+      <member refid="structtoml_1_1discard__comments_1ae93cfb7b2ffd2128694971bbd0ef5b31" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>const_iterator</name></member>
+      <member refid="structtoml_1_1discard__comments_1af10fea60bfc0bb44af3bc4cb0677067d" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>const_pointer</name></member>
+      <member refid="structtoml_1_1discard__comments_1a0333a4066d6853fe0f3b62c5bfc300ce" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>const_reference</name></member>
+      <member refid="structtoml_1_1discard__comments_1a633f05c319d929cb1962affca100200e" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>const_reverse_iterator</name></member>
+      <member refid="structtoml_1_1discard__comments_1a1a0c08e19a02cbda17c8de758843877d" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>crbegin</name></member>
+      <member refid="structtoml_1_1discard__comments_1a5ceb534f93a634f8121462949976777b" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>crend</name></member>
+      <member refid="structtoml_1_1discard__comments_1a95f0e294de7e0116e589b0decc4ca96d" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>data</name></member>
+      <member refid="structtoml_1_1discard__comments_1afb30e4a2bb7e616e8dd8ba2a097899dd" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>data</name></member>
+      <member refid="structtoml_1_1discard__comments_1ace384cea962939ee8daa86457e2b0177" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>difference_type</name></member>
+      <member refid="structtoml_1_1discard__comments_1a42663a637d1ab9bab824e9177d01beb0" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>discard_comments</name></member>
+      <member refid="structtoml_1_1discard__comments_1a4efeb706722ac083ad93c3762e06cb73" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>discard_comments</name></member>
+      <member refid="structtoml_1_1discard__comments_1a221030bb500d414371e8c5795f1bb948" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>discard_comments</name></member>
+      <member refid="structtoml_1_1discard__comments_1a33bd9ec9ac858c32968f4e3ac30c44d3" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>discard_comments</name></member>
+      <member refid="structtoml_1_1discard__comments_1a1cddf47097c920eaceac0b38b467207a" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>discard_comments</name></member>
+      <member refid="structtoml_1_1discard__comments_1af9f1d2a30636f723bcf912a41c7e0d0e" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>discard_comments</name></member>
+      <member refid="structtoml_1_1discard__comments_1ad66a95b8cb49d9455ae208317ed0f11d" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>discard_comments</name></member>
+      <member refid="structtoml_1_1discard__comments_1a6ee1d03607a11fc31837661b6f20e54a" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>discard_comments</name></member>
+      <member refid="structtoml_1_1discard__comments_1a2f6188656c0f15bb37fef9f023b59705" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>discard_comments</name></member>
+      <member refid="structtoml_1_1discard__comments_1ae26136d55e7129e9bdabaf04c8bd4c1f" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>discard_comments</name></member>
+      <member refid="structtoml_1_1discard__comments_1adcab0832a954d33ef1faf3991aad7f9c" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>emplace</name></member>
+      <member refid="structtoml_1_1discard__comments_1ae3cb0474333c677ad03cfc2adc5919f6" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>emplace_back</name></member>
+      <member refid="structtoml_1_1discard__comments_1a12fa292c8fd8a7669e666e957ab3b998" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>empty</name></member>
+      <member refid="structtoml_1_1discard__comments_1a7f45f81179c1702e12b759ce2de818cc" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>end</name></member>
+      <member refid="structtoml_1_1discard__comments_1abddcba08307e3047710ae02dbb8e5dd9" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>end</name></member>
+      <member refid="structtoml_1_1discard__comments_1a11709634f00e1df4a8ac217f5ee8fcd7" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>erase</name></member>
+      <member refid="structtoml_1_1discard__comments_1aae028ac78ca649ca71783f342a76bd75" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>erase</name></member>
+      <member refid="structtoml_1_1discard__comments_1affec86e3c4720f176e1fb3769c58a9da" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>front</name></member>
+      <member refid="structtoml_1_1discard__comments_1a3ff5b4d3b124970303e54e605e314e8f" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>front</name></member>
+      <member refid="structtoml_1_1discard__comments_1ab32391def59713e7e99517c3d07ab60a" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>insert</name></member>
+      <member refid="structtoml_1_1discard__comments_1ad868e3c5d73b970a037d19b06ce374f2" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>insert</name></member>
+      <member refid="structtoml_1_1discard__comments_1a89e16a0e5ad65ef56df2334417b89baa" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>insert</name></member>
+      <member refid="structtoml_1_1discard__comments_1af0bc07b4d771c436258270971593fb43" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>insert</name></member>
+      <member refid="structtoml_1_1discard__comments_1a8d18a7114f93b4484f50e246d0ab5cc3" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>insert</name></member>
+      <member refid="structtoml_1_1discard__comments_1a34d9175c22073985c7e973f4ea4dd31b" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>iterator</name></member>
+      <member refid="structtoml_1_1discard__comments_1a02805c0e2a42eaff92adb3e862133308" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>max_size</name></member>
+      <member refid="structtoml_1_1discard__comments_1a363af56d64004b9c763a94fe93436e82" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1discard__comments_1aa4de88dab919efdf9d88155e187dbaea" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1discard__comments_1a9f39751a26bc84ebba27c2c96f363a2d" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1discard__comments_1a981d88263764f923214a337c097f2ea1" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1discard__comments_1a094add2b8544cec13501aed3a9994a17" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>operator[]</name></member>
+      <member refid="structtoml_1_1discard__comments_1a8c2d6626f4efa7f488a28e13ad717c98" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>operator[]</name></member>
+      <member refid="structtoml_1_1discard__comments_1ab86fa50599b11437a54243bb84370ae0" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>pointer</name></member>
+      <member refid="structtoml_1_1discard__comments_1ad4cd1784382bb79f7c767adc3a72a044" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>pop_back</name></member>
+      <member refid="structtoml_1_1discard__comments_1ada1fe49d35200627884297734121b71e" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>push_back</name></member>
+      <member refid="structtoml_1_1discard__comments_1a73930f5a3618c5f8903647c9446966ff" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>push_back</name></member>
+      <member refid="structtoml_1_1discard__comments_1a8363d829cd239f5c56c87c492bf85bd3" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>rbegin</name></member>
+      <member refid="structtoml_1_1discard__comments_1ac2eb159f70facf530e774608c41af354" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>rbegin</name></member>
+      <member refid="structtoml_1_1discard__comments_1aaebf4059da8e84eabf6c1129e36f54c3" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>reference</name></member>
+      <member refid="structtoml_1_1discard__comments_1a94e7560f7d1247536689b9f89f239eb5" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>rend</name></member>
+      <member refid="structtoml_1_1discard__comments_1a26333b47ad4a3a0b34fd9ab217dc913c" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>rend</name></member>
+      <member refid="structtoml_1_1discard__comments_1a6b0551510cbd487e6ad283fbb7b27f99" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>reserve</name></member>
+      <member refid="structtoml_1_1discard__comments_1a09c3d6f96f89ee0ad2e74a05fa9c25f7" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>resize</name></member>
+      <member refid="structtoml_1_1discard__comments_1a6be3907c469b84d9d2fa532a3a5d2c01" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>resize</name></member>
+      <member refid="structtoml_1_1discard__comments_1a6bf4623f402c7cab2f9d7d19825f10bd" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>reverse_iterator</name></member>
+      <member refid="structtoml_1_1discard__comments_1a364056118aae025b1afa0fd704a12854" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>shrink_to_fit</name></member>
+      <member refid="structtoml_1_1discard__comments_1a3a3382348b3bd1fb1f2d6574960a8001" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>size</name></member>
+      <member refid="structtoml_1_1discard__comments_1a56ea098784a9d1e3a9ecb8ba69fb9462" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>size_type</name></member>
+      <member refid="structtoml_1_1discard__comments_1aebeadd8a52403f084105bc1a70420453" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>swap</name></member>
+      <member refid="structtoml_1_1discard__comments_1a2c2e958054df31f5997f2fc43c829fb0" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>value_type</name></member>
+      <member refid="structtoml_1_1discard__comments_1ab86cf5cd7850df0a111cc1c4b3429741" prot="public" virt="non-virtual"><scope>toml::discard_comments</scope><name>~discard_comments</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

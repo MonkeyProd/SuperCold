@@ -1,0 +1,637 @@
+\hypertarget{datetime_8hpp_source}{}\doxysection{datetime.\+hpp}
+\label{datetime_8hpp_source}\index{external/toml/datetime.hpp@{external/toml/datetime.hpp}}
+\mbox{\hyperlink{datetime_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//     Copyright Toru Niina 2017.}}
+\DoxyCodeLine{2 \textcolor{comment}{// Distributed under the MIT License.}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifndef TOML11\_DATETIME\_HPP}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TOML11\_DATETIME\_HPP}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <ctime>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <array>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <chrono>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <ostream>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <tuple>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetoml}{toml}}}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{comment}{// To avoid non-\/threadsafe std::localtime. In C11 (not C++11!), localtime\_s is}}
+\DoxyCodeLine{19 \textcolor{comment}{// provided in the absolutely same purpose, but C++11 is actually not compatible}}
+\DoxyCodeLine{20 \textcolor{comment}{// with C11. We need to dispatch the function depending on the OS.}}
+\DoxyCodeLine{21 \textcolor{keyword}{namespace }detail}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23 \textcolor{comment}{// TODO: find more sophisticated way to handle this}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#if defined(\_MSC\_VER)}}
+\DoxyCodeLine{25 \textcolor{keyword}{inline} std::tm \mbox{\hyperlink{namespacetoml_1_1detail_ac375736027ae3facd603380d3e9e54c7}{localtime\_s}}(\textcolor{keyword}{const} std::time\_t* src)}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27     std::tm dst;}
+\DoxyCodeLine{28     \textcolor{keyword}{const} \textcolor{keyword}{auto} result = \mbox{\hyperlink{namespacetoml_1_1detail_ac375736027ae3facd603380d3e9e54c7}{::localtime\_s}}(\&dst, src);}
+\DoxyCodeLine{29     \textcolor{keywordflow}{if} (result) \{ \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}localtime\_s failed."{}}); \}}
+\DoxyCodeLine{30     \textcolor{keywordflow}{return} dst;}
+\DoxyCodeLine{31 \}}
+\DoxyCodeLine{32 \textcolor{keyword}{inline} std::tm \mbox{\hyperlink{namespacetoml_1_1detail_a37112110ee75451aa3793f8b3b9be957}{gmtime\_s}}(\textcolor{keyword}{const} std::time\_t* src)}
+\DoxyCodeLine{33 \{}
+\DoxyCodeLine{34     std::tm dst;}
+\DoxyCodeLine{35     \textcolor{keyword}{const} \textcolor{keyword}{auto} result = \mbox{\hyperlink{namespacetoml_1_1detail_a37112110ee75451aa3793f8b3b9be957}{::gmtime\_s}}(\&dst, src);}
+\DoxyCodeLine{36     \textcolor{keywordflow}{if} (result) \{ \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}gmtime\_s failed."{}}); \}}
+\DoxyCodeLine{37     \textcolor{keywordflow}{return} dst;}
+\DoxyCodeLine{38 \}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#elif (defined(\_POSIX\_C\_SOURCE) \&\& \_POSIX\_C\_SOURCE >= 1) || defined(\_XOPEN\_SOURCE) || defined(\_BSD\_SOURCE) || defined(\_SVID\_SOURCE) || defined(\_POSIX\_SOURCE)}}
+\DoxyCodeLine{40 \textcolor{keyword}{inline} std::tm \mbox{\hyperlink{namespacetoml_1_1detail_ac375736027ae3facd603380d3e9e54c7}{localtime\_s}}(\textcolor{keyword}{const} std::time\_t* src)}
+\DoxyCodeLine{41 \{}
+\DoxyCodeLine{42     std::tm dst;}
+\DoxyCodeLine{43     \textcolor{keyword}{const} \textcolor{keyword}{auto} result = ::localtime\_r(src, \&dst);}
+\DoxyCodeLine{44     \textcolor{keywordflow}{if} (!result) \{ \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}localtime\_r failed."{}}); \}}
+\DoxyCodeLine{45     \textcolor{keywordflow}{return} dst;}
+\DoxyCodeLine{46 \}}
+\DoxyCodeLine{47 \textcolor{keyword}{inline} std::tm \mbox{\hyperlink{namespacetoml_1_1detail_a37112110ee75451aa3793f8b3b9be957}{gmtime\_s}}(\textcolor{keyword}{const} std::time\_t* src)}
+\DoxyCodeLine{48 \{}
+\DoxyCodeLine{49     std::tm dst;}
+\DoxyCodeLine{50     \textcolor{keyword}{const} \textcolor{keyword}{auto} result = ::gmtime\_r(src, \&dst);}
+\DoxyCodeLine{51     \textcolor{keywordflow}{if} (!result) \{ \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}gmtime\_r failed."{}}); \}}
+\DoxyCodeLine{52     \textcolor{keywordflow}{return} dst;}
+\DoxyCodeLine{53 \}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#else }\textcolor{comment}{// fallback. not threadsafe}}
+\DoxyCodeLine{55 \textcolor{keyword}{inline} std::tm \mbox{\hyperlink{namespacetoml_1_1detail_ac375736027ae3facd603380d3e9e54c7}{localtime\_s}}(\textcolor{keyword}{const} std::time\_t* src)}
+\DoxyCodeLine{56 \{}
+\DoxyCodeLine{57     \textcolor{keyword}{const} \textcolor{keyword}{auto} \mbox{\hyperlink{structtoml_1_1result}{result}} = std::localtime(src);}
+\DoxyCodeLine{58     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{structtoml_1_1result}{result}}) \{ \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}localtime failed."{}}); \}}
+\DoxyCodeLine{59     \textcolor{keywordflow}{return} *\mbox{\hyperlink{structtoml_1_1result}{result}};}
+\DoxyCodeLine{60 \}}
+\DoxyCodeLine{61 \textcolor{keyword}{inline} std::tm \mbox{\hyperlink{namespacetoml_1_1detail_a37112110ee75451aa3793f8b3b9be957}{gmtime\_s}}(\textcolor{keyword}{const} std::time\_t* src)}
+\DoxyCodeLine{62 \{}
+\DoxyCodeLine{63     \textcolor{keyword}{const} \textcolor{keyword}{auto} \mbox{\hyperlink{structtoml_1_1result}{result}} = std::gmtime(src);}
+\DoxyCodeLine{64     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{structtoml_1_1result}{result}}) \{ \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}gmtime failed."{}}); \}}
+\DoxyCodeLine{65     \textcolor{keywordflow}{return} *\mbox{\hyperlink{structtoml_1_1result}{result}};}
+\DoxyCodeLine{66 \}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{68 \} \textcolor{comment}{// detail}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{keyword}{enum class} \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5}{month\_t}} : std::uint8\_t}
+\DoxyCodeLine{71 \{}
+\DoxyCodeLine{72     \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5ae68564f23e0e939acea76dc3d2bc01bf}{Jan}} =  0,}
+\DoxyCodeLine{73     \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5aea171d540ccd5f0669171ef06d3cd848}{Feb}} =  1,}
+\DoxyCodeLine{74     \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5a7ce6b2286a5396e614b8484105d277e0}{Mar}} =  2,}
+\DoxyCodeLine{75     \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5a6d7215c4b3bc4716d026ac46c6d9ae64}{Apr}} =  3,}
+\DoxyCodeLine{76     \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5a195fbb57ffe7449796d23466085ce6d8}{May}} =  4,}
+\DoxyCodeLine{77     \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5aeb4b40c1221dad5b23fe7ef84d292be1}{Jun}} =  5,}
+\DoxyCodeLine{78     \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5aa2866cd6efaa65c92278d4771a9eaec7}{Jul}} =  6,}
+\DoxyCodeLine{79     \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5a22f1a4667604b8557c9b209c201b4bc6}{Aug}} =  7,}
+\DoxyCodeLine{80     \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5af04aa7019c490474fa3ce16e93501b57}{Sep}} =  8,}
+\DoxyCodeLine{81     \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5a594be08882c8e9d5efb9eeb62f303744}{Oct}} =  9,}
+\DoxyCodeLine{82     \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5a343e6957be77c6247aa2b8d0deb68bd6}{Nov}} = 10,}
+\DoxyCodeLine{83     \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5ad207b4e0bce42a8f1555ce3a05e287f6}{Dec}} = 11}
+\DoxyCodeLine{84 \};}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}}
+\DoxyCodeLine{87 \{}
+\DoxyCodeLine{88     std::int16\_t \mbox{\hyperlink{structtoml_1_1local__date_a14d9c1cd86cb25b2141b9a7d64f68d6f}{year}};   \textcolor{comment}{// A.D. (like, 2018)}}
+\DoxyCodeLine{89     std::uint8\_t \mbox{\hyperlink{structtoml_1_1local__date_a5f31fcbf4188bc94d8ba6f46a8a8fd54}{month}};  \textcolor{comment}{// [0, 11]}}
+\DoxyCodeLine{90     std::uint8\_t \mbox{\hyperlink{structtoml_1_1local__date_a0ea8f1fdf2edf762a0c1d7eb9367f6e5}{day}};    \textcolor{comment}{// [1, 31]}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \mbox{\hyperlink{structtoml_1_1local__date_a4f2db66b6d12432f41de1d277007995c}{local\_date}}(\textcolor{keywordtype}{int} y, \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5}{month\_t}} m, \textcolor{keywordtype}{int} d)}
+\DoxyCodeLine{93         : \mbox{\hyperlink{structtoml_1_1local__date_a14d9c1cd86cb25b2141b9a7d64f68d6f}{year}} (static\_cast<std::int16\_t>(y)),}
+\DoxyCodeLine{94           \mbox{\hyperlink{structtoml_1_1local__date_a5f31fcbf4188bc94d8ba6f46a8a8fd54}{month}}(static\_cast<std::uint8\_t>(m)),}
+\DoxyCodeLine{95           \mbox{\hyperlink{structtoml_1_1local__date_a0ea8f1fdf2edf762a0c1d7eb9367f6e5}{day}}  (static\_cast<std::uint8\_t>(d))}
+\DoxyCodeLine{96     \{\}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1local__date_adf08c8069e3f6161c07878c205169387}{local\_date}}(\textcolor{keyword}{const} std::tm\& t)}
+\DoxyCodeLine{99         : \mbox{\hyperlink{structtoml_1_1local__date_a14d9c1cd86cb25b2141b9a7d64f68d6f}{year}} (static\_cast<std::int16\_t>(t.tm\_year + 1900)),}
+\DoxyCodeLine{100           \mbox{\hyperlink{structtoml_1_1local__date_a5f31fcbf4188bc94d8ba6f46a8a8fd54}{month}}(static\_cast<std::uint8\_t>(t.tm\_mon)),}
+\DoxyCodeLine{101           \mbox{\hyperlink{structtoml_1_1local__date_a0ea8f1fdf2edf762a0c1d7eb9367f6e5}{day}}  (static\_cast<std::uint8\_t>(t.tm\_mday))}
+\DoxyCodeLine{102     \{\}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1local__date_a6dab1481278ccbb8f5518f8e1194cb80}{local\_date}}(\textcolor{keyword}{const} std::chrono::system\_clock::time\_point\& tp)}
+\DoxyCodeLine{105     \{}
+\DoxyCodeLine{106         \textcolor{keyword}{const} \textcolor{keyword}{auto} t    = std::chrono::system\_clock::to\_time\_t(tp);}
+\DoxyCodeLine{107         \textcolor{keyword}{const} \textcolor{keyword}{auto} time = \mbox{\hyperlink{namespacetoml_1_1detail_ac375736027ae3facd603380d3e9e54c7}{detail::localtime\_s}}(\&t);}
+\DoxyCodeLine{108         *\textcolor{keyword}{this} = \mbox{\hyperlink{structtoml_1_1local__date_a2e3cbe768e77fdc1cd33376e7cf73d18}{local\_date}}(time);}
+\DoxyCodeLine{109     \}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1local__date_aa21d1fdf114386f9c2be3c1deacf16c9}{local\_date}}(\textcolor{keyword}{const} std::time\_t t)}
+\DoxyCodeLine{112         : \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}(std::chrono::system\_clock::from\_time\_t(t))}
+\DoxyCodeLine{113     \{\}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     \textcolor{keyword}{operator} std::chrono::system\_clock::time\_point()\textcolor{keyword}{ const}}
+\DoxyCodeLine{116 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{117         \textcolor{comment}{// std::mktime returns date as local time zone. no conversion needed}}
+\DoxyCodeLine{118         std::tm t;}
+\DoxyCodeLine{119         t.tm\_sec   = 0;}
+\DoxyCodeLine{120         t.tm\_min   = 0;}
+\DoxyCodeLine{121         t.tm\_hour  = 0;}
+\DoxyCodeLine{122         t.tm\_mday  = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(this-\/>\mbox{\hyperlink{structtoml_1_1local__date_a0ea8f1fdf2edf762a0c1d7eb9367f6e5}{day}});}
+\DoxyCodeLine{123         t.tm\_mon   = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(this-\/>\mbox{\hyperlink{structtoml_1_1local__date_a5f31fcbf4188bc94d8ba6f46a8a8fd54}{month}});}
+\DoxyCodeLine{124         t.tm\_year  = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(this-\/>\mbox{\hyperlink{structtoml_1_1local__date_a14d9c1cd86cb25b2141b9a7d64f68d6f}{year}}) -\/ 1900;}
+\DoxyCodeLine{125         t.tm\_wday  = 0; \textcolor{comment}{// the value will be ignored}}
+\DoxyCodeLine{126         t.tm\_yday  = 0; \textcolor{comment}{// the value will be ignored}}
+\DoxyCodeLine{127         t.tm\_isdst = -\/1;}
+\DoxyCodeLine{128         \textcolor{keywordflow}{return} std::chrono::system\_clock::from\_time\_t(std::mktime(\&t));}
+\DoxyCodeLine{129     \}}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131     \textcolor{keyword}{operator} std::time\_t()\textcolor{keyword}{ const}}
+\DoxyCodeLine{132 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{133         \textcolor{keywordflow}{return} std::chrono::system\_clock::to\_time\_t(}
+\DoxyCodeLine{134                 std::chrono::system\_clock::time\_point(*\textcolor{keyword}{this}));}
+\DoxyCodeLine{135     \}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137     \mbox{\hyperlink{structtoml_1_1local__date_a2e3cbe768e77fdc1cd33376e7cf73d18}{local\_date}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{138     \mbox{\hyperlink{structtoml_1_1local__date_a76aae2bf788b6e2ebdb03662c481118f}{\string~local\_date}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{139     \mbox{\hyperlink{structtoml_1_1local__date_a299d492d159ad800b859f7c08bdfdffc}{local\_date}}(\mbox{\hyperlink{structtoml_1_1local__date}{local\_date}} \textcolor{keyword}{const}\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{140     \mbox{\hyperlink{structtoml_1_1local__date_a0b30581eeadbc9425c4e605ef4ba179e}{local\_date}}(\mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}\&\&)      = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{141     \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}\& \mbox{\hyperlink{structtoml_1_1local__date_a19b085abb791335b60a17bfa57b8b964}{operator=}}(\mbox{\hyperlink{structtoml_1_1local__date}{local\_date}} \textcolor{keyword}{const}\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{142     \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}\& \mbox{\hyperlink{structtoml_1_1local__date_a864832d5aa93ec5cc485e1b71cc7444b}{operator=}}(\mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}\&\&)      = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{143 \};}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_ae9ac58857cfdda9535ef98266b65304b}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}\& rhs)}
+\DoxyCodeLine{146 \{}
+\DoxyCodeLine{147     \textcolor{keywordflow}{return} std::make\_tuple(lhs.\mbox{\hyperlink{structtoml_1_1local__date_a14d9c1cd86cb25b2141b9a7d64f68d6f}{year}}, lhs.\mbox{\hyperlink{structtoml_1_1local__date_a5f31fcbf4188bc94d8ba6f46a8a8fd54}{month}}, lhs.\mbox{\hyperlink{structtoml_1_1local__date_a0ea8f1fdf2edf762a0c1d7eb9367f6e5}{day}}) ==}
+\DoxyCodeLine{148            std::make\_tuple(rhs.\mbox{\hyperlink{structtoml_1_1local__date_a14d9c1cd86cb25b2141b9a7d64f68d6f}{year}}, rhs.\mbox{\hyperlink{structtoml_1_1local__date_a5f31fcbf4188bc94d8ba6f46a8a8fd54}{month}}, rhs.\mbox{\hyperlink{structtoml_1_1local__date_a0ea8f1fdf2edf762a0c1d7eb9367f6e5}{day}});}
+\DoxyCodeLine{149 \}}
+\DoxyCodeLine{150 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a03e338a600f118cd5c5d3e7fee31f6c6}{operator!=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}\& rhs)}
+\DoxyCodeLine{151 \{}
+\DoxyCodeLine{152     \textcolor{keywordflow}{return} !(lhs == rhs);}
+\DoxyCodeLine{153 \}}
+\DoxyCodeLine{154 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_acbb3a32f389eaf9e5097d2b23df77b4e}{operator< }}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}\& rhs)}
+\DoxyCodeLine{155 \{}
+\DoxyCodeLine{156     \textcolor{keywordflow}{return} std::make\_tuple(lhs.\mbox{\hyperlink{structtoml_1_1local__date_a14d9c1cd86cb25b2141b9a7d64f68d6f}{year}}, lhs.\mbox{\hyperlink{structtoml_1_1local__date_a5f31fcbf4188bc94d8ba6f46a8a8fd54}{month}}, lhs.\mbox{\hyperlink{structtoml_1_1local__date_a0ea8f1fdf2edf762a0c1d7eb9367f6e5}{day}}) <}
+\DoxyCodeLine{157            std::make\_tuple(rhs.\mbox{\hyperlink{structtoml_1_1local__date_a14d9c1cd86cb25b2141b9a7d64f68d6f}{year}}, rhs.\mbox{\hyperlink{structtoml_1_1local__date_a5f31fcbf4188bc94d8ba6f46a8a8fd54}{month}}, rhs.\mbox{\hyperlink{structtoml_1_1local__date_a0ea8f1fdf2edf762a0c1d7eb9367f6e5}{day}});}
+\DoxyCodeLine{158 \}}
+\DoxyCodeLine{159 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a17f8791df6efda2a712efa14c334c33d}{operator<=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}\& rhs)}
+\DoxyCodeLine{160 \{}
+\DoxyCodeLine{161     \textcolor{keywordflow}{return} (lhs < rhs) || (lhs == rhs);}
+\DoxyCodeLine{162 \}}
+\DoxyCodeLine{163 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a993726b0c054cbf5b20674f14690d6ed}{operator> }}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}\& rhs)}
+\DoxyCodeLine{164 \{}
+\DoxyCodeLine{165     \textcolor{keywordflow}{return} !(lhs <= rhs);}
+\DoxyCodeLine{166 \}}
+\DoxyCodeLine{167 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a6b51fe3d00e083b549644d994bd547c7}{operator>=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}\& rhs)}
+\DoxyCodeLine{168 \{}
+\DoxyCodeLine{169     \textcolor{keywordflow}{return} !(lhs < rhs);}
+\DoxyCodeLine{170 \}}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172 \textcolor{keyword}{template}<\textcolor{keyword}{typename} \textcolor{keywordtype}{char}T, \textcolor{keyword}{typename} traits>}
+\DoxyCodeLine{173 std::basic\_ostream<charT, traits>\&}
+\DoxyCodeLine{174 \mbox{\hyperlink{namespacetoml_a11b17eff44b8e4b0b49c85cc34e241c7}{operator<<}}(std::basic\_ostream<charT, traits>\& os, \textcolor{keyword}{const} local\_date\& date)}
+\DoxyCodeLine{175 \{}
+\DoxyCodeLine{176     os << std::setfill('0') << std::setw(4) << static\_cast<int>(date.year )     << \textcolor{charliteral}{'-\/'};}
+\DoxyCodeLine{177     os << std::setfill('0') << std::setw(2) << static\_cast<int>(date.month) + 1 << \textcolor{charliteral}{'-\/'};}
+\DoxyCodeLine{178     os << std::setfill('0') << std::setw(2) << static\_cast<int>(date.day  )    ;}
+\DoxyCodeLine{179     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{180 \}}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}}
+\DoxyCodeLine{183 \{}
+\DoxyCodeLine{184     std::uint8\_t  \mbox{\hyperlink{structtoml_1_1local__time_a64d6774d20c6c5070cf25be976255838}{hour}};        \textcolor{comment}{// [0, 23]}}
+\DoxyCodeLine{185     std::uint8\_t  \mbox{\hyperlink{structtoml_1_1local__time_a72d8ddb60132940e69383e21668f1250}{minute}};      \textcolor{comment}{// [0, 59]}}
+\DoxyCodeLine{186     std::uint8\_t  \mbox{\hyperlink{structtoml_1_1local__time_a8fbc45c5e3f4406e115883169e813c15}{second}};      \textcolor{comment}{// [0, 60]}}
+\DoxyCodeLine{187     std::uint16\_t \mbox{\hyperlink{structtoml_1_1local__time_aa74932ceccf287bfaea3073e6f2b9291}{millisecond}}; \textcolor{comment}{// [0, 999]}}
+\DoxyCodeLine{188     std::uint16\_t \mbox{\hyperlink{structtoml_1_1local__time_a67662d3f6d54baea2fda9268e2b90845}{microsecond}}; \textcolor{comment}{// [0, 999]}}
+\DoxyCodeLine{189     std::uint16\_t \mbox{\hyperlink{structtoml_1_1local__time_a9bcf84d9eee020b6ce7d5c6fe335d0dc}{nanosecond}};  \textcolor{comment}{// [0, 999]}}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191     \mbox{\hyperlink{structtoml_1_1local__time_a609d0e68525d1a8ecabc716a9fdead89}{local\_time}}(\textcolor{keywordtype}{int} h, \textcolor{keywordtype}{int} m, \textcolor{keywordtype}{int} s,}
+\DoxyCodeLine{192                \textcolor{keywordtype}{int} ms = 0, \textcolor{keywordtype}{int} us = 0, \textcolor{keywordtype}{int} ns = 0)}
+\DoxyCodeLine{193         : \mbox{\hyperlink{structtoml_1_1local__time_a64d6774d20c6c5070cf25be976255838}{hour}}  (static\_cast<std::uint8\_t>(h)),}
+\DoxyCodeLine{194           \mbox{\hyperlink{structtoml_1_1local__time_a72d8ddb60132940e69383e21668f1250}{minute}}(static\_cast<std::uint8\_t>(m)),}
+\DoxyCodeLine{195           \mbox{\hyperlink{structtoml_1_1local__time_a8fbc45c5e3f4406e115883169e813c15}{second}}(static\_cast<std::uint8\_t>(s)),}
+\DoxyCodeLine{196           \mbox{\hyperlink{structtoml_1_1local__time_aa74932ceccf287bfaea3073e6f2b9291}{millisecond}}(static\_cast<std::uint16\_t>(ms)),}
+\DoxyCodeLine{197           \mbox{\hyperlink{structtoml_1_1local__time_a67662d3f6d54baea2fda9268e2b90845}{microsecond}}(static\_cast<std::uint16\_t>(us)),}
+\DoxyCodeLine{198           \mbox{\hyperlink{structtoml_1_1local__time_a9bcf84d9eee020b6ce7d5c6fe335d0dc}{nanosecond}} (static\_cast<std::uint16\_t>(ns))}
+\DoxyCodeLine{199     \{\}}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1local__time_a5b1e8becdabbb119cd41feec54a9480b}{local\_time}}(\textcolor{keyword}{const} std::tm\& t)}
+\DoxyCodeLine{202         : \mbox{\hyperlink{structtoml_1_1local__time_a64d6774d20c6c5070cf25be976255838}{hour}}  (static\_cast<std::uint8\_t>(t.tm\_hour)),}
+\DoxyCodeLine{203           \mbox{\hyperlink{structtoml_1_1local__time_a72d8ddb60132940e69383e21668f1250}{minute}}(static\_cast<std::uint8\_t>(t.tm\_min)),}
+\DoxyCodeLine{204           \mbox{\hyperlink{structtoml_1_1local__time_a8fbc45c5e3f4406e115883169e813c15}{second}}(static\_cast<std::uint8\_t>(t.tm\_sec)),}
+\DoxyCodeLine{205           \mbox{\hyperlink{structtoml_1_1local__time_aa74932ceccf287bfaea3073e6f2b9291}{millisecond}}(0), \mbox{\hyperlink{structtoml_1_1local__time_a67662d3f6d54baea2fda9268e2b90845}{microsecond}}(0), \mbox{\hyperlink{structtoml_1_1local__time_a9bcf84d9eee020b6ce7d5c6fe335d0dc}{nanosecond}}(0)}
+\DoxyCodeLine{206     \{\}}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Rep, \textcolor{keyword}{typename} Period>}
+\DoxyCodeLine{209     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1local__time_ad0b9703bddbddd6892da536355368c6e}{local\_time}}(\textcolor{keyword}{const} std::chrono::duration<Rep, Period>\& t)}
+\DoxyCodeLine{210     \{}
+\DoxyCodeLine{211         \textcolor{keyword}{const} \textcolor{keyword}{auto} h = std::chrono::duration\_cast<std::chrono::hours>(t);}
+\DoxyCodeLine{212         this-\/>hour = \textcolor{keyword}{static\_cast<}std::uint8\_t\textcolor{keyword}{>}(h.count());}
+\DoxyCodeLine{213         \textcolor{keyword}{const} \textcolor{keyword}{auto} t2 = t -\/ h;}
+\DoxyCodeLine{214         \textcolor{keyword}{const} \textcolor{keyword}{auto} m = std::chrono::duration\_cast<std::chrono::minutes>(t2);}
+\DoxyCodeLine{215         this-\/>minute = \textcolor{keyword}{static\_cast<}std::uint8\_t\textcolor{keyword}{>}(m.count());}
+\DoxyCodeLine{216         \textcolor{keyword}{const} \textcolor{keyword}{auto} t3 = t2 -\/ m;}
+\DoxyCodeLine{217         \textcolor{keyword}{const} \textcolor{keyword}{auto} s = std::chrono::duration\_cast<std::chrono::seconds>(t3);}
+\DoxyCodeLine{218         this-\/>second = \textcolor{keyword}{static\_cast<}std::uint8\_t\textcolor{keyword}{>}(s.count());}
+\DoxyCodeLine{219         \textcolor{keyword}{const} \textcolor{keyword}{auto} t4 = t3 -\/ s;}
+\DoxyCodeLine{220         \textcolor{keyword}{const} \textcolor{keyword}{auto} ms = std::chrono::duration\_cast<std::chrono::milliseconds>(t4);}
+\DoxyCodeLine{221         this-\/>millisecond = \textcolor{keyword}{static\_cast<}std::uint16\_t\textcolor{keyword}{>}(ms.count());}
+\DoxyCodeLine{222         \textcolor{keyword}{const} \textcolor{keyword}{auto} t5 = t4 -\/ ms;}
+\DoxyCodeLine{223         \textcolor{keyword}{const} \textcolor{keyword}{auto} us = std::chrono::duration\_cast<std::chrono::microseconds>(t5);}
+\DoxyCodeLine{224         this-\/>microsecond = \textcolor{keyword}{static\_cast<}std::uint16\_t\textcolor{keyword}{>}(us.count());}
+\DoxyCodeLine{225         \textcolor{keyword}{const} \textcolor{keyword}{auto} t6 = t5 -\/ us;}
+\DoxyCodeLine{226         \textcolor{keyword}{const} \textcolor{keyword}{auto} ns = std::chrono::duration\_cast<std::chrono::nanoseconds>(t6);}
+\DoxyCodeLine{227         this-\/>nanosecond = \textcolor{keyword}{static\_cast<}std::uint16\_t\textcolor{keyword}{>}(ns.count());}
+\DoxyCodeLine{228     \}}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230     \textcolor{keyword}{operator} std::chrono::nanoseconds()\textcolor{keyword}{ const}}
+\DoxyCodeLine{231 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{232         \textcolor{keywordflow}{return} std::chrono::nanoseconds (this-\/>nanosecond)  +}
+\DoxyCodeLine{233                std::chrono::microseconds(this-\/>microsecond) +}
+\DoxyCodeLine{234                std::chrono::milliseconds(this-\/>millisecond) +}
+\DoxyCodeLine{235                std::chrono::seconds(this-\/>second) +}
+\DoxyCodeLine{236                std::chrono::minutes(this-\/>minute) +}
+\DoxyCodeLine{237                std::chrono::hours(this-\/>hour);}
+\DoxyCodeLine{238     \}}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240     \mbox{\hyperlink{structtoml_1_1local__time_a5c6bd161bd1033dbbbe765c20d5c0aea}{local\_time}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{241     \mbox{\hyperlink{structtoml_1_1local__time_a80303ca380fb1bedeff8c5dabb1fdfe3}{\string~local\_time}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{242     \mbox{\hyperlink{structtoml_1_1local__time_abf404543324c69fded36970396982b31}{local\_time}}(\mbox{\hyperlink{structtoml_1_1local__time}{local\_time}} \textcolor{keyword}{const}\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{243     \mbox{\hyperlink{structtoml_1_1local__time_a787550ac9a80245a80e7e10fff886bfa}{local\_time}}(\mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}\&\&)      = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{244     \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}\& \mbox{\hyperlink{structtoml_1_1local__time_a23fa88afe4ff13b01827f7b2db14709f}{operator=}}(\mbox{\hyperlink{structtoml_1_1local__time}{local\_time}} \textcolor{keyword}{const}\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{245     \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}\& \mbox{\hyperlink{structtoml_1_1local__time_a6568ebe390d338d1cd8d2fe1670643a8}{operator=}}(\mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}\&\&)      = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{246 \};}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_ae9ac58857cfdda9535ef98266b65304b}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}\& rhs)}
+\DoxyCodeLine{249 \{}
+\DoxyCodeLine{250     \textcolor{keywordflow}{return} std::make\_tuple(lhs.\mbox{\hyperlink{structtoml_1_1local__time_a64d6774d20c6c5070cf25be976255838}{hour}}, lhs.\mbox{\hyperlink{structtoml_1_1local__time_a72d8ddb60132940e69383e21668f1250}{minute}}, lhs.\mbox{\hyperlink{structtoml_1_1local__time_a8fbc45c5e3f4406e115883169e813c15}{second}}, lhs.\mbox{\hyperlink{structtoml_1_1local__time_aa74932ceccf287bfaea3073e6f2b9291}{millisecond}}, lhs.\mbox{\hyperlink{structtoml_1_1local__time_a67662d3f6d54baea2fda9268e2b90845}{microsecond}}, lhs.\mbox{\hyperlink{structtoml_1_1local__time_a9bcf84d9eee020b6ce7d5c6fe335d0dc}{nanosecond}}) ==}
+\DoxyCodeLine{251            std::make\_tuple(rhs.\mbox{\hyperlink{structtoml_1_1local__time_a64d6774d20c6c5070cf25be976255838}{hour}}, rhs.\mbox{\hyperlink{structtoml_1_1local__time_a72d8ddb60132940e69383e21668f1250}{minute}}, rhs.\mbox{\hyperlink{structtoml_1_1local__time_a8fbc45c5e3f4406e115883169e813c15}{second}}, rhs.\mbox{\hyperlink{structtoml_1_1local__time_aa74932ceccf287bfaea3073e6f2b9291}{millisecond}}, rhs.\mbox{\hyperlink{structtoml_1_1local__time_a67662d3f6d54baea2fda9268e2b90845}{microsecond}}, rhs.\mbox{\hyperlink{structtoml_1_1local__time_a9bcf84d9eee020b6ce7d5c6fe335d0dc}{nanosecond}});}
+\DoxyCodeLine{252 \}}
+\DoxyCodeLine{253 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a03e338a600f118cd5c5d3e7fee31f6c6}{operator!=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}\& rhs)}
+\DoxyCodeLine{254 \{}
+\DoxyCodeLine{255     \textcolor{keywordflow}{return} !(lhs == rhs);}
+\DoxyCodeLine{256 \}}
+\DoxyCodeLine{257 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_acbb3a32f389eaf9e5097d2b23df77b4e}{operator< }}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}\& rhs)}
+\DoxyCodeLine{258 \{}
+\DoxyCodeLine{259     \textcolor{keywordflow}{return} std::make\_tuple(lhs.\mbox{\hyperlink{structtoml_1_1local__time_a64d6774d20c6c5070cf25be976255838}{hour}}, lhs.\mbox{\hyperlink{structtoml_1_1local__time_a72d8ddb60132940e69383e21668f1250}{minute}}, lhs.\mbox{\hyperlink{structtoml_1_1local__time_a8fbc45c5e3f4406e115883169e813c15}{second}}, lhs.\mbox{\hyperlink{structtoml_1_1local__time_aa74932ceccf287bfaea3073e6f2b9291}{millisecond}}, lhs.\mbox{\hyperlink{structtoml_1_1local__time_a67662d3f6d54baea2fda9268e2b90845}{microsecond}}, lhs.\mbox{\hyperlink{structtoml_1_1local__time_a9bcf84d9eee020b6ce7d5c6fe335d0dc}{nanosecond}}) <}
+\DoxyCodeLine{260            std::make\_tuple(rhs.\mbox{\hyperlink{structtoml_1_1local__time_a64d6774d20c6c5070cf25be976255838}{hour}}, rhs.\mbox{\hyperlink{structtoml_1_1local__time_a72d8ddb60132940e69383e21668f1250}{minute}}, rhs.\mbox{\hyperlink{structtoml_1_1local__time_a8fbc45c5e3f4406e115883169e813c15}{second}}, rhs.\mbox{\hyperlink{structtoml_1_1local__time_aa74932ceccf287bfaea3073e6f2b9291}{millisecond}}, rhs.\mbox{\hyperlink{structtoml_1_1local__time_a67662d3f6d54baea2fda9268e2b90845}{microsecond}}, rhs.\mbox{\hyperlink{structtoml_1_1local__time_a9bcf84d9eee020b6ce7d5c6fe335d0dc}{nanosecond}});}
+\DoxyCodeLine{261 \}}
+\DoxyCodeLine{262 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a17f8791df6efda2a712efa14c334c33d}{operator<=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}\& rhs)}
+\DoxyCodeLine{263 \{}
+\DoxyCodeLine{264     \textcolor{keywordflow}{return} (lhs < rhs) || (lhs == rhs);}
+\DoxyCodeLine{265 \}}
+\DoxyCodeLine{266 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a993726b0c054cbf5b20674f14690d6ed}{operator> }}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}\& rhs)}
+\DoxyCodeLine{267 \{}
+\DoxyCodeLine{268     \textcolor{keywordflow}{return} !(lhs <= rhs);}
+\DoxyCodeLine{269 \}}
+\DoxyCodeLine{270 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a6b51fe3d00e083b549644d994bd547c7}{operator>=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}\& rhs)}
+\DoxyCodeLine{271 \{}
+\DoxyCodeLine{272     \textcolor{keywordflow}{return} !(lhs < rhs);}
+\DoxyCodeLine{273 \}}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{275 \textcolor{keyword}{template}<\textcolor{keyword}{typename} \textcolor{keywordtype}{char}T, \textcolor{keyword}{typename} traits>}
+\DoxyCodeLine{276 std::basic\_ostream<charT, traits>\&}
+\DoxyCodeLine{277 \mbox{\hyperlink{namespacetoml_a11b17eff44b8e4b0b49c85cc34e241c7}{operator<<}}(std::basic\_ostream<charT, traits>\& os, \textcolor{keyword}{const} local\_time\& time)}
+\DoxyCodeLine{278 \{}
+\DoxyCodeLine{279     os << std::setfill('0') << std::setw(2) << static\_cast<int>(time.hour  ) << \textcolor{charliteral}{':'};}
+\DoxyCodeLine{280     os << std::setfill('0') << std::setw(2) << static\_cast<int>(time.minute) << \textcolor{charliteral}{':'};}
+\DoxyCodeLine{281     os << std::setfill('0') << std::setw(2) << static\_cast<int>(time.second);}
+\DoxyCodeLine{282     \textcolor{keywordflow}{if}(time.millisecond != 0 || time.microsecond != 0 || time.nanosecond != 0)}
+\DoxyCodeLine{283     \{}
+\DoxyCodeLine{284         os << \textcolor{charliteral}{'.'};}
+\DoxyCodeLine{285         os << std::setfill('0') << std::setw(3) << static\_cast<int>(time.millisecond);}
+\DoxyCodeLine{286         \textcolor{keywordflow}{if}(time.microsecond != 0 || time.nanosecond != 0)}
+\DoxyCodeLine{287         \{}
+\DoxyCodeLine{288             os << std::setfill('0') << std::setw(3) << static\_cast<int>(time.microsecond);}
+\DoxyCodeLine{289             \textcolor{keywordflow}{if}(time.nanosecond != 0)}
+\DoxyCodeLine{290             \{}
+\DoxyCodeLine{291                 os << std::setfill('0') << std::setw(3) << static\_cast<int>(time.nanosecond);}
+\DoxyCodeLine{292             \}}
+\DoxyCodeLine{293         \}}
+\DoxyCodeLine{294     \}}
+\DoxyCodeLine{295     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{296 \}}
+\DoxyCodeLine{297 }
+\DoxyCodeLine{298 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}}}
+\DoxyCodeLine{299 \{}
+\DoxyCodeLine{300     std::int8\_t \mbox{\hyperlink{structtoml_1_1time__offset_a557c47c1baa919af2fd0054564036bb3}{hour}};   \textcolor{comment}{// [-\/12, 12]}}
+\DoxyCodeLine{301     std::int8\_t \mbox{\hyperlink{structtoml_1_1time__offset_a616f18e4a925a97929dd1b412906c5a1}{minute}}; \textcolor{comment}{// [-\/59, 59]}}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{303     \mbox{\hyperlink{structtoml_1_1time__offset_afc93860b4f3c310cb10a58adeae1724a}{time\_offset}}(\textcolor{keywordtype}{int} h, \textcolor{keywordtype}{int} m)}
+\DoxyCodeLine{304         : \mbox{\hyperlink{structtoml_1_1time__offset_a557c47c1baa919af2fd0054564036bb3}{hour}}  (static\_cast<std::int8\_t>(h)),}
+\DoxyCodeLine{305           \mbox{\hyperlink{structtoml_1_1time__offset_a616f18e4a925a97929dd1b412906c5a1}{minute}}(static\_cast<std::int8\_t>(m))}
+\DoxyCodeLine{306     \{\}}
+\DoxyCodeLine{307 }
+\DoxyCodeLine{308     \textcolor{keyword}{operator} std::chrono::minutes()\textcolor{keyword}{ const}}
+\DoxyCodeLine{309 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{310         \textcolor{keywordflow}{return} std::chrono::minutes(this-\/>minute) +}
+\DoxyCodeLine{311                std::chrono::hours(this-\/>hour);}
+\DoxyCodeLine{312     \}}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{314     \mbox{\hyperlink{structtoml_1_1time__offset_a3489ef3aa2639009c247ec5cc00fe897}{time\_offset}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{315     \mbox{\hyperlink{structtoml_1_1time__offset_a3a942bf044542bdaaec3803507a49d48}{\string~time\_offset}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{316     \mbox{\hyperlink{structtoml_1_1time__offset_af6edd404924ab93bf2d3cda9a6a573cf}{time\_offset}}(\mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}} \textcolor{keyword}{const}\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{317     \mbox{\hyperlink{structtoml_1_1time__offset_aeed99533d8379569ebd0d15b96301fdc}{time\_offset}}(\mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}}\&\&)      = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{318     \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}}\& \mbox{\hyperlink{structtoml_1_1time__offset_acaec8ec2b5c8334ff7685c6486ebc193}{operator=}}(\mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}} \textcolor{keyword}{const}\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{319     \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}}\& \mbox{\hyperlink{structtoml_1_1time__offset_a9fa7b9e89bc9ef2f1c9825383dc1deda}{operator=}}(\mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}}\&\&)      = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{320 \};}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{322 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_ae9ac58857cfdda9535ef98266b65304b}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}}\& rhs)}
+\DoxyCodeLine{323 \{}
+\DoxyCodeLine{324     \textcolor{keywordflow}{return} std::make\_tuple(lhs.\mbox{\hyperlink{structtoml_1_1time__offset_a557c47c1baa919af2fd0054564036bb3}{hour}}, lhs.\mbox{\hyperlink{structtoml_1_1time__offset_a616f18e4a925a97929dd1b412906c5a1}{minute}}) ==}
+\DoxyCodeLine{325            std::make\_tuple(rhs.\mbox{\hyperlink{structtoml_1_1time__offset_a557c47c1baa919af2fd0054564036bb3}{hour}}, rhs.\mbox{\hyperlink{structtoml_1_1time__offset_a616f18e4a925a97929dd1b412906c5a1}{minute}});}
+\DoxyCodeLine{326 \}}
+\DoxyCodeLine{327 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a03e338a600f118cd5c5d3e7fee31f6c6}{operator!=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}}\& rhs)}
+\DoxyCodeLine{328 \{}
+\DoxyCodeLine{329     \textcolor{keywordflow}{return} !(lhs == rhs);}
+\DoxyCodeLine{330 \}}
+\DoxyCodeLine{331 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_acbb3a32f389eaf9e5097d2b23df77b4e}{operator< }}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}}\& rhs)}
+\DoxyCodeLine{332 \{}
+\DoxyCodeLine{333     \textcolor{keywordflow}{return} std::make\_tuple(lhs.\mbox{\hyperlink{structtoml_1_1time__offset_a557c47c1baa919af2fd0054564036bb3}{hour}}, lhs.\mbox{\hyperlink{structtoml_1_1time__offset_a616f18e4a925a97929dd1b412906c5a1}{minute}}) <}
+\DoxyCodeLine{334            std::make\_tuple(rhs.\mbox{\hyperlink{structtoml_1_1time__offset_a557c47c1baa919af2fd0054564036bb3}{hour}}, rhs.\mbox{\hyperlink{structtoml_1_1time__offset_a616f18e4a925a97929dd1b412906c5a1}{minute}});}
+\DoxyCodeLine{335 \}}
+\DoxyCodeLine{336 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a17f8791df6efda2a712efa14c334c33d}{operator<=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}}\& rhs)}
+\DoxyCodeLine{337 \{}
+\DoxyCodeLine{338     \textcolor{keywordflow}{return} (lhs < rhs) || (lhs == rhs);}
+\DoxyCodeLine{339 \}}
+\DoxyCodeLine{340 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a993726b0c054cbf5b20674f14690d6ed}{operator> }}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}}\& rhs)}
+\DoxyCodeLine{341 \{}
+\DoxyCodeLine{342     \textcolor{keywordflow}{return} !(lhs <= rhs);}
+\DoxyCodeLine{343 \}}
+\DoxyCodeLine{344 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a6b51fe3d00e083b549644d994bd547c7}{operator>=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}}\& rhs)}
+\DoxyCodeLine{345 \{}
+\DoxyCodeLine{346     \textcolor{keywordflow}{return} !(lhs < rhs);}
+\DoxyCodeLine{347 \}}
+\DoxyCodeLine{348 }
+\DoxyCodeLine{349 \textcolor{keyword}{template}<\textcolor{keyword}{typename} \textcolor{keywordtype}{char}T, \textcolor{keyword}{typename} traits>}
+\DoxyCodeLine{350 std::basic\_ostream<charT, traits>\&}
+\DoxyCodeLine{351 \mbox{\hyperlink{namespacetoml_a11b17eff44b8e4b0b49c85cc34e241c7}{operator<<}}(std::basic\_ostream<charT, traits>\& os, \textcolor{keyword}{const} time\_offset\& offset)}
+\DoxyCodeLine{352 \{}
+\DoxyCodeLine{353     \textcolor{keywordflow}{if}(offset.hour == 0 \&\& offset.minute == 0)}
+\DoxyCodeLine{354     \{}
+\DoxyCodeLine{355         os << \textcolor{charliteral}{'Z'};}
+\DoxyCodeLine{356         \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{357     \}}
+\DoxyCodeLine{358     \textcolor{keywordtype}{int} minute = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(offset.hour) * 60 + offset.minute;}
+\DoxyCodeLine{359     \textcolor{keywordflow}{if}(minute < 0)\{os << \textcolor{charliteral}{'-\/'}; minute = std::abs(minute);\} \textcolor{keywordflow}{else} \{os << \textcolor{charliteral}{'+'};\}}
+\DoxyCodeLine{360     os << std::setfill(\textcolor{charliteral}{'0'}) << std::setw(2) << minute / 60 << \textcolor{charliteral}{':'};}
+\DoxyCodeLine{361     os << std::setfill(\textcolor{charliteral}{'0'}) << std::setw(2) << minute \% 60;}
+\DoxyCodeLine{362     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{363 \}}
+\DoxyCodeLine{364 }
+\DoxyCodeLine{365 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}}
+\DoxyCodeLine{366 \{}
+\DoxyCodeLine{367     \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}} \mbox{\hyperlink{structtoml_1_1local__datetime_a67661503e7b2843effbb0672bf081364}{date}};}
+\DoxyCodeLine{368     \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}} \mbox{\hyperlink{structtoml_1_1local__datetime_aef74396c27a3a98071c518dbbde230fe}{time}};}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370     \mbox{\hyperlink{structtoml_1_1local__datetime_a254dcececa30720639f84f072ccf8380}{local\_datetime}}(\mbox{\hyperlink{structtoml_1_1local__date}{local\_date}} d, \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}} t): \mbox{\hyperlink{structtoml_1_1local__datetime_a67661503e7b2843effbb0672bf081364}{date}}(d), \mbox{\hyperlink{structtoml_1_1local__datetime_aef74396c27a3a98071c518dbbde230fe}{time}}(t) \{\}}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{372     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1local__datetime_a5392efc57d6b0fc68f267798b7dc8e65}{local\_datetime}}(\textcolor{keyword}{const} std::tm\& t): \mbox{\hyperlink{structtoml_1_1local__datetime_a67661503e7b2843effbb0672bf081364}{date}}(t), \mbox{\hyperlink{structtoml_1_1local__datetime_aef74396c27a3a98071c518dbbde230fe}{time}}(t)\{\}}
+\DoxyCodeLine{373 }
+\DoxyCodeLine{374     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1local__datetime_a7f4d5cf5654aa1a65cc22625dc5844f9}{local\_datetime}}(\textcolor{keyword}{const} std::chrono::system\_clock::time\_point\& tp)}
+\DoxyCodeLine{375     \{}
+\DoxyCodeLine{376         \textcolor{keyword}{const} \textcolor{keyword}{auto} t = std::chrono::system\_clock::to\_time\_t(tp);}
+\DoxyCodeLine{377         std::tm ltime = \mbox{\hyperlink{namespacetoml_1_1detail_ac375736027ae3facd603380d3e9e54c7}{detail::localtime\_s}}(\&t);}
+\DoxyCodeLine{378 }
+\DoxyCodeLine{379         this-\/>date = \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}(ltime);}
+\DoxyCodeLine{380         this-\/>time = \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}(ltime);}
+\DoxyCodeLine{381 }
+\DoxyCodeLine{382         \textcolor{comment}{// std::tm lacks subsecond information, so diff between tp and tm}}
+\DoxyCodeLine{383         \textcolor{comment}{// can be used to get millisecond \& microsecond information.}}
+\DoxyCodeLine{384         \textcolor{keyword}{const} \textcolor{keyword}{auto} t\_diff = tp -\/}
+\DoxyCodeLine{385             std::chrono::system\_clock::from\_time\_t(std::mktime(\&ltime));}
+\DoxyCodeLine{386         this-\/>time.\mbox{\hyperlink{structtoml_1_1local__time_aa74932ceccf287bfaea3073e6f2b9291}{millisecond}} = \textcolor{keyword}{static\_cast<}std::uint16\_t\textcolor{keyword}{>}(}
+\DoxyCodeLine{387           std::chrono::duration\_cast<std::chrono::milliseconds>(t\_diff).count());}
+\DoxyCodeLine{388         this-\/>time.\mbox{\hyperlink{structtoml_1_1local__time_a67662d3f6d54baea2fda9268e2b90845}{microsecond}} = \textcolor{keyword}{static\_cast<}std::uint16\_t\textcolor{keyword}{>}(}
+\DoxyCodeLine{389           std::chrono::duration\_cast<std::chrono::microseconds>(t\_diff).count());}
+\DoxyCodeLine{390         this-\/>time.\mbox{\hyperlink{structtoml_1_1local__time_a9bcf84d9eee020b6ce7d5c6fe335d0dc}{nanosecond}} = \textcolor{keyword}{static\_cast<}std::uint16\_t\textcolor{keyword}{>}(}
+\DoxyCodeLine{391           std::chrono::duration\_cast<std::chrono::nanoseconds >(t\_diff).count());}
+\DoxyCodeLine{392     \}}
+\DoxyCodeLine{393 }
+\DoxyCodeLine{394     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1local__datetime_aa457a64948bb1c012c43e36d4a7f4dab}{local\_datetime}}(\textcolor{keyword}{const} std::time\_t t)}
+\DoxyCodeLine{395         : \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}(std::chrono::system\_clock::from\_time\_t(t))}
+\DoxyCodeLine{396     \{\}}
+\DoxyCodeLine{397 }
+\DoxyCodeLine{398     \textcolor{keyword}{operator} std::chrono::system\_clock::time\_point()\textcolor{keyword}{ const}}
+\DoxyCodeLine{399 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{400         \textcolor{keyword}{using }internal\_duration =}
+\DoxyCodeLine{401             \textcolor{keyword}{typename} std::chrono::system\_clock::time\_point::duration;}
+\DoxyCodeLine{402 }
+\DoxyCodeLine{403         \textcolor{comment}{// Normally DST begins at A.M. 3 or 4. If we re-\/use conversion operator}}
+\DoxyCodeLine{404         \textcolor{comment}{// of local\_date and local\_time independently, the conversion fails if}}
+\DoxyCodeLine{405         \textcolor{comment}{// it is the day when DST begins or ends. Since local\_date considers the}}
+\DoxyCodeLine{406         \textcolor{comment}{// time is 00:00 A.M. and local\_time does not consider DST because it}}
+\DoxyCodeLine{407         \textcolor{comment}{// does not have any date information. We need to consider both date and}}
+\DoxyCodeLine{408         \textcolor{comment}{// time information at the same time to convert it correctly.}}
+\DoxyCodeLine{409 }
+\DoxyCodeLine{410         std::tm t;}
+\DoxyCodeLine{411         t.tm\_sec   = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(this-\/>time.\mbox{\hyperlink{structtoml_1_1local__time_a8fbc45c5e3f4406e115883169e813c15}{second}});}
+\DoxyCodeLine{412         t.tm\_min   = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(this-\/>time.\mbox{\hyperlink{structtoml_1_1local__time_a72d8ddb60132940e69383e21668f1250}{minute}});}
+\DoxyCodeLine{413         t.tm\_hour  = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(this-\/>time.\mbox{\hyperlink{structtoml_1_1local__time_a64d6774d20c6c5070cf25be976255838}{hour}});}
+\DoxyCodeLine{414         t.tm\_mday  = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(this-\/>date.\mbox{\hyperlink{structtoml_1_1local__date_a0ea8f1fdf2edf762a0c1d7eb9367f6e5}{day}});}
+\DoxyCodeLine{415         t.tm\_mon   = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(this-\/>date.\mbox{\hyperlink{structtoml_1_1local__date_a5f31fcbf4188bc94d8ba6f46a8a8fd54}{month}});}
+\DoxyCodeLine{416         t.tm\_year  = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(this-\/>date.\mbox{\hyperlink{structtoml_1_1local__date_a14d9c1cd86cb25b2141b9a7d64f68d6f}{year}}) -\/ 1900;}
+\DoxyCodeLine{417         t.tm\_wday  = 0; \textcolor{comment}{// the value will be ignored}}
+\DoxyCodeLine{418         t.tm\_yday  = 0; \textcolor{comment}{// the value will be ignored}}
+\DoxyCodeLine{419         t.tm\_isdst = -\/1;}
+\DoxyCodeLine{420 }
+\DoxyCodeLine{421         \textcolor{comment}{// std::mktime returns date as local time zone. no conversion needed}}
+\DoxyCodeLine{422         \textcolor{keyword}{auto} dt = std::chrono::system\_clock::from\_time\_t(std::mktime(\&t));}
+\DoxyCodeLine{423         dt += std::chrono::duration\_cast<internal\_duration>(}
+\DoxyCodeLine{424                 std::chrono::milliseconds(this-\/>time.\mbox{\hyperlink{structtoml_1_1local__time_aa74932ceccf287bfaea3073e6f2b9291}{millisecond}}) +}
+\DoxyCodeLine{425                 std::chrono::microseconds(this-\/>time.microsecond) +}
+\DoxyCodeLine{426                 std::chrono::nanoseconds (this-\/>time.nanosecond));}
+\DoxyCodeLine{427         \textcolor{keywordflow}{return} dt;}
+\DoxyCodeLine{428     \}}
+\DoxyCodeLine{429 }
+\DoxyCodeLine{430     \textcolor{keyword}{operator} std::time\_t()\textcolor{keyword}{ const}}
+\DoxyCodeLine{431 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{432         \textcolor{keywordflow}{return} std::chrono::system\_clock::to\_time\_t(}
+\DoxyCodeLine{433                 std::chrono::system\_clock::time\_point(*\textcolor{keyword}{this}));}
+\DoxyCodeLine{434     \}}
+\DoxyCodeLine{435 }
+\DoxyCodeLine{436     \mbox{\hyperlink{structtoml_1_1local__datetime_a3a8d9a41123839fe943e96202d6c66ef}{local\_datetime}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{437     \mbox{\hyperlink{structtoml_1_1local__datetime_a674473e3479c2dac1240c23a576867b1}{\string~local\_datetime}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{438     \mbox{\hyperlink{structtoml_1_1local__datetime_a82e479900e34c2c92e5e2af6ead37e9a}{local\_datetime}}(\mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}} \textcolor{keyword}{const}\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{439     \mbox{\hyperlink{structtoml_1_1local__datetime_a00aa1062cf158059f8c825d8008ee06e}{local\_datetime}}(\mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}\&\&)      = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{440     \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}\& \mbox{\hyperlink{structtoml_1_1local__datetime_ac77710c49af1b2d157de567f02cb5700}{operator=}}(\mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}} \textcolor{keyword}{const}\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{441     \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}\& \mbox{\hyperlink{structtoml_1_1local__datetime_acfa49dc26316e048ac5c2cfa5ed032c7}{operator=}}(\mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}\&\&)      = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{442 \};}
+\DoxyCodeLine{443 }
+\DoxyCodeLine{444 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_ae9ac58857cfdda9535ef98266b65304b}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}\& rhs)}
+\DoxyCodeLine{445 \{}
+\DoxyCodeLine{446     \textcolor{keywordflow}{return} std::make\_tuple(lhs.\mbox{\hyperlink{structtoml_1_1local__datetime_a67661503e7b2843effbb0672bf081364}{date}}, lhs.\mbox{\hyperlink{structtoml_1_1local__datetime_aef74396c27a3a98071c518dbbde230fe}{time}}) ==}
+\DoxyCodeLine{447            std::make\_tuple(rhs.\mbox{\hyperlink{structtoml_1_1local__datetime_a67661503e7b2843effbb0672bf081364}{date}}, rhs.\mbox{\hyperlink{structtoml_1_1local__datetime_aef74396c27a3a98071c518dbbde230fe}{time}});}
+\DoxyCodeLine{448 \}}
+\DoxyCodeLine{449 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a03e338a600f118cd5c5d3e7fee31f6c6}{operator!=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}\& rhs)}
+\DoxyCodeLine{450 \{}
+\DoxyCodeLine{451     \textcolor{keywordflow}{return} !(lhs == rhs);}
+\DoxyCodeLine{452 \}}
+\DoxyCodeLine{453 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_acbb3a32f389eaf9e5097d2b23df77b4e}{operator< }}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}\& rhs)}
+\DoxyCodeLine{454 \{}
+\DoxyCodeLine{455     \textcolor{keywordflow}{return} std::make\_tuple(lhs.\mbox{\hyperlink{structtoml_1_1local__datetime_a67661503e7b2843effbb0672bf081364}{date}}, lhs.\mbox{\hyperlink{structtoml_1_1local__datetime_aef74396c27a3a98071c518dbbde230fe}{time}}) <}
+\DoxyCodeLine{456            std::make\_tuple(rhs.\mbox{\hyperlink{structtoml_1_1local__datetime_a67661503e7b2843effbb0672bf081364}{date}}, rhs.\mbox{\hyperlink{structtoml_1_1local__datetime_aef74396c27a3a98071c518dbbde230fe}{time}});}
+\DoxyCodeLine{457 \}}
+\DoxyCodeLine{458 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a17f8791df6efda2a712efa14c334c33d}{operator<=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}\& rhs)}
+\DoxyCodeLine{459 \{}
+\DoxyCodeLine{460     \textcolor{keywordflow}{return} (lhs < rhs) || (lhs == rhs);}
+\DoxyCodeLine{461 \}}
+\DoxyCodeLine{462 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a993726b0c054cbf5b20674f14690d6ed}{operator> }}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}\& rhs)}
+\DoxyCodeLine{463 \{}
+\DoxyCodeLine{464     \textcolor{keywordflow}{return} !(lhs <= rhs);}
+\DoxyCodeLine{465 \}}
+\DoxyCodeLine{466 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a6b51fe3d00e083b549644d994bd547c7}{operator>=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}\& rhs)}
+\DoxyCodeLine{467 \{}
+\DoxyCodeLine{468     \textcolor{keywordflow}{return} !(lhs < rhs);}
+\DoxyCodeLine{469 \}}
+\DoxyCodeLine{470 }
+\DoxyCodeLine{471 \textcolor{keyword}{template}<\textcolor{keyword}{typename} \textcolor{keywordtype}{char}T, \textcolor{keyword}{typename} traits>}
+\DoxyCodeLine{472 std::basic\_ostream<charT, traits>\&}
+\DoxyCodeLine{473 \mbox{\hyperlink{namespacetoml_a11b17eff44b8e4b0b49c85cc34e241c7}{operator<<}}(std::basic\_ostream<charT, traits>\& os, \textcolor{keyword}{const} local\_datetime\& dt)}
+\DoxyCodeLine{474 \{}
+\DoxyCodeLine{475     os << dt.date << \textcolor{charliteral}{'T'} << dt.time;}
+\DoxyCodeLine{476     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{477 \}}
+\DoxyCodeLine{478 }
+\DoxyCodeLine{479 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}}
+\DoxyCodeLine{480 \{}
+\DoxyCodeLine{481     \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}  \mbox{\hyperlink{structtoml_1_1offset__datetime_a154eb1ecc13b3533aa38c79d08ed9c20}{date}};}
+\DoxyCodeLine{482     \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}  \mbox{\hyperlink{structtoml_1_1offset__datetime_a1445f154a6789e821d246c157e4779c7}{time}};}
+\DoxyCodeLine{483     \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}} \mbox{\hyperlink{structtoml_1_1offset__datetime_a2ae16349956379241f713a9fc0d6a246}{offset}};}
+\DoxyCodeLine{484 }
+\DoxyCodeLine{485     \mbox{\hyperlink{structtoml_1_1offset__datetime_a5afab406cfde7741ce3f420d33151c3e}{offset\_datetime}}(\mbox{\hyperlink{structtoml_1_1local__date}{local\_date}} d, \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}} t, \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}} o)}
+\DoxyCodeLine{486         : \mbox{\hyperlink{structtoml_1_1offset__datetime_a154eb1ecc13b3533aa38c79d08ed9c20}{date}}(d), \mbox{\hyperlink{structtoml_1_1offset__datetime_a1445f154a6789e821d246c157e4779c7}{time}}(t), \mbox{\hyperlink{structtoml_1_1offset__datetime_a2ae16349956379241f713a9fc0d6a246}{offset}}(o)}
+\DoxyCodeLine{487     \{\}}
+\DoxyCodeLine{488     \mbox{\hyperlink{structtoml_1_1offset__datetime_a409e92dedf7fb3f9194c62dce3d609b3}{offset\_datetime}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}\& dt, \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}} o)}
+\DoxyCodeLine{489         : \mbox{\hyperlink{structtoml_1_1offset__datetime_a154eb1ecc13b3533aa38c79d08ed9c20}{date}}(dt.\mbox{\hyperlink{structtoml_1_1offset__datetime_a154eb1ecc13b3533aa38c79d08ed9c20}{date}}), \mbox{\hyperlink{structtoml_1_1offset__datetime_a1445f154a6789e821d246c157e4779c7}{time}}(dt.\mbox{\hyperlink{structtoml_1_1offset__datetime_a1445f154a6789e821d246c157e4779c7}{time}}), \mbox{\hyperlink{structtoml_1_1offset__datetime_a2ae16349956379241f713a9fc0d6a246}{offset}}(o)}
+\DoxyCodeLine{490     \{\}}
+\DoxyCodeLine{491     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1offset__datetime_a5f5680aa44bd153f131710ffeb8853df}{offset\_datetime}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}\& ld)}
+\DoxyCodeLine{492         : \mbox{\hyperlink{structtoml_1_1offset__datetime_a154eb1ecc13b3533aa38c79d08ed9c20}{date}}(ld.\mbox{\hyperlink{structtoml_1_1offset__datetime_a154eb1ecc13b3533aa38c79d08ed9c20}{date}}), \mbox{\hyperlink{structtoml_1_1offset__datetime_a1445f154a6789e821d246c157e4779c7}{time}}(ld.\mbox{\hyperlink{structtoml_1_1offset__datetime_a1445f154a6789e821d246c157e4779c7}{time}}), \mbox{\hyperlink{structtoml_1_1offset__datetime_a2ae16349956379241f713a9fc0d6a246}{offset}}(get\_local\_offset(nullptr))}
+\DoxyCodeLine{493           \textcolor{comment}{// use the current local timezone offset}}
+\DoxyCodeLine{494     \{\}}
+\DoxyCodeLine{495     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1offset__datetime_ab88d42517d06c737adcab8d28c7ad616}{offset\_datetime}}(\textcolor{keyword}{const} std::chrono::system\_clock::time\_point\& tp)}
+\DoxyCodeLine{496         : \mbox{\hyperlink{structtoml_1_1offset__datetime_a2ae16349956379241f713a9fc0d6a246}{offset}}(0, 0) \textcolor{comment}{// use gmtime}}
+\DoxyCodeLine{497     \{}
+\DoxyCodeLine{498         \textcolor{keyword}{const} \textcolor{keyword}{auto} timet = std::chrono::system\_clock::to\_time\_t(tp);}
+\DoxyCodeLine{499         \textcolor{keyword}{const} \textcolor{keyword}{auto} tm    = \mbox{\hyperlink{namespacetoml_1_1detail_a37112110ee75451aa3793f8b3b9be957}{detail::gmtime\_s}}(\&timet);}
+\DoxyCodeLine{500         this-\/>date = \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}(tm);}
+\DoxyCodeLine{501         this-\/>time = \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}(tm);}
+\DoxyCodeLine{502     \}}
+\DoxyCodeLine{503     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1offset__datetime_aa410fddd45775679696c7878e27427f6}{offset\_datetime}}(\textcolor{keyword}{const} std::time\_t\& t)}
+\DoxyCodeLine{504         : \mbox{\hyperlink{structtoml_1_1offset__datetime_a2ae16349956379241f713a9fc0d6a246}{offset}}(0, 0) \textcolor{comment}{// use gmtime}}
+\DoxyCodeLine{505     \{}
+\DoxyCodeLine{506         \textcolor{keyword}{const} \textcolor{keyword}{auto} tm    = \mbox{\hyperlink{namespacetoml_1_1detail_a37112110ee75451aa3793f8b3b9be957}{detail::gmtime\_s}}(\&t);}
+\DoxyCodeLine{507         this-\/>date = \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}(tm);}
+\DoxyCodeLine{508         this-\/>time = \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}(tm);}
+\DoxyCodeLine{509     \}}
+\DoxyCodeLine{510     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1offset__datetime_aaa667428a52be74dbcdfbb9ce5ac34c4}{offset\_datetime}}(\textcolor{keyword}{const} std::tm\& t)}
+\DoxyCodeLine{511         : \mbox{\hyperlink{structtoml_1_1offset__datetime_a2ae16349956379241f713a9fc0d6a246}{offset}}(0, 0) \textcolor{comment}{// assume gmtime}}
+\DoxyCodeLine{512     \{}
+\DoxyCodeLine{513         this-\/>date = \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}(t);}
+\DoxyCodeLine{514         this-\/>time = \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}(t);}
+\DoxyCodeLine{515     \}}
+\DoxyCodeLine{516 }
+\DoxyCodeLine{517     \textcolor{keyword}{operator} std::chrono::system\_clock::time\_point()\textcolor{keyword}{ const}}
+\DoxyCodeLine{518 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{519         \textcolor{comment}{// get date-\/time}}
+\DoxyCodeLine{520         \textcolor{keyword}{using }internal\_duration =}
+\DoxyCodeLine{521             \textcolor{keyword}{typename} std::chrono::system\_clock::time\_point::duration;}
+\DoxyCodeLine{522 }
+\DoxyCodeLine{523         \textcolor{comment}{// first, convert it to local date-\/time information in the same way as}}
+\DoxyCodeLine{524         \textcolor{comment}{// local\_datetime does. later we will use time\_t to adjust time offset.}}
+\DoxyCodeLine{525         std::tm t;}
+\DoxyCodeLine{526         t.tm\_sec   = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(this-\/>time.\mbox{\hyperlink{structtoml_1_1local__time_a8fbc45c5e3f4406e115883169e813c15}{second}});}
+\DoxyCodeLine{527         t.tm\_min   = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(this-\/>time.\mbox{\hyperlink{structtoml_1_1local__time_a72d8ddb60132940e69383e21668f1250}{minute}});}
+\DoxyCodeLine{528         t.tm\_hour  = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(this-\/>time.\mbox{\hyperlink{structtoml_1_1local__time_a64d6774d20c6c5070cf25be976255838}{hour}});}
+\DoxyCodeLine{529         t.tm\_mday  = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(this-\/>date.\mbox{\hyperlink{structtoml_1_1local__date_a0ea8f1fdf2edf762a0c1d7eb9367f6e5}{day}});}
+\DoxyCodeLine{530         t.tm\_mon   = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(this-\/>date.\mbox{\hyperlink{structtoml_1_1local__date_a5f31fcbf4188bc94d8ba6f46a8a8fd54}{month}});}
+\DoxyCodeLine{531         t.tm\_year  = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(this-\/>date.\mbox{\hyperlink{structtoml_1_1local__date_a14d9c1cd86cb25b2141b9a7d64f68d6f}{year}}) -\/ 1900;}
+\DoxyCodeLine{532         t.tm\_wday  = 0; \textcolor{comment}{// the value will be ignored}}
+\DoxyCodeLine{533         t.tm\_yday  = 0; \textcolor{comment}{// the value will be ignored}}
+\DoxyCodeLine{534         t.tm\_isdst = -\/1;}
+\DoxyCodeLine{535         \textcolor{keyword}{const} std::time\_t tp\_loc = std::mktime(std::addressof(t));}
+\DoxyCodeLine{536 }
+\DoxyCodeLine{537         \textcolor{keyword}{auto} tp = std::chrono::system\_clock::from\_time\_t(tp\_loc);}
+\DoxyCodeLine{538         tp += std::chrono::duration\_cast<internal\_duration>(}
+\DoxyCodeLine{539                 std::chrono::milliseconds(this-\/>time.\mbox{\hyperlink{structtoml_1_1local__time_aa74932ceccf287bfaea3073e6f2b9291}{millisecond}}) +}
+\DoxyCodeLine{540                 std::chrono::microseconds(this-\/>time.microsecond) +}
+\DoxyCodeLine{541                 std::chrono::nanoseconds (this-\/>time.nanosecond));}
+\DoxyCodeLine{542 }
+\DoxyCodeLine{543         \textcolor{comment}{// Since mktime uses local time zone, it should be corrected.}}
+\DoxyCodeLine{544         \textcolor{comment}{// `12:00:00+09:00` means `03:00:00Z`. So mktime returns `03:00:00Z` if}}
+\DoxyCodeLine{545         \textcolor{comment}{// we are in `+09:00` timezone. To represent `12:00:00Z` there, we need}}
+\DoxyCodeLine{546         \textcolor{comment}{// to add `+09:00` to `03:00:00Z`.}}
+\DoxyCodeLine{547         \textcolor{comment}{//    Here, it uses the time\_t converted from date-\/time info to handle}}
+\DoxyCodeLine{548         \textcolor{comment}{// daylight saving time.}}
+\DoxyCodeLine{549         \textcolor{keyword}{const} \textcolor{keyword}{auto} ofs = get\_local\_offset(std::addressof(tp\_loc));}
+\DoxyCodeLine{550         tp += std::chrono::hours  (ofs.hour);}
+\DoxyCodeLine{551         tp += std::chrono::minutes(ofs.minute);}
+\DoxyCodeLine{552 }
+\DoxyCodeLine{553         \textcolor{comment}{// We got `12:00:00Z` by correcting local timezone applied by mktime.}}
+\DoxyCodeLine{554         \textcolor{comment}{// Then we will apply the offset. Let's say `12:00:00-\/08:00` is given.}}
+\DoxyCodeLine{555         \textcolor{comment}{// And now, we have `12:00:00Z`. `12:00:00-\/08:00` means `20:00:00Z`.}}
+\DoxyCodeLine{556         \textcolor{comment}{// So we need to subtract the offset.}}
+\DoxyCodeLine{557         tp -\/= std::chrono::minutes(this-\/>offset);}
+\DoxyCodeLine{558         \textcolor{keywordflow}{return} tp;}
+\DoxyCodeLine{559     \}}
+\DoxyCodeLine{560 }
+\DoxyCodeLine{561     \textcolor{keyword}{operator} std::time\_t()\textcolor{keyword}{ const}}
+\DoxyCodeLine{562 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{563         \textcolor{keywordflow}{return} std::chrono::system\_clock::to\_time\_t(}
+\DoxyCodeLine{564                 std::chrono::system\_clock::time\_point(*\textcolor{keyword}{this}));}
+\DoxyCodeLine{565     \}}
+\DoxyCodeLine{566 }
+\DoxyCodeLine{567     \mbox{\hyperlink{structtoml_1_1offset__datetime_a90306b9efe58d2133bfe8bd5f62212c3}{offset\_datetime}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{568     \mbox{\hyperlink{structtoml_1_1offset__datetime_ac8ca48c1555cfdbb3ef7d090f93abf69}{\string~offset\_datetime}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{569     \mbox{\hyperlink{structtoml_1_1offset__datetime_ad37ab5a9d9b6a456b1785238987245e9}{offset\_datetime}}(\mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}} \textcolor{keyword}{const}\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{570     \mbox{\hyperlink{structtoml_1_1offset__datetime_aef650fd2caefcb29554391a595e49abb}{offset\_datetime}}(\mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}\&\&)      = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{571     \mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}\& \mbox{\hyperlink{structtoml_1_1offset__datetime_a420eeeca7f2bf2c2cbd21d713f50b84c}{operator=}}(\mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}} \textcolor{keyword}{const}\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{572     \mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}\& \mbox{\hyperlink{structtoml_1_1offset__datetime_a7bd56a72c134e784c68b693bd0541618}{operator=}}(\mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}\&\&)      = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{573 }
+\DoxyCodeLine{574   \textcolor{keyword}{private}:}
+\DoxyCodeLine{575 }
+\DoxyCodeLine{576     \textcolor{keyword}{static} \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}} get\_local\_offset(\textcolor{keyword}{const} std::time\_t* tp)}
+\DoxyCodeLine{577     \{}
+\DoxyCodeLine{578         \textcolor{comment}{// get local timezone with the same date-\/time information as mktime}}
+\DoxyCodeLine{579         \textcolor{keyword}{const} \textcolor{keyword}{auto} t = \mbox{\hyperlink{namespacetoml_1_1detail_ac375736027ae3facd603380d3e9e54c7}{detail::localtime\_s}}(tp);}
+\DoxyCodeLine{580 }
+\DoxyCodeLine{581         std::array<char, 6> buf;}
+\DoxyCodeLine{582         \textcolor{keyword}{const} \textcolor{keyword}{auto} \mbox{\hyperlink{structtoml_1_1result}{result}} = std::strftime(buf.data(), 6, \textcolor{stringliteral}{"{}\%z"{}}, \&t); \textcolor{comment}{// +hhmm\(\backslash\)0}}
+\DoxyCodeLine{583         \textcolor{keywordflow}{if}(\mbox{\hyperlink{structtoml_1_1result}{result}} != 5)}
+\DoxyCodeLine{584         \{}
+\DoxyCodeLine{585             \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}toml::offset\_datetime: cannot obtain "{}}}
+\DoxyCodeLine{586                                      \textcolor{stringliteral}{"{}timezone information of current env"{}});}
+\DoxyCodeLine{587         \}}
+\DoxyCodeLine{588         \textcolor{keyword}{const} \textcolor{keywordtype}{int} ofs = std::atoi(buf.data());}
+\DoxyCodeLine{589         \textcolor{keyword}{const} \textcolor{keywordtype}{int} ofs\_h = ofs / 100;}
+\DoxyCodeLine{590         \textcolor{keyword}{const} \textcolor{keywordtype}{int} ofs\_m = ofs -\/ (ofs\_h * 100);}
+\DoxyCodeLine{591         \textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1time__offset}{time\_offset}}(ofs\_h, ofs\_m);}
+\DoxyCodeLine{592     \}}
+\DoxyCodeLine{593 \};}
+\DoxyCodeLine{594 }
+\DoxyCodeLine{595 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_ae9ac58857cfdda9535ef98266b65304b}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}\& rhs)}
+\DoxyCodeLine{596 \{}
+\DoxyCodeLine{597     \textcolor{keywordflow}{return} std::make\_tuple(lhs.\mbox{\hyperlink{structtoml_1_1offset__datetime_a154eb1ecc13b3533aa38c79d08ed9c20}{date}}, lhs.\mbox{\hyperlink{structtoml_1_1offset__datetime_a1445f154a6789e821d246c157e4779c7}{time}}, lhs.\mbox{\hyperlink{structtoml_1_1offset__datetime_a2ae16349956379241f713a9fc0d6a246}{offset}}) ==}
+\DoxyCodeLine{598            std::make\_tuple(rhs.\mbox{\hyperlink{structtoml_1_1offset__datetime_a154eb1ecc13b3533aa38c79d08ed9c20}{date}}, rhs.\mbox{\hyperlink{structtoml_1_1offset__datetime_a1445f154a6789e821d246c157e4779c7}{time}}, rhs.\mbox{\hyperlink{structtoml_1_1offset__datetime_a2ae16349956379241f713a9fc0d6a246}{offset}});}
+\DoxyCodeLine{599 \}}
+\DoxyCodeLine{600 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a03e338a600f118cd5c5d3e7fee31f6c6}{operator!=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}\& rhs)}
+\DoxyCodeLine{601 \{}
+\DoxyCodeLine{602     \textcolor{keywordflow}{return} !(lhs == rhs);}
+\DoxyCodeLine{603 \}}
+\DoxyCodeLine{604 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_acbb3a32f389eaf9e5097d2b23df77b4e}{operator< }}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}\& rhs)}
+\DoxyCodeLine{605 \{}
+\DoxyCodeLine{606     \textcolor{keywordflow}{return} std::make\_tuple(lhs.\mbox{\hyperlink{structtoml_1_1offset__datetime_a154eb1ecc13b3533aa38c79d08ed9c20}{date}}, lhs.\mbox{\hyperlink{structtoml_1_1offset__datetime_a1445f154a6789e821d246c157e4779c7}{time}}, lhs.\mbox{\hyperlink{structtoml_1_1offset__datetime_a2ae16349956379241f713a9fc0d6a246}{offset}}) <}
+\DoxyCodeLine{607            std::make\_tuple(rhs.\mbox{\hyperlink{structtoml_1_1offset__datetime_a154eb1ecc13b3533aa38c79d08ed9c20}{date}}, rhs.\mbox{\hyperlink{structtoml_1_1offset__datetime_a1445f154a6789e821d246c157e4779c7}{time}}, rhs.\mbox{\hyperlink{structtoml_1_1offset__datetime_a2ae16349956379241f713a9fc0d6a246}{offset}});}
+\DoxyCodeLine{608 \}}
+\DoxyCodeLine{609 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a17f8791df6efda2a712efa14c334c33d}{operator<=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}\& rhs)}
+\DoxyCodeLine{610 \{}
+\DoxyCodeLine{611     \textcolor{keywordflow}{return} (lhs < rhs) || (lhs == rhs);}
+\DoxyCodeLine{612 \}}
+\DoxyCodeLine{613 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a993726b0c054cbf5b20674f14690d6ed}{operator> }}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}\& rhs)}
+\DoxyCodeLine{614 \{}
+\DoxyCodeLine{615     \textcolor{keywordflow}{return} !(lhs <= rhs);}
+\DoxyCodeLine{616 \}}
+\DoxyCodeLine{617 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a6b51fe3d00e083b549644d994bd547c7}{operator>=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}\& rhs)}
+\DoxyCodeLine{618 \{}
+\DoxyCodeLine{619     \textcolor{keywordflow}{return} !(lhs < rhs);}
+\DoxyCodeLine{620 \}}
+\DoxyCodeLine{621 }
+\DoxyCodeLine{622 \textcolor{keyword}{template}<\textcolor{keyword}{typename} \textcolor{keywordtype}{char}T, \textcolor{keyword}{typename} traits>}
+\DoxyCodeLine{623 std::basic\_ostream<charT, traits>\&}
+\DoxyCodeLine{624 \mbox{\hyperlink{namespacetoml_a11b17eff44b8e4b0b49c85cc34e241c7}{operator<<}}(std::basic\_ostream<charT, traits>\& os, \textcolor{keyword}{const} offset\_datetime\& dt)}
+\DoxyCodeLine{625 \{}
+\DoxyCodeLine{626     os << dt.date << \textcolor{charliteral}{'T'} << dt.time << dt.offset;}
+\DoxyCodeLine{627     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{628 \}}
+\DoxyCodeLine{629 }
+\DoxyCodeLine{630 \}\textcolor{comment}{//toml}}
+\DoxyCodeLine{631 \textcolor{preprocessor}{\#endif}\textcolor{comment}{// TOML11\_DATETIME}}
+
+\end{DoxyCode}

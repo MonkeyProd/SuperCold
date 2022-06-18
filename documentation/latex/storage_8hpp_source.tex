@@ -1,0 +1,49 @@
+\hypertarget{storage_8hpp_source}{}\doxysection{storage.\+hpp}
+\label{storage_8hpp_source}\index{external/toml/storage.hpp@{external/toml/storage.hpp}}
+\mbox{\hyperlink{storage_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//     Copyright Toru Niina 2017.}}
+\DoxyCodeLine{2 \textcolor{comment}{// Distributed under the MIT License.}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifndef TOML11\_STORAGE\_HPP}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TOML11\_STORAGE\_HPP}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{utility_8hpp}{utility.hpp}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetoml}{toml}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }detail}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{comment}{// this contains pointer and deep-\/copy the content if copied.}}
+\DoxyCodeLine{13 \textcolor{comment}{// to avoid recursive pointer.}}
+\DoxyCodeLine{14 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{15 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1storage}{storage}}}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1storage_a5dab02baac3ccf1b2fbdea3c9ef623db}{value\_type}} = T;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1detail_1_1storage_a70672f4086669b80945527c4a05af630}{storage}}(\mbox{\hyperlink{structtoml_1_1detail_1_1storage_a5dab02baac3ccf1b2fbdea3c9ef623db}{value\_type}} \textcolor{keyword}{const}\& v): ptr(\mbox{\hyperlink{namespacetoml}{toml}}::\mbox{\hyperlink{namespacetoml_ab85090fe18497486c537b90fbe0215b2}{make\_unique}}<T>(v)) \{\}}
+\DoxyCodeLine{20     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1detail_1_1storage_a6c02d691962dfb93418c5ff56f5d857f}{storage}}(\mbox{\hyperlink{structtoml_1_1detail_1_1storage_a5dab02baac3ccf1b2fbdea3c9ef623db}{value\_type}}\&\&      v): ptr(\mbox{\hyperlink{namespacetoml}{toml}}::\mbox{\hyperlink{namespacetoml_ab85090fe18497486c537b90fbe0215b2}{make\_unique}}<T>(std::move(v))) \{\}}
+\DoxyCodeLine{21     \mbox{\hyperlink{structtoml_1_1detail_1_1storage_a4309e00c77968b8b5610fde05ea2a290}{\string~storage}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{22     \mbox{\hyperlink{structtoml_1_1detail_1_1storage_a05af1d73db7beb1fb4c2ad9c1fd8bb9e}{storage}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1storage}{storage}}\& rhs): ptr(\mbox{\hyperlink{namespacetoml}{toml}}::\mbox{\hyperlink{namespacetoml_ab85090fe18497486c537b90fbe0215b2}{make\_unique}}<T>(*rhs.ptr)) \{\}}
+\DoxyCodeLine{23     \mbox{\hyperlink{structtoml_1_1detail_1_1storage}{storage}}\& \mbox{\hyperlink{structtoml_1_1detail_1_1storage_ad8c8f2f6ea3e7ee5aa06b1128a6cae9a}{operator=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1storage}{storage}}\& rhs)}
+\DoxyCodeLine{24     \{}
+\DoxyCodeLine{25         this-\/>ptr = toml::make\_unique<T>(*rhs.ptr);}
+\DoxyCodeLine{26         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{27     \}}
+\DoxyCodeLine{28     \mbox{\hyperlink{structtoml_1_1detail_1_1storage_abf6395019fb3a2713a4028e49d43aaa6}{storage}}(\mbox{\hyperlink{structtoml_1_1detail_1_1storage}{storage}}\&\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{29     \mbox{\hyperlink{structtoml_1_1detail_1_1storage}{storage}}\& \mbox{\hyperlink{structtoml_1_1detail_1_1storage_ad4585ed057af1f8ac6aea67714681436}{operator=}}(\mbox{\hyperlink{structtoml_1_1detail_1_1storage}{storage}}\&\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structtoml_1_1detail_1_1storage_ad01c804b05feedb4ecdcdcda802f6b5c}{is\_ok}}() const noexcept \{\textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{bool}\textcolor{keyword}{>}(ptr);\}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \mbox{\hyperlink{structtoml_1_1detail_1_1storage_a5dab02baac3ccf1b2fbdea3c9ef623db}{value\_type}}\&       \mbox{\hyperlink{structtoml_1_1detail_1_1storage_aeb1f1a474f031cf3209955feb5068927}{value}}() \&      \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} *ptr;\}}
+\DoxyCodeLine{34     \mbox{\hyperlink{structtoml_1_1detail_1_1storage_a5dab02baac3ccf1b2fbdea3c9ef623db}{value\_type}} \textcolor{keyword}{const}\& \mbox{\hyperlink{structtoml_1_1detail_1_1storage_afa545865d1d61dacd4d4ef4934c8d4f3}{value}}() const\& noexcept \{\textcolor{keywordflow}{return} *ptr;\}}
+\DoxyCodeLine{35     \mbox{\hyperlink{structtoml_1_1detail_1_1storage_a5dab02baac3ccf1b2fbdea3c9ef623db}{value\_type}}\&\&      \mbox{\hyperlink{structtoml_1_1detail_1_1storage_a3b5200fe999cbfefd34f822d4f955a26}{value}}() \&\&     \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} std::move(*ptr);\}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37   \textcolor{keyword}{private}:}
+\DoxyCodeLine{38     std::unique\_ptr<value\_type> ptr;}
+\DoxyCodeLine{39 \};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \} \textcolor{comment}{// detail}}
+\DoxyCodeLine{42 \} \textcolor{comment}{// toml}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#endif}\textcolor{comment}{// TOML11\_STORAGE\_HPP}}
+
+\end{DoxyCode}

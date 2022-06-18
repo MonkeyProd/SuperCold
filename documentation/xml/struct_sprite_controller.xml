@@ -1,0 +1,427 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="struct_sprite_controller" kind="struct" language="C++" prot="public">
+    <compoundname>SpriteController</compoundname>
+    <includes refid="_sprite_controller_8hpp" local="no">SpriteController.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_sprite_controller_1acfc91683dc36a7adafc5af19aa70dd5f" prot="public" static="no" mutable="no">
+        <type>std::map&lt; std::string, sf::Texture &gt;</type>
+        <definition>std::map&lt;std::string, sf::Texture&gt; SpriteController::textures</definition>
+        <argsstring></argsstring>
+        <name>textures</name>
+        <qualifiedname>SpriteController::textures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SpriteContoller/SpriteController.hpp" line="11" column="10" bodyfile="SpriteContoller/SpriteController.hpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_sprite_controller_1af49b52fcd4d4c2cc2a49331c8451e8cc" prot="public" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::vector&lt; sf::Sprite &gt; &gt;</type>
+        <definition>std::map&lt;std::string, std::vector&lt;sf::Sprite&gt; &gt; SpriteController::spriteArrays</definition>
+        <argsstring></argsstring>
+        <name>spriteArrays</name>
+        <qualifiedname>SpriteController::spriteArrays</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SpriteContoller/SpriteController.hpp" line="12" column="10" bodyfile="SpriteContoller/SpriteController.hpp" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_sprite_controller_1a887a16f5061546dbc8f495d074dcc273" prot="public" static="no" mutable="no">
+        <type>std::map&lt; std::string, sf::Sprite &gt;</type>
+        <definition>std::map&lt;std::string, sf::Sprite&gt; SpriteController::spriteObjects</definition>
+        <argsstring></argsstring>
+        <name>spriteObjects</name>
+        <qualifiedname>SpriteController::spriteObjects</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SpriteContoller/SpriteController.hpp" line="13" column="10" bodyfile="SpriteContoller/SpriteController.hpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_sprite_controller_1add3155cf6de5cb39ebad7c6fbe627c10" prot="public" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::vector&lt; sf::Sprite &gt; &gt;</type>
+        <definition>std::map&lt;std::string, std::vector&lt;sf::Sprite&gt; &gt; SpriteController::playerSprites</definition>
+        <argsstring></argsstring>
+        <name>playerSprites</name>
+        <qualifiedname>SpriteController::playerSprites</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SpriteContoller/SpriteController.hpp" line="14" column="10" bodyfile="SpriteContoller/SpriteController.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_sprite_controller_1a1f0ea61b2c6a86e05a1f8e93ab09111b" prot="public" static="no" mutable="no">
+        <type>std::pair&lt; int, int &gt;</type>
+        <definition>std::pair&lt;int, int&gt; SpriteController::tilemap_size</definition>
+        <argsstring></argsstring>
+        <name>tilemap_size</name>
+        <qualifiedname>SpriteController::tilemap_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SpriteContoller/SpriteController.hpp" line="16" column="11" bodyfile="SpriteContoller/SpriteController.hpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_sprite_controller_1aac5a0f22d0352dfd0c65d6d6afef17b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpriteController::SpriteController</definition>
+        <argsstring>()=default</argsstring>
+        <name>SpriteController</name>
+        <qualifiedname>SpriteController::SpriteController</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SpriteContoller/SpriteController.hpp" line="18" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_sprite_controller_1ac3d16a7c596a1d902609bfdae067486c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpriteController::SpriteController</definition>
+        <argsstring>(SettingsManager &amp;settingsManager)</argsstring>
+        <name>SpriteController</name>
+        <qualifiedname>SpriteController::SpriteController</qualifiedname>
+        <param>
+          <type><ref refid="struct_settings_manager" kindref="compound">SettingsManager</ref> &amp;</type>
+          <declname>settingsManager</declname>
+        </param>
+        <briefdescription>
+<para>Структура, содержащая все спрайты и текстуры </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>settingsManager</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ссылка на структуру с настройками </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SpriteContoller/SpriteController.hpp" line="24" column="1" bodyfile="SpriteContoller/SpriteController.cpp" bodystart="3" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_sprite_controller_1a4577c1599ea1c8f19d43a74c594761c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpriteController::processSettings</definition>
+        <argsstring>(toml::table &amp;table, bool isPlayerSettings=false)</argsstring>
+        <name>processSettings</name>
+        <qualifiedname>SpriteController::processSettings</qualifiedname>
+        <param>
+          <type><ref refid="namespacetoml_1af7d788a576baa570efd4793cd5df8ac7" kindref="member">toml::table</ref> &amp;</type>
+          <declname>table</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isPlayerSettings</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Метод, обрабатывающий определенную таблицу из настроек с спрайтами </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>table</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ссылка на таблицу </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isPlayerSettings</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>является ли настройками игрока </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SpriteContoller/SpriteController.hpp" line="31" column="6" bodyfile="SpriteContoller/SpriteController.cpp" bodystart="17" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_sprite_controller_1af9482166cace7967a3fb19e8d0df3c0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpriteController::load_textures</definition>
+        <argsstring>(std::string name, std::string path)</argsstring>
+        <name>load_textures</name>
+        <qualifiedname>SpriteController::load_textures</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Метод, обрабатывающий текстуры </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>название текстуры </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>путь до текстуры </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SpriteContoller/SpriteController.hpp" line="38" column="6" bodyfile="SpriteContoller/SpriteController.cpp" bodystart="34" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_sprite_controller_1a5e91b1913a8d7a9632026ff93a9fa1d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpriteController::load_player_sprites</definition>
+        <argsstring>(std::string name, std::string path, sf::Vector2u tilesize)</argsstring>
+        <name>load_player_sprites</name>
+        <qualifiedname>SpriteController::load_player_sprites</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>sf::Vector2u</type>
+          <declname>tilesize</declname>
+        </param>
+        <briefdescription>
+<para>Метод, создающий спрайты игрока </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>название спрайта </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>путь до текстуры </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tilesize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>размер тайлов в текстуре </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SpriteContoller/SpriteController.hpp" line="46" column="6" bodyfile="SpriteContoller/SpriteController.cpp" bodystart="48" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_sprite_controller_1a1d73b2cec05eb020e7ee4a6435c92e71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpriteController::load_sprites</definition>
+        <argsstring>(std::string name, std::string path, sf::Vector2u tilesize)</argsstring>
+        <name>load_sprites</name>
+        <qualifiedname>SpriteController::load_sprites</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>sf::Vector2u</type>
+          <declname>tilesize</declname>
+        </param>
+        <briefdescription>
+<para>Метод, создающий спрайты </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>название спрайта </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>путь до текстуры </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tilesize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>размер тайлов в текстуре </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SpriteContoller/SpriteController.hpp" line="54" column="6" bodyfile="SpriteContoller/SpriteController.cpp" bodystart="42" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_sprite_controller_1a0ddb1f4ff383ebd14a452f271d2f1fa6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; sf::Sprite &gt;</type>
+        <definition>std::vector&lt; sf::Sprite &gt; SpriteController::make_sprite</definition>
+        <argsstring>(sf::Texture &amp;texture, sf::Vector2u tilesize)</argsstring>
+        <name>make_sprite</name>
+        <qualifiedname>SpriteController::make_sprite</qualifiedname>
+        <param>
+          <type>sf::Texture &amp;</type>
+          <declname>texture</declname>
+        </param>
+        <param>
+          <type>sf::Vector2u</type>
+          <declname>tilesize</declname>
+        </param>
+        <briefdescription>
+<para>Метод, создающий спрайты из текстуры </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>texture</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ссылка на текстуру </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tilesize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>размер тайлов в текстуре </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SpriteContoller/SpriteController.hpp" line="61" column="13" bodyfile="SpriteContoller/SpriteController.cpp" bodystart="54" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_sprite_controller_1a529e7967e5fc699531c6e08cc7b13673" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SpriteController::configureSprites</definition>
+        <argsstring>(toml::value TileIndexSettings)</argsstring>
+        <name>configureSprites</name>
+        <qualifiedname>SpriteController::configureSprites</qualifiedname>
+        <param>
+          <type><ref refid="namespacetoml_1a34e466167cc683c477838accdebb2578" kindref="member">toml::value</ref></type>
+          <declname>TileIndexSettings</declname>
+        </param>
+        <briefdescription>
+<para>Метод, организующий из спрайтов и индексов тайлов заданных в настройках словарь </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>TileIndexSettings</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>настройки, задающие для каждого тайла его название и его индексы </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SpriteContoller/SpriteController.hpp" line="70" column="6" bodyfile="SpriteContoller/SpriteController.cpp" bodystart="61" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_sprite_controller_1a27cf3219ac2d2db0bf1ca23bdcaba440" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int SpriteController::indexesToindex</definition>
+        <argsstring>(int i, int j)</argsstring>
+        <name>indexesToindex</name>
+        <qualifiedname>SpriteController::indexesToindex</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+<para>Метод, преобразующий индексы двумерного массива в индексы одномерного </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SpriteContoller/SpriteController.hpp" line="75" column="5" bodyfile="SpriteContoller/SpriteController.cpp" bodystart="70" bodyend="72"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="SpriteContoller/SpriteController.hpp" line="10" column="1" bodyfile="SpriteContoller/SpriteController.hpp" bodystart="10" bodyend="76"/>
+    <listofallmembers>
+      <member refid="struct_sprite_controller_1a529e7967e5fc699531c6e08cc7b13673" prot="public" virt="non-virtual"><scope>SpriteController</scope><name>configureSprites</name></member>
+      <member refid="struct_sprite_controller_1a27cf3219ac2d2db0bf1ca23bdcaba440" prot="public" virt="non-virtual"><scope>SpriteController</scope><name>indexesToindex</name></member>
+      <member refid="struct_sprite_controller_1a5e91b1913a8d7a9632026ff93a9fa1d8" prot="public" virt="non-virtual"><scope>SpriteController</scope><name>load_player_sprites</name></member>
+      <member refid="struct_sprite_controller_1a1d73b2cec05eb020e7ee4a6435c92e71" prot="public" virt="non-virtual"><scope>SpriteController</scope><name>load_sprites</name></member>
+      <member refid="struct_sprite_controller_1af9482166cace7967a3fb19e8d0df3c0b" prot="public" virt="non-virtual"><scope>SpriteController</scope><name>load_textures</name></member>
+      <member refid="struct_sprite_controller_1a0ddb1f4ff383ebd14a452f271d2f1fa6" prot="public" virt="non-virtual"><scope>SpriteController</scope><name>make_sprite</name></member>
+      <member refid="struct_sprite_controller_1add3155cf6de5cb39ebad7c6fbe627c10" prot="public" virt="non-virtual"><scope>SpriteController</scope><name>playerSprites</name></member>
+      <member refid="struct_sprite_controller_1a4577c1599ea1c8f19d43a74c594761c1" prot="public" virt="non-virtual"><scope>SpriteController</scope><name>processSettings</name></member>
+      <member refid="struct_sprite_controller_1af49b52fcd4d4c2cc2a49331c8451e8cc" prot="public" virt="non-virtual"><scope>SpriteController</scope><name>spriteArrays</name></member>
+      <member refid="struct_sprite_controller_1aac5a0f22d0352dfd0c65d6d6afef17b2" prot="public" virt="non-virtual"><scope>SpriteController</scope><name>SpriteController</name></member>
+      <member refid="struct_sprite_controller_1ac3d16a7c596a1d902609bfdae067486c" prot="public" virt="non-virtual"><scope>SpriteController</scope><name>SpriteController</name></member>
+      <member refid="struct_sprite_controller_1a887a16f5061546dbc8f495d074dcc273" prot="public" virt="non-virtual"><scope>SpriteController</scope><name>spriteObjects</name></member>
+      <member refid="struct_sprite_controller_1acfc91683dc36a7adafc5af19aa70dd5f" prot="public" virt="non-virtual"><scope>SpriteController</scope><name>textures</name></member>
+      <member refid="struct_sprite_controller_1a1f0ea61b2c6a86e05a1f8e93ab09111b" prot="public" virt="non-virtual"><scope>SpriteController</scope><name>tilemap_size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

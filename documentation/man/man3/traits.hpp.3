@@ -1,0 +1,240 @@
+.TH "external/toml/traits.hpp" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+external/toml/traits.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'from\&.hpp'\fP
+.br
+\fC#include 'into\&.hpp'\fP
+.br
+\fC#include 'version\&.hpp'\fP
+.br
+\fC#include <chrono>\fP
+.br
+\fC#include <forward_list>\fP
+.br
+\fC#include <string>\fP
+.br
+\fC#include <tuple>\fP
+.br
+\fC#include <type_traits>\fP
+.br
+\fC#include <utility>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtoml::detail::has_iterator_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_value_type_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_key_type_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_mapped_type_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_reserve_method_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_push_back_method_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_comparable_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_from_toml_method_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_into_toml_method_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_specialized_from_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_specialized_into_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_iterator< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_value_type< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_key_type< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_mapped_type< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_reserve_method< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_push_back_method< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_comparable< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_from_toml_method< T, C, Tb, A >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_into_toml_method< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_specialized_from< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::has_specialized_into< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::conjunction<\&.\&.\&. >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::conjunction< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::conjunction< T, Ts\&.\&.\&. >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::disjunction<\&.\&.\&. >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::disjunction< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::disjunction< T, Ts\&.\&.\&. >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::negation< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_std_pair< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_std_pair< std::pair< T1, T2 > >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_std_tuple< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_std_tuple< std::tuple< Ts\&.\&.\&. > >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_std_forward_list< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_std_forward_list< std::forward_list< T > >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_chrono_duration< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_chrono_duration< std::chrono::duration< Rep, Period > >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_map< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_map< T & >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_map< T const & >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_map< T volatile & >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_map< T const volatile & >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_container< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_container< T & >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_container< T const & >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_container< T volatile & >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_container< T const volatile & >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_basic_value< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_basic_value< T & >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_basic_value< T const & >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_basic_value< T volatile & >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_basic_value< T const volatile & >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_basic_value<::toml::basic_value< C, M, V > >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::index_sequence< Ns >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::push_back_index_sequence< IS, N >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::push_back_index_sequence< index_sequence< Ns\&.\&.\&. >, N >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::index_sequence_maker< N >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::index_sequence_maker< 0 >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_string_literal< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::remove_cvref< T >\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBtoml\fP"
+.br
+.ti -1c
+.RI "namespace \fBtoml::detail\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "template<std::size_t N> using \fBtoml::detail::make_index_sequence\fP = typename index_sequence_maker< N\-1 >::type"
+.br
+.ti -1c
+.RI "template<bool B, typename T > using \fBtoml::detail::enable_if_t\fP = typename std::enable_if< B, T >::type"
+.br
+.ti -1c
+.RI "template<typename F , typename \&.\&.\&. Args> using \fBtoml::detail::return_type_of_t\fP = typename std::result_of< F(Args\&.\&.\&.)>::type"
+.br
+.ti -1c
+.RI "template<typename T > using \fBtoml::detail::remove_cvref_t\fP = typename remove_cvref< T >::type"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

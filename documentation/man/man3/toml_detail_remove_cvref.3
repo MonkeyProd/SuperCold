@@ -1,0 +1,25 @@
+.TH "toml::detail::remove_cvref< T >" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::detail::remove_cvref< T >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <traits\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBtype\fP = typename std::remove_cv< typename std::remove_reference< T >::type >::type"
+.br
+.in -1c
+.SH "Member Typedef Documentation"
+.PP 
+.SS "template<typename T > using \fBtoml::detail::remove_cvref\fP< T >::type =  typename std::remove_cv< typename std::remove_reference<T>::type>::type"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

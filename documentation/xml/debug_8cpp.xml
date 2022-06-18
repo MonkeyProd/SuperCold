@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="debug_8cpp" kind="file" language="C++">
+    <compoundname>debug.cpp</compoundname>
+    <includes refid="debug_8hpp" local="yes">debug.hpp</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>Utils/debug.cpp</label>
+        <link refid="debug_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>debug.hpp</label>
+        <link refid="debug_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="debug_8cpp_1a5c4e13e5264af66224327d49e8823c8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>sf::RectangleShape</type>
+        <definition>sf::RectangleShape debugRectangle</definition>
+        <argsstring>(sf::FloatRect rect)</argsstring>
+        <name>debugRectangle</name>
+        <param>
+          <type>sf::FloatRect</type>
+          <declname>rect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Utils/debug.cpp" line="3" column="20" bodyfile="Utils/debug.cpp" bodystart="3" bodyend="11"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="debug_8hpp" kindref="compound">debug.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal">sf::RectangleShape<sp/><ref refid="debug_8cpp_1a5c4e13e5264af66224327d49e8823c8c" kindref="member">debugRectangle</ref>(sf::FloatRect<sp/>rect)<sp/>{</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"><sp/><sp/>sf::RectangleShape<sp/>debugRect;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/>debugRect.setSize({rect.width,<sp/>rect.height});</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/>debugRect.setPosition({rect.left,<sp/>rect.top});</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/>debugRect.setFillColor(sf::Color::Transparent);</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/>debugRect.setOutlineColor(sf::Color::White);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/>debugRect.setOutlineThickness(1.0f);</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>debugRect;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Utils/debug.cpp"/>
+  </compounddef>
+</doxygen>

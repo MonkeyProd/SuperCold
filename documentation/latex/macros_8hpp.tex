@@ -1,0 +1,394 @@
+\hypertarget{macros_8hpp}{}\doxysection{external/toml/macros.hpp File Reference}
+\label{macros_8hpp}\index{external/toml/macros.hpp@{external/toml/macros.hpp}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_afe2e833e46bd11f6a8e48eccc1739638}{TOML11\+\_\+\+STRINGIZE\+\_\+\+AUX}}(x)~\#x
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_ab76e415cd68fb194d116cd9447531498}{TOML11\+\_\+\+STRINGIZE}}(x)~\mbox{\hyperlink{macros_8hpp_afe2e833e46bd11f6a8e48eccc1739638}{TOML11\+\_\+\+STRINGIZE\+\_\+\+AUX}}(x)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a52a9e1b4ca7aee9585052c9cf7c32e85}{TOML11\+\_\+\+CONCATENATE\+\_\+\+AUX}}(x,  y)~x\#\#y
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a7d946b181b30974fc6b4d58197964d66}{TOML11\+\_\+\+CONCATENATE}}(x,  y)~\mbox{\hyperlink{macros_8hpp_a52a9e1b4ca7aee9585052c9cf7c32e85}{TOML11\+\_\+\+CONCATENATE\+\_\+\+AUX}}(x, y)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_aa71516b9e98f2239cc1c41b0601125bc}{TOML11\+\_\+\+INDEX\+\_\+\+RSEQ}}()
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a87a0f891431280b5bc9a97017b25e675}{TOML11\+\_\+\+ARGS\+\_\+\+SIZE\+\_\+\+IMPL}}(ARG1,  ARG2,  ARG3,  ARG4,  ARG5,  ARG6,  ARG7,  ARG8,  ARG9,  ARG10,  ARG11,  ARG12,  ARG13,  ARG14,  ARG15,  ARG16,  ARG17,  ARG18,  ARG19,  ARG20,  ARG21,  ARG22,  ARG23,  ARG24,  ARG25,  ARG26,  ARG27,  ARG28,  ARG29,  ARG30,  ARG31,  ARG32,  N, ...)~N
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a2d2e98c242de4d3f9790b4439136d17f}{TOML11\+\_\+\+ARGS\+\_\+\+SIZE\+\_\+\+AUX}}(...)~\mbox{\hyperlink{macros_8hpp_a87a0f891431280b5bc9a97017b25e675}{TOML11\+\_\+\+ARGS\+\_\+\+SIZE\+\_\+\+IMPL}}(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_ad7207ddd819e11ce7ef6033168fce7ef}{TOML11\+\_\+\+ARGS\+\_\+\+SIZE}}(...)~\mbox{\hyperlink{macros_8hpp_a2d2e98c242de4d3f9790b4439136d17f}{TOML11\+\_\+\+ARGS\+\_\+\+SIZE\+\_\+\+AUX}}(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+, \mbox{\hyperlink{macros_8hpp_aa71516b9e98f2239cc1c41b0601125bc}{TOML11\+\_\+\+INDEX\+\_\+\+RSEQ}}())
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a829d922ac6fb639c6b046579b5a30487}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+1}}(FUNCTOR,  ARG1)~FUNCTOR(ARG1)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a7049c3223caeebe311cb9c9fd8da847d}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+2}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a829d922ac6fb639c6b046579b5a30487}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+1}}( FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a5ce47a45f640a8564d30f97f6015fc44}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+3}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a7049c3223caeebe311cb9c9fd8da847d}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+2}}( FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_aaa994de6b9cbc6718a83383c8946bfdc}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+4}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a5ce47a45f640a8564d30f97f6015fc44}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+3}}( FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a196f136c10ba9e0fe96f73c194a892d3}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+5}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_aaa994de6b9cbc6718a83383c8946bfdc}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+4}}( FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a2be8916e3c18aa7cdfccd4b6851ec1a3}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+6}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a196f136c10ba9e0fe96f73c194a892d3}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+5}}( FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_ae2cae8322bea141418130b32b8d32e00}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+7}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a2be8916e3c18aa7cdfccd4b6851ec1a3}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+6}}( FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a2e3d966c227344fafe54e26549953d69}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+8}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_ae2cae8322bea141418130b32b8d32e00}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+7}}( FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a0e5d02e365be84d566e000f29a3ff630}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+9}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a2e3d966c227344fafe54e26549953d69}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+8}}( FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a717f69c5aae6b41c9a2a9d7f05c3f33d}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+10}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a0e5d02e365be84d566e000f29a3ff630}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+9}}( FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_adc92d50ba245c3ef2edea4651c51733c}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+11}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a717f69c5aae6b41c9a2a9d7f05c3f33d}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+10}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_ae771611ea64fc22b58321e0e7766f9cb}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+12}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_adc92d50ba245c3ef2edea4651c51733c}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+11}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a2b353882d66d71ffb526c202d9fad3cb}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+13}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_ae771611ea64fc22b58321e0e7766f9cb}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+12}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_aed503de3167a5a9ea8cb7bb7ece5e792}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+14}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a2b353882d66d71ffb526c202d9fad3cb}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+13}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a3ab506cbabed58c3b4adc5b394461880}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+15}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_aed503de3167a5a9ea8cb7bb7ece5e792}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+14}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a40b164e574c6fbf8bfd0ef1d5a1fc1ed}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+16}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a3ab506cbabed58c3b4adc5b394461880}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+15}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a66302e03b75f0f913e318d506fdb582e}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+17}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a40b164e574c6fbf8bfd0ef1d5a1fc1ed}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+16}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a31538060af613e958f76ca87033a4374}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+18}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a66302e03b75f0f913e318d506fdb582e}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+17}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a9c196b09526bf391c38b014c92dc9428}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+19}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a31538060af613e958f76ca87033a4374}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+18}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a1d34cfcc7dde5c17b99b58b4894eb705}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+20}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a9c196b09526bf391c38b014c92dc9428}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+19}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_afda0c05a1ffdc221f54f80a75d0a517a}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+21}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a1d34cfcc7dde5c17b99b58b4894eb705}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+20}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_ae0121a126722ded3beab94704738b1b4}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+22}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_afda0c05a1ffdc221f54f80a75d0a517a}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+21}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_ae707c6c252e17735e84cb14b99950c13}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+23}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_ae0121a126722ded3beab94704738b1b4}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+22}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_aa74316ed06c99f655014162213cb1409}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+24}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_ae707c6c252e17735e84cb14b99950c13}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+23}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a5eba04e7edb58a6f07edc1f3f5cb7319}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+25}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_aa74316ed06c99f655014162213cb1409}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+24}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_aa5f3dbf3bdaa455e589dcb6cbbd9cbcc}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+26}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a5eba04e7edb58a6f07edc1f3f5cb7319}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+25}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_aac27e7c435e1811be2d93096ac2ae16b}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+27}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_aa5f3dbf3bdaa455e589dcb6cbbd9cbcc}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+26}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_ab8b73e10d1df658d249e6c5bee0d68c1}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+28}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_aac27e7c435e1811be2d93096ac2ae16b}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+27}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_aab227ae812f775303505620b53c50b25}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+29}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_ab8b73e10d1df658d249e6c5bee0d68c1}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+28}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a36bb378c6994e43f32d1d5fb7ecc6801}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+30}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_aab227ae812f775303505620b53c50b25}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+29}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a226acdf9b5e0c959d018bb4e547770e8}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+31}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a36bb378c6994e43f32d1d5fb7ecc6801}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+30}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_afb6a3c305ae4d1b995250049f281f8d8}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+32}}(FUNCTOR,  ARG1, ...)~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a226acdf9b5e0c959d018bb4e547770e8}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+31}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a6e25e901dc609281e055db9cb2082174}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS}}(FUNCTOR, ...)~    \mbox{\hyperlink{macros_8hpp_a7d946b181b30974fc6b4d58197964d66}{TOML11\+\_\+\+CONCATENATE}}(TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+, \mbox{\hyperlink{macros_8hpp_ad7207ddd819e11ce7ef6033168fce7ef}{TOML11\+\_\+\+ARGS\+\_\+\+SIZE}}(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+))(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a1802424ec3c5059a0e3df5518e994347}{TOML11\+\_\+\+FIND\+\_\+\+MEMBER\+\_\+\+VARIABLE\+\_\+\+FROM\+\_\+\+VALUE}}(VAR\+\_\+\+NAME)~    obj.\+VAR\+\_\+\+NAME = \mbox{\hyperlink{namespacetoml_a31abd17e078e497fb224d79260910b8d}{toml\+::find}}$<$decltype(obj.\+VAR\+\_\+\+NAME)$>$(v, \mbox{\hyperlink{macros_8hpp_ab76e415cd68fb194d116cd9447531498}{TOML11\+\_\+\+STRINGIZE}}(VAR\+\_\+\+NAME));
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a4605fe43cad683f9ee803e7063306004}{TOML11\+\_\+\+ASSIGN\+\_\+\+MEMBER\+\_\+\+VARIABLE\+\_\+\+TO\+\_\+\+VALUE}}(VAR\+\_\+\+NAME)~    v\mbox{[}\mbox{\hyperlink{macros_8hpp_ab76e415cd68fb194d116cd9447531498}{TOML11\+\_\+\+STRINGIZE}}(VAR\+\_\+\+NAME)\mbox{]} = obj.\+VAR\+\_\+\+NAME;
+\item 
+\#define \mbox{\hyperlink{macros_8hpp_a9be62c04e7b5e1e48822549ee0ded64d}{TOML11\+\_\+\+DEFINE\+\_\+\+CONVERSION\+\_\+\+NON\+\_\+\+INTRUSIVE}}(NAME, ...)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{macros_8hpp_ad7207ddd819e11ce7ef6033168fce7ef}\label{macros_8hpp_ad7207ddd819e11ce7ef6033168fce7ef}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_ARGS\_SIZE@{TOML11\_ARGS\_SIZE}}
+\index{TOML11\_ARGS\_SIZE@{TOML11\_ARGS\_SIZE}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_ARGS\_SIZE}{TOML11\_ARGS\_SIZE}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+ARGS\+\_\+\+SIZE(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{macros_8hpp_a2d2e98c242de4d3f9790b4439136d17f}{TOML11\+\_\+\+ARGS\+\_\+\+SIZE\+\_\+\+AUX}}(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+, \mbox{\hyperlink{macros_8hpp_aa71516b9e98f2239cc1c41b0601125bc}{TOML11\+\_\+\+INDEX\+\_\+\+RSEQ}}())}
+
+\mbox{\Hypertarget{macros_8hpp_a2d2e98c242de4d3f9790b4439136d17f}\label{macros_8hpp_a2d2e98c242de4d3f9790b4439136d17f}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_ARGS\_SIZE\_AUX@{TOML11\_ARGS\_SIZE\_AUX}}
+\index{TOML11\_ARGS\_SIZE\_AUX@{TOML11\_ARGS\_SIZE\_AUX}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_ARGS\_SIZE\_AUX}{TOML11\_ARGS\_SIZE\_AUX}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+ARGS\+\_\+\+SIZE\+\_\+\+AUX(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{macros_8hpp_a87a0f891431280b5bc9a97017b25e675}{TOML11\+\_\+\+ARGS\+\_\+\+SIZE\+\_\+\+IMPL}}(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_a87a0f891431280b5bc9a97017b25e675}\label{macros_8hpp_a87a0f891431280b5bc9a97017b25e675}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_ARGS\_SIZE\_IMPL@{TOML11\_ARGS\_SIZE\_IMPL}}
+\index{TOML11\_ARGS\_SIZE\_IMPL@{TOML11\_ARGS\_SIZE\_IMPL}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_ARGS\_SIZE\_IMPL}{TOML11\_ARGS\_SIZE\_IMPL}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+ARGS\+\_\+\+SIZE\+\_\+\+IMPL(\begin{DoxyParamCaption}\item[{}]{ARG1,  }\item[{}]{ARG2,  }\item[{}]{ARG3,  }\item[{}]{ARG4,  }\item[{}]{ARG5,  }\item[{}]{ARG6,  }\item[{}]{ARG7,  }\item[{}]{ARG8,  }\item[{}]{ARG9,  }\item[{}]{ARG10,  }\item[{}]{ARG11,  }\item[{}]{ARG12,  }\item[{}]{ARG13,  }\item[{}]{ARG14,  }\item[{}]{ARG15,  }\item[{}]{ARG16,  }\item[{}]{ARG17,  }\item[{}]{ARG18,  }\item[{}]{ARG19,  }\item[{}]{ARG20,  }\item[{}]{ARG21,  }\item[{}]{ARG22,  }\item[{}]{ARG23,  }\item[{}]{ARG24,  }\item[{}]{ARG25,  }\item[{}]{ARG26,  }\item[{}]{ARG27,  }\item[{}]{ARG28,  }\item[{}]{ARG29,  }\item[{}]{ARG30,  }\item[{}]{ARG31,  }\item[{}]{ARG32,  }\item[{}]{N,  }\item[{}]{... }\end{DoxyParamCaption})~N}
+
+\mbox{\Hypertarget{macros_8hpp_a4605fe43cad683f9ee803e7063306004}\label{macros_8hpp_a4605fe43cad683f9ee803e7063306004}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_ASSIGN\_MEMBER\_VARIABLE\_TO\_VALUE@{TOML11\_ASSIGN\_MEMBER\_VARIABLE\_TO\_VALUE}}
+\index{TOML11\_ASSIGN\_MEMBER\_VARIABLE\_TO\_VALUE@{TOML11\_ASSIGN\_MEMBER\_VARIABLE\_TO\_VALUE}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_ASSIGN\_MEMBER\_VARIABLE\_TO\_VALUE}{TOML11\_ASSIGN\_MEMBER\_VARIABLE\_TO\_VALUE}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+ASSIGN\+\_\+\+MEMBER\+\_\+\+VARIABLE\+\_\+\+TO\+\_\+\+VALUE(\begin{DoxyParamCaption}\item[{}]{VAR\+\_\+\+NAME }\end{DoxyParamCaption})~    v\mbox{[}\mbox{\hyperlink{macros_8hpp_ab76e415cd68fb194d116cd9447531498}{TOML11\+\_\+\+STRINGIZE}}(VAR\+\_\+\+NAME)\mbox{]} = obj.\+VAR\+\_\+\+NAME;}
+
+\mbox{\Hypertarget{macros_8hpp_a7d946b181b30974fc6b4d58197964d66}\label{macros_8hpp_a7d946b181b30974fc6b4d58197964d66}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_CONCATENATE@{TOML11\_CONCATENATE}}
+\index{TOML11\_CONCATENATE@{TOML11\_CONCATENATE}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_CONCATENATE}{TOML11\_CONCATENATE}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+CONCATENATE(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{y }\end{DoxyParamCaption})~\mbox{\hyperlink{macros_8hpp_a52a9e1b4ca7aee9585052c9cf7c32e85}{TOML11\+\_\+\+CONCATENATE\+\_\+\+AUX}}(x, y)}
+
+\mbox{\Hypertarget{macros_8hpp_a52a9e1b4ca7aee9585052c9cf7c32e85}\label{macros_8hpp_a52a9e1b4ca7aee9585052c9cf7c32e85}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_CONCATENATE\_AUX@{TOML11\_CONCATENATE\_AUX}}
+\index{TOML11\_CONCATENATE\_AUX@{TOML11\_CONCATENATE\_AUX}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_CONCATENATE\_AUX}{TOML11\_CONCATENATE\_AUX}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+CONCATENATE\+\_\+\+AUX(\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{y }\end{DoxyParamCaption})~x\#\#y}
+
+\mbox{\Hypertarget{macros_8hpp_a9be62c04e7b5e1e48822549ee0ded64d}\label{macros_8hpp_a9be62c04e7b5e1e48822549ee0ded64d}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_DEFINE\_CONVERSION\_NON\_INTRUSIVE@{TOML11\_DEFINE\_CONVERSION\_NON\_INTRUSIVE}}
+\index{TOML11\_DEFINE\_CONVERSION\_NON\_INTRUSIVE@{TOML11\_DEFINE\_CONVERSION\_NON\_INTRUSIVE}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_DEFINE\_CONVERSION\_NON\_INTRUSIVE}{TOML11\_DEFINE\_CONVERSION\_NON\_INTRUSIVE}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+DEFINE\+\_\+\+CONVERSION\+\_\+\+NON\+\_\+\+INTRUSIVE(\begin{DoxyParamCaption}\item[{}]{NAME,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetoml}{toml}} \{                                                                     \(\backslash\)}
+\DoxyCodeLine{    template<>                                                                           \(\backslash\)}
+\DoxyCodeLine{    struct from<NAME>                                                                    \(\backslash\)}
+\DoxyCodeLine{    \{                                                                                    \(\backslash\)}
+\DoxyCodeLine{        template<\textcolor{keyword}{typename} C, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }T,                             \(\backslash\)}
+\DoxyCodeLine{                 template<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }A>                                         \(\backslash\)}
+\DoxyCodeLine{        static NAME from\_toml(\textcolor{keyword}{const} basic\_value<C, T, A>\& v)                             \(\backslash\)}
+\DoxyCodeLine{        \{                                                                                \(\backslash\)}
+\DoxyCodeLine{            NAME obj;                                                                    \(\backslash\)}
+\DoxyCodeLine{            TOML11\_FOR\_EACH\_VA\_ARGS(\mbox{\hyperlink{macros_8hpp_a1802424ec3c5059a0e3df5518e994347}{TOML11\_FIND\_MEMBER\_VARIABLE\_FROM\_VALUE}}, \_\_VA\_ARGS\_\_) \(\backslash\)}
+\DoxyCodeLine{            return obj;                                                                  \(\backslash\)}
+\DoxyCodeLine{        \}                                                                                \(\backslash\)}
+\DoxyCodeLine{    \};                                                                                   \(\backslash\)}
+\DoxyCodeLine{    template<>                                                                           \(\backslash\)}
+\DoxyCodeLine{    struct into<NAME>                                                                    \(\backslash\)}
+\DoxyCodeLine{    \{                                                                                    \(\backslash\)}
+\DoxyCodeLine{        static \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{value}} into\_toml(\textcolor{keyword}{const} NAME\& obj)                                          \(\backslash\)}
+\DoxyCodeLine{        \{                                                                                \(\backslash\)}
+\DoxyCodeLine{            \mbox{\hyperlink{classtoml_1_1basic__value}{::toml::value}} v = \mbox{\hyperlink{namespacetoml_af7d788a576baa570efd4793cd5df8ac7}{::toml::table}}\{\};                                           \(\backslash\)}
+\DoxyCodeLine{            TOML11\_FOR\_EACH\_VA\_ARGS(\mbox{\hyperlink{macros_8hpp_a4605fe43cad683f9ee803e7063306004}{TOML11\_ASSIGN\_MEMBER\_VARIABLE\_TO\_VALUE}}, \_\_VA\_ARGS\_\_) \(\backslash\)}
+\DoxyCodeLine{            return v;                                                                    \(\backslash\)}
+\DoxyCodeLine{        \}                                                                                \(\backslash\)}
+\DoxyCodeLine{    \};                                                                                   \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{comment}{/* toml */}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{macros_8hpp_a1802424ec3c5059a0e3df5518e994347}\label{macros_8hpp_a1802424ec3c5059a0e3df5518e994347}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FIND\_MEMBER\_VARIABLE\_FROM\_VALUE@{TOML11\_FIND\_MEMBER\_VARIABLE\_FROM\_VALUE}}
+\index{TOML11\_FIND\_MEMBER\_VARIABLE\_FROM\_VALUE@{TOML11\_FIND\_MEMBER\_VARIABLE\_FROM\_VALUE}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FIND\_MEMBER\_VARIABLE\_FROM\_VALUE}{TOML11\_FIND\_MEMBER\_VARIABLE\_FROM\_VALUE}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FIND\+\_\+\+MEMBER\+\_\+\+VARIABLE\+\_\+\+FROM\+\_\+\+VALUE(\begin{DoxyParamCaption}\item[{}]{VAR\+\_\+\+NAME }\end{DoxyParamCaption})~    obj.\+VAR\+\_\+\+NAME = \mbox{\hyperlink{namespacetoml_a31abd17e078e497fb224d79260910b8d}{toml\+::find}}$<$decltype(obj.\+VAR\+\_\+\+NAME)$>$(v, \mbox{\hyperlink{macros_8hpp_ab76e415cd68fb194d116cd9447531498}{TOML11\+\_\+\+STRINGIZE}}(VAR\+\_\+\+NAME));}
+
+\mbox{\Hypertarget{macros_8hpp_a6e25e901dc609281e055db9cb2082174}\label{macros_8hpp_a6e25e901dc609281e055db9cb2082174}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS@{TOML11\_FOR\_EACH\_VA\_ARGS}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS@{TOML11\_FOR\_EACH\_VA\_ARGS}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS}{TOML11\_FOR\_EACH\_VA\_ARGS}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{... }\end{DoxyParamCaption})~    \mbox{\hyperlink{macros_8hpp_a7d946b181b30974fc6b4d58197964d66}{TOML11\+\_\+\+CONCATENATE}}(TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+, \mbox{\hyperlink{macros_8hpp_ad7207ddd819e11ce7ef6033168fce7ef}{TOML11\+\_\+\+ARGS\+\_\+\+SIZE}}(\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+))(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_a829d922ac6fb639c6b046579b5a30487}\label{macros_8hpp_a829d922ac6fb639c6b046579b5a30487}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_1@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_1}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_1@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_1}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_1}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_1}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+1(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1 }\end{DoxyParamCaption})~FUNCTOR(ARG1)}
+
+\mbox{\Hypertarget{macros_8hpp_a717f69c5aae6b41c9a2a9d7f05c3f33d}\label{macros_8hpp_a717f69c5aae6b41c9a2a9d7f05c3f33d}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_10@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_10}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_10@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_10}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_10}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_10}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+10(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a0e5d02e365be84d566e000f29a3ff630}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+9}}( FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_adc92d50ba245c3ef2edea4651c51733c}\label{macros_8hpp_adc92d50ba245c3ef2edea4651c51733c}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_11@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_11}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_11@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_11}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_11}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_11}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+11(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a717f69c5aae6b41c9a2a9d7f05c3f33d}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+10}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_ae771611ea64fc22b58321e0e7766f9cb}\label{macros_8hpp_ae771611ea64fc22b58321e0e7766f9cb}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_12@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_12}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_12@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_12}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_12}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_12}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+12(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_adc92d50ba245c3ef2edea4651c51733c}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+11}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_a2b353882d66d71ffb526c202d9fad3cb}\label{macros_8hpp_a2b353882d66d71ffb526c202d9fad3cb}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_13@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_13}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_13@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_13}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_13}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_13}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+13(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_ae771611ea64fc22b58321e0e7766f9cb}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+12}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_aed503de3167a5a9ea8cb7bb7ece5e792}\label{macros_8hpp_aed503de3167a5a9ea8cb7bb7ece5e792}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_14@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_14}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_14@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_14}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_14}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_14}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+14(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a2b353882d66d71ffb526c202d9fad3cb}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+13}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_a3ab506cbabed58c3b4adc5b394461880}\label{macros_8hpp_a3ab506cbabed58c3b4adc5b394461880}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_15@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_15}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_15@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_15}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_15}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_15}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+15(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_aed503de3167a5a9ea8cb7bb7ece5e792}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+14}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_a40b164e574c6fbf8bfd0ef1d5a1fc1ed}\label{macros_8hpp_a40b164e574c6fbf8bfd0ef1d5a1fc1ed}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_16@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_16}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_16@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_16}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_16}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_16}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+16(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a3ab506cbabed58c3b4adc5b394461880}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+15}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_a66302e03b75f0f913e318d506fdb582e}\label{macros_8hpp_a66302e03b75f0f913e318d506fdb582e}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_17@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_17}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_17@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_17}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_17}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_17}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+17(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a40b164e574c6fbf8bfd0ef1d5a1fc1ed}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+16}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_a31538060af613e958f76ca87033a4374}\label{macros_8hpp_a31538060af613e958f76ca87033a4374}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_18@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_18}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_18@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_18}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_18}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_18}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+18(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a66302e03b75f0f913e318d506fdb582e}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+17}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_a9c196b09526bf391c38b014c92dc9428}\label{macros_8hpp_a9c196b09526bf391c38b014c92dc9428}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_19@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_19}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_19@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_19}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_19}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_19}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+19(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a31538060af613e958f76ca87033a4374}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+18}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_a7049c3223caeebe311cb9c9fd8da847d}\label{macros_8hpp_a7049c3223caeebe311cb9c9fd8da847d}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_2@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_2}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_2@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_2}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_2}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_2}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+2(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a829d922ac6fb639c6b046579b5a30487}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+1}}( FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_a1d34cfcc7dde5c17b99b58b4894eb705}\label{macros_8hpp_a1d34cfcc7dde5c17b99b58b4894eb705}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_20@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_20}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_20@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_20}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_20}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_20}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+20(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a9c196b09526bf391c38b014c92dc9428}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+19}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_afda0c05a1ffdc221f54f80a75d0a517a}\label{macros_8hpp_afda0c05a1ffdc221f54f80a75d0a517a}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_21@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_21}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_21@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_21}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_21}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_21}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+21(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a1d34cfcc7dde5c17b99b58b4894eb705}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+20}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_ae0121a126722ded3beab94704738b1b4}\label{macros_8hpp_ae0121a126722ded3beab94704738b1b4}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_22@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_22}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_22@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_22}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_22}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_22}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+22(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_afda0c05a1ffdc221f54f80a75d0a517a}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+21}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_ae707c6c252e17735e84cb14b99950c13}\label{macros_8hpp_ae707c6c252e17735e84cb14b99950c13}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_23@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_23}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_23@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_23}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_23}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_23}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+23(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_ae0121a126722ded3beab94704738b1b4}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+22}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_aa74316ed06c99f655014162213cb1409}\label{macros_8hpp_aa74316ed06c99f655014162213cb1409}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_24@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_24}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_24@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_24}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_24}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_24}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+24(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_ae707c6c252e17735e84cb14b99950c13}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+23}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_a5eba04e7edb58a6f07edc1f3f5cb7319}\label{macros_8hpp_a5eba04e7edb58a6f07edc1f3f5cb7319}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_25@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_25}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_25@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_25}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_25}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_25}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+25(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_aa74316ed06c99f655014162213cb1409}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+24}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_aa5f3dbf3bdaa455e589dcb6cbbd9cbcc}\label{macros_8hpp_aa5f3dbf3bdaa455e589dcb6cbbd9cbcc}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_26@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_26}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_26@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_26}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_26}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_26}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+26(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a5eba04e7edb58a6f07edc1f3f5cb7319}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+25}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_aac27e7c435e1811be2d93096ac2ae16b}\label{macros_8hpp_aac27e7c435e1811be2d93096ac2ae16b}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_27@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_27}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_27@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_27}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_27}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_27}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+27(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_aa5f3dbf3bdaa455e589dcb6cbbd9cbcc}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+26}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_ab8b73e10d1df658d249e6c5bee0d68c1}\label{macros_8hpp_ab8b73e10d1df658d249e6c5bee0d68c1}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_28@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_28}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_28@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_28}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_28}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_28}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+28(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_aac27e7c435e1811be2d93096ac2ae16b}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+27}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_aab227ae812f775303505620b53c50b25}\label{macros_8hpp_aab227ae812f775303505620b53c50b25}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_29@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_29}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_29@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_29}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_29}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_29}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+29(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_ab8b73e10d1df658d249e6c5bee0d68c1}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+28}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_a5ce47a45f640a8564d30f97f6015fc44}\label{macros_8hpp_a5ce47a45f640a8564d30f97f6015fc44}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_3@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_3}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_3@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_3}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_3}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_3}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+3(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a7049c3223caeebe311cb9c9fd8da847d}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+2}}( FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_a36bb378c6994e43f32d1d5fb7ecc6801}\label{macros_8hpp_a36bb378c6994e43f32d1d5fb7ecc6801}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_30@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_30}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_30@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_30}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_30}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_30}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+30(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_aab227ae812f775303505620b53c50b25}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+29}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_a226acdf9b5e0c959d018bb4e547770e8}\label{macros_8hpp_a226acdf9b5e0c959d018bb4e547770e8}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_31@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_31}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_31@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_31}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_31}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_31}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+31(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a36bb378c6994e43f32d1d5fb7ecc6801}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+30}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_afb6a3c305ae4d1b995250049f281f8d8}\label{macros_8hpp_afb6a3c305ae4d1b995250049f281f8d8}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_32@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_32}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_32@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_32}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_32}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_32}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+32(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a226acdf9b5e0c959d018bb4e547770e8}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+31}}(FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_aaa994de6b9cbc6718a83383c8946bfdc}\label{macros_8hpp_aaa994de6b9cbc6718a83383c8946bfdc}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_4@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_4}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_4@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_4}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_4}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_4}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+4(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a5ce47a45f640a8564d30f97f6015fc44}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+3}}( FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_a196f136c10ba9e0fe96f73c194a892d3}\label{macros_8hpp_a196f136c10ba9e0fe96f73c194a892d3}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_5@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_5}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_5@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_5}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_5}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_5}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+5(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_aaa994de6b9cbc6718a83383c8946bfdc}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+4}}( FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_a2be8916e3c18aa7cdfccd4b6851ec1a3}\label{macros_8hpp_a2be8916e3c18aa7cdfccd4b6851ec1a3}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_6@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_6}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_6@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_6}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_6}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_6}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+6(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a196f136c10ba9e0fe96f73c194a892d3}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+5}}( FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_ae2cae8322bea141418130b32b8d32e00}\label{macros_8hpp_ae2cae8322bea141418130b32b8d32e00}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_7@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_7}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_7@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_7}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_7}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_7}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+7(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a2be8916e3c18aa7cdfccd4b6851ec1a3}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+6}}( FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_a2e3d966c227344fafe54e26549953d69}\label{macros_8hpp_a2e3d966c227344fafe54e26549953d69}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_8@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_8}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_8@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_8}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_8}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_8}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+8(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_ae2cae8322bea141418130b32b8d32e00}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+7}}( FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_a0e5d02e365be84d566e000f29a3ff630}\label{macros_8hpp_a0e5d02e365be84d566e000f29a3ff630}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_9@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_9}}
+\index{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_9@{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_9}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_9}{TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_9}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+9(\begin{DoxyParamCaption}\item[{}]{FUNCTOR,  }\item[{}]{ARG1,  }\item[{}]{... }\end{DoxyParamCaption})~FUNCTOR(ARG1) \mbox{\hyperlink{macros_8hpp_a2e3d966c227344fafe54e26549953d69}{TOML11\+\_\+\+FOR\+\_\+\+EACH\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+AUX\+\_\+8}}( FUNCTOR, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+\mbox{\Hypertarget{macros_8hpp_aa71516b9e98f2239cc1c41b0601125bc}\label{macros_8hpp_aa71516b9e98f2239cc1c41b0601125bc}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_INDEX\_RSEQ@{TOML11\_INDEX\_RSEQ}}
+\index{TOML11\_INDEX\_RSEQ@{TOML11\_INDEX\_RSEQ}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_INDEX\_RSEQ}{TOML11\_INDEX\_RSEQ}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+INDEX\+\_\+\+RSEQ(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, \(\backslash\)}
+\DoxyCodeLine{    16, 15, 14, 13, 12, 11, 10,  9,  8,  7,  6,  5,  4,  3,  2,  1, 0}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{macros_8hpp_ab76e415cd68fb194d116cd9447531498}\label{macros_8hpp_ab76e415cd68fb194d116cd9447531498}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_STRINGIZE@{TOML11\_STRINGIZE}}
+\index{TOML11\_STRINGIZE@{TOML11\_STRINGIZE}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_STRINGIZE}{TOML11\_STRINGIZE}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+STRINGIZE(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\mbox{\hyperlink{macros_8hpp_afe2e833e46bd11f6a8e48eccc1739638}{TOML11\+\_\+\+STRINGIZE\+\_\+\+AUX}}(x)}
+
+\mbox{\Hypertarget{macros_8hpp_afe2e833e46bd11f6a8e48eccc1739638}\label{macros_8hpp_afe2e833e46bd11f6a8e48eccc1739638}} 
+\index{macros.hpp@{macros.hpp}!TOML11\_STRINGIZE\_AUX@{TOML11\_STRINGIZE\_AUX}}
+\index{TOML11\_STRINGIZE\_AUX@{TOML11\_STRINGIZE\_AUX}!macros.hpp@{macros.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_STRINGIZE\_AUX}{TOML11\_STRINGIZE\_AUX}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+STRINGIZE\+\_\+\+AUX(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\#x}
+

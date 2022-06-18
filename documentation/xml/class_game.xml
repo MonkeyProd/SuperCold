@@ -1,0 +1,580 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="class_game" kind="class" language="C++" prot="public">
+    <compoundname>Game</compoundname>
+    <includes refid="_game_8hpp" local="no">Game.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_game_1a2fb7f653d6cb05f789cf772551e770ba" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Game::WINDOW_SIZE_H</definition>
+        <argsstring></argsstring>
+        <name>WINDOW_SIZE_H</name>
+        <qualifiedname>Game::WINDOW_SIZE_H</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="18" column="14" bodyfile="Game/Game.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a0fac0d95faa08211dd7c5919a394095b" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Game::WINDOW_SIZE_W</definition>
+        <argsstring></argsstring>
+        <name>WINDOW_SIZE_W</name>
+        <qualifiedname>Game::WINDOW_SIZE_W</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="19" column="14" bodyfile="Game/Game.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a09e89b8b765c5c737e29a96ed289cd53" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Game::FPS</definition>
+        <argsstring></argsstring>
+        <name>FPS</name>
+        <qualifiedname>Game::FPS</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="20" column="9" bodyfile="Game/Game.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a255049de8fb46a9f00946631e3121c03" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Game::paused</definition>
+        <argsstring></argsstring>
+        <name>paused</name>
+        <qualifiedname>Game::paused</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="21" column="6" bodyfile="Game/Game.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a223de215aeb661cd423ac145756cc730" prot="private" static="no" mutable="no">
+        <type>sf::RenderWindow</type>
+        <definition>sf::RenderWindow Game::window</definition>
+        <argsstring></argsstring>
+        <name>window</name>
+        <qualifiedname>Game::window</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="23" column="18" bodyfile="Game/Game.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a69ca1a099f2c84d6137c2380f3761c46" prot="private" static="no" mutable="no">
+        <type><ref refid="struct_sprite_controller" kindref="compound">SpriteController</ref></type>
+        <definition>SpriteController Game::spriteController</definition>
+        <argsstring></argsstring>
+        <name>spriteController</name>
+        <qualifiedname>Game::spriteController</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="25" column="18" bodyfile="Game/Game.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a916398c42898ec4ee7790bbe87aae856" prot="private" static="no" mutable="no">
+        <type><ref refid="struct_settings_manager" kindref="compound">SettingsManager</ref></type>
+        <definition>SettingsManager Game::settingsManager</definition>
+        <argsstring></argsstring>
+        <name>settingsManager</name>
+        <qualifiedname>Game::settingsManager</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="26" column="17" bodyfile="Game/Game.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a6e48721b0532833b99fd5615a3628792" prot="private" static="no" mutable="no">
+        <type><ref refid="class_player" kindref="compound">Player</ref></type>
+        <definition>Player Game::player</definition>
+        <argsstring></argsstring>
+        <name>player</name>
+        <qualifiedname>Game::player</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="28" column="8" bodyfile="Game/Game.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1ab4c7d8313ef226f96c601a4039825fb1" prot="private" static="no" mutable="no">
+        <type>sf::Vector2i</type>
+        <definition>sf::Vector2i Game::previousPlayerPosition</definition>
+        <argsstring></argsstring>
+        <name>previousPlayerPosition</name>
+        <qualifiedname>Game::previousPlayerPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="29" column="14" bodyfile="Game/Game.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1aa73e9ba15f4056f063c84a62e8a65816" prot="private" static="no" mutable="no">
+        <type>sf::View</type>
+        <definition>sf::View Game::camera</definition>
+        <argsstring></argsstring>
+        <name>camera</name>
+        <qualifiedname>Game::camera</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="30" column="10" bodyfile="Game/Game.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1ac67d4d24e5f18851dc4377c25f4650b6" prot="private" static="no" mutable="no">
+        <type>sf::View</type>
+        <definition>sf::View Game::map</definition>
+        <argsstring></argsstring>
+        <name>map</name>
+        <qualifiedname>Game::map</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="31" column="10" bodyfile="Game/Game.hpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1aabc0e359a18c1acd4c0ba46f608b90f5" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="class_game_object" kindref="compound">GameObject</ref> &gt;</type>
+        <definition>std::vector&lt;GameObject&gt; Game::drawLayer</definition>
+        <argsstring></argsstring>
+        <name>drawLayer</name>
+        <qualifiedname>Game::drawLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="33" column="13" bodyfile="Game/Game.hpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a41e8636ba8bda5e9b305c98ca88ff19d" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="class_bullet" kindref="compound">Bullet</ref> &gt;</type>
+        <definition>std::vector&lt;Bullet&gt; Game::bulletLayer</definition>
+        <argsstring></argsstring>
+        <name>bulletLayer</name>
+        <qualifiedname>Game::bulletLayer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="34" column="13" bodyfile="Game/Game.hpp" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a2fff80ee2223f4748651504684686444" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="class_eye_enemy" kindref="compound">EyeEnemy</ref> &gt;</type>
+        <definition>std::vector&lt;EyeEnemy&gt; Game::enemies</definition>
+        <argsstring></argsstring>
+        <name>enemies</name>
+        <qualifiedname>Game::enemies</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="37" column="13" bodyfile="Game/Game.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_1a1c171ed1892a64a2d878aa15e175848d" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int Game::difficulty</definition>
+        <argsstring></argsstring>
+        <name>difficulty</name>
+        <qualifiedname>Game::difficulty</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="38" column="14" bodyfile="Game/Game.hpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_game_1ae7e28abc55af4902c9c39899708d08d7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Game::ProcessEvents</definition>
+        <argsstring>()</argsstring>
+        <name>ProcessEvents</name>
+        <qualifiedname>Game::ProcessEvents</qualifiedname>
+        <briefdescription>
+<para>обработка событиый </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="44" column="6" bodyfile="Game/Game.cpp" bodystart="31" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_1a066bac5d0375474e2411bdfe265c67a6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Game::update</definition>
+        <argsstring>(sf::Time deltatime)</argsstring>
+        <name>update</name>
+        <qualifiedname>Game::update</qualifiedname>
+        <param>
+          <type>sf::Time</type>
+          <declname>deltatime</declname>
+        </param>
+        <briefdescription>
+<para>обновлеине внутриигровых сущностей </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>deltatime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>прошедшее время</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+There animation state of each object in animatedLayer is changing </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="51" column="6" bodyfile="Game/Game.cpp" bodystart="86" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_1a5718588bdae9ea18d0e4cec6846478f4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Game::updateAnimations</definition>
+        <argsstring>(sf::Time deltatime)</argsstring>
+        <name>updateAnimations</name>
+        <qualifiedname>Game::updateAnimations</qualifiedname>
+        <param>
+          <type>sf::Time</type>
+          <declname>deltatime</declname>
+        </param>
+        <briefdescription>
+<para>обновление анимаций внутриигровых сущностей </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>deltatime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>прошедшее время </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="58" column="6" bodyfile="Game/Game.cpp" bodystart="181" bodyend="192"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_1a02b43caf0a53cf6354ba8e1dd2f26b6c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Game::draw</definition>
+        <argsstring>(sf::Time deltaTime)</argsstring>
+        <name>draw</name>
+        <qualifiedname>Game::draw</qualifiedname>
+        <param>
+          <type>sf::Time</type>
+          <declname>deltaTime</declname>
+        </param>
+        <briefdescription>
+<para>отрисовка внутриигровых сущностей на экран </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>deltaTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>прошедшее время</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Drawing all layers </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="65" column="6" bodyfile="Game/Game.cpp" bodystart="197" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_1ada7e2cd9ff5df30b797493aec7da57e5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Game::draw_world</definition>
+        <argsstring>(std::vector&lt; sf::Sprite &gt; sprites)</argsstring>
+        <name>draw_world</name>
+        <qualifiedname>Game::draw_world</qualifiedname>
+        <param>
+          <type>std::vector&lt; sf::Sprite &gt;</type>
+          <declname>sprites</declname>
+        </param>
+        <briefdescription>
+<para>генерация мира вокруг игрока </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Генерация и отрисовка игрового мира в области вокруг игрока</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sprites</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>спрайты мира</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sprites</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>спрайты игрового мира </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="72" column="6" bodyfile="Game/Game.cpp" bodystart="263" bodyend="313"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_1aad612c0e75468524c5eb41ddc14101b5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Game::draw_test_room</definition>
+        <argsstring>(std::vector&lt; sf::Sprite &gt; sprites)</argsstring>
+        <name>draw_test_room</name>
+        <qualifiedname>Game::draw_test_room</qualifiedname>
+        <param>
+          <type>std::vector&lt; sf::Sprite &gt;</type>
+          <declname>sprites</declname>
+        </param>
+        <briefdescription>
+<para>создание тестовой комнаты </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sprites</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>спрайты мира </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="79" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_1a163098b9db5199c6ffcf3a6dae2bf808" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Game::draw_animated_player</definition>
+        <argsstring>(std::vector&lt; sf::Sprite &gt; sprites, float x, float y)</argsstring>
+        <name>draw_animated_player</name>
+        <qualifiedname>Game::draw_animated_player</qualifiedname>
+        <param>
+          <type>std::vector&lt; sf::Sprite &gt;</type>
+          <declname>sprites</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>отрисовка анимированного игрока </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sprites</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>спрайты игрока </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>позиция по X </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>позиция по Y </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="88" column="6"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_1a013c10b0dd42032fbf845066a2bcb432" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Game::new_wave</definition>
+        <argsstring>()</argsstring>
+        <name>new_wave</name>
+        <qualifiedname>Game::new_wave</qualifiedname>
+        <briefdescription>
+<para>запуск новой волны монстров, восстановление игрока </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="95" column="6" bodyfile="Game/Game.cpp" bodystart="315" bodyend="334"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_1a5590f2c9bdc2ea104fd807cd2c160459" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Game::shootBullet</definition>
+        <argsstring>(sf::Vector2f velocity)</argsstring>
+        <name>shootBullet</name>
+        <qualifiedname>Game::shootBullet</qualifiedname>
+        <param>
+          <type>sf::Vector2f</type>
+          <declname>velocity</declname>
+        </param>
+        <briefdescription>
+<para>выстрелить пулей </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>velocity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>скорость пули </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="103" column="6" bodyfile="Game/Game.cpp" bodystart="23" bodyend="29"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_game_1a6294956d986beb8a655513e6e444a83b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Game::Game</definition>
+        <argsstring>(unsigned int h=600U, unsigned int w=800U)</argsstring>
+        <name>Game</name>
+        <qualifiedname>Game::Game</qualifiedname>
+        <param>
+          <type>unsigned int</type>
+          <declname>h</declname>
+          <defval>600U</defval>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>w</declname>
+          <defval>800U</defval>
+        </param>
+        <briefdescription>
+<para>создать объект Игры, с окном с указанными размерами </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>h</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>высота окна </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>w</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ширина окна </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="112" column="1" bodyfile="Game/Game.cpp" bodystart="5" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_1a1ab78f5ed0d5ea879157357cf2fb2afa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Game::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>Game::run</qualifiedname>
+        <briefdescription>
+<para>запустить игру </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Game/Game.hpp" line="118" column="6" bodyfile="Game/Game.cpp" bodystart="219" bodyend="256"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Game/Game.hpp" line="16" column="1" bodyfile="Game/Game.hpp" bodystart="16" bodyend="119"/>
+    <listofallmembers>
+      <member refid="class_game_1a41e8636ba8bda5e9b305c98ca88ff19d" prot="private" virt="non-virtual"><scope>Game</scope><name>bulletLayer</name></member>
+      <member refid="class_game_1aa73e9ba15f4056f063c84a62e8a65816" prot="private" virt="non-virtual"><scope>Game</scope><name>camera</name></member>
+      <member refid="class_game_1a1c171ed1892a64a2d878aa15e175848d" prot="private" virt="non-virtual"><scope>Game</scope><name>difficulty</name></member>
+      <member refid="class_game_1a02b43caf0a53cf6354ba8e1dd2f26b6c" prot="private" virt="non-virtual"><scope>Game</scope><name>draw</name></member>
+      <member refid="class_game_1a163098b9db5199c6ffcf3a6dae2bf808" prot="private" virt="non-virtual"><scope>Game</scope><name>draw_animated_player</name></member>
+      <member refid="class_game_1aad612c0e75468524c5eb41ddc14101b5" prot="private" virt="non-virtual"><scope>Game</scope><name>draw_test_room</name></member>
+      <member refid="class_game_1ada7e2cd9ff5df30b797493aec7da57e5" prot="private" virt="non-virtual"><scope>Game</scope><name>draw_world</name></member>
+      <member refid="class_game_1aabc0e359a18c1acd4c0ba46f608b90f5" prot="private" virt="non-virtual"><scope>Game</scope><name>drawLayer</name></member>
+      <member refid="class_game_1a2fff80ee2223f4748651504684686444" prot="private" virt="non-virtual"><scope>Game</scope><name>enemies</name></member>
+      <member refid="class_game_1a09e89b8b765c5c737e29a96ed289cd53" prot="private" virt="non-virtual"><scope>Game</scope><name>FPS</name></member>
+      <member refid="class_game_1a6294956d986beb8a655513e6e444a83b" prot="public" virt="non-virtual"><scope>Game</scope><name>Game</name></member>
+      <member refid="class_game_1ac67d4d24e5f18851dc4377c25f4650b6" prot="private" virt="non-virtual"><scope>Game</scope><name>map</name></member>
+      <member refid="class_game_1a013c10b0dd42032fbf845066a2bcb432" prot="private" virt="non-virtual"><scope>Game</scope><name>new_wave</name></member>
+      <member refid="class_game_1a255049de8fb46a9f00946631e3121c03" prot="private" virt="non-virtual"><scope>Game</scope><name>paused</name></member>
+      <member refid="class_game_1a6e48721b0532833b99fd5615a3628792" prot="private" virt="non-virtual"><scope>Game</scope><name>player</name></member>
+      <member refid="class_game_1ab4c7d8313ef226f96c601a4039825fb1" prot="private" virt="non-virtual"><scope>Game</scope><name>previousPlayerPosition</name></member>
+      <member refid="class_game_1ae7e28abc55af4902c9c39899708d08d7" prot="private" virt="non-virtual"><scope>Game</scope><name>ProcessEvents</name></member>
+      <member refid="class_game_1a1ab78f5ed0d5ea879157357cf2fb2afa" prot="public" virt="non-virtual"><scope>Game</scope><name>run</name></member>
+      <member refid="class_game_1a916398c42898ec4ee7790bbe87aae856" prot="private" virt="non-virtual"><scope>Game</scope><name>settingsManager</name></member>
+      <member refid="class_game_1a5590f2c9bdc2ea104fd807cd2c160459" prot="private" virt="non-virtual"><scope>Game</scope><name>shootBullet</name></member>
+      <member refid="class_game_1a69ca1a099f2c84d6137c2380f3761c46" prot="private" virt="non-virtual"><scope>Game</scope><name>spriteController</name></member>
+      <member refid="class_game_1a066bac5d0375474e2411bdfe265c67a6" prot="private" virt="non-virtual"><scope>Game</scope><name>update</name></member>
+      <member refid="class_game_1a5718588bdae9ea18d0e4cec6846478f4" prot="private" virt="non-virtual"><scope>Game</scope><name>updateAnimations</name></member>
+      <member refid="class_game_1a223de215aeb661cd423ac145756cc730" prot="private" virt="non-virtual"><scope>Game</scope><name>window</name></member>
+      <member refid="class_game_1a2fb7f653d6cb05f789cf772551e770ba" prot="private" virt="non-virtual"><scope>Game</scope><name>WINDOW_SIZE_H</name></member>
+      <member refid="class_game_1a0fac0d95faa08211dd7c5919a394095b" prot="private" virt="non-virtual"><scope>Game</scope><name>WINDOW_SIZE_W</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

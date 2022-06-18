@@ -1,0 +1,30 @@
+.TH "toml::detail::has_specialized_from_impl" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::detail::has_specialized_from_impl
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <traits\&.hpp>\fP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T > static std::false_type \fBcheck\fP (\&.\&.\&.)"
+.br
+.ti -1c
+.RI "template<typename T , std::size_t S = sizeof(::toml::from<T>)> static std::true_type \fBcheck\fP (\fB::toml::from\fP< T > *)"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T > static std::false_type toml::detail::has_specialized_from_impl::check ( \&.\&.\&.)\fC [static]\fP"
+
+.SS "template<typename T , std::size_t S = sizeof(::toml::from<T>)> static std::true_type toml::detail::has_specialized_from_impl::check (\fB::toml::from\fP< T > *)\fC [static]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

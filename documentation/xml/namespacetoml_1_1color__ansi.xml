@@ -1,0 +1,230 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="namespacetoml_1_1color__ansi" kind="namespace" language="C++">
+    <compoundname>toml::color_ansi</compoundname>
+    <innernamespace refid="namespacetoml_1_1color__ansi_1_1detail">toml::color_ansi::detail</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacetoml_1_1color__ansi_1a6e1ecccc13035c2997d726599056a16e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; toml::color_ansi::colorize</definition>
+        <argsstring>(std::ostream &amp;os)</argsstring>
+        <name>colorize</name>
+        <qualifiedname>toml::color_ansi::colorize</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/color.hpp" line="27" column="21" bodyfile="external/toml/color.hpp" bodystart="27" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetoml_1_1color__ansi_1a58e9623eaa14637162672aaf66107aae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; toml::color_ansi::nocolorize</definition>
+        <argsstring>(std::ostream &amp;os)</argsstring>
+        <name>nocolorize</name>
+        <qualifiedname>toml::color_ansi::nocolorize</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/color.hpp" line="33" column="21" bodyfile="external/toml/color.hpp" bodystart="33" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetoml_1_1color__ansi_1a747ea7fa9a8299101bb7ca4eaa74a502" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; toml::color_ansi::reset</definition>
+        <argsstring>(std::ostream &amp;os)</argsstring>
+        <name>reset</name>
+        <qualifiedname>toml::color_ansi::reset</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/color.hpp" line="38" column="21" bodyfile="external/toml/color.hpp" bodystart="38" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetoml_1_1color__ansi_1a23d94feb862d8473abe1914077a9f89d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; toml::color_ansi::bold</definition>
+        <argsstring>(std::ostream &amp;os)</argsstring>
+        <name>bold</name>
+        <qualifiedname>toml::color_ansi::bold</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/color.hpp" line="40" column="21" bodyfile="external/toml/color.hpp" bodystart="40" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetoml_1_1color__ansi_1a4bc1cc5c9fa9feea28e31bbadd05a4e5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; toml::color_ansi::grey</definition>
+        <argsstring>(std::ostream &amp;os)</argsstring>
+        <name>grey</name>
+        <qualifiedname>toml::color_ansi::grey</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/color.hpp" line="42" column="21" bodyfile="external/toml/color.hpp" bodystart="42" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetoml_1_1color__ansi_1aac70aec9b5ba7000caaefcd4dcdc44e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; toml::color_ansi::red</definition>
+        <argsstring>(std::ostream &amp;os)</argsstring>
+        <name>red</name>
+        <qualifiedname>toml::color_ansi::red</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/color.hpp" line="44" column="21" bodyfile="external/toml/color.hpp" bodystart="44" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetoml_1_1color__ansi_1a1bc7bd65ab0ec33ec28a3324e99008b6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; toml::color_ansi::green</definition>
+        <argsstring>(std::ostream &amp;os)</argsstring>
+        <name>green</name>
+        <qualifiedname>toml::color_ansi::green</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/color.hpp" line="46" column="21" bodyfile="external/toml/color.hpp" bodystart="46" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetoml_1_1color__ansi_1a3d86cfe2652ee82167ae548dea630a34" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; toml::color_ansi::yellow</definition>
+        <argsstring>(std::ostream &amp;os)</argsstring>
+        <name>yellow</name>
+        <qualifiedname>toml::color_ansi::yellow</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/color.hpp" line="48" column="21" bodyfile="external/toml/color.hpp" bodystart="48" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetoml_1_1color__ansi_1a2b1a36bda005425861cb71d6b754f12e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; toml::color_ansi::blue</definition>
+        <argsstring>(std::ostream &amp;os)</argsstring>
+        <name>blue</name>
+        <qualifiedname>toml::color_ansi::blue</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/color.hpp" line="50" column="21" bodyfile="external/toml/color.hpp" bodystart="50" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetoml_1_1color__ansi_1a166f5c695c805e111594f404ae36f9cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; toml::color_ansi::magenta</definition>
+        <argsstring>(std::ostream &amp;os)</argsstring>
+        <name>magenta</name>
+        <qualifiedname>toml::color_ansi::magenta</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/color.hpp" line="52" column="21" bodyfile="external/toml/color.hpp" bodystart="52" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetoml_1_1color__ansi_1aadeae66f4f419c95f414a16fa7b4f44a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; toml::color_ansi::cyan</definition>
+        <argsstring>(std::ostream &amp;os)</argsstring>
+        <name>cyan</name>
+        <qualifiedname>toml::color_ansi::cyan</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/color.hpp" line="54" column="21" bodyfile="external/toml/color.hpp" bodystart="54" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacetoml_1_1color__ansi_1a633c6d497f0179cdacafd9e599c1608c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream &amp; toml::color_ansi::white</definition>
+        <argsstring>(std::ostream &amp;os)</argsstring>
+        <name>white</name>
+        <qualifiedname>toml::color_ansi::white</qualifiedname>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>os</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/color.hpp" line="56" column="21" bodyfile="external/toml/color.hpp" bodystart="56" bodyend="57"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/color.hpp" line="16" column="1"/>
+  </compounddef>
+</doxygen>

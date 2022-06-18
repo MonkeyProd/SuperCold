@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1character" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::character</compoundname>
+    <includes refid="combinator_8hpp" local="no">combinator.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>char</type>
+        <declname>C</declname>
+        <defname>C</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structtoml_1_1detail_1_1character_1ad5cd128a9f4280cf845be6afa3c3961c" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr char</type>
+        <definition>constexpr char toml::detail::character&lt; C &gt;::target</definition>
+        <argsstring></argsstring>
+        <name>target</name>
+        <qualifiedname>toml::detail::character::target</qualifiedname>
+        <initializer>= C</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/combinator.hpp" line="59" column="27" bodyfile="external/toml/combinator.hpp" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structtoml_1_1detail_1_1character_1a324e051eb839e526a72e657478a65135" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1result" kindref="compound">result</ref>&lt; <ref refid="structtoml_1_1detail_1_1region" kindref="compound">region</ref>, <ref refid="structtoml_1_1detail_1_1none__t" kindref="compound">none_t</ref> &gt;</type>
+        <definition>static result&lt; region, none_t &gt; toml::detail::character&lt; C &gt;::invoke</definition>
+        <argsstring>(location &amp;loc)</argsstring>
+        <name>invoke</name>
+        <qualifiedname>toml::detail::character::invoke</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1location" kindref="compound">location</ref> &amp;</type>
+          <declname>loc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/combinator.hpp" line="62" column="5" bodyfile="external/toml/combinator.hpp" bodystart="62" bodyend="75"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/combinator.hpp" line="57" column="1" bodyfile="external/toml/combinator.hpp" bodystart="58" bodyend="76"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1detail_1_1character_1a324e051eb839e526a72e657478a65135" prot="public" virt="non-virtual"><scope>toml::detail::character</scope><name>invoke</name></member>
+      <member refid="structtoml_1_1detail_1_1character_1ad5cd128a9f4280cf845be6afa3c3961c" prot="public" virt="non-virtual"><scope>toml::detail::character</scope><name>target</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

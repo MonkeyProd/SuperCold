@@ -1,0 +1,290 @@
+.TH "Player" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Player
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Player\&.hpp>\fP
+.PP
+Inherits sf::Drawable, and sf::Transformable\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBHorizontalDirection\fP { \fBLeft\fP, \fBRight\fP }"
+.br
+.ti -1c
+.RI "enum \fBVerticalDirection\fP { \fBTop\fP, \fBDown\fP }"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPlayer\fP ()=default"
+.br
+.ti -1c
+.RI "\fBPlayer\fP (sf::Vector2f startPosition, sf::Vector2f velocity, spritesMap playerSprites, std::string footsteps_path, float speed=100, int health=100)"
+.br
+.RI "Класс Игрока "
+.ti -1c
+.RI "void \fBchangeXDirection\fP (\fBHorizontalDirection\fP direction)"
+.br
+.RI "Метод, меняющий горизонатальную составляющую скорости игрока "
+.ti -1c
+.RI "void \fBchangeYDirection\fP (\fBVerticalDirection\fP direction)"
+.br
+.RI "Метод, меняющий вертикальную составляющую скорости игрока "
+.ti -1c
+.RI "void \fBresetHorizontalVelocity\fP ()"
+.br
+.RI "Метод, сбрасывающий горизонтальную состовляющую скорости игрока "
+.ti -1c
+.RI "void \fBresetVerticalVelocity\fP ()"
+.br
+.RI "Метод, сбрасывающий вертикальную состовляющую скорости игрока "
+.ti -1c
+.RI "void \fBmovePlayer\fP (sf::Time deltaTime)"
+.br
+.RI "Метод, перемещающий игрока "
+.ti -1c
+.RI "void \fBsetSpeed\fP (float speed)"
+.br
+.RI "Метод, изменяющий скорость игрока "
+.ti -1c
+.RI "bool \fBisDead\fP () const"
+.br
+.RI "Метод, возращающий bool - статус смерти игрока "
+.ti -1c
+.RI "void \fBresetHealth\fP ()"
+.br
+.RI "Метод, восстанавливающий исходное здровье игрока "
+.ti -1c
+.RI "sf::Vector2f \fBgetPlayerPosition\fP () const"
+.br
+.RI "Метод, возращающий положение игрока "
+.ti -1c
+.RI "sf::Vector2f \fBgetPlayerVelocity\fP () const"
+.br
+.RI "Метод, возращающий скорость игрока "
+.ti -1c
+.RI "sf::FloatRect \fBgetNextPosition\fP (sf::Time deltaTime) const"
+.br
+.RI "Метод, возращающий FloatRect - положение игрока в следующий момент времени(необходим для проверки коллизии) "
+.ti -1c
+.RI "virtual void \fBdraw\fP (sf::RenderTarget &surface, sf::RenderStates states) const"
+.br
+.RI "отрисовка игрока на поверхность "
+.ti -1c
+.RI "\fBGameObject\fP & \fBget_playerObject\fP ()"
+.br
+.RI "Метод, возращающий \fBGameObject\fP игрока "
+.ti -1c
+.RI "void \fBgetHit\fP (int hp)"
+.br
+.RI "Нанести урон игроку "
+.ti -1c
+.RI "void \fBnextState\fP ()"
+.br
+.RI "Метод меняющий спрайт анимации игрока на следующий "
+.in -1c
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBPlayer::HorizontalDirection\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILeft \fP\fP
+.TP
+\fB\fIRight \fP\fP
+.SS "enum \fBPlayer::VerticalDirection\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fITop \fP\fP
+.TP
+\fB\fIDown \fP\fP
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Player::Player ()\fC [default]\fP"
+
+.SS "Player::Player (sf::Vector2f startPosition, sf::Vector2f velocity, spritesMap playerSprites, std::string footsteps_path, float speed = \fC100\fP, int health = \fC100\fP)"
+
+.PP
+Класс Игрока 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstartPosition\fP начальное положение 
+.br
+\fIvelocity\fP начальный вектор скорости 
+.br
+\fIplayerSprites\fP словарь со всеми спрайтами игрока 
+.br
+\fIfootsteps_path\fP название аудио с звуком шагов 
+.br
+\fIspeed\fP скорость игрока 
+.br
+\fIhealth\fP количество здоровья игрока 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Player::changeXDirection (\fBHorizontalDirection\fP direction)"
+
+.PP
+Метод, меняющий горизонатальную составляющую скорости игрока 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdirection\fP направление изменения скорости 
+.RE
+.PP
+
+.SS "void Player::changeYDirection (\fBVerticalDirection\fP direction)"
+
+.PP
+Метод, меняющий вертикальную составляющую скорости игрока 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdirection\fP направление изменения скорости 
+.RE
+.PP
+
+.SS "void Player::draw (sf::RenderTarget & surface, sf::RenderStates states) const\fC [virtual]\fP"
+
+.PP
+отрисовка игрока на поверхность 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsurface\fP поверхность 
+.br
+\fIstates\fP состояние 
+.RE
+.PP
+
+.SS "\fBGameObject\fP & Player::get_playerObject ()"
+
+.PP
+Метод, возращающий \fBGameObject\fP игрока 
+.PP
+\fBReturns\fP
+.RS 4
+\fBGameObject\fP& 
+.RE
+.PP
+
+.SS "void Player::getHit (int hp)"
+
+.PP
+Нанести урон игроку 
+.PP
+\fBParameters\fP
+.RS 4
+\fIhp\fP количество урона 
+.RE
+.PP
+
+.SS "sf::FloatRect Player::getNextPosition (sf::Time deltaTime) const"
+
+.PP
+Метод, возращающий FloatRect - положение игрока в следующий момент времени(необходим для проверки коллизии) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdeltaTime\fP deltaTime 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+sf::FloatRect 
+.RE
+.PP
+
+.SS "sf::Vector2f Player::getPlayerPosition () const"
+
+.PP
+Метод, возращающий положение игрока 
+.PP
+\fBReturns\fP
+.RS 4
+sf::Vector2f позиция 
+.RE
+.PP
+
+.SS "sf::Vector2f Player::getPlayerVelocity () const"
+
+.PP
+Метод, возращающий скорость игрока 
+.PP
+\fBReturns\fP
+.RS 4
+sf::Vector2f скорость 
+.RE
+.PP
+
+.SS "bool Player::isDead () const"
+
+.PP
+Метод, возращающий bool - статус смерти игрока 
+.PP
+\fBReturns\fP
+.RS 4
+true мертв 
+.PP
+false жив 
+.RE
+.PP
+
+.SS "void Player::movePlayer (sf::Time deltaTime)"
+
+.PP
+Метод, перемещающий игрока 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdeltaTime\fP deltaTime 
+.RE
+.PP
+
+.SS "void Player::nextState ()"
+
+.PP
+Метод меняющий спрайт анимации игрока на следующий 
+.SS "void Player::resetHealth ()"
+
+.PP
+Метод, восстанавливающий исходное здровье игрока 
+.SS "void Player::resetHorizontalVelocity ()"
+
+.PP
+Метод, сбрасывающий горизонтальную состовляющую скорости игрока 
+.SS "void Player::resetVerticalVelocity ()"
+
+.PP
+Метод, сбрасывающий вертикальную состовляющую скорости игрока 
+.SS "void Player::setSpeed (float speed)"
+
+.PP
+Метод, изменяющий скорость игрока 
+.PP
+\fBParameters\fP
+.RS 4
+\fIspeed\fP новая скорость 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

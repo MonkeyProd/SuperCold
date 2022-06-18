@@ -1,0 +1,859 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="macros_8hpp" kind="file" language="C++">
+    <compoundname>macros.hpp</compoundname>
+    <includedby refid="toml_8hpp" local="yes">external/toml.hpp</includedby>
+    <invincdepgraph>
+      <node id="5">
+        <label>Game/Game.cpp</label>
+        <link refid="_game_8cpp"/>
+      </node>
+      <node id="4">
+        <label>Game/Game.hpp</label>
+        <link refid="_game_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Player/Player.cpp</label>
+        <link refid="_player_8cpp"/>
+      </node>
+      <node id="9">
+        <label>Player/Player.hpp</label>
+        <link refid="_player_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>SettingsManager/SettingsManager.cpp</label>
+        <link refid="_settings_manager_8cpp"/>
+      </node>
+      <node id="3">
+        <label>SettingsManager/SettingsManager.hpp</label>
+        <link refid="_settings_manager_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>SpriteContoller/SpriteController.cpp</label>
+        <link refid="_sprite_controller_8cpp"/>
+      </node>
+      <node id="8">
+        <label>SpriteContoller/SpriteController.hpp</label>
+        <link refid="_sprite_controller_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>external/toml.hpp</label>
+        <link refid="toml_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>external/toml/macros.hpp</label>
+        <link refid="macros_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="macros_8hpp_1afe2e833e46bd11f6a8e48eccc1739638" prot="public" static="no">
+        <name>TOML11_STRINGIZE_AUX</name>
+        <param><defname>x</defname></param>
+        <initializer>#x</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="4" column="9" bodyfile="external/toml/macros.hpp" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1ab76e415cd68fb194d116cd9447531498" prot="public" static="no">
+        <name>TOML11_STRINGIZE</name>
+        <param><defname>x</defname></param>
+        <initializer><ref refid="macros_8hpp_1afe2e833e46bd11f6a8e48eccc1739638" kindref="member">TOML11_STRINGIZE_AUX</ref>(x)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="5" column="9" bodyfile="external/toml/macros.hpp" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a52a9e1b4ca7aee9585052c9cf7c32e85" prot="public" static="no">
+        <name>TOML11_CONCATENATE_AUX</name>
+        <param><defname>x</defname></param>
+        <param><defname>y</defname></param>
+        <initializer>x##y</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="7" column="9" bodyfile="external/toml/macros.hpp" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a7d946b181b30974fc6b4d58197964d66" prot="public" static="no">
+        <name>TOML11_CONCATENATE</name>
+        <param><defname>x</defname></param>
+        <param><defname>y</defname></param>
+        <initializer><ref refid="macros_8hpp_1a52a9e1b4ca7aee9585052c9cf7c32e85" kindref="member">TOML11_CONCATENATE_AUX</ref>(x, y)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="8" column="9" bodyfile="external/toml/macros.hpp" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1aa71516b9e98f2239cc1c41b0601125bc" prot="public" static="no">
+        <name>TOML11_INDEX_RSEQ</name>
+        <param></param>
+        <initializer>    32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, \
+    16, 15, 14, 13, 12, 11, 10,  9,  8,  7,  6,  5,  4,  3,  2,  1, 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="18" column="9" bodyfile="external/toml/macros.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a87a0f891431280b5bc9a97017b25e675" prot="public" static="no">
+        <name>TOML11_ARGS_SIZE_IMPL</name>
+        <param><defname>ARG1</defname></param>
+        <param><defname>ARG2</defname></param>
+        <param><defname>ARG3</defname></param>
+        <param><defname>ARG4</defname></param>
+        <param><defname>ARG5</defname></param>
+        <param><defname>ARG6</defname></param>
+        <param><defname>ARG7</defname></param>
+        <param><defname>ARG8</defname></param>
+        <param><defname>ARG9</defname></param>
+        <param><defname>ARG10</defname></param>
+        <param><defname>ARG11</defname></param>
+        <param><defname>ARG12</defname></param>
+        <param><defname>ARG13</defname></param>
+        <param><defname>ARG14</defname></param>
+        <param><defname>ARG15</defname></param>
+        <param><defname>ARG16</defname></param>
+        <param><defname>ARG17</defname></param>
+        <param><defname>ARG18</defname></param>
+        <param><defname>ARG19</defname></param>
+        <param><defname>ARG20</defname></param>
+        <param><defname>ARG21</defname></param>
+        <param><defname>ARG22</defname></param>
+        <param><defname>ARG23</defname></param>
+        <param><defname>ARG24</defname></param>
+        <param><defname>ARG25</defname></param>
+        <param><defname>ARG26</defname></param>
+        <param><defname>ARG27</defname></param>
+        <param><defname>ARG28</defname></param>
+        <param><defname>ARG29</defname></param>
+        <param><defname>ARG30</defname></param>
+        <param><defname>ARG31</defname></param>
+        <param><defname>ARG32</defname></param>
+        <param><defname>N</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>N</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="25" column="9" bodyfile="external/toml/macros.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a2d2e98c242de4d3f9790b4439136d17f" prot="public" static="no">
+        <name>TOML11_ARGS_SIZE_AUX</name>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="macros_8hpp_1a87a0f891431280b5bc9a97017b25e675" kindref="member">TOML11_ARGS_SIZE_IMPL</ref>(__VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="26" column="9" bodyfile="external/toml/macros.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1ad7207ddd819e11ce7ef6033168fce7ef" prot="public" static="no">
+        <name>TOML11_ARGS_SIZE</name>
+        <param><defname>...</defname></param>
+        <initializer><ref refid="macros_8hpp_1a2d2e98c242de4d3f9790b4439136d17f" kindref="member">TOML11_ARGS_SIZE_AUX</ref>(__VA_ARGS__, <ref refid="macros_8hpp_1aa71516b9e98f2239cc1c41b0601125bc" kindref="member">TOML11_INDEX_RSEQ</ref>())</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="27" column="9" bodyfile="external/toml/macros.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a829d922ac6fb639c6b046579b5a30487" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_1</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <initializer>FUNCTOR(ARG1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="32" column="9" bodyfile="external/toml/macros.hpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a7049c3223caeebe311cb9c9fd8da847d" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_2</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1a829d922ac6fb639c6b046579b5a30487" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_1</ref>( FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="33" column="9" bodyfile="external/toml/macros.hpp" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a5ce47a45f640a8564d30f97f6015fc44" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_3</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1a7049c3223caeebe311cb9c9fd8da847d" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_2</ref>( FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="34" column="9" bodyfile="external/toml/macros.hpp" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1aaa994de6b9cbc6718a83383c8946bfdc" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_4</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1a5ce47a45f640a8564d30f97f6015fc44" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_3</ref>( FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="35" column="9" bodyfile="external/toml/macros.hpp" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a196f136c10ba9e0fe96f73c194a892d3" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_5</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1aaa994de6b9cbc6718a83383c8946bfdc" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_4</ref>( FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="36" column="9" bodyfile="external/toml/macros.hpp" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a2be8916e3c18aa7cdfccd4b6851ec1a3" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_6</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1a196f136c10ba9e0fe96f73c194a892d3" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_5</ref>( FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="37" column="9" bodyfile="external/toml/macros.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1ae2cae8322bea141418130b32b8d32e00" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_7</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1a2be8916e3c18aa7cdfccd4b6851ec1a3" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_6</ref>( FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="38" column="9" bodyfile="external/toml/macros.hpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a2e3d966c227344fafe54e26549953d69" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_8</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1ae2cae8322bea141418130b32b8d32e00" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_7</ref>( FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="39" column="9" bodyfile="external/toml/macros.hpp" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a0e5d02e365be84d566e000f29a3ff630" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_9</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1a2e3d966c227344fafe54e26549953d69" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_8</ref>( FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="40" column="9" bodyfile="external/toml/macros.hpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a717f69c5aae6b41c9a2a9d7f05c3f33d" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_10</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1a0e5d02e365be84d566e000f29a3ff630" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_9</ref>( FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="41" column="9" bodyfile="external/toml/macros.hpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1adc92d50ba245c3ef2edea4651c51733c" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_11</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1a717f69c5aae6b41c9a2a9d7f05c3f33d" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_10</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="42" column="9" bodyfile="external/toml/macros.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1ae771611ea64fc22b58321e0e7766f9cb" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_12</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1adc92d50ba245c3ef2edea4651c51733c" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_11</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="43" column="9" bodyfile="external/toml/macros.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a2b353882d66d71ffb526c202d9fad3cb" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_13</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1ae771611ea64fc22b58321e0e7766f9cb" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_12</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="44" column="9" bodyfile="external/toml/macros.hpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1aed503de3167a5a9ea8cb7bb7ece5e792" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_14</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1a2b353882d66d71ffb526c202d9fad3cb" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_13</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="45" column="9" bodyfile="external/toml/macros.hpp" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a3ab506cbabed58c3b4adc5b394461880" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_15</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1aed503de3167a5a9ea8cb7bb7ece5e792" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_14</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="46" column="9" bodyfile="external/toml/macros.hpp" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a40b164e574c6fbf8bfd0ef1d5a1fc1ed" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_16</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1a3ab506cbabed58c3b4adc5b394461880" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_15</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="47" column="9" bodyfile="external/toml/macros.hpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a66302e03b75f0f913e318d506fdb582e" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_17</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1a40b164e574c6fbf8bfd0ef1d5a1fc1ed" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_16</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="48" column="9" bodyfile="external/toml/macros.hpp" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a31538060af613e958f76ca87033a4374" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_18</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1a66302e03b75f0f913e318d506fdb582e" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_17</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="49" column="9" bodyfile="external/toml/macros.hpp" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a9c196b09526bf391c38b014c92dc9428" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_19</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1a31538060af613e958f76ca87033a4374" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_18</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="50" column="9" bodyfile="external/toml/macros.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a1d34cfcc7dde5c17b99b58b4894eb705" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_20</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1a9c196b09526bf391c38b014c92dc9428" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_19</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="51" column="9" bodyfile="external/toml/macros.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1afda0c05a1ffdc221f54f80a75d0a517a" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_21</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1a1d34cfcc7dde5c17b99b58b4894eb705" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_20</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="52" column="9" bodyfile="external/toml/macros.hpp" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1ae0121a126722ded3beab94704738b1b4" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_22</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1afda0c05a1ffdc221f54f80a75d0a517a" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_21</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="53" column="9" bodyfile="external/toml/macros.hpp" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1ae707c6c252e17735e84cb14b99950c13" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_23</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1ae0121a126722ded3beab94704738b1b4" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_22</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="54" column="9" bodyfile="external/toml/macros.hpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1aa74316ed06c99f655014162213cb1409" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_24</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1ae707c6c252e17735e84cb14b99950c13" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_23</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="55" column="9" bodyfile="external/toml/macros.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a5eba04e7edb58a6f07edc1f3f5cb7319" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_25</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1aa74316ed06c99f655014162213cb1409" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_24</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="56" column="9" bodyfile="external/toml/macros.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1aa5f3dbf3bdaa455e589dcb6cbbd9cbcc" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_26</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1a5eba04e7edb58a6f07edc1f3f5cb7319" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_25</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="57" column="9" bodyfile="external/toml/macros.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1aac27e7c435e1811be2d93096ac2ae16b" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_27</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1aa5f3dbf3bdaa455e589dcb6cbbd9cbcc" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_26</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="58" column="9" bodyfile="external/toml/macros.hpp" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1ab8b73e10d1df658d249e6c5bee0d68c1" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_28</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1aac27e7c435e1811be2d93096ac2ae16b" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_27</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="59" column="9" bodyfile="external/toml/macros.hpp" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1aab227ae812f775303505620b53c50b25" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_29</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1ab8b73e10d1df658d249e6c5bee0d68c1" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_28</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="60" column="9" bodyfile="external/toml/macros.hpp" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a36bb378c6994e43f32d1d5fb7ecc6801" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_30</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1aab227ae812f775303505620b53c50b25" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_29</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="61" column="9" bodyfile="external/toml/macros.hpp" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a226acdf9b5e0c959d018bb4e547770e8" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_31</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1a36bb378c6994e43f32d1d5fb7ecc6801" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_30</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="62" column="9" bodyfile="external/toml/macros.hpp" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1afb6a3c305ae4d1b995250049f281f8d8" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS_AUX_32</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>ARG1</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>FUNCTOR(ARG1) <ref refid="macros_8hpp_1a226acdf9b5e0c959d018bb4e547770e8" kindref="member">TOML11_FOR_EACH_VA_ARGS_AUX_31</ref>(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="63" column="9" bodyfile="external/toml/macros.hpp" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a6e25e901dc609281e055db9cb2082174" prot="public" static="no">
+        <name>TOML11_FOR_EACH_VA_ARGS</name>
+        <param><defname>FUNCTOR</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>    <ref refid="macros_8hpp_1a7d946b181b30974fc6b4d58197964d66" kindref="member">TOML11_CONCATENATE</ref>(TOML11_FOR_EACH_VA_ARGS_AUX_, <ref refid="macros_8hpp_1ad7207ddd819e11ce7ef6033168fce7ef" kindref="member">TOML11_ARGS_SIZE</ref>(__VA_ARGS__))(FUNCTOR, __VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="65" column="9" bodyfile="external/toml/macros.hpp" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a1802424ec3c5059a0e3df5518e994347" prot="public" static="no">
+        <name>TOML11_FIND_MEMBER_VARIABLE_FROM_VALUE</name>
+        <param><defname>VAR_NAME</defname></param>
+        <initializer>    obj.VAR_NAME = <ref refid="namespacetoml_1a31abd17e078e497fb224d79260910b8d" kindref="member">toml::find</ref>&lt;decltype(obj.VAR_NAME)&gt;(v, <ref refid="macros_8hpp_1ab76e415cd68fb194d116cd9447531498" kindref="member">TOML11_STRINGIZE</ref>(VAR_NAME));</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="87" column="9" bodyfile="external/toml/macros.hpp" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a4605fe43cad683f9ee803e7063306004" prot="public" static="no">
+        <name>TOML11_ASSIGN_MEMBER_VARIABLE_TO_VALUE</name>
+        <param><defname>VAR_NAME</defname></param>
+        <initializer>    v[<ref refid="macros_8hpp_1ab76e415cd68fb194d116cd9447531498" kindref="member">TOML11_STRINGIZE</ref>(VAR_NAME)] = obj.VAR_NAME;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="90" column="9" bodyfile="external/toml/macros.hpp" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="macros_8hpp_1a9be62c04e7b5e1e48822549ee0ded64d" prot="public" static="no">
+        <name>TOML11_DEFINE_CONVERSION_NON_INTRUSIVE</name>
+        <param><defname>NAME</defname></param>
+        <param><defname>...</defname></param>
+        <initializer>    namespace toml {                                                                     \
+    template&lt;&gt;                                                                           \
+    struct from&lt;NAME&gt;                                                                    \
+    {                                                                                    \
+        template&lt;typename C, template&lt;typename ...&gt; class T,                             \
+                 template&lt;typename ...&gt; class A&gt;                                         \
+        static NAME from_toml(const basic_value&lt;C, T, A&gt;&amp; v)                             \
+        {                                                                                \
+            NAME obj;                                                                    \
+            <ref refid="macros_8hpp_1a6e25e901dc609281e055db9cb2082174" kindref="member">TOML11_FOR_EACH_VA_ARGS</ref>(<ref refid="macros_8hpp_1a1802424ec3c5059a0e3df5518e994347" kindref="member">TOML11_FIND_MEMBER_VARIABLE_FROM_VALUE</ref>, __VA_ARGS__) \
+            return obj;                                                                  \
+        }                                                                                \
+    };                                                                                   \
+    template&lt;&gt;                                                                           \
+    struct into&lt;NAME&gt;                                                                    \
+    {                                                                                    \
+        static value into_toml(const NAME&amp; obj)                                          \
+        {                                                                                \
+            <ref refid="namespacetoml_1a34e466167cc683c477838accdebb2578" kindref="member">::toml::value</ref> v = <ref refid="namespacetoml_1af7d788a576baa570efd4793cd5df8ac7" kindref="member">::toml::table</ref>{};                                           \
+            <ref refid="macros_8hpp_1a6e25e901dc609281e055db9cb2082174" kindref="member">TOML11_FOR_EACH_VA_ARGS</ref>(<ref refid="macros_8hpp_1a4605fe43cad683f9ee803e7063306004" kindref="member">TOML11_ASSIGN_MEMBER_VARIABLE_TO_VALUE</ref>, __VA_ARGS__) \
+            return v;                                                                    \
+        }                                                                                \
+    };                                                                                   \
+    } /* toml */</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/macros.hpp" line="93" column="9" bodyfile="external/toml/macros.hpp" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>TOML11_MACROS_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_MACROS_HPP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4" refid="macros_8hpp_1afe2e833e46bd11f6a8e48eccc1739638" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_STRINGIZE_AUX(x)<sp/>#x</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="macros_8hpp_1ab76e415cd68fb194d116cd9447531498" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_STRINGIZE(x)<sp/><sp/><sp/><sp/><sp/>TOML11_STRINGIZE_AUX(x)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7" refid="macros_8hpp_1a52a9e1b4ca7aee9585052c9cf7c32e85" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_CONCATENATE_AUX(x,<sp/>y)<sp/>x##y</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="macros_8hpp_1a7d946b181b30974fc6b4d58197964d66" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_CONCATENATE(x,<sp/>y)<sp/><sp/><sp/><sp/><sp/>TOML11_CONCATENATE_AUX(x,<sp/>y)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>============================================================================</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TOML11_DEFINE_CONVERSION_NON_INTRUSIVE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>TOML11_WITHOUT_DEFINE_NON_INTRUSIVE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>----------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TOML11_ARGS_SIZE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="macros_8hpp_1aa71516b9e98f2239cc1c41b0601125bc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_INDEX_RSEQ()<sp/>\</highlight></codeline>
+<codeline lineno="19"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>32,<sp/>31,<sp/>30,<sp/>29,<sp/>28,<sp/>27,<sp/>26,<sp/>25,<sp/>24,<sp/>23,<sp/>22,<sp/>21,<sp/>20,<sp/>19,<sp/>18,<sp/>17,<sp/>\</highlight></codeline>
+<codeline lineno="20"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>16,<sp/>15,<sp/>14,<sp/>13,<sp/>12,<sp/>11,<sp/>10,<sp/><sp/>9,<sp/><sp/>8,<sp/><sp/>7,<sp/><sp/>6,<sp/><sp/>5,<sp/><sp/>4,<sp/><sp/>3,<sp/><sp/>2,<sp/><sp/>1,<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="macros_8hpp_1a87a0f891431280b5bc9a97017b25e675" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_ARGS_SIZE_IMPL(\</highlight></codeline>
+<codeline lineno="22"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>ARG1,<sp/><sp/>ARG2,<sp/><sp/>ARG3,<sp/><sp/>ARG4,<sp/><sp/>ARG5,<sp/><sp/>ARG6,<sp/><sp/>ARG7,<sp/><sp/>ARG8,<sp/><sp/>ARG9,<sp/><sp/>ARG10,<sp/>\</highlight></codeline>
+<codeline lineno="23"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>ARG11,<sp/>ARG12,<sp/>ARG13,<sp/>ARG14,<sp/>ARG15,<sp/>ARG16,<sp/>ARG17,<sp/>ARG18,<sp/>ARG19,<sp/>ARG20,<sp/>\</highlight></codeline>
+<codeline lineno="24"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>ARG21,<sp/>ARG22,<sp/>ARG23,<sp/>ARG24,<sp/>ARG25,<sp/>ARG26,<sp/>ARG27,<sp/>ARG28,<sp/>ARG29,<sp/>ARG30,<sp/>\</highlight></codeline>
+<codeline lineno="25"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>ARG31,<sp/>ARG32,<sp/>N,<sp/>...)<sp/>N</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="macros_8hpp_1a2d2e98c242de4d3f9790b4439136d17f" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_ARGS_SIZE_AUX(...)<sp/>TOML11_ARGS_SIZE_IMPL(__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="macros_8hpp_1ad7207ddd819e11ce7ef6033168fce7ef" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_ARGS_SIZE(...)<sp/>TOML11_ARGS_SIZE_AUX(__VA_ARGS__,<sp/>TOML11_INDEX_RSEQ())</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//<sp/>----------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TOML11_FOR_EACH_VA_ARGS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="macros_8hpp_1a829d922ac6fb639c6b046579b5a30487" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_1(<sp/>FUNCTOR,<sp/>ARG1<sp/><sp/><sp/><sp/><sp/>)<sp/>FUNCTOR(ARG1)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="macros_8hpp_1a7049c3223caeebe311cb9c9fd8da847d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_2(<sp/>FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_1(<sp/>FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="macros_8hpp_1a5ce47a45f640a8564d30f97f6015fc44" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_3(<sp/>FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_2(<sp/>FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="macros_8hpp_1aaa994de6b9cbc6718a83383c8946bfdc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_4(<sp/>FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_3(<sp/>FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="macros_8hpp_1a196f136c10ba9e0fe96f73c194a892d3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_5(<sp/>FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_4(<sp/>FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="macros_8hpp_1a2be8916e3c18aa7cdfccd4b6851ec1a3" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_6(<sp/>FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_5(<sp/>FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="macros_8hpp_1ae2cae8322bea141418130b32b8d32e00" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_7(<sp/>FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_6(<sp/>FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="macros_8hpp_1a2e3d966c227344fafe54e26549953d69" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_8(<sp/>FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_7(<sp/>FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="macros_8hpp_1a0e5d02e365be84d566e000f29a3ff630" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_9(<sp/>FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_8(<sp/>FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="macros_8hpp_1a717f69c5aae6b41c9a2a9d7f05c3f33d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_10(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_9(<sp/>FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="macros_8hpp_1adc92d50ba245c3ef2edea4651c51733c" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_11(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_10(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="macros_8hpp_1ae771611ea64fc22b58321e0e7766f9cb" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_12(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_11(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="macros_8hpp_1a2b353882d66d71ffb526c202d9fad3cb" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_13(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_12(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="macros_8hpp_1aed503de3167a5a9ea8cb7bb7ece5e792" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_14(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_13(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="macros_8hpp_1a3ab506cbabed58c3b4adc5b394461880" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_15(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_14(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="macros_8hpp_1a40b164e574c6fbf8bfd0ef1d5a1fc1ed" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_16(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_15(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="macros_8hpp_1a66302e03b75f0f913e318d506fdb582e" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_17(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_16(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="macros_8hpp_1a31538060af613e958f76ca87033a4374" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_18(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_17(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="macros_8hpp_1a9c196b09526bf391c38b014c92dc9428" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_19(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_18(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="macros_8hpp_1a1d34cfcc7dde5c17b99b58b4894eb705" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_20(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_19(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="macros_8hpp_1afda0c05a1ffdc221f54f80a75d0a517a" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_21(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_20(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="macros_8hpp_1ae0121a126722ded3beab94704738b1b4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_22(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_21(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="macros_8hpp_1ae707c6c252e17735e84cb14b99950c13" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_23(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_22(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="macros_8hpp_1aa74316ed06c99f655014162213cb1409" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_24(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_23(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="macros_8hpp_1a5eba04e7edb58a6f07edc1f3f5cb7319" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_25(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_24(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="macros_8hpp_1aa5f3dbf3bdaa455e589dcb6cbbd9cbcc" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_26(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_25(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="macros_8hpp_1aac27e7c435e1811be2d93096ac2ae16b" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_27(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_26(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="macros_8hpp_1ab8b73e10d1df658d249e6c5bee0d68c1" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_28(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_27(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="macros_8hpp_1aab227ae812f775303505620b53c50b25" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_29(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_28(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="macros_8hpp_1a36bb378c6994e43f32d1d5fb7ecc6801" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_30(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_29(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="macros_8hpp_1a226acdf9b5e0c959d018bb4e547770e8" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_31(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_30(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="macros_8hpp_1afb6a3c305ae4d1b995250049f281f8d8" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_32(FUNCTOR,<sp/>ARG1,<sp/>...)<sp/>FUNCTOR(ARG1)<sp/>TOML11_FOR_EACH_VA_ARGS_AUX_31(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="macros_8hpp_1a6e25e901dc609281e055db9cb2082174" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FOR_EACH_VA_ARGS(FUNCTOR,<sp/>...)\</highlight></codeline>
+<codeline lineno="66"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>TOML11_CONCATENATE(TOML11_FOR_EACH_VA_ARGS_AUX_,<sp/>TOML11_ARGS_SIZE(__VA_ARGS__))(FUNCTOR,<sp/>__VA_ARGS__)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment">//<sp/>----------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TOML11_DEFINE_CONVERSION_NON_INTRUSIVE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment">//<sp/>use<sp/>it<sp/>in<sp/>the<sp/>following<sp/>way.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">//<sp/>```cpp</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">//<sp/>namespace<sp/>foo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment">//<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment">//<sp/>struct<sp/>Foo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment">//<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>std::string<sp/>s;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>double<sp/><sp/><sp/><sp/><sp/><sp/>d;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>int<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">//<sp/>};</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment">//<sp/>}<sp/>//<sp/>foo</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TOML11_DEFINE_CONVERSION_NON_INTRUSIVE(foo::Foo,<sp/>s,<sp/>d,<sp/>i)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment">//<sp/>```</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment">//<sp/>And<sp/>then<sp/>you<sp/>can<sp/>use<sp/>`toml::find&lt;foo::Foo&gt;(file,<sp/>&quot;foo&quot;);`</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="macros_8hpp_1a1802424ec3c5059a0e3df5518e994347" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_FIND_MEMBER_VARIABLE_FROM_VALUE(VAR_NAME)\</highlight></codeline>
+<codeline lineno="88"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>obj.VAR_NAME<sp/>=<sp/>toml::find&lt;decltype(obj.VAR_NAME)&gt;(v,<sp/>TOML11_STRINGIZE(VAR_NAME));</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="macros_8hpp_1a4605fe43cad683f9ee803e7063306004" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_ASSIGN_MEMBER_VARIABLE_TO_VALUE(VAR_NAME)\</highlight></codeline>
+<codeline lineno="91"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>v[TOML11_STRINGIZE(VAR_NAME)]<sp/>=<sp/>obj.VAR_NAME;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="macros_8hpp_1a9be62c04e7b5e1e48822549ee0ded64d" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TOML11_DEFINE_CONVERSION_NON_INTRUSIVE(NAME,<sp/>...)\</highlight></codeline>
+<codeline lineno="94"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>namespace<sp/>toml<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="95"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>template&lt;&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="96"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>struct<sp/>from&lt;NAME&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="97"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="98"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>template&lt;typename<sp/>C,<sp/>template&lt;typename<sp/>...&gt;<sp/>class<sp/>T,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="99"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>template&lt;typename<sp/>...&gt;<sp/>class<sp/>A&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="100"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>static<sp/>NAME<sp/>from_toml(const<sp/>basic_value&lt;C,<sp/>T,<sp/>A&gt;&amp;<sp/>v)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="101"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="102"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>NAME<sp/>obj;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="103"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TOML11_FOR_EACH_VA_ARGS(TOML11_FIND_MEMBER_VARIABLE_FROM_VALUE,<sp/>__VA_ARGS__)<sp/>\</highlight></codeline>
+<codeline lineno="104"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>obj;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="105"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="106"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>};<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="107"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>template&lt;&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="108"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>struct<sp/>into&lt;NAME&gt;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="109"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="110"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>static<sp/>value<sp/>into_toml(const<sp/>NAME&amp;<sp/>obj)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="111"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="112"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>::toml::value<sp/>v<sp/>=<sp/>::toml::table{};<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="113"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TOML11_FOR_EACH_VA_ARGS(TOML11_ASSIGN_MEMBER_VARIABLE_TO_VALUE,<sp/>__VA_ARGS__)<sp/>\</highlight></codeline>
+<codeline lineno="114"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>v;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="115"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="116"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>};<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="117"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="comment">/*<sp/>toml<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="comment">//<sp/>TOML11_WITHOUT_DEFINE_NON_INTRUSIVE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="comment">//<sp/>TOML11_MACROS_HPP</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="external/toml/macros.hpp"/>
+  </compounddef>
+</doxygen>

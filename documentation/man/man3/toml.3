@@ -1,0 +1,1107 @@
+.TH "toml" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml
+.SH SYNOPSIS
+.br
+.PP
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBcolor_ansi\fP"
+.br
+.ti -1c
+.RI "namespace \fBdetail\fP"
+.br
+.ti -1c
+.RI "namespace \fBliterals\fP"
+.br
+.ti -1c
+.RI "namespace \fBtoml_literals\fP"
+.br
+.in -1c
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBbasic_value\fP"
+.br
+.ti -1c
+.RI "struct \fBdiscard_comments\fP"
+.br
+.ti -1c
+.RI "struct \fBexception\fP"
+.br
+.ti -1c
+.RI "struct \fBfailure\fP"
+.br
+.ti -1c
+.RI "struct \fBfrom\fP"
+.br
+.ti -1c
+.RI "struct \fBinternal_error\fP"
+.br
+.ti -1c
+.RI "struct \fBinto\fP"
+.br
+.ti -1c
+.RI "struct \fBlocal_date\fP"
+.br
+.ti -1c
+.RI "struct \fBlocal_datetime\fP"
+.br
+.ti -1c
+.RI "struct \fBlocal_time\fP"
+.br
+.ti -1c
+.RI "struct \fBoffset_datetime\fP"
+.br
+.ti -1c
+.RI "struct \fBpreserve_comments\fP"
+.br
+.ti -1c
+.RI "struct \fBresult\fP"
+.br
+.ti -1c
+.RI "struct \fBserializer\fP"
+.br
+.ti -1c
+.RI "struct \fBsource_location\fP"
+.br
+.ti -1c
+.RI "struct \fBstring\fP"
+.br
+.ti -1c
+.RI "struct \fBsuccess\fP"
+.br
+.ti -1c
+.RI "struct \fBsyntax_error\fP"
+.br
+.ti -1c
+.RI "struct \fBtime_offset\fP"
+.br
+.ti -1c
+.RI "struct \fBtype_error\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "using \fBcharacter\fP = char"
+.br
+.ti -1c
+.RI "using \fBkey\fP = std::string"
+.br
+.ti -1c
+.RI "using \fBboolean\fP = bool"
+.br
+.ti -1c
+.RI "using \fBinteger\fP = std::int64_t"
+.br
+.ti -1c
+.RI "using \fBfloating\fP = double"
+.br
+.ti -1c
+.RI "using \fBvalue\fP = \fBbasic_value\fP< \fBTOML11_DEFAULT_COMMENT_STRATEGY\fP, std::unordered_map, std::vector >"
+.br
+.ti -1c
+.RI "using \fBarray\fP = typename \fBvalue::array_type\fP"
+.br
+.ti -1c
+.RI "using \fBtable\fP = typename \fBvalue::table_type\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum class \fBmonth_t\fP : std::uint8_t { \fBJan\fP = 0, \fBFeb\fP = 1, \fBMar\fP = 2, \fBApr\fP = 3, \fBMay\fP = 4, \fBJun\fP = 5, \fBJul\fP = 6, \fBAug\fP = 7, \fBSep\fP = 8, \fBOct\fP = 9, \fBNov\fP = 10, \fBDec\fP = 11 }"
+.br
+.ti -1c
+.RI "enum class \fBstring_t\fP : std::uint8_t { \fBbasic\fP = 0, \fBliteral\fP = 1 }"
+.br
+.ti -1c
+.RI "enum class \fBvalue_t\fP : std::uint8_t { \fBempty\fP = 0, \fBboolean\fP = 1, \fBinteger\fP = 2, \fBfloating\fP = 3, \fBstring\fP = 4, \fBoffset_datetime\fP = 5, \fBlocal_datetime\fP = 6, \fBlocal_date\fP = 7, \fBlocal_time\fP = 8, \fBarray\fP = 9, \fBtable\fP = 10 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBpreserve_comments\fP &lhs, const \fBpreserve_comments\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBpreserve_comments\fP &lhs, const \fBpreserve_comments\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (const \fBpreserve_comments\fP &lhs, const \fBpreserve_comments\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (const \fBpreserve_comments\fP &lhs, const \fBpreserve_comments\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>\fP (const \fBpreserve_comments\fP &lhs, const \fBpreserve_comments\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (const \fBpreserve_comments\fP &lhs, const \fBpreserve_comments\fP &rhs)"
+.br
+.ti -1c
+.RI "void \fBswap\fP (\fBpreserve_comments\fP &lhs, \fBpreserve_comments\fP &rhs)"
+.br
+.ti -1c
+.RI "void \fBswap\fP (\fBpreserve_comments\fP &lhs, std::vector< std::string > &rhs)"
+.br
+.ti -1c
+.RI "void \fBswap\fP (std::vector< std::string > &lhs, \fBpreserve_comments\fP &rhs)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBoperator<<\fP (std::basic_ostream< charT, traits > &os, const \fBpreserve_comments\fP &com)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBdiscard_comments\fP &, const \fBdiscard_comments\fP &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBdiscard_comments\fP &, const \fBdiscard_comments\fP &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (const \fBdiscard_comments\fP &, const \fBdiscard_comments\fP &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (const \fBdiscard_comments\fP &, const \fBdiscard_comments\fP &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBoperator>\fP (const \fBdiscard_comments\fP &, const \fBdiscard_comments\fP &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (const \fBdiscard_comments\fP &, const \fBdiscard_comments\fP &) noexcept"
+.br
+.ti -1c
+.RI "void \fBswap\fP (const \fBdiscard_comments\fP &, const \fBdiscard_comments\fP &) noexcept"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBoperator<<\fP (std::basic_ostream< charT, traits > &os, const \fBdiscard_comments\fP &)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBlocal_date\fP &lhs, const \fBlocal_date\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBlocal_date\fP &lhs, const \fBlocal_date\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (const \fBlocal_date\fP &lhs, const \fBlocal_date\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (const \fBlocal_date\fP &lhs, const \fBlocal_date\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>\fP (const \fBlocal_date\fP &lhs, const \fBlocal_date\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (const \fBlocal_date\fP &lhs, const \fBlocal_date\fP &rhs)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBoperator<<\fP (std::basic_ostream< charT, traits > &os, const \fBlocal_date\fP &date)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBlocal_time\fP &lhs, const \fBlocal_time\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBlocal_time\fP &lhs, const \fBlocal_time\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (const \fBlocal_time\fP &lhs, const \fBlocal_time\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (const \fBlocal_time\fP &lhs, const \fBlocal_time\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>\fP (const \fBlocal_time\fP &lhs, const \fBlocal_time\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (const \fBlocal_time\fP &lhs, const \fBlocal_time\fP &rhs)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBoperator<<\fP (std::basic_ostream< charT, traits > &os, const \fBlocal_time\fP &time)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBtime_offset\fP &lhs, const \fBtime_offset\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBtime_offset\fP &lhs, const \fBtime_offset\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (const \fBtime_offset\fP &lhs, const \fBtime_offset\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (const \fBtime_offset\fP &lhs, const \fBtime_offset\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>\fP (const \fBtime_offset\fP &lhs, const \fBtime_offset\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (const \fBtime_offset\fP &lhs, const \fBtime_offset\fP &rhs)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBoperator<<\fP (std::basic_ostream< charT, traits > &os, const \fBtime_offset\fP &offset)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBlocal_datetime\fP &lhs, const \fBlocal_datetime\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBlocal_datetime\fP &lhs, const \fBlocal_datetime\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (const \fBlocal_datetime\fP &lhs, const \fBlocal_datetime\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (const \fBlocal_datetime\fP &lhs, const \fBlocal_datetime\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>\fP (const \fBlocal_datetime\fP &lhs, const \fBlocal_datetime\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (const \fBlocal_datetime\fP &lhs, const \fBlocal_datetime\fP &rhs)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBoperator<<\fP (std::basic_ostream< charT, traits > &os, const \fBlocal_datetime\fP &dt)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBoffset_datetime\fP &lhs, const \fBoffset_datetime\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBoffset_datetime\fP &lhs, const \fBoffset_datetime\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (const \fBoffset_datetime\fP &lhs, const \fBoffset_datetime\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (const \fBoffset_datetime\fP &lhs, const \fBoffset_datetime\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>\fP (const \fBoffset_datetime\fP &lhs, const \fBoffset_datetime\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (const \fBoffset_datetime\fP &lhs, const \fBoffset_datetime\fP &rhs)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBoperator<<\fP (std::basic_ostream< charT, traits > &os, const \fBoffset_datetime\fP &dt)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > & \fBget\fP (\fBbasic_value\fP< C, M, V > &v)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > const & \fBget\fP (const \fBbasic_value\fP< C, M, V > &v)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > \fBget\fP (\fBbasic_value\fP< C, M, V > &&v)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > & \fBget\fP (\fBbasic_value\fP< C, M, V > &v)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > const & \fBget\fP (const \fBbasic_value\fP< C, M, V > &v)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > \fBget\fP (\fBbasic_value\fP< C, M, V > &&v)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< \fBdetail::is_basic_value\fP< T >, \fBdetail::negation\fP< std::is_same< T, \fBbasic_value\fP< C, M, V > > > >\fB::value\fP, T > \fBget\fP (const \fBbasic_value\fP< C, M, V > &v)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< std::is_integral< T >, \fBdetail::negation\fP< std::is_same< T, bool > >, \fBdetail::negation\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > > > >\fB::value\fP, T > \fBget\fP (const \fBbasic_value\fP< C, M, V > &v)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< std::is_floating_point< T >, \fBdetail::negation\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > > > >\fB::value\fP, T > \fBget\fP (const \fBbasic_value\fP< C, M, V > &v)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, std::string >\fB::value\fP, std::string > & \fBget\fP (\fBbasic_value\fP< C, M, V > &v)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, std::string >\fB::value\fP, std::string > const & \fBget\fP (const \fBbasic_value\fP< C, M, V > &v)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, std::string >\fB::value\fP, std::string > \fBget\fP (\fBbasic_value\fP< C, M, V > &&v)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_chrono_duration\fP< T >\fB::value\fP, T > \fBget\fP (const \fBbasic_value\fP< C, M, V > &v)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< std::chrono::system_clock::time_point, T >\fB::value\fP, T > \fBget\fP (const \fBbasic_value\fP< C, M, V > &v)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< \fBdetail::is_container\fP< T >, \fBdetail::has_push_back_method\fP< T >, \fBdetail::negation\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > > > >\fB::value\fP, T > \fBget\fP (const \fBbasic_value\fP< C, M, V > &)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< \fBdetail::is_container\fP< T >, \fBdetail::negation\fP< \fBdetail::has_push_back_method\fP< T > >, \fBdetail::negation\fP< \fBdetail::has_specialized_from\fP< T > >, \fBdetail::negation\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > > > >\fB::value\fP, T > \fBget\fP (const \fBbasic_value\fP< C, M, V > &)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_std_pair\fP< T >\fB::value\fP, T > \fBget\fP (const \fBbasic_value\fP< C, M, V > &)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_std_tuple\fP< T >\fB::value\fP, T > \fBget\fP (const \fBbasic_value\fP< C, M, V > &)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< \fBdetail::is_map\fP< T >, \fBdetail::negation\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > > > >\fB::value\fP, T > \fBget\fP (const \fBbasic_value\fP< C, M, V > &)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< \fBdetail::negation\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > > >, \fBdetail::has_from_toml_method\fP< T, C, M, V >, std::is_default_constructible< T > >\fB::value\fP, T > \fBget\fP (const \fBbasic_value\fP< C, M, V > &)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::has_specialized_from\fP< T >\fB::value\fP, T > \fBget\fP (const \fBbasic_value\fP< C, M, V > &)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< \fBdetail::negation\fP< \fBdetail::is_basic_value\fP< T > >, std::is_constructible< T, const \fBbasic_value\fP< C, M, V > & >, \fBdetail::negation\fP< \fBdetail::has_from_toml_method\fP< T, C, M, V > >, \fBdetail::negation\fP< \fBdetail::has_specialized_from\fP< T > > >\fB::value\fP, T > \fBget\fP (const \fBbasic_value\fP< C, M, V > &)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_std_forward_list\fP< T >\fB::value\fP, T > \fBget\fP (const \fBbasic_value\fP< C, M, V > &v)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > const & \fBfind\fP (const \fBbasic_value\fP< C, M, V > &v, const \fBkey\fP &ky)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > & \fBfind\fP (\fBbasic_value\fP< C, M, V > &v, const \fBkey\fP &ky)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > \fBfind\fP (\fBbasic_value\fP< C, M, V > &&v, const \fBkey\fP &ky)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > const & \fBfind\fP (const \fBbasic_value\fP< C, M, V > &v, const std::size_t idx)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > & \fBfind\fP (\fBbasic_value\fP< C, M, V > &v, const std::size_t idx)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > \fBfind\fP (\fBbasic_value\fP< C, M, V > &&v, const std::size_t idx)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V, typename Key1 , typename Key2 , typename \&.\&.\&. Keys> const \fBbasic_value\fP< C, M, V > & \fBfind\fP (const \fBbasic_value\fP< C, M, V > &v, Key1 &&k1, Key2 &&k2, Keys &&\&.\&.\&. keys)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V, typename Key1 , typename Key2 , typename \&.\&.\&. Keys> \fBbasic_value\fP< C, M, V > & \fBfind\fP (\fBbasic_value\fP< C, M, V > &v, Key1 &&k1, Key2 &&k2, Keys &&\&.\&.\&. keys)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V, typename Key1 , typename Key2 , typename \&.\&.\&. Keys> \fBbasic_value\fP< C, M, V > \fBfind\fP (\fBbasic_value\fP< C, M, V > &&v, Key1 &&k1, Key2 &&k2, Keys &&\&.\&.\&. keys)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > const & \fBget_or\fP (const \fBbasic_value\fP< C, M, V > &v, const \fBbasic_value\fP< C, M, V > &)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > & \fBget_or\fP (\fBbasic_value\fP< C, M, V > &v, \fBbasic_value\fP< C, M, V > &)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > \fBget_or\fP (\fBbasic_value\fP< C, M, V > &&v, \fBbasic_value\fP< C, M, V > &&)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > const & \fBget_or\fP (const \fBbasic_value\fP< C, M, V > &v, const T &opt)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > & \fBget_or\fP (\fBbasic_value\fP< C, M, V > &v, T &opt)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_exact_toml_type\fP< \fBdetail::remove_cvref_t\fP< T >, \fBbasic_value\fP< C, M, V > >\fB::value\fP, \fBdetail::remove_cvref_t\fP< T > > \fBget_or\fP (\fBbasic_value\fP< C, M, V > &&v, T &&opt)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< \fBdetail::remove_cvref_t\fP< T >, std::string >\fB::value\fP, std::string > const & \fBget_or\fP (const \fBbasic_value\fP< C, M, V > &v, const T &opt)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, std::string >\fB::value\fP, std::string > & \fBget_or\fP (\fBbasic_value\fP< C, M, V > &v, T &opt)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< \fBdetail::remove_cvref_t\fP< T >, std::string >\fB::value\fP, std::string > \fBget_or\fP (\fBbasic_value\fP< C, M, V > &&v, T &&opt)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_string_literal\fP< typename std::remove_reference< T >::type >\fB::value\fP, std::string > \fBget_or\fP (const \fBbasic_value\fP< C, M, V > &v, T &&opt)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< \fBdetail::negation\fP< \fBdetail::is_exact_toml_type\fP< \fBdetail::remove_cvref_t\fP< T >, \fBbasic_value\fP< C, M, V > > >, \fBdetail::negation\fP< std::is_same< std::string, \fBdetail::remove_cvref_t\fP< T > > >, \fBdetail::negation\fP< \fBdetail::is_string_literal\fP< typename std::remove_reference< T >::type > > >\fB::value\fP, \fBdetail::remove_cvref_t\fP< T > > \fBget_or\fP (const \fBbasic_value\fP< C, M, V > &v, T &&opt)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > const & \fBfind_or\fP (const \fBbasic_value\fP< C, M, V > &v, const \fBkey\fP &ky, const \fBbasic_value\fP< C, M, V > &opt)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > & \fBfind_or\fP (\fBbasic_value\fP< C, M, V > &v, const \fBtoml::key\fP &ky, \fBbasic_value\fP< C, M, V > &opt)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > \fBfind_or\fP (\fBbasic_value\fP< C, M, V > &&v, const \fBtoml::key\fP &ky, \fBbasic_value\fP< C, M, V > &&opt)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > const & \fBfind_or\fP (const \fBbasic_value\fP< C, M, V > &v, const \fBkey\fP &ky, const T &opt)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > & \fBfind_or\fP (\fBbasic_value\fP< C, M, V > &v, const \fBtoml::key\fP &ky, T &opt)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, \fBdetail::remove_cvref_t\fP< T > > \fBfind_or\fP (\fBbasic_value\fP< C, M, V > &&v, const \fBtoml::key\fP &ky, T &&opt)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, std::string >\fB::value\fP, std::string > const & \fBfind_or\fP (const \fBbasic_value\fP< C, M, V > &v, const \fBkey\fP &ky, const T &opt)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, std::string >\fB::value\fP, std::string > & \fBfind_or\fP (\fBbasic_value\fP< C, M, V > &v, const \fBtoml::key\fP &ky, T &opt)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, std::string >\fB::value\fP, std::string > \fBfind_or\fP (\fBbasic_value\fP< C, M, V > &&v, const \fBtoml::key\fP &ky, T &&opt)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_string_literal\fP< typename std::remove_reference< T >::type >\fB::value\fP, std::string > \fBfind_or\fP (const \fBbasic_value\fP< C, M, V > &v, const \fBtoml::key\fP &ky, T &&opt)"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< \fBdetail::negation\fP< \fBdetail::is_exact_toml_type\fP< \fBdetail::remove_cvref_t\fP< T >, \fBbasic_value\fP< C, M, V > > >, \fBdetail::negation\fP< std::is_same< std::string, \fBdetail::remove_cvref_t\fP< T > > >, \fBdetail::negation\fP< \fBdetail::is_string_literal\fP< typename std::remove_reference< T >::type > > >\fB::value\fP, \fBdetail::remove_cvref_t\fP< T > > \fBfind_or\fP (const \fBbasic_value\fP< C, M, V > &v, const \fBtoml::key\fP &ky, T &&opt)"
+.br
+.ti -1c
+.RI "template<typename Value , typename \&.\&.\&. Ks, typename \fBdetail::enable_if_t\fP<(sizeof\&.\&.\&.(Ks) > 1), std::nullptr_t >  = nullptr> auto \fBfind_or\fP (Value &&v, const \fBtoml::key\fP &ky, Ks &&\&.\&.\&. keys) \-> decltype(find_or(std::forward< Value >(v), ky, \fBdetail::last_one\fP(std::forward< Ks >(keys)\&.\&.\&.)))"
+.br
+.ti -1c
+.RI "template<typename T , typename Value , typename \&.\&.\&. Ks, typename \fBdetail::enable_if_t\fP<(sizeof\&.\&.\&.(Ks) > 1), std::nullptr_t >  = nullptr> auto \fBfind_or\fP (Value &&v, const \fBtoml::key\fP &ky, Ks &&\&.\&.\&. keys) \-> decltype(find_or< T >(std::forward< Value >(v), ky, \fBdetail::last_one\fP(std::forward< Ks >(keys)\&.\&.\&.)))"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBresult\fP< T, std::string > \fBexpect\fP (const \fBbasic_value\fP< C, M, V > &v) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBresult\fP< T, std::string > \fBexpect\fP (const \fBbasic_value\fP< C, M, V > &v, const \fBtoml::key\fP &k) noexcept"
+.br
+.ti -1c
+.RI "inline \fB::toml::basic_value\fP< \fBTOML11_DEFAULT_COMMENT_STRATEGY\fP, std::unordered_map, std::vector > \fBliteral_internal_impl\fP (\fB::toml::detail::location\fP loc)"
+.br
+.ti -1c
+.RI "inline \fB::toml::basic_value\fP< \fBTOML11_DEFAULT_COMMENT_STRATEGY\fP, std::unordered_map, std::vector > \fBoperator''_toml\fP (const char *str, std::size_t len)"
+.br
+.ti -1c
+.RI "template<typename Comment  = TOML11_DEFAULT_COMMENT_STRATEGY, template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBbasic_value\fP< Comment, Table, Array > \fBparse\fP (std::istream &is, const std::string &fname='unknown file')"
+.br
+.ti -1c
+.RI "template<typename Comment  = TOML11_DEFAULT_COMMENT_STRATEGY, template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBbasic_value\fP< Comment, Table, Array > \fBparse\fP (const std::string &fname)"
+.br
+.ti -1c
+.RI "template<typename T > \fBsuccess\fP< typename std::remove_cv< typename std::remove_reference< T >::type >::type > \fBok\fP (T &&v)"
+.br
+.ti -1c
+.RI "template<typename T > \fBfailure\fP< typename std::remove_cv< typename std::remove_reference< T >::type >::type > \fBerr\fP (T &&v)"
+.br
+.ti -1c
+.RI "\fBsuccess\fP< std::string > \fBok\fP (const char *literal)"
+.br
+.ti -1c
+.RI "\fBfailure\fP< std::string > \fBerr\fP (const char *literal)"
+.br
+.ti -1c
+.RI "template<typename T , typename E > void \fBswap\fP (\fBresult\fP< T, E > &lhs, \fBresult\fP< T, E > &rhs)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits , typename Alloc > std::basic_string< charT, traits, Alloc > \fBformat_key\fP (const std::basic_string< charT, traits, Alloc > &k)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits , typename Alloc > std::basic_string< charT, traits, Alloc > \fBformat_keys\fP (const std::vector< std::basic_string< charT, traits, Alloc > > &keys)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> std::string \fBformat\fP (const \fBbasic_value\fP< C, M, V > &v, std::size_t w=80u, int fprec=std::numeric_limits< \fBtoml::floating\fP >::max_digits10, bool no_comment=false, bool force_inline=false)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBnocomment\fP (std::basic_ostream< charT, traits > &os)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBshowcomment\fP (std::basic_ostream< charT, traits > &os)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> std::basic_ostream< charT, traits > & \fBoperator<<\fP (std::basic_ostream< charT, traits > &os, const \fBbasic_value\fP< C, M, V > &v)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBstring\fP &lhs, const \fBstring\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBstring\fP &lhs, const \fBstring\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (const \fBstring\fP &lhs, const \fBstring\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>\fP (const \fBstring\fP &lhs, const \fBstring\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (const \fBstring\fP &lhs, const \fBstring\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (const \fBstring\fP &lhs, const \fBstring\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBstring\fP &lhs, const std::string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBstring\fP &lhs, const std::string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (const \fBstring\fP &lhs, const std::string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>\fP (const \fBstring\fP &lhs, const std::string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (const \fBstring\fP &lhs, const std::string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (const \fBstring\fP &lhs, const std::string &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const std::string &lhs, const \fBstring\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const std::string &lhs, const \fBstring\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (const std::string &lhs, const \fBstring\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>\fP (const std::string &lhs, const \fBstring\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (const std::string &lhs, const \fBstring\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (const std::string &lhs, const \fBstring\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBstring\fP &lhs, const char *rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBstring\fP &lhs, const char *rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (const \fBstring\fP &lhs, const char *rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>\fP (const \fBstring\fP &lhs, const char *rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (const \fBstring\fP &lhs, const char *rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (const \fBstring\fP &lhs, const char *rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const char *lhs, const \fBstring\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const char *lhs, const \fBstring\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (const char *lhs, const \fBstring\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>\fP (const char *lhs, const \fBstring\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (const char *lhs, const \fBstring\fP &rhs)"
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (const char *lhs, const \fBstring\fP &rhs)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBoperator<<\fP (std::basic_ostream< charT, traits > &os, const \fBstring\fP &s)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBoperator<<\fP (std::basic_ostream< charT, traits > &os, \fBvalue_t\fP t)"
+.br
+.ti -1c
+.RI "template<typename charT  = char, typename traits  = std::char_traits<charT>, typename alloc  = std::allocator<charT>> std::basic_string< charT, traits, alloc > \fBstringize\fP (\fBvalue_t\fP t)"
+.br
+.ti -1c
+.RI "template<typename T , typename \&.\&.\&. Ts> std::unique_ptr< T > \fBmake_unique\fP (Ts &&\&.\&.\&. args)"
+.br
+.ti -1c
+.RI "template<typename Container > void \fBtry_reserve\fP (Container &container, std::size_t N)"
+.br
+.ti -1c
+.RI "template<typename \&.\&.\&. Ts> std::string \fBconcat_to_string\fP (Ts &&\&.\&.\&. args)"
+.br
+.ti -1c
+.RI "template<typename T > T \fBfrom_string\fP (const std::string &str, T opt)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> bool \fBoperator==\fP (const \fBbasic_value\fP< C, T, A > &lhs, const \fBbasic_value\fP< C, T, A > &rhs)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> bool \fBoperator!=\fP (const \fBbasic_value\fP< C, T, A > &lhs, const \fBbasic_value\fP< C, T, A > &rhs)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::enable_if< \fBdetail::conjunction\fP< \fBdetail::is_comparable\fP< typenamebasic_value< C, T, A >::array_type >, \fBdetail::is_comparable\fP< typenamebasic_value< C, T, A >::table_type > >\fB::value\fP, bool >::type \fBoperator<\fP (const \fBbasic_value\fP< C, T, A > &lhs, const \fBbasic_value\fP< C, T, A > &rhs)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::enable_if< \fBdetail::conjunction\fP< \fBdetail::is_comparable\fP< typenamebasic_value< C, T, A >::array_type >, \fBdetail::is_comparable\fP< typenamebasic_value< C, T, A >::table_type > >\fB::value\fP, bool >::type \fBoperator<=\fP (const \fBbasic_value\fP< C, T, A > &lhs, const \fBbasic_value\fP< C, T, A > &rhs)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::enable_if< \fBdetail::conjunction\fP< \fBdetail::is_comparable\fP< typenamebasic_value< C, T, A >::array_type >, \fBdetail::is_comparable\fP< typenamebasic_value< C, T, A >::table_type > >\fB::value\fP, bool >::type \fBoperator>\fP (const \fBbasic_value\fP< C, T, A > &lhs, const \fBbasic_value\fP< C, T, A > &rhs)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::enable_if< \fBdetail::conjunction\fP< \fBdetail::is_comparable\fP< typenamebasic_value< C, T, A >::array_type >, \fBdetail::is_comparable\fP< typenamebasic_value< C, T, A >::table_type > >\fB::value\fP, bool >::type \fBoperator>=\fP (const \fBbasic_value\fP< C, T, A > &lhs, const \fBbasic_value\fP< C, T, A > &rhs)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::string \fBformat_error\fP (const std::string &err_msg, const \fBbasic_value\fP< C, T, A > &v, const std::string &comment, std::vector< std::string > hints={}, const bool colorize=\fBTOML11_ERROR_MESSAGE_COLORIZED\fP)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::string \fBformat_error\fP (const std::string &err_msg, const \fBtoml::basic_value\fP< C, T, A > &v1, const std::string &comment1, const \fBtoml::basic_value\fP< C, T, A > &v2, const std::string &comment2, std::vector< std::string > hints={}, const bool colorize=\fBTOML11_ERROR_MESSAGE_COLORIZED\fP)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::string \fBformat_error\fP (const std::string &err_msg, const \fBtoml::basic_value\fP< C, T, A > &v1, const std::string &comment1, const \fBtoml::basic_value\fP< C, T, A > &v2, const std::string &comment2, const \fBtoml::basic_value\fP< C, T, A > &v3, const std::string &comment3, std::vector< std::string > hints={}, const bool colorize=\fBTOML11_ERROR_MESSAGE_COLORIZED\fP)"
+.br
+.ti -1c
+.RI "template<typename Visitor , typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> \fBdetail::return_type_of_t\fP< Visitor, const \fBtoml::boolean\fP & > \fBvisit\fP (Visitor &&visitor, const \fBtoml::basic_value\fP< C, T, A > &v)"
+.br
+.ti -1c
+.RI "template<typename Visitor , typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> \fBdetail::return_type_of_t\fP< Visitor, \fBtoml::boolean\fP & > \fBvisit\fP (Visitor &&visitor, \fBtoml::basic_value\fP< C, T, A > &v)"
+.br
+.ti -1c
+.RI "template<typename Visitor , typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> \fBdetail::return_type_of_t\fP< Visitor, \fBtoml::boolean\fP && > \fBvisit\fP (Visitor &&visitor, \fBtoml::basic_value\fP< C, T, A > &&v)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> decltype(::toml::get< T >(std::declval< \fBbasic_value\fP< C, M, V > const & >())) \fBfind\fP (const \fBbasic_value\fP< C, M, V > &v, const \fBkey\fP &ky)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "using \fBtoml::array\fP = typedef typename \fBvalue::array_type\fP"
+
+.SS "using \fBtoml::boolean\fP = typedef bool"
+
+.SS "using \fBtoml::character\fP = typedef char"
+
+.SS "using \fBtoml::floating\fP = typedef double"
+
+.SS "using \fBtoml::integer\fP = typedef std::int64_t"
+
+.SS "using \fBtoml::key\fP = typedef std::string"
+
+.SS "using \fBtoml::table\fP = typedef typename \fBvalue::table_type\fP"
+
+.SS "using \fBtoml::value\fP = typedef \fBbasic_value\fP<\fBTOML11_DEFAULT_COMMENT_STRATEGY\fP, std::unordered_map, std::vector>"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum class \fBtoml::month_t\fP : std::uint8_t\fC [strong]\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIJan \fP\fP
+.TP
+\fB\fIFeb \fP\fP
+.TP
+\fB\fIMar \fP\fP
+.TP
+\fB\fIApr \fP\fP
+.TP
+\fB\fIMay \fP\fP
+.TP
+\fB\fIJun \fP\fP
+.TP
+\fB\fIJul \fP\fP
+.TP
+\fB\fIAug \fP\fP
+.TP
+\fB\fISep \fP\fP
+.TP
+\fB\fIOct \fP\fP
+.TP
+\fB\fINov \fP\fP
+.TP
+\fB\fIDec \fP\fP
+.SS "enum class \fBtoml::string_t\fP : std::uint8_t\fC [strong]\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIbasic \fP\fP
+.TP
+\fB\fIliteral \fP\fP
+.SS "enum class \fBtoml::value_t\fP : std::uint8_t\fC [strong]\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIempty \fP\fP
+.TP
+\fB\fIboolean \fP\fP
+.TP
+\fB\fIinteger \fP\fP
+.TP
+\fB\fIfloating \fP\fP
+.TP
+\fB\fIstring \fP\fP
+.TP
+\fB\fIoffset_datetime \fP\fP
+.TP
+\fB\fIlocal_datetime \fP\fP
+.TP
+\fB\fIlocal_date \fP\fP
+.TP
+\fB\fIlocal_time \fP\fP
+.TP
+\fB\fIarray \fP\fP
+.TP
+\fB\fItable \fP\fP
+.SH "Function Documentation"
+.PP 
+.SS "template<typename \&.\&.\&. Ts> std::string toml::concat_to_string (Ts &&\&.\&.\&. args)"
+
+.SS "\fBfailure\fP< std::string > toml::err (const char * literal)\fC [inline]\fP"
+
+.SS "template<typename T > \fBfailure\fP< typename std::remove_cv< typename std::remove_reference< T >::type >::type > toml::err (T && v)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBresult\fP< T, std::string > toml::expect (const \fBbasic_value\fP< C, M, V > & v)\fC [noexcept]\fP"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBresult\fP< T, std::string > toml::expect (const \fBbasic_value\fP< C, M, V > & v, const \fBtoml::key\fP & k)\fC [noexcept]\fP"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > toml::find (\fBbasic_value\fP< C, M, V > && v, const \fBkey\fP & ky)"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > toml::find (\fBbasic_value\fP< C, M, V > && v, const std::size_t idx)"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V, typename Key1 , typename Key2 , typename \&.\&.\&. Keys> \fBbasic_value\fP< C, M, V > toml::find (\fBbasic_value\fP< C, M, V > && v, Key1 && k1, Key2 && k2, Keys &&\&.\&.\&. keys)"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > & toml::find (\fBbasic_value\fP< C, M, V > & v, const \fBkey\fP & ky)"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > & toml::find (\fBbasic_value\fP< C, M, V > & v, const std::size_t idx)"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V, typename Key1 , typename Key2 , typename \&.\&.\&. Keys> \fBbasic_value\fP< C, M, V > & toml::find (\fBbasic_value\fP< C, M, V > & v, Key1 && k1, Key2 && k2, Keys &&\&.\&.\&. keys)"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > const  & toml::find (const \fBbasic_value\fP< C, M, V > & v, const \fBkey\fP & ky)"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > const  & toml::find (const \fBbasic_value\fP< C, M, V > & v, const std::size_t idx)"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V, typename Key1 , typename Key2 , typename \&.\&.\&. Keys> const \fBbasic_value\fP< C, M, V > & toml::find (const \fBbasic_value\fP< C, M, V > & v, Key1 && k1, Key2 && k2, Keys &&\&.\&.\&. keys)"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > toml::find_or (\fBbasic_value\fP< C, M, V > && v, const \fBtoml::key\fP & ky, \fBbasic_value\fP< C, M, V > && opt)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, \fBdetail::remove_cvref_t\fP< T > > toml::find_or (\fBbasic_value\fP< C, M, V > && v, const \fBtoml::key\fP & ky, T && opt)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, std::string >\fB::value\fP, std::string > toml::find_or (\fBbasic_value\fP< C, M, V > && v, const \fBtoml::key\fP & ky, T && opt)"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > & toml::find_or (\fBbasic_value\fP< C, M, V > & v, const \fBtoml::key\fP & ky, \fBbasic_value\fP< C, M, V > & opt)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > & toml::find_or (\fBbasic_value\fP< C, M, V > & v, const \fBtoml::key\fP & ky, T & opt)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, std::string >\fB::value\fP, std::string > & toml::find_or (\fBbasic_value\fP< C, M, V > & v, const \fBtoml::key\fP & ky, T & opt)"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > const  & toml::find_or (const \fBbasic_value\fP< C, M, V > & v, const \fBkey\fP & ky, const \fBbasic_value\fP< C, M, V > & opt)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > const  & toml::find_or (const \fBbasic_value\fP< C, M, V > & v, const \fBkey\fP & ky, const T & opt)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, std::string >\fB::value\fP, std::string > const  & toml::find_or (const \fBbasic_value\fP< C, M, V > & v, const \fBkey\fP & ky, const T & opt)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_string_literal\fP< typename std::remove_reference< T >::type >\fB::value\fP, std::string > toml::find_or (const \fBbasic_value\fP< C, M, V > & v, const \fBtoml::key\fP & ky, T && opt)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< \fBdetail::negation\fP< \fBdetail::is_exact_toml_type\fP< \fBdetail::remove_cvref_t\fP< T >, \fBbasic_value\fP< C, M, V > > >, \fBdetail::negation\fP< std::is_same< std::string, \fBdetail::remove_cvref_t\fP< T > > >, \fBdetail::negation\fP< \fBdetail::is_string_literal\fP< typename std::remove_reference< T >::type > > >\fB::value\fP, \fBdetail::remove_cvref_t\fP< T > > toml::find_or (const \fBbasic_value\fP< C, M, V > & v, const \fBtoml::key\fP & ky, T && opt)"
+
+.SS "template<typename Value , typename \&.\&.\&. Ks, typename \fBdetail::enable_if_t\fP<(sizeof\&.\&.\&.(Ks) > 1), std::nullptr_t >  = nullptr> auto toml::find_or (Value && v, const \fBtoml::key\fP & ky, Ks &&\&.\&.\&. keys) \-> decltype(find_or(std::forward<Value>(v), ky, \fBdetail::last_one\fP(std::forward<Ks>(keys)\&.\&.\&.)))
+"
+
+.SS "template<typename T , typename Value , typename \&.\&.\&. Ks, typename \fBdetail::enable_if_t\fP<(sizeof\&.\&.\&.(Ks) > 1), std::nullptr_t >  = nullptr> auto toml::find_or (Value && v, const \fBtoml::key\fP & ky, Ks &&\&.\&.\&. keys) \-> decltype(find_or<T>(std::forward<Value>(v), ky, \fBdetail::last_one\fP(std::forward<Ks>(keys)\&.\&.\&.)))
+"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> std::string toml::format (const \fBbasic_value\fP< C, M, V > & v, std::size_t w = \fC80u\fP, int fprec = \fCstd::numeric_limits<\fBtoml::floating\fP>::max_digits10\fP, bool no_comment = \fCfalse\fP, bool force_inline = \fCfalse\fP)"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::string toml::format_error (const std::string & err_msg, const \fBbasic_value\fP< C, T, A > & v, const std::string & comment, std::vector< std::string > hints = \fC{}\fP, const bool colorize = \fC\fBTOML11_ERROR_MESSAGE_COLORIZED\fP\fP)\fC [inline]\fP"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::string toml::format_error (const std::string & err_msg, const \fBtoml::basic_value\fP< C, T, A > & v1, const std::string & comment1, const \fBtoml::basic_value\fP< C, T, A > & v2, const std::string & comment2, const \fBtoml::basic_value\fP< C, T, A > & v3, const std::string & comment3, std::vector< std::string > hints = \fC{}\fP, const bool colorize = \fC\fBTOML11_ERROR_MESSAGE_COLORIZED\fP\fP)\fC [inline]\fP"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::string toml::format_error (const std::string & err_msg, const \fBtoml::basic_value\fP< C, T, A > & v1, const std::string & comment1, const \fBtoml::basic_value\fP< C, T, A > & v2, const std::string & comment2, std::vector< std::string > hints = \fC{}\fP, const bool colorize = \fC\fBTOML11_ERROR_MESSAGE_COLORIZED\fP\fP)\fC [inline]\fP"
+
+.SS "template<typename charT , typename traits , typename Alloc > std::basic_string< charT, traits, Alloc > toml::format_key (const std::basic_string< charT, traits, Alloc > & k)"
+
+.SS "template<typename charT , typename traits , typename Alloc > std::basic_string< charT, traits, Alloc > toml::format_keys (const std::vector< std::basic_string< charT, traits, Alloc > > & keys)"
+
+.SS "template<typename T > T toml::from_string (const std::string & str, T opt)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > toml::get (\fBbasic_value\fP< C, M, V > && v)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > toml::get (\fBbasic_value\fP< C, M, V > && v)\fC [inline]\fP"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, std::string >\fB::value\fP, std::string > toml::get (\fBbasic_value\fP< C, M, V > && v)\fC [inline]\fP"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > & toml::get (\fBbasic_value\fP< C, M, V > & v)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > & toml::get (\fBbasic_value\fP< C, M, V > & v)\fC [inline]\fP"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, std::string >\fB::value\fP, std::string > & toml::get (\fBbasic_value\fP< C, M, V > & v)\fC [inline]\fP"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< \fBdetail::is_container\fP< T >, \fBdetail::has_push_back_method\fP< T >, \fBdetail::negation\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > > > >\fB::value\fP, T > toml::get (const \fBbasic_value\fP< C, M, V > & v)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< \fBdetail::is_container\fP< T >, \fBdetail::negation\fP< \fBdetail::has_push_back_method\fP< T > >, \fBdetail::negation\fP< \fBdetail::has_specialized_from\fP< T > >, \fBdetail::negation\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > > > >\fB::value\fP, T > toml::get (const \fBbasic_value\fP< C, M, V > & v)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_std_pair\fP< T >\fB::value\fP, T > toml::get (const \fBbasic_value\fP< C, M, V > & v)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_std_tuple\fP< T >\fB::value\fP, T > toml::get (const \fBbasic_value\fP< C, M, V > & v)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< \fBdetail::is_map\fP< T >, \fBdetail::negation\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > > > >\fB::value\fP, T > toml::get (const \fBbasic_value\fP< C, M, V > & v)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< \fBdetail::negation\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > > >, \fBdetail::has_from_toml_method\fP< T, C, M, V >, std::is_default_constructible< T > >\fB::value\fP, T > toml::get (const \fBbasic_value\fP< C, M, V > & v)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::has_specialized_from\fP< T >\fB::value\fP, T > toml::get (const \fBbasic_value\fP< C, M, V > & v)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< \fBdetail::negation\fP< \fBdetail::is_basic_value\fP< T > >, std::is_constructible< T, const \fBbasic_value\fP< C, M, V > & >, \fBdetail::negation\fP< \fBdetail::has_from_toml_method\fP< T, C, M, V > >, \fBdetail::negation\fP< \fBdetail::has_specialized_from\fP< T > > >\fB::value\fP, T > toml::get (const \fBbasic_value\fP< C, M, V > & v)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > const  & toml::get (const \fBbasic_value\fP< C, M, V > & v)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > const  & toml::get (const \fBbasic_value\fP< C, M, V > & v)\fC [inline]\fP"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< \fBdetail::is_basic_value\fP< T >, \fBdetail::negation\fP< std::is_same< T, \fBbasic_value\fP< C, M, V > > > >\fB::value\fP, T > toml::get (const \fBbasic_value\fP< C, M, V > & v)\fC [inline]\fP"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< std::is_integral< T >, \fBdetail::negation\fP< std::is_same< T, bool > >, \fBdetail::negation\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > > > >\fB::value\fP, T > toml::get (const \fBbasic_value\fP< C, M, V > & v)\fC [inline]\fP"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< std::is_floating_point< T >, \fBdetail::negation\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > > > >\fB::value\fP, T > toml::get (const \fBbasic_value\fP< C, M, V > & v)\fC [inline]\fP"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, std::string >\fB::value\fP, std::string > const  & toml::get (const \fBbasic_value\fP< C, M, V > & v)\fC [inline]\fP"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_chrono_duration\fP< T >\fB::value\fP, T > toml::get (const \fBbasic_value\fP< C, M, V > & v)\fC [inline]\fP"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< std::chrono::system_clock::time_point, T >\fB::value\fP, T > toml::get (const \fBbasic_value\fP< C, M, V > & v)\fC [inline]\fP"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_std_forward_list\fP< T >\fB::value\fP, T > toml::get (const \fBbasic_value\fP< C, M, V > & v)"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > toml::get_or (\fBbasic_value\fP< C, M, V > && v, \fBbasic_value\fP< C, M, V > &&)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_exact_toml_type\fP< \fBdetail::remove_cvref_t\fP< T >, \fBbasic_value\fP< C, M, V > >\fB::value\fP, \fBdetail::remove_cvref_t\fP< T > > toml::get_or (\fBbasic_value\fP< C, M, V > && v, T && opt)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< \fBdetail::remove_cvref_t\fP< T >, std::string >\fB::value\fP, std::string > toml::get_or (\fBbasic_value\fP< C, M, V > && v, T && opt)"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > & toml::get_or (\fBbasic_value\fP< C, M, V > & v, \fBbasic_value\fP< C, M, V > &)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > & toml::get_or (\fBbasic_value\fP< C, M, V > & v, T & opt)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< T, std::string >\fB::value\fP, std::string > & toml::get_or (\fBbasic_value\fP< C, M, V > & v, T & opt)"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBbasic_value\fP< C, M, V > const  & toml::get_or (const \fBbasic_value\fP< C, M, V > & v, const \fBbasic_value\fP< C, M, V > &)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_exact_toml_type\fP< T, \fBbasic_value\fP< C, M, V > >\fB::value\fP, T > const  & toml::get_or (const \fBbasic_value\fP< C, M, V > & v, const T & opt)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< std::is_same< \fBdetail::remove_cvref_t\fP< T >, std::string >\fB::value\fP, std::string > const  & toml::get_or (const \fBbasic_value\fP< C, M, V > & v, const T & opt)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::is_string_literal\fP< typename std::remove_reference< T >::type >\fB::value\fP, std::string > toml::get_or (const \fBbasic_value\fP< C, M, V > & v, T && opt)"
+
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> \fBdetail::enable_if_t\fP< \fBdetail::conjunction\fP< \fBdetail::negation\fP< \fBdetail::is_exact_toml_type\fP< \fBdetail::remove_cvref_t\fP< T >, \fBbasic_value\fP< C, M, V > > >, \fBdetail::negation\fP< std::is_same< std::string, \fBdetail::remove_cvref_t\fP< T > > >, \fBdetail::negation\fP< \fBdetail::is_string_literal\fP< typename std::remove_reference< T >::type > > >\fB::value\fP, \fBdetail::remove_cvref_t\fP< T > > toml::get_or (const \fBbasic_value\fP< C, M, V > & v, T && opt)"
+
+.SS "template<typename T , typename \&.\&.\&. Ts> std::unique_ptr< T > toml::make_unique (Ts &&\&.\&.\&. args)\fC [inline]\fP"
+
+.SS "template<typename charT , typename traits > std::basic_ostream< charT, traits > & toml::nocomment (std::basic_ostream< charT, traits > & os)"
+
+.SS "\fBsuccess\fP< std::string > toml::ok (const char * literal)\fC [inline]\fP"
+
+.SS "template<typename T > \fBsuccess\fP< typename std::remove_cv< typename std::remove_reference< T >::type >::type > toml::ok (T && v)"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> bool toml::operator!= (const \fBbasic_value\fP< C, T, A > & lhs, const \fBbasic_value\fP< C, T, A > & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator!= (const char * lhs, const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator!= (const \fBdiscard_comments\fP &, const \fBdiscard_comments\fP &)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "bool toml::operator!= (const \fBlocal_date\fP & lhs, const \fBlocal_date\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator!= (const \fBlocal_datetime\fP & lhs, const \fBlocal_datetime\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator!= (const \fBlocal_time\fP & lhs, const \fBlocal_time\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator!= (const \fBoffset_datetime\fP & lhs, const \fBoffset_datetime\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator!= (const \fBpreserve_comments\fP & lhs, const \fBpreserve_comments\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator!= (const std::string & lhs, const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator!= (const \fBstring\fP & lhs, const char * rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator!= (const \fBstring\fP & lhs, const std::string & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator!= (const \fBstring\fP & lhs, const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator!= (const \fBtime_offset\fP & lhs, const \fBtime_offset\fP & rhs)\fC [inline]\fP"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::enable_if< \fBdetail::conjunction\fP< \fBdetail::is_comparable\fP< typenamebasic_value< C, T, A >::array_type >, \fBdetail::is_comparable\fP< typenamebasic_value< C, T, A >::table_type > >\fB::value\fP, bool >::type toml::operator< (const \fBbasic_value\fP< C, T, A > & lhs, const \fBbasic_value\fP< C, T, A > & rhs)"
+
+.SS "bool toml::operator< (const char * lhs, const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator< (const \fBdiscard_comments\fP &, const \fBdiscard_comments\fP &)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "bool toml::operator< (const \fBlocal_date\fP & lhs, const \fBlocal_date\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator< (const \fBlocal_datetime\fP & lhs, const \fBlocal_datetime\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator< (const \fBlocal_time\fP & lhs, const \fBlocal_time\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator< (const \fBoffset_datetime\fP & lhs, const \fBoffset_datetime\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator< (const \fBpreserve_comments\fP & lhs, const \fBpreserve_comments\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator< (const std::string & lhs, const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator< (const \fBstring\fP & lhs, const char * rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator< (const \fBstring\fP & lhs, const std::string & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator< (const \fBstring\fP & lhs, const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator< (const \fBtime_offset\fP & lhs, const \fBtime_offset\fP & rhs)\fC [inline]\fP"
+
+.SS "template<typename charT , typename traits , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> std::basic_ostream< charT, traits > & toml::operator<< (std::basic_ostream< charT, traits > & os, const \fBbasic_value\fP< C, M, V > & v)"
+
+.SS "template<typename charT , typename traits > std::basic_ostream< charT, traits > & toml::operator<< (std::basic_ostream< charT, traits > & os, const \fBdiscard_comments\fP &)"
+
+.SS "template<typename charT , typename traits > std::basic_ostream< charT, traits > & toml::operator<< (std::basic_ostream< charT, traits > & os, const \fBlocal_date\fP & date)"
+
+.SS "template<typename charT , typename traits > std::basic_ostream< charT, traits > & toml::operator<< (std::basic_ostream< charT, traits > & os, const \fBlocal_datetime\fP & dt)"
+
+.SS "template<typename charT , typename traits > std::basic_ostream< charT, traits > & toml::operator<< (std::basic_ostream< charT, traits > & os, const \fBlocal_time\fP & time)"
+
+.SS "template<typename charT , typename traits > std::basic_ostream< charT, traits > & toml::operator<< (std::basic_ostream< charT, traits > & os, const \fBoffset_datetime\fP & dt)"
+
+.SS "template<typename charT , typename traits > std::basic_ostream< charT, traits > & toml::operator<< (std::basic_ostream< charT, traits > & os, const \fBpreserve_comments\fP & com)"
+
+.SS "template<typename charT , typename traits > std::basic_ostream< charT, traits > & toml::operator<< (std::basic_ostream< charT, traits > & os, const \fBstring\fP & s)"
+
+.SS "template<typename charT , typename traits > std::basic_ostream< charT, traits > & toml::operator<< (std::basic_ostream< charT, traits > & os, const \fBtime_offset\fP & offset)"
+
+.SS "template<typename charT , typename traits > std::basic_ostream< charT, traits > & toml::operator<< (std::basic_ostream< charT, traits > & os, \fBvalue_t\fP t)\fC [inline]\fP"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::enable_if< \fBdetail::conjunction\fP< \fBdetail::is_comparable\fP< typenamebasic_value< C, T, A >::array_type >, \fBdetail::is_comparable\fP< typenamebasic_value< C, T, A >::table_type > >\fB::value\fP, bool >::type toml::operator<= (const \fBbasic_value\fP< C, T, A > & lhs, const \fBbasic_value\fP< C, T, A > & rhs)"
+
+.SS "bool toml::operator<= (const char * lhs, const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator<= (const \fBdiscard_comments\fP &, const \fBdiscard_comments\fP &)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "bool toml::operator<= (const \fBlocal_date\fP & lhs, const \fBlocal_date\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator<= (const \fBlocal_datetime\fP & lhs, const \fBlocal_datetime\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator<= (const \fBlocal_time\fP & lhs, const \fBlocal_time\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator<= (const \fBoffset_datetime\fP & lhs, const \fBoffset_datetime\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator<= (const \fBpreserve_comments\fP & lhs, const \fBpreserve_comments\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator<= (const std::string & lhs, const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator<= (const \fBstring\fP & lhs, const char * rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator<= (const \fBstring\fP & lhs, const std::string & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator<= (const \fBstring\fP & lhs, const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator<= (const \fBtime_offset\fP & lhs, const \fBtime_offset\fP & rhs)\fC [inline]\fP"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> bool toml::operator== (const \fBbasic_value\fP< C, T, A > & lhs, const \fBbasic_value\fP< C, T, A > & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator== (const char * lhs, const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator== (const \fBdiscard_comments\fP &, const \fBdiscard_comments\fP &)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "bool toml::operator== (const \fBlocal_date\fP & lhs, const \fBlocal_date\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator== (const \fBlocal_datetime\fP & lhs, const \fBlocal_datetime\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator== (const \fBlocal_time\fP & lhs, const \fBlocal_time\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator== (const \fBoffset_datetime\fP & lhs, const \fBoffset_datetime\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator== (const \fBpreserve_comments\fP & lhs, const \fBpreserve_comments\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator== (const std::string & lhs, const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator== (const \fBstring\fP & lhs, const char * rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator== (const \fBstring\fP & lhs, const std::string & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator== (const \fBstring\fP & lhs, const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator== (const \fBtime_offset\fP & lhs, const \fBtime_offset\fP & rhs)\fC [inline]\fP"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::enable_if< \fBdetail::conjunction\fP< \fBdetail::is_comparable\fP< typenamebasic_value< C, T, A >::array_type >, \fBdetail::is_comparable\fP< typenamebasic_value< C, T, A >::table_type > >\fB::value\fP, bool >::type toml::operator> (const \fBbasic_value\fP< C, T, A > & lhs, const \fBbasic_value\fP< C, T, A > & rhs)"
+
+.SS "bool toml::operator> (const char * lhs, const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator> (const \fBdiscard_comments\fP &, const \fBdiscard_comments\fP &)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "bool toml::operator> (const \fBlocal_date\fP & lhs, const \fBlocal_date\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator> (const \fBlocal_datetime\fP & lhs, const \fBlocal_datetime\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator> (const \fBlocal_time\fP & lhs, const \fBlocal_time\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator> (const \fBoffset_datetime\fP & lhs, const \fBoffset_datetime\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator> (const \fBpreserve_comments\fP & lhs, const \fBpreserve_comments\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator> (const std::string & lhs, const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator> (const \fBstring\fP & lhs, const char * rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator> (const \fBstring\fP & lhs, const std::string & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator> (const \fBstring\fP & lhs, const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator> (const \fBtime_offset\fP & lhs, const \fBtime_offset\fP & rhs)\fC [inline]\fP"
+
+.SS "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> std::enable_if< \fBdetail::conjunction\fP< \fBdetail::is_comparable\fP< typenamebasic_value< C, T, A >::array_type >, \fBdetail::is_comparable\fP< typenamebasic_value< C, T, A >::table_type > >\fB::value\fP, bool >::type toml::operator>= (const \fBbasic_value\fP< C, T, A > & lhs, const \fBbasic_value\fP< C, T, A > & rhs)"
+
+.SS "bool toml::operator>= (const char * lhs, const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator>= (const \fBdiscard_comments\fP &, const \fBdiscard_comments\fP &)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "bool toml::operator>= (const \fBlocal_date\fP & lhs, const \fBlocal_date\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator>= (const \fBlocal_datetime\fP & lhs, const \fBlocal_datetime\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator>= (const \fBlocal_time\fP & lhs, const \fBlocal_time\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator>= (const \fBoffset_datetime\fP & lhs, const \fBoffset_datetime\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator>= (const \fBpreserve_comments\fP & lhs, const \fBpreserve_comments\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator>= (const std::string & lhs, const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator>= (const \fBstring\fP & lhs, const char * rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator>= (const \fBstring\fP & lhs, const std::string & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator>= (const \fBstring\fP & lhs, const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "bool toml::operator>= (const \fBtime_offset\fP & lhs, const \fBtime_offset\fP & rhs)\fC [inline]\fP"
+
+.SS "template<typename Comment  = TOML11_DEFAULT_COMMENT_STRATEGY, template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBbasic_value\fP< Comment, Table, Array > toml::parse (const std::string & fname)"
+
+.SS "template<typename Comment  = TOML11_DEFAULT_COMMENT_STRATEGY, template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBbasic_value\fP< Comment, Table, Array > toml::parse (std::istream & is, const std::string & fname = \fC'unknown file'\fP)"
+
+.SS "template<typename charT , typename traits > std::basic_ostream< charT, traits > & toml::showcomment (std::basic_ostream< charT, traits > & os)"
+
+.SS "template<typename charT  = char, typename traits  = std::char_traits<charT>, typename alloc  = std::allocator<charT>> std::basic_string< charT, traits, alloc > toml::stringize (\fBvalue_t\fP t)\fC [inline]\fP"
+
+.SS "void toml::swap (const \fBdiscard_comments\fP &, const \fBdiscard_comments\fP &)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "void toml::swap (\fBpreserve_comments\fP & lhs, \fBpreserve_comments\fP & rhs)\fC [inline]\fP"
+
+.SS "void toml::swap (\fBpreserve_comments\fP & lhs, std::vector< std::string > & rhs)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > void toml::swap (\fBresult\fP< T, E > & lhs, \fBresult\fP< T, E > & rhs)"
+
+.SS "void toml::swap (std::vector< std::string > & lhs, \fBpreserve_comments\fP & rhs)\fC [inline]\fP"
+
+.SS "template<typename Container > void toml::try_reserve (Container & container, std::size_t N)"
+
+.SS "template<typename Visitor , typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> \fBdetail::return_type_of_t\fP< Visitor, const \fBtoml::boolean\fP & > toml::visit (Visitor && visitor, const \fBtoml::basic_value\fP< C, T, A > & v)"
+
+.SS "template<typename Visitor , typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> \fBdetail::return_type_of_t\fP< Visitor, \fBtoml::boolean\fP && > toml::visit (Visitor && visitor, \fBtoml::basic_value\fP< C, T, A > && v)"
+
+.SS "template<typename Visitor , typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> \fBdetail::return_type_of_t\fP< Visitor, \fBtoml::boolean\fP & > toml::visit (Visitor && visitor, \fBtoml::basic_value\fP< C, T, A > & v)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "template<typename T , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> decltype(::toml::get< T >(std::declval< \fBbasic_value\fP< C, M, V > const & >())) toml::find (const \fBbasic_value\fP< C, M, V > & v, const \fBkey\fP & ky)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

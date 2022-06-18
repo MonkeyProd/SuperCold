@@ -1,0 +1,189 @@
+\hypertarget{class_eye_enemy}{}\doxysection{Eye\+Enemy Class Reference}
+\label{class_eye_enemy}\index{EyeEnemy@{EyeEnemy}}
+
+
+{\ttfamily \#include $<$Eye\+Enemy.\+hpp$>$}
+
+Inheritance diagram for Eye\+Enemy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_eye_enemy}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_eye_enemy_aab392e8f75ee2597d5acebd4de14b0e3}{Eye\+Enemy}} (sf\+::\+Vector2f start\+Position, std\+::vector$<$ sf\+::\+Sprite $>$ move\+Sprites, std\+::vector$<$ sf\+::\+Sprite $>$ attack\+Sprites, std\+::vector$<$ sf\+::\+Sprite $>$ take\+Damage\+Sprites, std\+::vector$<$ sf\+::\+Sprite $>$ death\+Sprites, float speed, float attack\+\_\+distance, std\+::string enemy\+Hit\+Sound, int health=100)
+\begin{DoxyCompactList}\small\item\em Враг -\/ летающий глаз \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_eye_enemy_a9f0c614de53c035af83b03c5a1cb7a42}{move\+Towards}} (sf\+::\+Vector2f position, sf\+::\+Time delta\+Time)
+\begin{DoxyCompactList}\small\item\em Метод передвигающий врага \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_eye_enemy_a4b111e6feb56d13e969dd90f677ca37a}{hit}} (int damage)
+\begin{DoxyCompactList}\small\item\em Метод получения урона \end{DoxyCompactList}\item 
+sf\+::\+Vector2f \mbox{\hyperlink{class_eye_enemy_a541c089c0cf8c576e74f2caea281ba58}{calculate\+Towards\+Vector}} (sf\+::\+Vector2f position) const
+\begin{DoxyCompactList}\small\item\em Метод расчета вектора траектории к положению \end{DoxyCompactList}\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{class_eye_enemy_ac0499d4a8de0de46779be784df973fb7}{get\+Next\+Position}} (sf\+::\+Time delta\+Time, sf\+::\+Vector2f position\+Towards) const
+\begin{DoxyCompactList}\small\item\em Метод расчета положения врага в следующий момент времени (нужен для коллизии) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_eye_enemy_a716532e043c533b563253b6b05127cad}{draw}} (sf\+::\+Render\+Target \&surface, sf\+::\+Render\+States states) const
+\item 
+\mbox{\hyperlink{class_game_object}{Game\+Object}} \& \mbox{\hyperlink{class_eye_enemy_a8e030f17965db72e517fdb3b4b6a29ba}{get\+Enemy\+Object}} ()
+\begin{DoxyCompactList}\small\item\em Метод возращающий \mbox{\hyperlink{class_game_object}{Game\+Object}} врага \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_eye_enemy_a81b15b848e675cde9a0f3b7505f8a64c}{get\+Dead}} () const
+\begin{DoxyCompactList}\small\item\em Метод возращающий статус смерти врага \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_eye_enemy_a89ca9af981f6d8d63d2976069583552e}{can\+Attack}} () const
+\begin{DoxyCompactList}\small\item\em проверка возможности атаковать \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_eye_enemy_ae7e20f6d82c7e7ddde55fd97522b42c7}{attacked}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_eye_enemy_aab392e8f75ee2597d5acebd4de14b0e3}\label{class_eye_enemy_aab392e8f75ee2597d5acebd4de14b0e3}} 
+\index{EyeEnemy@{EyeEnemy}!EyeEnemy@{EyeEnemy}}
+\index{EyeEnemy@{EyeEnemy}!EyeEnemy@{EyeEnemy}}
+\doxysubsubsection{\texorpdfstring{EyeEnemy()}{EyeEnemy()}}
+{\footnotesize\ttfamily Eye\+Enemy\+::\+Eye\+Enemy (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{start\+Position,  }\item[{std\+::vector$<$ sf\+::\+Sprite $>$}]{move\+Sprites,  }\item[{std\+::vector$<$ sf\+::\+Sprite $>$}]{attack\+Sprites,  }\item[{std\+::vector$<$ sf\+::\+Sprite $>$}]{take\+Damage\+Sprites,  }\item[{std\+::vector$<$ sf\+::\+Sprite $>$}]{death\+Sprites,  }\item[{float}]{speed,  }\item[{float}]{attack\+\_\+distance,  }\item[{std\+::string}]{enemy\+Hit\+Sound,  }\item[{int}]{health = {\ttfamily 100} }\end{DoxyParamCaption})}
+
+
+
+Враг -\/ летающий глаз 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Position} & начальное положение \\
+\hline
+{\em move\+Sprites} & спрайты движения \\
+\hline
+{\em attack\+Sprites} & спрайты атаки \\
+\hline
+{\em take\+Damage\+Sprites} & спрайты получения урона \\
+\hline
+{\em death\+Sprites} & спрайты смерти \\
+\hline
+{\em speed} & скорость передвижения \\
+\hline
+{\em attack\+\_\+distance} & дистанция с которой начинается атака \\
+\hline
+{\em enemy\+Hit\+Sound} & название звука получения урона \\
+\hline
+{\em health} & начальное здоровье \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_eye_enemy_ae7e20f6d82c7e7ddde55fd97522b42c7}\label{class_eye_enemy_ae7e20f6d82c7e7ddde55fd97522b42c7}} 
+\index{EyeEnemy@{EyeEnemy}!attacked@{attacked}}
+\index{attacked@{attacked}!EyeEnemy@{EyeEnemy}}
+\doxysubsubsection{\texorpdfstring{attacked()}{attacked()}}
+{\footnotesize\ttfamily void Eye\+Enemy\+::attacked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_eye_enemy_a541c089c0cf8c576e74f2caea281ba58}\label{class_eye_enemy_a541c089c0cf8c576e74f2caea281ba58}} 
+\index{EyeEnemy@{EyeEnemy}!calculateTowardsVector@{calculateTowardsVector}}
+\index{calculateTowardsVector@{calculateTowardsVector}!EyeEnemy@{EyeEnemy}}
+\doxysubsubsection{\texorpdfstring{calculateTowardsVector()}{calculateTowardsVector()}}
+{\footnotesize\ttfamily sf\+::\+Vector2f Eye\+Enemy\+::calculate\+Towards\+Vector (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{position }\end{DoxyParamCaption}) const}
+
+
+
+Метод расчета вектора траектории к положению 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & положение к которому рассчитывается траектория \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_eye_enemy_a89ca9af981f6d8d63d2976069583552e}\label{class_eye_enemy_a89ca9af981f6d8d63d2976069583552e}} 
+\index{EyeEnemy@{EyeEnemy}!canAttack@{canAttack}}
+\index{canAttack@{canAttack}!EyeEnemy@{EyeEnemy}}
+\doxysubsubsection{\texorpdfstring{canAttack()}{canAttack()}}
+{\footnotesize\ttfamily bool Eye\+Enemy\+::can\+Attack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+проверка возможности атаковать 
+
+\begin{DoxyReturn}{Returns}
+true атака возможна 
+
+false атака невозможна 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_eye_enemy_a716532e043c533b563253b6b05127cad}\label{class_eye_enemy_a716532e043c533b563253b6b05127cad}} 
+\index{EyeEnemy@{EyeEnemy}!draw@{draw}}
+\index{draw@{draw}!EyeEnemy@{EyeEnemy}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Eye\+Enemy\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{surface,  }\item[{sf\+::\+Render\+States}]{states }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_eye_enemy_a81b15b848e675cde9a0f3b7505f8a64c}\label{class_eye_enemy_a81b15b848e675cde9a0f3b7505f8a64c}} 
+\index{EyeEnemy@{EyeEnemy}!getDead@{getDead}}
+\index{getDead@{getDead}!EyeEnemy@{EyeEnemy}}
+\doxysubsubsection{\texorpdfstring{getDead()}{getDead()}}
+{\footnotesize\ttfamily bool Eye\+Enemy\+::get\+Dead (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Метод возращающий статус смерти врага 
+
+\mbox{\Hypertarget{class_eye_enemy_a8e030f17965db72e517fdb3b4b6a29ba}\label{class_eye_enemy_a8e030f17965db72e517fdb3b4b6a29ba}} 
+\index{EyeEnemy@{EyeEnemy}!getEnemyObject@{getEnemyObject}}
+\index{getEnemyObject@{getEnemyObject}!EyeEnemy@{EyeEnemy}}
+\doxysubsubsection{\texorpdfstring{getEnemyObject()}{getEnemyObject()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_game_object}{Game\+Object}} \& Eye\+Enemy\+::get\+Enemy\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод возращающий \mbox{\hyperlink{class_game_object}{Game\+Object}} врага 
+
+\mbox{\Hypertarget{class_eye_enemy_ac0499d4a8de0de46779be784df973fb7}\label{class_eye_enemy_ac0499d4a8de0de46779be784df973fb7}} 
+\index{EyeEnemy@{EyeEnemy}!getNextPosition@{getNextPosition}}
+\index{getNextPosition@{getNextPosition}!EyeEnemy@{EyeEnemy}}
+\doxysubsubsection{\texorpdfstring{getNextPosition()}{getNextPosition()}}
+{\footnotesize\ttfamily sf\+::\+Float\+Rect Eye\+Enemy\+::get\+Next\+Position (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{delta\+Time,  }\item[{sf\+::\+Vector2f}]{position\+Towards }\end{DoxyParamCaption}) const}
+
+
+
+Метод расчета положения врага в следующий момент времени (нужен для коллизии) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & delta\+Time \\
+\hline
+{\em position\+Towards} & положение к которому движется враг \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_eye_enemy_a4b111e6feb56d13e969dd90f677ca37a}\label{class_eye_enemy_a4b111e6feb56d13e969dd90f677ca37a}} 
+\index{EyeEnemy@{EyeEnemy}!hit@{hit}}
+\index{hit@{hit}!EyeEnemy@{EyeEnemy}}
+\doxysubsubsection{\texorpdfstring{hit()}{hit()}}
+{\footnotesize\ttfamily void Eye\+Enemy\+::hit (\begin{DoxyParamCaption}\item[{int}]{damage }\end{DoxyParamCaption})}
+
+
+
+Метод получения урона 
+
+
+\begin{DoxyParams}{Parameters}
+{\em damage} & количество полученного урона \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_eye_enemy_a9f0c614de53c035af83b03c5a1cb7a42}\label{class_eye_enemy_a9f0c614de53c035af83b03c5a1cb7a42}} 
+\index{EyeEnemy@{EyeEnemy}!moveTowards@{moveTowards}}
+\index{moveTowards@{moveTowards}!EyeEnemy@{EyeEnemy}}
+\doxysubsubsection{\texorpdfstring{moveTowards()}{moveTowards()}}
+{\footnotesize\ttfamily void Eye\+Enemy\+::move\+Towards (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{position,  }\item[{sf\+::\+Time}]{delta\+Time }\end{DoxyParamCaption})}
+
+
+
+Метод передвигающий врага 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & положение куда передвигаться \\
+\hline
+{\em delta\+Time} & delta\+Time \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Enemies/\mbox{\hyperlink{_eye_enemy_8hpp}{Eye\+Enemy.\+hpp}}\item 
+Enemies/\mbox{\hyperlink{_eye_enemy_8cpp}{Eye\+Enemy.\+cpp}}\end{DoxyCompactItemize}

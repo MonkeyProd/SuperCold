@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1is__map_3_01_t_01const_01volatile_01_6_01_4" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::is_map&lt; T const volatile &amp; &gt;</compoundname>
+    <basecompoundref refid="structtoml_1_1detail_1_1is__map" prot="public" virt="non-virtual">toml::detail::is_map&lt; T &gt;</basecompoundref>
+    <includes refid="traits_8hpp" local="no">traits.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>toml::detail::conjunction&lt; has_iterator&lt; T &gt;, has_value_type&lt; T &gt;, has_key_type&lt; T &gt;, has_mapped_type&lt; T &gt; &gt;</label>
+        <link refid="structtoml_1_1detail_1_1conjunction"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>std::true_type</label>
+      </node>
+      <node id="2">
+        <label>toml::detail::is_map&lt; T &gt;</label>
+        <link refid="structtoml_1_1detail_1_1is__map"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>toml::detail::is_map&lt; T const volatile &amp; &gt;</label>
+        <link refid="structtoml_1_1detail_1_1is__map_3_01_t_01const_01volatile_01_6_01_4"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>toml::detail::conjunction&lt; has_iterator&lt; T &gt;, has_value_type&lt; T &gt;, has_key_type&lt; T &gt;, has_mapped_type&lt; T &gt; &gt;</label>
+        <link refid="structtoml_1_1detail_1_1conjunction"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>std::true_type</label>
+      </node>
+      <node id="2">
+        <label>toml::detail::is_map&lt; T &gt;</label>
+        <link refid="structtoml_1_1detail_1_1is__map"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>toml::detail::is_map&lt; T const volatile &amp; &gt;</label>
+        <link refid="structtoml_1_1detail_1_1is__map_3_01_t_01const_01volatile_01_6_01_4"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="external/toml/traits.hpp" line="206" column="11" bodyfile="external/toml/traits.hpp" bodystart="206" bodyend="206"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

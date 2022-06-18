@@ -1,0 +1,88 @@
+.TH "toml::detail::storage< T >" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::detail::storage< T >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <storage\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBvalue_type\fP = T"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBstorage\fP (\fBvalue_type\fP const &v)"
+.br
+.ti -1c
+.RI "\fBstorage\fP (\fBvalue_type\fP &&v)"
+.br
+.ti -1c
+.RI "\fB~storage\fP ()=default"
+.br
+.ti -1c
+.RI "\fBstorage\fP (const \fBstorage\fP &rhs)"
+.br
+.ti -1c
+.RI "\fBstorage\fP & \fBoperator=\fP (const \fBstorage\fP &rhs)"
+.br
+.ti -1c
+.RI "\fBstorage\fP (\fBstorage\fP &&)=default"
+.br
+.ti -1c
+.RI "\fBstorage\fP & \fBoperator=\fP (\fBstorage\fP &&)=default"
+.br
+.ti -1c
+.RI "bool \fBis_ok\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP & \fBvalue\fP () &noexcept"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP const & \fBvalue\fP () const &noexcept"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP && \fBvalue\fP () &&noexcept"
+.br
+.in -1c
+.SH "Member Typedef Documentation"
+.PP 
+.SS "template<typename T > using \fBtoml::detail::storage\fP< T >::value_type =  T"
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T > \fBtoml::detail::storage\fP< T >::storage (\fBvalue_type\fP const & v)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "template<typename T > \fBtoml::detail::storage\fP< T >::storage (\fBvalue_type\fP && v)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "template<typename T > \fBtoml::detail::storage\fP< T >::~\fBstorage\fP ()\fC [default]\fP"
+
+.SS "template<typename T > \fBtoml::detail::storage\fP< T >::storage (const \fBstorage\fP< T > & rhs)\fC [inline]\fP"
+
+.SS "template<typename T > \fBtoml::detail::storage\fP< T >::storage (\fBstorage\fP< T > &&)\fC [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T > bool \fBtoml::detail::storage\fP< T >::is_ok () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T > \fBstorage\fP & \fBtoml::detail::storage\fP< T >::operator= (const \fBstorage\fP< T > & rhs)\fC [inline]\fP"
+
+.SS "template<typename T > \fBstorage\fP & \fBtoml::detail::storage\fP< T >::operator= (\fBstorage\fP< T > &&)\fC [default]\fP"
+
+.SS "template<typename T > \fBvalue_type\fP && \fBtoml::detail::storage\fP< T >::value () &&\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T > \fBvalue_type\fP & \fBtoml::detail::storage\fP< T >::value () &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T > \fBvalue_type\fP const  & \fBtoml::detail::storage\fP< T >::value () const &\fC [inline]\fP, \fC [noexcept]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

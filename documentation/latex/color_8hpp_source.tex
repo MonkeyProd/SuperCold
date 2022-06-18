@@ -1,0 +1,70 @@
+\hypertarget{color_8hpp_source}{}\doxysection{color.\+hpp}
+\label{color_8hpp_source}\index{external/toml/color.hpp@{external/toml/color.hpp}}
+\mbox{\hyperlink{color_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TOML11\_COLOR\_HPP}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TOML11\_COLOR\_HPP}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <ostream>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifdef TOML11\_COLORIZE\_ERROR\_MESSAGE}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define TOML11\_ERROR\_MESSAGE\_COLORIZED true}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define TOML11\_ERROR\_MESSAGE\_COLORIZED false}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetoml}{toml}}}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{comment}{// put ANSI escape sequence to ostream}}
+\DoxyCodeLine{16 \textcolor{keyword}{namespace }color\_ansi}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18 \textcolor{keyword}{namespace }detail}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespacetoml_1_1color__ansi_1_1detail_ad8cb594ca9d736802cbfec21812b8a83}{colorize\_index}}()}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int} index = std::ios\_base::xalloc();}
+\DoxyCodeLine{23     \textcolor{keywordflow}{return} index;}
+\DoxyCodeLine{24 \}}
+\DoxyCodeLine{25 \} \textcolor{comment}{// detail}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{namespacetoml_1_1color__ansi_a6e1ecccc13035c2997d726599056a16e}{colorize}}(std::ostream\& os)}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29     \textcolor{comment}{// by default, it is zero.}}
+\DoxyCodeLine{30     os.iword(\mbox{\hyperlink{namespacetoml_1_1color__ansi_1_1detail_ad8cb594ca9d736802cbfec21812b8a83}{detail::colorize\_index}}()) = 1;}
+\DoxyCodeLine{31     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{32 \}}
+\DoxyCodeLine{33 \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{namespacetoml_1_1color__ansi_a58e9623eaa14637162672aaf66107aae}{nocolorize}}(std::ostream\& os)}
+\DoxyCodeLine{34 \{}
+\DoxyCodeLine{35     os.iword(\mbox{\hyperlink{namespacetoml_1_1color__ansi_1_1detail_ad8cb594ca9d736802cbfec21812b8a83}{detail::colorize\_index}}()) = 0;}
+\DoxyCodeLine{36     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{37 \}}
+\DoxyCodeLine{38 \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{namespacetoml_1_1color__ansi_a747ea7fa9a8299101bb7ca4eaa74a502}{reset}}  (std::ostream\& os)}
+\DoxyCodeLine{39 \{\textcolor{keywordflow}{if}(os.iword(\mbox{\hyperlink{namespacetoml_1_1color__ansi_1_1detail_ad8cb594ca9d736802cbfec21812b8a83}{detail::colorize\_index}}()) == 1) \{os << \textcolor{stringliteral}{"{}\(\backslash\)033[00m"{}};\} \textcolor{keywordflow}{return} os;\}}
+\DoxyCodeLine{40 \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{namespacetoml_1_1color__ansi_a23d94feb862d8473abe1914077a9f89d}{bold}}   (std::ostream\& os)}
+\DoxyCodeLine{41 \{\textcolor{keywordflow}{if}(os.iword(\mbox{\hyperlink{namespacetoml_1_1color__ansi_1_1detail_ad8cb594ca9d736802cbfec21812b8a83}{detail::colorize\_index}}()) == 1) \{os << \textcolor{stringliteral}{"{}\(\backslash\)033[01m"{}};\} \textcolor{keywordflow}{return} os;\}}
+\DoxyCodeLine{42 \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{namespacetoml_1_1color__ansi_a4bc1cc5c9fa9feea28e31bbadd05a4e5}{grey}}   (std::ostream\& os)}
+\DoxyCodeLine{43 \{\textcolor{keywordflow}{if}(os.iword(\mbox{\hyperlink{namespacetoml_1_1color__ansi_1_1detail_ad8cb594ca9d736802cbfec21812b8a83}{detail::colorize\_index}}()) == 1) \{os << \textcolor{stringliteral}{"{}\(\backslash\)033[30m"{}};\} \textcolor{keywordflow}{return} os;\}}
+\DoxyCodeLine{44 \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{namespacetoml_1_1color__ansi_aac70aec9b5ba7000caaefcd4dcdc44e6}{red}}    (std::ostream\& os)}
+\DoxyCodeLine{45 \{\textcolor{keywordflow}{if}(os.iword(\mbox{\hyperlink{namespacetoml_1_1color__ansi_1_1detail_ad8cb594ca9d736802cbfec21812b8a83}{detail::colorize\_index}}()) == 1) \{os << \textcolor{stringliteral}{"{}\(\backslash\)033[31m"{}};\} \textcolor{keywordflow}{return} os;\}}
+\DoxyCodeLine{46 \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{namespacetoml_1_1color__ansi_a1bc7bd65ab0ec33ec28a3324e99008b6}{green}}  (std::ostream\& os)}
+\DoxyCodeLine{47 \{\textcolor{keywordflow}{if}(os.iword(\mbox{\hyperlink{namespacetoml_1_1color__ansi_1_1detail_ad8cb594ca9d736802cbfec21812b8a83}{detail::colorize\_index}}()) == 1) \{os << \textcolor{stringliteral}{"{}\(\backslash\)033[32m"{}};\} \textcolor{keywordflow}{return} os;\}}
+\DoxyCodeLine{48 \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{namespacetoml_1_1color__ansi_a3d86cfe2652ee82167ae548dea630a34}{yellow}} (std::ostream\& os)}
+\DoxyCodeLine{49 \{\textcolor{keywordflow}{if}(os.iword(\mbox{\hyperlink{namespacetoml_1_1color__ansi_1_1detail_ad8cb594ca9d736802cbfec21812b8a83}{detail::colorize\_index}}()) == 1) \{os << \textcolor{stringliteral}{"{}\(\backslash\)033[33m"{}};\} \textcolor{keywordflow}{return} os;\}}
+\DoxyCodeLine{50 \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{namespacetoml_1_1color__ansi_a2b1a36bda005425861cb71d6b754f12e}{blue}}   (std::ostream\& os)}
+\DoxyCodeLine{51 \{\textcolor{keywordflow}{if}(os.iword(\mbox{\hyperlink{namespacetoml_1_1color__ansi_1_1detail_ad8cb594ca9d736802cbfec21812b8a83}{detail::colorize\_index}}()) == 1) \{os << \textcolor{stringliteral}{"{}\(\backslash\)033[34m"{}};\} \textcolor{keywordflow}{return} os;\}}
+\DoxyCodeLine{52 \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{namespacetoml_1_1color__ansi_a166f5c695c805e111594f404ae36f9cd}{magenta}}(std::ostream\& os)}
+\DoxyCodeLine{53 \{\textcolor{keywordflow}{if}(os.iword(\mbox{\hyperlink{namespacetoml_1_1color__ansi_1_1detail_ad8cb594ca9d736802cbfec21812b8a83}{detail::colorize\_index}}()) == 1) \{os << \textcolor{stringliteral}{"{}\(\backslash\)033[35m"{}};\} \textcolor{keywordflow}{return} os;\}}
+\DoxyCodeLine{54 \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{namespacetoml_1_1color__ansi_aadeae66f4f419c95f414a16fa7b4f44a}{cyan}}   (std::ostream\& os)}
+\DoxyCodeLine{55 \{\textcolor{keywordflow}{if}(os.iword(\mbox{\hyperlink{namespacetoml_1_1color__ansi_1_1detail_ad8cb594ca9d736802cbfec21812b8a83}{detail::colorize\_index}}()) == 1) \{os << \textcolor{stringliteral}{"{}\(\backslash\)033[36m"{}};\} \textcolor{keywordflow}{return} os;\}}
+\DoxyCodeLine{56 \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{namespacetoml_1_1color__ansi_a633c6d497f0179cdacafd9e599c1608c}{white}}  (std::ostream\& os)}
+\DoxyCodeLine{57 \{\textcolor{keywordflow}{if}(os.iword(\mbox{\hyperlink{namespacetoml_1_1color__ansi_1_1detail_ad8cb594ca9d736802cbfec21812b8a83}{detail::colorize\_index}}()) == 1) \{os << \textcolor{stringliteral}{"{}\(\backslash\)033[37m"{}};\} \textcolor{keywordflow}{return} os;\}}
+\DoxyCodeLine{58 \} \textcolor{comment}{// color\_ansi}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{comment}{// ANSI escape sequence is the only and default colorization method currently}}
+\DoxyCodeLine{61 \textcolor{keyword}{namespace }color = color\_ansi;}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \} \textcolor{comment}{// toml}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#endif}\textcolor{comment}{// TOML11\_COLOR\_HPP}}
+
+\end{DoxyCode}

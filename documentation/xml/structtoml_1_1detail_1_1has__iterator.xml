@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1has__iterator" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::has_iterator</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">decltypehas_iterator_impl::check&lt; T &gt;nullptr</basecompoundref>
+    <includes refid="traits_8hpp" local="no">traits.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Intel C++ compiler can not use decltype in parent class declaration, here is a hack to work around it. <ulink url="https://stackoverflow.com/a/23953090/4692076">https://stackoverflow.com/a/23953090/4692076</ulink> </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>decltypehas_iterator_impl::check&lt; T &gt;nullptr</label>
+      </node>
+      <node id="1">
+        <label>toml::detail::has_iterator&lt; T &gt;</label>
+        <link refid="structtoml_1_1detail_1_1has__iterator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>decltypehas_iterator_impl::check&lt; T &gt;nullptr</label>
+      </node>
+      <node id="1">
+        <label>toml::detail::has_iterator&lt; T &gt;</label>
+        <link refid="structtoml_1_1detail_1_1has__iterator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="external/toml/traits.hpp" line="115" column="1" bodyfile="external/toml/traits.hpp" bodystart="115" bodyend="115"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,179 @@
+.TH "external/toml/datetime.hpp" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+external/toml/datetime.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cstdint>\fP
+.br
+\fC#include <cstdlib>\fP
+.br
+\fC#include <ctime>\fP
+.br
+\fC#include <array>\fP
+.br
+\fC#include <chrono>\fP
+.br
+\fC#include <iomanip>\fP
+.br
+\fC#include <ostream>\fP
+.br
+\fC#include <tuple>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtoml::local_date\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::local_time\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::time_offset\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::local_datetime\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::offset_datetime\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBtoml\fP"
+.br
+.ti -1c
+.RI "namespace \fBtoml::detail\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum class \fBtoml::month_t\fP : std::uint8_t { \fBtoml::Jan\fP = 0, \fBtoml::Feb\fP = 1, \fBtoml::Mar\fP = 2, \fBtoml::Apr\fP = 3, \fBtoml::May\fP = 4, \fBtoml::Jun\fP = 5, \fBtoml::Jul\fP = 6, \fBtoml::Aug\fP = 7, \fBtoml::Sep\fP = 8, \fBtoml::Oct\fP = 9, \fBtoml::Nov\fP = 10, \fBtoml::Dec\fP = 11 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "std::tm \fBtoml::detail::localtime_s\fP (const std::time_t *src)"
+.br
+.ti -1c
+.RI "std::tm \fBtoml::detail::gmtime_s\fP (const std::time_t *src)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator==\fP (const local_date &lhs, const local_date &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator!=\fP (const local_date &lhs, const local_date &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<\fP (const local_date &lhs, const local_date &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<=\fP (const local_date &lhs, const local_date &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>\fP (const local_date &lhs, const local_date &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>=\fP (const local_date &lhs, const local_date &rhs)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBtoml::operator<<\fP (std::basic_ostream< charT, traits > &os, const local_date &date)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator==\fP (const local_time &lhs, const local_time &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator!=\fP (const local_time &lhs, const local_time &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<\fP (const local_time &lhs, const local_time &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<=\fP (const local_time &lhs, const local_time &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>\fP (const local_time &lhs, const local_time &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>=\fP (const local_time &lhs, const local_time &rhs)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBtoml::operator<<\fP (std::basic_ostream< charT, traits > &os, const local_time &time)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator==\fP (const time_offset &lhs, const time_offset &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator!=\fP (const time_offset &lhs, const time_offset &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<\fP (const time_offset &lhs, const time_offset &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<=\fP (const time_offset &lhs, const time_offset &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>\fP (const time_offset &lhs, const time_offset &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>=\fP (const time_offset &lhs, const time_offset &rhs)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBtoml::operator<<\fP (std::basic_ostream< charT, traits > &os, const time_offset &offset)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator==\fP (const local_datetime &lhs, const local_datetime &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator!=\fP (const local_datetime &lhs, const local_datetime &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<\fP (const local_datetime &lhs, const local_datetime &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<=\fP (const local_datetime &lhs, const local_datetime &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>\fP (const local_datetime &lhs, const local_datetime &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>=\fP (const local_datetime &lhs, const local_datetime &rhs)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBtoml::operator<<\fP (std::basic_ostream< charT, traits > &os, const local_datetime &dt)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator==\fP (const offset_datetime &lhs, const offset_datetime &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator!=\fP (const offset_datetime &lhs, const offset_datetime &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<\fP (const offset_datetime &lhs, const offset_datetime &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<=\fP (const offset_datetime &lhs, const offset_datetime &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>\fP (const offset_datetime &lhs, const offset_datetime &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>=\fP (const offset_datetime &lhs, const offset_datetime &rhs)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBtoml::operator<<\fP (std::basic_ostream< charT, traits > &os, const offset_datetime &dt)"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

@@ -1,0 +1,569 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="class_game_object" kind="class" language="C++" prot="public">
+    <compoundname>GameObject</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">sf::Drawable</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">sf::Transformable</basecompoundref>
+    <includes refid="_game_object_8hpp" local="no">GameObject.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_game_object_1ad273fec28878e5564625a7edd74f2477" prot="private" static="no" mutable="no">
+        <type>sf::Vector2f</type>
+        <definition>sf::Vector2f GameObject::m_cordinates</definition>
+        <argsstring></argsstring>
+        <name>m_cordinates</name>
+        <qualifiedname>GameObject::m_cordinates</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="12" column="14" bodyfile="GameObject/GameObject.hpp" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_object_1a2e3a40ef8b6baf4e20134ee2270d8e23" prot="private" static="no" mutable="no">
+        <type>sf::Vector2f</type>
+        <definition>sf::Vector2f GameObject::m_boxCollider</definition>
+        <argsstring></argsstring>
+        <name>m_boxCollider</name>
+        <qualifiedname>GameObject::m_boxCollider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="13" column="14" bodyfile="GameObject/GameObject.hpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_object_1a2db1cc27d3267005d0884fe81b4af999" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GameObject::animation_state</definition>
+        <argsstring></argsstring>
+        <name>animation_state</name>
+        <qualifiedname>GameObject::animation_state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="15" column="5" bodyfile="GameObject/GameObject.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_object_1a61b90a3aa2302254ccecfc9d4c21d70f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GameObject::m_isCollider</definition>
+        <argsstring></argsstring>
+        <name>m_isCollider</name>
+        <qualifiedname>GameObject::m_isCollider</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="16" column="6" bodyfile="GameObject/GameObject.hpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_object_1ab1af4ef509c977f895ca42972cb59077" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GameObject::isAnimated</definition>
+        <argsstring></argsstring>
+        <name>isAnimated</name>
+        <qualifiedname>GameObject::isAnimated</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="17" column="6" bodyfile="GameObject/GameObject.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_object_1a09725c60c9953d478c9d7c40618d43cf" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GameObject::isFinished</definition>
+        <argsstring></argsstring>
+        <name>isFinished</name>
+        <qualifiedname>GameObject::isFinished</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="18" column="6" bodyfile="GameObject/GameObject.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_game_object_1aeacf313d6a432fd7ec7c4197f85a2dc1" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float GameObject::m_scale</definition>
+        <argsstring></argsstring>
+        <name>m_scale</name>
+        <qualifiedname>GameObject::m_scale</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="21" column="7" bodyfile="GameObject/GameObject.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_object_1a6ebdcd772800641b74d3771a3a4ceb79" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GameObject::stopAtEnd</definition>
+        <argsstring></argsstring>
+        <name>stopAtEnd</name>
+        <qualifiedname>GameObject::stopAtEnd</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="22" column="6" bodyfile="GameObject/GameObject.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_object_1a27942e782c75e53e83b8acc57758f0b5" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; sf::Sprite &gt;</type>
+        <definition>std::vector&lt;sf::Sprite&gt; GameObject::m_sprites_array</definition>
+        <argsstring></argsstring>
+        <name>m_sprites_array</name>
+        <qualifiedname>GameObject::m_sprites_array</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="24" column="13" bodyfile="GameObject/GameObject.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_game_object_1aa5d62b9e42b89d3a7ee972e987f62833" prot="public" static="no" mutable="no">
+        <type>sf::Sprite</type>
+        <definition>sf::Sprite GameObject::m_sprite</definition>
+        <argsstring></argsstring>
+        <name>m_sprite</name>
+        <qualifiedname>GameObject::m_sprite</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="25" column="12" bodyfile="GameObject/GameObject.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_game_object_1a0348e3ee2e83d56eafca7a3547f432c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GameObject::GameObject</definition>
+        <argsstring>()</argsstring>
+        <name>GameObject</name>
+        <qualifiedname>GameObject::GameObject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="27" column="1" bodyfile="GameObject/GameObject.cpp" bodystart="5" bodyend="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_object_1afe6901fa803678a6d4a200c981ca884e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GameObject::GameObject</definition>
+        <argsstring>(const sf::Vector2f &amp;cordinates, std::vector&lt; sf::Sprite &gt; &amp;sprites_array, bool isCollider=false, float scale=1, sf::Vector2f boxCollider={0, 0})</argsstring>
+        <name>GameObject</name>
+        <qualifiedname>GameObject::GameObject</qualifiedname>
+        <param>
+          <type>const sf::Vector2f &amp;</type>
+          <declname>cordinates</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; sf::Sprite &gt; &amp;</type>
+          <declname>sprites_array</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isCollider</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>scale</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>sf::Vector2f</type>
+          <declname>boxCollider</declname>
+          <defval>{0, 0}</defval>
+        </param>
+        <briefdescription>
+<para>Класс игрового объекта </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cordinates</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>положение игрвого объекта </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sprites_array</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>вектор спрайтов(для анимации) </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isCollider</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>bool - является ли игровой объект коллайдером </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>scale</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>коэффициент увеличения спрайта игрового объекта </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>boxCollider</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>размеры квадрата коллизии игрового объекта </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="37" column="1" bodyfile="GameObject/GameObject.cpp" bodystart="6" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_object_1a5422e96f91a615083abce4b4b2d1bf27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GameObject::GameObject</definition>
+        <argsstring>(const sf::Vector2f &amp;cordinates, const sf::Sprite &amp;sprite, bool isCollider=false, float scale=1, sf::Vector2f boxCollider={0, 0})</argsstring>
+        <name>GameObject</name>
+        <qualifiedname>GameObject::GameObject</qualifiedname>
+        <param>
+          <type>const sf::Vector2f &amp;</type>
+          <declname>cordinates</declname>
+        </param>
+        <param>
+          <type>const sf::Sprite &amp;</type>
+          <declname>sprite</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isCollider</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>scale</declname>
+          <defval>1</defval>
+        </param>
+        <param>
+          <type>sf::Vector2f</type>
+          <declname>boxCollider</declname>
+          <defval>{0, 0}</defval>
+        </param>
+        <briefdescription>
+<para>Класс игрового объекта </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>cordinates</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>положение игрвого объекта </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sprite</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>спрайт игрового объекта </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>isCollider</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>bool - является ли игровой объект коллайдером </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>scale</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>коэффициент увеличения спрайта игрового объекта </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>boxCollider</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>размеры квадрата коллизии игрового объекта </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="50" column="1" bodyfile="GameObject/GameObject.cpp" bodystart="18" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_object_1aefc09c7e8ead168e820f6c7af3b7b839" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void GameObject::draw</definition>
+        <argsstring>(sf::RenderTarget &amp;surface, sf::RenderStates states) const</argsstring>
+        <name>draw</name>
+        <qualifiedname>GameObject::draw</qualifiedname>
+        <param>
+          <type>sf::RenderTarget &amp;</type>
+          <declname>surface</declname>
+        </param>
+        <param>
+          <type>sf::RenderStates</type>
+          <declname>states</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="54" column="14" bodyfile="GameObject/GameObject.cpp" bodystart="30" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_object_1a60d8eb6676c260a5909944b4b55dad50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GameObject::nextState</definition>
+        <argsstring>()</argsstring>
+        <name>nextState</name>
+        <qualifiedname>GameObject::nextState</qualifiedname>
+        <briefdescription>
+<para>Метод меняющий спрайт анимации игрового объекта на следующий </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="59" column="6" bodyfile="GameObject/GameObject.cpp" bodystart="59" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_object_1af94ded297ad54bbe84cdaf5ad5100a56" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GameObject::isCollider</definition>
+        <argsstring>() const</argsstring>
+        <name>isCollider</name>
+        <qualifiedname>GameObject::isCollider</qualifiedname>
+        <briefdescription>
+<para>Метод, возращающий bool - является ли игровой объекта коллайдером </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true является </para>
+</simplesect>
+<simplesect kind="return"><para>false не является </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="66" column="6" bodyfile="GameObject/GameObject.cpp" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_object_1ae110f3b758e45ec3ea0bfe57c284e648" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GameObject::resetAnimation</definition>
+        <argsstring>()</argsstring>
+        <name>resetAnimation</name>
+        <qualifiedname>GameObject::resetAnimation</qualifiedname>
+        <briefdescription>
+<para>Метод сброса анимации до начального спрайта </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="71" column="6" bodyfile="GameObject/GameObject.cpp" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_object_1a6e9241cf0aaaff0c9b5565888f65ebf3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GameObject::check_collision</definition>
+        <argsstring>(GameObject &amp;other) const</argsstring>
+        <name>check_collision</name>
+        <qualifiedname>GameObject::check_collision</qualifiedname>
+        <param>
+          <type><ref refid="class_game_object" kindref="compound">GameObject</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Метод, возрающий bool - пересеклись ли два игровых объекта </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>игровой объект с которым проверяем пересечение </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true есть пересечение </para>
+</simplesect>
+<simplesect kind="return"><para>false нет пересечения </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="80" column="6" bodyfile="GameObject/GameObject.cpp" bodystart="36" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_object_1a172713ec092f0e08d3cb5af8450e5bb3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GameObject::check_collision</definition>
+        <argsstring>(sf::FloatRect &amp;otherFloatRect) const</argsstring>
+        <name>check_collision</name>
+        <qualifiedname>GameObject::check_collision</qualifiedname>
+        <param>
+          <type>sf::FloatRect &amp;</type>
+          <declname>otherFloatRect</declname>
+        </param>
+        <briefdescription>
+<para>Метод, возрающий bool - пересеклись ли игровой объект и FloatRect. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>otherFloatRect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>FloatRect с которым проверяем пересечение </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true пересечение есть </para>
+</simplesect>
+<simplesect kind="return"><para>false пересечения нет </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="89" column="6" bodyfile="GameObject/GameObject.cpp" bodystart="43" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_object_1a80cf3649948d6cd1cf8bf9277fcee741" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>sf::FloatRect</type>
+        <definition>sf::FloatRect GameObject::getGameObjectRect</definition>
+        <argsstring>() const</argsstring>
+        <name>getGameObjectRect</name>
+        <qualifiedname>GameObject::getGameObjectRect</qualifiedname>
+        <briefdescription>
+<para>Метод, возрающий FloatRect игрового объекта </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>sf::FloatRect </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="96" column="15" bodyfile="GameObject/GameObject.cpp" bodystart="48" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_game_object_1aebea2b95e12565a10167ef989a31fdb5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GameObject::isLastAnimationState</definition>
+        <argsstring>() const</argsstring>
+        <name>isLastAnimationState</name>
+        <qualifiedname>GameObject::isLastAnimationState</qualifiedname>
+        <briefdescription>
+<para>Метод, возрающий bool - является ли текущий спрайт последним в анимации </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true да, является </para>
+</simplesect>
+<simplesect kind="return"><para>false нет, не является </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="GameObject/GameObject.hpp" line="105" column="6" bodyfile="GameObject/GameObject.cpp" bodystart="74" bodyend="76"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><ref refid="class_game_object" kindref="compound">GameObject</ref> class have animation state which says what sprite index use to draw </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>GameObject</label>
+        <link refid="class_game_object"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sf::Drawable</label>
+      </node>
+      <node id="3">
+        <label>sf::Transformable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GameObject</label>
+        <link refid="class_game_object"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sf::Drawable</label>
+      </node>
+      <node id="3">
+        <label>sf::Transformable</label>
+      </node>
+    </collaborationgraph>
+    <location file="GameObject/GameObject.hpp" line="10" column="1" bodyfile="GameObject/GameObject.hpp" bodystart="10" bodyend="106"/>
+    <listofallmembers>
+      <member refid="class_game_object_1a2db1cc27d3267005d0884fe81b4af999" prot="private" virt="non-virtual"><scope>GameObject</scope><name>animation_state</name></member>
+      <member refid="class_game_object_1a6e9241cf0aaaff0c9b5565888f65ebf3" prot="public" virt="non-virtual"><scope>GameObject</scope><name>check_collision</name></member>
+      <member refid="class_game_object_1a172713ec092f0e08d3cb5af8450e5bb3" prot="public" virt="non-virtual"><scope>GameObject</scope><name>check_collision</name></member>
+      <member refid="class_game_object_1aefc09c7e8ead168e820f6c7af3b7b839" prot="public" virt="virtual"><scope>GameObject</scope><name>draw</name></member>
+      <member refid="class_game_object_1a0348e3ee2e83d56eafca7a3547f432c4" prot="public" virt="non-virtual"><scope>GameObject</scope><name>GameObject</name></member>
+      <member refid="class_game_object_1afe6901fa803678a6d4a200c981ca884e" prot="public" virt="non-virtual"><scope>GameObject</scope><name>GameObject</name></member>
+      <member refid="class_game_object_1a5422e96f91a615083abce4b4b2d1bf27" prot="public" virt="non-virtual"><scope>GameObject</scope><name>GameObject</name></member>
+      <member refid="class_game_object_1a80cf3649948d6cd1cf8bf9277fcee741" prot="public" virt="non-virtual"><scope>GameObject</scope><name>getGameObjectRect</name></member>
+      <member refid="class_game_object_1ab1af4ef509c977f895ca42972cb59077" prot="private" virt="non-virtual"><scope>GameObject</scope><name>isAnimated</name></member>
+      <member refid="class_game_object_1af94ded297ad54bbe84cdaf5ad5100a56" prot="public" virt="non-virtual"><scope>GameObject</scope><name>isCollider</name></member>
+      <member refid="class_game_object_1a09725c60c9953d478c9d7c40618d43cf" prot="private" virt="non-virtual"><scope>GameObject</scope><name>isFinished</name></member>
+      <member refid="class_game_object_1aebea2b95e12565a10167ef989a31fdb5" prot="public" virt="non-virtual"><scope>GameObject</scope><name>isLastAnimationState</name></member>
+      <member refid="class_game_object_1a2e3a40ef8b6baf4e20134ee2270d8e23" prot="private" virt="non-virtual"><scope>GameObject</scope><name>m_boxCollider</name></member>
+      <member refid="class_game_object_1ad273fec28878e5564625a7edd74f2477" prot="private" virt="non-virtual"><scope>GameObject</scope><name>m_cordinates</name></member>
+      <member refid="class_game_object_1a61b90a3aa2302254ccecfc9d4c21d70f" prot="private" virt="non-virtual"><scope>GameObject</scope><name>m_isCollider</name></member>
+      <member refid="class_game_object_1aeacf313d6a432fd7ec7c4197f85a2dc1" prot="public" virt="non-virtual"><scope>GameObject</scope><name>m_scale</name></member>
+      <member refid="class_game_object_1aa5d62b9e42b89d3a7ee972e987f62833" prot="public" virt="non-virtual"><scope>GameObject</scope><name>m_sprite</name></member>
+      <member refid="class_game_object_1a27942e782c75e53e83b8acc57758f0b5" prot="public" virt="non-virtual"><scope>GameObject</scope><name>m_sprites_array</name></member>
+      <member refid="class_game_object_1a60d8eb6676c260a5909944b4b55dad50" prot="public" virt="non-virtual"><scope>GameObject</scope><name>nextState</name></member>
+      <member refid="class_game_object_1ae110f3b758e45ec3ea0bfe57c284e648" prot="public" virt="non-virtual"><scope>GameObject</scope><name>resetAnimation</name></member>
+      <member refid="class_game_object_1a6ebdcd772800641b74d3771a3a4ceb79" prot="public" virt="non-virtual"><scope>GameObject</scope><name>stopAtEnd</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,71 @@
+\hypertarget{exception_8hpp_source}{}\doxysection{exception.\+hpp}
+\label{exception_8hpp_source}\index{external/toml/exception.hpp@{external/toml/exception.hpp}}
+\mbox{\hyperlink{exception_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//     Copyright Toru Niina 2017.}}
+\DoxyCodeLine{2 \textcolor{comment}{// Distributed under the MIT License.}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifndef TOML11\_EXCEPTION\_HPP}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TOML11\_EXCEPTION\_HPP}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{source__location_8hpp}{source\_location.hpp}}"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetoml}{toml}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1exception}{exception}} : \textcolor{keyword}{public} std::exception}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15   \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1exception_afe1e36cc229fd25c66844c0b1d7b0031}{exception}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1source__location}{source\_location}}\& loc): \mbox{\hyperlink{structtoml_1_1exception_a108a011fc33bf295860cf104a05e10bd}{loc\_}}(loc) \{\}}
+\DoxyCodeLine{17     \textcolor{keyword}{virtual} \mbox{\hyperlink{structtoml_1_1exception_a693921187555fc0f8ae857fab5f977fc}{\string~exception}}() noexcept override = default;}
+\DoxyCodeLine{18     virtual const \textcolor{keywordtype}{char}* \mbox{\hyperlink{structtoml_1_1exception_ace56a61a2a06706ecdfe2789d04e5a37}{what}}() const noexcept\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}"{}};\}}
+\DoxyCodeLine{19     \textcolor{keyword}{virtual} \mbox{\hyperlink{structtoml_1_1source__location}{source\_location}} \textcolor{keyword}{const}\& \mbox{\hyperlink{structtoml_1_1exception_a11530f5a06324266a9462e6042efc72a}{location}}() const noexcept \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1exception_a108a011fc33bf295860cf104a05e10bd}{loc\_}};\}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{22     \mbox{\hyperlink{structtoml_1_1source__location}{source\_location}} \mbox{\hyperlink{structtoml_1_1exception_a108a011fc33bf295860cf104a05e10bd}{loc\_}};}
+\DoxyCodeLine{23 \};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1syntax__error}{syntax\_error}} : \textcolor{keyword}{public} \mbox{\hyperlink{structtoml_1_1exception}{toml::exception}}}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27   \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1syntax__error_adc0a6541788bea3190ac276428bab3da}{syntax\_error}}(\textcolor{keyword}{const} std::string\& what\_arg, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1source__location}{source\_location}}\& loc)}
+\DoxyCodeLine{29         : \mbox{\hyperlink{structtoml_1_1exception}{exception}}(loc), \mbox{\hyperlink{structtoml_1_1syntax__error_a715f7c1eaa9dabb4b96735e6cba7802e}{what\_}}(what\_arg)}
+\DoxyCodeLine{30     \{\}}
+\DoxyCodeLine{31     \textcolor{keyword}{virtual} \mbox{\hyperlink{structtoml_1_1syntax__error_a6618cd74b03674e377c6b09b88d3ac89}{\string~syntax\_error}}() noexcept override = default;}
+\DoxyCodeLine{32     virtual const \textcolor{keywordtype}{char}* \mbox{\hyperlink{structtoml_1_1syntax__error_a64fcbe095591e839c302cf07757e0bed}{what}}() const noexcept\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1syntax__error_a715f7c1eaa9dabb4b96735e6cba7802e}{what\_}}.c\_str();\}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{35     std::string \mbox{\hyperlink{structtoml_1_1syntax__error_a715f7c1eaa9dabb4b96735e6cba7802e}{what\_}};}
+\DoxyCodeLine{36 \};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1type__error}{type\_error}} : \textcolor{keyword}{public} \mbox{\hyperlink{structtoml_1_1exception}{toml::exception}}}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40   \textcolor{keyword}{public}:}
+\DoxyCodeLine{41     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1type__error_a4b277e28265efe160bcb302c9ae06cd2}{type\_error}}(\textcolor{keyword}{const} std::string\& what\_arg, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1source__location}{source\_location}}\& loc)}
+\DoxyCodeLine{42         : \mbox{\hyperlink{structtoml_1_1exception}{exception}}(loc), \mbox{\hyperlink{structtoml_1_1type__error_a2ae2e26e66ee8286715593acbb95a0de}{what\_}}(what\_arg)}
+\DoxyCodeLine{43     \{\}}
+\DoxyCodeLine{44     \textcolor{keyword}{virtual} \mbox{\hyperlink{structtoml_1_1type__error_a1a89fcdfcc10022b6a72c90a2910d1fe}{\string~type\_error}}() noexcept override = default;}
+\DoxyCodeLine{45     virtual const \textcolor{keywordtype}{char}* \mbox{\hyperlink{structtoml_1_1type__error_a0db8ccaf65ad1753fb620812ed2879a5}{what}}() const noexcept\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1type__error_a2ae2e26e66ee8286715593acbb95a0de}{what\_}}.c\_str();\}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{48     std::string \mbox{\hyperlink{structtoml_1_1type__error_a2ae2e26e66ee8286715593acbb95a0de}{what\_}};}
+\DoxyCodeLine{49 \};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1internal__error}{internal\_error}} : \textcolor{keyword}{public} \mbox{\hyperlink{structtoml_1_1exception}{toml::exception}}}
+\DoxyCodeLine{52 \{}
+\DoxyCodeLine{53   \textcolor{keyword}{public}:}
+\DoxyCodeLine{54     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1internal__error_ab7cd1247a6a0992b6d584b5f6ad51832}{internal\_error}}(\textcolor{keyword}{const} std::string\& what\_arg, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1source__location}{source\_location}}\& loc)}
+\DoxyCodeLine{55         : \mbox{\hyperlink{structtoml_1_1exception}{exception}}(loc), \mbox{\hyperlink{structtoml_1_1internal__error_a4b7695ed150d5bffd25f827ab462a479}{what\_}}(what\_arg)}
+\DoxyCodeLine{56     \{\}}
+\DoxyCodeLine{57     \textcolor{keyword}{virtual} \mbox{\hyperlink{structtoml_1_1internal__error_a03bb83ff9f8232be864b2347e4e7cc19}{\string~internal\_error}}() noexcept override = default;}
+\DoxyCodeLine{58     virtual const \textcolor{keywordtype}{char}* \mbox{\hyperlink{structtoml_1_1internal__error_af1453a114ea07bed42fd5a08c83e5f8c}{what}}() const noexcept\textcolor{keyword}{ override }\{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1internal__error_a4b7695ed150d5bffd25f827ab462a479}{what\_}}.c\_str();\}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60   \textcolor{keyword}{protected}:}
+\DoxyCodeLine{61     std::string \mbox{\hyperlink{structtoml_1_1internal__error_a4b7695ed150d5bffd25f827ab462a479}{what\_}};}
+\DoxyCodeLine{62 \};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \} \textcolor{comment}{// toml}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TOML\_EXCEPTION}}
+
+\end{DoxyCode}

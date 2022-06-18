@@ -1,0 +1,96 @@
+\hypertarget{comments_8hpp}{}\doxysection{external/toml/comments.hpp File Reference}
+\label{comments_8hpp}\index{external/toml/comments.hpp@{external/toml/comments.hpp}}
+{\ttfamily \#include $<$initializer\+\_\+list$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1preserve__comments}{toml\+::preserve\+\_\+comments}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator$<$ T, is\+\_\+const $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1discard__comments}{toml\+::discard\+\_\+comments}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetoml}{toml}}
+\item 
+namespace \mbox{\hyperlink{namespacetoml_1_1detail}{toml\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{comments_8hpp_ac5952aa66c2a24cfdbb3d82f70f22618}{TOML11\+\_\+\+DEFAULT\+\_\+\+COMMENT\+\_\+\+STRATEGY}}~\mbox{\hyperlink{structtoml_1_1discard__comments}{\+::toml\+::discard\+\_\+comments}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacetoml_ae9ac58857cfdda9535ef98266b65304b}{toml\+::operator==}} (const preserve\+\_\+comments \&lhs, const preserve\+\_\+comments \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a03e338a600f118cd5c5d3e7fee31f6c6}{toml\+::operator!=}} (const preserve\+\_\+comments \&lhs, const preserve\+\_\+comments \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_acbb3a32f389eaf9e5097d2b23df77b4e}{toml\+::operator$<$}} (const preserve\+\_\+comments \&lhs, const preserve\+\_\+comments \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a17f8791df6efda2a712efa14c334c33d}{toml\+::operator$<$=}} (const preserve\+\_\+comments \&lhs, const preserve\+\_\+comments \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a993726b0c054cbf5b20674f14690d6ed}{toml\+::operator$>$}} (const preserve\+\_\+comments \&lhs, const preserve\+\_\+comments \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a6b51fe3d00e083b549644d994bd547c7}{toml\+::operator$>$=}} (const preserve\+\_\+comments \&lhs, const preserve\+\_\+comments \&rhs)
+\item 
+void \mbox{\hyperlink{namespacetoml_a9a68dfa1ac6b1762835738786dbb3cf2}{toml\+::swap}} (preserve\+\_\+comments \&lhs, preserve\+\_\+comments \&rhs)
+\item 
+void \mbox{\hyperlink{namespacetoml_a75f1fb7e4dc9820a681191b35a20be70}{toml\+::swap}} (preserve\+\_\+comments \&lhs, std\+::vector$<$ std\+::string $>$ \&rhs)
+\item 
+void \mbox{\hyperlink{namespacetoml_ab2a823f99de157cdbe0e0c9f2066d698}{toml\+::swap}} (std\+::vector$<$ std\+::string $>$ \&lhs, preserve\+\_\+comments \&rhs)
+\item 
+{\footnotesize template$<$typename charT , typename traits $>$ }\\std\+::basic\+\_\+ostream$<$ charT, traits $>$ \& \mbox{\hyperlink{namespacetoml_a11b17eff44b8e4b0b49c85cc34e241c7}{toml\+::operator$<$$<$}} (std\+::basic\+\_\+ostream$<$ charT, traits $>$ \&os, const preserve\+\_\+comments \&com)
+\item 
+{\footnotesize template$<$typename T , bool C$>$ }\\bool \mbox{\hyperlink{namespacetoml_1_1detail_af32e4e42a39aa2b9fc2bd8e9d3f97cd8}{toml\+::detail\+::operator==}} (const empty\+\_\+iterator$<$ T, C $>$ \&, const empty\+\_\+iterator$<$ T, C $>$ \&) noexcept
+\item 
+{\footnotesize template$<$typename T , bool C$>$ }\\bool \mbox{\hyperlink{namespacetoml_1_1detail_aa4437dc0ba9e506dec5d6922504fccb5}{toml\+::detail\+::operator!=}} (const empty\+\_\+iterator$<$ T, C $>$ \&, const empty\+\_\+iterator$<$ T, C $>$ \&) noexcept
+\item 
+{\footnotesize template$<$typename T , bool C$>$ }\\bool \mbox{\hyperlink{namespacetoml_1_1detail_a020cb01199da9b349b09e05f732e4694}{toml\+::detail\+::operator$<$}} (const empty\+\_\+iterator$<$ T, C $>$ \&, const empty\+\_\+iterator$<$ T, C $>$ \&) noexcept
+\item 
+{\footnotesize template$<$typename T , bool C$>$ }\\bool \mbox{\hyperlink{namespacetoml_1_1detail_adb0f553fbf0b2ddb642de75f9a2f1b84}{toml\+::detail\+::operator$<$=}} (const empty\+\_\+iterator$<$ T, C $>$ \&, const empty\+\_\+iterator$<$ T, C $>$ \&) noexcept
+\item 
+{\footnotesize template$<$typename T , bool C$>$ }\\bool \mbox{\hyperlink{namespacetoml_1_1detail_ab0aa1507d1ed1b957274d535fe27c42b}{toml\+::detail\+::operator$>$}} (const empty\+\_\+iterator$<$ T, C $>$ \&, const empty\+\_\+iterator$<$ T, C $>$ \&) noexcept
+\item 
+{\footnotesize template$<$typename T , bool C$>$ }\\bool \mbox{\hyperlink{namespacetoml_1_1detail_af42e8bbe713ac03abc32455bde9bcd03}{toml\+::detail\+::operator$>$=}} (const empty\+\_\+iterator$<$ T, C $>$ \&, const empty\+\_\+iterator$<$ T, C $>$ \&) noexcept
+\item 
+{\footnotesize template$<$typename T , bool C$>$ }\\empty\+\_\+iterator$<$ T, C $>$\+::difference\+\_\+type \mbox{\hyperlink{namespacetoml_1_1detail_a04271fbec74a060a51131962bd435cf3}{toml\+::detail\+::operator-\/}} (const empty\+\_\+iterator$<$ T, C $>$ \&, const empty\+\_\+iterator$<$ T, C $>$ \&) noexcept
+\item 
+{\footnotesize template$<$typename T , bool C$>$ }\\empty\+\_\+iterator$<$ T, C $>$ \mbox{\hyperlink{namespacetoml_1_1detail_a5b66ed4b1104ca9dadeebd46820a535b}{toml\+::detail\+::operator+}} (typename empty\+\_\+iterator$<$ T, C $>$\+::difference\+\_\+type, const empty\+\_\+iterator$<$ T, C $>$ \&rhs) noexcept
+\item 
+{\footnotesize template$<$typename T , bool C$>$ }\\empty\+\_\+iterator$<$ T, C $>$ \mbox{\hyperlink{namespacetoml_1_1detail_a53775bd9a0cc806fe715db7953f72caa}{toml\+::detail\+::operator+}} (const empty\+\_\+iterator$<$ T, C $>$ \&lhs, typename empty\+\_\+iterator$<$ T, C $>$\+::difference\+\_\+type) noexcept
+\item 
+bool \mbox{\hyperlink{namespacetoml_adb529196c2e96a3fb9e7e3312e8c3bd6}{toml\+::operator==}} (const discard\+\_\+comments \&, const discard\+\_\+comments \&) noexcept
+\item 
+bool \mbox{\hyperlink{namespacetoml_a8e072d28431579b3e29c5ea7540b1739}{toml\+::operator!=}} (const discard\+\_\+comments \&, const discard\+\_\+comments \&) noexcept
+\item 
+bool \mbox{\hyperlink{namespacetoml_acff0600d173e48338f29640944373ec7}{toml\+::operator$<$}} (const discard\+\_\+comments \&, const discard\+\_\+comments \&) noexcept
+\item 
+bool \mbox{\hyperlink{namespacetoml_aa055e6672bbd43f0c55490ea790aee05}{toml\+::operator$<$=}} (const discard\+\_\+comments \&, const discard\+\_\+comments \&) noexcept
+\item 
+bool \mbox{\hyperlink{namespacetoml_abaa21c973a2dc580e1206ffe5df5ed3f}{toml\+::operator$>$}} (const discard\+\_\+comments \&, const discard\+\_\+comments \&) noexcept
+\item 
+bool \mbox{\hyperlink{namespacetoml_a3b93e814b03bda1169fe6654e4ba392f}{toml\+::operator$>$=}} (const discard\+\_\+comments \&, const discard\+\_\+comments \&) noexcept
+\item 
+void \mbox{\hyperlink{namespacetoml_ad86e656769a111b71dfcd2ce05e1a918}{toml\+::swap}} (const discard\+\_\+comments \&, const discard\+\_\+comments \&) noexcept
+\item 
+{\footnotesize template$<$typename charT , typename traits $>$ }\\std\+::basic\+\_\+ostream$<$ charT, traits $>$ \& \mbox{\hyperlink{namespacetoml_a440be2d49eb0d5d2cf3bd87b65e19e5a}{toml\+::operator$<$$<$}} (std\+::basic\+\_\+ostream$<$ charT, traits $>$ \&os, const discard\+\_\+comments \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{comments_8hpp_ac5952aa66c2a24cfdbb3d82f70f22618}\label{comments_8hpp_ac5952aa66c2a24cfdbb3d82f70f22618}} 
+\index{comments.hpp@{comments.hpp}!TOML11\_DEFAULT\_COMMENT\_STRATEGY@{TOML11\_DEFAULT\_COMMENT\_STRATEGY}}
+\index{TOML11\_DEFAULT\_COMMENT\_STRATEGY@{TOML11\_DEFAULT\_COMMENT\_STRATEGY}!comments.hpp@{comments.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_DEFAULT\_COMMENT\_STRATEGY}{TOML11\_DEFAULT\_COMMENT\_STRATEGY}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+DEFAULT\+\_\+\+COMMENT\+\_\+\+STRATEGY~\mbox{\hyperlink{structtoml_1_1discard__comments}{\+::toml\+::discard\+\_\+comments}}}
+

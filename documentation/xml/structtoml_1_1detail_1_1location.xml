@@ -1,0 +1,598 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1location" kind="struct" language="C++" prot="public" final="yes">
+    <compoundname>toml::detail::location</compoundname>
+    <basecompoundref refid="structtoml_1_1detail_1_1region__base" prot="public" virt="non-virtual">toml::detail::region_base</basecompoundref>
+    <includes refid="region_8hpp" local="no">region.hpp</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structtoml_1_1detail_1_1location_1a031ca4974dde3ebefbd7398668bad4c8" prot="public" static="no">
+        <type>typename std::vector&lt; char &gt;::const_iterator</type>
+        <definition>using toml::detail::location::const_iterator =  typename std::vector&lt;char&gt;::const_iterator</definition>
+        <argsstring></argsstring>
+        <name>const_iterator</name>
+        <qualifiedname>toml::detail::location::const_iterator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="72" column="5" bodyfile="external/toml/region.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1detail_1_1location_1a285ff825ac56534d138e4dfe3e935beb" prot="public" static="no">
+        <type>typename const_iterator::difference_type</type>
+        <definition>using toml::detail::location::difference_type =  typename const_iterator::difference_type</definition>
+        <argsstring></argsstring>
+        <name>difference_type</name>
+        <qualifiedname>toml::detail::location::difference_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="73" column="5" bodyfile="external/toml/region.hpp" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1detail_1_1location_1a8084d1b04443e5819764eeb9b3d9b256" prot="public" static="no">
+        <type>std::shared_ptr&lt; const std::vector&lt; char &gt; &gt;</type>
+        <definition>using toml::detail::location::source_ptr =  std::shared_ptr&lt;const std::vector&lt;char&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>source_ptr</name>
+        <qualifiedname>toml::detail::location::source_ptr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="74" column="5" bodyfile="external/toml/region.hpp" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structtoml_1_1detail_1_1location_1a3f0c3677bb675b1a4e61792a2b06602b" prot="private" static="no" mutable="no">
+        <type><ref refid="structtoml_1_1detail_1_1location_1a8084d1b04443e5819764eeb9b3d9b256" kindref="member">source_ptr</ref></type>
+        <definition>source_ptr toml::detail::location::source_</definition>
+        <argsstring></argsstring>
+        <name>source_</name>
+        <qualifiedname>toml::detail::location::source_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="187" column="20" bodyfile="external/toml/region.hpp" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtoml_1_1detail_1_1location_1ab8edb3947d0a50693ca6a05647aad15f" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t toml::detail::location::line_number_</definition>
+        <argsstring></argsstring>
+        <name>line_number_</name>
+        <qualifiedname>toml::detail::location::line_number_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="188" column="20" bodyfile="external/toml/region.hpp" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtoml_1_1detail_1_1location_1adfd1e1e475258027057269dc19cbc615" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string toml::detail::location::source_name_</definition>
+        <argsstring></argsstring>
+        <name>source_name_</name>
+        <qualifiedname>toml::detail::location::source_name_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="189" column="20" bodyfile="external/toml/region.hpp" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtoml_1_1detail_1_1location_1a5de80d3eee0cd165fda7509fb88d9a24" prot="private" static="no" mutable="no">
+        <type><ref refid="structtoml_1_1detail_1_1location_1a031ca4974dde3ebefbd7398668bad4c8" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator toml::detail::location::iter_</definition>
+        <argsstring></argsstring>
+        <name>iter_</name>
+        <qualifiedname>toml::detail::location::iter_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="190" column="20" bodyfile="external/toml/region.hpp" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1a63170a96936ce5957e54e43a377a6118" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::detail::location::location</definition>
+        <argsstring>(std::string source_name, std::vector&lt; char &gt; cont)</argsstring>
+        <name>location</name>
+        <qualifiedname>toml::detail::location::location</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>source_name</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; char &gt;</type>
+          <declname>cont</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="76" column="5" bodyfile="external/toml/region.hpp" bodystart="76" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1a8f48677df976dbbd31288c1e36c58ce7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::detail::location::location</definition>
+        <argsstring>(std::string source_name, const std::string &amp;cont)</argsstring>
+        <name>location</name>
+        <qualifiedname>toml::detail::location::location</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>source_name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>cont</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="80" column="5" bodyfile="external/toml/region.hpp" bodystart="80" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1ae4d86376e3339fcf275dd71b6e79ca1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::detail::location::location</definition>
+        <argsstring>(const location &amp;)=default</argsstring>
+        <name>location</name>
+        <qualifiedname>toml::detail::location::location</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1detail_1_1location" kindref="compound">location</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="85" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1a6d14d1511b6e4004d551e9f65c4fc40a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::detail::location::location</definition>
+        <argsstring>(location &amp;&amp;)=default</argsstring>
+        <name>location</name>
+        <qualifiedname>toml::detail::location::location</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1location" kindref="compound">location</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="86" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1a77acc2849bdd83eca982742d351c763a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1location" kindref="compound">location</ref> &amp;</type>
+        <definition>location &amp; toml::detail::location::operator=</definition>
+        <argsstring>(const location &amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::detail::location::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1detail_1_1location" kindref="compound">location</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="87" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1a7ba5b1a10f969c93989ebfc648543dea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1location" kindref="compound">location</ref> &amp;</type>
+        <definition>location &amp; toml::detail::location::operator=</definition>
+        <argsstring>(location &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::detail::location::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1location" kindref="compound">location</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="88" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1a39b58a822ccf2c0aad495f4acd71f530" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::detail::location::~location</definition>
+        <argsstring>()=default</argsstring>
+        <name>~location</name>
+        <qualifiedname>toml::detail::location::~location</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="89" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1a7f06f6621d30b69718c08e8ee2f33644" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool toml::detail::location::is_ok</definition>
+        <argsstring>() const noexcept override</argsstring>
+        <name>is_ok</name>
+        <qualifiedname>toml::detail::location::is_ok</qualifiedname>
+        <reimplements refid="structtoml_1_1detail_1_1region__base_1a04d30cc67ae064dcb5124a6d6c0d8829">is_ok</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="91" column="10" bodyfile="external/toml/region.hpp" bodystart="91" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1ad4f73b6a94e92e67b423bd75242eae08" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="virtual">
+        <type>char</type>
+        <definition>char toml::detail::location::front</definition>
+        <argsstring>() const noexcept override</argsstring>
+        <name>front</name>
+        <qualifiedname>toml::detail::location::front</qualifiedname>
+        <reimplements refid="structtoml_1_1detail_1_1region__base_1a851763061c8dd8e925192f5e71973b2f">front</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="92" column="10" bodyfile="external/toml/region.hpp" bodystart="92" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1a3fec075fe10382a901104613f84b37ee" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>const <ref refid="structtoml_1_1detail_1_1location_1a031ca4974dde3ebefbd7398668bad4c8" kindref="member">const_iterator</ref></type>
+        <definition>const const_iterator toml::detail::location::iter</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>iter</name>
+        <qualifiedname>toml::detail::location::iter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="95" column="26" bodyfile="external/toml/region.hpp" bodystart="95" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1a4b1ba9aeab640d375f97b09efce3dab8" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1location_1a031ca4974dde3ebefbd7398668bad4c8" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator toml::detail::location::begin</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>begin</name>
+        <qualifiedname>toml::detail::location::begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="97" column="20" bodyfile="external/toml/region.hpp" bodystart="97" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1ad2b13df42c4b6202d006830c3fa5eee6" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1location_1a031ca4974dde3ebefbd7398668bad4c8" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator toml::detail::location::end</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>end</name>
+        <qualifiedname>toml::detail::location::end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="98" column="20" bodyfile="external/toml/region.hpp" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1a97b2915707242c6ffe7452431ed09333" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void toml::detail::location::advance</definition>
+        <argsstring>(difference_type n=1) noexcept</argsstring>
+        <name>advance</name>
+        <qualifiedname>toml::detail::location::advance</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1location_1a285ff825ac56534d138e4dfe3e935beb" kindref="member">difference_type</ref></type>
+          <declname>n</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="108" column="10" bodyfile="external/toml/region.hpp" bodystart="108" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1a6ac09c7dc5a66e4bf8f9888170766123" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void toml::detail::location::retrace</definition>
+        <argsstring>(difference_type n=1) noexcept</argsstring>
+        <name>retrace</name>
+        <qualifiedname>toml::detail::location::retrace</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1location_1a285ff825ac56534d138e4dfe3e935beb" kindref="member">difference_type</ref></type>
+          <declname>n</declname>
+          <defval>1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="115" column="10" bodyfile="external/toml/region.hpp" bodystart="115" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1ae7029e5f4aa2ab85280107391972cff0" prot="public" static="no" const="no" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void toml::detail::location::reset</definition>
+        <argsstring>(const_iterator rollback) noexcept</argsstring>
+        <name>reset</name>
+        <qualifiedname>toml::detail::location::reset</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1location_1a031ca4974dde3ebefbd7398668bad4c8" kindref="member">const_iterator</ref></type>
+          <declname>rollback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="122" column="10" bodyfile="external/toml/region.hpp" bodystart="122" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1ad3cad7912b60d06e682a2539ad4b4b68" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string toml::detail::location::str</definition>
+        <argsstring>() const override</argsstring>
+        <name>str</name>
+        <qualifiedname>toml::detail::location::str</qualifiedname>
+        <reimplements refid="structtoml_1_1detail_1_1region__base_1a47be03c05f51e0f1521961f4bf91675b">str</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="140" column="17" bodyfile="external/toml/region.hpp" bodystart="140" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1ad6a386a1bb61633d7dc51025ee4bd6be" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string toml::detail::location::name</definition>
+        <argsstring>() const override</argsstring>
+        <name>name</name>
+        <qualifiedname>toml::detail::location::name</qualifiedname>
+        <reimplements refid="structtoml_1_1detail_1_1region__base_1af1e9c07f9510f553e33277207249b980">name</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="141" column="17" bodyfile="external/toml/region.hpp" bodystart="141" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1ad1787cf196aab7a9a04d0cf273ed5b60" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string toml::detail::location::line_num</definition>
+        <argsstring>() const override</argsstring>
+        <name>line_num</name>
+        <qualifiedname>toml::detail::location::line_num</qualifiedname>
+        <reimplements refid="structtoml_1_1detail_1_1region__base_1ad676f2456819ebd43cc6402f017c3ff8">line_num</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="143" column="17" bodyfile="external/toml/region.hpp" bodystart="143" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1a4df51ed73488866dcc16c61553c3ef00" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string toml::detail::location::line</definition>
+        <argsstring>() const override</argsstring>
+        <name>line</name>
+        <qualifiedname>toml::detail::location::line</qualifiedname>
+        <reimplements refid="structtoml_1_1detail_1_1region__base_1a94f53e54f87a6b18b673c93c5c16c5b1">line</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="148" column="17" bodyfile="external/toml/region.hpp" bodystart="148" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1a8f9f4f467212a3d98dd8ef0534d9669e" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1location_1a031ca4974dde3ebefbd7398668bad4c8" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator toml::detail::location::line_begin</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>line_begin</name>
+        <qualifiedname>toml::detail::location::line_begin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="153" column="20" bodyfile="external/toml/region.hpp" bodystart="153" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1afcbaa10d76ab6e75849269d66742c238" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1location_1a031ca4974dde3ebefbd7398668bad4c8" kindref="member">const_iterator</ref></type>
+        <definition>const_iterator toml::detail::location::line_end</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>line_end</name>
+        <qualifiedname>toml::detail::location::line_end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="159" column="20" bodyfile="external/toml/region.hpp" bodystart="159" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1a941c7837aa01b07e838b83bf9c7484b1" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t toml::detail::location::size</definition>
+        <argsstring>() const noexcept override</argsstring>
+        <name>size</name>
+        <qualifiedname>toml::detail::location::size</qualifiedname>
+        <reimplements refid="structtoml_1_1detail_1_1region__base_1abb3aa3ca6b0a0cd80e257ceb2a83877c">size</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="165" column="17" bodyfile="external/toml/region.hpp" bodystart="165" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1a2dbfb73f0f406069dfaff748f78bef41" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t toml::detail::location::before</definition>
+        <argsstring>() const noexcept override</argsstring>
+        <name>before</name>
+        <qualifiedname>toml::detail::location::before</qualifiedname>
+        <reimplements refid="structtoml_1_1detail_1_1region__base_1a5d9badf7c1617c3dbf220128beed9e69">before</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="169" column="17" bodyfile="external/toml/region.hpp" bodystart="169" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1a45b2634c7accd215659b3e672248e1ba" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t toml::detail::location::after</definition>
+        <argsstring>() const noexcept override</argsstring>
+        <name>after</name>
+        <qualifiedname>toml::detail::location::after</qualifiedname>
+        <reimplements refid="structtoml_1_1detail_1_1region__base_1a029632182c4df5911f569e8220f7ad84">after</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="175" column="17" bodyfile="external/toml/region.hpp" bodystart="175" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1abb56f59d170d61216cdf848c329b5c96" prot="public" static="no" const="yes" explicit="no" inline="yes" refqual="lvalue" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1location_1a8084d1b04443e5819764eeb9b3d9b256" kindref="member">source_ptr</ref> const &amp;</type>
+        <definition>source_ptr const  &amp; toml::detail::location::source</definition>
+        <argsstring>() const &amp;noexcept</argsstring>
+        <name>source</name>
+        <qualifiedname>toml::detail::location::source</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="182" column="22" bodyfile="external/toml/region.hpp" bodystart="182" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1detail_1_1location_1afacc5c2b717fd18ade74f8aaf8917976" prot="public" static="no" const="no" explicit="no" inline="yes" refqual="rvalue" noexcept="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1detail_1_1location_1a8084d1b04443e5819764eeb9b3d9b256" kindref="member">source_ptr</ref> &amp;&amp;</type>
+        <definition>source_ptr &amp;&amp; toml::detail::location::source</definition>
+        <argsstring>() &amp;&amp;noexcept</argsstring>
+        <name>source</name>
+        <qualifiedname>toml::detail::location::source</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/region.hpp" line="183" column="21" bodyfile="external/toml/region.hpp" bodystart="183" bodyend="183"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>toml::detail::location</label>
+        <link refid="structtoml_1_1detail_1_1location"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>toml::detail::region_base</label>
+        <link refid="structtoml_1_1detail_1_1region__base"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>toml::detail::location</label>
+        <link refid="structtoml_1_1detail_1_1location"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>toml::detail::region_base</label>
+        <link refid="structtoml_1_1detail_1_1region__base"/>
+      </node>
+    </collaborationgraph>
+    <location file="external/toml/region.hpp" line="70" column="1" bodyfile="external/toml/region.hpp" bodystart="71" bodyend="191"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1detail_1_1location_1a97b2915707242c6ffe7452431ed09333" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>advance</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a45b2634c7accd215659b3e672248e1ba" prot="public" virt="virtual"><scope>toml::detail::location</scope><name>after</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a2dbfb73f0f406069dfaff748f78bef41" prot="public" virt="virtual"><scope>toml::detail::location</scope><name>before</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a4b1ba9aeab640d375f97b09efce3dab8" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>begin</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1a628ff6c7e336fc99b9d7c6b884066d55" prot="public" virt="virtual"><scope>toml::detail::location</scope><name>comments</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a031ca4974dde3ebefbd7398668bad4c8" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>const_iterator</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a285ff825ac56534d138e4dfe3e935beb" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>difference_type</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1ad2b13df42c4b6202d006830c3fa5eee6" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>end</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1ad4f73b6a94e92e67b423bd75242eae08" prot="public" virt="virtual"><scope>toml::detail::location</scope><name>front</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a7f06f6621d30b69718c08e8ee2f33644" prot="public" virt="virtual"><scope>toml::detail::location</scope><name>is_ok</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a3fec075fe10382a901104613f84b37ee" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>iter</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a5de80d3eee0cd165fda7509fb88d9a24" prot="private" virt="non-virtual"><scope>toml::detail::location</scope><name>iter_</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a4df51ed73488866dcc16c61553c3ef00" prot="public" virt="virtual"><scope>toml::detail::location</scope><name>line</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a8f9f4f467212a3d98dd8ef0534d9669e" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>line_begin</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1afcbaa10d76ab6e75849269d66742c238" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>line_end</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1ad1787cf196aab7a9a04d0cf273ed5b60" prot="public" virt="virtual"><scope>toml::detail::location</scope><name>line_num</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1ab8edb3947d0a50693ca6a05647aad15f" prot="private" virt="non-virtual"><scope>toml::detail::location</scope><name>line_number_</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a63170a96936ce5957e54e43a377a6118" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>location</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a8f48677df976dbbd31288c1e36c58ce7" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>location</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1ae4d86376e3339fcf275dd71b6e79ca1f" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>location</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a6d14d1511b6e4004d551e9f65c4fc40a" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>location</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1ad6a386a1bb61633d7dc51025ee4bd6be" prot="public" virt="virtual"><scope>toml::detail::location</scope><name>name</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a77acc2849bdd83eca982742d351c763a" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a7ba5b1a10f969c93989ebfc648543dea" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1a78a6213303cb281dc95fea399b63e87c" prot="public" virt="non-virtual" ambiguityscope="toml::detail::region_base::"><scope>toml::detail::location</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1a0ac9b607cecc602f7c5835e5eaa74051" prot="public" virt="non-virtual" ambiguityscope="toml::detail::region_base::"><scope>toml::detail::location</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1a08c9ceab879d163a77495e3f06016773" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>region_base</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1ad0dd93def6c58fc497e5c4227598fb44" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>region_base</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1ab34101de3563323eebaa0ae54d153882" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>region_base</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1ae7029e5f4aa2ab85280107391972cff0" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>reset</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a6ac09c7dc5a66e4bf8f9888170766123" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>retrace</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a941c7837aa01b07e838b83bf9c7484b1" prot="public" virt="virtual"><scope>toml::detail::location</scope><name>size</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1abb56f59d170d61216cdf848c329b5c96" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>source</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1afacc5c2b717fd18ade74f8aaf8917976" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>source</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a3f0c3677bb675b1a4e61792a2b06602b" prot="private" virt="non-virtual"><scope>toml::detail::location</scope><name>source_</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1adfd1e1e475258027057269dc19cbc615" prot="private" virt="non-virtual"><scope>toml::detail::location</scope><name>source_name_</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a8084d1b04443e5819764eeb9b3d9b256" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>source_ptr</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1ad3cad7912b60d06e682a2539ad4b4b68" prot="public" virt="virtual"><scope>toml::detail::location</scope><name>str</name></member>
+      <member refid="structtoml_1_1detail_1_1location_1a39b58a822ccf2c0aad495f4acd71f530" prot="public" virt="non-virtual"><scope>toml::detail::location</scope><name>~location</name></member>
+      <member refid="structtoml_1_1detail_1_1region__base_1a03b6d40d385dc3569e04c7c391f0caa7" prot="public" virt="virtual"><scope>toml::detail::location</scope><name>~region_base</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

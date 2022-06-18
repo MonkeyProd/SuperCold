@@ -1,0 +1,111 @@
+\hypertarget{class_bullet}{}\doxysection{Bullet Class Reference}
+\label{class_bullet}\index{Bullet@{Bullet}}
+
+
+{\ttfamily \#include $<$Bullet.\+hpp$>$}
+
+Inheritance diagram for Bullet\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_bullet}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_bullet_a4fe0996e6c2eb192aa4e4a0352e97fd9}{Bullet}} (sf\+::\+Vector2f start\+Position, sf\+::\+Vector2f velocity, std\+::vector$<$ sf\+::\+Sprite $>$ bullet\+Sprite)
+\begin{DoxyCompactList}\small\item\em Класс, пули \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_game_object}{Game\+Object}} \& \mbox{\hyperlink{class_bullet_a60eeb26c22016b37796b3692967dbc14}{get\+Bullet\+Object}} ()
+\begin{DoxyCompactList}\small\item\em Метод, возращающий \mbox{\hyperlink{class_game_object}{Game\+Object}} пули \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bullet_af9f7169b3201360123c51fd576cb574f}{move\+Bullet}} (sf\+::\+Time delta\+Time)
+\begin{DoxyCompactList}\small\item\em Метод, передвигающий пулю \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_bullet_a4259372b1668f44bb726620a4f44181b}{draw}} (sf\+::\+Render\+Target \&surface, sf\+::\+Render\+States states) const
+\item 
+sf\+::\+Float\+Rect \mbox{\hyperlink{class_bullet_a426f205484be59d9eff8b2f652135ce3}{get\+Bullet\+Rect}} ()
+\begin{DoxyCompactList}\small\item\em Метод, возращающий Float\+Rect пули \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_bullet_a71ece5d5c6319b00bdfbeff7b34ee8b9}{is\+Exist}} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_bullet_a4fe0996e6c2eb192aa4e4a0352e97fd9}\label{class_bullet_a4fe0996e6c2eb192aa4e4a0352e97fd9}} 
+\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{Bullet()}{Bullet()}}
+{\footnotesize\ttfamily Bullet\+::\+Bullet (\begin{DoxyParamCaption}\item[{sf\+::\+Vector2f}]{start\+Position,  }\item[{sf\+::\+Vector2f}]{velocity,  }\item[{std\+::vector$<$ sf\+::\+Sprite $>$}]{bullet\+Sprite }\end{DoxyParamCaption})}
+
+
+
+Класс, пули 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Position} & начальное положение \\
+\hline
+{\em velocity} & вектор скорости \\
+\hline
+{\em bullet\+Sprite} & спрайты пули \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bullet_a4259372b1668f44bb726620a4f44181b}\label{class_bullet_a4259372b1668f44bb726620a4f44181b}} 
+\index{Bullet@{Bullet}!draw@{draw}}
+\index{draw@{draw}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{draw()}{draw()}}
+{\footnotesize\ttfamily void Bullet\+::draw (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Target \&}]{surface,  }\item[{sf\+::\+Render\+States}]{states }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_bullet_a60eeb26c22016b37796b3692967dbc14}\label{class_bullet_a60eeb26c22016b37796b3692967dbc14}} 
+\index{Bullet@{Bullet}!getBulletObject@{getBulletObject}}
+\index{getBulletObject@{getBulletObject}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{getBulletObject()}{getBulletObject()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_game_object}{Game\+Object}} \& Bullet\+::get\+Bullet\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод, возращающий \mbox{\hyperlink{class_game_object}{Game\+Object}} пули 
+
+\mbox{\Hypertarget{class_bullet_a426f205484be59d9eff8b2f652135ce3}\label{class_bullet_a426f205484be59d9eff8b2f652135ce3}} 
+\index{Bullet@{Bullet}!getBulletRect@{getBulletRect}}
+\index{getBulletRect@{getBulletRect}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{getBulletRect()}{getBulletRect()}}
+{\footnotesize\ttfamily sf\+::\+Float\+Rect Bullet\+::get\+Bullet\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод, возращающий Float\+Rect пули 
+
+\mbox{\Hypertarget{class_bullet_af9f7169b3201360123c51fd576cb574f}\label{class_bullet_af9f7169b3201360123c51fd576cb574f}} 
+\index{Bullet@{Bullet}!moveBullet@{moveBullet}}
+\index{moveBullet@{moveBullet}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{moveBullet()}{moveBullet()}}
+{\footnotesize\ttfamily void Bullet\+::move\+Bullet (\begin{DoxyParamCaption}\item[{sf\+::\+Time}]{delta\+Time }\end{DoxyParamCaption})}
+
+
+
+Метод, передвигающий пулю 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & delta\+Time \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_bullet_a71ece5d5c6319b00bdfbeff7b34ee8b9}\label{class_bullet_a71ece5d5c6319b00bdfbeff7b34ee8b9}} 
+\index{Bullet@{Bullet}!isExist@{isExist}}
+\index{isExist@{isExist}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{isExist}{isExist}}
+{\footnotesize\ttfamily bool Bullet\+::is\+Exist = true}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Bullet/\mbox{\hyperlink{_bullet_8hpp}{Bullet.\+hpp}}\item 
+Bullet/\mbox{\hyperlink{_bullet_8cpp}{Bullet.\+cpp}}\end{DoxyCompactItemize}

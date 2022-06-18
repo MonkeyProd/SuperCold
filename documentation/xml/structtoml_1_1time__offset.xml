@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1time__offset" kind="struct" language="C++" prot="public">
+    <compoundname>toml::time_offset</compoundname>
+    <includes refid="datetime_8hpp" local="no">datetime.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtoml_1_1time__offset_1a557c47c1baa919af2fd0054564036bb3" prot="public" static="no" mutable="no">
+        <type>std::int8_t</type>
+        <definition>std::int8_t toml::time_offset::hour</definition>
+        <argsstring></argsstring>
+        <name>hour</name>
+        <qualifiedname>toml::time_offset::hour</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="300" column="17" bodyfile="external/toml/datetime.hpp" bodystart="300" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtoml_1_1time__offset_1a616f18e4a925a97929dd1b412906c5a1" prot="public" static="no" mutable="no">
+        <type>std::int8_t</type>
+        <definition>std::int8_t toml::time_offset::minute</definition>
+        <argsstring></argsstring>
+        <name>minute</name>
+        <qualifiedname>toml::time_offset::minute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="301" column="17" bodyfile="external/toml/datetime.hpp" bodystart="301" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtoml_1_1time__offset_1afc93860b4f3c310cb10a58adeae1724a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::time_offset::time_offset</definition>
+        <argsstring>(int h, int m)</argsstring>
+        <name>time_offset</name>
+        <qualifiedname>toml::time_offset::time_offset</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="303" column="5" bodyfile="external/toml/datetime.hpp" bodystart="303" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1time__offset_1ab6f192f307f0802f7aeb16a3961907c2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::time_offset::operator std::chrono::minutes</definition>
+        <argsstring>() const</argsstring>
+        <name>operator std::chrono::minutes</name>
+        <qualifiedname>toml::time_offset::minutes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="308" column="5" bodyfile="external/toml/datetime.hpp" bodystart="308" bodyend="312"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1time__offset_1a3489ef3aa2639009c247ec5cc00fe897" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::time_offset::time_offset</definition>
+        <argsstring>()=default</argsstring>
+        <name>time_offset</name>
+        <qualifiedname>toml::time_offset::time_offset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="314" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1time__offset_1a3a942bf044542bdaaec3803507a49d48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::time_offset::~time_offset</definition>
+        <argsstring>()=default</argsstring>
+        <name>~time_offset</name>
+        <qualifiedname>toml::time_offset::~time_offset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="315" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1time__offset_1af6edd404924ab93bf2d3cda9a6a573cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::time_offset::time_offset</definition>
+        <argsstring>(time_offset const &amp;)=default</argsstring>
+        <name>time_offset</name>
+        <qualifiedname>toml::time_offset::time_offset</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1time__offset" kindref="compound">time_offset</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="316" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1time__offset_1aeed99533d8379569ebd0d15b96301fdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::time_offset::time_offset</definition>
+        <argsstring>(time_offset &amp;&amp;)=default</argsstring>
+        <name>time_offset</name>
+        <qualifiedname>toml::time_offset::time_offset</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1time__offset" kindref="compound">time_offset</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="317" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1time__offset_1acaec8ec2b5c8334ff7685c6486ebc193" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1time__offset" kindref="compound">time_offset</ref> &amp;</type>
+        <definition>time_offset &amp; toml::time_offset::operator=</definition>
+        <argsstring>(time_offset const &amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::time_offset::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1time__offset" kindref="compound">time_offset</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="318" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1time__offset_1a9fa7b9e89bc9ef2f1c9825383dc1deda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1time__offset" kindref="compound">time_offset</ref> &amp;</type>
+        <definition>time_offset &amp; toml::time_offset::operator=</definition>
+        <argsstring>(time_offset &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::time_offset::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1time__offset" kindref="compound">time_offset</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="319" column="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/datetime.hpp" line="298" column="1" bodyfile="external/toml/datetime.hpp" bodystart="299" bodyend="320"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1time__offset_1a557c47c1baa919af2fd0054564036bb3" prot="public" virt="non-virtual"><scope>toml::time_offset</scope><name>hour</name></member>
+      <member refid="structtoml_1_1time__offset_1a616f18e4a925a97929dd1b412906c5a1" prot="public" virt="non-virtual"><scope>toml::time_offset</scope><name>minute</name></member>
+      <member refid="structtoml_1_1time__offset_1ab6f192f307f0802f7aeb16a3961907c2" prot="public" virt="non-virtual"><scope>toml::time_offset</scope><name>operator std::chrono::minutes</name></member>
+      <member refid="structtoml_1_1time__offset_1acaec8ec2b5c8334ff7685c6486ebc193" prot="public" virt="non-virtual"><scope>toml::time_offset</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1time__offset_1a9fa7b9e89bc9ef2f1c9825383dc1deda" prot="public" virt="non-virtual"><scope>toml::time_offset</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1time__offset_1afc93860b4f3c310cb10a58adeae1724a" prot="public" virt="non-virtual"><scope>toml::time_offset</scope><name>time_offset</name></member>
+      <member refid="structtoml_1_1time__offset_1a3489ef3aa2639009c247ec5cc00fe897" prot="public" virt="non-virtual"><scope>toml::time_offset</scope><name>time_offset</name></member>
+      <member refid="structtoml_1_1time__offset_1af6edd404924ab93bf2d3cda9a6a573cf" prot="public" virt="non-virtual"><scope>toml::time_offset</scope><name>time_offset</name></member>
+      <member refid="structtoml_1_1time__offset_1aeed99533d8379569ebd0d15b96301fdc" prot="public" virt="non-virtual"><scope>toml::time_offset</scope><name>time_offset</name></member>
+      <member refid="structtoml_1_1time__offset_1a3a942bf044542bdaaec3803507a49d48" prot="public" virt="non-virtual"><scope>toml::time_offset</scope><name>~time_offset</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

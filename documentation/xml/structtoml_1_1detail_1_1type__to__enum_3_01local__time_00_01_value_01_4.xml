@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1type__to__enum_3_01local__time_00_01_value_01_4" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::type_to_enum&lt; local_time, Value &gt;</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">value_t_constant&lt; value_t::local_time &gt;</basecompoundref>
+    <includes refid="types_8hpp" local="no">types.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Value</type>
+      </param>
+    </templateparamlist>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>toml::detail::type_to_enum&lt; local_time, Value &gt;</label>
+        <link refid="structtoml_1_1detail_1_1type__to__enum_3_01local__time_00_01_value_01_4"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>value_t_constant&lt; value_t::local_time &gt;</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>toml::detail::type_to_enum&lt; local_time, Value &gt;</label>
+        <link refid="structtoml_1_1detail_1_1type__to__enum_3_01local__time_00_01_value_01_4"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>value_t_constant&lt; value_t::local_time &gt;</label>
+      </node>
+    </collaborationgraph>
+    <location file="external/toml/types.hpp" line="149" column="11" bodyfile="external/toml/types.hpp" bodystart="149" bodyend="149"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

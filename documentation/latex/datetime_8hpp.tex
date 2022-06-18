@@ -1,0 +1,127 @@
+\hypertarget{datetime_8hpp}{}\doxysection{external/toml/datetime.hpp File Reference}
+\label{datetime_8hpp}\index{external/toml/datetime.hpp@{external/toml/datetime.hpp}}
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$ostream$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1local__date}{toml\+::local\+\_\+date}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1local__time}{toml\+::local\+\_\+time}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1time__offset}{toml\+::time\+\_\+offset}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1local__datetime}{toml\+::local\+\_\+datetime}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1offset__datetime}{toml\+::offset\+\_\+datetime}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetoml}{toml}}
+\item 
+namespace \mbox{\hyperlink{namespacetoml_1_1detail}{toml\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5}{toml\+::month\+\_\+t}} \+: std\+::uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5ae68564f23e0e939acea76dc3d2bc01bf}{toml\+::\+Jan}} = 0
+, \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5aea171d540ccd5f0669171ef06d3cd848}{toml\+::\+Feb}} = 1
+, \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5a7ce6b2286a5396e614b8484105d277e0}{toml\+::\+Mar}} = 2
+, \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5a6d7215c4b3bc4716d026ac46c6d9ae64}{toml\+::\+Apr}} = 3
+, \newline
+\mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5a195fbb57ffe7449796d23466085ce6d8}{toml\+::\+May}} = 4
+, \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5aeb4b40c1221dad5b23fe7ef84d292be1}{toml\+::\+Jun}} = 5
+, \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5aa2866cd6efaa65c92278d4771a9eaec7}{toml\+::\+Jul}} = 6
+, \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5a22f1a4667604b8557c9b209c201b4bc6}{toml\+::\+Aug}} = 7
+, \newline
+\mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5af04aa7019c490474fa3ce16e93501b57}{toml\+::\+Sep}} = 8
+, \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5a594be08882c8e9d5efb9eeb62f303744}{toml\+::\+Oct}} = 9
+, \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5a343e6957be77c6247aa2b8d0deb68bd6}{toml\+::\+Nov}} = 10
+, \mbox{\hyperlink{namespacetoml_a89509f5839cddbb6cc3205611e198ca5ad207b4e0bce42a8f1555ce3a05e287f6}{toml\+::\+Dec}} = 11
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::tm \mbox{\hyperlink{namespacetoml_1_1detail_ac375736027ae3facd603380d3e9e54c7}{toml\+::detail\+::localtime\+\_\+s}} (const std\+::time\+\_\+t $\ast$src)
+\item 
+std\+::tm \mbox{\hyperlink{namespacetoml_1_1detail_a37112110ee75451aa3793f8b3b9be957}{toml\+::detail\+::gmtime\+\_\+s}} (const std\+::time\+\_\+t $\ast$src)
+\item 
+bool \mbox{\hyperlink{namespacetoml_af35aae2bad0915a002d755034d26ab3d}{toml\+::operator==}} (const local\+\_\+date \&lhs, const local\+\_\+date \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_aab37e29caecefebb2ac530538dbc4bb9}{toml\+::operator!=}} (const local\+\_\+date \&lhs, const local\+\_\+date \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_ac367edbc5bd982fe5c635d88da0a3647}{toml\+::operator$<$}} (const local\+\_\+date \&lhs, const local\+\_\+date \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a90f46905b91f75df91574bc674c51213}{toml\+::operator$<$=}} (const local\+\_\+date \&lhs, const local\+\_\+date \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_af1136c79cfbb2f44cf90798c33a8bf83}{toml\+::operator$>$}} (const local\+\_\+date \&lhs, const local\+\_\+date \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a13821d9523fdb85bf3647fbd1e0f41c1}{toml\+::operator$>$=}} (const local\+\_\+date \&lhs, const local\+\_\+date \&rhs)
+\item 
+{\footnotesize template$<$typename charT , typename traits $>$ }\\std\+::basic\+\_\+ostream$<$ charT, traits $>$ \& \mbox{\hyperlink{namespacetoml_abac12305b9b16c45e5ca53f15247f76d}{toml\+::operator$<$$<$}} (std\+::basic\+\_\+ostream$<$ charT, traits $>$ \&os, const local\+\_\+date \&date)
+\item 
+bool \mbox{\hyperlink{namespacetoml_adae6a0bfa82af7af9c68ee486a504147}{toml\+::operator==}} (const local\+\_\+time \&lhs, const local\+\_\+time \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_ab3f5d6ed91a0a09fd3f7f90c2e5ce517}{toml\+::operator!=}} (const local\+\_\+time \&lhs, const local\+\_\+time \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a8ac4788635f0adc24fd6673ff7a8789d}{toml\+::operator$<$}} (const local\+\_\+time \&lhs, const local\+\_\+time \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_ab9b601bc4aafc95aaaa6438245709f14}{toml\+::operator$<$=}} (const local\+\_\+time \&lhs, const local\+\_\+time \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_ae6f2283748b662e7bb9a988cc9aeb7cf}{toml\+::operator$>$}} (const local\+\_\+time \&lhs, const local\+\_\+time \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a7e2a4487347ebc69c2c3322b40543f33}{toml\+::operator$>$=}} (const local\+\_\+time \&lhs, const local\+\_\+time \&rhs)
+\item 
+{\footnotesize template$<$typename charT , typename traits $>$ }\\std\+::basic\+\_\+ostream$<$ charT, traits $>$ \& \mbox{\hyperlink{namespacetoml_a787a45161dd461b59e72243c8c1ef0ab}{toml\+::operator$<$$<$}} (std\+::basic\+\_\+ostream$<$ charT, traits $>$ \&os, const local\+\_\+time \&time)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a13c8f4bf5481e5c33c4e60fc9d92976a}{toml\+::operator==}} (const time\+\_\+offset \&lhs, const time\+\_\+offset \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a8fe05e18b90d71d6cb891403c211ea46}{toml\+::operator!=}} (const time\+\_\+offset \&lhs, const time\+\_\+offset \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a535023506bd5bd80e79e222958d94b8d}{toml\+::operator$<$}} (const time\+\_\+offset \&lhs, const time\+\_\+offset \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_acf9d108f54a091e71ac1439d76741eb4}{toml\+::operator$<$=}} (const time\+\_\+offset \&lhs, const time\+\_\+offset \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_ac6cedd38d7f06988d0e842452da992ac}{toml\+::operator$>$}} (const time\+\_\+offset \&lhs, const time\+\_\+offset \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_abb69d418f33987de7e9d656c361418b2}{toml\+::operator$>$=}} (const time\+\_\+offset \&lhs, const time\+\_\+offset \&rhs)
+\item 
+{\footnotesize template$<$typename charT , typename traits $>$ }\\std\+::basic\+\_\+ostream$<$ charT, traits $>$ \& \mbox{\hyperlink{namespacetoml_a63d2db02e66e87fe0ae89f0680eba6bf}{toml\+::operator$<$$<$}} (std\+::basic\+\_\+ostream$<$ charT, traits $>$ \&os, const time\+\_\+offset \&offset)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a571d28a85f4c58a55a5b2476c4b40f02}{toml\+::operator==}} (const local\+\_\+datetime \&lhs, const local\+\_\+datetime \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a2d132d819828088bbf8ffd0be058abf1}{toml\+::operator!=}} (const local\+\_\+datetime \&lhs, const local\+\_\+datetime \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a9a9873847f70650c75b8377d904d9a6e}{toml\+::operator$<$}} (const local\+\_\+datetime \&lhs, const local\+\_\+datetime \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_abec28df936eb43c4d486fd64ebae25e8}{toml\+::operator$<$=}} (const local\+\_\+datetime \&lhs, const local\+\_\+datetime \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_add5891928f2a7d03cb0df52c6c2431fa}{toml\+::operator$>$}} (const local\+\_\+datetime \&lhs, const local\+\_\+datetime \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_af0314c5d45d871dce612f6e48ab66167}{toml\+::operator$>$=}} (const local\+\_\+datetime \&lhs, const local\+\_\+datetime \&rhs)
+\item 
+{\footnotesize template$<$typename charT , typename traits $>$ }\\std\+::basic\+\_\+ostream$<$ charT, traits $>$ \& \mbox{\hyperlink{namespacetoml_afc60c5ee53512fca9140f06e407d9af3}{toml\+::operator$<$$<$}} (std\+::basic\+\_\+ostream$<$ charT, traits $>$ \&os, const local\+\_\+datetime \&dt)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a80acff1c40bfb3b925e67572ff08836c}{toml\+::operator==}} (const offset\+\_\+datetime \&lhs, const offset\+\_\+datetime \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a07ccf5c55fcebe7a98dfa832d22eebd0}{toml\+::operator!=}} (const offset\+\_\+datetime \&lhs, const offset\+\_\+datetime \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a9b122489594d7f6293f1cd205658756d}{toml\+::operator$<$}} (const offset\+\_\+datetime \&lhs, const offset\+\_\+datetime \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_ac2df538a92d25d6a049ca3a86e7c7561}{toml\+::operator$<$=}} (const offset\+\_\+datetime \&lhs, const offset\+\_\+datetime \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a0f1036b4702599b81fb073090c84defd}{toml\+::operator$>$}} (const offset\+\_\+datetime \&lhs, const offset\+\_\+datetime \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_affcae1b8954912d87736508bcef9bcff}{toml\+::operator$>$=}} (const offset\+\_\+datetime \&lhs, const offset\+\_\+datetime \&rhs)
+\item 
+{\footnotesize template$<$typename charT , typename traits $>$ }\\std\+::basic\+\_\+ostream$<$ charT, traits $>$ \& \mbox{\hyperlink{namespacetoml_abd10c0a7b1fb382b0d4b355177e3d978}{toml\+::operator$<$$<$}} (std\+::basic\+\_\+ostream$<$ charT, traits $>$ \&os, const offset\+\_\+datetime \&dt)
+\end{DoxyCompactItemize}

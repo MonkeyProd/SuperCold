@@ -1,0 +1,90 @@
+.TH "Bullet" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Bullet
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Bullet\&.hpp>\fP
+.PP
+Inherits sf::Drawable, and sf::Transformable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBullet\fP (sf::Vector2f startPosition, sf::Vector2f velocity, std::vector< sf::Sprite > bulletSprite)"
+.br
+.RI "Класс, пули "
+.ti -1c
+.RI "\fBGameObject\fP & \fBgetBulletObject\fP ()"
+.br
+.RI "Метод, возращающий \fBGameObject\fP пули "
+.ti -1c
+.RI "void \fBmoveBullet\fP (sf::Time deltaTime)"
+.br
+.RI "Метод, передвигающий пулю "
+.ti -1c
+.RI "virtual void \fBdraw\fP (sf::RenderTarget &surface, sf::RenderStates states) const"
+.br
+.ti -1c
+.RI "sf::FloatRect \fBgetBulletRect\fP ()"
+.br
+.RI "Метод, возращающий FloatRect пули "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBisExist\fP = true"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Bullet::Bullet (sf::Vector2f startPosition, sf::Vector2f velocity, std::vector< sf::Sprite > bulletSprite)"
+
+.PP
+Класс, пули 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstartPosition\fP начальное положение 
+.br
+\fIvelocity\fP вектор скорости 
+.br
+\fIbulletSprite\fP спрайты пули 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Bullet::draw (sf::RenderTarget & surface, sf::RenderStates states) const\fC [virtual]\fP"
+
+.SS "\fBGameObject\fP & Bullet::getBulletObject ()"
+
+.PP
+Метод, возращающий \fBGameObject\fP пули 
+.SS "sf::FloatRect Bullet::getBulletRect ()"
+
+.PP
+Метод, возращающий FloatRect пули 
+.SS "void Bullet::moveBullet (sf::Time deltaTime)"
+
+.PP
+Метод, передвигающий пулю 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdeltaTime\fP deltaTime 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "bool Bullet::isExist = true"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

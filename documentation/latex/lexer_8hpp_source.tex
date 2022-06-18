@@ -1,0 +1,299 @@
+\hypertarget{lexer_8hpp_source}{}\doxysection{lexer.\+hpp}
+\label{lexer_8hpp_source}\index{external/toml/lexer.hpp@{external/toml/lexer.hpp}}
+\mbox{\hyperlink{lexer_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//     Copyright Toru Niina 2017.}}
+\DoxyCodeLine{2 \textcolor{comment}{// Distributed under the MIT License.}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifndef TOML11\_LEXER\_HPP}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TOML11\_LEXER\_HPP}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <istream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{combinator_8hpp}{combinator.hpp}}"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetoml}{toml}}}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }detail}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{comment}{// these scans contents from current location in a container of char}}
+\DoxyCodeLine{18 \textcolor{comment}{// and extract a region that matches their own pattern.}}
+\DoxyCodeLine{19 \textcolor{comment}{// to see the implementation of each component, see combinator.hpp.}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_wschar}}  = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<character<' '>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'\(\backslash\)t'>}}>;}
+\DoxyCodeLine{22 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{lex\_ws}}      = \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<lex\_wschar, at\_least<1>}}>;}
+\DoxyCodeLine{23 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_newline}} = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<character<'\(\backslash\)n'>}},}
+\DoxyCodeLine{24                            \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<character<'\(\backslash\)r'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'\(\backslash\)n'>}}>>;}
+\DoxyCodeLine{25 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{lex\_lower}}   = \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range<'a', 'z'>}};}
+\DoxyCodeLine{26 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{lex\_upper}}   = \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range<'A', 'Z'>}};}
+\DoxyCodeLine{27 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_alpha}}   = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<lex\_lower, lex\_upper>}};}
+\DoxyCodeLine{28 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{lex\_digit}}   = \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range<'0', '9'>}};}
+\DoxyCodeLine{29 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{lex\_nonzero}} = \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range<'1', '9'>}};}
+\DoxyCodeLine{30 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{lex\_oct\_dig}} = \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range<'0', '7'>}};}
+\DoxyCodeLine{31 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{lex\_bin\_dig}} = \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range<'0', '1'>}};}
+\DoxyCodeLine{32 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_hex\_dig}} = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<lex\_digit, in\_range<'A', 'F'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range<'a', 'f'>}}>;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_hex\_prefix}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<character<'0'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'x'>}}>;}
+\DoxyCodeLine{35 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_oct\_prefix}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<character<'0'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'o'>}}>;}
+\DoxyCodeLine{36 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_bin\_prefix}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<character<'0'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'b'>}}>;}
+\DoxyCodeLine{37 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1character}{lex\_underscore}} = \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'\_'>}};}
+\DoxyCodeLine{38 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1character}{lex\_plus}}       = \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'+'>}};}
+\DoxyCodeLine{39 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1character}{lex\_minus}}      = \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character}}<\textcolor{charliteral}{'-\/'}>;}
+\DoxyCodeLine{40 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_sign}}       = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<lex\_plus, lex\_minus>}};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{comment}{// digit | nonzero 1*(digit | \_ digit)}}
+\DoxyCodeLine{43 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_unsigned\_dec\_int}} = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either}}<\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{namespacetoml_1_1detail_ad001fcd65e7b382be5e6663c3e67a5f5}{lex\_nonzero}}, \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat}}<}
+\DoxyCodeLine{44     \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<lex\_digit, sequence<lex\_underscore, lex\_digit>}}>, \mbox{\hyperlink{structtoml_1_1detail_1_1at__least}{at\_least<1>}}>>,}
+\DoxyCodeLine{45     \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{lex\_digit}}>;}
+\DoxyCodeLine{46 \textcolor{comment}{// (+|-\/)? unsigned\_dec\_int}}
+\DoxyCodeLine{47 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_dec\_int}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<maybe<lex\_sign>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_unsigned\_dec\_int}}>;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{comment}{// hex\_prefix hex\_dig *(hex\_dig | \_ hex\_dig)}}
+\DoxyCodeLine{50 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_hex\_int}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{namespacetoml_1_1detail_afd5521d961afa561b2afb6e548a039fa}{lex\_hex\_prefix}}, \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{namespacetoml_1_1detail_a025148279b3ac493b7d4580c46234c6b}{lex\_hex\_dig}}, \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat}}<}
+\DoxyCodeLine{51     \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<lex\_hex\_dig, sequence<lex\_underscore, lex\_hex\_dig>}}>, \mbox{\hyperlink{structtoml_1_1detail_1_1unlimited}{unlimited}}>>>;}
+\DoxyCodeLine{52 \textcolor{comment}{// oct\_prefix oct\_dig *(oct\_dig | \_ oct\_dig)}}
+\DoxyCodeLine{53 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_oct\_int}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{namespacetoml_1_1detail_a499f9a36f3343d3f17e5a7153e3bf59e}{lex\_oct\_prefix}}, \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{namespacetoml_1_1detail_af15582df216f73c6dd408250079d3dd2}{lex\_oct\_dig}}, \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat}}<}
+\DoxyCodeLine{54     \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<lex\_oct\_dig, sequence<lex\_underscore, lex\_oct\_dig>}}>, \mbox{\hyperlink{structtoml_1_1detail_1_1unlimited}{unlimited}}>>>;}
+\DoxyCodeLine{55 \textcolor{comment}{// bin\_prefix bin\_dig *(bin\_dig | \_ bin\_dig)}}
+\DoxyCodeLine{56 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_bin\_int}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{namespacetoml_1_1detail_a3f18b89dab3284a619f05d13f85a2768}{lex\_bin\_prefix}}, \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{namespacetoml_1_1detail_a0635206174bdcd7655b68381085eb069}{lex\_bin\_dig}}, \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat}}<}
+\DoxyCodeLine{57     \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<lex\_bin\_dig, sequence<lex\_underscore, lex\_bin\_dig>}}>, \mbox{\hyperlink{structtoml_1_1detail_1_1unlimited}{unlimited}}>>>;}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{comment}{// (dec\_int | hex\_int | oct\_int | bin\_int)}}
+\DoxyCodeLine{60 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_integer}} = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<lex\_bin\_int, lex\_oct\_int, lex\_hex\_int, lex\_dec\_int>}};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{comment}{// ===========================================================================}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_inf}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<character<'i'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'n'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'f'>}}>;}
+\DoxyCodeLine{65 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_nan}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<character<'n'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'a'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'n'>}}>;}
+\DoxyCodeLine{66 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_special\_float}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<maybe<lex\_sign>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<lex\_inf, lex\_nan>}}>;}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_zero\_prefixable\_int}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{namespacetoml_1_1detail_a2b4ff1a83c2fd653a41fee9c2f99ef85}{lex\_digit}}, \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat}}<\mbox{\hyperlink{structtoml_1_1detail_1_1either}{either}}<\mbox{\hyperlink{namespacetoml_1_1detail_a2b4ff1a83c2fd653a41fee9c2f99ef85}{lex\_digit}},}
+\DoxyCodeLine{69     \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<lex\_underscore, lex\_digit>}}>, \mbox{\hyperlink{structtoml_1_1detail_1_1unlimited}{unlimited}}>>;}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_fractional\_part}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{structtoml_1_1detail_1_1character}{character}}<\textcolor{charliteral}{'.'}>, \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_zero\_prefixable\_int}}>;}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_exponent\_part}}   = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<either<character<'e'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'E'>}}>,}
+\DoxyCodeLine{74         \mbox{\hyperlink{structtoml_1_1detail_1_1maybe}{maybe<lex\_sign>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_zero\_prefixable\_int}}>;}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_float}} = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either}}<\mbox{\hyperlink{namespacetoml_1_1detail_a36dd3c356538a06bf772dff1f68f4395}{lex\_special\_float}},}
+\DoxyCodeLine{77       \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{namespacetoml_1_1detail_aae64ab0b317cac4c0d292cb7f3bbb148}{lex\_dec\_int}}, \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either}}<\mbox{\hyperlink{namespacetoml_1_1detail_a31a412a6d30f145052736c2146caa537}{lex\_exponent\_part}},}
+\DoxyCodeLine{78       \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<lex\_fractional\_part, maybe<lex\_exponent\_part>}}>>>>;}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{comment}{// ===========================================================================}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_true}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<character<'t'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'r'>}},}
+\DoxyCodeLine{83                           \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'u'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'e'>}}>;}
+\DoxyCodeLine{84 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_false}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<character<'f'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'a'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'l'>}},}
+\DoxyCodeLine{85                            \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'s'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'e'>}}>;}
+\DoxyCodeLine{86 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_boolean}} = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<lex\_true, lex\_false>}};}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{comment}{// ===========================================================================}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{lex\_date\_fullyear}} = \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<lex\_digit, exactly<4>}}>;}
+\DoxyCodeLine{91 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{lex\_date\_month}}    = \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<lex\_digit, exactly<2>}}>;}
+\DoxyCodeLine{92 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{lex\_date\_mday}}     = \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<lex\_digit, exactly<2>}}>;}
+\DoxyCodeLine{93 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_time\_delim}}    = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<character<'T'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'t'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<' '>}}>;}
+\DoxyCodeLine{94 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{lex\_time\_hour}}     = \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<lex\_digit, exactly<2>}}>;}
+\DoxyCodeLine{95 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{lex\_time\_minute}}   = \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<lex\_digit, exactly<2>}}>;}
+\DoxyCodeLine{96 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{lex\_time\_second}}   = \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<lex\_digit, exactly<2>}}>;}
+\DoxyCodeLine{97 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_time\_secfrac}}  = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{structtoml_1_1detail_1_1character}{character}}<\textcolor{charliteral}{'.'}>,}
+\DoxyCodeLine{98                                    \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<lex\_digit, at\_least<1>}}>>;}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_time\_numoffset}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<either<character<'+'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character}}<\textcolor{charliteral}{'-\/'}>>,}
+\DoxyCodeLine{101                                     \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<lex\_time\_hour, character<':'>}},}
+\DoxyCodeLine{102                                              \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{lex\_time\_minute}}>>;}
+\DoxyCodeLine{103 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_time\_offset}} = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<character<'Z'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'z'>}},}
+\DoxyCodeLine{104                                \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_time\_numoffset}}>;}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_partial\_time}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<lex\_time\_hour,   character<':'>}},}
+\DoxyCodeLine{107                                   \mbox{\hyperlink{namespacetoml_1_1detail_a2a1352d8b03359d2fb4a3ee4d8ec2257}{lex\_time\_minute}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<':'>}},}
+\DoxyCodeLine{108                                   \mbox{\hyperlink{namespacetoml_1_1detail_ad8e7380ce04876377c1bfbaea7a3e6f2}{lex\_time\_second}}, \mbox{\hyperlink{structtoml_1_1detail_1_1maybe}{maybe<lex\_time\_secfrac>}}>;}
+\DoxyCodeLine{109 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_full\_date}}    = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{namespacetoml_1_1detail_ae9ba25a0cf44d45f938633d9f98497f7}{lex\_date\_fullyear}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character}}<\textcolor{charliteral}{'-\/'}>,}
+\DoxyCodeLine{110                                   \mbox{\hyperlink{namespacetoml_1_1detail_a927136439b70b42ecd3ba8a0ab3f7974}{lex\_date\_month}},    \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character}}<\textcolor{charliteral}{'-\/'}>,}
+\DoxyCodeLine{111                                   \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{lex\_date\_mday}}>;}
+\DoxyCodeLine{112 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_full\_time}}    = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<lex\_partial\_time, lex\_time\_offset>}};}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_offset\_date\_time}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<lex\_full\_date, lex\_time\_delim, lex\_full\_time>}};}
+\DoxyCodeLine{115 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_local\_date\_time}}  = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<lex\_full\_date, lex\_time\_delim, lex\_partial\_time>}};}
+\DoxyCodeLine{116 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_local\_date}}       = \mbox{\hyperlink{namespacetoml_1_1detail_acdbe275e956596491a7484a80412d304}{lex\_full\_date}};}
+\DoxyCodeLine{117 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_local\_time}}       = \mbox{\hyperlink{namespacetoml_1_1detail_aecd31d8cb2a83b8531651eb372e7fb9e}{lex\_partial\_time}};}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{comment}{// ===========================================================================}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1character}{lex\_quotation\_mark}}  = \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character}}<\textcolor{charliteral}{'"{}'}>;}
+\DoxyCodeLine{122 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1exclude}{lex\_basic\_unescaped}} = \mbox{\hyperlink{structtoml_1_1detail_1_1exclude}{exclude<either<in\_range<0x00, 0x08>}}, \textcolor{comment}{// 0x09 (tab) is allowed}}
+\DoxyCodeLine{123                                            \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range<0x0A, 0x1F>}},}
+\DoxyCodeLine{124                                            \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<0x22>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<0x5C>}},}
+\DoxyCodeLine{125                                            \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<0x7F>}}>>;}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1character}{lex\_escape}}          = \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'\(\backslash\)\(\backslash\)'>}};}
+\DoxyCodeLine{128 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_escape\_unicode\_short}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<character<'u'>}},}
+\DoxyCodeLine{129                                           \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<lex\_hex\_dig, exactly<4>}}>>;}
+\DoxyCodeLine{130 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_escape\_unicode\_long}}  = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<character<'U'>}},}
+\DoxyCodeLine{131                                           \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<lex\_hex\_dig, exactly<8>}}>>;}
+\DoxyCodeLine{132 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_escape\_seq\_char}} = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either}}<\mbox{\hyperlink{structtoml_1_1detail_1_1character}{character}}<\textcolor{charliteral}{'"{}'}>, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'\(\backslash\)\(\backslash\)'>}},}
+\DoxyCodeLine{133                                    \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'b'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'f'>}},}
+\DoxyCodeLine{134                                    \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'n'>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'r'>}},}
+\DoxyCodeLine{135                                    \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'t'>}},}
+\DoxyCodeLine{136                                    \mbox{\hyperlink{namespacetoml_1_1detail_ac358f0ec9f2cca0f88f3474fe90eb24e}{lex\_escape\_unicode\_short}},}
+\DoxyCodeLine{137                                    \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_escape\_unicode\_long}}}
+\DoxyCodeLine{138                                    >;}
+\DoxyCodeLine{139 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_escaped}}      = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<lex\_escape, lex\_escape\_seq\_char>}};}
+\DoxyCodeLine{140 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_basic\_char}}   = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<lex\_basic\_unescaped, lex\_escaped>}};}
+\DoxyCodeLine{141 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_basic\_string}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{namespacetoml_1_1detail_a3155594677bd8c4e38274fe77355010c}{lex\_quotation\_mark}},}
+\DoxyCodeLine{142                                   \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<lex\_basic\_char, unlimited>}},}
+\DoxyCodeLine{143                                   \mbox{\hyperlink{structtoml_1_1detail_1_1character}{lex\_quotation\_mark}}>;}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145 \textcolor{comment}{// After toml post-\/v0.5.0, it is explicitly clarified how quotes in ml-\/strings}}
+\DoxyCodeLine{146 \textcolor{comment}{// are allowed to be used.}}
+\DoxyCodeLine{147 \textcolor{comment}{// After this, the following strings are *explicitly* allowed.}}
+\DoxyCodeLine{148 \textcolor{comment}{// -\/ One or two `"{}`s in a multi-\/line basic string is allowed wherever it is.}}
+\DoxyCodeLine{149 \textcolor{comment}{// -\/ Three consecutive `"{}`s in a multi-\/line basic string is considered as a delimiter.}}
+\DoxyCodeLine{150 \textcolor{comment}{// -\/ One or two `"{}`s can appear just before or after the delimiter.}}
+\DoxyCodeLine{151 \textcolor{comment}{// ```toml}}
+\DoxyCodeLine{152 \textcolor{comment}{// str4 = "{}"{}"{}Here are two quotation marks: "{}"{}. Simple enough."{}"{}"{}}}
+\DoxyCodeLine{153 \textcolor{comment}{// str5 = "{}"{}"{}Here are three quotation marks: "{}"{}\(\backslash\)"{}."{}"{}"{}}}
+\DoxyCodeLine{154 \textcolor{comment}{// str6 = "{}"{}"{}Here are fifteen quotation marks: "{}"{}\(\backslash\)"{}"{}"{}\(\backslash\)"{}"{}"{}\(\backslash\)"{}"{}"{}\(\backslash\)"{}"{}"{}\(\backslash\)"{}."{}"{}"{}}}
+\DoxyCodeLine{155 \textcolor{comment}{// str7 = "{}"{}"{}"{}This,"{} she said, "{}is just a pointless statement."{}"{}"{}"{}}}
+\DoxyCodeLine{156 \textcolor{comment}{// ```}}
+\DoxyCodeLine{157 \textcolor{comment}{// In the current implementation (v3.3.0), it is difficult to parse `str7` in}}
+\DoxyCodeLine{158 \textcolor{comment}{// the above example. It is difficult to recognize `"{}` at the end of string body}}
+\DoxyCodeLine{159 \textcolor{comment}{// collectly. It will be misunderstood as a `"{}"{}"{}` delimiter and an additional,}}
+\DoxyCodeLine{160 \textcolor{comment}{// invalid `"{}`. Like this:}}
+\DoxyCodeLine{161 \textcolor{comment}{// ```console}}
+\DoxyCodeLine{162 \textcolor{comment}{//   what():  [error] toml::parse\_table: invalid line format}}
+\DoxyCodeLine{163 \textcolor{comment}{//  -\/-\/> hoge.toml}}
+\DoxyCodeLine{164 \textcolor{comment}{//     |}}
+\DoxyCodeLine{165 \textcolor{comment}{//  13 | str7 = "{}"{}"{}"{}This,"{} she said, "{}is just a pointless statement."{}"{}"{}"{}}}
+\DoxyCodeLine{166 \textcolor{comment}{//     |                                                               \string^-\/ expected newline, but got '"{}'.}}
+\DoxyCodeLine{167 \textcolor{comment}{// ```}}
+\DoxyCodeLine{168 \textcolor{comment}{// As a quick workaround for this problem, `lex\_ml\_basic\_string\_delim` was}}
+\DoxyCodeLine{169 \textcolor{comment}{// split into two, `lex\_ml\_basic\_string\_open` and `lex\_ml\_basic\_string\_close`.}}
+\DoxyCodeLine{170 \textcolor{comment}{// `lex\_ml\_basic\_string\_open` allows only `"{}"{}"{}`. `\_close` allows 3-\/5 `"{}`s.}}
+\DoxyCodeLine{171 \textcolor{comment}{// In parse\_ml\_basic\_string() function, the trailing `"{}`s will be attached to}}
+\DoxyCodeLine{172 \textcolor{comment}{// the string body.}}
+\DoxyCodeLine{173 \textcolor{comment}{//}}
+\DoxyCodeLine{174 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{lex\_ml\_basic\_string\_delim}} = \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<lex\_quotation\_mark, exactly<3>}}>;}
+\DoxyCodeLine{175 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{lex\_ml\_basic\_string\_open}}  = \mbox{\hyperlink{namespacetoml_1_1detail_ad7dd527e55b4f43d1ffd185706ddd563}{lex\_ml\_basic\_string\_delim}};}
+\DoxyCodeLine{176 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_ml\_basic\_string\_close}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<}
+\DoxyCodeLine{177         \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<lex\_quotation\_mark, exactly<3>}}>,}
+\DoxyCodeLine{178         \mbox{\hyperlink{structtoml_1_1detail_1_1maybe}{maybe<lex\_quotation\_mark>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1maybe}{maybe<lex\_quotation\_mark>}}}
+\DoxyCodeLine{179     >;}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1exclude}{lex\_ml\_basic\_unescaped}}    = \mbox{\hyperlink{structtoml_1_1detail_1_1exclude}{exclude<either<in\_range<0x00, 0x08>}}, \textcolor{comment}{// 0x09 is tab}}
+\DoxyCodeLine{182                                                  \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range<0x0A, 0x1F>}},}
+\DoxyCodeLine{183                                                  \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<0x5C>}}, \textcolor{comment}{// backslash}}
+\DoxyCodeLine{184                                                  \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<0x7F>}}, \textcolor{comment}{// DEL}}
+\DoxyCodeLine{185                                                  \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{lex\_ml\_basic\_string\_delim}}>>;}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_ml\_basic\_escaped\_newline}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<}
+\DoxyCodeLine{188         \mbox{\hyperlink{namespacetoml_1_1detail_a2eb5cf3923397dc92772022fef312184}{lex\_escape}}, \mbox{\hyperlink{structtoml_1_1detail_1_1maybe}{maybe<lex\_ws>}}, \mbox{\hyperlink{namespacetoml_1_1detail_aa3980f427dea6e7f32dbb27ebb0f6938}{lex\_newline}},}
+\DoxyCodeLine{189         \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<either<lex\_ws, lex\_newline>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1unlimited}{unlimited}}>>;}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_ml\_basic\_char}} = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<lex\_ml\_basic\_unescaped, lex\_escaped>}};}
+\DoxyCodeLine{192 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{lex\_ml\_basic\_body}} = \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat}}<\mbox{\hyperlink{structtoml_1_1detail_1_1either}{either}}<\mbox{\hyperlink{namespacetoml_1_1detail_a5f3752922415e8ffccef5b94da334277}{lex\_ml\_basic\_char}}, \mbox{\hyperlink{namespacetoml_1_1detail_aa3980f427dea6e7f32dbb27ebb0f6938}{lex\_newline}},}
+\DoxyCodeLine{193                                         \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_ml\_basic\_escaped\_newline}}>,}
+\DoxyCodeLine{194                                  \mbox{\hyperlink{structtoml_1_1detail_1_1unlimited}{unlimited}}>;}
+\DoxyCodeLine{195 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_ml\_basic\_string}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{namespacetoml_1_1detail_a4710bfd179a92890b7dc420ad906398c}{lex\_ml\_basic\_string\_open}},}
+\DoxyCodeLine{196                                      \mbox{\hyperlink{namespacetoml_1_1detail_a699b6ace625229fd4a59ddfc20540afb}{lex\_ml\_basic\_body}},}
+\DoxyCodeLine{197                                      \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_ml\_basic\_string\_close}}>;}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1exclude}{lex\_literal\_char}} = \mbox{\hyperlink{structtoml_1_1detail_1_1exclude}{exclude<either<in\_range<0x00, 0x08>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range<0x0A, 0x1F>}},}
+\DoxyCodeLine{200                                         \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<0x7F>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<0x27>}}>>;}
+\DoxyCodeLine{201 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1character}{lex\_apostrophe}} = \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'\(\backslash\)''>}};}
+\DoxyCodeLine{202 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_literal\_string}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{namespacetoml_1_1detail_ae5158b05e0137f8955716b4ec9817721}{lex\_apostrophe}},}
+\DoxyCodeLine{203                                     \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<lex\_literal\_char, unlimited>}},}
+\DoxyCodeLine{204                                     \mbox{\hyperlink{structtoml_1_1detail_1_1character}{lex\_apostrophe}}>;}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206 \textcolor{comment}{// the same reason as above.}}
+\DoxyCodeLine{207 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{lex\_ml\_literal\_string\_delim}} = \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<lex\_apostrophe, exactly<3>}}>;}
+\DoxyCodeLine{208 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{lex\_ml\_literal\_string\_open}}  = \mbox{\hyperlink{namespacetoml_1_1detail_ab7e7de5eb5ff6f317fdbb2905fa65596}{lex\_ml\_literal\_string\_delim}};}
+\DoxyCodeLine{209 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_ml\_literal\_string\_close}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<}
+\DoxyCodeLine{210         \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<lex\_apostrophe, exactly<3>}}>,}
+\DoxyCodeLine{211         \mbox{\hyperlink{structtoml_1_1detail_1_1maybe}{maybe<lex\_apostrophe>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1maybe}{maybe<lex\_apostrophe>}}}
+\DoxyCodeLine{212     >;}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1exclude}{lex\_ml\_literal\_char}} = \mbox{\hyperlink{structtoml_1_1detail_1_1exclude}{exclude<either<in\_range<0x00, 0x08>}},}
+\DoxyCodeLine{215                                            \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range<0x0A, 0x1F>}},}
+\DoxyCodeLine{216                                            \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<0x7F>}},}
+\DoxyCodeLine{217                                            \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{lex\_ml\_literal\_string\_delim}}>>;}
+\DoxyCodeLine{218 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{lex\_ml\_literal\_body}} = \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<either<lex\_ml\_literal\_char, lex\_newline>}},}
+\DoxyCodeLine{219                                    \mbox{\hyperlink{structtoml_1_1detail_1_1unlimited}{unlimited}}>;}
+\DoxyCodeLine{220 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_ml\_literal\_string}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{namespacetoml_1_1detail_a9398cd7ca0c3d28d1e0713875342e45d}{lex\_ml\_literal\_string\_open}},}
+\DoxyCodeLine{221                                        \mbox{\hyperlink{namespacetoml_1_1detail_a165d3115d9b0d12e9504905f1b60a98e}{lex\_ml\_literal\_body}},}
+\DoxyCodeLine{222                                        \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_ml\_literal\_string\_close}}>;}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_string}} = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either}}<\mbox{\hyperlink{namespacetoml_1_1detail_ad3e7c1125bde7cd94c488fec04709840}{lex\_ml\_basic\_string}},   \mbox{\hyperlink{namespacetoml_1_1detail_ae49b0e275794a4261393ae7690ad97c0}{lex\_basic\_string}},}
+\DoxyCodeLine{225                           \mbox{\hyperlink{namespacetoml_1_1detail_af9cd6a5bf2796cd269fea48ceff84e5a}{lex\_ml\_literal\_string}}, \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_literal\_string}}>;}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227 \textcolor{comment}{// ===========================================================================}}
+\DoxyCodeLine{228 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_dot\_sep}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<maybe<lex\_ws>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character}}<\textcolor{charliteral}{'.'}>, \mbox{\hyperlink{structtoml_1_1detail_1_1maybe}{maybe<lex\_ws>}}>;}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{lex\_unquoted\_key}} = \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat}}<\mbox{\hyperlink{structtoml_1_1detail_1_1either}{either}}<\mbox{\hyperlink{namespacetoml_1_1detail_ae3b5c20d0cbf39902d96aed0f277ad29}{lex\_alpha}}, \mbox{\hyperlink{namespacetoml_1_1detail_a2b4ff1a83c2fd653a41fee9c2f99ef85}{lex\_digit}},}
+\DoxyCodeLine{231                                        \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character}}<\textcolor{charliteral}{'-\/'}>, \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'\_'>}}>,}
+\DoxyCodeLine{232                                 \mbox{\hyperlink{structtoml_1_1detail_1_1at__least}{at\_least<1>}}>;}
+\DoxyCodeLine{233 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_quoted\_key}} = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<lex\_basic\_string, lex\_literal\_string>}};}
+\DoxyCodeLine{234 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_simple\_key}} = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<lex\_unquoted\_key, lex\_quoted\_key>}};}
+\DoxyCodeLine{235 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_dotted\_key}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{namespacetoml_1_1detail_ae93b1903493d646ec1a140235464f1d4}{lex\_simple\_key}},}
+\DoxyCodeLine{236                                 \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat<sequence<lex\_dot\_sep, lex\_simple\_key>}},}
+\DoxyCodeLine{237                                        \mbox{\hyperlink{structtoml_1_1detail_1_1at__least}{at\_least<1>}}}
+\DoxyCodeLine{238                                        >}
+\DoxyCodeLine{239                                 >;}
+\DoxyCodeLine{240 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_key}} = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<lex\_dotted\_key, lex\_simple\_key>}};}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_keyval\_sep}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<maybe<lex\_ws>}},}
+\DoxyCodeLine{243                                 \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'='>}},}
+\DoxyCodeLine{244                                 \mbox{\hyperlink{structtoml_1_1detail_1_1maybe}{maybe<lex\_ws>}}>;}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{246 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1character}{lex\_std\_table\_open}}  = \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'['>}};}
+\DoxyCodeLine{247 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1character}{lex\_std\_table\_close}} = \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<']'>}};}
+\DoxyCodeLine{248 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_std\_table}}       = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{namespacetoml_1_1detail_ac09b022c3f7396f40a68c22e4a3994f4}{lex\_std\_table\_open}},}
+\DoxyCodeLine{249                                      \mbox{\hyperlink{structtoml_1_1detail_1_1maybe}{maybe<lex\_ws>}},}
+\DoxyCodeLine{250                                      \mbox{\hyperlink{namespacetoml_1_1detail_ac618265e125df43229e410c901e2040b}{lex\_key}},}
+\DoxyCodeLine{251                                      \mbox{\hyperlink{structtoml_1_1detail_1_1maybe}{maybe<lex\_ws>}},}
+\DoxyCodeLine{252                                      \mbox{\hyperlink{structtoml_1_1detail_1_1character}{lex\_std\_table\_close}}>;}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_array\_table\_open}}  = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<lex\_std\_table\_open,  lex\_std\_table\_open>}};}
+\DoxyCodeLine{255 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_array\_table\_close}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<lex\_std\_table\_close, lex\_std\_table\_close>}};}
+\DoxyCodeLine{256 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_array\_table}}       = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{namespacetoml_1_1detail_a3adf2405694d9ad9c6bc96ac09bc9480}{lex\_array\_table\_open}},}
+\DoxyCodeLine{257                                        \mbox{\hyperlink{structtoml_1_1detail_1_1maybe}{maybe<lex\_ws>}},}
+\DoxyCodeLine{258                                        \mbox{\hyperlink{namespacetoml_1_1detail_ac618265e125df43229e410c901e2040b}{lex\_key}},}
+\DoxyCodeLine{259                                        \mbox{\hyperlink{structtoml_1_1detail_1_1maybe}{maybe<lex\_ws>}},}
+\DoxyCodeLine{260                                        \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_array\_table\_close}}>;}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{262 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{lex\_utf8\_1byte}} = \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range<0x00, 0x7F>}};}
+\DoxyCodeLine{263 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_utf8\_2byte}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<}
+\DoxyCodeLine{264         \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range<static\_cast<char>}}(0xC2), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0xDF)>,}
+\DoxyCodeLine{265         \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range}}<\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0x80), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0xBF)>}
+\DoxyCodeLine{266     >;}
+\DoxyCodeLine{267 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_utf8\_3byte}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{structtoml_1_1detail_1_1either}{either}}<}
+\DoxyCodeLine{268         \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<character<static\_cast<char>}}(0xE0)>,                          \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range<static\_cast<char>}}(0xA0), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0xBF)>>,}
+\DoxyCodeLine{269         \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range}} <\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0xE1), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0xEC)>, \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range}}<\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0x80), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0xBF)>>,}
+\DoxyCodeLine{270         \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{structtoml_1_1detail_1_1character}{character}}<\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0xED)>,                          \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range<static\_cast<char>}}(0x80), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0x9F)>>,}
+\DoxyCodeLine{271         \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range}} <\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0xEE), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0xEF)>, \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range}}<\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0x80), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0xBF)>>}
+\DoxyCodeLine{272     >, \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range}}<\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0x80), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0xBF)>>;}
+\DoxyCodeLine{273 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_utf8\_4byte}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{structtoml_1_1detail_1_1either}{either}}<}
+\DoxyCodeLine{274         \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<character<static\_cast<char>}}(0xF0)>,                          \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range<static\_cast<char>}}(0x90), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0xBF)>>,}
+\DoxyCodeLine{275         \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range}} <\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0xF1), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0xF3)>, \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range}}<\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0x80), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0xBF)>>,}
+\DoxyCodeLine{276         \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{structtoml_1_1detail_1_1character}{character}}<\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0xF4)>,                          \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range<static\_cast<char>}}(0x80), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0x8F)>>}
+\DoxyCodeLine{277     >, \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range}}<\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0x80), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0xBF)>,}
+\DoxyCodeLine{278        \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range}}<\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0x80), \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(0xBF)>>;}
+\DoxyCodeLine{279 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_utf8\_code}} = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either}}<}
+\DoxyCodeLine{280         \mbox{\hyperlink{namespacetoml_1_1detail_a261b193aa8c2b7d6a4a1a6b3979fdf8b}{lex\_utf8\_1byte}},}
+\DoxyCodeLine{281         \mbox{\hyperlink{namespacetoml_1_1detail_a4eca73034e806b3ab59e82084a7c2712}{lex\_utf8\_2byte}},}
+\DoxyCodeLine{282         \mbox{\hyperlink{namespacetoml_1_1detail_a38aa1626200c3489422eb632252c7885}{lex\_utf8\_3byte}},}
+\DoxyCodeLine{283         \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_utf8\_4byte}}}
+\DoxyCodeLine{284     >;}
+\DoxyCodeLine{285 }
+\DoxyCodeLine{286 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1character}{lex\_comment\_start\_symbol}} = \mbox{\hyperlink{structtoml_1_1detail_1_1character}{character<'\#'>}};}
+\DoxyCodeLine{287 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{lex\_non\_eol\_ascii}} = \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<character<0x09>}}, \mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range<0x20, 0x7E>}}>;}
+\DoxyCodeLine{288 \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_comment}} = \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<\mbox{\hyperlink{namespacetoml_1_1detail_a1bb9446a7558b22fe5b51436a7a0d771}{lex\_comment\_start\_symbol}}, \mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat}}<\mbox{\hyperlink{structtoml_1_1detail_1_1either}{either}}<}
+\DoxyCodeLine{289     \mbox{\hyperlink{namespacetoml_1_1detail_acfdbc55f5cd14fc8a973248e9cede270}{lex\_non\_eol\_ascii}}, \mbox{\hyperlink{namespacetoml_1_1detail_a4eca73034e806b3ab59e82084a7c2712}{lex\_utf8\_2byte}}, \mbox{\hyperlink{namespacetoml_1_1detail_a38aa1626200c3489422eb632252c7885}{lex\_utf8\_3byte}}, \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{lex\_utf8\_4byte}}>, \mbox{\hyperlink{structtoml_1_1detail_1_1unlimited}{unlimited}}>>;}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291 \} \textcolor{comment}{// detail}}
+\DoxyCodeLine{292 \} \textcolor{comment}{// toml}}
+\DoxyCodeLine{293 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TOML\_LEXER\_HPP}}
+
+\end{DoxyCode}

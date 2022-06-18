@@ -1,0 +1,1031 @@
+.TH "toml::basic_value< Comment, Table, Array >" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::basic_value< Comment, Table, Array >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <value\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBcomment_type\fP = Comment"
+.br
+.ti -1c
+.RI "using \fBkey_type\fP = \fB::toml::key\fP"
+.br
+.ti -1c
+.RI "using \fBvalue_type\fP = \fBbasic_value\fP< \fBcomment_type\fP, Table, Array >"
+.br
+.ti -1c
+.RI "using \fBboolean_type\fP = \fB::toml::boolean\fP"
+.br
+.ti -1c
+.RI "using \fBinteger_type\fP = \fB::toml::integer\fP"
+.br
+.ti -1c
+.RI "using \fBfloating_type\fP = \fB::toml::floating\fP"
+.br
+.ti -1c
+.RI "using \fBstring_type\fP = \fB::toml::string\fP"
+.br
+.ti -1c
+.RI "using \fBlocal_time_type\fP = \fB::toml::local_time\fP"
+.br
+.ti -1c
+.RI "using \fBlocal_date_type\fP = \fB::toml::local_date\fP"
+.br
+.ti -1c
+.RI "using \fBlocal_datetime_type\fP = \fB::toml::local_datetime\fP"
+.br
+.ti -1c
+.RI "using \fBoffset_datetime_type\fP = \fB::toml::offset_datetime\fP"
+.br
+.ti -1c
+.RI "using \fBarray_type\fP = Array< \fBvalue_type\fP >"
+.br
+.ti -1c
+.RI "using \fBtable_type\fP = Table< \fBkey_type\fP, \fBvalue_type\fP >"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBbasic_value\fP () noexcept"
+.br
+.ti -1c
+.RI "\fB~basic_value\fP () noexcept"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBbasic_value\fP &v)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (\fBbasic_value\fP &&v)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP & \fBoperator=\fP (const \fBbasic_value\fP &v)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP & \fBoperator=\fP (\fBbasic_value\fP &&v)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBbasic_value\fP &v, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (\fBbasic_value\fP &&v, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> \fBbasic_value\fP (const \fBbasic_value\fP< C, T, A > &v)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> \fBbasic_value\fP (const \fBbasic_value\fP< C, T, A > &v, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> \fBbasic_value\fP & \fBoperator=\fP (const \fBbasic_value\fP< C, T, A > &v)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (\fBboolean\fP b)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP & \fBoperator=\fP (\fBboolean\fP b)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (\fBboolean\fP b, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< \fBdetail::conjunction\fP< std::is_integral< T >, \fBdetail::negation\fP< std::is_same< T, \fBboolean\fP > > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP (T i)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< \fBdetail::conjunction\fP< std::is_integral< T >, \fBdetail::negation\fP< std::is_same< T, \fBboolean\fP > > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP & \fBoperator=\fP (T i)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< \fBdetail::conjunction\fP< std::is_integral< T >, \fBdetail::negation\fP< std::is_same< T, \fBboolean\fP > > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP (T i, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< std::is_floating_point< T >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP (T f)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< std::is_floating_point< T >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP & \fBoperator=\fP (T f)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< std::is_floating_point< T >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP (T f, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (\fBtoml::string\fP s)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP & \fBoperator=\fP (\fBtoml::string\fP s)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (\fBtoml::string\fP s, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (std::string s)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP & \fBoperator=\fP (std::string s)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (std::string s, \fBstring_t\fP kind)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (std::string s, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (std::string s, \fBstring_t\fP kind, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const char *s)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP & \fBoperator=\fP (const char *s)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const char *s, \fBstring_t\fP kind)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const char *s, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const char *s, \fBstring_t\fP kind, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBlocal_date\fP &ld)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP & \fBoperator=\fP (const \fBlocal_date\fP &ld)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBlocal_date\fP &ld, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBlocal_time\fP &lt)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBlocal_time\fP &lt, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP & \fBoperator=\fP (const \fBlocal_time\fP &lt)"
+.br
+.ti -1c
+.RI "template<typename Rep , typename Period > \fBbasic_value\fP (const std::chrono::duration< Rep, Period > &dur)"
+.br
+.ti -1c
+.RI "template<typename Rep , typename Period > \fBbasic_value\fP (const std::chrono::duration< Rep, Period > &dur, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "template<typename Rep , typename Period > \fBbasic_value\fP & \fBoperator=\fP (const std::chrono::duration< Rep, Period > &dur)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBlocal_datetime\fP &ldt)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBlocal_datetime\fP &ldt, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP & \fBoperator=\fP (const \fBlocal_datetime\fP &ldt)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBoffset_datetime\fP &odt)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBoffset_datetime\fP &odt, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP & \fBoperator=\fP (const \fBoffset_datetime\fP &odt)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const std::chrono::system_clock::time_point &tp)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const std::chrono::system_clock::time_point &tp, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP & \fBoperator=\fP (const std::chrono::system_clock::time_point &tp)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBarray_type\fP &ary)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBarray_type\fP &ary, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP & \fBoperator=\fP (const \fBarray_type\fP &ary)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< std::is_convertible< T, \fBvalue_type\fP >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP (std::initializer_list< T > list)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< std::is_convertible< T, \fBvalue_type\fP >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP (std::initializer_list< T > list, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< std::is_convertible< T, \fBvalue_type\fP >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP & \fBoperator=\fP (std::initializer_list< T > list)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< \fBdetail::conjunction\fP< \fBdetail::negation\fP< std::is_same< T, \fBarray_type\fP > >, \fBdetail::is_container\fP< T > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP (const T &list)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< \fBdetail::conjunction\fP< \fBdetail::negation\fP< std::is_same< T, \fBarray_type\fP > >, \fBdetail::is_container\fP< T > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP (const T &list, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< \fBdetail::conjunction\fP< \fBdetail::negation\fP< std::is_same< T, \fBarray_type\fP > >, \fBdetail::is_container\fP< T > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP & \fBoperator=\fP (const T &list)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBtable_type\fP &tab)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBtable_type\fP &tab, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP & \fBoperator=\fP (const \fBtable_type\fP &tab)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (std::initializer_list< std::pair< \fBkey\fP, \fBbasic_value\fP > > list)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (std::initializer_list< std::pair< \fBkey\fP, \fBbasic_value\fP > > list, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP & \fBoperator=\fP (std::initializer_list< std::pair< \fBkey\fP, \fBbasic_value\fP > > list)"
+.br
+.ti -1c
+.RI "template<typename Map , typename std::enable_if< \fBdetail::conjunction\fP< \fBdetail::negation\fP< std::is_same< Map, \fBtable_type\fP > >, \fBdetail::is_map\fP< Map > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP (const Map &mp)"
+.br
+.ti -1c
+.RI "template<typename Map , typename std::enable_if< \fBdetail::conjunction\fP< \fBdetail::negation\fP< std::is_same< Map, \fBtable_type\fP > >, \fBdetail::is_map\fP< Map > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP (const Map &mp, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "template<typename Map , typename std::enable_if< \fBdetail::conjunction\fP< \fBdetail::negation\fP< std::is_same< Map, \fBtable_type\fP > >, \fBdetail::is_map\fP< Map > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP & \fBoperator=\fP (const Map &mp)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< \fBdetail::has_into_toml_method\fP< T >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP (const T &ud)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< \fBdetail::has_into_toml_method\fP< T >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP (const T &ud, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< \fBdetail::has_into_toml_method\fP< T >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP & \fBoperator=\fP (const T &ud)"
+.br
+.ti -1c
+.RI "template<typename T , std::size_t S = sizeof(::toml::into<T>)> \fBbasic_value\fP (const T &ud)"
+.br
+.ti -1c
+.RI "template<typename T , std::size_t S = sizeof(::toml::into<T>)> \fBbasic_value\fP (const T &ud, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "template<typename T , std::size_t S = sizeof(::toml::into<T>)> \fBbasic_value\fP & \fBoperator=\fP (const T &ud)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (\fBboolean\fP b, \fBdetail::region\fP reg, std::vector< std::string > cm)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< \fBdetail::conjunction\fP< std::is_integral< T >, \fBdetail::negation\fP< std::is_same< T, \fBboolean\fP > > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP (T i, \fBdetail::region\fP reg, std::vector< std::string > cm)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< std::is_floating_point< T >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP (T f, \fBdetail::region\fP reg, std::vector< std::string > cm)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (\fBtoml::string\fP s, \fBdetail::region\fP reg, std::vector< std::string > cm)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBlocal_date\fP &ld, \fBdetail::region\fP reg, std::vector< std::string > cm)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBlocal_time\fP &lt, \fBdetail::region\fP reg, std::vector< std::string > cm)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBlocal_datetime\fP &ldt, \fBdetail::region\fP reg, std::vector< std::string > cm)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBoffset_datetime\fP &odt, \fBdetail::region\fP reg, std::vector< std::string > cm)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBarray_type\fP &ary, \fBdetail::region\fP reg, std::vector< std::string > cm)"
+.br
+.ti -1c
+.RI "\fBbasic_value\fP (const \fBtable_type\fP &tab, \fBdetail::region\fP reg, std::vector< std::string > cm)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< \fBdetail::is_exact_toml_type\fP< T, \fBvalue_type\fP >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP (std::pair< T, \fBdetail::region\fP > parse_result, std::vector< std::string > com)"
+.br
+.ti -1c
+.RI "template<typename T , typename std::enable_if< \fBdetail::is_exact_toml_type\fP< T, \fBvalue_type\fP >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> bool \fBis\fP () const noexcept"
+.br
+.ti -1c
+.RI "bool \fBis\fP (\fBvalue_t\fP t) const noexcept"
+.br
+.ti -1c
+.RI "bool \fBis_uninitialized\fP () const noexcept"
+.br
+.ti -1c
+.RI "bool \fBis_boolean\fP () const noexcept"
+.br
+.ti -1c
+.RI "bool \fBis_integer\fP () const noexcept"
+.br
+.ti -1c
+.RI "bool \fBis_floating\fP () const noexcept"
+.br
+.ti -1c
+.RI "bool \fBis_string\fP () const noexcept"
+.br
+.ti -1c
+.RI "bool \fBis_offset_datetime\fP () const noexcept"
+.br
+.ti -1c
+.RI "bool \fBis_local_datetime\fP () const noexcept"
+.br
+.ti -1c
+.RI "bool \fBis_local_date\fP () const noexcept"
+.br
+.ti -1c
+.RI "bool \fBis_local_time\fP () const noexcept"
+.br
+.ti -1c
+.RI "bool \fBis_array\fP () const noexcept"
+.br
+.ti -1c
+.RI "bool \fBis_table\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBvalue_t\fP \fBtype\fP () const noexcept"
+.br
+.ti -1c
+.RI "template<\fBvalue_t\fP T> \fBdetail::enum_to_type\fP< T, \fBvalue_type\fP >\fB::type\fP & \fBcast\fP () &"
+.br
+.ti -1c
+.RI "template<\fBvalue_t\fP T> \fBdetail::enum_to_type\fP< T, \fBvalue_type\fP >\fB::type\fP const & \fBcast\fP () const &"
+.br
+.ti -1c
+.RI "template<\fBvalue_t\fP T> \fBdetail::enum_to_type\fP< T, \fBvalue_type\fP >\fB::type\fP && \fBcast\fP () &&"
+.br
+.ti -1c
+.RI "\fBboolean\fP const & \fBas_boolean\fP (const std::nothrow_t &) const &noexcept"
+.br
+.ti -1c
+.RI "\fBinteger\fP const & \fBas_integer\fP (const std::nothrow_t &) const &noexcept"
+.br
+.ti -1c
+.RI "\fBfloating\fP const & \fBas_floating\fP (const std::nothrow_t &) const &noexcept"
+.br
+.ti -1c
+.RI "\fBstring\fP const & \fBas_string\fP (const std::nothrow_t &) const &noexcept"
+.br
+.ti -1c
+.RI "\fBoffset_datetime\fP const & \fBas_offset_datetime\fP (const std::nothrow_t &) const &noexcept"
+.br
+.ti -1c
+.RI "\fBlocal_datetime\fP const & \fBas_local_datetime\fP (const std::nothrow_t &) const &noexcept"
+.br
+.ti -1c
+.RI "\fBlocal_date\fP const & \fBas_local_date\fP (const std::nothrow_t &) const &noexcept"
+.br
+.ti -1c
+.RI "\fBlocal_time\fP const & \fBas_local_time\fP (const std::nothrow_t &) const &noexcept"
+.br
+.ti -1c
+.RI "\fBarray_type\fP const & \fBas_array\fP (const std::nothrow_t &) const &noexcept"
+.br
+.ti -1c
+.RI "\fBtable_type\fP const & \fBas_table\fP (const std::nothrow_t &) const &noexcept"
+.br
+.ti -1c
+.RI "\fBboolean\fP & \fBas_boolean\fP (const std::nothrow_t &) &noexcept"
+.br
+.ti -1c
+.RI "\fBinteger\fP & \fBas_integer\fP (const std::nothrow_t &) &noexcept"
+.br
+.ti -1c
+.RI "\fBfloating\fP & \fBas_floating\fP (const std::nothrow_t &) &noexcept"
+.br
+.ti -1c
+.RI "\fBstring\fP & \fBas_string\fP (const std::nothrow_t &) &noexcept"
+.br
+.ti -1c
+.RI "\fBoffset_datetime\fP & \fBas_offset_datetime\fP (const std::nothrow_t &) &noexcept"
+.br
+.ti -1c
+.RI "\fBlocal_datetime\fP & \fBas_local_datetime\fP (const std::nothrow_t &) &noexcept"
+.br
+.ti -1c
+.RI "\fBlocal_date\fP & \fBas_local_date\fP (const std::nothrow_t &) &noexcept"
+.br
+.ti -1c
+.RI "\fBlocal_time\fP & \fBas_local_time\fP (const std::nothrow_t &) &noexcept"
+.br
+.ti -1c
+.RI "\fBarray_type\fP & \fBas_array\fP (const std::nothrow_t &) &noexcept"
+.br
+.ti -1c
+.RI "\fBtable_type\fP & \fBas_table\fP (const std::nothrow_t &) &noexcept"
+.br
+.ti -1c
+.RI "\fBboolean\fP && \fBas_boolean\fP (const std::nothrow_t &) &&noexcept"
+.br
+.ti -1c
+.RI "\fBinteger\fP && \fBas_integer\fP (const std::nothrow_t &) &&noexcept"
+.br
+.ti -1c
+.RI "\fBfloating\fP && \fBas_floating\fP (const std::nothrow_t &) &&noexcept"
+.br
+.ti -1c
+.RI "\fBstring\fP && \fBas_string\fP (const std::nothrow_t &) &&noexcept"
+.br
+.ti -1c
+.RI "\fBoffset_datetime\fP && \fBas_offset_datetime\fP (const std::nothrow_t &) &&noexcept"
+.br
+.ti -1c
+.RI "\fBlocal_datetime\fP && \fBas_local_datetime\fP (const std::nothrow_t &) &&noexcept"
+.br
+.ti -1c
+.RI "\fBlocal_date\fP && \fBas_local_date\fP (const std::nothrow_t &) &&noexcept"
+.br
+.ti -1c
+.RI "\fBlocal_time\fP && \fBas_local_time\fP (const std::nothrow_t &) &&noexcept"
+.br
+.ti -1c
+.RI "\fBarray_type\fP && \fBas_array\fP (const std::nothrow_t &) &&noexcept"
+.br
+.ti -1c
+.RI "\fBtable_type\fP && \fBas_table\fP (const std::nothrow_t &) &&noexcept"
+.br
+.ti -1c
+.RI "\fBboolean\fP const & \fBas_boolean\fP () const &"
+.br
+.ti -1c
+.RI "\fBinteger\fP const & \fBas_integer\fP () const &"
+.br
+.ti -1c
+.RI "\fBfloating\fP const & \fBas_floating\fP () const &"
+.br
+.ti -1c
+.RI "\fBstring\fP const & \fBas_string\fP () const &"
+.br
+.ti -1c
+.RI "\fBoffset_datetime\fP const & \fBas_offset_datetime\fP () const &"
+.br
+.ti -1c
+.RI "\fBlocal_datetime\fP const & \fBas_local_datetime\fP () const &"
+.br
+.ti -1c
+.RI "\fBlocal_date\fP const & \fBas_local_date\fP () const &"
+.br
+.ti -1c
+.RI "\fBlocal_time\fP const & \fBas_local_time\fP () const &"
+.br
+.ti -1c
+.RI "\fBarray_type\fP const & \fBas_array\fP () const &"
+.br
+.ti -1c
+.RI "\fBtable_type\fP const & \fBas_table\fP () const &"
+.br
+.ti -1c
+.RI "\fBboolean\fP & \fBas_boolean\fP () &"
+.br
+.ti -1c
+.RI "\fBinteger\fP & \fBas_integer\fP () &"
+.br
+.ti -1c
+.RI "\fBfloating\fP & \fBas_floating\fP () &"
+.br
+.ti -1c
+.RI "\fBstring\fP & \fBas_string\fP () &"
+.br
+.ti -1c
+.RI "\fBoffset_datetime\fP & \fBas_offset_datetime\fP () &"
+.br
+.ti -1c
+.RI "\fBlocal_datetime\fP & \fBas_local_datetime\fP () &"
+.br
+.ti -1c
+.RI "\fBlocal_date\fP & \fBas_local_date\fP () &"
+.br
+.ti -1c
+.RI "\fBlocal_time\fP & \fBas_local_time\fP () &"
+.br
+.ti -1c
+.RI "\fBarray_type\fP & \fBas_array\fP () &"
+.br
+.ti -1c
+.RI "\fBtable_type\fP & \fBas_table\fP () &"
+.br
+.ti -1c
+.RI "\fBboolean\fP && \fBas_boolean\fP () &&"
+.br
+.ti -1c
+.RI "\fBinteger\fP && \fBas_integer\fP () &&"
+.br
+.ti -1c
+.RI "\fBfloating\fP && \fBas_floating\fP () &&"
+.br
+.ti -1c
+.RI "\fBstring\fP && \fBas_string\fP () &&"
+.br
+.ti -1c
+.RI "\fBoffset_datetime\fP && \fBas_offset_datetime\fP () &&"
+.br
+.ti -1c
+.RI "\fBlocal_datetime\fP && \fBas_local_datetime\fP () &&"
+.br
+.ti -1c
+.RI "\fBlocal_date\fP && \fBas_local_date\fP () &&"
+.br
+.ti -1c
+.RI "\fBlocal_time\fP && \fBas_local_time\fP () &&"
+.br
+.ti -1c
+.RI "\fBarray_type\fP && \fBas_array\fP () &&"
+.br
+.ti -1c
+.RI "\fBtable_type\fP && \fBas_table\fP () &&"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP & \fBat\fP (const \fBkey\fP &k)"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP const & \fBat\fP (const \fBkey\fP &k) const"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP & \fBoperator[]\fP (const \fBkey\fP &k)"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP & \fBat\fP (const std::size_t idx)"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP const & \fBat\fP (const std::size_t idx) const"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP & \fBoperator[]\fP (const std::size_t idx) noexcept"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP const & \fBoperator[]\fP (const std::size_t idx) const noexcept"
+.br
+.ti -1c
+.RI "void \fBpush_back\fP (const \fBvalue_type\fP &x)"
+.br
+.ti -1c
+.RI "void \fBpush_back\fP (\fBvalue_type\fP &&x)"
+.br
+.ti -1c
+.RI "template<typename \&.\&.\&. Ts> \fBvalue_type\fP & \fBemplace_back\fP (Ts &&\&.\&.\&. args)"
+.br
+.ti -1c
+.RI "std::size_t \fBsize\fP () const"
+.br
+.ti -1c
+.RI "std::size_t \fBcount\fP (const \fBkey_type\fP &k) const"
+.br
+.ti -1c
+.RI "bool \fBcontains\fP (const \fBkey_type\fP &k) const"
+.br
+.ti -1c
+.RI "\fBsource_location\fP \fBlocation\fP () const"
+.br
+.ti -1c
+.RI "\fBcomment_type\fP const & \fBcomments\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBcomment_type\fP & \fBcomments\fP () noexcept"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> class \fBbasic_value\fP"
+.br
+.ti -1c
+.RI "template<typename Value > \fBregion_base\fP const * \fBdetail::get_region\fP (const Value &v)"
+.br
+.ti -1c
+.RI "template<typename Value > void \fBdetail::change_region\fP (Value &v, \fBdetail::region\fP reg)"
+.br
+.in -1c
+.SH "Member Typedef Documentation"
+.PP 
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> using \fBtoml::basic_value\fP< Comment, Table, Array >::array_type =  Array<\fBvalue_type\fP>"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> using \fBtoml::basic_value\fP< Comment, Table, Array >::boolean_type =  \fB::toml::boolean\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> using \fBtoml::basic_value\fP< Comment, Table, Array >::comment_type =  Comment"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> using \fBtoml::basic_value\fP< Comment, Table, Array >::floating_type =  \fB::toml::floating\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> using \fBtoml::basic_value\fP< Comment, Table, Array >::integer_type =  \fB::toml::integer\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> using \fBtoml::basic_value\fP< Comment, Table, Array >::key_type =  \fB::toml::key\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> using \fBtoml::basic_value\fP< Comment, Table, Array >::local_date_type =  \fB::toml::local_date\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> using \fBtoml::basic_value\fP< Comment, Table, Array >::local_datetime_type =  \fB::toml::local_datetime\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> using \fBtoml::basic_value\fP< Comment, Table, Array >::local_time_type =  \fB::toml::local_time\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> using \fBtoml::basic_value\fP< Comment, Table, Array >::offset_datetime_type =  \fB::toml::offset_datetime\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> using \fBtoml::basic_value\fP< Comment, Table, Array >::string_type =  \fB::toml::string\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> using \fBtoml::basic_value\fP< Comment, Table, Array >::table_type =  Table<\fBkey_type\fP, \fBvalue_type\fP>"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> using \fBtoml::basic_value\fP< Comment, Table, Array >::value_type =  \fBbasic_value\fP<\fBcomment_type\fP, Table, Array>"
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value ()\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::~\fBbasic_value\fP ()\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBbasic_value\fP< Comment, Table, Array > & v)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (\fBbasic_value\fP< Comment, Table, Array > && v)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBbasic_value\fP< Comment, Table, Array > & v, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (\fBbasic_value\fP< Comment, Table, Array > && v, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBbasic_value\fP< C, T, A > & v)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBbasic_value\fP< C, T, A > & v, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (\fBboolean\fP b)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (\fBboolean\fP b, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< \fBdetail::conjunction\fP< std::is_integral< T >, \fBdetail::negation\fP< std::is_same< T, \fBboolean\fP > > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (T i)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< \fBdetail::conjunction\fP< std::is_integral< T >, \fBdetail::negation\fP< std::is_same< T, \fBboolean\fP > > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (T i, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< std::is_floating_point< T >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (T f)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< std::is_floating_point< T >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (T f, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (\fBtoml::string\fP s)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (\fBtoml::string\fP s, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (std::string s)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (std::string s, \fBstring_t\fP kind)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (std::string s, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (std::string s, \fBstring_t\fP kind, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const char * s)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const char * s, \fBstring_t\fP kind)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const char * s, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const char * s, \fBstring_t\fP kind, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBlocal_date\fP & ld)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBlocal_date\fP & ld, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBlocal_time\fP & lt)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBlocal_time\fP & lt, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename Rep , typename Period > \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const std::chrono::duration< Rep, Period > & dur)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename Rep , typename Period > \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const std::chrono::duration< Rep, Period > & dur, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBlocal_datetime\fP & ldt)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBlocal_datetime\fP & ldt, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBoffset_datetime\fP & odt)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBoffset_datetime\fP & odt, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const std::chrono::system_clock::time_point & tp)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const std::chrono::system_clock::time_point & tp, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBarray_type\fP & ary)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBarray_type\fP & ary, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< std::is_convertible< T, \fBvalue_type\fP >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (std::initializer_list< T > list)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< std::is_convertible< T, \fBvalue_type\fP >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (std::initializer_list< T > list, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< \fBdetail::conjunction\fP< \fBdetail::negation\fP< std::is_same< T, \fBarray_type\fP > >, \fBdetail::is_container\fP< T > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const T & list)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< \fBdetail::conjunction\fP< \fBdetail::negation\fP< std::is_same< T, \fBarray_type\fP > >, \fBdetail::is_container\fP< T > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const T & list, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBtable_type\fP & tab)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBtable_type\fP & tab, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (std::initializer_list< std::pair< \fBkey\fP, \fBbasic_value\fP< Comment, Table, Array > > > list)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (std::initializer_list< std::pair< \fBkey\fP, \fBbasic_value\fP< Comment, Table, Array > > > list, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename Map , typename std::enable_if< \fBdetail::conjunction\fP< \fBdetail::negation\fP< std::is_same< Map, \fBtable_type\fP > >, \fBdetail::is_map\fP< Map > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const Map & mp)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename Map , typename std::enable_if< \fBdetail::conjunction\fP< \fBdetail::negation\fP< std::is_same< Map, \fBtable_type\fP > >, \fBdetail::is_map\fP< Map > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const Map & mp, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< \fBdetail::has_into_toml_method\fP< T >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const T & ud)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< \fBdetail::has_into_toml_method\fP< T >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const T & ud, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , std::size_t S = sizeof(::toml::into<T>)> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const T & ud)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , std::size_t S = sizeof(::toml::into<T>)> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const T & ud, std::vector< std::string > com)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (\fBboolean\fP b, \fBdetail::region\fP reg, std::vector< std::string > cm)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< \fBdetail::conjunction\fP< std::is_integral< T >, \fBdetail::negation\fP< std::is_same< T, \fBboolean\fP > > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (T i, \fBdetail::region\fP reg, std::vector< std::string > cm)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< std::is_floating_point< T >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (T f, \fBdetail::region\fP reg, std::vector< std::string > cm)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (\fBtoml::string\fP s, \fBdetail::region\fP reg, std::vector< std::string > cm)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBlocal_date\fP & ld, \fBdetail::region\fP reg, std::vector< std::string > cm)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBlocal_time\fP & lt, \fBdetail::region\fP reg, std::vector< std::string > cm)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBlocal_datetime\fP & ldt, \fBdetail::region\fP reg, std::vector< std::string > cm)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBoffset_datetime\fP & odt, \fBdetail::region\fP reg, std::vector< std::string > cm)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBarray_type\fP & ary, \fBdetail::region\fP reg, std::vector< std::string > cm)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (const \fBtable_type\fP & tab, \fBdetail::region\fP reg, std::vector< std::string > cm)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< \fBdetail::is_exact_toml_type\fP< T, \fBvalue_type\fP >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBtoml::basic_value\fP< Comment, Table, Array >::basic_value (std::pair< T, \fBdetail::region\fP > parse_result, std::vector< std::string > com)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBarray_type\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_array () &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBarray_type\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_array () &&\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBarray_type\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_array () const &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBarray_type\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_array (const std::nothrow_t &) &&\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBarray_type\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_array (const std::nothrow_t &) &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBarray_type\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_array (const std::nothrow_t &) const &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBboolean\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_boolean () &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBboolean\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_boolean () &&\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBboolean\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_boolean () const &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBboolean\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_boolean (const std::nothrow_t &) &&\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBboolean\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_boolean (const std::nothrow_t &) &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBboolean\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_boolean (const std::nothrow_t &) const &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBfloating\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_floating () &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBfloating\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_floating () &&\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBfloating\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_floating () const &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBfloating\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_floating (const std::nothrow_t &) &&\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBfloating\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_floating (const std::nothrow_t &) &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBfloating\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_floating (const std::nothrow_t &) const &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBinteger\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_integer () &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBinteger\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_integer () &&\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBinteger\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_integer () const &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBinteger\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_integer (const std::nothrow_t &) &&\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBinteger\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_integer (const std::nothrow_t &) &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBinteger\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_integer (const std::nothrow_t &) const &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_date\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_local_date () &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_date\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_local_date () &&\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_date\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_local_date () const &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_date\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_local_date (const std::nothrow_t &) &&\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_date\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_local_date (const std::nothrow_t &) &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_date\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_local_date (const std::nothrow_t &) const &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_datetime\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_local_datetime () &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_datetime\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_local_datetime () &&\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_datetime\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_local_datetime () const &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_datetime\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_local_datetime (const std::nothrow_t &) &&\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_datetime\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_local_datetime (const std::nothrow_t &) &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_datetime\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_local_datetime (const std::nothrow_t &) const &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_time\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_local_time () &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_time\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_local_time () &&\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_time\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_local_time () const &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_time\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_local_time (const std::nothrow_t &) &&\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_time\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_local_time (const std::nothrow_t &) &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_time\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_local_time (const std::nothrow_t &) const &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBoffset_datetime\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_offset_datetime () &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBoffset_datetime\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_offset_datetime () &&\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBoffset_datetime\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_offset_datetime () const &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBoffset_datetime\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_offset_datetime (const std::nothrow_t &) &&\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBoffset_datetime\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_offset_datetime (const std::nothrow_t &) &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBoffset_datetime\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_offset_datetime (const std::nothrow_t &) const &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBstring\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_string () &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBstring\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_string () &&\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBstring\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_string () const &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBstring\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_string (const std::nothrow_t &) &&\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBstring\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_string (const std::nothrow_t &) &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBstring\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_string (const std::nothrow_t &) const &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtable_type\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_table () &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtable_type\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_table () &&\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtable_type\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_table () const &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtable_type\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::as_table (const std::nothrow_t &) &&\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtable_type\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::as_table (const std::nothrow_t &) &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtable_type\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::as_table (const std::nothrow_t &) const &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBvalue_type\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::at (const \fBkey\fP & k)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBvalue_type\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::at (const \fBkey\fP & k) const\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBvalue_type\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::at (const std::size_t idx)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBvalue_type\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::at (const std::size_t idx) const\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<\fBvalue_t\fP T> \fBdetail::enum_to_type\fP< T, \fBvalue_type\fP >\fB::type\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::cast () &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<\fBvalue_t\fP T> \fBdetail::enum_to_type\fP< T, \fBvalue_type\fP >\fB::type\fP && \fBtoml::basic_value\fP< Comment, Table, Array >::cast () &&\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<\fBvalue_t\fP T> \fBdetail::enum_to_type\fP< T, \fBvalue_type\fP >\fB::type\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::cast () const &\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBcomment_type\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::comments () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBcomment_type\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::comments ()\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> bool \fBtoml::basic_value\fP< Comment, Table, Array >::contains (const \fBkey_type\fP & k) const\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> std::size_t \fBtoml::basic_value\fP< Comment, Table, Array >::count (const \fBkey_type\fP & k) const\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename \&.\&.\&. Ts> \fBvalue_type\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::emplace_back (Ts &&\&.\&.\&. args)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< \fBdetail::is_exact_toml_type\fP< T, \fBvalue_type\fP >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> bool \fBtoml::basic_value\fP< Comment, Table, Array >::is () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> bool \fBtoml::basic_value\fP< Comment, Table, Array >::is (\fBvalue_t\fP t) const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> bool \fBtoml::basic_value\fP< Comment, Table, Array >::is_array () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> bool \fBtoml::basic_value\fP< Comment, Table, Array >::is_boolean () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> bool \fBtoml::basic_value\fP< Comment, Table, Array >::is_floating () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> bool \fBtoml::basic_value\fP< Comment, Table, Array >::is_integer () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> bool \fBtoml::basic_value\fP< Comment, Table, Array >::is_local_date () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> bool \fBtoml::basic_value\fP< Comment, Table, Array >::is_local_datetime () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> bool \fBtoml::basic_value\fP< Comment, Table, Array >::is_local_time () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> bool \fBtoml::basic_value\fP< Comment, Table, Array >::is_offset_datetime () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> bool \fBtoml::basic_value\fP< Comment, Table, Array >::is_string () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> bool \fBtoml::basic_value\fP< Comment, Table, Array >::is_table () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> bool \fBtoml::basic_value\fP< Comment, Table, Array >::is_uninitialized () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBsource_location\fP \fBtoml::basic_value\fP< Comment, Table, Array >::location () const\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (\fBbasic_value\fP< Comment, Table, Array > && v)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (\fBboolean\fP b)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (const \fBarray_type\fP & ary)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (const \fBbasic_value\fP< Comment, Table, Array > & v)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (const \fBbasic_value\fP< C, T, A > & v)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (const char * s)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (const \fBlocal_date\fP & ld)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (const \fBlocal_datetime\fP & ldt)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (const \fBlocal_time\fP & lt)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename Map , typename std::enable_if< \fBdetail::conjunction\fP< \fBdetail::negation\fP< std::is_same< Map, \fBtable_type\fP > >, \fBdetail::is_map\fP< Map > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (const Map & mp)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (const \fBoffset_datetime\fP & odt)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename Rep , typename Period > \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (const std::chrono::duration< Rep, Period > & dur)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (const std::chrono::system_clock::time_point & tp)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< \fBdetail::conjunction\fP< \fBdetail::negation\fP< std::is_same< T, \fBarray_type\fP > >, \fBdetail::is_container\fP< T > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (const T & list)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< \fBdetail::has_into_toml_method\fP< T >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (const T & ud)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , std::size_t S = sizeof(::toml::into<T>)> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (const T & ud)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (const \fBtable_type\fP & tab)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (std::initializer_list< std::pair< \fBkey\fP, \fBbasic_value\fP< Comment, Table, Array > > > list)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< std::is_convertible< T, \fBvalue_type\fP >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (std::initializer_list< T > list)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (std::string s)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< std::is_floating_point< T >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (T f)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename T , typename std::enable_if< \fBdetail::conjunction\fP< std::is_integral< T >, \fBdetail::negation\fP< std::is_same< T, \fBboolean\fP > > >\fB::value\fP, std::nullptr_t >\fB::type\fP  = nullptr> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (T i)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBbasic_value\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator= (\fBtoml::string\fP s)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBvalue_type\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator[] (const \fBkey\fP & k)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBvalue_type\fP const  & \fBtoml::basic_value\fP< Comment, Table, Array >::operator[] (const std::size_t idx) const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBvalue_type\fP & \fBtoml::basic_value\fP< Comment, Table, Array >::operator[] (const std::size_t idx)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> void \fBtoml::basic_value\fP< Comment, Table, Array >::push_back (const \fBvalue_type\fP & x)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> void \fBtoml::basic_value\fP< Comment, Table, Array >::push_back (\fBvalue_type\fP && x)\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> std::size_t \fBtoml::basic_value\fP< Comment, Table, Array >::size () const\fC [inline]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBvalue_t\fP \fBtoml::basic_value\fP< Comment, Table, Array >::type () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SH "Friends And Related Function Documentation"
+.PP 
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename C , template< typename \&.\&.\&. > class T, template< typename \&.\&.\&. > class A> friend class \fBbasic_value\fP\fC [friend]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename Value > void \fBdetail::change_region\fP (Value & v, \fBdetail::region\fP reg)\fC [friend]\fP"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> template<typename Value > \fBregion_base\fP const  * \fBdetail::get_region\fP (const Value & v)\fC [friend]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBarray_storage\fP \fBtoml::basic_value\fP< Comment, Table, Array >::array_"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBboolean\fP \fBtoml::basic_value\fP< Comment, Table, Array >::boolean_"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBfloating\fP \fBtoml::basic_value\fP< Comment, Table, Array >::floating_"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBinteger\fP \fBtoml::basic_value\fP< Comment, Table, Array >::integer_"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_date\fP \fBtoml::basic_value\fP< Comment, Table, Array >::local_date_"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_datetime\fP \fBtoml::basic_value\fP< Comment, Table, Array >::local_datetime_"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBlocal_time\fP \fBtoml::basic_value\fP< Comment, Table, Array >::local_time_"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBoffset_datetime\fP \fBtoml::basic_value\fP< Comment, Table, Array >::offset_datetime_"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBstring\fP \fBtoml::basic_value\fP< Comment, Table, Array >::string_"
+
+.SS "template<typename Comment , template< typename \&.\&.\&. > class Table = std::unordered_map, template< typename \&.\&.\&. > class Array = std::vector> \fBtable_storage\fP \fBtoml::basic_value\fP< Comment, Table, Array >::table_"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

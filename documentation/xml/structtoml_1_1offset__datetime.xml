@@ -1,0 +1,369 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1offset__datetime" kind="struct" language="C++" prot="public">
+    <compoundname>toml::offset_datetime</compoundname>
+    <includes refid="datetime_8hpp" local="no">datetime.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtoml_1_1offset__datetime_1a154eb1ecc13b3533aa38c79d08ed9c20" prot="public" static="no" mutable="no">
+        <type><ref refid="structtoml_1_1local__date" kindref="compound">local_date</ref></type>
+        <definition>local_date toml::offset_datetime::date</definition>
+        <argsstring></argsstring>
+        <name>date</name>
+        <qualifiedname>toml::offset_datetime::date</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="481" column="17" bodyfile="external/toml/datetime.hpp" bodystart="481" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtoml_1_1offset__datetime_1a1445f154a6789e821d246c157e4779c7" prot="public" static="no" mutable="no">
+        <type><ref refid="structtoml_1_1local__time" kindref="compound">local_time</ref></type>
+        <definition>local_time toml::offset_datetime::time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <qualifiedname>toml::offset_datetime::time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="482" column="17" bodyfile="external/toml/datetime.hpp" bodystart="482" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtoml_1_1offset__datetime_1a2ae16349956379241f713a9fc0d6a246" prot="public" static="no" mutable="no">
+        <type><ref refid="structtoml_1_1time__offset" kindref="compound">time_offset</ref></type>
+        <definition>time_offset toml::offset_datetime::offset</definition>
+        <argsstring></argsstring>
+        <name>offset</name>
+        <qualifiedname>toml::offset_datetime::offset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="483" column="17" bodyfile="external/toml/datetime.hpp" bodystart="483" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtoml_1_1offset__datetime_1a5afab406cfde7741ce3f420d33151c3e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::offset_datetime::offset_datetime</definition>
+        <argsstring>(local_date d, local_time t, time_offset o)</argsstring>
+        <name>offset_datetime</name>
+        <qualifiedname>toml::offset_datetime::offset_datetime</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1local__date" kindref="compound">local_date</ref></type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type><ref refid="structtoml_1_1local__time" kindref="compound">local_time</ref></type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type><ref refid="structtoml_1_1time__offset" kindref="compound">time_offset</ref></type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="485" column="5" bodyfile="external/toml/datetime.hpp" bodystart="485" bodyend="487"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1offset__datetime_1a409e92dedf7fb3f9194c62dce3d609b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::offset_datetime::offset_datetime</definition>
+        <argsstring>(const local_datetime &amp;dt, time_offset o)</argsstring>
+        <name>offset_datetime</name>
+        <qualifiedname>toml::offset_datetime::offset_datetime</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1local__datetime" kindref="compound">local_datetime</ref> &amp;</type>
+          <declname>dt</declname>
+        </param>
+        <param>
+          <type><ref refid="structtoml_1_1time__offset" kindref="compound">time_offset</ref></type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="488" column="5" bodyfile="external/toml/datetime.hpp" bodystart="488" bodyend="490"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1offset__datetime_1a5f5680aa44bd153f131710ffeb8853df" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::offset_datetime::offset_datetime</definition>
+        <argsstring>(const local_datetime &amp;ld)</argsstring>
+        <name>offset_datetime</name>
+        <qualifiedname>toml::offset_datetime::offset_datetime</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1local__datetime" kindref="compound">local_datetime</ref> &amp;</type>
+          <declname>ld</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="491" column="14" bodyfile="external/toml/datetime.hpp" bodystart="491" bodyend="494"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1offset__datetime_1ab88d42517d06c737adcab8d28c7ad616" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::offset_datetime::offset_datetime</definition>
+        <argsstring>(const std::chrono::system_clock::time_point &amp;tp)</argsstring>
+        <name>offset_datetime</name>
+        <qualifiedname>toml::offset_datetime::offset_datetime</qualifiedname>
+        <param>
+          <type>const std::chrono::system_clock::time_point &amp;</type>
+          <declname>tp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="495" column="14" bodyfile="external/toml/datetime.hpp" bodystart="495" bodyend="502"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1offset__datetime_1aa410fddd45775679696c7878e27427f6" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::offset_datetime::offset_datetime</definition>
+        <argsstring>(const std::time_t &amp;t)</argsstring>
+        <name>offset_datetime</name>
+        <qualifiedname>toml::offset_datetime::offset_datetime</qualifiedname>
+        <param>
+          <type>const std::time_t &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="503" column="14" bodyfile="external/toml/datetime.hpp" bodystart="503" bodyend="509"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1offset__datetime_1aaa667428a52be74dbcdfbb9ce5ac34c4" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::offset_datetime::offset_datetime</definition>
+        <argsstring>(const std::tm &amp;t)</argsstring>
+        <name>offset_datetime</name>
+        <qualifiedname>toml::offset_datetime::offset_datetime</qualifiedname>
+        <param>
+          <type>const std::tm &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="510" column="14" bodyfile="external/toml/datetime.hpp" bodystart="510" bodyend="515"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1offset__datetime_1ad5277e982736acaf9e905b2cd121a862" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::offset_datetime::operator std::chrono::system_clock::time_point</definition>
+        <argsstring>() const</argsstring>
+        <name>operator std::chrono::system_clock::time_point</name>
+        <qualifiedname>toml::offset_datetime::time_point</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="517" column="5" bodyfile="external/toml/datetime.hpp" bodystart="517" bodyend="559"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1offset__datetime_1ae0991d276090d83c9cbea277234ccb35" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::offset_datetime::operator std::time_t</definition>
+        <argsstring>() const</argsstring>
+        <name>operator std::time_t</name>
+        <qualifiedname>toml::offset_datetime::time_t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="561" column="5" bodyfile="external/toml/datetime.hpp" bodystart="561" bodyend="565"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1offset__datetime_1a90306b9efe58d2133bfe8bd5f62212c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::offset_datetime::offset_datetime</definition>
+        <argsstring>()=default</argsstring>
+        <name>offset_datetime</name>
+        <qualifiedname>toml::offset_datetime::offset_datetime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="567" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1offset__datetime_1ac8ca48c1555cfdbb3ef7d090f93abf69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::offset_datetime::~offset_datetime</definition>
+        <argsstring>()=default</argsstring>
+        <name>~offset_datetime</name>
+        <qualifiedname>toml::offset_datetime::~offset_datetime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="568" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1offset__datetime_1ad37ab5a9d9b6a456b1785238987245e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::offset_datetime::offset_datetime</definition>
+        <argsstring>(offset_datetime const &amp;)=default</argsstring>
+        <name>offset_datetime</name>
+        <qualifiedname>toml::offset_datetime::offset_datetime</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1offset__datetime" kindref="compound">offset_datetime</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="569" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1offset__datetime_1aef650fd2caefcb29554391a595e49abb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::offset_datetime::offset_datetime</definition>
+        <argsstring>(offset_datetime &amp;&amp;)=default</argsstring>
+        <name>offset_datetime</name>
+        <qualifiedname>toml::offset_datetime::offset_datetime</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1offset__datetime" kindref="compound">offset_datetime</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="570" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1offset__datetime_1a420eeeca7f2bf2c2cbd21d713f50b84c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1offset__datetime" kindref="compound">offset_datetime</ref> &amp;</type>
+        <definition>offset_datetime &amp; toml::offset_datetime::operator=</definition>
+        <argsstring>(offset_datetime const &amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::offset_datetime::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1offset__datetime" kindref="compound">offset_datetime</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="571" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1offset__datetime_1a7bd56a72c134e784c68b693bd0541618" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1offset__datetime" kindref="compound">offset_datetime</ref> &amp;</type>
+        <definition>offset_datetime &amp; toml::offset_datetime::operator=</definition>
+        <argsstring>(offset_datetime &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::offset_datetime::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1offset__datetime" kindref="compound">offset_datetime</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="572" column="21"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="structtoml_1_1offset__datetime_1a474cb2938e96e1348f073431e2f34d24" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1time__offset" kindref="compound">time_offset</ref></type>
+        <definition>static time_offset toml::offset_datetime::get_local_offset</definition>
+        <argsstring>(const std::time_t *tp)</argsstring>
+        <name>get_local_offset</name>
+        <qualifiedname>toml::offset_datetime::get_local_offset</qualifiedname>
+        <param>
+          <type>const std::time_t *</type>
+          <declname>tp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/datetime.hpp" line="576" column="24" bodyfile="external/toml/datetime.hpp" bodystart="576" bodyend="592"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>toml::local_date</label>
+        <link refid="structtoml_1_1local__date"/>
+      </node>
+      <node id="3">
+        <label>toml::local_time</label>
+        <link refid="structtoml_1_1local__time"/>
+      </node>
+      <node id="1">
+        <label>toml::offset_datetime</label>
+        <link refid="structtoml_1_1offset__datetime"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>date</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>time</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>offset</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>toml::time_offset</label>
+        <link refid="structtoml_1_1time__offset"/>
+      </node>
+    </collaborationgraph>
+    <location file="external/toml/datetime.hpp" line="479" column="1" bodyfile="external/toml/datetime.hpp" bodystart="480" bodyend="593"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1offset__datetime_1a154eb1ecc13b3533aa38c79d08ed9c20" prot="public" virt="non-virtual"><scope>toml::offset_datetime</scope><name>date</name></member>
+      <member refid="structtoml_1_1offset__datetime_1a474cb2938e96e1348f073431e2f34d24" prot="private" virt="non-virtual"><scope>toml::offset_datetime</scope><name>get_local_offset</name></member>
+      <member refid="structtoml_1_1offset__datetime_1a2ae16349956379241f713a9fc0d6a246" prot="public" virt="non-virtual"><scope>toml::offset_datetime</scope><name>offset</name></member>
+      <member refid="structtoml_1_1offset__datetime_1a5afab406cfde7741ce3f420d33151c3e" prot="public" virt="non-virtual"><scope>toml::offset_datetime</scope><name>offset_datetime</name></member>
+      <member refid="structtoml_1_1offset__datetime_1a409e92dedf7fb3f9194c62dce3d609b3" prot="public" virt="non-virtual"><scope>toml::offset_datetime</scope><name>offset_datetime</name></member>
+      <member refid="structtoml_1_1offset__datetime_1a5f5680aa44bd153f131710ffeb8853df" prot="public" virt="non-virtual"><scope>toml::offset_datetime</scope><name>offset_datetime</name></member>
+      <member refid="structtoml_1_1offset__datetime_1ab88d42517d06c737adcab8d28c7ad616" prot="public" virt="non-virtual"><scope>toml::offset_datetime</scope><name>offset_datetime</name></member>
+      <member refid="structtoml_1_1offset__datetime_1aa410fddd45775679696c7878e27427f6" prot="public" virt="non-virtual"><scope>toml::offset_datetime</scope><name>offset_datetime</name></member>
+      <member refid="structtoml_1_1offset__datetime_1aaa667428a52be74dbcdfbb9ce5ac34c4" prot="public" virt="non-virtual"><scope>toml::offset_datetime</scope><name>offset_datetime</name></member>
+      <member refid="structtoml_1_1offset__datetime_1a90306b9efe58d2133bfe8bd5f62212c3" prot="public" virt="non-virtual"><scope>toml::offset_datetime</scope><name>offset_datetime</name></member>
+      <member refid="structtoml_1_1offset__datetime_1ad37ab5a9d9b6a456b1785238987245e9" prot="public" virt="non-virtual"><scope>toml::offset_datetime</scope><name>offset_datetime</name></member>
+      <member refid="structtoml_1_1offset__datetime_1aef650fd2caefcb29554391a595e49abb" prot="public" virt="non-virtual"><scope>toml::offset_datetime</scope><name>offset_datetime</name></member>
+      <member refid="structtoml_1_1offset__datetime_1ad5277e982736acaf9e905b2cd121a862" prot="public" virt="non-virtual"><scope>toml::offset_datetime</scope><name>operator std::chrono::system_clock::time_point</name></member>
+      <member refid="structtoml_1_1offset__datetime_1ae0991d276090d83c9cbea277234ccb35" prot="public" virt="non-virtual"><scope>toml::offset_datetime</scope><name>operator std::time_t</name></member>
+      <member refid="structtoml_1_1offset__datetime_1a420eeeca7f2bf2c2cbd21d713f50b84c" prot="public" virt="non-virtual"><scope>toml::offset_datetime</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1offset__datetime_1a7bd56a72c134e784c68b693bd0541618" prot="public" virt="non-virtual"><scope>toml::offset_datetime</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1offset__datetime_1a1445f154a6789e821d246c157e4779c7" prot="public" virt="non-virtual"><scope>toml::offset_datetime</scope><name>time</name></member>
+      <member refid="structtoml_1_1offset__datetime_1ac8ca48c1555cfdbb3ef7d090f93abf69" prot="public" virt="non-virtual"><scope>toml::offset_datetime</scope><name>~offset_datetime</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

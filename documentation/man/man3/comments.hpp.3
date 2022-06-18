@@ -1,0 +1,145 @@
+.TH "external/toml/comments.hpp" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+external/toml/comments.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <initializer_list>\fP
+.br
+\fC#include <iterator>\fP
+.br
+\fC#include <stdexcept>\fP
+.br
+\fC#include <string>\fP
+.br
+\fC#include <type_traits>\fP
+.br
+\fC#include <utility>\fP
+.br
+\fC#include <vector>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtoml::preserve_comments\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::empty_iterator< T, is_const >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::discard_comments\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBtoml\fP"
+.br
+.ti -1c
+.RI "namespace \fBtoml::detail\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTOML11_DEFAULT_COMMENT_STRATEGY\fP   \fB::toml::discard_comments\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBtoml::operator==\fP (const preserve_comments &lhs, const preserve_comments &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator!=\fP (const preserve_comments &lhs, const preserve_comments &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<\fP (const preserve_comments &lhs, const preserve_comments &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<=\fP (const preserve_comments &lhs, const preserve_comments &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>\fP (const preserve_comments &lhs, const preserve_comments &rhs)"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>=\fP (const preserve_comments &lhs, const preserve_comments &rhs)"
+.br
+.ti -1c
+.RI "void \fBtoml::swap\fP (preserve_comments &lhs, preserve_comments &rhs)"
+.br
+.ti -1c
+.RI "void \fBtoml::swap\fP (preserve_comments &lhs, std::vector< std::string > &rhs)"
+.br
+.ti -1c
+.RI "void \fBtoml::swap\fP (std::vector< std::string > &lhs, preserve_comments &rhs)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBtoml::operator<<\fP (std::basic_ostream< charT, traits > &os, const preserve_comments &com)"
+.br
+.ti -1c
+.RI "template<typename T , bool C> bool \fBtoml::detail::operator==\fP (const empty_iterator< T, C > &, const empty_iterator< T, C > &) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , bool C> bool \fBtoml::detail::operator!=\fP (const empty_iterator< T, C > &, const empty_iterator< T, C > &) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , bool C> bool \fBtoml::detail::operator<\fP (const empty_iterator< T, C > &, const empty_iterator< T, C > &) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , bool C> bool \fBtoml::detail::operator<=\fP (const empty_iterator< T, C > &, const empty_iterator< T, C > &) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , bool C> bool \fBtoml::detail::operator>\fP (const empty_iterator< T, C > &, const empty_iterator< T, C > &) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , bool C> bool \fBtoml::detail::operator>=\fP (const empty_iterator< T, C > &, const empty_iterator< T, C > &) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , bool C> empty_iterator< T, C >::difference_type \fBtoml::detail::operator\-\fP (const empty_iterator< T, C > &, const empty_iterator< T, C > &) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , bool C> empty_iterator< T, C > \fBtoml::detail::operator+\fP (typename empty_iterator< T, C >::difference_type, const empty_iterator< T, C > &rhs) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , bool C> empty_iterator< T, C > \fBtoml::detail::operator+\fP (const empty_iterator< T, C > &lhs, typename empty_iterator< T, C >::difference_type) noexcept"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator==\fP (const discard_comments &, const discard_comments &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator!=\fP (const discard_comments &, const discard_comments &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<\fP (const discard_comments &, const discard_comments &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator<=\fP (const discard_comments &, const discard_comments &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>\fP (const discard_comments &, const discard_comments &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBtoml::operator>=\fP (const discard_comments &, const discard_comments &) noexcept"
+.br
+.ti -1c
+.RI "void \fBtoml::swap\fP (const discard_comments &, const discard_comments &) noexcept"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBtoml::operator<<\fP (std::basic_ostream< charT, traits > &os, const discard_comments &)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define TOML11_DEFAULT_COMMENT_STRATEGY   \fB::toml::discard_comments\fP"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

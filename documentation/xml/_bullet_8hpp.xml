@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="_bullet_8hpp" kind="file" language="C++">
+    <compoundname>Bullet.hpp</compoundname>
+    <includes refid="_game_object_8hpp" local="no">../GameObject/GameObject.hpp</includes>
+    <includes local="no">SFML/Graphics.hpp</includes>
+    <includedby refid="_bullet_8cpp" local="yes">Bullet/Bullet.cpp</includedby>
+    <includedby refid="_game_8hpp" local="yes">Game/Game.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Bullet/Bullet.hpp</label>
+        <link refid="_bullet_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>../GameObject/GameObject.hpp</label>
+        <link refid="_game_object_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>SFML/Graphics.hpp</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>Bullet/Bullet.cpp</label>
+        <link refid="_bullet_8cpp"/>
+      </node>
+      <node id="1">
+        <label>Bullet/Bullet.hpp</label>
+        <link refid="_bullet_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Game/Game.cpp</label>
+        <link refid="_game_8cpp"/>
+      </node>
+      <node id="3">
+        <label>Game/Game.hpp</label>
+        <link refid="_game_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_bullet" prot="public">Bullet</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;../GameObject/GameObject.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SFML/Graphics.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5" refid="class_bullet" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_bullet" kindref="compound">Bullet</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>sf::Drawable,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>sf::Transformable<sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_game_object" kindref="compound">GameObject</ref><sp/>m_bulletObject;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Vector2f<sp/>m_velocity;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::Time<sp/>m_lifetime;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="11" refid="class_bullet_1a71ece5d5c6319b00bdfbeff7b34ee8b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_bullet_1a71ece5d5c6319b00bdfbeff7b34ee8b9" kindref="member">isExist</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_bullet_1a4fe0996e6c2eb192aa4e4a0352e97fd9" kindref="member">Bullet</ref>(sf::Vector2f<sp/>startPosition,<sp/>sf::Vector2f<sp/>velocity,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;sf::Sprite&gt;<sp/>bulletSprite);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_game_object" kindref="compound">GameObject</ref><sp/>&amp;<ref refid="class_bullet_1a60eeb26c22016b37796b3692967dbc14" kindref="member">getBulletObject</ref>();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bullet_1af9f7169b3201360123c51fd576cb574f" kindref="member">moveBullet</ref>(sf::Time<sp/>deltaTime);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_bullet_1a4259372b1668f44bb726620a4f44181b" kindref="member">draw</ref>(sf::RenderTarget<sp/>&amp;surface,<sp/>sf::RenderStates<sp/>states)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>sf::FloatRect<sp/><ref refid="class_bullet_1a426f205484be59d9eff8b2f652135ce3" kindref="member">getBulletRect</ref>();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="Bullet/Bullet.hpp"/>
+  </compounddef>
+</doxygen>

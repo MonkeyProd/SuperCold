@@ -1,0 +1,210 @@
+.TH "toml::detail::region" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::detail::region
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <region\&.hpp>\fP
+.PP
+Inherits \fBtoml::detail::region_base\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBconst_iterator\fP = typename std::vector< char >::const_iterator"
+.br
+.ti -1c
+.RI "using \fBsource_ptr\fP = std::shared_ptr< const std::vector< char > >"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBregion\fP ()=delete"
+.br
+.ti -1c
+.RI "\fBregion\fP (const \fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "\fBregion\fP (\fBlocation\fP &&loc)"
+.br
+.ti -1c
+.RI "\fBregion\fP (const \fBlocation\fP &loc, \fBconst_iterator\fP f, \fBconst_iterator\fP l)"
+.br
+.ti -1c
+.RI "\fBregion\fP (\fBlocation\fP &&loc, \fBconst_iterator\fP f, \fBconst_iterator\fP l)"
+.br
+.ti -1c
+.RI "\fBregion\fP (const \fBregion\fP &)=default"
+.br
+.ti -1c
+.RI "\fBregion\fP (\fBregion\fP &&)=default"
+.br
+.ti -1c
+.RI "\fBregion\fP & \fBoperator=\fP (const \fBregion\fP &)=default"
+.br
+.ti -1c
+.RI "\fBregion\fP & \fBoperator=\fP (\fBregion\fP &&)=default"
+.br
+.ti -1c
+.RI "\fB~region\fP ()=default"
+.br
+.ti -1c
+.RI "\fBregion\fP & \fBoperator+=\fP (const \fBregion\fP &other)"
+.br
+.ti -1c
+.RI "bool \fBis_ok\fP () const noexcept override"
+.br
+.ti -1c
+.RI "char \fBfront\fP () const noexcept override"
+.br
+.ti -1c
+.RI "std::string \fBstr\fP () const override"
+.br
+.ti -1c
+.RI "std::string \fBline\fP () const override"
+.br
+.ti -1c
+.RI "std::string \fBline_num\fP () const override"
+.br
+.ti -1c
+.RI "std::size_t \fBsize\fP () const noexcept override"
+.br
+.ti -1c
+.RI "std::size_t \fBbefore\fP () const noexcept override"
+.br
+.ti -1c
+.RI "std::size_t \fBafter\fP () const noexcept override"
+.br
+.ti -1c
+.RI "bool \fBcontain_newline\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBline_begin\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBline_end\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBbegin\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBend\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBfirst\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBconst_iterator\fP \fBlast\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBsource_ptr\fP const & \fBsource\fP () const &noexcept"
+.br
+.ti -1c
+.RI "\fBsource_ptr\fP && \fBsource\fP () &&noexcept"
+.br
+.ti -1c
+.RI "std::string \fBname\fP () const override"
+.br
+.ti -1c
+.RI "std::vector< std::string > \fBcomments\fP () const override"
+.br
+.in -1c
+.SH "Member Typedef Documentation"
+.PP 
+.SS "using \fBtoml::detail::region::const_iterator\fP =  typename std::vector<char>::const_iterator"
+
+.SS "using \fBtoml::detail::region::source_ptr\fP =  std::shared_ptr<const std::vector<char> >"
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "toml::detail::region::region ()\fC [delete]\fP"
+
+.SS "toml::detail::region::region (const \fBlocation\fP & loc)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "toml::detail::region::region (\fBlocation\fP && loc)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "toml::detail::region::region (const \fBlocation\fP & loc, \fBconst_iterator\fP f, \fBconst_iterator\fP l)\fC [inline]\fP"
+
+.SS "toml::detail::region::region (\fBlocation\fP && loc, \fBconst_iterator\fP f, \fBconst_iterator\fP l)\fC [inline]\fP"
+
+.SS "toml::detail::region::region (const \fBregion\fP &)\fC [default]\fP"
+
+.SS "toml::detail::region::region (\fBregion\fP &&)\fC [default]\fP"
+
+.SS "toml::detail::region::~region ()\fC [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "std::size_t toml::detail::region::after () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP, \fC [noexcept]\fP"
+
+.PP
+Reimplemented from \fBtoml::detail::region_base\fP\&.
+.SS "std::size_t toml::detail::region::before () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP, \fC [noexcept]\fP"
+
+.PP
+Reimplemented from \fBtoml::detail::region_base\fP\&.
+.SS "\fBconst_iterator\fP toml::detail::region::begin () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "std::vector< std::string > toml::detail::region::comments () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBtoml::detail::region_base\fP\&.
+.SS "bool toml::detail::region::contain_newline () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBconst_iterator\fP toml::detail::region::end () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBconst_iterator\fP toml::detail::region::first () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "char toml::detail::region::front () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP, \fC [noexcept]\fP"
+
+.PP
+Reimplemented from \fBtoml::detail::region_base\fP\&.
+.SS "bool toml::detail::region::is_ok () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP, \fC [noexcept]\fP"
+
+.PP
+Reimplemented from \fBtoml::detail::region_base\fP\&.
+.SS "\fBconst_iterator\fP toml::detail::region::last () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "std::string toml::detail::region::line () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBtoml::detail::region_base\fP\&.
+.SS "\fBconst_iterator\fP toml::detail::region::line_begin () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBconst_iterator\fP toml::detail::region::line_end () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "std::string toml::detail::region::line_num () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBtoml::detail::region_base\fP\&.
+.SS "std::string toml::detail::region::name () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBtoml::detail::region_base\fP\&.
+.SS "\fBregion\fP & toml::detail::region::operator+= (const \fBregion\fP & other)\fC [inline]\fP"
+
+.SS "\fBregion\fP & toml::detail::region::operator= (const \fBregion\fP &)\fC [default]\fP"
+
+.SS "\fBregion\fP & toml::detail::region::operator= (\fBregion\fP &&)\fC [default]\fP"
+
+.SS "std::size_t toml::detail::region::size () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP, \fC [noexcept]\fP"
+
+.PP
+Reimplemented from \fBtoml::detail::region_base\fP\&.
+.SS "\fBsource_ptr\fP && toml::detail::region::source () &&\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBsource_ptr\fP const  & toml::detail::region::source () const &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "std::string toml::detail::region::str () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented from \fBtoml::detail::region_base\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

@@ -1,0 +1,234 @@
+\hypertarget{string_8hpp_source}{}\doxysection{string.\+hpp}
+\label{string_8hpp_source}\index{external/toml/string.hpp@{external/toml/string.hpp}}
+\mbox{\hyperlink{string_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//     Copyright Toru Niina 2017.}}
+\DoxyCodeLine{2 \textcolor{comment}{// Distributed under the MIT License.}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifndef TOML11\_STRING\_HPP}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TOML11\_STRING\_HPP}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{version_8hpp}{version.hpp}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#if TOML11\_CPLUSPLUS\_STANDARD\_VERSION >= 201703L}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#if \_\_has\_include(<string\_view>)}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define TOML11\_USING\_STRING\_VIEW 1}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <string\_view>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetoml}{toml}}}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{enum class} \mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19a}{string\_t}} : std::uint8\_t}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     \mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19aaf17aaabc20bfe045075927934fed52d2}{basic}}   = 0,}
+\DoxyCodeLine{26     \mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19aaf0d674f1e0ed4292267f149c5983db02}{literal}} = 1,}
+\DoxyCodeLine{27 \};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1string}{string}}}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31     \mbox{\hyperlink{structtoml_1_1string_a5f3999cc1ecc7a7677fef95f662500f6}{string}}()  = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{32     \mbox{\hyperlink{structtoml_1_1string_a2f55dc01f6f320de416eb17c45379ebf}{\string~string}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{33     \mbox{\hyperlink{structtoml_1_1string_ac9ee59aa2badcb4af232e2c23c41d9c4}{string}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& s) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{34     \mbox{\hyperlink{structtoml_1_1string_a283b03aafc980b95234d455a2312eaf8}{string}}(\textcolor{keywordtype}{string}\&\& s)      = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{35     \textcolor{keywordtype}{string}\& \mbox{\hyperlink{structtoml_1_1string_abb79c08ca519611f2bc734ec91f83a2c}{operator=}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& s) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{36     \textcolor{keywordtype}{string}\& \mbox{\hyperlink{structtoml_1_1string_a5781bc882f3a60fcfd695825a4c55361}{operator=}}(\textcolor{keywordtype}{string}\&\& s)      = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \mbox{\hyperlink{structtoml_1_1string_a95296f0fc36bcd35863a34bee5ec56ae}{string}}(\textcolor{keyword}{const} std::string\& s): \mbox{\hyperlink{structtoml_1_1string_a18fe37d79cc0714a21301b29eaf946c1}{kind}}(\mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19a}{string\_t}}::\mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19aaf17aaabc20bfe045075927934fed52d2}{basic}}), \mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}}(s)\{\}}
+\DoxyCodeLine{39     \mbox{\hyperlink{structtoml_1_1string_a81362490c9ff0407f7e6c5dcff577cb6}{string}}(\textcolor{keyword}{const} std::string\& s, \mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19a}{string\_t}} k):   \mbox{\hyperlink{structtoml_1_1string_a18fe37d79cc0714a21301b29eaf946c1}{kind}}(k), \mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}}(s)\{\}}
+\DoxyCodeLine{40     \mbox{\hyperlink{structtoml_1_1string_ae119387bc15a2623894654e855e25209}{string}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* s):        \mbox{\hyperlink{structtoml_1_1string_a18fe37d79cc0714a21301b29eaf946c1}{kind}}(\mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19a}{string\_t}}::\mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19aaf17aaabc20bfe045075927934fed52d2}{basic}}), \mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}}(s)\{\}}
+\DoxyCodeLine{41     \mbox{\hyperlink{structtoml_1_1string_a178448dbe5454516827e1fb340c717bf}{string}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* s,        \mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19a}{string\_t}} k):   \mbox{\hyperlink{structtoml_1_1string_a18fe37d79cc0714a21301b29eaf946c1}{kind}}(k), \mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}}(s)\{\}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \mbox{\hyperlink{structtoml_1_1string_a2505f06503d6995ece949b5ad6e94ec5}{string}}(std::string\&\& s): \mbox{\hyperlink{structtoml_1_1string_a18fe37d79cc0714a21301b29eaf946c1}{kind}}(\mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19a}{string\_t}}::\mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19aaf17aaabc20bfe045075927934fed52d2}{basic}}), \mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}}(std::move(s))\{\}}
+\DoxyCodeLine{44     \mbox{\hyperlink{structtoml_1_1string_a5fa2846cf94e6d4ff48e9e63bf67b0f3}{string}}(std::string\&\& s, \mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19a}{string\_t}} k):   \mbox{\hyperlink{structtoml_1_1string_a18fe37d79cc0714a21301b29eaf946c1}{kind}}(k), \mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}}(std::move(s))\{\}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keywordtype}{string}\& \mbox{\hyperlink{structtoml_1_1string_a59c4284332dcd926f87249fc9e84cf81}{operator=}}(\textcolor{keyword}{const} std::string\& s)}
+\DoxyCodeLine{47     \{\mbox{\hyperlink{structtoml_1_1string_a18fe37d79cc0714a21301b29eaf946c1}{kind}} = \mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19aaf17aaabc20bfe045075927934fed52d2}{string\_t::basic}}; \mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} = s; \textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{48     \textcolor{keywordtype}{string}\& \mbox{\hyperlink{structtoml_1_1string_a0ebb5e8d76ed9ac14e7a9dcd929db558}{operator=}}(std::string\&\& s)}
+\DoxyCodeLine{49     \{\mbox{\hyperlink{structtoml_1_1string_a18fe37d79cc0714a21301b29eaf946c1}{kind}} = \mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19aaf17aaabc20bfe045075927934fed52d2}{string\_t::basic}}; \mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} = std::move(s); \textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keyword}{operator} std::string\&       () \&      \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};\}}
+\DoxyCodeLine{52     \textcolor{keyword}{operator} std::string \textcolor{keyword}{const}\& () \textcolor{keyword}{const}\& \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};\}}
+\DoxyCodeLine{53     \textcolor{keyword}{operator} std::string\&\&      () \&\&     \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} std::move(\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}});\}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordtype}{string}\& \mbox{\hyperlink{structtoml_1_1string_a911acfd5e9656b26bc0fab6e179ebfde}{operator+=}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}*        rhs) \{\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} += rhs; \textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{56     \textcolor{keywordtype}{string}\& \mbox{\hyperlink{structtoml_1_1string_a3015cd54e087aea2ec279293db070092}{operator+=}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}         rhs) \{\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} += rhs; \textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{57     \textcolor{keywordtype}{string}\& \mbox{\hyperlink{structtoml_1_1string_a00b4c3bb56be07a86100962459a065ce}{operator+=}}(\textcolor{keyword}{const} std::string\& rhs) \{\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} += rhs; \textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{58     \textcolor{keywordtype}{string}\& \mbox{\hyperlink{structtoml_1_1string_ab588509f5ca98c850a105b434d9a0297}{operator+=}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\&      rhs) \{\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} += rhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}}; \textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#if defined(TOML11\_USING\_STRING\_VIEW) \&\& TOML11\_USING\_STRING\_VIEW>0}}
+\DoxyCodeLine{61     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1string_a5f3999cc1ecc7a7677fef95f662500f6}{string}}(std::string\_view s): \mbox{\hyperlink{structtoml_1_1string_a18fe37d79cc0714a21301b29eaf946c1}{kind}}(\mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19a}{string\_t}}::\mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19aaf17aaabc20bfe045075927934fed52d2}{basic}}), \mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}}(s)\{\}}
+\DoxyCodeLine{62     \mbox{\hyperlink{structtoml_1_1string_a5f3999cc1ecc7a7677fef95f662500f6}{string}}(std::string\_view s, \mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19a}{string\_t}} k): \mbox{\hyperlink{structtoml_1_1string_a18fe37d79cc0714a21301b29eaf946c1}{kind}}(k), \mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}}(s)\{\}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keywordtype}{string}\& \mbox{\hyperlink{structtoml_1_1string_abb79c08ca519611f2bc734ec91f83a2c}{operator=}}(std::string\_view s)}
+\DoxyCodeLine{65     \{\mbox{\hyperlink{structtoml_1_1string_a18fe37d79cc0714a21301b29eaf946c1}{kind}} = \mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19aaf17aaabc20bfe045075927934fed52d2}{string\_t::basic}}; \mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} = s; \textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keyword}{explicit} \textcolor{keyword}{operator} std::string\_view() const noexcept}
+\DoxyCodeLine{68     \{\textcolor{keywordflow}{return} std::string\_view(\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}});\}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{string}\& \mbox{\hyperlink{structtoml_1_1string_a911acfd5e9656b26bc0fab6e179ebfde}{operator+=}}(\textcolor{keyword}{const} std::string\_view\& rhs) \{\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} += rhs; \textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19a}{string\_t}}    \mbox{\hyperlink{structtoml_1_1string_a18fe37d79cc0714a21301b29eaf946c1}{kind}};}
+\DoxyCodeLine{74     std::string \mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};}
+\DoxyCodeLine{75 \};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_ae9ac58857cfdda9535ef98266b65304b}{operator==}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& rhs)}
+\DoxyCodeLine{78 \{}
+\DoxyCodeLine{79     \textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{structtoml_1_1string_a18fe37d79cc0714a21301b29eaf946c1}{kind}} == rhs.\mbox{\hyperlink{structtoml_1_1string_a18fe37d79cc0714a21301b29eaf946c1}{kind}} \&\& lhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} == rhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};}
+\DoxyCodeLine{80 \}}
+\DoxyCodeLine{81 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a03e338a600f118cd5c5d3e7fee31f6c6}{operator!=}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& rhs)}
+\DoxyCodeLine{82 \{}
+\DoxyCodeLine{83     \textcolor{keywordflow}{return} !(lhs == rhs);}
+\DoxyCodeLine{84 \}}
+\DoxyCodeLine{85 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_acbb3a32f389eaf9e5097d2b23df77b4e}{operator<}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& rhs)}
+\DoxyCodeLine{86 \{}
+\DoxyCodeLine{87     \textcolor{keywordflow}{return} (lhs.\mbox{\hyperlink{structtoml_1_1string_a18fe37d79cc0714a21301b29eaf946c1}{kind}} == rhs.\mbox{\hyperlink{structtoml_1_1string_a18fe37d79cc0714a21301b29eaf946c1}{kind}}) ? (lhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} < rhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}}) : (lhs.\mbox{\hyperlink{structtoml_1_1string_a18fe37d79cc0714a21301b29eaf946c1}{kind}} < rhs.\mbox{\hyperlink{structtoml_1_1string_a18fe37d79cc0714a21301b29eaf946c1}{kind}});}
+\DoxyCodeLine{88 \}}
+\DoxyCodeLine{89 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a993726b0c054cbf5b20674f14690d6ed}{operator>}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& rhs)}
+\DoxyCodeLine{90 \{}
+\DoxyCodeLine{91     \textcolor{keywordflow}{return} rhs < lhs;}
+\DoxyCodeLine{92 \}}
+\DoxyCodeLine{93 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a17f8791df6efda2a712efa14c334c33d}{operator<=}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& rhs)}
+\DoxyCodeLine{94 \{}
+\DoxyCodeLine{95     \textcolor{keywordflow}{return} !(rhs < lhs);}
+\DoxyCodeLine{96 \}}
+\DoxyCodeLine{97 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a6b51fe3d00e083b549644d994bd547c7}{operator>=}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& rhs)}
+\DoxyCodeLine{98 \{}
+\DoxyCodeLine{99     \textcolor{keywordflow}{return} !(lhs < rhs);}
+\DoxyCodeLine{100 \}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{103 \mbox{\hyperlink{namespacetoml_ae9ac58857cfdda9535ef98266b65304b}{operator==}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& lhs, \textcolor{keyword}{const} std::string\& rhs) \{\textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} == rhs;\}}
+\DoxyCodeLine{104 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{105 \mbox{\hyperlink{namespacetoml_a03e338a600f118cd5c5d3e7fee31f6c6}{operator!=}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& lhs, \textcolor{keyword}{const} std::string\& rhs) \{\textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} != rhs;\}}
+\DoxyCodeLine{106 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{107 \mbox{\hyperlink{namespacetoml_acbb3a32f389eaf9e5097d2b23df77b4e}{operator< }}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& lhs, \textcolor{keyword}{const} std::string\& rhs) \{\textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} <  rhs;\}}
+\DoxyCodeLine{108 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{109 \mbox{\hyperlink{namespacetoml_a993726b0c054cbf5b20674f14690d6ed}{operator> }}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& lhs, \textcolor{keyword}{const} std::string\& rhs) \{\textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} >  rhs;\}}
+\DoxyCodeLine{110 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{111 \mbox{\hyperlink{namespacetoml_a17f8791df6efda2a712efa14c334c33d}{operator<=}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& lhs, \textcolor{keyword}{const} std::string\& rhs) \{\textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} <= rhs;\}}
+\DoxyCodeLine{112 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{113 \mbox{\hyperlink{namespacetoml_a6b51fe3d00e083b549644d994bd547c7}{operator>=}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& lhs, \textcolor{keyword}{const} std::string\& rhs) \{\textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} >= rhs;\}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{116 \mbox{\hyperlink{namespacetoml_ae9ac58857cfdda9535ef98266b65304b}{operator==}}(\textcolor{keyword}{const} std::string\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& rhs) \{\textcolor{keywordflow}{return} lhs == rhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};\}}
+\DoxyCodeLine{117 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{118 \mbox{\hyperlink{namespacetoml_a03e338a600f118cd5c5d3e7fee31f6c6}{operator!=}}(\textcolor{keyword}{const} std::string\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& rhs) \{\textcolor{keywordflow}{return} lhs != rhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};\}}
+\DoxyCodeLine{119 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{120 \mbox{\hyperlink{namespacetoml_acbb3a32f389eaf9e5097d2b23df77b4e}{operator< }}(\textcolor{keyword}{const} std::string\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& rhs) \{\textcolor{keywordflow}{return} lhs <  rhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};\}}
+\DoxyCodeLine{121 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{122 \mbox{\hyperlink{namespacetoml_a993726b0c054cbf5b20674f14690d6ed}{operator> }}(\textcolor{keyword}{const} std::string\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& rhs) \{\textcolor{keywordflow}{return} lhs >  rhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};\}}
+\DoxyCodeLine{123 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{124 \mbox{\hyperlink{namespacetoml_a17f8791df6efda2a712efa14c334c33d}{operator<=}}(\textcolor{keyword}{const} std::string\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& rhs) \{\textcolor{keywordflow}{return} lhs <= rhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};\}}
+\DoxyCodeLine{125 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{126 \mbox{\hyperlink{namespacetoml_a6b51fe3d00e083b549644d994bd547c7}{operator>=}}(\textcolor{keyword}{const} std::string\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& rhs) \{\textcolor{keywordflow}{return} lhs >= rhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};\}}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{129 \mbox{\hyperlink{namespacetoml_ae9ac58857cfdda9535ef98266b65304b}{operator==}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* rhs) \{\textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} == std::string(rhs);\}}
+\DoxyCodeLine{130 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{131 \mbox{\hyperlink{namespacetoml_a03e338a600f118cd5c5d3e7fee31f6c6}{operator!=}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* rhs) \{\textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} != std::string(rhs);\}}
+\DoxyCodeLine{132 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{133 \mbox{\hyperlink{namespacetoml_acbb3a32f389eaf9e5097d2b23df77b4e}{operator< }}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* rhs) \{\textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} <  std::string(rhs);\}}
+\DoxyCodeLine{134 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{135 \mbox{\hyperlink{namespacetoml_a993726b0c054cbf5b20674f14690d6ed}{operator> }}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* rhs) \{\textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} >  std::string(rhs);\}}
+\DoxyCodeLine{136 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{137 \mbox{\hyperlink{namespacetoml_a17f8791df6efda2a712efa14c334c33d}{operator<=}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* rhs) \{\textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} <= std::string(rhs);\}}
+\DoxyCodeLine{138 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{139 \mbox{\hyperlink{namespacetoml_a6b51fe3d00e083b549644d994bd547c7}{operator>=}}(\textcolor{keyword}{const} \textcolor{keywordtype}{string}\& lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* rhs) \{\textcolor{keywordflow}{return} lhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}} >= std::string(rhs);\}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{142 \mbox{\hyperlink{namespacetoml_ae9ac58857cfdda9535ef98266b65304b}{operator==}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& rhs) \{\textcolor{keywordflow}{return} std::string(lhs) == rhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};\}}
+\DoxyCodeLine{143 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{144 \mbox{\hyperlink{namespacetoml_a03e338a600f118cd5c5d3e7fee31f6c6}{operator!=}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& rhs) \{\textcolor{keywordflow}{return} std::string(lhs) != rhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};\}}
+\DoxyCodeLine{145 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{146 \mbox{\hyperlink{namespacetoml_acbb3a32f389eaf9e5097d2b23df77b4e}{operator< }}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& rhs) \{\textcolor{keywordflow}{return} std::string(lhs) <  rhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};\}}
+\DoxyCodeLine{147 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{148 \mbox{\hyperlink{namespacetoml_a993726b0c054cbf5b20674f14690d6ed}{operator> }}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& rhs) \{\textcolor{keywordflow}{return} std::string(lhs) >  rhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};\}}
+\DoxyCodeLine{149 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{150 \mbox{\hyperlink{namespacetoml_a17f8791df6efda2a712efa14c334c33d}{operator<=}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& rhs) \{\textcolor{keywordflow}{return} std::string(lhs) <= rhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};\}}
+\DoxyCodeLine{151 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool}}
+\DoxyCodeLine{152 \mbox{\hyperlink{namespacetoml_a6b51fe3d00e083b549644d994bd547c7}{operator>=}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* lhs, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& rhs) \{\textcolor{keywordflow}{return} std::string(lhs) >= rhs.\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};\}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 \textcolor{keyword}{template}<\textcolor{keyword}{typename} \textcolor{keywordtype}{char}T, \textcolor{keyword}{typename} traits>}
+\DoxyCodeLine{155 std::basic\_ostream<charT, traits>\&}
+\DoxyCodeLine{156 \mbox{\hyperlink{namespacetoml_a11b17eff44b8e4b0b49c85cc34e241c7}{operator<<}}(std::basic\_ostream<charT, traits>\& os, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& s)}
+\DoxyCodeLine{157 \{}
+\DoxyCodeLine{158     \textcolor{keywordflow}{if}(s.kind == \mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19aaf17aaabc20bfe045075927934fed52d2}{string\_t::basic}})}
+\DoxyCodeLine{159     \{}
+\DoxyCodeLine{160         \textcolor{keywordflow}{if}(\mbox{\hyperlink{namespacetoml_a31abd17e078e497fb224d79260910b8d}{std::find}}(s.str.cbegin(), s.str.cend(), \textcolor{charliteral}{'\(\backslash\)n'}) != s.str.cend())}
+\DoxyCodeLine{161         \{}
+\DoxyCodeLine{162             \textcolor{comment}{// it contains newline. make it multiline string.}}
+\DoxyCodeLine{163             os << \textcolor{stringliteral}{"{}\(\backslash\)"{}\(\backslash\)"{}\(\backslash\)"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{164             \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} i=s.str.cbegin(), e=s.str.cend(); i!=e; ++i)}
+\DoxyCodeLine{165             \{}
+\DoxyCodeLine{166                 \textcolor{keywordflow}{switch}(*i)}
+\DoxyCodeLine{167                 \{}
+\DoxyCodeLine{168                     \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'}: \{os << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"{}}; \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{169                     \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)"{}'}: \{os << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)"{}"{}}; \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{170                     \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)b'}: \{os << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)b"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{171                     \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)t'}: \{os << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)t"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{172                     \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)f'}: \{os << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)f"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{173                     \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)n'}: \{os << \textcolor{charliteral}{'\(\backslash\)n'};   \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{174                     \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)r'}:}
+\DoxyCodeLine{175                     \{}
+\DoxyCodeLine{176                         \textcolor{comment}{// since it is a multiline string,}}
+\DoxyCodeLine{177                         \textcolor{comment}{// CRLF is not needed to be escaped.}}
+\DoxyCodeLine{178                         \textcolor{keywordflow}{if}(std::next(i) != e \&\& *std::next(i) == \textcolor{charliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{179                         \{}
+\DoxyCodeLine{180                             os << \textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{181                             ++i;}
+\DoxyCodeLine{182                         \}}
+\DoxyCodeLine{183                         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{184                         \{}
+\DoxyCodeLine{185                             os << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)r"{}};}
+\DoxyCodeLine{186                         \}}
+\DoxyCodeLine{187                         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{188                     \}}
+\DoxyCodeLine{189                     \textcolor{keywordflow}{default}: \{os << *i; \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{190                 \}}
+\DoxyCodeLine{191             \}}
+\DoxyCodeLine{192             os << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)n\(\backslash\)"{}\(\backslash\)"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{193             \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{194         \}}
+\DoxyCodeLine{195         \textcolor{comment}{// no newline. make it inline.}}
+\DoxyCodeLine{196         os << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{197         \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto} c : s.str)}
+\DoxyCodeLine{198         \{}
+\DoxyCodeLine{199             \textcolor{keywordflow}{switch}(c)}
+\DoxyCodeLine{200             \{}
+\DoxyCodeLine{201                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)\(\backslash\)'}: \{os << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"{}}; \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{202                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)"{}'}: \{os << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)"{}"{}}; \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{203                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)b'}: \{os << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)b"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{204                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)t'}: \{os << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)t"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{205                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)f'}: \{os << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)f"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{206                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)n'}: \{os << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)n"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{207                 \textcolor{keywordflow}{case} \textcolor{charliteral}{'\(\backslash\)r'}: \{os << \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)r"{}};  \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{208                 default  : \{os << c;      \textcolor{keywordflow}{break};\}}
+\DoxyCodeLine{209             \}}
+\DoxyCodeLine{210         \}}
+\DoxyCodeLine{211         os << \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{212         \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{213     \}}
+\DoxyCodeLine{214     \textcolor{comment}{// the string `s` is literal-\/string.}}
+\DoxyCodeLine{215     \textcolor{keywordflow}{if}(\mbox{\hyperlink{namespacetoml_a31abd17e078e497fb224d79260910b8d}{std::find}}(s.str.cbegin(), s.str.cend(), \textcolor{charliteral}{'\(\backslash\)n'}) != s.str.cend() ||}
+\DoxyCodeLine{216        \mbox{\hyperlink{namespacetoml_a31abd17e078e497fb224d79260910b8d}{std::find}}(s.str.cbegin(), s.str.cend(), \textcolor{charliteral}{'\(\backslash\)''}) != s.str.cend() )}
+\DoxyCodeLine{217     \{}
+\DoxyCodeLine{218         \textcolor{comment}{// contains newline or single quote. make it multiline.}}
+\DoxyCodeLine{219         os << \textcolor{stringliteral}{"{}'''\(\backslash\)n"{}} << s.str << \textcolor{stringliteral}{"{}'''"{}};}
+\DoxyCodeLine{220         \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{221     \}}
+\DoxyCodeLine{222     \textcolor{comment}{// normal literal string}}
+\DoxyCodeLine{223     os << \textcolor{charliteral}{'\(\backslash\)''} << s.str << \textcolor{charliteral}{'\(\backslash\)''};}
+\DoxyCodeLine{224     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{225 \}}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227 \} \textcolor{comment}{// toml}}
+\DoxyCodeLine{228 \textcolor{preprocessor}{\#endif}\textcolor{comment}{// TOML11\_STRING\_H}}
+
+\end{DoxyCode}

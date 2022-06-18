@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1index__sequence__maker" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::index_sequence_maker</compoundname>
+    <includes refid="traits_8hpp" local="no">traits.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>std::size_t</type>
+        <declname>N</declname>
+        <defname>N</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structtoml_1_1detail_1_1index__sequence__maker_1a69ea22419bc58b1bbb9e05e3cacdcf62" prot="public" static="no">
+        <type><ref refid="structtoml_1_1detail_1_1push__back__index__sequence" kindref="compound">push_back_index_sequence</ref>&lt; typenameindex_sequence_maker&lt; N-1 &gt;::type, N &gt;::type</type>
+        <definition>typedef push_back_index_sequence&lt;typenameindex_sequence_maker&lt;N-1&gt;::type,N&gt;::type toml::detail::index_sequence_maker&lt; N &gt;::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>toml::detail::index_sequence_maker::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/traits.hpp" line="257" column="10" bodyfile="external/toml/traits.hpp" bodystart="257" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/traits.hpp" line="254" column="1" bodyfile="external/toml/traits.hpp" bodystart="255" bodyend="258"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1detail_1_1index__sequence__maker_1a69ea22419bc58b1bbb9e05e3cacdcf62" prot="public" virt="non-virtual"><scope>toml::detail::index_sequence_maker</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

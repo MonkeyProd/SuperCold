@@ -1,0 +1,384 @@
+.TH "toml::result< T, E >" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::result< T, E >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <result\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBvalue_type\fP = T"
+.br
+.ti -1c
+.RI "using \fBerror_type\fP = E"
+.br
+.ti -1c
+.RI "using \fBsuccess_type\fP = \fBsuccess\fP< \fBvalue_type\fP >"
+.br
+.ti -1c
+.RI "using \fBfailure_type\fP = \fBfailure\fP< \fBerror_type\fP >"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBresult\fP (const \fBsuccess_type\fP &s)"
+.br
+.ti -1c
+.RI "\fBresult\fP (const \fBfailure_type\fP &f)"
+.br
+.ti -1c
+.RI "\fBresult\fP (\fBsuccess_type\fP &&s)"
+.br
+.ti -1c
+.RI "\fBresult\fP (\fBfailure_type\fP &&f)"
+.br
+.ti -1c
+.RI "template<typename U > \fBresult\fP (const \fBsuccess\fP< U > &s)"
+.br
+.ti -1c
+.RI "template<typename U > \fBresult\fP (const \fBfailure\fP< U > &f)"
+.br
+.ti -1c
+.RI "template<typename U > \fBresult\fP (\fBsuccess\fP< U > &&s)"
+.br
+.ti -1c
+.RI "template<typename U > \fBresult\fP (\fBfailure\fP< U > &&f)"
+.br
+.ti -1c
+.RI "\fBresult\fP & \fBoperator=\fP (const \fBsuccess_type\fP &s)"
+.br
+.ti -1c
+.RI "\fBresult\fP & \fBoperator=\fP (const \fBfailure_type\fP &f)"
+.br
+.ti -1c
+.RI "\fBresult\fP & \fBoperator=\fP (\fBsuccess_type\fP &&s)"
+.br
+.ti -1c
+.RI "\fBresult\fP & \fBoperator=\fP (\fBfailure_type\fP &&f)"
+.br
+.ti -1c
+.RI "template<typename U > \fBresult\fP & \fBoperator=\fP (const \fBsuccess\fP< U > &s)"
+.br
+.ti -1c
+.RI "template<typename U > \fBresult\fP & \fBoperator=\fP (const \fBfailure\fP< U > &f)"
+.br
+.ti -1c
+.RI "template<typename U > \fBresult\fP & \fBoperator=\fP (\fBsuccess\fP< U > &&s)"
+.br
+.ti -1c
+.RI "template<typename U > \fBresult\fP & \fBoperator=\fP (\fBfailure\fP< U > &&f)"
+.br
+.ti -1c
+.RI "\fB~result\fP () noexcept"
+.br
+.ti -1c
+.RI "\fBresult\fP (const \fBresult\fP &other)"
+.br
+.ti -1c
+.RI "\fBresult\fP (\fBresult\fP &&other)"
+.br
+.ti -1c
+.RI "template<typename U , typename F > \fBresult\fP (const \fBresult\fP< U, F > &other)"
+.br
+.ti -1c
+.RI "template<typename U , typename F > \fBresult\fP (\fBresult\fP< U, F > &&other)"
+.br
+.ti -1c
+.RI "\fBresult\fP & \fBoperator=\fP (const \fBresult\fP &other)"
+.br
+.ti -1c
+.RI "\fBresult\fP & \fBoperator=\fP (\fBresult\fP &&other)"
+.br
+.ti -1c
+.RI "template<typename U , typename F > \fBresult\fP & \fBoperator=\fP (const \fBresult\fP< U, F > &other)"
+.br
+.ti -1c
+.RI "template<typename U , typename F > \fBresult\fP & \fBoperator=\fP (\fBresult\fP< U, F > &&other)"
+.br
+.ti -1c
+.RI "bool \fBis_ok\fP () const noexcept"
+.br
+.ti -1c
+.RI "bool \fBis_err\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBoperator bool\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP & \fBunwrap\fP () &"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP const & \fBunwrap\fP () const &"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP && \fBunwrap\fP () &&"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP & \fBunwrap_or\fP (\fBvalue_type\fP &opt) &"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP const & \fBunwrap_or\fP (\fBvalue_type\fP const &opt) const &"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP \fBunwrap_or\fP (\fBvalue_type\fP opt) &&"
+.br
+.ti -1c
+.RI "\fBerror_type\fP & \fBunwrap_err\fP () &"
+.br
+.ti -1c
+.RI "\fBerror_type\fP const & \fBunwrap_err\fP () const &"
+.br
+.ti -1c
+.RI "\fBerror_type\fP && \fBunwrap_err\fP () &&"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP & \fBas_ok\fP () &noexcept"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP const & \fBas_ok\fP () const &noexcept"
+.br
+.ti -1c
+.RI "\fBvalue_type\fP && \fBas_ok\fP () &&noexcept"
+.br
+.ti -1c
+.RI "\fBerror_type\fP & \fBas_err\fP () &noexcept"
+.br
+.ti -1c
+.RI "\fBerror_type\fP const & \fBas_err\fP () const &noexcept"
+.br
+.ti -1c
+.RI "\fBerror_type\fP && \fBas_err\fP () &&noexcept"
+.br
+.ti -1c
+.RI "template<typename F > \fBresult\fP< \fBdetail::return_type_of_t\fP< F, \fBvalue_type\fP & >, \fBerror_type\fP > \fBmap\fP (F &&f) &"
+.br
+.ti -1c
+.RI "template<typename F > \fBresult\fP< \fBdetail::return_type_of_t\fP< F, \fBvalue_type\fP const & >, \fBerror_type\fP > \fBmap\fP (F &&f) const &"
+.br
+.ti -1c
+.RI "template<typename F > \fBresult\fP< \fBdetail::return_type_of_t\fP< F, \fBvalue_type\fP && >, \fBerror_type\fP > \fBmap\fP (F &&f) &&"
+.br
+.ti -1c
+.RI "template<typename F > \fBresult\fP< \fBvalue_type\fP, \fBdetail::return_type_of_t\fP< F, \fBerror_type\fP & > > \fBmap_err\fP (F &&f) &"
+.br
+.ti -1c
+.RI "template<typename F > \fBresult\fP< \fBvalue_type\fP, \fBdetail::return_type_of_t\fP< F, \fBerror_type\fP const & > > \fBmap_err\fP (F &&f) const &"
+.br
+.ti -1c
+.RI "template<typename F > \fBresult\fP< \fBvalue_type\fP, \fBdetail::return_type_of_t\fP< F, \fBerror_type\fP && > > \fBmap_err\fP (F &&f) &&"
+.br
+.ti -1c
+.RI "template<typename F , typename U > \fBdetail::return_type_of_t\fP< F, \fBvalue_type\fP & > \fBmap_or_else\fP (F &&f, U &&opt) &"
+.br
+.ti -1c
+.RI "template<typename F , typename U > \fBdetail::return_type_of_t\fP< F, \fBvalue_type\fP const & > \fBmap_or_else\fP (F &&f, U &&opt) const &"
+.br
+.ti -1c
+.RI "template<typename F , typename U > \fBdetail::return_type_of_t\fP< F, \fBvalue_type\fP && > \fBmap_or_else\fP (F &&f, U &&opt) &&"
+.br
+.ti -1c
+.RI "template<typename F , typename U > \fBdetail::return_type_of_t\fP< F, \fBerror_type\fP & > \fBmap_err_or_else\fP (F &&f, U &&opt) &"
+.br
+.ti -1c
+.RI "template<typename F , typename U > \fBdetail::return_type_of_t\fP< F, \fBerror_type\fP const & > \fBmap_err_or_else\fP (F &&f, U &&opt) const &"
+.br
+.ti -1c
+.RI "template<typename F , typename U > \fBdetail::return_type_of_t\fP< F, \fBerror_type\fP && > \fBmap_err_or_else\fP (F &&f, U &&opt) &&"
+.br
+.ti -1c
+.RI "template<typename F > \fBdetail::return_type_of_t\fP< F, \fBvalue_type\fP & > \fBand_then\fP (F &&f) &"
+.br
+.ti -1c
+.RI "template<typename F > \fBdetail::return_type_of_t\fP< F, \fBvalue_type\fP const & > \fBand_then\fP (F &&f) const &"
+.br
+.ti -1c
+.RI "template<typename F > \fBdetail::return_type_of_t\fP< F, \fBvalue_type\fP && > \fBand_then\fP (F &&f) &&"
+.br
+.ti -1c
+.RI "template<typename F > \fBdetail::return_type_of_t\fP< F, \fBerror_type\fP & > \fBor_else\fP (F &&f) &"
+.br
+.ti -1c
+.RI "template<typename F > \fBdetail::return_type_of_t\fP< F, \fBerror_type\fP const & > \fBor_else\fP (F &&f) const &"
+.br
+.ti -1c
+.RI "template<typename F > \fBdetail::return_type_of_t\fP< F, \fBerror_type\fP && > \fBor_else\fP (F &&f) &&"
+.br
+.ti -1c
+.RI "\fBresult\fP \fBand_other\fP (const \fBresult\fP &other) const &"
+.br
+.ti -1c
+.RI "\fBresult\fP \fBand_other\fP (\fBresult\fP &&other) &&"
+.br
+.ti -1c
+.RI "\fBresult\fP \fBor_other\fP (const \fBresult\fP &other) const &"
+.br
+.ti -1c
+.RI "\fBresult\fP \fBor_other\fP (\fBresult\fP &&other) &&"
+.br
+.ti -1c
+.RI "void \fBswap\fP (\fBresult\fP< T, E > &other)"
+.br
+.in -1c
+.SH "Member Typedef Documentation"
+.PP 
+.SS "template<typename T , typename E > using \fBtoml::result\fP< T, E >::error_type =  E"
+
+.SS "template<typename T , typename E > using \fBtoml::result\fP< T, E >::failure_type =  \fBfailure\fP<\fBerror_type\fP>"
+
+.SS "template<typename T , typename E > using \fBtoml::result\fP< T, E >::success_type =  \fBsuccess\fP<\fBvalue_type\fP>"
+
+.SS "template<typename T , typename E > using \fBtoml::result\fP< T, E >::value_type =  T"
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T , typename E > \fBtoml::result\fP< T, E >::result (const \fBsuccess_type\fP & s)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBtoml::result\fP< T, E >::result (const \fBfailure_type\fP & f)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBtoml::result\fP< T, E >::result (\fBsuccess_type\fP && s)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBtoml::result\fP< T, E >::result (\fBfailure_type\fP && f)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename U > \fBtoml::result\fP< T, E >::result (const \fBsuccess\fP< U > & s)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename U > \fBtoml::result\fP< T, E >::result (const \fBfailure\fP< U > & f)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename U > \fBtoml::result\fP< T, E >::result (\fBsuccess\fP< U > && s)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename U > \fBtoml::result\fP< T, E >::result (\fBfailure\fP< U > && f)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBtoml::result\fP< T, E >::~\fBresult\fP ()\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , typename E > \fBtoml::result\fP< T, E >::result (const \fBresult\fP< T, E > & other)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBtoml::result\fP< T, E >::result (\fBresult\fP< T, E > && other)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename U , typename F > \fBtoml::result\fP< T, E >::result (const \fBresult\fP< U, F > & other)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename U , typename F > \fBtoml::result\fP< T, E >::result (\fBresult\fP< U, F > && other)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T , typename E > \fBresult\fP \fBtoml::result\fP< T, E >::and_other (const \fBresult\fP< T, E > & other) const &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBresult\fP \fBtoml::result\fP< T, E >::and_other (\fBresult\fP< T, E > && other) &&\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename F > \fBdetail::return_type_of_t\fP< F, \fBvalue_type\fP & > \fBtoml::result\fP< T, E >::and_then (F && f) &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename F > \fBdetail::return_type_of_t\fP< F, \fBvalue_type\fP && > \fBtoml::result\fP< T, E >::and_then (F && f) &&\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename F > \fBdetail::return_type_of_t\fP< F, \fBvalue_type\fP const  & > \fBtoml::result\fP< T, E >::and_then (F && f) const &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBerror_type\fP && \fBtoml::result\fP< T, E >::as_err () &&\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , typename E > \fBerror_type\fP & \fBtoml::result\fP< T, E >::as_err () &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , typename E > \fBerror_type\fP const  & \fBtoml::result\fP< T, E >::as_err () const &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , typename E > \fBvalue_type\fP && \fBtoml::result\fP< T, E >::as_ok () &&\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , typename E > \fBvalue_type\fP & \fBtoml::result\fP< T, E >::as_ok () &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , typename E > \fBvalue_type\fP const  & \fBtoml::result\fP< T, E >::as_ok () const &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , typename E > bool \fBtoml::result\fP< T, E >::is_err () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , typename E > bool \fBtoml::result\fP< T, E >::is_ok () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , typename E > template<typename F > \fBresult\fP< \fBdetail::return_type_of_t\fP< F, \fBvalue_type\fP & >, \fBerror_type\fP > \fBtoml::result\fP< T, E >::map (F && f) &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename F > \fBresult\fP< \fBdetail::return_type_of_t\fP< F, \fBvalue_type\fP && >, \fBerror_type\fP > \fBtoml::result\fP< T, E >::map (F && f) &&\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename F > \fBresult\fP< \fBdetail::return_type_of_t\fP< F, \fBvalue_type\fP const  & >, \fBerror_type\fP > \fBtoml::result\fP< T, E >::map (F && f) const &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename F > \fBresult\fP< \fBvalue_type\fP, \fBdetail::return_type_of_t\fP< F, \fBerror_type\fP & > > \fBtoml::result\fP< T, E >::map_err (F && f) &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename F > \fBresult\fP< \fBvalue_type\fP, \fBdetail::return_type_of_t\fP< F, \fBerror_type\fP && > > \fBtoml::result\fP< T, E >::map_err (F && f) &&\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename F > \fBresult\fP< \fBvalue_type\fP, \fBdetail::return_type_of_t\fP< F, \fBerror_type\fP const  & > > \fBtoml::result\fP< T, E >::map_err (F && f) const &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename F , typename U > \fBdetail::return_type_of_t\fP< F, \fBerror_type\fP & > \fBtoml::result\fP< T, E >::map_err_or_else (F && f, U && opt) &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename F , typename U > \fBdetail::return_type_of_t\fP< F, \fBerror_type\fP && > \fBtoml::result\fP< T, E >::map_err_or_else (F && f, U && opt) &&\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename F , typename U > \fBdetail::return_type_of_t\fP< F, \fBerror_type\fP const  & > \fBtoml::result\fP< T, E >::map_err_or_else (F && f, U && opt) const &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename F , typename U > \fBdetail::return_type_of_t\fP< F, \fBvalue_type\fP & > \fBtoml::result\fP< T, E >::map_or_else (F && f, U && opt) &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename F , typename U > \fBdetail::return_type_of_t\fP< F, \fBvalue_type\fP && > \fBtoml::result\fP< T, E >::map_or_else (F && f, U && opt) &&\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename F , typename U > \fBdetail::return_type_of_t\fP< F, \fBvalue_type\fP const  & > \fBtoml::result\fP< T, E >::map_or_else (F && f, U && opt) const &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBtoml::result\fP< T, E >::operator bool () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , typename E > template<typename U > \fBresult\fP & \fBtoml::result\fP< T, E >::operator= (const \fBfailure\fP< U > & f)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBresult\fP & \fBtoml::result\fP< T, E >::operator= (const \fBfailure_type\fP & f)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBresult\fP & \fBtoml::result\fP< T, E >::operator= (const \fBresult\fP< T, E > & other)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename U , typename F > \fBresult\fP & \fBtoml::result\fP< T, E >::operator= (const \fBresult\fP< U, F > & other)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename U > \fBresult\fP & \fBtoml::result\fP< T, E >::operator= (const \fBsuccess\fP< U > & s)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBresult\fP & \fBtoml::result\fP< T, E >::operator= (const \fBsuccess_type\fP & s)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename U > \fBresult\fP & \fBtoml::result\fP< T, E >::operator= (\fBfailure\fP< U > && f)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBresult\fP & \fBtoml::result\fP< T, E >::operator= (\fBfailure_type\fP && f)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBresult\fP & \fBtoml::result\fP< T, E >::operator= (\fBresult\fP< T, E > && other)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename U , typename F > \fBresult\fP & \fBtoml::result\fP< T, E >::operator= (\fBresult\fP< U, F > && other)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename U > \fBresult\fP & \fBtoml::result\fP< T, E >::operator= (\fBsuccess\fP< U > && s)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBresult\fP & \fBtoml::result\fP< T, E >::operator= (\fBsuccess_type\fP && s)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename F > \fBdetail::return_type_of_t\fP< F, \fBerror_type\fP & > \fBtoml::result\fP< T, E >::or_else (F && f) &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename F > \fBdetail::return_type_of_t\fP< F, \fBerror_type\fP && > \fBtoml::result\fP< T, E >::or_else (F && f) &&\fC [inline]\fP"
+
+.SS "template<typename T , typename E > template<typename F > \fBdetail::return_type_of_t\fP< F, \fBerror_type\fP const  & > \fBtoml::result\fP< T, E >::or_else (F && f) const &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBresult\fP \fBtoml::result\fP< T, E >::or_other (const \fBresult\fP< T, E > & other) const &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBresult\fP \fBtoml::result\fP< T, E >::or_other (\fBresult\fP< T, E > && other) &&\fC [inline]\fP"
+
+.SS "template<typename T , typename E > void \fBtoml::result\fP< T, E >::swap (\fBresult\fP< T, E > & other)\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBvalue_type\fP & \fBtoml::result\fP< T, E >::unwrap () &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBvalue_type\fP && \fBtoml::result\fP< T, E >::unwrap () &&\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBvalue_type\fP const  & \fBtoml::result\fP< T, E >::unwrap () const &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBerror_type\fP & \fBtoml::result\fP< T, E >::unwrap_err () &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBerror_type\fP && \fBtoml::result\fP< T, E >::unwrap_err () &&\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBerror_type\fP const  & \fBtoml::result\fP< T, E >::unwrap_err () const &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBvalue_type\fP & \fBtoml::result\fP< T, E >::unwrap_or (\fBvalue_type\fP & opt) &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBvalue_type\fP const  & \fBtoml::result\fP< T, E >::unwrap_or (\fBvalue_type\fP const & opt) const &\fC [inline]\fP"
+
+.SS "template<typename T , typename E > \fBvalue_type\fP \fBtoml::result\fP< T, E >::unwrap_or (\fBvalue_type\fP opt) &&\fC [inline]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "template<typename T , typename E > \fBfailure_type\fP \fBtoml::result\fP< T, E >::fail"
+
+.SS "template<typename T , typename E > \fBsuccess_type\fP \fBtoml::result\fP< T, E >::succ"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

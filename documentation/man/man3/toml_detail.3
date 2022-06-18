@@ -1,0 +1,1243 @@
+.TH "toml::detail" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::detail
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBat_least\fP"
+.br
+.ti -1c
+.RI "struct \fBcharacter\fP"
+.br
+.ti -1c
+.RI "struct \fBconjunction\fP"
+.br
+.ti -1c
+.RI "struct \fBconjunction< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBconjunction< T, Ts\&.\&.\&. >\fP"
+.br
+.ti -1c
+.RI "struct \fBdisjunction\fP"
+.br
+.ti -1c
+.RI "struct \fBdisjunction< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBdisjunction< T, Ts\&.\&.\&. >\fP"
+.br
+.ti -1c
+.RI "struct \fBeither\fP"
+.br
+.ti -1c
+.RI "struct \fBeither< Head >\fP"
+.br
+.ti -1c
+.RI "struct \fBeither< Head, Tail\&.\&.\&. >\fP"
+.br
+.ti -1c
+.RI "struct \fBempty_iterator\fP"
+.br
+.ti -1c
+.RI "struct \fBenum_to_type\fP"
+.br
+.ti -1c
+.RI "struct \fBenum_to_type< value_t::array, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBenum_to_type< value_t::boolean, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBenum_to_type< value_t::empty, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBenum_to_type< value_t::floating, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBenum_to_type< value_t::integer, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBenum_to_type< value_t::local_date, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBenum_to_type< value_t::local_datetime, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBenum_to_type< value_t::local_time, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBenum_to_type< value_t::offset_datetime, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBenum_to_type< value_t::string, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBenum_to_type< value_t::table, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBexactly\fP"
+.br
+.ti -1c
+.RI "struct \fBexclude\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_from_toml_method\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_from_toml_method_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_into_toml_method\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_into_toml_method_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_iterator\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_iterator_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_key_type\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_key_type_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_mapped_type\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_mapped_type_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_push_back_method\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_push_back_method_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_reserve_method\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_reserve_method_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_specialized_from\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_specialized_from_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_specialized_into\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_specialized_into_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_value_type\fP"
+.br
+.ti -1c
+.RI "struct \fBhas_value_type_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBin_range\fP"
+.br
+.ti -1c
+.RI "struct \fBindex_sequence\fP"
+.br
+.ti -1c
+.RI "struct \fBindex_sequence_maker\fP"
+.br
+.ti -1c
+.RI "struct \fBindex_sequence_maker< 0 >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_basic_value\fP"
+.br
+.ti -1c
+.RI "struct \fBis_basic_value< T & >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_basic_value< T const & >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_basic_value< T const volatile & >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_basic_value< T volatile & >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_basic_value<::toml::basic_value< C, M, V > >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_chrono_duration\fP"
+.br
+.ti -1c
+.RI "struct \fBis_chrono_duration< std::chrono::duration< Rep, Period > >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_comparable\fP"
+.br
+.ti -1c
+.RI "struct \fBis_comparable_impl\fP"
+.br
+.ti -1c
+.RI "struct \fBis_container\fP"
+.br
+.ti -1c
+.RI "struct \fBis_container< T & >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_container< T const & >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_container< T const volatile & >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_container< T volatile & >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_exact_toml_type\fP"
+.br
+.ti -1c
+.RI "struct \fBis_exact_toml_type< T &, V >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_exact_toml_type< T const &, V >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_exact_toml_type< T const volatile &, V >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_exact_toml_type< T volatile &, V >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_map\fP"
+.br
+.ti -1c
+.RI "struct \fBis_map< T & >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_map< T const & >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_map< T const volatile & >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_map< T volatile & >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_std_forward_list\fP"
+.br
+.ti -1c
+.RI "struct \fBis_std_forward_list< std::forward_list< T > >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_std_pair\fP"
+.br
+.ti -1c
+.RI "struct \fBis_std_pair< std::pair< T1, T2 > >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_std_tuple\fP"
+.br
+.ti -1c
+.RI "struct \fBis_std_tuple< std::tuple< Ts\&.\&.\&. > >\fP"
+.br
+.ti -1c
+.RI "struct \fBis_string_literal\fP"
+.br
+.ti -1c
+.RI "struct \fBlast_one_in_pack\fP"
+.br
+.ti -1c
+.RI "struct \fBlast_one_in_pack< T >\fP"
+.br
+.ti -1c
+.RI "struct \fBlocation\fP"
+.br
+.ti -1c
+.RI "struct \fBmaybe\fP"
+.br
+.ti -1c
+.RI "struct \fBnegation\fP"
+.br
+.ti -1c
+.RI "struct \fBnone_t\fP"
+.br
+.ti -1c
+.RI "struct \fBpush_back_index_sequence\fP"
+.br
+.ti -1c
+.RI "struct \fBpush_back_index_sequence< index_sequence< Ns\&.\&.\&. >, N >\fP"
+.br
+.ti -1c
+.RI "struct \fBregion\fP"
+.br
+.ti -1c
+.RI "struct \fBregion_base\fP"
+.br
+.ti -1c
+.RI "struct \fBremove_cvref\fP"
+.br
+.ti -1c
+.RI "struct \fBrepeat\fP"
+.br
+.ti -1c
+.RI "struct \fBrepeat< T, at_least< N > >\fP"
+.br
+.ti -1c
+.RI "struct \fBrepeat< T, exactly< N > >\fP"
+.br
+.ti -1c
+.RI "struct \fBrepeat< T, unlimited >\fP"
+.br
+.ti -1c
+.RI "struct \fBsequence\fP"
+.br
+.ti -1c
+.RI "struct \fBsequence< Head >\fP"
+.br
+.ti -1c
+.RI "struct \fBsequence< Head, Tail\&.\&.\&. >\fP"
+.br
+.ti -1c
+.RI "struct \fBstorage\fP"
+.br
+.ti -1c
+.RI "struct \fBswitch_cast\fP"
+.br
+.ti -1c
+.RI "struct \fBtype_to_enum\fP"
+.br
+.ti -1c
+.RI "struct \fBtype_to_enum< boolean, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtype_to_enum< floating, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtype_to_enum< integer, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtype_to_enum< local_date, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtype_to_enum< local_datetime, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtype_to_enum< local_time, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtype_to_enum< offset_datetime, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtype_to_enum< string, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBunlimited\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "using \fBlex_wschar\fP = \fBeither\fP< \fBcharacter\fP<' '>, \fBcharacter\fP<'\\t'> >"
+.br
+.ti -1c
+.RI "using \fBlex_ws\fP = \fBrepeat\fP< \fBlex_wschar\fP, \fBat_least\fP< 1 > >"
+.br
+.ti -1c
+.RI "using \fBlex_newline\fP = \fBeither\fP< \fBcharacter\fP<'\\n'>, \fBsequence\fP< \fBcharacter\fP<'\\r'>, \fBcharacter\fP<'\\n'> > >"
+.br
+.ti -1c
+.RI "using \fBlex_lower\fP = \fBin_range\fP< 'a', 'z'>"
+.br
+.ti -1c
+.RI "using \fBlex_upper\fP = \fBin_range\fP< 'A', 'Z'>"
+.br
+.ti -1c
+.RI "using \fBlex_alpha\fP = \fBeither\fP< \fBlex_lower\fP, \fBlex_upper\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_digit\fP = \fBin_range\fP< '0', '9'>"
+.br
+.ti -1c
+.RI "using \fBlex_nonzero\fP = \fBin_range\fP< '1', '9'>"
+.br
+.ti -1c
+.RI "using \fBlex_oct_dig\fP = \fBin_range\fP< '0', '7'>"
+.br
+.ti -1c
+.RI "using \fBlex_bin_dig\fP = \fBin_range\fP< '0', '1'>"
+.br
+.ti -1c
+.RI "using \fBlex_hex_dig\fP = \fBeither\fP< \fBlex_digit\fP, \fBin_range\fP< 'A', 'F'>, \fBin_range\fP< 'a', 'f'> >"
+.br
+.ti -1c
+.RI "using \fBlex_hex_prefix\fP = \fBsequence\fP< \fBcharacter\fP< '0'>, \fBcharacter\fP< 'x'> >"
+.br
+.ti -1c
+.RI "using \fBlex_oct_prefix\fP = \fBsequence\fP< \fBcharacter\fP< '0'>, \fBcharacter\fP< 'o'> >"
+.br
+.ti -1c
+.RI "using \fBlex_bin_prefix\fP = \fBsequence\fP< \fBcharacter\fP< '0'>, \fBcharacter\fP< 'b'> >"
+.br
+.ti -1c
+.RI "using \fBlex_underscore\fP = \fBcharacter\fP< '_'>"
+.br
+.ti -1c
+.RI "using \fBlex_plus\fP = \fBcharacter\fP<'+'>"
+.br
+.ti -1c
+.RI "using \fBlex_minus\fP = \fBcharacter\fP<'\-'>"
+.br
+.ti -1c
+.RI "using \fBlex_sign\fP = \fBeither\fP< \fBlex_plus\fP, \fBlex_minus\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_unsigned_dec_int\fP = \fBeither\fP< \fBsequence\fP< \fBlex_nonzero\fP, \fBrepeat\fP< \fBeither\fP< \fBlex_digit\fP, \fBsequence\fP< \fBlex_underscore\fP, \fBlex_digit\fP > >, \fBat_least\fP< 1 > > >, \fBlex_digit\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_dec_int\fP = \fBsequence\fP< \fBmaybe\fP< \fBlex_sign\fP >, \fBlex_unsigned_dec_int\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_hex_int\fP = \fBsequence\fP< \fBlex_hex_prefix\fP, \fBsequence\fP< \fBlex_hex_dig\fP, \fBrepeat\fP< \fBeither\fP< \fBlex_hex_dig\fP, \fBsequence\fP< \fBlex_underscore\fP, \fBlex_hex_dig\fP > >, \fBunlimited\fP > > >"
+.br
+.ti -1c
+.RI "using \fBlex_oct_int\fP = \fBsequence\fP< \fBlex_oct_prefix\fP, \fBsequence\fP< \fBlex_oct_dig\fP, \fBrepeat\fP< \fBeither\fP< \fBlex_oct_dig\fP, \fBsequence\fP< \fBlex_underscore\fP, \fBlex_oct_dig\fP > >, \fBunlimited\fP > > >"
+.br
+.ti -1c
+.RI "using \fBlex_bin_int\fP = \fBsequence\fP< \fBlex_bin_prefix\fP, \fBsequence\fP< \fBlex_bin_dig\fP, \fBrepeat\fP< \fBeither\fP< \fBlex_bin_dig\fP, \fBsequence\fP< \fBlex_underscore\fP, \fBlex_bin_dig\fP > >, \fBunlimited\fP > > >"
+.br
+.ti -1c
+.RI "using \fBlex_integer\fP = \fBeither\fP< \fBlex_bin_int\fP, \fBlex_oct_int\fP, \fBlex_hex_int\fP, \fBlex_dec_int\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_inf\fP = \fBsequence\fP< \fBcharacter\fP< 'i'>, \fBcharacter\fP< 'n'>, \fBcharacter\fP< 'f'> >"
+.br
+.ti -1c
+.RI "using \fBlex_nan\fP = \fBsequence\fP< \fBcharacter\fP< 'n'>, \fBcharacter\fP< 'a'>, \fBcharacter\fP< 'n'> >"
+.br
+.ti -1c
+.RI "using \fBlex_special_float\fP = \fBsequence\fP< \fBmaybe\fP< \fBlex_sign\fP >, \fBeither\fP< \fBlex_inf\fP, \fBlex_nan\fP > >"
+.br
+.ti -1c
+.RI "using \fBlex_zero_prefixable_int\fP = \fBsequence\fP< \fBlex_digit\fP, \fBrepeat\fP< \fBeither\fP< \fBlex_digit\fP, \fBsequence\fP< \fBlex_underscore\fP, \fBlex_digit\fP > >, \fBunlimited\fP > >"
+.br
+.ti -1c
+.RI "using \fBlex_fractional_part\fP = \fBsequence\fP< \fBcharacter\fP<'\&.'>, \fBlex_zero_prefixable_int\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_exponent_part\fP = \fBsequence\fP< \fBeither\fP< \fBcharacter\fP< 'e'>, \fBcharacter\fP< 'E'> >, \fBmaybe\fP< \fBlex_sign\fP >, \fBlex_zero_prefixable_int\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_float\fP = \fBeither\fP< \fBlex_special_float\fP, \fBsequence\fP< \fBlex_dec_int\fP, \fBeither\fP< \fBlex_exponent_part\fP, \fBsequence\fP< \fBlex_fractional_part\fP, \fBmaybe\fP< \fBlex_exponent_part\fP > > > > >"
+.br
+.ti -1c
+.RI "using \fBlex_true\fP = \fBsequence\fP< \fBcharacter\fP< 't'>, \fBcharacter\fP< 'r'>, \fBcharacter\fP< 'u'>, \fBcharacter\fP< 'e'> >"
+.br
+.ti -1c
+.RI "using \fBlex_false\fP = \fBsequence\fP< \fBcharacter\fP< 'f'>, \fBcharacter\fP< 'a'>, \fBcharacter\fP< 'l'>, \fBcharacter\fP< 's'>, \fBcharacter\fP< 'e'> >"
+.br
+.ti -1c
+.RI "using \fBlex_boolean\fP = \fBeither\fP< \fBlex_true\fP, \fBlex_false\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_date_fullyear\fP = \fBrepeat\fP< \fBlex_digit\fP, \fBexactly\fP< 4 > >"
+.br
+.ti -1c
+.RI "using \fBlex_date_month\fP = \fBrepeat\fP< \fBlex_digit\fP, \fBexactly\fP< 2 > >"
+.br
+.ti -1c
+.RI "using \fBlex_date_mday\fP = \fBrepeat\fP< \fBlex_digit\fP, \fBexactly\fP< 2 > >"
+.br
+.ti -1c
+.RI "using \fBlex_time_delim\fP = \fBeither\fP< \fBcharacter\fP< 'T'>, \fBcharacter\fP< 't'>, \fBcharacter\fP<' '> >"
+.br
+.ti -1c
+.RI "using \fBlex_time_hour\fP = \fBrepeat\fP< \fBlex_digit\fP, \fBexactly\fP< 2 > >"
+.br
+.ti -1c
+.RI "using \fBlex_time_minute\fP = \fBrepeat\fP< \fBlex_digit\fP, \fBexactly\fP< 2 > >"
+.br
+.ti -1c
+.RI "using \fBlex_time_second\fP = \fBrepeat\fP< \fBlex_digit\fP, \fBexactly\fP< 2 > >"
+.br
+.ti -1c
+.RI "using \fBlex_time_secfrac\fP = \fBsequence\fP< \fBcharacter\fP<'\&.'>, \fBrepeat\fP< \fBlex_digit\fP, \fBat_least\fP< 1 > > >"
+.br
+.ti -1c
+.RI "using \fBlex_time_numoffset\fP = \fBsequence\fP< \fBeither\fP< \fBcharacter\fP<'+'>, \fBcharacter\fP<'\-'> >, \fBsequence\fP< \fBlex_time_hour\fP, \fBcharacter\fP<':'>, \fBlex_time_minute\fP > >"
+.br
+.ti -1c
+.RI "using \fBlex_time_offset\fP = \fBeither\fP< \fBcharacter\fP< 'Z'>, \fBcharacter\fP< 'z'>, \fBlex_time_numoffset\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_partial_time\fP = \fBsequence\fP< \fBlex_time_hour\fP, \fBcharacter\fP<':'>, \fBlex_time_minute\fP, \fBcharacter\fP<':'>, \fBlex_time_second\fP, \fBmaybe\fP< \fBlex_time_secfrac\fP > >"
+.br
+.ti -1c
+.RI "using \fBlex_full_date\fP = \fBsequence\fP< \fBlex_date_fullyear\fP, \fBcharacter\fP<'\-'>, \fBlex_date_month\fP, \fBcharacter\fP<'\-'>, \fBlex_date_mday\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_full_time\fP = \fBsequence\fP< \fBlex_partial_time\fP, \fBlex_time_offset\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_offset_date_time\fP = \fBsequence\fP< \fBlex_full_date\fP, \fBlex_time_delim\fP, \fBlex_full_time\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_local_date_time\fP = \fBsequence\fP< \fBlex_full_date\fP, \fBlex_time_delim\fP, \fBlex_partial_time\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_local_date\fP = \fBlex_full_date\fP"
+.br
+.ti -1c
+.RI "using \fBlex_local_time\fP = \fBlex_partial_time\fP"
+.br
+.ti -1c
+.RI "using \fBlex_quotation_mark\fP = \fBcharacter\fP<'''>"
+.br
+.ti -1c
+.RI "using \fBlex_basic_unescaped\fP = \fBexclude\fP< \fBeither\fP< \fBin_range\fP< 0x00, 0x08 >, \fBin_range\fP< 0x0A, 0x1F >, \fBcharacter\fP< 0x22 >, \fBcharacter\fP< 0x5C >, \fBcharacter\fP< 0x7F > > >"
+.br
+.ti -1c
+.RI "using \fBlex_escape\fP = \fBcharacter\fP<'\\\\'>"
+.br
+.ti -1c
+.RI "using \fBlex_escape_unicode_short\fP = \fBsequence\fP< \fBcharacter\fP< 'u'>, \fBrepeat\fP< \fBlex_hex_dig\fP, \fBexactly\fP< 4 > > >"
+.br
+.ti -1c
+.RI "using \fBlex_escape_unicode_long\fP = \fBsequence\fP< \fBcharacter\fP< 'U'>, \fBrepeat\fP< \fBlex_hex_dig\fP, \fBexactly\fP< 8 > > >"
+.br
+.ti -1c
+.RI "using \fBlex_escape_seq_char\fP = \fBeither\fP< \fBcharacter\fP<'''>, character<'\\\\'>, \fBcharacter\fP<'b'>, \fBcharacter\fP<'f'>, \fBcharacter\fP<'n'>, \fBcharacter\fP<'r'>, \fBcharacter\fP<'t'>, \fBlex_escape_unicode_short\fP, \fBlex_escape_unicode_long\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_escaped\fP = \fBsequence\fP< \fBlex_escape\fP, \fBlex_escape_seq_char\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_basic_char\fP = \fBeither\fP< \fBlex_basic_unescaped\fP, \fBlex_escaped\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_basic_string\fP = \fBsequence\fP< \fBlex_quotation_mark\fP, \fBrepeat\fP< \fBlex_basic_char\fP, \fBunlimited\fP >, \fBlex_quotation_mark\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_ml_basic_string_delim\fP = \fBrepeat\fP< \fBlex_quotation_mark\fP, \fBexactly\fP< 3 > >"
+.br
+.ti -1c
+.RI "using \fBlex_ml_basic_string_open\fP = \fBlex_ml_basic_string_delim\fP"
+.br
+.ti -1c
+.RI "using \fBlex_ml_basic_string_close\fP = \fBsequence\fP< \fBrepeat\fP< \fBlex_quotation_mark\fP, \fBexactly\fP< 3 > >, \fBmaybe\fP< \fBlex_quotation_mark\fP >, \fBmaybe\fP< \fBlex_quotation_mark\fP > >"
+.br
+.ti -1c
+.RI "using \fBlex_ml_basic_unescaped\fP = \fBexclude\fP< \fBeither\fP< \fBin_range\fP< 0x00, 0x08 >, \fBin_range\fP< 0x0A, 0x1F >, \fBcharacter\fP< 0x5C >, \fBcharacter\fP< 0x7F >, \fBlex_ml_basic_string_delim\fP > >"
+.br
+.ti -1c
+.RI "using \fBlex_ml_basic_escaped_newline\fP = \fBsequence\fP< \fBlex_escape\fP, \fBmaybe\fP< \fBlex_ws\fP >, \fBlex_newline\fP, \fBrepeat\fP< \fBeither\fP< \fBlex_ws\fP, \fBlex_newline\fP >, \fBunlimited\fP > >"
+.br
+.ti -1c
+.RI "using \fBlex_ml_basic_char\fP = \fBeither\fP< \fBlex_ml_basic_unescaped\fP, \fBlex_escaped\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_ml_basic_body\fP = \fBrepeat\fP< \fBeither\fP< \fBlex_ml_basic_char\fP, \fBlex_newline\fP, \fBlex_ml_basic_escaped_newline\fP >, \fBunlimited\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_ml_basic_string\fP = \fBsequence\fP< \fBlex_ml_basic_string_open\fP, \fBlex_ml_basic_body\fP, \fBlex_ml_basic_string_close\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_literal_char\fP = \fBexclude\fP< \fBeither\fP< \fBin_range\fP< 0x00, 0x08 >, \fBin_range\fP< 0x0A, 0x1F >, \fBcharacter\fP< 0x7F >, \fBcharacter\fP< 0x27 > > >"
+.br
+.ti -1c
+.RI "using \fBlex_apostrophe\fP = \fBcharacter\fP<'\\''>"
+.br
+.ti -1c
+.RI "using \fBlex_literal_string\fP = \fBsequence\fP< \fBlex_apostrophe\fP, \fBrepeat\fP< \fBlex_literal_char\fP, \fBunlimited\fP >, \fBlex_apostrophe\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_ml_literal_string_delim\fP = \fBrepeat\fP< \fBlex_apostrophe\fP, \fBexactly\fP< 3 > >"
+.br
+.ti -1c
+.RI "using \fBlex_ml_literal_string_open\fP = \fBlex_ml_literal_string_delim\fP"
+.br
+.ti -1c
+.RI "using \fBlex_ml_literal_string_close\fP = \fBsequence\fP< \fBrepeat\fP< \fBlex_apostrophe\fP, \fBexactly\fP< 3 > >, \fBmaybe\fP< \fBlex_apostrophe\fP >, \fBmaybe\fP< \fBlex_apostrophe\fP > >"
+.br
+.ti -1c
+.RI "using \fBlex_ml_literal_char\fP = \fBexclude\fP< \fBeither\fP< \fBin_range\fP< 0x00, 0x08 >, \fBin_range\fP< 0x0A, 0x1F >, \fBcharacter\fP< 0x7F >, \fBlex_ml_literal_string_delim\fP > >"
+.br
+.ti -1c
+.RI "using \fBlex_ml_literal_body\fP = \fBrepeat\fP< \fBeither\fP< \fBlex_ml_literal_char\fP, \fBlex_newline\fP >, \fBunlimited\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_ml_literal_string\fP = \fBsequence\fP< \fBlex_ml_literal_string_open\fP, \fBlex_ml_literal_body\fP, \fBlex_ml_literal_string_close\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_string\fP = \fBeither\fP< \fBlex_ml_basic_string\fP, \fBlex_basic_string\fP, \fBlex_ml_literal_string\fP, \fBlex_literal_string\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_dot_sep\fP = \fBsequence\fP< \fBmaybe\fP< \fBlex_ws\fP >, \fBcharacter\fP<'\&.'>, \fBmaybe\fP< \fBlex_ws\fP > >"
+.br
+.ti -1c
+.RI "using \fBlex_unquoted_key\fP = \fBrepeat\fP< \fBeither\fP< \fBlex_alpha\fP, \fBlex_digit\fP, \fBcharacter\fP<'\-'>, \fBcharacter\fP< '_'> >, \fBat_least\fP< 1 > >"
+.br
+.ti -1c
+.RI "using \fBlex_quoted_key\fP = \fBeither\fP< \fBlex_basic_string\fP, \fBlex_literal_string\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_simple_key\fP = \fBeither\fP< \fBlex_unquoted_key\fP, \fBlex_quoted_key\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_dotted_key\fP = \fBsequence\fP< \fBlex_simple_key\fP, \fBrepeat\fP< \fBsequence\fP< \fBlex_dot_sep\fP, \fBlex_simple_key\fP >, \fBat_least\fP< 1 > > >"
+.br
+.ti -1c
+.RI "using \fBlex_key\fP = \fBeither\fP< \fBlex_dotted_key\fP, \fBlex_simple_key\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_keyval_sep\fP = \fBsequence\fP< \fBmaybe\fP< \fBlex_ws\fP >, \fBcharacter\fP<'='>, \fBmaybe\fP< \fBlex_ws\fP > >"
+.br
+.ti -1c
+.RI "using \fBlex_std_table_open\fP = \fBcharacter\fP<'['>"
+.br
+.ti -1c
+.RI "using \fBlex_std_table_close\fP = \fBcharacter\fP<']'>"
+.br
+.ti -1c
+.RI "using \fBlex_std_table\fP = \fBsequence\fP< \fBlex_std_table_open\fP, \fBmaybe\fP< \fBlex_ws\fP >, \fBlex_key\fP, \fBmaybe\fP< \fBlex_ws\fP >, \fBlex_std_table_close\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_array_table_open\fP = \fBsequence\fP< \fBlex_std_table_open\fP, \fBlex_std_table_open\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_array_table_close\fP = \fBsequence\fP< \fBlex_std_table_close\fP, \fBlex_std_table_close\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_array_table\fP = \fBsequence\fP< \fBlex_array_table_open\fP, \fBmaybe\fP< \fBlex_ws\fP >, \fBlex_key\fP, \fBmaybe\fP< \fBlex_ws\fP >, \fBlex_array_table_close\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_utf8_1byte\fP = \fBin_range\fP< 0x00, 0x7F >"
+.br
+.ti -1c
+.RI "using \fBlex_utf8_2byte\fP = \fBsequence\fP< \fBin_range\fP< static_cast< char >(0xC2), static_cast< char >(0xDF)>, \fBin_range\fP< static_cast< char >(0x80), static_cast< char >(0xBF)> >"
+.br
+.ti -1c
+.RI "using \fBlex_utf8_3byte\fP = \fBsequence\fP< \fBeither\fP< \fBsequence\fP< \fBcharacter\fP< static_cast< char >(0xE0)>, \fBin_range\fP< static_cast< char >(0xA0), static_cast< char >(0xBF)> >, \fBsequence\fP< \fBin_range\fP< static_cast< char >(0xE1), static_cast< char >(0xEC)>, \fBin_range\fP< static_cast< char >(0x80), static_cast< char >(0xBF)> >, \fBsequence\fP< \fBcharacter\fP< static_cast< char >(0xED)>, \fBin_range\fP< static_cast< char >(0x80), static_cast< char >(0x9F)> >, \fBsequence\fP< \fBin_range\fP< static_cast< char >(0xEE), static_cast< char >(0xEF)>, \fBin_range\fP< static_cast< char >(0x80), static_cast< char >(0xBF)> > >, \fBin_range\fP< static_cast< char >(0x80), static_cast< char >(0xBF)> >"
+.br
+.ti -1c
+.RI "using \fBlex_utf8_4byte\fP = \fBsequence\fP< \fBeither\fP< \fBsequence\fP< \fBcharacter\fP< static_cast< char >(0xF0)>, \fBin_range\fP< static_cast< char >(0x90), static_cast< char >(0xBF)> >, \fBsequence\fP< \fBin_range\fP< static_cast< char >(0xF1), static_cast< char >(0xF3)>, \fBin_range\fP< static_cast< char >(0x80), static_cast< char >(0xBF)> >, \fBsequence\fP< \fBcharacter\fP< static_cast< char >(0xF4)>, \fBin_range\fP< static_cast< char >(0x80), static_cast< char >(0x8F)> > >, \fBin_range\fP< static_cast< char >(0x80), static_cast< char >(0xBF)>, \fBin_range\fP< static_cast< char >(0x80), static_cast< char >(0xBF)> >"
+.br
+.ti -1c
+.RI "using \fBlex_utf8_code\fP = \fBeither\fP< \fBlex_utf8_1byte\fP, \fBlex_utf8_2byte\fP, \fBlex_utf8_3byte\fP, \fBlex_utf8_4byte\fP >"
+.br
+.ti -1c
+.RI "using \fBlex_comment_start_symbol\fP = \fBcharacter\fP<'#'>"
+.br
+.ti -1c
+.RI "using \fBlex_non_eol_ascii\fP = \fBeither\fP< \fBcharacter\fP< 0x09 >, \fBin_range\fP< 0x20, 0x7E > >"
+.br
+.ti -1c
+.RI "using \fBlex_comment\fP = \fBsequence\fP< \fBlex_comment_start_symbol\fP, \fBrepeat\fP< \fBeither\fP< \fBlex_non_eol_ascii\fP, \fBlex_utf8_2byte\fP, \fBlex_utf8_3byte\fP, \fBlex_utf8_4byte\fP >, \fBunlimited\fP > >"
+.br
+.ti -1c
+.RI "template<std::size_t N> using \fBmake_index_sequence\fP = typename \fBindex_sequence_maker\fP< N\-1 >::type"
+.br
+.ti -1c
+.RI "template<bool B, typename T > using \fBenable_if_t\fP = typename std::enable_if< B, T >::type"
+.br
+.ti -1c
+.RI "template<typename F , typename \&.\&.\&. Args> using \fBreturn_type_of_t\fP = typename std::result_of< F(Args\&.\&.\&.)>::type"
+.br
+.ti -1c
+.RI "template<typename T > using \fBremove_cvref_t\fP = typename \fBremove_cvref\fP< T >::type"
+.br
+.ti -1c
+.RI "template<\fBvalue_t\fP V> using \fBvalue_t_constant\fP = std::integral_constant< \fBvalue_t\fP, V >"
+.br
+.ti -1c
+.RI "template<typename \&.\&.\&. Ts> using \fBlast_one_in_pack_t\fP = typename \fBlast_one_in_pack\fP< Ts\&.\&.\&. >::type"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "std::string \fBshow_char\fP (const char c)"
+.br
+.ti -1c
+.RI "template<typename T , bool C> bool \fBoperator==\fP (const \fBempty_iterator\fP< T, C > &, const \fBempty_iterator\fP< T, C > &) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , bool C> bool \fBoperator!=\fP (const \fBempty_iterator\fP< T, C > &, const \fBempty_iterator\fP< T, C > &) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , bool C> bool \fBoperator<\fP (const \fBempty_iterator\fP< T, C > &, const \fBempty_iterator\fP< T, C > &) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , bool C> bool \fBoperator<=\fP (const \fBempty_iterator\fP< T, C > &, const \fBempty_iterator\fP< T, C > &) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , bool C> bool \fBoperator>\fP (const \fBempty_iterator\fP< T, C > &, const \fBempty_iterator\fP< T, C > &) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , bool C> bool \fBoperator>=\fP (const \fBempty_iterator\fP< T, C > &, const \fBempty_iterator\fP< T, C > &) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , bool C> \fBempty_iterator\fP< T, C >::difference_type \fBoperator\-\fP (const \fBempty_iterator\fP< T, C > &, const \fBempty_iterator\fP< T, C > &) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , bool C> \fBempty_iterator\fP< T, C > \fBoperator+\fP (typename \fBempty_iterator\fP< T, C >::difference_type, const \fBempty_iterator\fP< T, C > &rhs) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , bool C> \fBempty_iterator\fP< T, C > \fBoperator+\fP (const \fBempty_iterator\fP< T, C > &lhs, typename \fBempty_iterator\fP< T, C >::difference_type) noexcept"
+.br
+.ti -1c
+.RI "std::tm \fBlocaltime_s\fP (const std::time_t *src)"
+.br
+.ti -1c
+.RI "std::tm \fBgmtime_s\fP (const std::time_t *src)"
+.br
+.ti -1c
+.RI "template<typename T , typename Array , std::size_t \&.\&.\&. I> T \fBget_tuple_impl\fP (const Array &a, \fBindex_sequence\fP< I\&.\&.\&. >)"
+.br
+.ti -1c
+.RI "template<typename T > \fBenable_if_t\fP< \fBconjunction\fP< std::is_integral< \fBremove_cvref_t\fP< T > >, \fBnegation\fP< std::is_same< \fBremove_cvref_t\fP< T >, bool > > >\fB::value\fP, std::size_t > \fBkey_cast\fP (T &&v) noexcept"
+.br
+.ti -1c
+.RI "template<typename T > \fBenable_if_t\fP< \fBnegation\fP< \fBconjunction\fP< std::is_integral< \fBremove_cvref_t\fP< T > >, \fBnegation\fP< std::is_same< \fBremove_cvref_t\fP< T >, bool > > > >\fB::value\fP, std::string > \fBkey_cast\fP (T &&v) noexcept"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< \fBboolean\fP, \fBregion\fP >, std::string > \fBparse_boolean\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< \fBinteger\fP, \fBregion\fP >, std::string > \fBparse_binary_integer\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< \fBinteger\fP, \fBregion\fP >, std::string > \fBparse_octal_integer\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< \fBinteger\fP, \fBregion\fP >, std::string > \fBparse_hexadecimal_integer\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< \fBinteger\fP, \fBregion\fP >, std::string > \fBparse_integer\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< \fBfloating\fP, \fBregion\fP >, std::string > \fBparse_floating\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "std::string \fBread_utf8_codepoint\fP (const \fBregion\fP &reg, const \fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::string, std::string > \fBparse_escape_sequence\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "std::ptrdiff_t \fBcheck_utf8_validity\fP (const std::string &reg)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< \fBtoml::string\fP, \fBregion\fP >, std::string > \fBparse_ml_basic_string\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< \fBtoml::string\fP, \fBregion\fP >, std::string > \fBparse_basic_string\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< \fBtoml::string\fP, \fBregion\fP >, std::string > \fBparse_ml_literal_string\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< \fBtoml::string\fP, \fBregion\fP >, std::string > \fBparse_literal_string\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< \fBtoml::string\fP, \fBregion\fP >, std::string > \fBparse_string\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< \fBlocal_date\fP, \fBregion\fP >, std::string > \fBparse_local_date\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< \fBlocal_time\fP, \fBregion\fP >, std::string > \fBparse_local_time\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< \fBlocal_datetime\fP, \fBregion\fP >, std::string > \fBparse_local_datetime\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< \fBoffset_datetime\fP, \fBregion\fP >, std::string > \fBparse_offset_datetime\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< \fBkey\fP, \fBregion\fP >, std::string > \fBparse_simple_key\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< std::vector< \fBkey\fP >, \fBregion\fP >, std::string > \fBparse_key\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "template<typename Value > \fBresult\fP< Value, std::string > \fBparse_value\fP (\fBlocation\fP &)"
+.br
+.ti -1c
+.RI "template<typename Value > \fBresult\fP< std::pair< typename Value::array_type, \fBregion\fP >, std::string > \fBparse_array\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "template<typename Value > \fBresult\fP< std::pair< std::pair< std::vector< \fBkey\fP >, \fBregion\fP >, Value >, std::string > \fBparse_key_value_pair\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "template<typename InputIterator > std::string \fBformat_dotted_keys\fP (InputIterator first, const InputIterator last)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< std::vector< \fBkey\fP >, \fBregion\fP >, std::string > \fBparse_table_key\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "template<typename Value > \fBresult\fP< std::pair< typename Value::table_type, \fBregion\fP >, std::string > \fBparse_inline_table\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "template<typename Value , typename Iterator > bool \fBis_valid_forward_table_definition\fP (const Value &fwd, const Value &inserting, Iterator key_first, Iterator key_curr, Iterator key_last)"
+.br
+.ti -1c
+.RI "template<typename Value , typename InputIterator > \fBresult\fP< bool, std::string > \fBinsert_nested_key\fP (typename Value::table_type &root, const Value &v, InputIterator iter, const InputIterator last, \fBregion\fP key_reg, const bool is_array_of_table=false)"
+.br
+.ti -1c
+.RI "\fBresult\fP< \fBvalue_t\fP, std::string > \fBguess_number_type\fP (const \fBlocation\fP &l)"
+.br
+.ti -1c
+.RI "\fBresult\fP< \fBvalue_t\fP, std::string > \fBguess_value_type\fP (const \fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "template<typename Value , typename T > \fBresult\fP< Value, std::string > \fBparse_value_helper\fP (\fBresult\fP< std::pair< T, \fBregion\fP >, std::string > rslt)"
+.br
+.ti -1c
+.RI "\fBresult\fP< std::pair< std::vector< \fBkey\fP >, \fBregion\fP >, std::string > \fBparse_array_table_key\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "template<typename Value > \fBresult\fP< typename Value::table_type, std::string > \fBparse_ml_table\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "template<typename Value > \fBresult\fP< Value, std::string > \fBparse_toml_file\fP (\fBlocation\fP &loc)"
+.br
+.ti -1c
+.RI "template<typename Iterator > std::string \fBmake_string\fP (Iterator first, Iterator last)"
+.br
+.ti -1c
+.RI "std::string \fBmake_string\fP (std::size_t len, char c)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBnone_t\fP &, const \fBnone_t\fP &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBoperator!=\fP (const \fBnone_t\fP &, const \fBnone_t\fP &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBoperator<\fP (const \fBnone_t\fP &, const \fBnone_t\fP &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBoperator<=\fP (const \fBnone_t\fP &, const \fBnone_t\fP &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBoperator>\fP (const \fBnone_t\fP &, const \fBnone_t\fP &) noexcept"
+.br
+.ti -1c
+.RI "bool \fBoperator>=\fP (const \fBnone_t\fP &, const \fBnone_t\fP &) noexcept"
+.br
+.ti -1c
+.RI "template<typename charT , typename traitsT > std::basic_ostream< charT, traitsT > & \fBoperator<<\fP (std::basic_ostream< charT, traitsT > &os, const \fBnone_t\fP &)"
+.br
+.ti -1c
+.RI "\fBfailure\fP< \fBnone_t\fP > \fBnone\fP () noexcept"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > int \fBcomment_index\fP (std::basic_ostream< charT, traits > &)"
+.br
+.ti -1c
+.RI "std::string \fBformat_underline\fP (const std::string &message, const std::vector< std::pair< \fBsource_location\fP, std::string > > &loc_com, const std::vector< std::string > &helps={}, const bool colorize=\fBTOML11_ERROR_MESSAGE_COLORIZED\fP)"
+.br
+.ti -1c
+.RI "template<typename Container > void \fBtry_reserve_impl\fP (Container &container, std::size_t N, std::true_type)"
+.br
+.ti -1c
+.RI "template<typename Container > void \fBtry_reserve_impl\fP (Container &, std::size_t, std::false_type) noexcept"
+.br
+.ti -1c
+.RI "std::string \fBconcat_to_string_impl\fP (std::ostringstream &oss)"
+.br
+.ti -1c
+.RI "template<typename T , typename \&.\&.\&. Ts> std::string \fBconcat_to_string_impl\fP (std::ostringstream &oss, T &&head, Ts &&\&.\&.\&. tail)"
+.br
+.ti -1c
+.RI "template<typename T > T && \fBlast_one\fP (T &&tail) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , typename \&.\&.\&. Ts> \fBenable_if_t\fP<(sizeof\&.\&.\&.(Ts) > 0), \fBlast_one_in_pack_t\fP< Ts &&\&.\&.\&. > > \fBlast_one\fP (T &&, Ts &&\&.\&.\&. tail)"
+.br
+.ti -1c
+.RI "template<typename Value > \fBregion_base\fP const * \fBget_region\fP (const Value &v)"
+.br
+.ti -1c
+.RI "template<typename Value > void \fBchange_region\fP (Value &v, \fBregion\fP reg)"
+.br
+.ti -1c
+.RI "template<\fBvalue_t\fP Expected, typename Value > void \fBthrow_bad_cast\fP (const std::string &funcname, \fBvalue_t\fP actual, const Value &v)"
+.br
+.ti -1c
+.RI "template<typename Value > void \fBthrow_key_not_found_error\fP (const Value &v, const \fBkey\fP &ky)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "template<bool B, typename T > using \fBtoml::detail::enable_if_t\fP = typedef typename std::enable_if<B, T>::type"
+
+.SS "template<typename \&.\&.\&. Ts> using \fBtoml::detail::last_one_in_pack_t\fP = typedef typename \fBlast_one_in_pack\fP<Ts\&.\&.\&.>::type"
+
+.SS "using \fBtoml::detail::lex_alpha\fP = typedef \fBeither\fP<\fBlex_lower\fP, \fBlex_upper\fP>"
+
+.SS "using \fBtoml::detail::lex_apostrophe\fP = typedef \fBcharacter\fP<'\\''>"
+
+.SS "using \fBtoml::detail::lex_array_table\fP = typedef \fBsequence\fP<\fBlex_array_table_open\fP, \fBmaybe\fP<\fBlex_ws\fP>, \fBlex_key\fP, \fBmaybe\fP<\fBlex_ws\fP>, \fBlex_array_table_close\fP>"
+
+.SS "using \fBtoml::detail::lex_array_table_close\fP = typedef \fBsequence\fP<\fBlex_std_table_close\fP, \fBlex_std_table_close\fP>"
+
+.SS "using \fBtoml::detail::lex_array_table_open\fP = typedef \fBsequence\fP<\fBlex_std_table_open\fP, \fBlex_std_table_open\fP>"
+
+.SS "using \fBtoml::detail::lex_basic_char\fP = typedef \fBeither\fP<\fBlex_basic_unescaped\fP, \fBlex_escaped\fP>"
+
+.SS "using \fBtoml::detail::lex_basic_string\fP = typedef \fBsequence\fP<\fBlex_quotation_mark\fP, \fBrepeat\fP<\fBlex_basic_char\fP, \fBunlimited\fP>, \fBlex_quotation_mark\fP>"
+
+.SS "using \fBtoml::detail::lex_basic_unescaped\fP = typedef \fBexclude\fP<\fBeither\fP<\fBin_range\fP<0x00, 0x08>, \fBin_range\fP<0x0A, 0x1F>, \fBcharacter\fP<0x22>, \fBcharacter\fP<0x5C>, \fBcharacter\fP<0x7F> >>"
+
+.SS "using \fBtoml::detail::lex_bin_dig\fP = typedef \fBin_range\fP<'0', '1'>"
+
+.SS "using \fBtoml::detail::lex_bin_int\fP = typedef \fBsequence\fP<\fBlex_bin_prefix\fP, \fBsequence\fP<\fBlex_bin_dig\fP, \fBrepeat\fP< \fBeither\fP<\fBlex_bin_dig\fP, \fBsequence\fP<\fBlex_underscore\fP, \fBlex_bin_dig\fP> >, \fBunlimited\fP> >>"
+
+.SS "using \fBtoml::detail::lex_bin_prefix\fP = typedef \fBsequence\fP<\fBcharacter\fP<'0'>, \fBcharacter\fP<'b'> >"
+
+.SS "using \fBtoml::detail::lex_boolean\fP = typedef \fBeither\fP<\fBlex_true\fP, \fBlex_false\fP>"
+
+.SS "using \fBtoml::detail::lex_comment\fP = typedef \fBsequence\fP<\fBlex_comment_start_symbol\fP, \fBrepeat\fP<\fBeither\fP< \fBlex_non_eol_ascii\fP, \fBlex_utf8_2byte\fP, \fBlex_utf8_3byte\fP, \fBlex_utf8_4byte\fP>, \fBunlimited\fP> >"
+
+.SS "using \fBtoml::detail::lex_comment_start_symbol\fP = typedef \fBcharacter\fP<'#'>"
+
+.SS "using \fBtoml::detail::lex_date_fullyear\fP = typedef \fBrepeat\fP<\fBlex_digit\fP, \fBexactly\fP<4> >"
+
+.SS "using \fBtoml::detail::lex_date_mday\fP = typedef \fBrepeat\fP<\fBlex_digit\fP, \fBexactly\fP<2> >"
+
+.SS "using \fBtoml::detail::lex_date_month\fP = typedef \fBrepeat\fP<\fBlex_digit\fP, \fBexactly\fP<2> >"
+
+.SS "using \fBtoml::detail::lex_dec_int\fP = typedef \fBsequence\fP<\fBmaybe\fP<\fBlex_sign\fP>, \fBlex_unsigned_dec_int\fP>"
+
+.SS "using \fBtoml::detail::lex_digit\fP = typedef \fBin_range\fP<'0', '9'>"
+
+.SS "using \fBtoml::detail::lex_dot_sep\fP = typedef \fBsequence\fP<\fBmaybe\fP<\fBlex_ws\fP>, \fBcharacter\fP<'\&.'>, \fBmaybe\fP<\fBlex_ws\fP> >"
+
+.SS "using \fBtoml::detail::lex_dotted_key\fP = typedef \fBsequence\fP<\fBlex_simple_key\fP, \fBrepeat\fP<\fBsequence\fP<\fBlex_dot_sep\fP, \fBlex_simple_key\fP>, \fBat_least\fP<1> > >"
+
+.SS "using \fBtoml::detail::lex_escape\fP = typedef \fBcharacter\fP<'\\\\'>"
+
+.SS "using \fBtoml::detail::lex_escape_seq_char\fP = typedef \fBeither\fP<\fBcharacter\fP<'''>, character<'\\\\'>, \fBcharacter\fP<'b'>, \fBcharacter\fP<'f'>, \fBcharacter\fP<'n'>, \fBcharacter\fP<'r'>, \fBcharacter\fP<'t'>, \fBlex_escape_unicode_short\fP, \fBlex_escape_unicode_long\fP >"
+
+.SS "using \fBtoml::detail::lex_escape_unicode_long\fP = typedef \fBsequence\fP<\fBcharacter\fP<'U'>, \fBrepeat\fP<\fBlex_hex_dig\fP, \fBexactly\fP<8> >>"
+
+.SS "using \fBtoml::detail::lex_escape_unicode_short\fP = typedef \fBsequence\fP<\fBcharacter\fP<'u'>, \fBrepeat\fP<\fBlex_hex_dig\fP, \fBexactly\fP<4> >>"
+
+.SS "using \fBtoml::detail::lex_escaped\fP = typedef \fBsequence\fP<\fBlex_escape\fP, \fBlex_escape_seq_char\fP>"
+
+.SS "using \fBtoml::detail::lex_exponent_part\fP = typedef \fBsequence\fP<\fBeither\fP<\fBcharacter\fP<'e'>, \fBcharacter\fP<'E'> >, \fBmaybe\fP<\fBlex_sign\fP>, \fBlex_zero_prefixable_int\fP>"
+
+.SS "using \fBtoml::detail::lex_false\fP = typedef \fBsequence\fP<\fBcharacter\fP<'f'>, \fBcharacter\fP<'a'>, \fBcharacter\fP<'l'>, \fBcharacter\fP<'s'>, \fBcharacter\fP<'e'> >"
+
+.SS "using \fBtoml::detail::lex_float\fP = typedef \fBeither\fP<\fBlex_special_float\fP, \fBsequence\fP<\fBlex_dec_int\fP, \fBeither\fP<\fBlex_exponent_part\fP, \fBsequence\fP<\fBlex_fractional_part\fP, \fBmaybe\fP<\fBlex_exponent_part\fP> >> >>"
+
+.SS "using \fBtoml::detail::lex_fractional_part\fP = typedef \fBsequence\fP<\fBcharacter\fP<'\&.'>, \fBlex_zero_prefixable_int\fP>"
+
+.SS "using \fBtoml::detail::lex_full_date\fP = typedef \fBsequence\fP<\fBlex_date_fullyear\fP, \fBcharacter\fP<'\-'>, \fBlex_date_month\fP, \fBcharacter\fP<'\-'>, \fBlex_date_mday\fP>"
+
+.SS "using \fBtoml::detail::lex_full_time\fP = typedef \fBsequence\fP<\fBlex_partial_time\fP, \fBlex_time_offset\fP>"
+
+.SS "using \fBtoml::detail::lex_hex_dig\fP = typedef \fBeither\fP<\fBlex_digit\fP, \fBin_range\fP<'A', 'F'>, \fBin_range\fP<'a', 'f'> >"
+
+.SS "using \fBtoml::detail::lex_hex_int\fP = typedef \fBsequence\fP<\fBlex_hex_prefix\fP, \fBsequence\fP<\fBlex_hex_dig\fP, \fBrepeat\fP< \fBeither\fP<\fBlex_hex_dig\fP, \fBsequence\fP<\fBlex_underscore\fP, \fBlex_hex_dig\fP> >, \fBunlimited\fP> >>"
+
+.SS "using \fBtoml::detail::lex_hex_prefix\fP = typedef \fBsequence\fP<\fBcharacter\fP<'0'>, \fBcharacter\fP<'x'> >"
+
+.SS "using \fBtoml::detail::lex_inf\fP = typedef \fBsequence\fP<\fBcharacter\fP<'i'>, \fBcharacter\fP<'n'>, \fBcharacter\fP<'f'> >"
+
+.SS "using \fBtoml::detail::lex_integer\fP = typedef \fBeither\fP<\fBlex_bin_int\fP, \fBlex_oct_int\fP, \fBlex_hex_int\fP, \fBlex_dec_int\fP>"
+
+.SS "using \fBtoml::detail::lex_key\fP = typedef \fBeither\fP<\fBlex_dotted_key\fP, \fBlex_simple_key\fP>"
+
+.SS "using \fBtoml::detail::lex_keyval_sep\fP = typedef \fBsequence\fP<\fBmaybe\fP<\fBlex_ws\fP>, \fBcharacter\fP<'='>, \fBmaybe\fP<\fBlex_ws\fP> >"
+
+.SS "using \fBtoml::detail::lex_literal_char\fP = typedef \fBexclude\fP<\fBeither\fP<\fBin_range\fP<0x00, 0x08>, \fBin_range\fP<0x0A, 0x1F>, \fBcharacter\fP<0x7F>, \fBcharacter\fP<0x27> >>"
+
+.SS "using \fBtoml::detail::lex_literal_string\fP = typedef \fBsequence\fP<\fBlex_apostrophe\fP, \fBrepeat\fP<\fBlex_literal_char\fP, \fBunlimited\fP>, \fBlex_apostrophe\fP>"
+
+.SS "using \fBtoml::detail::lex_local_date\fP = typedef \fBlex_full_date\fP"
+
+.SS "using \fBtoml::detail::lex_local_date_time\fP = typedef \fBsequence\fP<\fBlex_full_date\fP, \fBlex_time_delim\fP, \fBlex_partial_time\fP>"
+
+.SS "using \fBtoml::detail::lex_local_time\fP = typedef \fBlex_partial_time\fP"
+
+.SS "using \fBtoml::detail::lex_lower\fP = typedef \fBin_range\fP<'a', 'z'>"
+
+.SS "using \fBtoml::detail::lex_minus\fP = typedef \fBcharacter\fP<'\-'>"
+
+.SS "using \fBtoml::detail::lex_ml_basic_body\fP = typedef \fBrepeat\fP<\fBeither\fP<\fBlex_ml_basic_char\fP, \fBlex_newline\fP, \fBlex_ml_basic_escaped_newline\fP>, \fBunlimited\fP>"
+
+.SS "using \fBtoml::detail::lex_ml_basic_char\fP = typedef \fBeither\fP<\fBlex_ml_basic_unescaped\fP, \fBlex_escaped\fP>"
+
+.SS "using \fBtoml::detail::lex_ml_basic_escaped_newline\fP = typedef \fBsequence\fP< \fBlex_escape\fP, \fBmaybe\fP<\fBlex_ws\fP>, \fBlex_newline\fP, \fBrepeat\fP<\fBeither\fP<\fBlex_ws\fP, \fBlex_newline\fP>, \fBunlimited\fP> >"
+
+.SS "using \fBtoml::detail::lex_ml_basic_string\fP = typedef \fBsequence\fP<\fBlex_ml_basic_string_open\fP, \fBlex_ml_basic_body\fP, \fBlex_ml_basic_string_close\fP>"
+
+.SS "using \fBtoml::detail::lex_ml_basic_string_close\fP = typedef \fBsequence\fP< \fBrepeat\fP<\fBlex_quotation_mark\fP, \fBexactly\fP<3> >, \fBmaybe\fP<\fBlex_quotation_mark\fP>, \fBmaybe\fP<\fBlex_quotation_mark\fP> >"
+
+.SS "using \fBtoml::detail::lex_ml_basic_string_delim\fP = typedef \fBrepeat\fP<\fBlex_quotation_mark\fP, \fBexactly\fP<3> >"
+
+.SS "using \fBtoml::detail::lex_ml_basic_string_open\fP = typedef \fBlex_ml_basic_string_delim\fP"
+
+.SS "using \fBtoml::detail::lex_ml_basic_unescaped\fP = typedef \fBexclude\fP<\fBeither\fP<\fBin_range\fP<0x00, 0x08>, \fBin_range\fP<0x0A, 0x1F>, \fBcharacter\fP<0x5C>, \fBcharacter\fP<0x7F>, \fBlex_ml_basic_string_delim\fP> >"
+
+.SS "using \fBtoml::detail::lex_ml_literal_body\fP = typedef \fBrepeat\fP<\fBeither\fP<\fBlex_ml_literal_char\fP, \fBlex_newline\fP>, \fBunlimited\fP>"
+
+.SS "using \fBtoml::detail::lex_ml_literal_char\fP = typedef \fBexclude\fP<\fBeither\fP<\fBin_range\fP<0x00, 0x08>, \fBin_range\fP<0x0A, 0x1F>, \fBcharacter\fP<0x7F>, \fBlex_ml_literal_string_delim\fP> >"
+
+.SS "using \fBtoml::detail::lex_ml_literal_string\fP = typedef \fBsequence\fP<\fBlex_ml_literal_string_open\fP, \fBlex_ml_literal_body\fP, \fBlex_ml_literal_string_close\fP>"
+
+.SS "using \fBtoml::detail::lex_ml_literal_string_close\fP = typedef \fBsequence\fP< \fBrepeat\fP<\fBlex_apostrophe\fP, \fBexactly\fP<3> >, \fBmaybe\fP<\fBlex_apostrophe\fP>, \fBmaybe\fP<\fBlex_apostrophe\fP> >"
+
+.SS "using \fBtoml::detail::lex_ml_literal_string_delim\fP = typedef \fBrepeat\fP<\fBlex_apostrophe\fP, \fBexactly\fP<3> >"
+
+.SS "using \fBtoml::detail::lex_ml_literal_string_open\fP = typedef \fBlex_ml_literal_string_delim\fP"
+
+.SS "using \fBtoml::detail::lex_nan\fP = typedef \fBsequence\fP<\fBcharacter\fP<'n'>, \fBcharacter\fP<'a'>, \fBcharacter\fP<'n'> >"
+
+.SS "using \fBtoml::detail::lex_newline\fP = typedef \fBeither\fP<\fBcharacter\fP<'\\n'>, \fBsequence\fP<\fBcharacter\fP<'\\r'>, \fBcharacter\fP<'\\n'> >>"
+
+.SS "using \fBtoml::detail::lex_non_eol_ascii\fP = typedef \fBeither\fP<\fBcharacter\fP<0x09>, \fBin_range\fP<0x20, 0x7E> >"
+
+.SS "using \fBtoml::detail::lex_nonzero\fP = typedef \fBin_range\fP<'1', '9'>"
+
+.SS "using \fBtoml::detail::lex_oct_dig\fP = typedef \fBin_range\fP<'0', '7'>"
+
+.SS "using \fBtoml::detail::lex_oct_int\fP = typedef \fBsequence\fP<\fBlex_oct_prefix\fP, \fBsequence\fP<\fBlex_oct_dig\fP, \fBrepeat\fP< \fBeither\fP<\fBlex_oct_dig\fP, \fBsequence\fP<\fBlex_underscore\fP, \fBlex_oct_dig\fP> >, \fBunlimited\fP> >>"
+
+.SS "using \fBtoml::detail::lex_oct_prefix\fP = typedef \fBsequence\fP<\fBcharacter\fP<'0'>, \fBcharacter\fP<'o'> >"
+
+.SS "using \fBtoml::detail::lex_offset_date_time\fP = typedef \fBsequence\fP<\fBlex_full_date\fP, \fBlex_time_delim\fP, \fBlex_full_time\fP>"
+
+.SS "using \fBtoml::detail::lex_partial_time\fP = typedef \fBsequence\fP<\fBlex_time_hour\fP, \fBcharacter\fP<':'>, \fBlex_time_minute\fP, \fBcharacter\fP<':'>, \fBlex_time_second\fP, \fBmaybe\fP<\fBlex_time_secfrac\fP> >"
+
+.SS "using \fBtoml::detail::lex_plus\fP = typedef \fBcharacter\fP<'+'>"
+
+.SS "using \fBtoml::detail::lex_quotation_mark\fP = typedef \fBcharacter\fP<'''>"
+
+.SS "using \fBtoml::detail::lex_quoted_key\fP = typedef \fBeither\fP<\fBlex_basic_string\fP, \fBlex_literal_string\fP>"
+
+.SS "using \fBtoml::detail::lex_sign\fP = typedef \fBeither\fP<\fBlex_plus\fP, \fBlex_minus\fP>"
+
+.SS "using \fBtoml::detail::lex_simple_key\fP = typedef \fBeither\fP<\fBlex_unquoted_key\fP, \fBlex_quoted_key\fP>"
+
+.SS "using \fBtoml::detail::lex_special_float\fP = typedef \fBsequence\fP<\fBmaybe\fP<\fBlex_sign\fP>, \fBeither\fP<\fBlex_inf\fP, \fBlex_nan\fP> >"
+
+.SS "using \fBtoml::detail::lex_std_table\fP = typedef \fBsequence\fP<\fBlex_std_table_open\fP, \fBmaybe\fP<\fBlex_ws\fP>, \fBlex_key\fP, \fBmaybe\fP<\fBlex_ws\fP>, \fBlex_std_table_close\fP>"
+
+.SS "using \fBtoml::detail::lex_std_table_close\fP = typedef \fBcharacter\fP<']'>"
+
+.SS "using \fBtoml::detail::lex_std_table_open\fP = typedef \fBcharacter\fP<'['>"
+
+.SS "using \fBtoml::detail::lex_string\fP = typedef \fBeither\fP<\fBlex_ml_basic_string\fP, \fBlex_basic_string\fP, \fBlex_ml_literal_string\fP, \fBlex_literal_string\fP>"
+
+.SS "using \fBtoml::detail::lex_time_delim\fP = typedef \fBeither\fP<\fBcharacter\fP<'T'>, \fBcharacter\fP<'t'>, \fBcharacter\fP<' '> >"
+
+.SS "using \fBtoml::detail::lex_time_hour\fP = typedef \fBrepeat\fP<\fBlex_digit\fP, \fBexactly\fP<2> >"
+
+.SS "using \fBtoml::detail::lex_time_minute\fP = typedef \fBrepeat\fP<\fBlex_digit\fP, \fBexactly\fP<2> >"
+
+.SS "using \fBtoml::detail::lex_time_numoffset\fP = typedef \fBsequence\fP<\fBeither\fP<\fBcharacter\fP<'+'>, \fBcharacter\fP<'\-'> >, \fBsequence\fP<\fBlex_time_hour\fP, \fBcharacter\fP<':'>, \fBlex_time_minute\fP> >"
+
+.SS "using \fBtoml::detail::lex_time_offset\fP = typedef \fBeither\fP<\fBcharacter\fP<'Z'>, \fBcharacter\fP<'z'>, \fBlex_time_numoffset\fP>"
+
+.SS "using \fBtoml::detail::lex_time_secfrac\fP = typedef \fBsequence\fP<\fBcharacter\fP<'\&.'>, \fBrepeat\fP<\fBlex_digit\fP, \fBat_least\fP<1> >>"
+
+.SS "using \fBtoml::detail::lex_time_second\fP = typedef \fBrepeat\fP<\fBlex_digit\fP, \fBexactly\fP<2> >"
+
+.SS "using \fBtoml::detail::lex_true\fP = typedef \fBsequence\fP<\fBcharacter\fP<'t'>, \fBcharacter\fP<'r'>, \fBcharacter\fP<'u'>, \fBcharacter\fP<'e'> >"
+
+.SS "using \fBtoml::detail::lex_underscore\fP = typedef \fBcharacter\fP<'_'>"
+
+.SS "using \fBtoml::detail::lex_unquoted_key\fP = typedef \fBrepeat\fP<\fBeither\fP<\fBlex_alpha\fP, \fBlex_digit\fP, \fBcharacter\fP<'\-'>, \fBcharacter\fP<'_'> >, \fBat_least\fP<1> >"
+
+.SS "using \fBtoml::detail::lex_unsigned_dec_int\fP = typedef \fBeither\fP<\fBsequence\fP<\fBlex_nonzero\fP, \fBrepeat\fP< \fBeither\fP<\fBlex_digit\fP, \fBsequence\fP<\fBlex_underscore\fP, \fBlex_digit\fP> >, \fBat_least\fP<1> >>, \fBlex_digit\fP>"
+
+.SS "using \fBtoml::detail::lex_upper\fP = typedef \fBin_range\fP<'A', 'Z'>"
+
+.SS "using \fBtoml::detail::lex_utf8_1byte\fP = typedef \fBin_range\fP<0x00, 0x7F>"
+
+.SS "using \fBtoml::detail::lex_utf8_2byte\fP = typedef \fBsequence\fP< \fBin_range\fP<static_cast<char>(0xC2), static_cast<char>(0xDF)>, \fBin_range\fP<static_cast<char>(0x80), static_cast<char>(0xBF)> >"
+
+.SS "using \fBtoml::detail::lex_utf8_3byte\fP = typedef \fBsequence\fP<\fBeither\fP< \fBsequence\fP<\fBcharacter\fP<static_cast<char>(0xE0)>, \fBin_range\fP<static_cast<char>(0xA0), static_cast<char>(0xBF)> >, \fBsequence\fP<\fBin_range\fP <static_cast<char>(0xE1), static_cast<char>(0xEC)>, \fBin_range\fP<static_cast<char>(0x80), static_cast<char>(0xBF)> >, \fBsequence\fP<\fBcharacter\fP<static_cast<char>(0xED)>, \fBin_range\fP<static_cast<char>(0x80), static_cast<char>(0x9F)> >, \fBsequence\fP<\fBin_range\fP <static_cast<char>(0xEE), static_cast<char>(0xEF)>, \fBin_range\fP<static_cast<char>(0x80), static_cast<char>(0xBF)> > >, \fBin_range\fP<static_cast<char>(0x80), static_cast<char>(0xBF)> >"
+
+.SS "using \fBtoml::detail::lex_utf8_4byte\fP = typedef \fBsequence\fP<\fBeither\fP< \fBsequence\fP<\fBcharacter\fP<static_cast<char>(0xF0)>, \fBin_range\fP<static_cast<char>(0x90), static_cast<char>(0xBF)> >, \fBsequence\fP<\fBin_range\fP <static_cast<char>(0xF1), static_cast<char>(0xF3)>, \fBin_range\fP<static_cast<char>(0x80), static_cast<char>(0xBF)> >, \fBsequence\fP<\fBcharacter\fP<static_cast<char>(0xF4)>, \fBin_range\fP<static_cast<char>(0x80), static_cast<char>(0x8F)> > >, \fBin_range\fP<static_cast<char>(0x80), static_cast<char>(0xBF)>, \fBin_range\fP<static_cast<char>(0x80), static_cast<char>(0xBF)> >"
+
+.SS "using \fBtoml::detail::lex_utf8_code\fP = typedef \fBeither\fP< \fBlex_utf8_1byte\fP, \fBlex_utf8_2byte\fP, \fBlex_utf8_3byte\fP, \fBlex_utf8_4byte\fP >"
+
+.SS "using \fBtoml::detail::lex_ws\fP = typedef \fBrepeat\fP<\fBlex_wschar\fP, \fBat_least\fP<1> >"
+
+.SS "using \fBtoml::detail::lex_wschar\fP = typedef \fBeither\fP<\fBcharacter\fP<' '>, \fBcharacter\fP<'\\t'> >"
+
+.SS "using \fBtoml::detail::lex_zero_prefixable_int\fP = typedef \fBsequence\fP<\fBlex_digit\fP, \fBrepeat\fP<\fBeither\fP<\fBlex_digit\fP, \fBsequence\fP<\fBlex_underscore\fP, \fBlex_digit\fP> >, \fBunlimited\fP> >"
+
+.SS "template<std::size_t N> using \fBtoml::detail::make_index_sequence\fP = typedef typename \fBindex_sequence_maker\fP<N\-1>::type"
+
+.SS "template<typename T > using \fBtoml::detail::remove_cvref_t\fP = typedef typename \fBremove_cvref\fP<T>::type"
+
+.SS "template<typename F , typename \&.\&.\&. Args> using \fBtoml::detail::return_type_of_t\fP = typedef typename std::result_of<F(Args\&.\&.\&.)>::type"
+
+.SS "template<\fBvalue_t\fP V> using \fBtoml::detail::value_t_constant\fP = typedef std::integral_constant<\fBvalue_t\fP, V>"
+
+.SH "Function Documentation"
+.PP 
+.SS "template<typename Value > void toml::detail::change_region (Value & v, \fBregion\fP reg)"
+
+.SS "std::ptrdiff_t toml::detail::check_utf8_validity (const std::string & reg)\fC [inline]\fP"
+
+.SS "template<typename charT , typename traits > int toml::detail::comment_index (std::basic_ostream< charT, traits > &)"
+
+.SS "std::string toml::detail::concat_to_string_impl (std::ostringstream & oss)\fC [inline]\fP"
+
+.SS "template<typename T , typename \&.\&.\&. Ts> std::string toml::detail::concat_to_string_impl (std::ostringstream & oss, T && head, Ts &&\&.\&.\&. tail)"
+
+.SS "template<typename InputIterator > std::string toml::detail::format_dotted_keys (InputIterator first, const InputIterator last)"
+
+.SS "std::string toml::detail::format_underline (const std::string & message, const std::vector< std::pair< \fBsource_location\fP, std::string > > & loc_com, const std::vector< std::string > & helps = \fC{}\fP, const bool colorize = \fC\fBTOML11_ERROR_MESSAGE_COLORIZED\fP\fP)\fC [inline]\fP"
+
+.SS "template<typename Value > \fBregion_base\fP const  * toml::detail::get_region (const Value & v)\fC [inline]\fP"
+
+.SS "template<typename T , typename Array , std::size_t \&.\&.\&. I> T toml::detail::get_tuple_impl (const Array & a, \fBindex_sequence\fP< I\&.\&.\&. >)"
+
+.SS "std::tm toml::detail::gmtime_s (const std::time_t * src)\fC [inline]\fP"
+
+.SS "\fBresult\fP< \fBvalue_t\fP, std::string > toml::detail::guess_number_type (const \fBlocation\fP & l)\fC [inline]\fP"
+
+.SS "\fBresult\fP< \fBvalue_t\fP, std::string > toml::detail::guess_value_type (const \fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "template<typename Value , typename InputIterator > \fBresult\fP< bool, std::string > toml::detail::insert_nested_key (typename Value::table_type & root, const Value & v, InputIterator iter, const InputIterator last, \fBregion\fP key_reg, const bool is_array_of_table = \fCfalse\fP)"
+
+.SS "template<typename Value , typename Iterator > bool toml::detail::is_valid_forward_table_definition (const Value & fwd, const Value & inserting, Iterator key_first, Iterator key_curr, Iterator key_last)"
+
+.SS "template<typename T > \fBenable_if_t\fP< \fBconjunction\fP< std::is_integral< \fBremove_cvref_t\fP< T > >, \fBnegation\fP< std::is_same< \fBremove_cvref_t\fP< T >, bool > > >\fB::value\fP, std::size_t > toml::detail::key_cast (T && v)\fC [noexcept]\fP"
+
+.SS "template<typename T > \fBenable_if_t\fP< \fBnegation\fP< \fBconjunction\fP< std::is_integral< \fBremove_cvref_t\fP< T > >, \fBnegation\fP< std::is_same< \fBremove_cvref_t\fP< T >, bool > > > >\fB::value\fP, std::string > toml::detail::key_cast (T && v)\fC [noexcept]\fP"
+
+.SS "template<typename T , typename \&.\&.\&. Ts> \fBenable_if_t\fP<(sizeof\&.\&.\&.(Ts) > 0), \fBlast_one_in_pack_t\fP< Ts &&\&.\&.\&. > > toml::detail::last_one (T &&, Ts &&\&.\&.\&. tail)"
+
+.SS "template<typename T > T && toml::detail::last_one (T && tail)\fC [noexcept]\fP"
+
+.SS "std::tm toml::detail::localtime_s (const std::time_t * src)\fC [inline]\fP"
+
+.SS "template<typename Iterator > std::string toml::detail::make_string (Iterator first, Iterator last)"
+
+.SS "std::string toml::detail::make_string (std::size_t len, char c)\fC [inline]\fP"
+
+.SS "\fBfailure\fP< \fBnone_t\fP > toml::detail::none ()\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , bool C> bool toml::detail::operator!= (const \fBempty_iterator\fP< T, C > &, const \fBempty_iterator\fP< T, C > &)\fC [noexcept]\fP"
+
+.SS "bool toml::detail::operator!= (const \fBnone_t\fP &, const \fBnone_t\fP &)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , bool C> \fBempty_iterator\fP< T, C > toml::detail::operator+ (const \fBempty_iterator\fP< T, C > & lhs, typename \fBempty_iterator\fP< T, C >::difference_type)\fC [noexcept]\fP"
+
+.SS "template<typename T , bool C> \fBempty_iterator\fP< T, C > toml::detail::operator+ (typename \fBempty_iterator\fP< T, C >::difference_type, const \fBempty_iterator\fP< T, C > & rhs)\fC [noexcept]\fP"
+
+.SS "template<typename T , bool C> \fBempty_iterator\fP< T, C >::difference_type toml::detail::operator\- (const \fBempty_iterator\fP< T, C > &, const \fBempty_iterator\fP< T, C > &)\fC [noexcept]\fP"
+
+.SS "template<typename T , bool C> bool toml::detail::operator< (const \fBempty_iterator\fP< T, C > &, const \fBempty_iterator\fP< T, C > &)\fC [noexcept]\fP"
+
+.SS "bool toml::detail::operator< (const \fBnone_t\fP &, const \fBnone_t\fP &)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename charT , typename traitsT > std::basic_ostream< charT, traitsT > & toml::detail::operator<< (std::basic_ostream< charT, traitsT > & os, const \fBnone_t\fP &)"
+
+.SS "template<typename T , bool C> bool toml::detail::operator<= (const \fBempty_iterator\fP< T, C > &, const \fBempty_iterator\fP< T, C > &)\fC [noexcept]\fP"
+
+.SS "bool toml::detail::operator<= (const \fBnone_t\fP &, const \fBnone_t\fP &)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , bool C> bool toml::detail::operator== (const \fBempty_iterator\fP< T, C > &, const \fBempty_iterator\fP< T, C > &)\fC [noexcept]\fP"
+
+.SS "bool toml::detail::operator== (const \fBnone_t\fP &, const \fBnone_t\fP &)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , bool C> bool toml::detail::operator> (const \fBempty_iterator\fP< T, C > &, const \fBempty_iterator\fP< T, C > &)\fC [noexcept]\fP"
+
+.SS "bool toml::detail::operator> (const \fBnone_t\fP &, const \fBnone_t\fP &)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , bool C> bool toml::detail::operator>= (const \fBempty_iterator\fP< T, C > &, const \fBempty_iterator\fP< T, C > &)\fC [noexcept]\fP"
+
+.SS "bool toml::detail::operator>= (const \fBnone_t\fP &, const \fBnone_t\fP &)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename Value > \fBresult\fP< std::pair< typename Value::array_type, \fBregion\fP >, std::string > toml::detail::parse_array (\fBlocation\fP & loc)"
+
+.SS "\fBresult\fP< std::pair< std::vector< \fBkey\fP >, \fBregion\fP >, std::string > toml::detail::parse_array_table_key (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "\fBresult\fP< std::pair< \fBtoml::string\fP, \fBregion\fP >, std::string > toml::detail::parse_basic_string (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "\fBresult\fP< std::pair< \fBinteger\fP, \fBregion\fP >, std::string > toml::detail::parse_binary_integer (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "\fBresult\fP< std::pair< \fBboolean\fP, \fBregion\fP >, std::string > toml::detail::parse_boolean (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "\fBresult\fP< std::string, std::string > toml::detail::parse_escape_sequence (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "\fBresult\fP< std::pair< \fBfloating\fP, \fBregion\fP >, std::string > toml::detail::parse_floating (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "\fBresult\fP< std::pair< \fBinteger\fP, \fBregion\fP >, std::string > toml::detail::parse_hexadecimal_integer (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "template<typename Value > \fBresult\fP< std::pair< typename Value::table_type, \fBregion\fP >, std::string > toml::detail::parse_inline_table (\fBlocation\fP & loc)"
+
+.SS "\fBresult\fP< std::pair< \fBinteger\fP, \fBregion\fP >, std::string > toml::detail::parse_integer (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "\fBresult\fP< std::pair< std::vector< \fBkey\fP >, \fBregion\fP >, std::string > toml::detail::parse_key (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "template<typename Value > \fBresult\fP< std::pair< std::pair< std::vector< \fBkey\fP >, \fBregion\fP >, Value >, std::string > toml::detail::parse_key_value_pair (\fBlocation\fP & loc)"
+
+.SS "\fBresult\fP< std::pair< \fBtoml::string\fP, \fBregion\fP >, std::string > toml::detail::parse_literal_string (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "\fBresult\fP< std::pair< \fBlocal_date\fP, \fBregion\fP >, std::string > toml::detail::parse_local_date (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "\fBresult\fP< std::pair< \fBlocal_datetime\fP, \fBregion\fP >, std::string > toml::detail::parse_local_datetime (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "\fBresult\fP< std::pair< \fBlocal_time\fP, \fBregion\fP >, std::string > toml::detail::parse_local_time (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "\fBresult\fP< std::pair< \fBtoml::string\fP, \fBregion\fP >, std::string > toml::detail::parse_ml_basic_string (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "\fBresult\fP< std::pair< \fBtoml::string\fP, \fBregion\fP >, std::string > toml::detail::parse_ml_literal_string (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "template<typename Value > \fBresult\fP< typename Value::table_type, std::string > toml::detail::parse_ml_table (\fBlocation\fP & loc)"
+
+.SS "\fBresult\fP< std::pair< \fBinteger\fP, \fBregion\fP >, std::string > toml::detail::parse_octal_integer (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "\fBresult\fP< std::pair< \fBoffset_datetime\fP, \fBregion\fP >, std::string > toml::detail::parse_offset_datetime (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "\fBresult\fP< std::pair< \fBkey\fP, \fBregion\fP >, std::string > toml::detail::parse_simple_key (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "\fBresult\fP< std::pair< \fBtoml::string\fP, \fBregion\fP >, std::string > toml::detail::parse_string (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "\fBresult\fP< std::pair< std::vector< \fBkey\fP >, \fBregion\fP >, std::string > toml::detail::parse_table_key (\fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "template<typename Value > \fBresult\fP< Value, std::string > toml::detail::parse_toml_file (\fBlocation\fP & loc)"
+
+.SS "template<typename Value > \fBresult\fP< Value, std::string > toml::detail::parse_value (\fBlocation\fP & loc)"
+
+.SS "template<typename Value , typename T > \fBresult\fP< Value, std::string > toml::detail::parse_value_helper (\fBresult\fP< std::pair< T, \fBregion\fP >, std::string > rslt)"
+
+.SS "std::string toml::detail::read_utf8_codepoint (const \fBregion\fP & reg, const \fBlocation\fP & loc)\fC [inline]\fP"
+
+.SS "std::string toml::detail::show_char (const char c)\fC [inline]\fP"
+
+.SS "template<\fBvalue_t\fP Expected, typename Value > void toml::detail::throw_bad_cast (const std::string & funcname, \fBvalue_t\fP actual, const Value & v)\fC [inline]\fP"
+
+.SS "template<typename Value > void toml::detail::throw_key_not_found_error (const Value & v, const \fBkey\fP & ky)"
+
+.SS "template<typename Container > void toml::detail::try_reserve_impl (Container &, std::size_t, std::false_type)\fC [noexcept]\fP"
+
+.SS "template<typename Container > void toml::detail::try_reserve_impl (Container & container, std::size_t N, std::true_type)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

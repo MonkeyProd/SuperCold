@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="dir_a2259dc3cc4b91e15b154e2fa608c1ee" kind="dir">
+    <compoundname>external/toml</compoundname>
+    <innerfile refid="color_8hpp">color.hpp</innerfile>
+    <innerfile refid="combinator_8hpp">combinator.hpp</innerfile>
+    <innerfile refid="comments_8hpp">comments.hpp</innerfile>
+    <innerfile refid="datetime_8hpp">datetime.hpp</innerfile>
+    <innerfile refid="exception_8hpp">exception.hpp</innerfile>
+    <innerfile refid="from_8hpp">from.hpp</innerfile>
+    <innerfile refid="get_8hpp">get.hpp</innerfile>
+    <innerfile refid="into_8hpp">into.hpp</innerfile>
+    <innerfile refid="lexer_8hpp">lexer.hpp</innerfile>
+    <innerfile refid="literal_8hpp">literal.hpp</innerfile>
+    <innerfile refid="macros_8hpp">macros.hpp</innerfile>
+    <innerfile refid="parser_8hpp">parser.hpp</innerfile>
+    <innerfile refid="region_8hpp">region.hpp</innerfile>
+    <innerfile refid="result_8hpp">result.hpp</innerfile>
+    <innerfile refid="serializer_8hpp">serializer.hpp</innerfile>
+    <innerfile refid="source__location_8hpp">source_location.hpp</innerfile>
+    <innerfile refid="storage_8hpp">storage.hpp</innerfile>
+    <innerfile refid="string_8hpp">string.hpp</innerfile>
+    <innerfile refid="traits_8hpp">traits.hpp</innerfile>
+    <innerfile refid="types_8hpp">types.hpp</innerfile>
+    <innerfile refid="utility_8hpp">utility.hpp</innerfile>
+    <innerfile refid="value_8hpp">value.hpp</innerfile>
+    <innerfile refid="version_8hpp">version.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/"/>
+  </compounddef>
+</doxygen>

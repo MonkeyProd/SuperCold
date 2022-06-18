@@ -1,0 +1,94 @@
+.TH "toml::failure< T >" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::failure< T >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <result\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBvalue_type\fP = T"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfailure\fP (const \fBvalue_type\fP &v) noexcept(std::is_nothrow_copy_constructible< \fBvalue_type\fP >\fB::value\fP)"
+.br
+.ti -1c
+.RI "\fBfailure\fP (\fBvalue_type\fP &&v) noexcept(std::is_nothrow_move_constructible< \fBvalue_type\fP >\fB::value\fP)"
+.br
+.ti -1c
+.RI "template<typename U > \fBfailure\fP (U &&v)"
+.br
+.ti -1c
+.RI "template<typename U > \fBfailure\fP (const \fBfailure\fP< U > &v)"
+.br
+.ti -1c
+.RI "template<typename U > \fBfailure\fP (\fBfailure\fP< U > &&v)"
+.br
+.ti -1c
+.RI "\fB~failure\fP ()=default"
+.br
+.ti -1c
+.RI "\fBfailure\fP (const \fBfailure\fP &)=default"
+.br
+.ti -1c
+.RI "\fBfailure\fP (\fBfailure\fP &&)=default"
+.br
+.ti -1c
+.RI "\fBfailure\fP & \fBoperator=\fP (const \fBfailure\fP &)=default"
+.br
+.ti -1c
+.RI "\fBfailure\fP & \fBoperator=\fP (\fBfailure\fP &&)=default"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBvalue_type\fP \fBvalue\fP"
+.br
+.in -1c
+.SH "Member Typedef Documentation"
+.PP 
+.SS "template<typename T > using \fBtoml::failure\fP< T >::value_type =  T"
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T > \fBtoml::failure\fP< T >::failure (const \fBvalue_type\fP & v)\fC [inline]\fP, \fC [explicit]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T > \fBtoml::failure\fP< T >::failure (\fBvalue_type\fP && v)\fC [inline]\fP, \fC [explicit]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T > template<typename U > \fBtoml::failure\fP< T >::failure (U && v)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "template<typename T > template<typename U > \fBtoml::failure\fP< T >::failure (const \fBfailure\fP< U > & v)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "template<typename T > template<typename U > \fBtoml::failure\fP< T >::failure (\fBfailure\fP< U > && v)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "template<typename T > \fBtoml::failure\fP< T >::~\fBfailure\fP ()\fC [default]\fP"
+
+.SS "template<typename T > \fBtoml::failure\fP< T >::failure (const \fBfailure\fP< T > &)\fC [default]\fP"
+
+.SS "template<typename T > \fBtoml::failure\fP< T >::failure (\fBfailure\fP< T > &&)\fC [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T > \fBfailure\fP & \fBtoml::failure\fP< T >::operator= (const \fBfailure\fP< T > &)\fC [default]\fP"
+
+.SS "template<typename T > \fBfailure\fP & \fBtoml::failure\fP< T >::operator= (\fBfailure\fP< T > &&)\fC [default]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "template<typename T > \fBvalue_type\fP \fBtoml::failure\fP< T >::value"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

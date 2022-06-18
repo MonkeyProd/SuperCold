@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1maybe" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::maybe</compoundname>
+    <includes refid="combinator_8hpp" local="no">combinator.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Combinator</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structtoml_1_1detail_1_1maybe_1a85d0697d87e0079600f4eb2d47a50d76" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1result" kindref="compound">result</ref>&lt; <ref refid="structtoml_1_1detail_1_1region" kindref="compound">region</ref>, <ref refid="structtoml_1_1detail_1_1none__t" kindref="compound">none_t</ref> &gt;</type>
+        <definition>static result&lt; region, none_t &gt; toml::detail::maybe&lt; Combinator &gt;::invoke</definition>
+        <argsstring>(location &amp;loc)</argsstring>
+        <name>invoke</name>
+        <qualifiedname>toml::detail::maybe::invoke</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1location" kindref="compound">location</ref> &amp;</type>
+          <declname>loc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/combinator.hpp" line="136" column="5" bodyfile="external/toml/combinator.hpp" bodystart="136" bodyend="144"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/combinator.hpp" line="133" column="1" bodyfile="external/toml/combinator.hpp" bodystart="134" bodyend="145"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1detail_1_1maybe_1a85d0697d87e0079600f4eb2d47a50d76" prot="public" virt="non-virtual"><scope>toml::detail::maybe</scope><name>invoke</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,172 @@
+.TH "SimplexNoise" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SimplexNoise \- A Perlin Simplex Noise C++ Implementation (1D, 2D, 3D, 4D)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SimplexNoise\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "float \fBfractal\fP (size_t octaves, float x) const"
+.br
+.ti -1c
+.RI "float \fBfractal\fP (size_t octaves, float x, float y) const"
+.br
+.ti -1c
+.RI "float \fBfractal\fP (size_t octaves, float x, float y, float z) const"
+.br
+.ti -1c
+.RI "\fBSimplexNoise\fP (float frequency=1\&.0f, float amplitude=1\&.0f, float lacunarity=2\&.0f, float persistence=0\&.5f)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static float \fBnoise\fP (float x)"
+.br
+.ti -1c
+.RI "static float \fBnoise\fP (float x, float y)"
+.br
+.ti -1c
+.RI "static float \fBnoise\fP (float x, float y, float z)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A Perlin Simplex Noise C++ Implementation (1D, 2D, 3D, 4D)\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "SimplexNoise::SimplexNoise (float frequency = \fC1\&.0f\fP, float amplitude = \fC1\&.0f\fP, float lacunarity = \fC2\&.0f\fP, float persistence = \fC0\&.5f\fP)\fC [inline]\fP, \fC [explicit]\fP"
+Constructor of to initialize a fractal noise summation
+.PP
+\fBParameters\fP
+.RS 4
+\fIfrequency\fP Frequency ('width') of the first octave of noise (default to 1\&.0) 
+.br
+\fIamplitude\fP Amplitude ('height') of the first octave of noise (default to 1\&.0) 
+.br
+\fIlacunarity\fP Lacunarity specifies the frequency multiplier between successive octaves (default to 2\&.0)\&. 
+.br
+\fIpersistence\fP Persistence is the loss of amplitude between successive octaves (usually 1/lacunarity) 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "float SimplexNoise::fractal (size_t octaves, float x) const"
+Fractal/Fractional Brownian Motion (fBm) summation of 1D Perlin Simplex noise
+.PP
+\fBParameters\fP
+.RS 4
+\fIoctaves\fP number of fraction of noise to sum 
+.br
+\fIx\fP float coordinate
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Noise value in the range[-1; 1], value of 0 on all integer coordinates\&. 
+.RE
+.PP
+
+.SS "float SimplexNoise::fractal (size_t octaves, float x, float y) const"
+Fractal/Fractional Brownian Motion (fBm) summation of 2D Perlin Simplex noise
+.PP
+\fBParameters\fP
+.RS 4
+\fIoctaves\fP number of fraction of noise to sum 
+.br
+\fIx\fP x float coordinate 
+.br
+\fIy\fP y float coordinate
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Noise value in the range[-1; 1], value of 0 on all integer coordinates\&. 
+.RE
+.PP
+
+.SS "float SimplexNoise::fractal (size_t octaves, float x, float y, float z) const"
+Fractal/Fractional Brownian Motion (fBm) summation of 3D Perlin Simplex noise
+.PP
+\fBParameters\fP
+.RS 4
+\fIoctaves\fP number of fraction of noise to sum 
+.br
+\fIx\fP x float coordinate 
+.br
+\fIy\fP y float coordinate 
+.br
+\fIz\fP z float coordinate
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Noise value in the range[-1; 1], value of 0 on all integer coordinates\&. 
+.RE
+.PP
+
+.SS "float SimplexNoise::noise (float x)\fC [static]\fP"
+1D Perlin simplex noise
+.PP
+Takes around 74ns on an AMD APU\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP float coordinate
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Noise value in the range[-1; 1], value of 0 on all integer coordinates\&. 
+.RE
+.PP
+
+.SS "float SimplexNoise::noise (float x, float y)\fC [static]\fP"
+2D Perlin simplex noise
+.PP
+Takes around 150ns on an AMD APU\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP float coordinate 
+.br
+\fIy\fP float coordinate
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Noise value in the range[-1; 1], value of 0 on all integer coordinates\&. 
+.RE
+.PP
+
+.SS "float SimplexNoise::noise (float x, float y, float z)\fC [static]\fP"
+3D Perlin simplex noise
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP float coordinate 
+.br
+\fIy\fP float coordinate 
+.br
+\fIz\fP float coordinate
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Noise value in the range[-1; 1], value of 0 on all integer coordinates\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

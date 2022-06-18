@@ -1,0 +1,98 @@
+.TH "toml::local_datetime" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::local_datetime
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <datetime\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBlocal_datetime\fP (\fBlocal_date\fP d, \fBlocal_time\fP t)"
+.br
+.ti -1c
+.RI "\fBlocal_datetime\fP (const std::tm &t)"
+.br
+.ti -1c
+.RI "\fBlocal_datetime\fP (const std::chrono::system_clock::time_point &tp)"
+.br
+.ti -1c
+.RI "\fBlocal_datetime\fP (const std::time_t t)"
+.br
+.ti -1c
+.RI "\fBoperator std::chrono::system_clock::time_point\fP () const"
+.br
+.ti -1c
+.RI "\fBoperator std::time_t\fP () const"
+.br
+.ti -1c
+.RI "\fBlocal_datetime\fP ()=default"
+.br
+.ti -1c
+.RI "\fB~local_datetime\fP ()=default"
+.br
+.ti -1c
+.RI "\fBlocal_datetime\fP (\fBlocal_datetime\fP const &)=default"
+.br
+.ti -1c
+.RI "\fBlocal_datetime\fP (\fBlocal_datetime\fP &&)=default"
+.br
+.ti -1c
+.RI "\fBlocal_datetime\fP & \fBoperator=\fP (\fBlocal_datetime\fP const &)=default"
+.br
+.ti -1c
+.RI "\fBlocal_datetime\fP & \fBoperator=\fP (\fBlocal_datetime\fP &&)=default"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBlocal_date\fP \fBdate\fP"
+.br
+.ti -1c
+.RI "\fBlocal_time\fP \fBtime\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "toml::local_datetime::local_datetime (\fBlocal_date\fP d, \fBlocal_time\fP t)\fC [inline]\fP"
+
+.SS "toml::local_datetime::local_datetime (const std::tm & t)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "toml::local_datetime::local_datetime (const std::chrono::system_clock::time_point & tp)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "toml::local_datetime::local_datetime (const std::time_t t)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "toml::local_datetime::local_datetime ()\fC [default]\fP"
+
+.SS "toml::local_datetime::~local_datetime ()\fC [default]\fP"
+
+.SS "toml::local_datetime::local_datetime (\fBlocal_datetime\fP const &)\fC [default]\fP"
+
+.SS "toml::local_datetime::local_datetime (\fBlocal_datetime\fP &&)\fC [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "toml::local_datetime::operator std::chrono::system_clock::time_point () const\fC [inline]\fP"
+
+.SS "toml::local_datetime::operator std::time_t () const\fC [inline]\fP"
+
+.SS "\fBlocal_datetime\fP & toml::local_datetime::operator= (\fBlocal_datetime\fP &&)\fC [default]\fP"
+
+.SS "\fBlocal_datetime\fP & toml::local_datetime::operator= (\fBlocal_datetime\fP const &)\fC [default]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBlocal_date\fP toml::local_datetime::date"
+
+.SS "\fBlocal_time\fP toml::local_datetime::time"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

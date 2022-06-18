@@ -1,0 +1,16 @@
+.TH "toml::detail::is_string_literal< T >" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::detail::is_string_literal< T >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <traits\&.hpp>\fP
+.PP
+Inherits \fBtoml::detail::disjunction< std::is_same< const char *, T >, conjunction< std::is_array< T >, std::is_same< const char, std::remove_extent< T >::type > > >\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

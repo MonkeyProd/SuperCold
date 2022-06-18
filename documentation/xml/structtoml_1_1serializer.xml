@@ -1,0 +1,771 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1serializer" kind="struct" language="C++" prot="public">
+    <compoundname>toml::serializer</compoundname>
+    <includes refid="serializer_8hpp" local="no">serializer.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Value</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structtoml_1_1serializer_1a289af9a8134b9bebd7ae11fcf180edd0" prot="public" static="no">
+        <type>Value</type>
+        <definition>using toml::serializer&lt; Value &gt;::value_type =  Value</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <qualifiedname>toml::serializer::value_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="91" column="5" bodyfile="external/toml/serializer.hpp" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1serializer_1abdccf89d2127b64339cbec8d60875fac" prot="public" static="no">
+        <type>typename value_type::key_type</type>
+        <definition>using toml::serializer&lt; Value &gt;::key_type =  typename value_type::key_type</definition>
+        <argsstring></argsstring>
+        <name>key_type</name>
+        <qualifiedname>toml::serializer::key_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="92" column="5" bodyfile="external/toml/serializer.hpp" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1serializer_1a24ee51d297a38c2440eb55e068bdcc3f" prot="public" static="no">
+        <type>typename value_type::comment_type</type>
+        <definition>using toml::serializer&lt; Value &gt;::comment_type =  typename value_type::comment_type</definition>
+        <argsstring></argsstring>
+        <name>comment_type</name>
+        <qualifiedname>toml::serializer::comment_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="93" column="5" bodyfile="external/toml/serializer.hpp" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1serializer_1aa0e43fd356a0704db389830954ea8a5c" prot="public" static="no">
+        <type>typename value_type::boolean_type</type>
+        <definition>using toml::serializer&lt; Value &gt;::boolean_type =  typename value_type::boolean_type</definition>
+        <argsstring></argsstring>
+        <name>boolean_type</name>
+        <qualifiedname>toml::serializer::boolean_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="94" column="5" bodyfile="external/toml/serializer.hpp" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1serializer_1ae910b7bcf853207cc206c51ba2f26d08" prot="public" static="no">
+        <type>typename value_type::integer_type</type>
+        <definition>using toml::serializer&lt; Value &gt;::integer_type =  typename value_type::integer_type</definition>
+        <argsstring></argsstring>
+        <name>integer_type</name>
+        <qualifiedname>toml::serializer::integer_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="95" column="5" bodyfile="external/toml/serializer.hpp" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1serializer_1a3181ea8262bdac5c3a3cf6a44d0d723d" prot="public" static="no">
+        <type>typename value_type::floating_type</type>
+        <definition>using toml::serializer&lt; Value &gt;::floating_type =  typename value_type::floating_type</definition>
+        <argsstring></argsstring>
+        <name>floating_type</name>
+        <qualifiedname>toml::serializer::floating_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="96" column="5" bodyfile="external/toml/serializer.hpp" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1serializer_1aeee27a638d2ee95e74defdfea7d4410b" prot="public" static="no">
+        <type>typename value_type::string_type</type>
+        <definition>using toml::serializer&lt; Value &gt;::string_type =  typename value_type::string_type</definition>
+        <argsstring></argsstring>
+        <name>string_type</name>
+        <qualifiedname>toml::serializer::string_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="97" column="5" bodyfile="external/toml/serializer.hpp" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1serializer_1aad34a2e52cf294b8ba231bf932c45f93" prot="public" static="no">
+        <type>typename value_type::local_time_type</type>
+        <definition>using toml::serializer&lt; Value &gt;::local_time_type =  typename value_type::local_time_type</definition>
+        <argsstring></argsstring>
+        <name>local_time_type</name>
+        <qualifiedname>toml::serializer::local_time_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="98" column="5" bodyfile="external/toml/serializer.hpp" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1serializer_1acf43899fe2312613ea63677806c2a621" prot="public" static="no">
+        <type>typename value_type::local_date_type</type>
+        <definition>using toml::serializer&lt; Value &gt;::local_date_type =  typename value_type::local_date_type</definition>
+        <argsstring></argsstring>
+        <name>local_date_type</name>
+        <qualifiedname>toml::serializer::local_date_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="99" column="5" bodyfile="external/toml/serializer.hpp" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1serializer_1ac3c6292664bb7b3e68a8221378796c59" prot="public" static="no">
+        <type>typename value_type::local_datetime_type</type>
+        <definition>using toml::serializer&lt; Value &gt;::local_datetime_type =  typename value_type::local_datetime_type</definition>
+        <argsstring></argsstring>
+        <name>local_datetime_type</name>
+        <qualifiedname>toml::serializer::local_datetime_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="100" column="5" bodyfile="external/toml/serializer.hpp" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1serializer_1a90eb8fe2fc663b4a8a6724dd6c6b0c80" prot="public" static="no">
+        <type>typename value_type::offset_datetime_type</type>
+        <definition>using toml::serializer&lt; Value &gt;::offset_datetime_type =  typename value_type::offset_datetime_type</definition>
+        <argsstring></argsstring>
+        <name>offset_datetime_type</name>
+        <qualifiedname>toml::serializer::offset_datetime_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="101" column="5" bodyfile="external/toml/serializer.hpp" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1serializer_1a87fd1783a4b3fbb519cf8270b920d410" prot="public" static="no">
+        <type>typename value_type::array_type</type>
+        <definition>using toml::serializer&lt; Value &gt;::array_type =  typename value_type::array_type</definition>
+        <argsstring></argsstring>
+        <name>array_type</name>
+        <qualifiedname>toml::serializer::array_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="102" column="5" bodyfile="external/toml/serializer.hpp" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structtoml_1_1serializer_1a4ab4df36b0794463a6bea750e388b698" prot="public" static="no">
+        <type>typename value_type::table_type</type>
+        <definition>using toml::serializer&lt; Value &gt;::table_type =  typename value_type::table_type</definition>
+        <argsstring></argsstring>
+        <name>table_type</name>
+        <qualifiedname>toml::serializer::table_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="103" column="5" bodyfile="external/toml/serializer.hpp" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structtoml_1_1serializer_1ac6f3f8555dd40cf049ae969bd901bcdd" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool toml::serializer&lt; Value &gt;::can_be_inlined_</definition>
+        <argsstring></argsstring>
+        <name>can_be_inlined_</name>
+        <qualifiedname>toml::serializer::can_be_inlined_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="810" column="17" bodyfile="external/toml/serializer.hpp" bodystart="810" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtoml_1_1serializer_1a3e84296ede415659ccf7a07a6946dd1b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool toml::serializer&lt; Value &gt;::no_comment_</definition>
+        <argsstring></argsstring>
+        <name>no_comment_</name>
+        <qualifiedname>toml::serializer::no_comment_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="811" column="17" bodyfile="external/toml/serializer.hpp" bodystart="811" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtoml_1_1serializer_1a3e195934a023bc01ea559f35c39506e6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool toml::serializer&lt; Value &gt;::value_has_comment_</definition>
+        <argsstring></argsstring>
+        <name>value_has_comment_</name>
+        <qualifiedname>toml::serializer::value_has_comment_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="812" column="17" bodyfile="external/toml/serializer.hpp" bodystart="812" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtoml_1_1serializer_1aa20166ec5d1001e14e33e9d3fb37f29a" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int toml::serializer&lt; Value &gt;::float_prec_</definition>
+        <argsstring></argsstring>
+        <name>float_prec_</name>
+        <qualifiedname>toml::serializer::float_prec_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="813" column="17" bodyfile="external/toml/serializer.hpp" bodystart="813" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtoml_1_1serializer_1ac665ebcd59873501a1556c1732997b1b" prot="private" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t toml::serializer&lt; Value &gt;::width_</definition>
+        <argsstring></argsstring>
+        <name>width_</name>
+        <qualifiedname>toml::serializer::width_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="814" column="17" bodyfile="external/toml/serializer.hpp" bodystart="814" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtoml_1_1serializer_1a3ebab63101dd5455c0dad3ff0d612a80" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="namespacetoml_1ab00c292fbb2e761ef69fdafd6b813348" kindref="member">toml::key</ref> &gt;</type>
+        <definition>std::vector&lt;toml::key&gt; toml::serializer&lt; Value &gt;::keys_</definition>
+        <argsstring></argsstring>
+        <name>keys_</name>
+        <qualifiedname>toml::serializer::keys_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="815" column="17" bodyfile="external/toml/serializer.hpp" bodystart="815" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtoml_1_1serializer_1a84a3932550107d11bf1223609f8bd01a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::serializer&lt; Value &gt;::serializer</definition>
+        <argsstring>(const std::size_t w=80u, const int float_prec=std::numeric_limits&lt; toml::floating &gt;::max_digits10, const bool can_be_inlined=false, const bool no_comment=false, std::vector&lt; toml::key &gt; ks={}, const bool value_has_comment=false)</argsstring>
+        <name>serializer</name>
+        <qualifiedname>toml::serializer::serializer</qualifiedname>
+        <param>
+          <type>const std::size_t</type>
+          <declname>w</declname>
+          <defval>80u</defval>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>float_prec</declname>
+          <defval>std::numeric_limits&lt; <ref refid="namespacetoml_1a54f4b85eab8f0d6e6f0149c5ba338f6a" kindref="member">toml::floating</ref> &gt;::max_digits10</defval>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>can_be_inlined</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>no_comment</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="namespacetoml_1ab00c292fbb2e761ef69fdafd6b813348" kindref="member">toml::key</ref> &gt;</type>
+          <declname>ks</declname>
+          <defval>{}</defval>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>value_has_comment</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="105" column="5" bodyfile="external/toml/serializer.hpp" bodystart="105" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1ac1e249df1614b27b9819ccc9772162ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::serializer&lt; Value &gt;::~serializer</definition>
+        <argsstring>()=default</argsstring>
+        <name>~serializer</name>
+        <qualifiedname>toml::serializer::~serializer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="115" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1a92e26d9fd3b54fd506a9942ddca60e91" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string toml::serializer&lt; Value &gt;::operator()</definition>
+        <argsstring>(const boolean_type &amp;b) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>toml::serializer::operator()</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1aa0e43fd356a0704db389830954ea8a5c" kindref="member">boolean_type</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="117" column="17" bodyfile="external/toml/serializer.hpp" bodystart="117" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1aa225f69324db49f17a685372566153ba" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string toml::serializer&lt; Value &gt;::operator()</definition>
+        <argsstring>(const integer_type i) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>toml::serializer::operator()</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1ae910b7bcf853207cc206c51ba2f26d08" kindref="member">integer_type</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="121" column="17" bodyfile="external/toml/serializer.hpp" bodystart="121" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1a56a3ab647d90ef720a5df4244ffea907" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string toml::serializer&lt; Value &gt;::operator()</definition>
+        <argsstring>(const floating_type f) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>toml::serializer::operator()</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1a3181ea8262bdac5c3a3cf6a44d0d723d" kindref="member">floating_type</ref></type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="125" column="17" bodyfile="external/toml/serializer.hpp" bodystart="125" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1a48ee444425e4cb38a940a4279fe6a0e5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string toml::serializer&lt; Value &gt;::operator()</definition>
+        <argsstring>(const string_type &amp;s) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>toml::serializer::operator()</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1aeee27a638d2ee95e74defdfea7d4410b" kindref="member">string_type</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="177" column="17" bodyfile="external/toml/serializer.hpp" bodystart="177" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1a54f15fa8aaccec66cf550b7ab7d37959" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string toml::serializer&lt; Value &gt;::operator()</definition>
+        <argsstring>(const local_date_type &amp;d) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>toml::serializer::operator()</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1acf43899fe2312613ea63677806c2a621" kindref="member">local_date_type</ref> &amp;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="255" column="17" bodyfile="external/toml/serializer.hpp" bodystart="255" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1a362f6a9f47afba74bc653aaff2388000" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string toml::serializer&lt; Value &gt;::operator()</definition>
+        <argsstring>(const local_time_type &amp;t) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>toml::serializer::operator()</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1aad34a2e52cf294b8ba231bf932c45f93" kindref="member">local_time_type</ref> &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="261" column="17" bodyfile="external/toml/serializer.hpp" bodystart="261" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1ad4adb3b92ec055c155cb3495ffe18ed5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string toml::serializer&lt; Value &gt;::operator()</definition>
+        <argsstring>(const local_datetime_type &amp;dt) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>toml::serializer::operator()</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1ac3c6292664bb7b3e68a8221378796c59" kindref="member">local_datetime_type</ref> &amp;</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="267" column="17" bodyfile="external/toml/serializer.hpp" bodystart="267" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1a97fc2e4b7f228f61a36a879578c7bdce" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string toml::serializer&lt; Value &gt;::operator()</definition>
+        <argsstring>(const offset_datetime_type &amp;odt) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>toml::serializer::operator()</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1a90eb8fe2fc663b4a8a6724dd6c6b0c80" kindref="member">offset_datetime_type</ref> &amp;</type>
+          <declname>odt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="273" column="17" bodyfile="external/toml/serializer.hpp" bodystart="273" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1a287dc8a92f56b63530d158a19345bdae" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string toml::serializer&lt; Value &gt;::operator()</definition>
+        <argsstring>(const array_type &amp;v) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>toml::serializer::operator()</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1a87fd1783a4b3fbb519cf8270b920d410" kindref="member">array_type</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="280" column="17" bodyfile="external/toml/serializer.hpp" bodystart="280" bodyend="393"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1abc0f11a88e2ca31685003719ab651555" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string toml::serializer&lt; Value &gt;::operator()</definition>
+        <argsstring>(const table_type &amp;v) const</argsstring>
+        <name>operator()</name>
+        <qualifiedname>toml::serializer::operator()</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1a4ab4df36b0794463a6bea750e388b698" kindref="member">table_type</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="396" column="17" bodyfile="external/toml/serializer.hpp" bodystart="396" bodyend="425"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structtoml_1_1serializer_1ad29751c2a8d1f6c103a5d47125fb101e" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string toml::serializer&lt; Value &gt;::escape_basic_string</definition>
+        <argsstring>(const std::string &amp;s) const</argsstring>
+        <name>escape_basic_string</name>
+        <qualifiedname>toml::serializer::escape_basic_string</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="429" column="17" bodyfile="external/toml/serializer.hpp" bodystart="429" bodyend="460"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1a32931b0eb0b694b5219c9a2531635136" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string toml::serializer&lt; Value &gt;::escape_ml_basic_string</definition>
+        <argsstring>(const std::string &amp;s) const</argsstring>
+        <name>escape_ml_basic_string</name>
+        <qualifiedname>toml::serializer::escape_ml_basic_string</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="462" column="17" bodyfile="external/toml/serializer.hpp" bodystart="462" bodyend="525"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1a624e5ec84189dc092d04466c04172dc3" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool toml::serializer&lt; Value &gt;::has_comment_inside</definition>
+        <argsstring>(const array_type &amp;a) const noexcept</argsstring>
+        <name>has_comment_inside</name>
+        <qualifiedname>toml::serializer::has_comment_inside</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1a87fd1783a4b3fbb519cf8270b920d410" kindref="member">array_type</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="528" column="10" bodyfile="external/toml/serializer.hpp" bodystart="528" bodyend="538"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1aaf9164488b32c1dcc379d038b978af9f" prot="private" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool toml::serializer&lt; Value &gt;::has_comment_inside</definition>
+        <argsstring>(const table_type &amp;t) const noexcept</argsstring>
+        <name>has_comment_inside</name>
+        <qualifiedname>toml::serializer::has_comment_inside</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1a4ab4df36b0794463a6bea750e388b698" kindref="member">table_type</ref> &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="539" column="10" bodyfile="external/toml/serializer.hpp" bodystart="539" bodyend="549"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1a11509e4392d628a9189879843a02be35" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string toml::serializer&lt; Value &gt;::make_inline_array</definition>
+        <argsstring>(const array_type &amp;v) const</argsstring>
+        <name>make_inline_array</name>
+        <qualifiedname>toml::serializer::make_inline_array</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1a87fd1783a4b3fbb519cf8270b920d410" kindref="member">array_type</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="551" column="17" bodyfile="external/toml/serializer.hpp" bodystart="551" bodyend="567"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1a08337220270d1eda2898011139a6a59f" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string toml::serializer&lt; Value &gt;::make_inline_table</definition>
+        <argsstring>(const table_type &amp;v) const</argsstring>
+        <name>make_inline_table</name>
+        <qualifiedname>toml::serializer::make_inline_table</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1a4ab4df36b0794463a6bea750e388b698" kindref="member">table_type</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="569" column="17" bodyfile="external/toml/serializer.hpp" bodystart="569" bodyend="589"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1a57ed6168df81971c8fe315c240fe9041" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string toml::serializer&lt; Value &gt;::make_multiline_table</definition>
+        <argsstring>(const table_type &amp;v) const</argsstring>
+        <name>make_multiline_table</name>
+        <qualifiedname>toml::serializer::make_multiline_table</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1a4ab4df36b0794463a6bea750e388b698" kindref="member">table_type</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="591" column="17" bodyfile="external/toml/serializer.hpp" bodystart="591" bodyend="681"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1a48318c60d50263424bc9e0f8e1927c2d" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string toml::serializer&lt; Value &gt;::make_array_of_tables</definition>
+        <argsstring>(const array_type &amp;v) const</argsstring>
+        <name>make_array_of_tables</name>
+        <qualifiedname>toml::serializer::make_array_of_tables</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1a87fd1783a4b3fbb519cf8270b920d410" kindref="member">array_type</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="683" column="17" bodyfile="external/toml/serializer.hpp" bodystart="683" bodyend="777"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1aa16ac3ee515a65ac1ef891c7d88c0089" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string toml::serializer&lt; Value &gt;::write_comments</definition>
+        <argsstring>(const value_type &amp;v) const</argsstring>
+        <name>write_comments</name>
+        <qualifiedname>toml::serializer::write_comments</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1a289af9a8134b9bebd7ae11fcf180edd0" kindref="member">value_type</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="779" column="17" bodyfile="external/toml/serializer.hpp" bodystart="779" bodyend="791"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1afd2dcaf1651bbd83f73eb31a837d603a" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool toml::serializer&lt; Value &gt;::is_array_of_tables</definition>
+        <argsstring>(const value_type &amp;v) const</argsstring>
+        <name>is_array_of_tables</name>
+        <qualifiedname>toml::serializer::is_array_of_tables</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1a289af9a8134b9bebd7ae11fcf180edd0" kindref="member">value_type</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="793" column="10" bodyfile="external/toml/serializer.hpp" bodystart="793" bodyend="797"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1serializer_1a49d84eb94b722d17c079200024b23a33" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool toml::serializer&lt; Value &gt;::is_array_of_tables</definition>
+        <argsstring>(const array_type &amp;v) const</argsstring>
+        <name>is_array_of_tables</name>
+        <qualifiedname>toml::serializer::is_array_of_tables</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1serializer_1a87fd1783a4b3fbb519cf8270b920d410" kindref="member">array_type</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/serializer.hpp" line="798" column="10" bodyfile="external/toml/serializer.hpp" bodystart="798" bodyend="806"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/serializer.hpp" line="85" column="1" bodyfile="external/toml/serializer.hpp" bodystart="86" bodyend="816"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1serializer_1a87fd1783a4b3fbb519cf8270b920d410" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>array_type</name></member>
+      <member refid="structtoml_1_1serializer_1aa0e43fd356a0704db389830954ea8a5c" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>boolean_type</name></member>
+      <member refid="structtoml_1_1serializer_1ac6f3f8555dd40cf049ae969bd901bcdd" prot="private" virt="non-virtual"><scope>toml::serializer</scope><name>can_be_inlined_</name></member>
+      <member refid="structtoml_1_1serializer_1a24ee51d297a38c2440eb55e068bdcc3f" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>comment_type</name></member>
+      <member refid="structtoml_1_1serializer_1ad29751c2a8d1f6c103a5d47125fb101e" prot="private" virt="non-virtual"><scope>toml::serializer</scope><name>escape_basic_string</name></member>
+      <member refid="structtoml_1_1serializer_1a32931b0eb0b694b5219c9a2531635136" prot="private" virt="non-virtual"><scope>toml::serializer</scope><name>escape_ml_basic_string</name></member>
+      <member refid="structtoml_1_1serializer_1aa20166ec5d1001e14e33e9d3fb37f29a" prot="private" virt="non-virtual"><scope>toml::serializer</scope><name>float_prec_</name></member>
+      <member refid="structtoml_1_1serializer_1a3181ea8262bdac5c3a3cf6a44d0d723d" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>floating_type</name></member>
+      <member refid="structtoml_1_1serializer_1a624e5ec84189dc092d04466c04172dc3" prot="private" virt="non-virtual"><scope>toml::serializer</scope><name>has_comment_inside</name></member>
+      <member refid="structtoml_1_1serializer_1aaf9164488b32c1dcc379d038b978af9f" prot="private" virt="non-virtual"><scope>toml::serializer</scope><name>has_comment_inside</name></member>
+      <member refid="structtoml_1_1serializer_1ae910b7bcf853207cc206c51ba2f26d08" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>integer_type</name></member>
+      <member refid="structtoml_1_1serializer_1afd2dcaf1651bbd83f73eb31a837d603a" prot="private" virt="non-virtual"><scope>toml::serializer</scope><name>is_array_of_tables</name></member>
+      <member refid="structtoml_1_1serializer_1a49d84eb94b722d17c079200024b23a33" prot="private" virt="non-virtual"><scope>toml::serializer</scope><name>is_array_of_tables</name></member>
+      <member refid="structtoml_1_1serializer_1abdccf89d2127b64339cbec8d60875fac" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>key_type</name></member>
+      <member refid="structtoml_1_1serializer_1a3ebab63101dd5455c0dad3ff0d612a80" prot="private" virt="non-virtual"><scope>toml::serializer</scope><name>keys_</name></member>
+      <member refid="structtoml_1_1serializer_1acf43899fe2312613ea63677806c2a621" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>local_date_type</name></member>
+      <member refid="structtoml_1_1serializer_1ac3c6292664bb7b3e68a8221378796c59" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>local_datetime_type</name></member>
+      <member refid="structtoml_1_1serializer_1aad34a2e52cf294b8ba231bf932c45f93" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>local_time_type</name></member>
+      <member refid="structtoml_1_1serializer_1a48318c60d50263424bc9e0f8e1927c2d" prot="private" virt="non-virtual"><scope>toml::serializer</scope><name>make_array_of_tables</name></member>
+      <member refid="structtoml_1_1serializer_1a11509e4392d628a9189879843a02be35" prot="private" virt="non-virtual"><scope>toml::serializer</scope><name>make_inline_array</name></member>
+      <member refid="structtoml_1_1serializer_1a08337220270d1eda2898011139a6a59f" prot="private" virt="non-virtual"><scope>toml::serializer</scope><name>make_inline_table</name></member>
+      <member refid="structtoml_1_1serializer_1a57ed6168df81971c8fe315c240fe9041" prot="private" virt="non-virtual"><scope>toml::serializer</scope><name>make_multiline_table</name></member>
+      <member refid="structtoml_1_1serializer_1a3e84296ede415659ccf7a07a6946dd1b" prot="private" virt="non-virtual"><scope>toml::serializer</scope><name>no_comment_</name></member>
+      <member refid="structtoml_1_1serializer_1a90eb8fe2fc663b4a8a6724dd6c6b0c80" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>offset_datetime_type</name></member>
+      <member refid="structtoml_1_1serializer_1a92e26d9fd3b54fd506a9942ddca60e91" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>operator()</name></member>
+      <member refid="structtoml_1_1serializer_1aa225f69324db49f17a685372566153ba" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>operator()</name></member>
+      <member refid="structtoml_1_1serializer_1a56a3ab647d90ef720a5df4244ffea907" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>operator()</name></member>
+      <member refid="structtoml_1_1serializer_1a48ee444425e4cb38a940a4279fe6a0e5" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>operator()</name></member>
+      <member refid="structtoml_1_1serializer_1a54f15fa8aaccec66cf550b7ab7d37959" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>operator()</name></member>
+      <member refid="structtoml_1_1serializer_1a362f6a9f47afba74bc653aaff2388000" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>operator()</name></member>
+      <member refid="structtoml_1_1serializer_1ad4adb3b92ec055c155cb3495ffe18ed5" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>operator()</name></member>
+      <member refid="structtoml_1_1serializer_1a97fc2e4b7f228f61a36a879578c7bdce" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>operator()</name></member>
+      <member refid="structtoml_1_1serializer_1a287dc8a92f56b63530d158a19345bdae" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>operator()</name></member>
+      <member refid="structtoml_1_1serializer_1abc0f11a88e2ca31685003719ab651555" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>operator()</name></member>
+      <member refid="structtoml_1_1serializer_1a84a3932550107d11bf1223609f8bd01a" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>serializer</name></member>
+      <member refid="structtoml_1_1serializer_1aeee27a638d2ee95e74defdfea7d4410b" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>string_type</name></member>
+      <member refid="structtoml_1_1serializer_1a4ab4df36b0794463a6bea750e388b698" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>table_type</name></member>
+      <member refid="structtoml_1_1serializer_1a3e195934a023bc01ea559f35c39506e6" prot="private" virt="non-virtual"><scope>toml::serializer</scope><name>value_has_comment_</name></member>
+      <member refid="structtoml_1_1serializer_1a289af9a8134b9bebd7ae11fcf180edd0" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>value_type</name></member>
+      <member refid="structtoml_1_1serializer_1ac665ebcd59873501a1556c1732997b1b" prot="private" virt="non-virtual"><scope>toml::serializer</scope><name>width_</name></member>
+      <member refid="structtoml_1_1serializer_1aa16ac3ee515a65ac1ef891c7d88c0089" prot="private" virt="non-virtual"><scope>toml::serializer</scope><name>write_comments</name></member>
+      <member refid="structtoml_1_1serializer_1ac1e249df1614b27b9819ccc9772162ee" prot="public" virt="non-virtual"><scope>toml::serializer</scope><name>~serializer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

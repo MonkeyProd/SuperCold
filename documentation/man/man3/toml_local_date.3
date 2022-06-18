@@ -1,0 +1,103 @@
+.TH "toml::local_date" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::local_date
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <datetime\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBlocal_date\fP (int y, \fBmonth_t\fP m, int d)"
+.br
+.ti -1c
+.RI "\fBlocal_date\fP (const std::tm &t)"
+.br
+.ti -1c
+.RI "\fBlocal_date\fP (const std::chrono::system_clock::time_point &tp)"
+.br
+.ti -1c
+.RI "\fBlocal_date\fP (const std::time_t t)"
+.br
+.ti -1c
+.RI "\fBoperator std::chrono::system_clock::time_point\fP () const"
+.br
+.ti -1c
+.RI "\fBoperator std::time_t\fP () const"
+.br
+.ti -1c
+.RI "\fBlocal_date\fP ()=default"
+.br
+.ti -1c
+.RI "\fB~local_date\fP ()=default"
+.br
+.ti -1c
+.RI "\fBlocal_date\fP (\fBlocal_date\fP const &)=default"
+.br
+.ti -1c
+.RI "\fBlocal_date\fP (\fBlocal_date\fP &&)=default"
+.br
+.ti -1c
+.RI "\fBlocal_date\fP & \fBoperator=\fP (\fBlocal_date\fP const &)=default"
+.br
+.ti -1c
+.RI "\fBlocal_date\fP & \fBoperator=\fP (\fBlocal_date\fP &&)=default"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::int16_t \fByear\fP"
+.br
+.ti -1c
+.RI "std::uint8_t \fBmonth\fP"
+.br
+.ti -1c
+.RI "std::uint8_t \fBday\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "toml::local_date::local_date (int y, \fBmonth_t\fP m, int d)\fC [inline]\fP"
+
+.SS "toml::local_date::local_date (const std::tm & t)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "toml::local_date::local_date (const std::chrono::system_clock::time_point & tp)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "toml::local_date::local_date (const std::time_t t)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "toml::local_date::local_date ()\fC [default]\fP"
+
+.SS "toml::local_date::~local_date ()\fC [default]\fP"
+
+.SS "toml::local_date::local_date (\fBlocal_date\fP const &)\fC [default]\fP"
+
+.SS "toml::local_date::local_date (\fBlocal_date\fP &&)\fC [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "toml::local_date::operator std::chrono::system_clock::time_point () const\fC [inline]\fP"
+
+.SS "toml::local_date::operator std::time_t () const\fC [inline]\fP"
+
+.SS "\fBlocal_date\fP & toml::local_date::operator= (\fBlocal_date\fP &&)\fC [default]\fP"
+
+.SS "\fBlocal_date\fP & toml::local_date::operator= (\fBlocal_date\fP const &)\fC [default]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "std::uint8_t toml::local_date::day"
+
+.SS "std::uint8_t toml::local_date::month"
+
+.SS "std::int16_t toml::local_date::year"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

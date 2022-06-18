@@ -1,0 +1,94 @@
+.TH "external/toml/utility.hpp" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+external/toml/utility.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <memory>\fP
+.br
+\fC#include <sstream>\fP
+.br
+\fC#include <utility>\fP
+.br
+\fC#include 'traits\&.hpp'\fP
+.br
+\fC#include 'version\&.hpp'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtoml::detail::last_one_in_pack< T, Ts >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::last_one_in_pack< T >\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBtoml\fP"
+.br
+.ti -1c
+.RI "namespace \fBtoml::detail\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTOML11_MARK_AS_DEPRECATED\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "template<typename \&.\&.\&. Ts> using \fBtoml::detail::last_one_in_pack_t\fP = typename last_one_in_pack< Ts\&.\&.\&. >::type"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename T , typename \&.\&.\&. Ts> std::unique_ptr< T > \fBtoml::make_unique\fP (Ts &&\&.\&.\&. args)"
+.br
+.ti -1c
+.RI "template<typename Container > void \fBtoml::detail::try_reserve_impl\fP (Container &container, std::size_t N, std::true_type)"
+.br
+.ti -1c
+.RI "template<typename Container > void \fBtoml::detail::try_reserve_impl\fP (Container &, std::size_t, std::false_type) noexcept"
+.br
+.ti -1c
+.RI "template<typename Container > void \fBtoml::try_reserve\fP (Container &container, std::size_t N)"
+.br
+.ti -1c
+.RI "std::string \fBtoml::detail::concat_to_string_impl\fP (std::ostringstream &oss)"
+.br
+.ti -1c
+.RI "template<typename T , typename \&.\&.\&. Ts> std::string \fBtoml::detail::concat_to_string_impl\fP (std::ostringstream &oss, T &&head, Ts &&\&.\&.\&. tail)"
+.br
+.ti -1c
+.RI "template<typename \&.\&.\&. Ts> std::string \fBtoml::concat_to_string\fP (Ts &&\&.\&.\&. args)"
+.br
+.ti -1c
+.RI "template<typename T > T \fBtoml::from_string\fP (const std::string &str, T opt)"
+.br
+.ti -1c
+.RI "template<typename T > T && \fBtoml::detail::last_one\fP (T &&tail) noexcept"
+.br
+.ti -1c
+.RI "template<typename T , typename \&.\&.\&. Ts> enable_if_t<(sizeof\&.\&.\&.(Ts) > 0), last_one_in_pack_t< Ts &&\&.\&.\&. > > \fBtoml::detail::last_one\fP (T &&, Ts &&\&.\&.\&. tail)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define TOML11_MARK_AS_DEPRECATED"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

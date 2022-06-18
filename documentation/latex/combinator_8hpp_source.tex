@@ -1,0 +1,312 @@
+\hypertarget{combinator_8hpp_source}{}\doxysection{combinator.\+hpp}
+\label{combinator_8hpp_source}\index{external/toml/combinator.hpp@{external/toml/combinator.hpp}}
+\mbox{\hyperlink{combinator_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//     Copyright Toru Niina 2017.}}
+\DoxyCodeLine{2 \textcolor{comment}{// Distributed under the MIT License.}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifndef TOML11\_COMBINATOR\_HPP}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TOML11\_COMBINATOR\_HPP}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cassert>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <cctype>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <cstdio>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <array>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <iterator>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <limits>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <type\_traits>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{region_8hpp}{region.hpp}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{result_8hpp}{result.hpp}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{traits_8hpp}{traits.hpp}}"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{utility_8hpp}{utility.hpp}}"{}}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{comment}{// they scans characters and returns region if it matches to the condition.}}
+\DoxyCodeLine{21 \textcolor{comment}{// when they fail, it does not change the location.}}
+\DoxyCodeLine{22 \textcolor{comment}{// in lexer.hpp, these are used.}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetoml}{toml}}}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26 \textcolor{keyword}{namespace }detail}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{comment}{// to output character as an error message.}}
+\DoxyCodeLine{30 \textcolor{keyword}{inline} std::string \mbox{\hyperlink{namespacetoml_1_1detail_a158ef9d09c21d75f226fd3cf8f2e8b1c}{show\_char}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} c)}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32     \textcolor{comment}{// It suppresses an error that occurs only in Debug mode of MSVC++ on Windows.}}
+\DoxyCodeLine{33     \textcolor{comment}{// I'm not completely sure but they check the value of char to be in the}}
+\DoxyCodeLine{34     \textcolor{comment}{// range [0, 256) and some of the COMPLETELY VALID utf-\/8 character sometimes}}
+\DoxyCodeLine{35     \textcolor{comment}{// has negative value (if char has sign). So here it re-\/interprets c as}}
+\DoxyCodeLine{36     \textcolor{comment}{// unsigned char through pointer. In general, converting pointer to a}}
+\DoxyCodeLine{37     \textcolor{comment}{// pointer that has different type cause UB, but `(signed|unsigned)?char`}}
+\DoxyCodeLine{38     \textcolor{comment}{// are one of the exceptions. Converting pointer only to char and std::byte}}
+\DoxyCodeLine{39     \textcolor{comment}{// (c++17) are valid.}}
+\DoxyCodeLine{40     \textcolor{keywordflow}{if}(std::isgraph(*\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} const*\textcolor{keyword}{>}(std::addressof(c))))}
+\DoxyCodeLine{41     \{}
+\DoxyCodeLine{42         \textcolor{keywordflow}{return} std::string(1, c);}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{45     \{}
+\DoxyCodeLine{46         std::array<char, 5> buf;}
+\DoxyCodeLine{47         buf.fill(\textcolor{charliteral}{'\(\backslash\)0'});}
+\DoxyCodeLine{48         \textcolor{keyword}{const} \textcolor{keyword}{auto} r = std::snprintf(}
+\DoxyCodeLine{49                 buf.data(), buf.size(), \textcolor{stringliteral}{"{}0x\%02x"{}}, \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(c) \& 0xFF);}
+\DoxyCodeLine{50         (void) r; \textcolor{comment}{// Unused variable warning}}
+\DoxyCodeLine{51         assert(r == \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(buf.size()) -\/ 1);}
+\DoxyCodeLine{52         \textcolor{keywordflow}{return} std::string(buf.data());}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54 \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{keyword}{template}<\textcolor{keywordtype}{char} C>}
+\DoxyCodeLine{57 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1character}{character}}}
+\DoxyCodeLine{58 \{}
+\DoxyCodeLine{59     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{char} \mbox{\hyperlink{structtoml_1_1detail_1_1character_ad5cd128a9f4280cf845be6afa3c3961c}{target}} = C;}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keyword}{static} \mbox{\hyperlink{structtoml_1_1result}{result<region, none\_t>}}}
+\DoxyCodeLine{62     \mbox{\hyperlink{structtoml_1_1detail_1_1character_a324e051eb839e526a72e657478a65135}{invoke}}(\mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}}\& loc)}
+\DoxyCodeLine{63     \{}
+\DoxyCodeLine{64         \textcolor{keywordflow}{if}(loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_a3fec075fe10382a901104613f84b37ee}{iter}}() == loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_ad2b13df42c4b6202d006830c3fa5eee6}{end}}()) \{\textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1detail_af16c59120242cf5708a3d4763ef84fda}{none}}();\}}
+\DoxyCodeLine{65         \textcolor{keyword}{const} \textcolor{keyword}{auto} first = loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_a3fec075fe10382a901104613f84b37ee}{iter}}();}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67         \textcolor{keyword}{const} \textcolor{keywordtype}{char} c = *(loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_a3fec075fe10382a901104613f84b37ee}{iter}}());}
+\DoxyCodeLine{68         \textcolor{keywordflow}{if}(c != \mbox{\hyperlink{structtoml_1_1detail_1_1character_ad5cd128a9f4280cf845be6afa3c3961c}{target}})}
+\DoxyCodeLine{69         \{}
+\DoxyCodeLine{70             \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1detail_af16c59120242cf5708a3d4763ef84fda}{none}}();}
+\DoxyCodeLine{71         \}}
+\DoxyCodeLine{72         loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_a97b2915707242c6ffe7452431ed09333}{advance}}(); \textcolor{comment}{// update location}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_a6e429ce41fe363c8d981d8c929fd26f6}{ok}}(\mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}}(loc, first, loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_a3fec075fe10382a901104613f84b37ee}{iter}}()));}
+\DoxyCodeLine{75     \}}
+\DoxyCodeLine{76 \};}
+\DoxyCodeLine{77 \textcolor{keyword}{template}<\textcolor{keywordtype}{char} C>}
+\DoxyCodeLine{78 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{char} \mbox{\hyperlink{namespacetoml_a8f6621cf10ba95c9069e3b248eb9c01d}{character<C>::target}};}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{comment}{// closed interval [Low, Up]. both Low and Up are included.}}
+\DoxyCodeLine{81 \textcolor{keyword}{template}<\textcolor{keywordtype}{char} Low, \textcolor{keywordtype}{char} Up>}
+\DoxyCodeLine{82 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1in__range}{in\_range}}}
+\DoxyCodeLine{83 \{}
+\DoxyCodeLine{84     \textcolor{comment}{// assuming ascii part of UTF-\/8...}}
+\DoxyCodeLine{85     \textcolor{keyword}{static\_assert}(Low <= Up, \textcolor{stringliteral}{"{}lower bound should be less than upper bound."{}});}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{char} \mbox{\hyperlink{structtoml_1_1detail_1_1in__range_af134b9bec2b5ad95b1948b7281c79265}{upper}} = Up;}
+\DoxyCodeLine{88     \textcolor{keyword}{static} \textcolor{keyword}{constexpr} \textcolor{keywordtype}{char} \mbox{\hyperlink{structtoml_1_1detail_1_1in__range_acabc43c5b9b742134cf6f1c6b7cc0707}{lower}} = Low;}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     \textcolor{keyword}{static} \mbox{\hyperlink{structtoml_1_1result}{result<region, none\_t>}}}
+\DoxyCodeLine{91     \mbox{\hyperlink{structtoml_1_1detail_1_1in__range_a54e0c96642e26f3faf3521cae04cd7e6}{invoke}}(\mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}}\& loc)}
+\DoxyCodeLine{92     \{}
+\DoxyCodeLine{93         \textcolor{keywordflow}{if}(loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_a3fec075fe10382a901104613f84b37ee}{iter}}() == loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_ad2b13df42c4b6202d006830c3fa5eee6}{end}}()) \{\textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1detail_af16c59120242cf5708a3d4763ef84fda}{none}}();\}}
+\DoxyCodeLine{94         \textcolor{keyword}{const} \textcolor{keyword}{auto} first = loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_a3fec075fe10382a901104613f84b37ee}{iter}}();}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96         \textcolor{keyword}{const} \textcolor{keywordtype}{char} c = *(loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_a3fec075fe10382a901104613f84b37ee}{iter}}());}
+\DoxyCodeLine{97         \textcolor{keywordflow}{if}(c < \mbox{\hyperlink{structtoml_1_1detail_1_1in__range_acabc43c5b9b742134cf6f1c6b7cc0707}{lower}} || \mbox{\hyperlink{structtoml_1_1detail_1_1in__range_af134b9bec2b5ad95b1948b7281c79265}{upper}} < c)}
+\DoxyCodeLine{98         \{}
+\DoxyCodeLine{99             \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1detail_af16c59120242cf5708a3d4763ef84fda}{none}}();}
+\DoxyCodeLine{100         \}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102         loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_a97b2915707242c6ffe7452431ed09333}{advance}}();}
+\DoxyCodeLine{103         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_a6e429ce41fe363c8d981d8c929fd26f6}{ok}}(\mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}}(loc, first, loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_a3fec075fe10382a901104613f84b37ee}{iter}}()));}
+\DoxyCodeLine{104     \}}
+\DoxyCodeLine{105 \};}
+\DoxyCodeLine{106 \textcolor{keyword}{template}<\textcolor{keywordtype}{char} L, \textcolor{keywordtype}{char} U> \textcolor{keyword}{constexpr} \textcolor{keywordtype}{char} \mbox{\hyperlink{structtoml_1_1detail_1_1in__range_af134b9bec2b5ad95b1948b7281c79265}{in\_range<L, U>::upper}};}
+\DoxyCodeLine{107 \textcolor{keyword}{template}<\textcolor{keywordtype}{char} L, \textcolor{keywordtype}{char} U> \textcolor{keyword}{constexpr} \textcolor{keywordtype}{char} \mbox{\hyperlink{structtoml_1_1detail_1_1in__range_acabc43c5b9b742134cf6f1c6b7cc0707}{in\_range<L, U>::lower}};}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{comment}{// keep iterator if `Combinator` matches. otherwise, increment `iter` by 1 char.}}
+\DoxyCodeLine{110 \textcolor{comment}{// for detecting invalid characters, like control sequences in toml string.}}
+\DoxyCodeLine{111 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Combinator>}
+\DoxyCodeLine{112 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1exclude}{exclude}}}
+\DoxyCodeLine{113 \{}
+\DoxyCodeLine{114     \textcolor{keyword}{static} \mbox{\hyperlink{structtoml_1_1result}{result<region, none\_t>}}}
+\DoxyCodeLine{115     \mbox{\hyperlink{structtoml_1_1detail_1_1exclude_a1ef85e29353bb5db987eb67a04abeeee}{invoke}}(\mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}}\& loc)}
+\DoxyCodeLine{116     \{}
+\DoxyCodeLine{117         \textcolor{keywordflow}{if}(loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_a3fec075fe10382a901104613f84b37ee}{iter}}() == loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_ad2b13df42c4b6202d006830c3fa5eee6}{end}}()) \{\textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1detail_af16c59120242cf5708a3d4763ef84fda}{none}}();\}}
+\DoxyCodeLine{118         \textcolor{keyword}{auto} first = loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_a3fec075fe10382a901104613f84b37ee}{iter}}();}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120         \textcolor{keyword}{auto} rslt = Combinator::invoke(loc);}
+\DoxyCodeLine{121         \textcolor{keywordflow}{if}(rslt.is\_ok())}
+\DoxyCodeLine{122         \{}
+\DoxyCodeLine{123             loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_ae7029e5f4aa2ab85280107391972cff0}{reset}}(first);}
+\DoxyCodeLine{124             \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1detail_af16c59120242cf5708a3d4763ef84fda}{none}}();}
+\DoxyCodeLine{125         \}}
+\DoxyCodeLine{126         loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_ae7029e5f4aa2ab85280107391972cff0}{reset}}(std::next(first)); \textcolor{comment}{// XXX maybe loc.advance() is okay but...}}
+\DoxyCodeLine{127         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_a6e429ce41fe363c8d981d8c929fd26f6}{ok}}(\mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}}(loc, first, loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_a3fec075fe10382a901104613f84b37ee}{iter}}()));}
+\DoxyCodeLine{128     \}}
+\DoxyCodeLine{129 \};}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 \textcolor{comment}{// increment `iter`, if matches. otherwise, just return empty string.}}
+\DoxyCodeLine{132 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Combinator>}
+\DoxyCodeLine{133 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1maybe}{maybe}}}
+\DoxyCodeLine{134 \{}
+\DoxyCodeLine{135     \textcolor{keyword}{static} \mbox{\hyperlink{structtoml_1_1result}{result<region, none\_t>}}}
+\DoxyCodeLine{136     \mbox{\hyperlink{structtoml_1_1detail_1_1maybe_a85d0697d87e0079600f4eb2d47a50d76}{invoke}}(\mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}}\& loc)}
+\DoxyCodeLine{137     \{}
+\DoxyCodeLine{138         \textcolor{keyword}{const} \textcolor{keyword}{auto} rslt = Combinator::invoke(loc);}
+\DoxyCodeLine{139         \textcolor{keywordflow}{if}(rslt.is\_ok())}
+\DoxyCodeLine{140         \{}
+\DoxyCodeLine{141             \textcolor{keywordflow}{return} rslt;}
+\DoxyCodeLine{142         \}}
+\DoxyCodeLine{143         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_a6e429ce41fe363c8d981d8c929fd26f6}{ok}}(\mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}}(loc));}
+\DoxyCodeLine{144     \}}
+\DoxyCodeLine{145 \};}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 \textcolor{keyword}{template}<\textcolor{keyword}{typename} ... Ts>}
+\DoxyCodeLine{148 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}};}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Head, \textcolor{keyword}{typename} ... Tail>}
+\DoxyCodeLine{151 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<Head, Tail...>}
+\DoxyCodeLine{152 \{}
+\DoxyCodeLine{153     \textcolor{keyword}{static} \mbox{\hyperlink{structtoml_1_1result}{result<region, none\_t>}}}
+\DoxyCodeLine{154     \mbox{\hyperlink{structtoml_1_1detail_1_1sequence_3_01_head_00_01_tail_8_8_8_01_4_a9f11006ec57dc0ea120bb01288b86d55}{invoke}}(\mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}}\& loc)}
+\DoxyCodeLine{155     \{}
+\DoxyCodeLine{156         \textcolor{keyword}{const} \textcolor{keyword}{auto} first = loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_a3fec075fe10382a901104613f84b37ee}{iter}}();}
+\DoxyCodeLine{157         \textcolor{keyword}{auto} rslt = Head::invoke(loc);}
+\DoxyCodeLine{158         \textcolor{keywordflow}{if}(rslt.is\_err())}
+\DoxyCodeLine{159         \{}
+\DoxyCodeLine{160             loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_ae7029e5f4aa2ab85280107391972cff0}{reset}}(first);}
+\DoxyCodeLine{161             \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1detail_af16c59120242cf5708a3d4763ef84fda}{none}}();}
+\DoxyCodeLine{162         \}}
+\DoxyCodeLine{163         \textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<Tail...>::invoke}}(loc, std::move(rslt.unwrap()), first);}
+\DoxyCodeLine{164     \}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166     \textcolor{comment}{// called from the above function only, recursively.}}
+\DoxyCodeLine{167     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Iterator>}
+\DoxyCodeLine{168     \textcolor{keyword}{static} \mbox{\hyperlink{structtoml_1_1result}{result<region, none\_t>}}}
+\DoxyCodeLine{169     \mbox{\hyperlink{structtoml_1_1detail_1_1sequence_3_01_head_00_01_tail_8_8_8_01_4_accdf977acb6a7fd9ad7d9a1bb4fc4d59}{invoke}}(\mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}}\& loc, \mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} reg, Iterator first)}
+\DoxyCodeLine{170     \{}
+\DoxyCodeLine{171         \textcolor{keyword}{const} \textcolor{keyword}{auto} rslt = Head::invoke(loc);}
+\DoxyCodeLine{172         \textcolor{keywordflow}{if}(rslt.is\_err())}
+\DoxyCodeLine{173         \{}
+\DoxyCodeLine{174             loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_ae7029e5f4aa2ab85280107391972cff0}{reset}}(first);}
+\DoxyCodeLine{175             \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1detail_af16c59120242cf5708a3d4763ef84fda}{none}}();}
+\DoxyCodeLine{176         \}}
+\DoxyCodeLine{177         reg += rslt.unwrap(); \textcolor{comment}{// concat regions}}
+\DoxyCodeLine{178         \textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence<Tail...>::invoke}}(loc, std::move(reg), first);}
+\DoxyCodeLine{179     \}}
+\DoxyCodeLine{180 \};}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Head>}
+\DoxyCodeLine{183 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1sequence}{sequence}}<Head>}
+\DoxyCodeLine{184 \{}
+\DoxyCodeLine{185     \textcolor{comment}{// would be called from sequence<T ...>::invoke only.}}
+\DoxyCodeLine{186     \textcolor{keyword}{template}<\textcolor{keyword}{typename} Iterator>}
+\DoxyCodeLine{187     \textcolor{keyword}{static} \mbox{\hyperlink{structtoml_1_1result}{result<region, none\_t>}}}
+\DoxyCodeLine{188     \mbox{\hyperlink{structtoml_1_1detail_1_1sequence_3_01_head_01_4_a99a278d5e4dfcbb614ceb385458b2d57}{invoke}}(\mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}}\& loc, \mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} reg, Iterator first)}
+\DoxyCodeLine{189     \{}
+\DoxyCodeLine{190         \textcolor{keyword}{const} \textcolor{keyword}{auto} rslt = Head::invoke(loc);}
+\DoxyCodeLine{191         \textcolor{keywordflow}{if}(rslt.is\_err())}
+\DoxyCodeLine{192         \{}
+\DoxyCodeLine{193             loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_ae7029e5f4aa2ab85280107391972cff0}{reset}}(first);}
+\DoxyCodeLine{194             \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1detail_af16c59120242cf5708a3d4763ef84fda}{none}}();}
+\DoxyCodeLine{195         \}}
+\DoxyCodeLine{196         reg += rslt.unwrap(); \textcolor{comment}{// concat regions}}
+\DoxyCodeLine{197         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_a6e429ce41fe363c8d981d8c929fd26f6}{ok}}(reg);}
+\DoxyCodeLine{198     \}}
+\DoxyCodeLine{199 \};}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201 \textcolor{keyword}{template}<\textcolor{keyword}{typename} ... Ts>}
+\DoxyCodeLine{202 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{either}};}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Head, \textcolor{keyword}{typename} ... Tail>}
+\DoxyCodeLine{205 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{either}}<Head, Tail...>}
+\DoxyCodeLine{206 \{}
+\DoxyCodeLine{207     \textcolor{keyword}{static} \mbox{\hyperlink{structtoml_1_1result}{result<region, none\_t>}}}
+\DoxyCodeLine{208     \mbox{\hyperlink{structtoml_1_1detail_1_1either_3_01_head_00_01_tail_8_8_8_01_4_a4056fca7b3a0e47cd86c68756a2c7e4c}{invoke}}(\mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}}\& loc)}
+\DoxyCodeLine{209     \{}
+\DoxyCodeLine{210         \textcolor{keyword}{const} \textcolor{keyword}{auto} rslt = Head::invoke(loc);}
+\DoxyCodeLine{211         \textcolor{keywordflow}{if}(rslt.is\_ok()) \{\textcolor{keywordflow}{return} rslt;\}}
+\DoxyCodeLine{212         \textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1either}{either<Tail...>::invoke}}(loc);}
+\DoxyCodeLine{213     \}}
+\DoxyCodeLine{214 \};}
+\DoxyCodeLine{215 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Head>}
+\DoxyCodeLine{216 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1either}{either}}<Head>}
+\DoxyCodeLine{217 \{}
+\DoxyCodeLine{218     \textcolor{keyword}{static} \mbox{\hyperlink{structtoml_1_1result}{result<region, none\_t>}}}
+\DoxyCodeLine{219     \mbox{\hyperlink{structtoml_1_1detail_1_1either_3_01_head_01_4_adcace6a7f6eac772b6a73c4414efc2e1}{invoke}}(\mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}}\& loc)}
+\DoxyCodeLine{220     \{}
+\DoxyCodeLine{221         \textcolor{keywordflow}{return} Head::invoke(loc);}
+\DoxyCodeLine{222     \}}
+\DoxyCodeLine{223 \};}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} N>}
+\DoxyCodeLine{226 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat}};}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228 \textcolor{keyword}{template}<std::\textcolor{keywordtype}{size\_t} N> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1exactly}{exactly}}\{\};}
+\DoxyCodeLine{229 \textcolor{keyword}{template}<std::\textcolor{keywordtype}{size\_t} N> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1at__least}{at\_least}}\{\};}
+\DoxyCodeLine{230 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1unlimited}{unlimited}}\{\};}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, std::\textcolor{keywordtype}{size\_t} N>}
+\DoxyCodeLine{233 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat}}<T, \mbox{\hyperlink{structtoml_1_1detail_1_1exactly}{exactly}}<N>>}
+\DoxyCodeLine{234 \{}
+\DoxyCodeLine{235     \textcolor{keyword}{static} \mbox{\hyperlink{structtoml_1_1result}{result<region, none\_t>}}}
+\DoxyCodeLine{236     \mbox{\hyperlink{structtoml_1_1detail_1_1repeat_3_01_t_00_01exactly_3_01_n_01_4_01_4_a735edcd2cb557d6999aaba44d2505e54}{invoke}}(\mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}}\& loc)}
+\DoxyCodeLine{237     \{}
+\DoxyCodeLine{238         \mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} retval(loc);}
+\DoxyCodeLine{239         \textcolor{keyword}{const} \textcolor{keyword}{auto} first = loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_a3fec075fe10382a901104613f84b37ee}{iter}}();}
+\DoxyCodeLine{240         \textcolor{keywordflow}{for}(std::size\_t i=0; i<N; ++i)}
+\DoxyCodeLine{241         \{}
+\DoxyCodeLine{242             \textcolor{keyword}{auto} rslt = T::invoke(loc);}
+\DoxyCodeLine{243             \textcolor{keywordflow}{if}(rslt.is\_err())}
+\DoxyCodeLine{244             \{}
+\DoxyCodeLine{245                 loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_ae7029e5f4aa2ab85280107391972cff0}{reset}}(first);}
+\DoxyCodeLine{246                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1detail_af16c59120242cf5708a3d4763ef84fda}{none}}();}
+\DoxyCodeLine{247             \}}
+\DoxyCodeLine{248             retval += rslt.unwrap();}
+\DoxyCodeLine{249         \}}
+\DoxyCodeLine{250         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_a6e429ce41fe363c8d981d8c929fd26f6}{ok}}(std::move(retval));}
+\DoxyCodeLine{251     \}}
+\DoxyCodeLine{252 \};}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, std::\textcolor{keywordtype}{size\_t} N>}
+\DoxyCodeLine{255 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat}}<T, \mbox{\hyperlink{structtoml_1_1detail_1_1at__least}{at\_least}}<N>>}
+\DoxyCodeLine{256 \{}
+\DoxyCodeLine{257     \textcolor{keyword}{static} \mbox{\hyperlink{structtoml_1_1result}{result<region, none\_t>}}}
+\DoxyCodeLine{258     \mbox{\hyperlink{structtoml_1_1detail_1_1repeat_3_01_t_00_01at__least_3_01_n_01_4_01_4_a1d26cc54b6a1a1f1c275899bb2b55197}{invoke}}(\mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}}\& loc)}
+\DoxyCodeLine{259     \{}
+\DoxyCodeLine{260         \mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} retval(loc);}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{262         \textcolor{keyword}{const} \textcolor{keyword}{auto} first = loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_a3fec075fe10382a901104613f84b37ee}{iter}}();}
+\DoxyCodeLine{263         \textcolor{keywordflow}{for}(std::size\_t i=0; i<N; ++i)}
+\DoxyCodeLine{264         \{}
+\DoxyCodeLine{265             \textcolor{keyword}{auto} rslt = T::invoke(loc);}
+\DoxyCodeLine{266             \textcolor{keywordflow}{if}(rslt.is\_err())}
+\DoxyCodeLine{267             \{}
+\DoxyCodeLine{268                 loc.\mbox{\hyperlink{structtoml_1_1detail_1_1location_ae7029e5f4aa2ab85280107391972cff0}{reset}}(first);}
+\DoxyCodeLine{269                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1detail_af16c59120242cf5708a3d4763ef84fda}{none}}();}
+\DoxyCodeLine{270             \}}
+\DoxyCodeLine{271             retval += rslt.unwrap();}
+\DoxyCodeLine{272         \}}
+\DoxyCodeLine{273         \textcolor{keywordflow}{while}(\textcolor{keyword}{true})}
+\DoxyCodeLine{274         \{}
+\DoxyCodeLine{275             \textcolor{keyword}{auto} rslt = T::invoke(loc);}
+\DoxyCodeLine{276             \textcolor{keywordflow}{if}(rslt.is\_err())}
+\DoxyCodeLine{277             \{}
+\DoxyCodeLine{278                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_a6e429ce41fe363c8d981d8c929fd26f6}{ok}}(std::move(retval));}
+\DoxyCodeLine{279             \}}
+\DoxyCodeLine{280             retval += rslt.unwrap();}
+\DoxyCodeLine{281         \}}
+\DoxyCodeLine{282     \}}
+\DoxyCodeLine{283 \};}
+\DoxyCodeLine{284 }
+\DoxyCodeLine{285 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{286 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1repeat}{repeat}}<T, \mbox{\hyperlink{structtoml_1_1detail_1_1unlimited}{unlimited}}>}
+\DoxyCodeLine{287 \{}
+\DoxyCodeLine{288     \textcolor{keyword}{static} \mbox{\hyperlink{structtoml_1_1result}{result<region, none\_t>}}}
+\DoxyCodeLine{289     \mbox{\hyperlink{structtoml_1_1detail_1_1repeat_3_01_t_00_01unlimited_01_4_a3bf64d49afc371b6c6e8f743eacf94e0}{invoke}}(\mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}}\& loc)}
+\DoxyCodeLine{290     \{}
+\DoxyCodeLine{291         \mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} retval(loc);}
+\DoxyCodeLine{292         \textcolor{keywordflow}{while}(\textcolor{keyword}{true})}
+\DoxyCodeLine{293         \{}
+\DoxyCodeLine{294             \textcolor{keyword}{auto} rslt = T::invoke(loc);}
+\DoxyCodeLine{295             \textcolor{keywordflow}{if}(rslt.is\_err())}
+\DoxyCodeLine{296             \{}
+\DoxyCodeLine{297                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_a6e429ce41fe363c8d981d8c929fd26f6}{ok}}(std::move(retval));}
+\DoxyCodeLine{298             \}}
+\DoxyCodeLine{299             retval += rslt.unwrap();}
+\DoxyCodeLine{300         \}}
+\DoxyCodeLine{301     \}}
+\DoxyCodeLine{302 \};}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304 \} \textcolor{comment}{// detail}}
+\DoxyCodeLine{305 \} \textcolor{comment}{// toml}}
+\DoxyCodeLine{306 \textcolor{preprocessor}{\#endif}\textcolor{comment}{// TOML11\_COMBINATOR\_HPP}}
+
+\end{DoxyCode}

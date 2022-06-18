@@ -1,0 +1,99 @@
+.TH "external/toml/combinator.hpp" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+external/toml/combinator.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cassert>\fP
+.br
+\fC#include <cctype>\fP
+.br
+\fC#include <cstdio>\fP
+.br
+\fC#include <array>\fP
+.br
+\fC#include <iomanip>\fP
+.br
+\fC#include <iterator>\fP
+.br
+\fC#include <limits>\fP
+.br
+\fC#include <type_traits>\fP
+.br
+\fC#include 'region\&.hpp'\fP
+.br
+\fC#include 'result\&.hpp'\fP
+.br
+\fC#include 'traits\&.hpp'\fP
+.br
+\fC#include 'utility\&.hpp'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtoml::detail::character< C >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::in_range< Low, Up >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::exclude< Combinator >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::maybe< Combinator >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::sequence< Head, Tail\&.\&.\&. >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::sequence< Head >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::either< Head, Tail\&.\&.\&. >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::either< Head >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::exactly< N >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::at_least< N >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::unlimited\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::repeat< T, exactly< N > >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::repeat< T, at_least< N > >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::repeat< T, unlimited >\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBtoml\fP"
+.br
+.ti -1c
+.RI "namespace \fBtoml::detail\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "std::string \fBtoml::detail::show_char\fP (const char c)"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

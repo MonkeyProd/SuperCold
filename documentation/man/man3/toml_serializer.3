@@ -1,0 +1,153 @@
+.TH "toml::serializer< Value >" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::serializer< Value >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <serializer\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBvalue_type\fP = Value"
+.br
+.ti -1c
+.RI "using \fBkey_type\fP = typename value_type::key_type"
+.br
+.ti -1c
+.RI "using \fBcomment_type\fP = typename value_type::comment_type"
+.br
+.ti -1c
+.RI "using \fBboolean_type\fP = typename value_type::boolean_type"
+.br
+.ti -1c
+.RI "using \fBinteger_type\fP = typename value_type::integer_type"
+.br
+.ti -1c
+.RI "using \fBfloating_type\fP = typename value_type::floating_type"
+.br
+.ti -1c
+.RI "using \fBstring_type\fP = typename value_type::string_type"
+.br
+.ti -1c
+.RI "using \fBlocal_time_type\fP = typename value_type::local_time_type"
+.br
+.ti -1c
+.RI "using \fBlocal_date_type\fP = typename value_type::local_date_type"
+.br
+.ti -1c
+.RI "using \fBlocal_datetime_type\fP = typename value_type::local_datetime_type"
+.br
+.ti -1c
+.RI "using \fBoffset_datetime_type\fP = typename value_type::offset_datetime_type"
+.br
+.ti -1c
+.RI "using \fBarray_type\fP = typename value_type::array_type"
+.br
+.ti -1c
+.RI "using \fBtable_type\fP = typename value_type::table_type"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBserializer\fP (const std::size_t w=80u, const int float_prec=std::numeric_limits< \fBtoml::floating\fP >::max_digits10, const bool can_be_inlined=false, const bool no_comment=false, std::vector< \fBtoml::key\fP > ks={}, const bool value_has_comment=false)"
+.br
+.ti -1c
+.RI "\fB~serializer\fP ()=default"
+.br
+.ti -1c
+.RI "std::string \fBoperator()\fP (const \fBboolean_type\fP &b) const"
+.br
+.ti -1c
+.RI "std::string \fBoperator()\fP (const \fBinteger_type\fP i) const"
+.br
+.ti -1c
+.RI "std::string \fBoperator()\fP (const \fBfloating_type\fP f) const"
+.br
+.ti -1c
+.RI "std::string \fBoperator()\fP (const \fBstring_type\fP &s) const"
+.br
+.ti -1c
+.RI "std::string \fBoperator()\fP (const \fBlocal_date_type\fP &d) const"
+.br
+.ti -1c
+.RI "std::string \fBoperator()\fP (const \fBlocal_time_type\fP &t) const"
+.br
+.ti -1c
+.RI "std::string \fBoperator()\fP (const \fBlocal_datetime_type\fP &dt) const"
+.br
+.ti -1c
+.RI "std::string \fBoperator()\fP (const \fBoffset_datetime_type\fP &odt) const"
+.br
+.ti -1c
+.RI "std::string \fBoperator()\fP (const \fBarray_type\fP &v) const"
+.br
+.ti -1c
+.RI "std::string \fBoperator()\fP (const \fBtable_type\fP &v) const"
+.br
+.in -1c
+.SH "Member Typedef Documentation"
+.PP 
+.SS "template<typename Value > using \fBtoml::serializer\fP< Value >::array_type =  typename value_type::array_type"
+
+.SS "template<typename Value > using \fBtoml::serializer\fP< Value >::boolean_type =  typename value_type::boolean_type"
+
+.SS "template<typename Value > using \fBtoml::serializer\fP< Value >::comment_type =  typename value_type::comment_type"
+
+.SS "template<typename Value > using \fBtoml::serializer\fP< Value >::floating_type =  typename value_type::floating_type"
+
+.SS "template<typename Value > using \fBtoml::serializer\fP< Value >::integer_type =  typename value_type::integer_type"
+
+.SS "template<typename Value > using \fBtoml::serializer\fP< Value >::key_type =  typename value_type::key_type"
+
+.SS "template<typename Value > using \fBtoml::serializer\fP< Value >::local_date_type =  typename value_type::local_date_type"
+
+.SS "template<typename Value > using \fBtoml::serializer\fP< Value >::local_datetime_type =  typename value_type::local_datetime_type"
+
+.SS "template<typename Value > using \fBtoml::serializer\fP< Value >::local_time_type =  typename value_type::local_time_type"
+
+.SS "template<typename Value > using \fBtoml::serializer\fP< Value >::offset_datetime_type =  typename value_type::offset_datetime_type"
+
+.SS "template<typename Value > using \fBtoml::serializer\fP< Value >::string_type =  typename value_type::string_type"
+
+.SS "template<typename Value > using \fBtoml::serializer\fP< Value >::table_type =  typename value_type::table_type"
+
+.SS "template<typename Value > using \fBtoml::serializer\fP< Value >::value_type =  Value"
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename Value > \fBtoml::serializer\fP< Value >::serializer (const std::size_t w = \fC80u\fP, const int float_prec = \fCstd::numeric_limits<\fBtoml::floating\fP>::max_digits10\fP, const bool can_be_inlined = \fCfalse\fP, const bool no_comment = \fCfalse\fP, std::vector< \fBtoml::key\fP > ks = \fC{}\fP, const bool value_has_comment = \fCfalse\fP)\fC [inline]\fP"
+
+.SS "template<typename Value > \fBtoml::serializer\fP< Value >::~\fBserializer\fP ()\fC [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename Value > std::string \fBtoml::serializer\fP< Value >::operator() (const \fBarray_type\fP & v) const\fC [inline]\fP"
+
+.SS "template<typename Value > std::string \fBtoml::serializer\fP< Value >::operator() (const \fBboolean_type\fP & b) const\fC [inline]\fP"
+
+.SS "template<typename Value > std::string \fBtoml::serializer\fP< Value >::operator() (const \fBfloating_type\fP f) const\fC [inline]\fP"
+
+.SS "template<typename Value > std::string \fBtoml::serializer\fP< Value >::operator() (const \fBinteger_type\fP i) const\fC [inline]\fP"
+
+.SS "template<typename Value > std::string \fBtoml::serializer\fP< Value >::operator() (const \fBlocal_date_type\fP & d) const\fC [inline]\fP"
+
+.SS "template<typename Value > std::string \fBtoml::serializer\fP< Value >::operator() (const \fBlocal_datetime_type\fP & dt) const\fC [inline]\fP"
+
+.SS "template<typename Value > std::string \fBtoml::serializer\fP< Value >::operator() (const \fBlocal_time_type\fP & t) const\fC [inline]\fP"
+
+.SS "template<typename Value > std::string \fBtoml::serializer\fP< Value >::operator() (const \fBoffset_datetime_type\fP & odt) const\fC [inline]\fP"
+
+.SS "template<typename Value > std::string \fBtoml::serializer\fP< Value >::operator() (const \fBstring_type\fP & s) const\fC [inline]\fP"
+
+.SS "template<typename Value > std::string \fBtoml::serializer\fP< Value >::operator() (const \fBtable_type\fP & v) const\fC [inline]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

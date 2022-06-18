@@ -1,0 +1,162 @@
+.TH "EyeEnemy" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+EyeEnemy
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <EyeEnemy\&.hpp>\fP
+.PP
+Inherits sf::Drawable, and sf::Transformable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBEyeEnemy\fP (sf::Vector2f startPosition, std::vector< sf::Sprite > moveSprites, std::vector< sf::Sprite > attackSprites, std::vector< sf::Sprite > takeDamageSprites, std::vector< sf::Sprite > deathSprites, float speed, float attack_distance, std::string enemyHitSound, int health=100)"
+.br
+.RI "Враг - летающий глаз "
+.ti -1c
+.RI "void \fBmoveTowards\fP (sf::Vector2f position, sf::Time deltaTime)"
+.br
+.RI "Метод передвигающий врага "
+.ti -1c
+.RI "void \fBhit\fP (int damage)"
+.br
+.RI "Метод получения урона "
+.ti -1c
+.RI "sf::Vector2f \fBcalculateTowardsVector\fP (sf::Vector2f position) const"
+.br
+.RI "Метод расчета вектора траектории к положению "
+.ti -1c
+.RI "sf::FloatRect \fBgetNextPosition\fP (sf::Time deltaTime, sf::Vector2f positionTowards) const"
+.br
+.RI "Метод расчета положения врага в следующий момент времени (нужен для коллизии) "
+.ti -1c
+.RI "virtual void \fBdraw\fP (sf::RenderTarget &surface, sf::RenderStates states) const"
+.br
+.ti -1c
+.RI "\fBGameObject\fP & \fBgetEnemyObject\fP ()"
+.br
+.RI "Метод возращающий \fBGameObject\fP врага "
+.ti -1c
+.RI "bool \fBgetDead\fP () const"
+.br
+.RI "Метод возращающий статус смерти врага "
+.ti -1c
+.RI "bool \fBcanAttack\fP () const"
+.br
+.RI "проверка возможности атаковать "
+.ti -1c
+.RI "void \fBattacked\fP ()"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "EyeEnemy::EyeEnemy (sf::Vector2f startPosition, std::vector< sf::Sprite > moveSprites, std::vector< sf::Sprite > attackSprites, std::vector< sf::Sprite > takeDamageSprites, std::vector< sf::Sprite > deathSprites, float speed, float attack_distance, std::string enemyHitSound, int health = \fC100\fP)"
+
+.PP
+Враг - летающий глаз 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstartPosition\fP начальное положение 
+.br
+\fImoveSprites\fP спрайты движения 
+.br
+\fIattackSprites\fP спрайты атаки 
+.br
+\fItakeDamageSprites\fP спрайты получения урона 
+.br
+\fIdeathSprites\fP спрайты смерти 
+.br
+\fIspeed\fP скорость передвижения 
+.br
+\fIattack_distance\fP дистанция с которой начинается атака 
+.br
+\fIenemyHitSound\fP название звука получения урона 
+.br
+\fIhealth\fP начальное здоровье 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void EyeEnemy::attacked ()"
+
+.SS "sf::Vector2f EyeEnemy::calculateTowardsVector (sf::Vector2f position) const"
+
+.PP
+Метод расчета вектора траектории к положению 
+.PP
+\fBParameters\fP
+.RS 4
+\fIposition\fP положение к которому рассчитывается траектория 
+.RE
+.PP
+
+.SS "bool EyeEnemy::canAttack () const"
+
+.PP
+проверка возможности атаковать 
+.PP
+\fBReturns\fP
+.RS 4
+true атака возможна 
+.PP
+false атака невозможна 
+.RE
+.PP
+
+.SS "void EyeEnemy::draw (sf::RenderTarget & surface, sf::RenderStates states) const\fC [virtual]\fP"
+
+.SS "bool EyeEnemy::getDead () const"
+
+.PP
+Метод возращающий статус смерти врага 
+.SS "\fBGameObject\fP & EyeEnemy::getEnemyObject ()"
+
+.PP
+Метод возращающий \fBGameObject\fP врага 
+.SS "sf::FloatRect EyeEnemy::getNextPosition (sf::Time deltaTime, sf::Vector2f positionTowards) const"
+
+.PP
+Метод расчета положения врага в следующий момент времени (нужен для коллизии) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdeltaTime\fP deltaTime 
+.br
+\fIpositionTowards\fP положение к которому движется враг 
+.RE
+.PP
+
+.SS "void EyeEnemy::hit (int damage)"
+
+.PP
+Метод получения урона 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdamage\fP количество полученного урона 
+.RE
+.PP
+
+.SS "void EyeEnemy::moveTowards (sf::Vector2f position, sf::Time deltaTime)"
+
+.PP
+Метод передвигающий врага 
+.PP
+\fBParameters\fP
+.RS 4
+\fIposition\fP положение куда передвигаться 
+.br
+\fIdeltaTime\fP deltaTime 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

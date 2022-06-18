@@ -1,0 +1,59 @@
+.TH "toml::exception" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::exception
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <exception\&.hpp>\fP
+.PP
+Inherits std::exception\&.
+.PP
+Inherited by \fBtoml::internal_error\fP, \fBtoml::syntax_error\fP, and \fBtoml::type_error\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBexception\fP (const \fBsource_location\fP &loc)"
+.br
+.ti -1c
+.RI "virtual \fB~exception\fP () noexcept override=default"
+.br
+.ti -1c
+.RI "virtual const char * \fBwhat\fP () const noexcept override"
+.br
+.ti -1c
+.RI "virtual \fBsource_location\fP const & \fBlocation\fP () const noexcept"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBsource_location\fP \fBloc_\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "toml::exception::exception (const \fBsource_location\fP & loc)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "virtual toml::exception::~exception ()\fC [override]\fP, \fC [virtual]\fP, \fC [default]\fP, \fC [noexcept]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual \fBsource_location\fP const  & toml::exception::location () const\fC [inline]\fP, \fC [virtual]\fP, \fC [noexcept]\fP"
+
+.SS "virtual const char * toml::exception::what () const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP, \fC [noexcept]\fP"
+
+.PP
+Reimplemented in \fBtoml::syntax_error\fP, \fBtoml::type_error\fP, and \fBtoml::internal_error\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBsource_location\fP toml::exception::loc_\fC [protected]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

@@ -1,0 +1,78 @@
+.TH "toml::time_offset" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::time_offset
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <datetime\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtime_offset\fP (int h, int m)"
+.br
+.ti -1c
+.RI "\fBoperator std::chrono::minutes\fP () const"
+.br
+.ti -1c
+.RI "\fBtime_offset\fP ()=default"
+.br
+.ti -1c
+.RI "\fB~time_offset\fP ()=default"
+.br
+.ti -1c
+.RI "\fBtime_offset\fP (\fBtime_offset\fP const &)=default"
+.br
+.ti -1c
+.RI "\fBtime_offset\fP (\fBtime_offset\fP &&)=default"
+.br
+.ti -1c
+.RI "\fBtime_offset\fP & \fBoperator=\fP (\fBtime_offset\fP const &)=default"
+.br
+.ti -1c
+.RI "\fBtime_offset\fP & \fBoperator=\fP (\fBtime_offset\fP &&)=default"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::int8_t \fBhour\fP"
+.br
+.ti -1c
+.RI "std::int8_t \fBminute\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "toml::time_offset::time_offset (int h, int m)\fC [inline]\fP"
+
+.SS "toml::time_offset::time_offset ()\fC [default]\fP"
+
+.SS "toml::time_offset::~time_offset ()\fC [default]\fP"
+
+.SS "toml::time_offset::time_offset (\fBtime_offset\fP const &)\fC [default]\fP"
+
+.SS "toml::time_offset::time_offset (\fBtime_offset\fP &&)\fC [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "toml::time_offset::operator std::chrono::minutes () const\fC [inline]\fP"
+
+.SS "\fBtime_offset\fP & toml::time_offset::operator= (\fBtime_offset\fP &&)\fC [default]\fP"
+
+.SS "\fBtime_offset\fP & toml::time_offset::operator= (\fBtime_offset\fP const &)\fC [default]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "std::int8_t toml::time_offset::hour"
+
+.SS "std::int8_t toml::time_offset::minute"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

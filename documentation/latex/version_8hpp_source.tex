@@ -1,0 +1,48 @@
+\hypertarget{version_8hpp_source}{}\doxysection{version.\+hpp}
+\label{version_8hpp_source}\index{external/toml/version.hpp@{external/toml/version.hpp}}
+\mbox{\hyperlink{version_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TOML11\_VERSION\_HPP}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TOML11\_VERSION\_HPP}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{comment}{// This file checks C++ version.}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifndef \_\_cplusplus}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#    error "{}\_\_cplusplus is not defined"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{comment}{// Since MSVC does not define `\_\_cplusplus` correctly unless you pass}}
+\DoxyCodeLine{11 \textcolor{comment}{// `/Zc:\_\_cplusplus` when compiling, the workaround macros are added.}}
+\DoxyCodeLine{12 \textcolor{comment}{// Those enables you to define version manually or to use MSVC specific}}
+\DoxyCodeLine{13 \textcolor{comment}{// version macro automatically.}}
+\DoxyCodeLine{14 \textcolor{comment}{//}}
+\DoxyCodeLine{15 \textcolor{comment}{// The value of `\_\_cplusplus` macro is defined in the C++ standard spec, but}}
+\DoxyCodeLine{16 \textcolor{comment}{// MSVC ignores the value, maybe because of backward compatibility. Instead,}}
+\DoxyCodeLine{17 \textcolor{comment}{// MSVC defines \_MSVC\_LANG that has the same value as \_\_cplusplus defined in}}
+\DoxyCodeLine{18 \textcolor{comment}{// the C++ standard. First we check the manual version definition, and then}}
+\DoxyCodeLine{19 \textcolor{comment}{// we check if \_MSVC\_LANG is defined. If neither, use normal `\_\_cplusplus`.}}
+\DoxyCodeLine{20 \textcolor{comment}{//}}
+\DoxyCodeLine{21 \textcolor{comment}{// FYI: https://docs.microsoft.com/en-\/us/cpp/build/reference/zc-\/cplusplus?view=msvc-\/170}}
+\DoxyCodeLine{22 \textcolor{comment}{//      https://docs.microsoft.com/en-\/us/cpp/preprocessor/predefined-\/macros?view=msvc-\/170}}
+\DoxyCodeLine{23 \textcolor{comment}{//}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#if   defined(TOML11\_ENFORCE\_CXX11)}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#  define TOML11\_CPLUSPLUS\_STANDARD\_VERSION 201103L}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#elif defined(TOML11\_ENFORCE\_CXX14)}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#  define TOML11\_CPLUSPLUS\_STANDARD\_VERSION 201402L}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#elif defined(TOML11\_ENFORCE\_CXX17)}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#  define TOML11\_CPLUSPLUS\_STANDARD\_VERSION 201703L}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#elif defined(TOML11\_ENFORCE\_CXX20)}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#  define TOML11\_CPLUSPLUS\_STANDARD\_VERSION 202002L}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#elif defined(\_MSVC\_LANG) \&\& defined(\_MSC\_VER) \&\& 1910 <= \_MSC\_VER}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#  define TOML11\_CPLUSPLUS\_STANDARD\_VERSION \_MSVC\_LANG}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#  define TOML11\_CPLUSPLUS\_STANDARD\_VERSION \_\_cplusplus}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#if TOML11\_CPLUSPLUS\_STANDARD\_VERSION < 201103L \&\& \_MSC\_VER < 1900}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#    error "{}toml11 requires C++11 or later."{}}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif}\textcolor{comment}{// TOML11\_VERSION\_HPP}}
+
+\end{DoxyCode}

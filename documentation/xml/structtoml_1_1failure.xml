@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1failure" kind="struct" language="C++" prot="public">
+    <compoundname>toml::failure</compoundname>
+    <includes refid="result_8hpp" local="no">result.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structtoml_1_1failure_1ae6ecc03426a31550ea6909869cc50de2" prot="public" static="no">
+        <type>T</type>
+        <definition>using toml::failure&lt; T &gt;::value_type =  T</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <qualifiedname>toml::failure::value_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="50" column="5" bodyfile="external/toml/result.hpp" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtoml_1_1failure_1aff7e68caec6c6d4bef17f59722e52a15" prot="public" static="no" mutable="no">
+        <type><ref refid="structtoml_1_1failure_1ae6ecc03426a31550ea6909869cc50de2" kindref="member">value_type</ref></type>
+        <definition>value_type toml::failure&lt; T &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <qualifiedname>toml::failure::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="51" column="16" bodyfile="external/toml/result.hpp" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtoml_1_1failure_1a80b69ca3c94f49932833afa4ef9f6c50" prot="public" static="no" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::failure&lt; T &gt;::failure</definition>
+        <argsstring>(const value_type &amp;v) noexcept(std::is_nothrow_copy_constructible&lt; value_type &gt;::value)</argsstring>
+        <name>failure</name>
+        <qualifiedname>toml::failure::failure</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1failure_1ae6ecc03426a31550ea6909869cc50de2" kindref="member">value_type</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="53" column="14" bodyfile="external/toml/result.hpp" bodystart="53" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1failure_1a9c11a5e56ff9af3f1ce804471a10aa46" prot="public" static="no" const="no" explicit="yes" inline="yes" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::failure&lt; T &gt;::failure</definition>
+        <argsstring>(value_type &amp;&amp;v) noexcept(std::is_nothrow_move_constructible&lt; value_type &gt;::value)</argsstring>
+        <name>failure</name>
+        <qualifiedname>toml::failure::failure</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1failure_1ae6ecc03426a31550ea6909869cc50de2" kindref="member">value_type</ref> &amp;&amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="57" column="14" bodyfile="external/toml/result.hpp" bodystart="57" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1failure_1a818fa901c8f674e96d7b189a8729e88c" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>toml::failure&lt; T &gt;::failure</definition>
+        <argsstring>(U &amp;&amp;v)</argsstring>
+        <name>failure</name>
+        <qualifiedname>toml::failure::failure</qualifiedname>
+        <param>
+          <type>U &amp;&amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="63" column="14" bodyfile="external/toml/result.hpp" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1failure_1ab40c468eddee1237f891578fcb67f506" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>toml::failure&lt; T &gt;::failure</definition>
+        <argsstring>(const failure&lt; U &gt; &amp;v)</argsstring>
+        <name>failure</name>
+        <qualifiedname>toml::failure::failure</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1failure" kindref="compound">failure</ref>&lt; U &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="66" column="14" bodyfile="external/toml/result.hpp" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1failure_1a5495dd70db972ff9e79f686ecbd540f9" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename U</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>toml::failure&lt; T &gt;::failure</definition>
+        <argsstring>(failure&lt; U &gt; &amp;&amp;v)</argsstring>
+        <name>failure</name>
+        <qualifiedname>toml::failure::failure</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1failure" kindref="compound">failure</ref>&lt; U &gt; &amp;&amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="68" column="14" bodyfile="external/toml/result.hpp" bodystart="68" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1failure_1a5f1e6b49d73444806ff719ffa23e8d22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::failure&lt; T &gt;::~failure</definition>
+        <argsstring>()=default</argsstring>
+        <name>~failure</name>
+        <qualifiedname>toml::failure::~failure</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="70" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1failure_1a0eeb2c533238e57043212f1fafa49a2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::failure&lt; T &gt;::failure</definition>
+        <argsstring>(const failure &amp;)=default</argsstring>
+        <name>failure</name>
+        <qualifiedname>toml::failure::failure</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1failure" kindref="compound">failure</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="71" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1failure_1ae6120e392c9b89e55f6ed868041c05d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::failure&lt; T &gt;::failure</definition>
+        <argsstring>(failure &amp;&amp;)=default</argsstring>
+        <name>failure</name>
+        <qualifiedname>toml::failure::failure</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1failure" kindref="compound">failure</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="72" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1failure_1a6c1002b945353ead3cf4a56dcb67a5f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1failure" kindref="compound">failure</ref> &amp;</type>
+        <definition>failure &amp; toml::failure&lt; T &gt;::operator=</definition>
+        <argsstring>(const failure &amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::failure::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1failure" kindref="compound">failure</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="73" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1failure_1aacbdb7b00741f87202589042efb52b68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1failure" kindref="compound">failure</ref> &amp;</type>
+        <definition>failure &amp; toml::failure&lt; T &gt;::operator=</definition>
+        <argsstring>(failure &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::failure::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1failure" kindref="compound">failure</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/result.hpp" line="74" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/result.hpp" line="48" column="1" bodyfile="external/toml/result.hpp" bodystart="49" bodyend="75"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1failure_1a80b69ca3c94f49932833afa4ef9f6c50" prot="public" virt="non-virtual"><scope>toml::failure</scope><name>failure</name></member>
+      <member refid="structtoml_1_1failure_1a9c11a5e56ff9af3f1ce804471a10aa46" prot="public" virt="non-virtual"><scope>toml::failure</scope><name>failure</name></member>
+      <member refid="structtoml_1_1failure_1a818fa901c8f674e96d7b189a8729e88c" prot="public" virt="non-virtual"><scope>toml::failure</scope><name>failure</name></member>
+      <member refid="structtoml_1_1failure_1ab40c468eddee1237f891578fcb67f506" prot="public" virt="non-virtual"><scope>toml::failure</scope><name>failure</name></member>
+      <member refid="structtoml_1_1failure_1a5495dd70db972ff9e79f686ecbd540f9" prot="public" virt="non-virtual"><scope>toml::failure</scope><name>failure</name></member>
+      <member refid="structtoml_1_1failure_1a0eeb2c533238e57043212f1fafa49a2b" prot="public" virt="non-virtual"><scope>toml::failure</scope><name>failure</name></member>
+      <member refid="structtoml_1_1failure_1ae6120e392c9b89e55f6ed868041c05d3" prot="public" virt="non-virtual"><scope>toml::failure</scope><name>failure</name></member>
+      <member refid="structtoml_1_1failure_1a6c1002b945353ead3cf4a56dcb67a5f8" prot="public" virt="non-virtual"><scope>toml::failure</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1failure_1aacbdb7b00741f87202589042efb52b68" prot="public" virt="non-virtual"><scope>toml::failure</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1failure_1aff7e68caec6c6d4bef17f59722e52a15" prot="public" virt="non-virtual"><scope>toml::failure</scope><name>value</name></member>
+      <member refid="structtoml_1_1failure_1ae6ecc03426a31550ea6909869cc50de2" prot="public" virt="non-virtual"><scope>toml::failure</scope><name>value_type</name></member>
+      <member refid="structtoml_1_1failure_1a5f1e6b49d73444806ff719ffa23e8d22" prot="public" virt="non-virtual"><scope>toml::failure</scope><name>~failure</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

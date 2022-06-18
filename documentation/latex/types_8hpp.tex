@@ -1,0 +1,111 @@
+\hypertarget{types_8hpp}{}\doxysection{external/toml/types.hpp File Reference}
+\label{types_8hpp}\index{external/toml/types.hpp@{external/toml/types.hpp}}
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}comments.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}datetime.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}string.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}traits.\+hpp\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type}{toml\+::detail\+::enum\+\_\+to\+\_\+type$<$ t, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1empty_00_01_value_01_4}{toml\+::detail\+::enum\+\_\+to\+\_\+type$<$ value\+\_\+t\+::empty, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1boolean_00_01_value_01_4}{toml\+::detail\+::enum\+\_\+to\+\_\+type$<$ value\+\_\+t\+::boolean, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1integer_00_01_value_01_4}{toml\+::detail\+::enum\+\_\+to\+\_\+type$<$ value\+\_\+t\+::integer, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1floating_00_01_value_01_4}{toml\+::detail\+::enum\+\_\+to\+\_\+type$<$ value\+\_\+t\+::floating, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1string_00_01_value_01_4}{toml\+::detail\+::enum\+\_\+to\+\_\+type$<$ value\+\_\+t\+::string, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1offset__datetime_00_01_value_01_4}{toml\+::detail\+::enum\+\_\+to\+\_\+type$<$ value\+\_\+t\+::offset\+\_\+datetime, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1local__datetime_00_01_value_01_4}{toml\+::detail\+::enum\+\_\+to\+\_\+type$<$ value\+\_\+t\+::local\+\_\+datetime, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1local__date_00_01_value_01_4}{toml\+::detail\+::enum\+\_\+to\+\_\+type$<$ value\+\_\+t\+::local\+\_\+date, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1local__time_00_01_value_01_4}{toml\+::detail\+::enum\+\_\+to\+\_\+type$<$ value\+\_\+t\+::local\+\_\+time, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1array_00_01_value_01_4}{toml\+::detail\+::enum\+\_\+to\+\_\+type$<$ value\+\_\+t\+::array, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1table_00_01_value_01_4}{toml\+::detail\+::enum\+\_\+to\+\_\+type$<$ value\+\_\+t\+::table, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum}{toml\+::detail\+::type\+\_\+to\+\_\+enum$<$ T, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum_3_01boolean_00_01_value_01_4}{toml\+::detail\+::type\+\_\+to\+\_\+enum$<$ boolean, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum_3_01integer_00_01_value_01_4}{toml\+::detail\+::type\+\_\+to\+\_\+enum$<$ integer, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum_3_01floating_00_01_value_01_4}{toml\+::detail\+::type\+\_\+to\+\_\+enum$<$ floating, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum_3_01string_00_01_value_01_4}{toml\+::detail\+::type\+\_\+to\+\_\+enum$<$ string, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum_3_01offset__datetime_00_01_value_01_4}{toml\+::detail\+::type\+\_\+to\+\_\+enum$<$ offset\+\_\+datetime, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum_3_01local__datetime_00_01_value_01_4}{toml\+::detail\+::type\+\_\+to\+\_\+enum$<$ local\+\_\+datetime, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum_3_01local__date_00_01_value_01_4}{toml\+::detail\+::type\+\_\+to\+\_\+enum$<$ local\+\_\+date, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum_3_01local__time_00_01_value_01_4}{toml\+::detail\+::type\+\_\+to\+\_\+enum$<$ local\+\_\+time, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1is__exact__toml__type}{toml\+::detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T, Value $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1is__exact__toml__type_3_01_t_01_6_00_01_v_01_4}{toml\+::detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T \&, V $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1is__exact__toml__type_3_01_t_01const_01_6_00_01_v_01_4}{toml\+::detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T const \&, V $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1is__exact__toml__type_3_01_t_01volatile_01_6_00_01_v_01_4}{toml\+::detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T volatile \&, V $>$}}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1is__exact__toml__type_3_01_t_01const_01volatile_01_6_00_01_v_01_4}{toml\+::detail\+::is\+\_\+exact\+\_\+toml\+\_\+type$<$ T const volatile \&, V $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetoml}{toml}}
+\item 
+namespace \mbox{\hyperlink{namespacetoml_1_1detail}{toml\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacetoml_a8f6621cf10ba95c9069e3b248eb9c01d}{toml\+::character}} = char
+\item 
+using \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml\+::key}} = std\+::string
+\item 
+using \mbox{\hyperlink{namespacetoml_a536c45fdc142655af40475187d5a6702}{toml\+::boolean}} = bool
+\item 
+using \mbox{\hyperlink{namespacetoml_ad9642acd2a70ea10c7c6c1b53a3caac9}{toml\+::integer}} = std\+::int64\+\_\+t
+\item 
+using \mbox{\hyperlink{namespacetoml_a54f4b85eab8f0d6e6f0149c5ba338f6a}{toml\+::floating}} = double
+\item 
+{\footnotesize template$<$value\+\_\+t V$>$ }\\using \mbox{\hyperlink{namespacetoml_1_1detail_a0aae3b0a945ae7e58004d1b7b42a50d2}{toml\+::detail\+::value\+\_\+t\+\_\+constant}} = std\+::integral\+\_\+constant$<$ value\+\_\+t, V $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaa}{toml\+::value\+\_\+t}} \+: std\+::uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaaa2e4822a98337283e39f7b60acf85ec9}{toml\+::empty}} = 0
+, \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaa84e2c64f38f78ba3ea5c905ab5a2da27}{toml\+::boolean}} = 1
+, \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaa157db7df530023575515d366c9b672e8}{toml\+::integer}} = 2
+, \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaa374515b23d6f106696387776a6077d17}{toml\+::floating}} = 3
+, \newline
+\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaab45cffe084dd3d20d928bee85e7b0f21}{toml\+::string}} = 4
+, \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaa3453afefc0169f713370ff6bea1dc9a5}{toml\+::offset\+\_\+datetime}} = 5
+, \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaa4786c634d28e7c1aa109efdd9e11ba32}{toml\+::local\+\_\+datetime}} = 6
+, \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaaa9647613bc34fa481cf7bfd71e46511f}{toml\+::local\+\_\+date}} = 7
+, \newline
+\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaad118bc9b5fdddd0a0c91b99a41bb9501}{toml\+::local\+\_\+time}} = 8
+, \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaaf1f713c9e000f5d3f280adbd124df4f5}{toml\+::array}} = 9
+, \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaaaab9e1de16f38176f86d7a92ba337a8d}{toml\+::table}} = 10
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename charT , typename traits $>$ }\\std\+::basic\+\_\+ostream$<$ charT, traits $>$ \& \mbox{\hyperlink{namespacetoml_ab1aeea0aefa47363a15402d82ac2a03d}{toml\+::operator$<$$<$}} (std\+::basic\+\_\+ostream$<$ charT, traits $>$ \&os, value\+\_\+t t)
+\item 
+{\footnotesize template$<$typename charT  = char, typename traits  = std\+::char\+\_\+traits$<$char\+T$>$, typename alloc  = std\+::allocator$<$char\+T$>$$>$ }\\std\+::basic\+\_\+string$<$ charT, traits, alloc $>$ \mbox{\hyperlink{namespacetoml_aaf1e28f553918a844120bf20679de5c7}{toml\+::stringize}} (value\+\_\+t t)
+\end{DoxyCompactItemize}

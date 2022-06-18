@@ -1,0 +1,64 @@
+.TH "external/toml/serializer.hpp" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+external/toml/serializer.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cmath>\fP
+.br
+\fC#include <cstdio>\fP
+.br
+\fC#include <limits>\fP
+.br
+\fC#include 'lexer\&.hpp'\fP
+.br
+\fC#include 'value\&.hpp'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtoml::serializer< Value >\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBtoml\fP"
+.br
+.ti -1c
+.RI "namespace \fBtoml::detail\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename charT , typename traits , typename Alloc > std::basic_string< charT, traits, Alloc > \fBtoml::format_key\fP (const std::basic_string< charT, traits, Alloc > &k)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits , typename Alloc > std::basic_string< charT, traits, Alloc > \fBtoml::format_keys\fP (const std::vector< std::basic_string< charT, traits, Alloc > > &keys)"
+.br
+.ti -1c
+.RI "template<typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> std::string \fBtoml::format\fP (const basic_value< C, M, V > &v, std::size_t w=80u, int fprec=std::numeric_limits< \fBtoml::floating\fP >::max_digits10, bool no_comment=false, bool force_inline=false)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > int \fBtoml::detail::comment_index\fP (std::basic_ostream< charT, traits > &)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBtoml::nocomment\fP (std::basic_ostream< charT, traits > &os)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBtoml::showcomment\fP (std::basic_ostream< charT, traits > &os)"
+.br
+.ti -1c
+.RI "template<typename charT , typename traits , typename C , template< typename \&.\&.\&. > class M, template< typename \&.\&.\&. > class V> std::basic_ostream< charT, traits > & \fBtoml::operator<<\fP (std::basic_ostream< charT, traits > &os, const basic_value< C, M, V > &v)"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

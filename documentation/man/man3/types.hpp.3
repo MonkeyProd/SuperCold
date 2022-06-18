@@ -1,0 +1,155 @@
+.TH "external/toml/types.hpp" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+external/toml/types.hpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <unordered_map>\fP
+.br
+\fC#include <vector>\fP
+.br
+\fC#include 'comments\&.hpp'\fP
+.br
+\fC#include 'datetime\&.hpp'\fP
+.br
+\fC#include 'string\&.hpp'\fP
+.br
+\fC#include 'traits\&.hpp'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtoml::detail::enum_to_type< t, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::enum_to_type< value_t::empty, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::enum_to_type< value_t::boolean, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::enum_to_type< value_t::integer, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::enum_to_type< value_t::floating, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::enum_to_type< value_t::string, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::enum_to_type< value_t::offset_datetime, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::enum_to_type< value_t::local_datetime, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::enum_to_type< value_t::local_date, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::enum_to_type< value_t::local_time, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::enum_to_type< value_t::array, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::enum_to_type< value_t::table, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::type_to_enum< T, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::type_to_enum< boolean, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::type_to_enum< integer, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::type_to_enum< floating, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::type_to_enum< string, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::type_to_enum< offset_datetime, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::type_to_enum< local_datetime, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::type_to_enum< local_date, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::type_to_enum< local_time, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_exact_toml_type< T, Value >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_exact_toml_type< T &, V >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_exact_toml_type< T const &, V >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_exact_toml_type< T volatile &, V >\fP"
+.br
+.ti -1c
+.RI "struct \fBtoml::detail::is_exact_toml_type< T const volatile &, V >\fP"
+.br
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBtoml\fP"
+.br
+.ti -1c
+.RI "namespace \fBtoml::detail\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "using \fBtoml::character\fP = char"
+.br
+.ti -1c
+.RI "using \fBtoml::key\fP = std::string"
+.br
+.ti -1c
+.RI "using \fBtoml::boolean\fP = bool"
+.br
+.ti -1c
+.RI "using \fBtoml::integer\fP = std::int64_t"
+.br
+.ti -1c
+.RI "using \fBtoml::floating\fP = double"
+.br
+.ti -1c
+.RI "template<value_t V> using \fBtoml::detail::value_t_constant\fP = std::integral_constant< value_t, V >"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum class \fBtoml::value_t\fP : std::uint8_t { \fBtoml::empty\fP = 0, \fBtoml::boolean\fP = 1, \fBtoml::integer\fP = 2, \fBtoml::floating\fP = 3, \fBtoml::string\fP = 4, \fBtoml::offset_datetime\fP = 5, \fBtoml::local_datetime\fP = 6, \fBtoml::local_date\fP = 7, \fBtoml::local_time\fP = 8, \fBtoml::array\fP = 9, \fBtoml::table\fP = 10 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "template<typename charT , typename traits > std::basic_ostream< charT, traits > & \fBtoml::operator<<\fP (std::basic_ostream< charT, traits > &os, value_t t)"
+.br
+.ti -1c
+.RI "template<typename charT  = char, typename traits  = std::char_traits<charT>, typename alloc  = std::allocator<charT>> std::basic_string< charT, traits, alloc > \fBtoml::stringize\fP (value_t t)"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

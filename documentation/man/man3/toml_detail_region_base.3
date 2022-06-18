@@ -1,0 +1,124 @@
+.TH "toml::detail::region_base" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::detail::region_base
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <region\&.hpp>\fP
+.PP
+Inherited by \fBtoml::detail::location\fP, and \fBtoml::detail::region\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBregion_base\fP ()=default"
+.br
+.ti -1c
+.RI "virtual \fB~region_base\fP ()=default"
+.br
+.ti -1c
+.RI "\fBregion_base\fP (const \fBregion_base\fP &)=default"
+.br
+.ti -1c
+.RI "\fBregion_base\fP (\fBregion_base\fP &&)=default"
+.br
+.ti -1c
+.RI "\fBregion_base\fP & \fBoperator=\fP (const \fBregion_base\fP &)=default"
+.br
+.ti -1c
+.RI "\fBregion_base\fP & \fBoperator=\fP (\fBregion_base\fP &&)=default"
+.br
+.ti -1c
+.RI "virtual bool \fBis_ok\fP () const noexcept"
+.br
+.ti -1c
+.RI "virtual char \fBfront\fP () const noexcept"
+.br
+.ti -1c
+.RI "virtual std::string \fBstr\fP () const"
+.br
+.ti -1c
+.RI "virtual std::string \fBname\fP () const"
+.br
+.ti -1c
+.RI "virtual std::string \fBline\fP () const"
+.br
+.ti -1c
+.RI "virtual std::string \fBline_num\fP () const"
+.br
+.ti -1c
+.RI "virtual std::size_t \fBsize\fP () const noexcept"
+.br
+.ti -1c
+.RI "virtual std::size_t \fBbefore\fP () const noexcept"
+.br
+.ti -1c
+.RI "virtual std::size_t \fBafter\fP () const noexcept"
+.br
+.ti -1c
+.RI "virtual std::vector< std::string > \fBcomments\fP () const"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "toml::detail::region_base::region_base ()\fC [default]\fP"
+
+.SS "virtual toml::detail::region_base::~region_base ()\fC [virtual]\fP, \fC [default]\fP"
+
+.SS "toml::detail::region_base::region_base (const \fBregion_base\fP &)\fC [default]\fP"
+
+.SS "toml::detail::region_base::region_base (\fBregion_base\fP &&)\fC [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "virtual std::size_t toml::detail::region_base::after () const\fC [inline]\fP, \fC [virtual]\fP, \fC [noexcept]\fP"
+
+.PP
+Reimplemented in \fBtoml::detail::location\fP, and \fBtoml::detail::region\fP\&.
+.SS "virtual std::size_t toml::detail::region_base::before () const\fC [inline]\fP, \fC [virtual]\fP, \fC [noexcept]\fP"
+
+.PP
+Reimplemented in \fBtoml::detail::location\fP, and \fBtoml::detail::region\fP\&.
+.SS "virtual std::vector< std::string > toml::detail::region_base::comments () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented in \fBtoml::detail::region\fP\&.
+.SS "virtual char toml::detail::region_base::front () const\fC [inline]\fP, \fC [virtual]\fP, \fC [noexcept]\fP"
+
+.PP
+Reimplemented in \fBtoml::detail::location\fP, and \fBtoml::detail::region\fP\&.
+.SS "virtual bool toml::detail::region_base::is_ok () const\fC [inline]\fP, \fC [virtual]\fP, \fC [noexcept]\fP"
+
+.PP
+Reimplemented in \fBtoml::detail::location\fP, and \fBtoml::detail::region\fP\&.
+.SS "virtual std::string toml::detail::region_base::line () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented in \fBtoml::detail::location\fP, and \fBtoml::detail::region\fP\&.
+.SS "virtual std::string toml::detail::region_base::line_num () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented in \fBtoml::detail::location\fP, and \fBtoml::detail::region\fP\&.
+.SS "virtual std::string toml::detail::region_base::name () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented in \fBtoml::detail::location\fP, and \fBtoml::detail::region\fP\&.
+.SS "\fBregion_base\fP & toml::detail::region_base::operator= (const \fBregion_base\fP &)\fC [default]\fP"
+
+.SS "\fBregion_base\fP & toml::detail::region_base::operator= (\fBregion_base\fP &&)\fC [default]\fP"
+
+.SS "virtual std::size_t toml::detail::region_base::size () const\fC [inline]\fP, \fC [virtual]\fP, \fC [noexcept]\fP"
+
+.PP
+Reimplemented in \fBtoml::detail::location\fP, and \fBtoml::detail::region\fP\&.
+.SS "virtual std::string toml::detail::region_base::str () const\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+Reimplemented in \fBtoml::detail::location\fP, and \fBtoml::detail::region\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

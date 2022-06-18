@@ -1,0 +1,656 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="class_eye_enemy" kind="class" language="C++" prot="public">
+    <compoundname>EyeEnemy</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">sf::Drawable</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">sf::Transformable</basecompoundref>
+    <includes refid="_eye_enemy_8hpp" local="no">EyeEnemy.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_eye_enemy_1ae51b00502721e7777e38403c7cd97924" prot="private" static="no" mutable="no">
+        <type><ref refid="class_game_object" kindref="compound">GameObject</ref></type>
+        <definition>GameObject EyeEnemy::m_EyeEnemyObject</definition>
+        <argsstring></argsstring>
+        <name>m_EyeEnemyObject</name>
+        <qualifiedname>EyeEnemy::m_EyeEnemyObject</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="11" column="12" bodyfile="Enemies/EyeEnemy.hpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_eye_enemy_1ab4882cb118d620a30b20534f2f6eaf49" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int EyeEnemy::m_health</definition>
+        <argsstring></argsstring>
+        <name>m_health</name>
+        <qualifiedname>EyeEnemy::m_health</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="12" column="5" bodyfile="Enemies/EyeEnemy.hpp" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_eye_enemy_1addf85f35dd330dde5d00acc5da37c38c" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int EyeEnemy::initial_health</definition>
+        <argsstring></argsstring>
+        <name>initial_health</name>
+        <qualifiedname>EyeEnemy::initial_health</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="13" column="5" bodyfile="Enemies/EyeEnemy.hpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_eye_enemy_1ad4c31dd8a08ed60adcc6b310282b03f0" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float EyeEnemy::m_speed</definition>
+        <argsstring></argsstring>
+        <name>m_speed</name>
+        <qualifiedname>EyeEnemy::m_speed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="14" column="7" bodyfile="Enemies/EyeEnemy.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_eye_enemy_1a08ab02c53e319a3d1a0f706fadeab9db" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float EyeEnemy::m_attack_distance</definition>
+        <argsstring></argsstring>
+        <name>m_attack_distance</name>
+        <qualifiedname>EyeEnemy::m_attack_distance</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="15" column="7" bodyfile="Enemies/EyeEnemy.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_eye_enemy_1a201044804f093f9581e061a07a2410d1" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool EyeEnemy::isHitted</definition>
+        <argsstring></argsstring>
+        <name>isHitted</name>
+        <qualifiedname>EyeEnemy::isHitted</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="16" column="6" bodyfile="Enemies/EyeEnemy.hpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_eye_enemy_1a433adf6ad90a65f7542c2539c25aa41e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool EyeEnemy::isDead</definition>
+        <argsstring></argsstring>
+        <name>isDead</name>
+        <qualifiedname>EyeEnemy::isDead</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="17" column="6" bodyfile="Enemies/EyeEnemy.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_eye_enemy_1a80b6d47867520fab36ed63623dcd80a9" prot="private" static="no" mutable="no">
+        <type>sf::Time</type>
+        <definition>sf::Time EyeEnemy::attackTime</definition>
+        <argsstring></argsstring>
+        <name>attackTime</name>
+        <qualifiedname>EyeEnemy::attackTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="18" column="10" bodyfile="Enemies/EyeEnemy.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_eye_enemy_1a58a980589e56dcfbee354cca600016de" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool EyeEnemy::m_canAttack</definition>
+        <argsstring></argsstring>
+        <name>m_canAttack</name>
+        <qualifiedname>EyeEnemy::m_canAttack</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="19" column="6" bodyfile="Enemies/EyeEnemy.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_eye_enemy_1ab90222791a1cc2f784346c4418372df4" prot="private" static="no" mutable="no">
+        <type>sf::Vector2f</type>
+        <definition>sf::Vector2f EyeEnemy::m_velocity</definition>
+        <argsstring></argsstring>
+        <name>m_velocity</name>
+        <qualifiedname>EyeEnemy::m_velocity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="20" column="14" bodyfile="Enemies/EyeEnemy.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_eye_enemy_1a6c66b0b5c76fe2bbcff6cfeea24f3eec" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; sf::Sprite &gt;</type>
+        <definition>std::vector&lt;sf::Sprite&gt; EyeEnemy::m_moveSprites</definition>
+        <argsstring></argsstring>
+        <name>m_moveSprites</name>
+        <qualifiedname>EyeEnemy::m_moveSprites</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="21" column="13" bodyfile="Enemies/EyeEnemy.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_eye_enemy_1acab80877be0bac08cede366e5921724f" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; sf::Sprite &gt;</type>
+        <definition>std::vector&lt;sf::Sprite&gt; EyeEnemy::m_attackSprites</definition>
+        <argsstring></argsstring>
+        <name>m_attackSprites</name>
+        <qualifiedname>EyeEnemy::m_attackSprites</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="22" column="13" bodyfile="Enemies/EyeEnemy.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_eye_enemy_1a6787d328b431fc20da9d05b6df7f1e67" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; sf::Sprite &gt;</type>
+        <definition>std::vector&lt;sf::Sprite&gt; EyeEnemy::m_takeDamageSprites</definition>
+        <argsstring></argsstring>
+        <name>m_takeDamageSprites</name>
+        <qualifiedname>EyeEnemy::m_takeDamageSprites</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="23" column="13" bodyfile="Enemies/EyeEnemy.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_eye_enemy_1a81fd288d6d3cdafa8d3e9534d81a0a1a" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; sf::Sprite &gt;</type>
+        <definition>std::vector&lt;sf::Sprite&gt; EyeEnemy::m_deathSprites</definition>
+        <argsstring></argsstring>
+        <name>m_deathSprites</name>
+        <qualifiedname>EyeEnemy::m_deathSprites</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="24" column="13" bodyfile="Enemies/EyeEnemy.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_eye_enemy_1ad5c0522545c77e7ef4d86681eb1ca669" prot="private" static="no" mutable="no">
+        <type>sf::SoundBuffer</type>
+        <definition>sf::SoundBuffer EyeEnemy::m_sbuffer</definition>
+        <argsstring></argsstring>
+        <name>m_sbuffer</name>
+        <qualifiedname>EyeEnemy::m_sbuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="26" column="17" bodyfile="Enemies/EyeEnemy.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_eye_enemy_1a88eab8387dae7235019f35489c05d890" prot="private" static="no" mutable="no">
+        <type>sf::Sound</type>
+        <definition>sf::Sound EyeEnemy::hitSound</definition>
+        <argsstring></argsstring>
+        <name>hitSound</name>
+        <qualifiedname>EyeEnemy::hitSound</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="27" column="11" bodyfile="Enemies/EyeEnemy.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_eye_enemy_1aab392e8f75ee2597d5acebd4de14b0e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EyeEnemy::EyeEnemy</definition>
+        <argsstring>(sf::Vector2f startPosition, std::vector&lt; sf::Sprite &gt; moveSprites, std::vector&lt; sf::Sprite &gt; attackSprites, std::vector&lt; sf::Sprite &gt; takeDamageSprites, std::vector&lt; sf::Sprite &gt; deathSprites, float speed, float attack_distance, std::string enemyHitSound, int health=100)</argsstring>
+        <name>EyeEnemy</name>
+        <qualifiedname>EyeEnemy::EyeEnemy</qualifiedname>
+        <param>
+          <type>sf::Vector2f</type>
+          <declname>startPosition</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; sf::Sprite &gt;</type>
+          <declname>moveSprites</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; sf::Sprite &gt;</type>
+          <declname>attackSprites</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; sf::Sprite &gt;</type>
+          <declname>takeDamageSprites</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; sf::Sprite &gt;</type>
+          <declname>deathSprites</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>speed</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>attack_distance</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>enemyHitSound</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>health</declname>
+          <defval>100</defval>
+        </param>
+        <briefdescription>
+<para>Враг - летающий глаз </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>startPosition</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>начальное положение </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>moveSprites</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>спрайты движения </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>attackSprites</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>спрайты атаки </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>takeDamageSprites</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>спрайты получения урона </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deathSprites</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>спрайты смерти </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>speed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>скорость передвижения </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>attack_distance</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>дистанция с которой начинается атака </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>enemyHitSound</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>название звука получения урона </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>health</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>начальное здоровье </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="43" column="1" bodyfile="Enemies/EyeEnemy.cpp" bodystart="3" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_eye_enemy_1a9f0c614de53c035af83b03c5a1cb7a42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EyeEnemy::moveTowards</definition>
+        <argsstring>(sf::Vector2f position, sf::Time deltaTime)</argsstring>
+        <name>moveTowards</name>
+        <qualifiedname>EyeEnemy::moveTowards</qualifiedname>
+        <param>
+          <type>sf::Vector2f</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>sf::Time</type>
+          <declname>deltaTime</declname>
+        </param>
+        <briefdescription>
+<para>Метод передвигающий врага </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>положение куда передвигаться </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>deltaTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>deltaTime </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="56" column="6" bodyfile="Enemies/EyeEnemy.cpp" bodystart="63" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="class_eye_enemy_1a4b111e6feb56d13e969dd90f677ca37a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EyeEnemy::hit</definition>
+        <argsstring>(int damage)</argsstring>
+        <name>hit</name>
+        <qualifiedname>EyeEnemy::hit</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>damage</declname>
+        </param>
+        <briefdescription>
+<para>Метод получения урона </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>damage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>количество полученного урона </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="63" column="6" bodyfile="Enemies/EyeEnemy.cpp" bodystart="28" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_eye_enemy_1a541c089c0cf8c576e74f2caea281ba58" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>sf::Vector2f</type>
+        <definition>sf::Vector2f EyeEnemy::calculateTowardsVector</definition>
+        <argsstring>(sf::Vector2f position) const</argsstring>
+        <name>calculateTowardsVector</name>
+        <qualifiedname>EyeEnemy::calculateTowardsVector</qualifiedname>
+        <param>
+          <type>sf::Vector2f</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+<para>Метод расчета вектора траектории к положению </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>положение к которому рассчитывается траектория </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="70" column="14" bodyfile="Enemies/EyeEnemy.cpp" bodystart="55" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="class_eye_enemy_1ac0499d4a8de0de46779be784df973fb7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>sf::FloatRect</type>
+        <definition>sf::FloatRect EyeEnemy::getNextPosition</definition>
+        <argsstring>(sf::Time deltaTime, sf::Vector2f positionTowards) const</argsstring>
+        <name>getNextPosition</name>
+        <qualifiedname>EyeEnemy::getNextPosition</qualifiedname>
+        <param>
+          <type>sf::Time</type>
+          <declname>deltaTime</declname>
+        </param>
+        <param>
+          <type>sf::Vector2f</type>
+          <declname>positionTowards</declname>
+        </param>
+        <briefdescription>
+<para>Метод расчета положения врага в следующий момент времени (нужен для коллизии) </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>deltaTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>deltaTime </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>positionTowards</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>положение к которому движется враг </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="79" column="15" bodyfile="Enemies/EyeEnemy.cpp" bodystart="46" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_eye_enemy_1a716532e043c533b563253b6b05127cad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void EyeEnemy::draw</definition>
+        <argsstring>(sf::RenderTarget &amp;surface, sf::RenderStates states) const</argsstring>
+        <name>draw</name>
+        <qualifiedname>EyeEnemy::draw</qualifiedname>
+        <param>
+          <type>sf::RenderTarget &amp;</type>
+          <declname>surface</declname>
+        </param>
+        <param>
+          <type>sf::RenderStates</type>
+          <declname>states</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="82" column="14" bodyfile="Enemies/EyeEnemy.cpp" bodystart="86" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="class_eye_enemy_1a8e030f17965db72e517fdb3b4b6a29ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_game_object" kindref="compound">GameObject</ref> &amp;</type>
+        <definition>GameObject &amp; EyeEnemy::getEnemyObject</definition>
+        <argsstring>()</argsstring>
+        <name>getEnemyObject</name>
+        <qualifiedname>EyeEnemy::getEnemyObject</qualifiedname>
+        <briefdescription>
+<para>Метод возращающий <ref refid="class_game_object" kindref="compound">GameObject</ref> врага </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="86" column="12" bodyfile="Enemies/EyeEnemy.cpp" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="class_eye_enemy_1a81b15b848e675cde9a0f3b7505f8a64c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool EyeEnemy::getDead</definition>
+        <argsstring>() const</argsstring>
+        <name>getDead</name>
+        <qualifiedname>EyeEnemy::getDead</qualifiedname>
+        <briefdescription>
+<para>Метод возращающий статус смерти врага </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="90" column="6" bodyfile="Enemies/EyeEnemy.cpp" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_eye_enemy_1a89ca9af981f6d8d63d2976069583552e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool EyeEnemy::canAttack</definition>
+        <argsstring>() const</argsstring>
+        <name>canAttack</name>
+        <qualifiedname>EyeEnemy::canAttack</qualifiedname>
+        <briefdescription>
+<para>проверка возможности атаковать </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true атака возможна </para>
+</simplesect>
+<simplesect kind="return"><para>false атака невозможна </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="98" column="6" bodyfile="Enemies/EyeEnemy.cpp" bodystart="102" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="class_eye_enemy_1ae7e20f6d82c7e7ddde55fd97522b42c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void EyeEnemy::attacked</definition>
+        <argsstring>()</argsstring>
+        <name>attacked</name>
+        <qualifiedname>EyeEnemy::attacked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Enemies/EyeEnemy.hpp" line="100" column="6" bodyfile="Enemies/EyeEnemy.cpp" bodystart="104" bodyend="104"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>EyeEnemy</label>
+        <link refid="class_eye_enemy"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sf::Drawable</label>
+      </node>
+      <node id="3">
+        <label>sf::Transformable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>EyeEnemy</label>
+        <link refid="class_eye_enemy"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>sf::Drawable</label>
+      </node>
+      <node id="3">
+        <label>sf::Transformable</label>
+      </node>
+    </collaborationgraph>
+    <location file="Enemies/EyeEnemy.hpp" line="10" column="1" bodyfile="Enemies/EyeEnemy.hpp" bodystart="10" bodyend="101"/>
+    <listofallmembers>
+      <member refid="class_eye_enemy_1ae7e20f6d82c7e7ddde55fd97522b42c7" prot="public" virt="non-virtual"><scope>EyeEnemy</scope><name>attacked</name></member>
+      <member refid="class_eye_enemy_1a80b6d47867520fab36ed63623dcd80a9" prot="private" virt="non-virtual"><scope>EyeEnemy</scope><name>attackTime</name></member>
+      <member refid="class_eye_enemy_1a541c089c0cf8c576e74f2caea281ba58" prot="public" virt="non-virtual"><scope>EyeEnemy</scope><name>calculateTowardsVector</name></member>
+      <member refid="class_eye_enemy_1a89ca9af981f6d8d63d2976069583552e" prot="public" virt="non-virtual"><scope>EyeEnemy</scope><name>canAttack</name></member>
+      <member refid="class_eye_enemy_1a716532e043c533b563253b6b05127cad" prot="public" virt="virtual"><scope>EyeEnemy</scope><name>draw</name></member>
+      <member refid="class_eye_enemy_1aab392e8f75ee2597d5acebd4de14b0e3" prot="public" virt="non-virtual"><scope>EyeEnemy</scope><name>EyeEnemy</name></member>
+      <member refid="class_eye_enemy_1a81b15b848e675cde9a0f3b7505f8a64c" prot="public" virt="non-virtual"><scope>EyeEnemy</scope><name>getDead</name></member>
+      <member refid="class_eye_enemy_1a8e030f17965db72e517fdb3b4b6a29ba" prot="public" virt="non-virtual"><scope>EyeEnemy</scope><name>getEnemyObject</name></member>
+      <member refid="class_eye_enemy_1ac0499d4a8de0de46779be784df973fb7" prot="public" virt="non-virtual"><scope>EyeEnemy</scope><name>getNextPosition</name></member>
+      <member refid="class_eye_enemy_1a4b111e6feb56d13e969dd90f677ca37a" prot="public" virt="non-virtual"><scope>EyeEnemy</scope><name>hit</name></member>
+      <member refid="class_eye_enemy_1a88eab8387dae7235019f35489c05d890" prot="private" virt="non-virtual"><scope>EyeEnemy</scope><name>hitSound</name></member>
+      <member refid="class_eye_enemy_1addf85f35dd330dde5d00acc5da37c38c" prot="private" virt="non-virtual"><scope>EyeEnemy</scope><name>initial_health</name></member>
+      <member refid="class_eye_enemy_1a433adf6ad90a65f7542c2539c25aa41e" prot="private" virt="non-virtual"><scope>EyeEnemy</scope><name>isDead</name></member>
+      <member refid="class_eye_enemy_1a201044804f093f9581e061a07a2410d1" prot="private" virt="non-virtual"><scope>EyeEnemy</scope><name>isHitted</name></member>
+      <member refid="class_eye_enemy_1a08ab02c53e319a3d1a0f706fadeab9db" prot="private" virt="non-virtual"><scope>EyeEnemy</scope><name>m_attack_distance</name></member>
+      <member refid="class_eye_enemy_1acab80877be0bac08cede366e5921724f" prot="private" virt="non-virtual"><scope>EyeEnemy</scope><name>m_attackSprites</name></member>
+      <member refid="class_eye_enemy_1a58a980589e56dcfbee354cca600016de" prot="private" virt="non-virtual"><scope>EyeEnemy</scope><name>m_canAttack</name></member>
+      <member refid="class_eye_enemy_1a81fd288d6d3cdafa8d3e9534d81a0a1a" prot="private" virt="non-virtual"><scope>EyeEnemy</scope><name>m_deathSprites</name></member>
+      <member refid="class_eye_enemy_1ae51b00502721e7777e38403c7cd97924" prot="private" virt="non-virtual"><scope>EyeEnemy</scope><name>m_EyeEnemyObject</name></member>
+      <member refid="class_eye_enemy_1ab4882cb118d620a30b20534f2f6eaf49" prot="private" virt="non-virtual"><scope>EyeEnemy</scope><name>m_health</name></member>
+      <member refid="class_eye_enemy_1a6c66b0b5c76fe2bbcff6cfeea24f3eec" prot="private" virt="non-virtual"><scope>EyeEnemy</scope><name>m_moveSprites</name></member>
+      <member refid="class_eye_enemy_1ad5c0522545c77e7ef4d86681eb1ca669" prot="private" virt="non-virtual"><scope>EyeEnemy</scope><name>m_sbuffer</name></member>
+      <member refid="class_eye_enemy_1ad4c31dd8a08ed60adcc6b310282b03f0" prot="private" virt="non-virtual"><scope>EyeEnemy</scope><name>m_speed</name></member>
+      <member refid="class_eye_enemy_1a6787d328b431fc20da9d05b6df7f1e67" prot="private" virt="non-virtual"><scope>EyeEnemy</scope><name>m_takeDamageSprites</name></member>
+      <member refid="class_eye_enemy_1ab90222791a1cc2f784346c4418372df4" prot="private" virt="non-virtual"><scope>EyeEnemy</scope><name>m_velocity</name></member>
+      <member refid="class_eye_enemy_1a9f0c614de53c035af83b03c5a1cb7a42" prot="public" virt="non-virtual"><scope>EyeEnemy</scope><name>moveTowards</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

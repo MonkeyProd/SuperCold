@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1offset__datetime_00_01_value_01_4" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::enum_to_type&lt; value_t::offset_datetime, Value &gt;</compoundname>
+    <includes refid="types_8hpp" local="no">types.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Value</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1offset__datetime_00_01_value_01_4_1afb169dabfb47371e9812eb6647fddb04" prot="public" static="no">
+        <type><ref refid="structtoml_1_1offset__datetime" kindref="compound">offset_datetime</ref></type>
+        <definition>using toml::detail::enum_to_type&lt; value_t::offset_datetime, Value &gt;::type =  offset_datetime</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>toml::detail::enum_to_type&lt; value_t::offset_datetime, Value &gt;::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/types.hpp" line="124" column="31" bodyfile="external/toml/types.hpp" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/types.hpp" line="124" column="11" bodyfile="external/toml/types.hpp" bodystart="124" bodyend="124"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1offset__datetime_00_01_value_01_4_1afb169dabfb47371e9812eb6647fddb04" prot="public" virt="non-virtual"><scope>toml::detail::enum_to_type&lt; value_t::offset_datetime, Value &gt;</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,130 @@
+\hypertarget{struct_settings_manager}{}\doxysection{Settings\+Manager Struct Reference}
+\label{struct_settings_manager}\index{SettingsManager@{SettingsManager}}
+
+
+{\ttfamily \#include $<$Settings\+Manager.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_settings_manager_a2119526925795063fb9caa66369378f4}{Settings\+Manager}} (std\+::string settings\+Path=\char`\"{}../src/settings.\+toml\char`\"{})
+\begin{DoxyCompactList}\small\item\em Структура содержащий все настройки игры \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{struct_settings_manager_a18c3e03920b6891fc5d212b2b97c367a}{get}} (\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} settings\+Type, std\+::string key)
+\begin{DoxyCompactList}\small\item\em Метод, возращающий настройку по ключу \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} \mbox{\hyperlink{struct_settings_manager_a15ccfc6f931cf2f2397404af3f736c37}{Player\+Settings}}
+\item 
+\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} \mbox{\hyperlink{struct_settings_manager_a893b9700ce887c2ed882734a79103e2e}{Player\+Sprites\+Settings}}
+\item 
+\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} \mbox{\hyperlink{struct_settings_manager_ae4e520284c80862d1cdaa65bb9babe33}{Sprite\+Settings}}
+\item 
+\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} \mbox{\hyperlink{struct_settings_manager_a3f7cbe2df5252425dad51a14717aa5ed}{Tile\+Indexes}}
+\item 
+\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} \mbox{\hyperlink{struct_settings_manager_a4a6dcaf49011e8ffcf59bad2dadd6ee3}{Tile\+Map\+Settings}}
+\item 
+\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} \mbox{\hyperlink{struct_settings_manager_a3a40f202005ee4e41fe21aa3bb1325c6}{Sound\+Settings}}
+\item 
+\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} \mbox{\hyperlink{struct_settings_manager_a215f392c415ffc5683eadddaaf5cf9df}{World\+Gen\+Settings}}
+\item 
+\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} \mbox{\hyperlink{struct_settings_manager_acafe44796fd170428ec15650a828f952}{Enemy\+Settings}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_settings_manager_a2119526925795063fb9caa66369378f4}\label{struct_settings_manager_a2119526925795063fb9caa66369378f4}} 
+\index{SettingsManager@{SettingsManager}!SettingsManager@{SettingsManager}}
+\index{SettingsManager@{SettingsManager}!SettingsManager@{SettingsManager}}
+\doxysubsubsection{\texorpdfstring{SettingsManager()}{SettingsManager()}}
+{\footnotesize\ttfamily Settings\+Manager\+::\+Settings\+Manager (\begin{DoxyParamCaption}\item[{std\+::string}]{settings\+Path = {\ttfamily \char`\"{}../src/settings.toml\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Структура содержащий все настройки игры 
+
+
+\begin{DoxyParams}{Parameters}
+{\em settings\+Path} & путь к файлу настроек игры (toml) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_settings_manager_a18c3e03920b6891fc5d212b2b97c367a}\label{struct_settings_manager_a18c3e03920b6891fc5d212b2b97c367a}} 
+\index{SettingsManager@{SettingsManager}!get@{get}}
+\index{get@{get}!SettingsManager@{SettingsManager}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T Settings\+Manager\+::get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}}}]{settings\+Type,  }\item[{std\+::string}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Метод, возращающий настройку по ключу 
+
+
+\begin{DoxyParams}{Parameters}
+{\em settings\+Type} & интересующий список настроек \\
+\hline
+{\em key} & ключ(название) настройки \\
+\hline
+{\em T} & тип настройки \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_settings_manager_acafe44796fd170428ec15650a828f952}\label{struct_settings_manager_acafe44796fd170428ec15650a828f952}} 
+\index{SettingsManager@{SettingsManager}!EnemySettings@{EnemySettings}}
+\index{EnemySettings@{EnemySettings}!SettingsManager@{SettingsManager}}
+\doxysubsubsection{\texorpdfstring{EnemySettings}{EnemySettings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} Settings\+Manager\+::\+Enemy\+Settings}
+
+\mbox{\Hypertarget{struct_settings_manager_a15ccfc6f931cf2f2397404af3f736c37}\label{struct_settings_manager_a15ccfc6f931cf2f2397404af3f736c37}} 
+\index{SettingsManager@{SettingsManager}!PlayerSettings@{PlayerSettings}}
+\index{PlayerSettings@{PlayerSettings}!SettingsManager@{SettingsManager}}
+\doxysubsubsection{\texorpdfstring{PlayerSettings}{PlayerSettings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} Settings\+Manager\+::\+Player\+Settings}
+
+\mbox{\Hypertarget{struct_settings_manager_a893b9700ce887c2ed882734a79103e2e}\label{struct_settings_manager_a893b9700ce887c2ed882734a79103e2e}} 
+\index{SettingsManager@{SettingsManager}!PlayerSpritesSettings@{PlayerSpritesSettings}}
+\index{PlayerSpritesSettings@{PlayerSpritesSettings}!SettingsManager@{SettingsManager}}
+\doxysubsubsection{\texorpdfstring{PlayerSpritesSettings}{PlayerSpritesSettings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} Settings\+Manager\+::\+Player\+Sprites\+Settings}
+
+\mbox{\Hypertarget{struct_settings_manager_a3a40f202005ee4e41fe21aa3bb1325c6}\label{struct_settings_manager_a3a40f202005ee4e41fe21aa3bb1325c6}} 
+\index{SettingsManager@{SettingsManager}!SoundSettings@{SoundSettings}}
+\index{SoundSettings@{SoundSettings}!SettingsManager@{SettingsManager}}
+\doxysubsubsection{\texorpdfstring{SoundSettings}{SoundSettings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} Settings\+Manager\+::\+Sound\+Settings}
+
+\mbox{\Hypertarget{struct_settings_manager_ae4e520284c80862d1cdaa65bb9babe33}\label{struct_settings_manager_ae4e520284c80862d1cdaa65bb9babe33}} 
+\index{SettingsManager@{SettingsManager}!SpriteSettings@{SpriteSettings}}
+\index{SpriteSettings@{SpriteSettings}!SettingsManager@{SettingsManager}}
+\doxysubsubsection{\texorpdfstring{SpriteSettings}{SpriteSettings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} Settings\+Manager\+::\+Sprite\+Settings}
+
+\mbox{\Hypertarget{struct_settings_manager_a3f7cbe2df5252425dad51a14717aa5ed}\label{struct_settings_manager_a3f7cbe2df5252425dad51a14717aa5ed}} 
+\index{SettingsManager@{SettingsManager}!TileIndexes@{TileIndexes}}
+\index{TileIndexes@{TileIndexes}!SettingsManager@{SettingsManager}}
+\doxysubsubsection{\texorpdfstring{TileIndexes}{TileIndexes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} Settings\+Manager\+::\+Tile\+Indexes}
+
+\mbox{\Hypertarget{struct_settings_manager_a4a6dcaf49011e8ffcf59bad2dadd6ee3}\label{struct_settings_manager_a4a6dcaf49011e8ffcf59bad2dadd6ee3}} 
+\index{SettingsManager@{SettingsManager}!TileMapSettings@{TileMapSettings}}
+\index{TileMapSettings@{TileMapSettings}!SettingsManager@{SettingsManager}}
+\doxysubsubsection{\texorpdfstring{TileMapSettings}{TileMapSettings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} Settings\+Manager\+::\+Tile\+Map\+Settings}
+
+\mbox{\Hypertarget{struct_settings_manager_a215f392c415ffc5683eadddaaf5cf9df}\label{struct_settings_manager_a215f392c415ffc5683eadddaaf5cf9df}} 
+\index{SettingsManager@{SettingsManager}!WorldGenSettings@{WorldGenSettings}}
+\index{WorldGenSettings@{WorldGenSettings}!SettingsManager@{SettingsManager}}
+\doxysubsubsection{\texorpdfstring{WorldGenSettings}{WorldGenSettings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} Settings\+Manager\+::\+World\+Gen\+Settings}
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Settings\+Manager/\mbox{\hyperlink{_settings_manager_8hpp}{Settings\+Manager.\+hpp}}\item 
+Settings\+Manager/\mbox{\hyperlink{_settings_manager_8cpp}{Settings\+Manager.\+cpp}}\end{DoxyCompactItemize}

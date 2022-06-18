@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1either_3_01_head_01_4" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::either&lt; Head &gt;</compoundname>
+    <includes refid="combinator_8hpp" local="no">combinator.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Head</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structtoml_1_1detail_1_1either_3_01_head_01_4_1adcace6a7f6eac772b6a73c4414efc2e1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1result" kindref="compound">result</ref>&lt; <ref refid="structtoml_1_1detail_1_1region" kindref="compound">region</ref>, <ref refid="structtoml_1_1detail_1_1none__t" kindref="compound">none_t</ref> &gt;</type>
+        <definition>static result&lt; region, none_t &gt; toml::detail::either&lt; Head &gt;::invoke</definition>
+        <argsstring>(location &amp;loc)</argsstring>
+        <name>invoke</name>
+        <qualifiedname>toml::detail::either&lt; Head &gt;::invoke</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1detail_1_1location" kindref="compound">location</ref> &amp;</type>
+          <declname>loc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/combinator.hpp" line="219" column="5" bodyfile="external/toml/combinator.hpp" bodystart="219" bodyend="222"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/combinator.hpp" line="216" column="1" bodyfile="external/toml/combinator.hpp" bodystart="217" bodyend="223"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1detail_1_1either_3_01_head_01_4_1adcace6a7f6eac772b6a73c4414efc2e1" prot="public" virt="non-virtual"><scope>toml::detail::either&lt; Head &gt;</scope><name>invoke</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

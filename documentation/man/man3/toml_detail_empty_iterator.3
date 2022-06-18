@@ -1,0 +1,138 @@
+.TH "toml::detail::empty_iterator< T, is_const >" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::detail::empty_iterator< T, is_const >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <comments\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBvalue_type\fP = T"
+.br
+.ti -1c
+.RI "using \fBreference_type\fP = typename std::conditional< is_const, T const  &, T & >::type"
+.br
+.ti -1c
+.RI "using \fBpointer_type\fP = typename std::conditional< is_const, T const  *, T * >::type"
+.br
+.ti -1c
+.RI "using \fBdifference_type\fP = std::ptrdiff_t"
+.br
+.ti -1c
+.RI "using \fBiterator_category\fP = std::random_access_iterator_tag"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBempty_iterator\fP ()=default"
+.br
+.ti -1c
+.RI "\fB~empty_iterator\fP ()=default"
+.br
+.ti -1c
+.RI "\fBempty_iterator\fP (\fBempty_iterator\fP const &)=default"
+.br
+.ti -1c
+.RI "\fBempty_iterator\fP (\fBempty_iterator\fP &&)=default"
+.br
+.ti -1c
+.RI "\fBempty_iterator\fP & \fBoperator=\fP (\fBempty_iterator\fP const &)=default"
+.br
+.ti -1c
+.RI "\fBempty_iterator\fP & \fBoperator=\fP (\fBempty_iterator\fP &&)=default"
+.br
+.ti -1c
+.RI "\fBreference_type\fP \fBoperator*\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBpointer_type\fP \fBoperator\->\fP () const noexcept"
+.br
+.ti -1c
+.RI "\fBreference_type\fP \fBoperator[]\fP (\fBdifference_type\fP) const noexcept"
+.br
+.ti -1c
+.RI "\fBempty_iterator\fP & \fBoperator++\fP () noexcept"
+.br
+.ti -1c
+.RI "\fBempty_iterator\fP \fBoperator++\fP (int) noexcept"
+.br
+.ti -1c
+.RI "\fBempty_iterator\fP & \fBoperator\-\-\fP () noexcept"
+.br
+.ti -1c
+.RI "\fBempty_iterator\fP \fBoperator\-\-\fP (int) noexcept"
+.br
+.ti -1c
+.RI "\fBempty_iterator\fP & \fBoperator+=\fP (\fBdifference_type\fP) noexcept"
+.br
+.ti -1c
+.RI "\fBempty_iterator\fP & \fBoperator\-=\fP (\fBdifference_type\fP) noexcept"
+.br
+.ti -1c
+.RI "\fBempty_iterator\fP \fBoperator+\fP (\fBdifference_type\fP) const noexcept"
+.br
+.ti -1c
+.RI "\fBempty_iterator\fP \fBoperator\-\fP (\fBdifference_type\fP) const noexcept"
+.br
+.in -1c
+.SH "Member Typedef Documentation"
+.PP 
+.SS "template<typename T , bool is_const> using \fBtoml::detail::empty_iterator\fP< T, is_const >::difference_type =  std::ptrdiff_t"
+
+.SS "template<typename T , bool is_const> using \fBtoml::detail::empty_iterator\fP< T, is_const >::iterator_category =  std::random_access_iterator_tag"
+
+.SS "template<typename T , bool is_const> using \fBtoml::detail::empty_iterator\fP< T, is_const >::pointer_type =  typename std::conditional<is_const, T const*, T*>::type"
+
+.SS "template<typename T , bool is_const> using \fBtoml::detail::empty_iterator\fP< T, is_const >::reference_type =  typename std::conditional<is_const, T const&, T&>::type"
+
+.SS "template<typename T , bool is_const> using \fBtoml::detail::empty_iterator\fP< T, is_const >::value_type =  T"
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T , bool is_const> \fBtoml::detail::empty_iterator\fP< T, is_const >::empty_iterator ()\fC [default]\fP"
+
+.SS "template<typename T , bool is_const> \fBtoml::detail::empty_iterator\fP< T, is_const >::~\fBempty_iterator\fP ()\fC [default]\fP"
+
+.SS "template<typename T , bool is_const> \fBtoml::detail::empty_iterator\fP< T, is_const >::empty_iterator (\fBempty_iterator\fP< T, is_const > const &)\fC [default]\fP"
+
+.SS "template<typename T , bool is_const> \fBtoml::detail::empty_iterator\fP< T, is_const >::empty_iterator (\fBempty_iterator\fP< T, is_const > &&)\fC [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T , bool is_const> \fBreference_type\fP \fBtoml::detail::empty_iterator\fP< T, is_const >::operator* () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , bool is_const> \fBempty_iterator\fP \fBtoml::detail::empty_iterator\fP< T, is_const >::operator+ (\fBdifference_type\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , bool is_const> \fBempty_iterator\fP & \fBtoml::detail::empty_iterator\fP< T, is_const >::operator++ ()\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , bool is_const> \fBempty_iterator\fP \fBtoml::detail::empty_iterator\fP< T, is_const >::operator++ (int)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , bool is_const> \fBempty_iterator\fP & \fBtoml::detail::empty_iterator\fP< T, is_const >::operator+= (\fBdifference_type\fP)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , bool is_const> \fBempty_iterator\fP \fBtoml::detail::empty_iterator\fP< T, is_const >::operator\- (\fBdifference_type\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , bool is_const> \fBempty_iterator\fP & \fBtoml::detail::empty_iterator\fP< T, is_const >::operator\-\- ()\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , bool is_const> \fBempty_iterator\fP \fBtoml::detail::empty_iterator\fP< T, is_const >::operator\-\- (int)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , bool is_const> \fBempty_iterator\fP & \fBtoml::detail::empty_iterator\fP< T, is_const >::operator\-= (\fBdifference_type\fP)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , bool is_const> \fBpointer_type\fP \fBtoml::detail::empty_iterator\fP< T, is_const >::operator\-> () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "template<typename T , bool is_const> \fBempty_iterator\fP & \fBtoml::detail::empty_iterator\fP< T, is_const >::operator= (\fBempty_iterator\fP< T, is_const > &&)\fC [default]\fP"
+
+.SS "template<typename T , bool is_const> \fBempty_iterator\fP & \fBtoml::detail::empty_iterator\fP< T, is_const >::operator= (\fBempty_iterator\fP< T, is_const > const &)\fC [default]\fP"
+
+.SS "template<typename T , bool is_const> \fBreference_type\fP \fBtoml::detail::empty_iterator\fP< T, is_const >::operator[] (\fBdifference_type\fP) const\fC [inline]\fP, \fC [noexcept]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

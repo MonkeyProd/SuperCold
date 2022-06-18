@@ -1,0 +1,107 @@
+\hypertarget{value_8hpp}{}\doxysection{external/toml/value.hpp File Reference}
+\label{value_8hpp}\index{external/toml/value.hpp@{external/toml/value.hpp}}
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include \char`\"{}comments.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}exception.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}into.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}region.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}source\+\_\+location.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}storage.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}traits.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}types.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utility.\+hpp\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1detail_1_1switch__cast}{toml\+::detail\+::switch\+\_\+cast$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{classtoml_1_1basic__value}{toml\+::basic\+\_\+value$<$ Comment, Table, Array $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetoml}{toml}}
+\item 
+namespace \mbox{\hyperlink{namespacetoml_1_1detail}{toml\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{value_8hpp_a1b2ff5bc50c492c1105452d462e4a125}{TOML11\+\_\+\+GENERATE\+\_\+\+SWITCH\+\_\+\+CASTER}}(TYPE)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{toml\+::value}} = basic\+\_\+value$<$ \mbox{\hyperlink{comments_8hpp_ac5952aa66c2a24cfdbb3d82f70f22618}{TOML11\+\_\+\+DEFAULT\+\_\+\+COMMENT\+\_\+\+STRATEGY}}, std\+::unordered\+\_\+map, std\+::vector $>$
+\item 
+using \mbox{\hyperlink{namespacetoml_a4db748c68f34deac79e0b45535cfb3b6}{toml\+::array}} = typename value\+::array\+\_\+type
+\item 
+using \mbox{\hyperlink{namespacetoml_af7d788a576baa570efd4793cd5df8ac7}{toml\+::table}} = typename value\+::table\+\_\+type
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Value $>$ }\\region\+\_\+base const $\ast$ \mbox{\hyperlink{namespacetoml_1_1detail_a18e4af33fa907452909c17e6cca24c09}{toml\+::detail\+::get\+\_\+region}} (const Value \&v)
+\item 
+{\footnotesize template$<$typename Value $>$ }\\void \mbox{\hyperlink{namespacetoml_1_1detail_adf0efc8a5f4d13eadb0dd29cbebecc7b}{toml\+::detail\+::change\+\_\+region}} (Value \&v, region reg)
+\item 
+{\footnotesize template$<$value\+\_\+t Expected, typename Value $>$ }\\void \mbox{\hyperlink{namespacetoml_1_1detail_a30e75a0d1f0d08d1b978c4260c8d36fb}{toml\+::detail\+::throw\+\_\+bad\+\_\+cast}} (const std\+::string \&funcname, value\+\_\+t actual, const Value \&v)
+\item 
+{\footnotesize template$<$typename Value $>$ }\\void \mbox{\hyperlink{namespacetoml_1_1detail_aeeb2c5b93a35ab7ab068c8479e5dd54f}{toml\+::detail\+::throw\+\_\+key\+\_\+not\+\_\+found\+\_\+error}} (const Value \&v, const key \&ky)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class T, template$<$ typename ... $>$ class A$>$ }\\bool \mbox{\hyperlink{namespacetoml_a79f6e255d6a696d94ad33f90e884ad82}{toml\+::operator==}} (const basic\+\_\+value$<$ C, T, A $>$ \&lhs, const basic\+\_\+value$<$ C, T, A $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class T, template$<$ typename ... $>$ class A$>$ }\\bool \mbox{\hyperlink{namespacetoml_a67ee833ee542c3b611907ec11547d5a6}{toml\+::operator!=}} (const basic\+\_\+value$<$ C, T, A $>$ \&lhs, const basic\+\_\+value$<$ C, T, A $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class T, template$<$ typename ... $>$ class A$>$ }\\std\+::enable\+\_\+if$<$ detail\+::conjunction$<$ detail\+::is\+\_\+comparable$<$ typenamebasic\+\_\+value$<$ C, T, A $>$\+::array\+\_\+type $>$, detail\+::is\+\_\+comparable$<$ typenamebasic\+\_\+value$<$ C, T, A $>$\+::table\+\_\+type $>$ $>$\+::value, bool $>$\+::type \mbox{\hyperlink{namespacetoml_a1eb01006eef9af7d053358caad9913a4}{toml\+::operator$<$}} (const basic\+\_\+value$<$ C, T, A $>$ \&lhs, const basic\+\_\+value$<$ C, T, A $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class T, template$<$ typename ... $>$ class A$>$ }\\std\+::enable\+\_\+if$<$ detail\+::conjunction$<$ detail\+::is\+\_\+comparable$<$ typenamebasic\+\_\+value$<$ C, T, A $>$\+::array\+\_\+type $>$, detail\+::is\+\_\+comparable$<$ typenamebasic\+\_\+value$<$ C, T, A $>$\+::table\+\_\+type $>$ $>$\+::value, bool $>$\+::type \mbox{\hyperlink{namespacetoml_ab72e158cc0f4ff2f955ed2ac97e94fcd}{toml\+::operator$<$=}} (const basic\+\_\+value$<$ C, T, A $>$ \&lhs, const basic\+\_\+value$<$ C, T, A $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class T, template$<$ typename ... $>$ class A$>$ }\\std\+::enable\+\_\+if$<$ detail\+::conjunction$<$ detail\+::is\+\_\+comparable$<$ typenamebasic\+\_\+value$<$ C, T, A $>$\+::array\+\_\+type $>$, detail\+::is\+\_\+comparable$<$ typenamebasic\+\_\+value$<$ C, T, A $>$\+::table\+\_\+type $>$ $>$\+::value, bool $>$\+::type \mbox{\hyperlink{namespacetoml_ac3d0aa45bab6f2ff4920d03807a3199b}{toml\+::operator$>$}} (const basic\+\_\+value$<$ C, T, A $>$ \&lhs, const basic\+\_\+value$<$ C, T, A $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class T, template$<$ typename ... $>$ class A$>$ }\\std\+::enable\+\_\+if$<$ detail\+::conjunction$<$ detail\+::is\+\_\+comparable$<$ typenamebasic\+\_\+value$<$ C, T, A $>$\+::array\+\_\+type $>$, detail\+::is\+\_\+comparable$<$ typenamebasic\+\_\+value$<$ C, T, A $>$\+::table\+\_\+type $>$ $>$\+::value, bool $>$\+::type \mbox{\hyperlink{namespacetoml_af0fedfb903f875b0ff0742fc37a98f04}{toml\+::operator$>$=}} (const basic\+\_\+value$<$ C, T, A $>$ \&lhs, const basic\+\_\+value$<$ C, T, A $>$ \&rhs)
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class T, template$<$ typename ... $>$ class A$>$ }\\std\+::string \mbox{\hyperlink{namespacetoml_af7b41f59a3dcc37f785776b1b9601bfd}{toml\+::format\+\_\+error}} (const std\+::string \&err\+\_\+msg, const basic\+\_\+value$<$ C, T, A $>$ \&v, const std\+::string \&comment, std\+::vector$<$ std\+::string $>$ hints=\{\}, const bool colorize=\mbox{\hyperlink{color_8hpp_a63d2da22da25b1656684d1514d81f4dc}{TOML11\+\_\+\+ERROR\+\_\+\+MESSAGE\+\_\+\+COLORIZED}})
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class T, template$<$ typename ... $>$ class A$>$ }\\std\+::string \mbox{\hyperlink{namespacetoml_a6138dea8ad26cfc3d400766d4441112d}{toml\+::format\+\_\+error}} (const std\+::string \&err\+\_\+msg, const \mbox{\hyperlink{classtoml_1_1basic__value}{toml\+::basic\+\_\+value}}$<$ C, T, A $>$ \&v1, const std\+::string \&comment1, const \mbox{\hyperlink{classtoml_1_1basic__value}{toml\+::basic\+\_\+value}}$<$ C, T, A $>$ \&v2, const std\+::string \&comment2, std\+::vector$<$ std\+::string $>$ hints=\{\}, const bool colorize=\mbox{\hyperlink{color_8hpp_a63d2da22da25b1656684d1514d81f4dc}{TOML11\+\_\+\+ERROR\+\_\+\+MESSAGE\+\_\+\+COLORIZED}})
+\item 
+{\footnotesize template$<$typename C , template$<$ typename ... $>$ class T, template$<$ typename ... $>$ class A$>$ }\\std\+::string \mbox{\hyperlink{namespacetoml_a4a63ed9f01b3ee20eef3b54fb9b19863}{toml\+::format\+\_\+error}} (const std\+::string \&err\+\_\+msg, const \mbox{\hyperlink{classtoml_1_1basic__value}{toml\+::basic\+\_\+value}}$<$ C, T, A $>$ \&v1, const std\+::string \&comment1, const \mbox{\hyperlink{classtoml_1_1basic__value}{toml\+::basic\+\_\+value}}$<$ C, T, A $>$ \&v2, const std\+::string \&comment2, const \mbox{\hyperlink{classtoml_1_1basic__value}{toml\+::basic\+\_\+value}}$<$ C, T, A $>$ \&v3, const std\+::string \&comment3, std\+::vector$<$ std\+::string $>$ hints=\{\}, const bool colorize=\mbox{\hyperlink{color_8hpp_a63d2da22da25b1656684d1514d81f4dc}{TOML11\+\_\+\+ERROR\+\_\+\+MESSAGE\+\_\+\+COLORIZED}})
+\item 
+{\footnotesize template$<$typename Visitor , typename C , template$<$ typename ... $>$ class T, template$<$ typename ... $>$ class A$>$ }\\detail\+::return\+\_\+type\+\_\+of\+\_\+t$<$ Visitor, const \mbox{\hyperlink{namespacetoml_a536c45fdc142655af40475187d5a6702}{toml\+::boolean}} \& $>$ \mbox{\hyperlink{namespacetoml_afdb46445ef5dd69d0f3405f62b0d76b5}{toml\+::visit}} (Visitor \&\&visitor, const \mbox{\hyperlink{classtoml_1_1basic__value}{toml\+::basic\+\_\+value}}$<$ C, T, A $>$ \&v)
+\item 
+{\footnotesize template$<$typename Visitor , typename C , template$<$ typename ... $>$ class T, template$<$ typename ... $>$ class A$>$ }\\detail\+::return\+\_\+type\+\_\+of\+\_\+t$<$ Visitor, \mbox{\hyperlink{namespacetoml_a536c45fdc142655af40475187d5a6702}{toml\+::boolean}} \& $>$ \mbox{\hyperlink{namespacetoml_aee0770f85bedbd87d0256ed11220ea7f}{toml\+::visit}} (Visitor \&\&visitor, \mbox{\hyperlink{classtoml_1_1basic__value}{toml\+::basic\+\_\+value}}$<$ C, T, A $>$ \&v)
+\item 
+{\footnotesize template$<$typename Visitor , typename C , template$<$ typename ... $>$ class T, template$<$ typename ... $>$ class A$>$ }\\detail\+::return\+\_\+type\+\_\+of\+\_\+t$<$ Visitor, \mbox{\hyperlink{namespacetoml_a536c45fdc142655af40475187d5a6702}{toml\+::boolean}} \&\& $>$ \mbox{\hyperlink{namespacetoml_ad74838a6e141c5990deba2c008c746f9}{toml\+::visit}} (Visitor \&\&visitor, \mbox{\hyperlink{classtoml_1_1basic__value}{toml\+::basic\+\_\+value}}$<$ C, T, A $>$ \&\&v)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{value_8hpp_a1b2ff5bc50c492c1105452d462e4a125}\label{value_8hpp_a1b2ff5bc50c492c1105452d462e4a125}} 
+\index{value.hpp@{value.hpp}!TOML11\_GENERATE\_SWITCH\_CASTER@{TOML11\_GENERATE\_SWITCH\_CASTER}}
+\index{TOML11\_GENERATE\_SWITCH\_CASTER@{TOML11\_GENERATE\_SWITCH\_CASTER}!value.hpp@{value.hpp}}
+\doxysubsubsection{\texorpdfstring{TOML11\_GENERATE\_SWITCH\_CASTER}{TOML11\_GENERATE\_SWITCH\_CASTER}}
+{\footnotesize\ttfamily \#define TOML11\+\_\+\+GENERATE\+\_\+\+SWITCH\+\_\+\+CASTER(\begin{DoxyParamCaption}\item[{}]{TYPE }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keyword}{template}<>                                                           \(\backslash\)}
+\DoxyCodeLine{    struct switch\_cast<value\_t::TYPE>                                    \(\backslash\)}
+\DoxyCodeLine{    \{                                                                    \(\backslash\)}
+\DoxyCodeLine{        template<typename Value>                                         \(\backslash\)}
+\DoxyCodeLine{        static \textcolor{keyword}{typename} Value::TYPE\#\#\_type\& invoke(Value\& v)             \(\backslash\)}
+\DoxyCodeLine{        \{                                                                \(\backslash\)}
+\DoxyCodeLine{            return v.as\_\#\#TYPE();                                        \(\backslash\)}
+\DoxyCodeLine{        \}                                                                \(\backslash\)}
+\DoxyCodeLine{        template<typename Value>                                         \(\backslash\)}
+\DoxyCodeLine{        static \textcolor{keyword}{typename} Value::TYPE\#\#\_type \textcolor{keyword}{const}\& invoke(\textcolor{keyword}{const} Value\& v) \(\backslash\)}
+\DoxyCodeLine{        \{                                                                \(\backslash\)}
+\DoxyCodeLine{            return v.as\_\#\#TYPE();                                        \(\backslash\)}
+\DoxyCodeLine{        \}                                                                \(\backslash\)}
+\DoxyCodeLine{        template<typename Value>                                         \(\backslash\)}
+\DoxyCodeLine{        static \textcolor{keyword}{typename} Value::TYPE\#\#\_type\&\& invoke(Value\&\& v)           \(\backslash\)}
+\DoxyCodeLine{        \{                                                                \(\backslash\)}
+\DoxyCodeLine{            return std::move(v).as\_\#\#TYPE();                             \(\backslash\)}
+\DoxyCodeLine{        \}                                                                \(\backslash\)}
+\DoxyCodeLine{    \};                                                                   \(\backslash\)}
+
+\end{DoxyCode}

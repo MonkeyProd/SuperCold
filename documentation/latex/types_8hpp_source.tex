@@ -1,0 +1,179 @@
+\hypertarget{types_8hpp_source}{}\doxysection{types.\+hpp}
+\label{types_8hpp_source}\index{external/toml/types.hpp@{external/toml/types.hpp}}
+\mbox{\hyperlink{types_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//     Copyright Toru Niina 2017.}}
+\DoxyCodeLine{2 \textcolor{comment}{// Distributed under the MIT License.}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifndef TOML11\_TYPES\_HPP}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TOML11\_TYPES\_HPP}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{comments_8hpp}{comments.hpp}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{datetime_8hpp}{datetime.hpp}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{string_8hpp}{string.hpp}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{traits_8hpp}{traits.hpp}}"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetoml}{toml}}}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Comment, \textcolor{comment}{// discard/preserve\_comment}}
+\DoxyCodeLine{17          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }Table, \textcolor{comment}{// map-\/like class}}
+\DoxyCodeLine{18          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }Array> \textcolor{comment}{// vector-\/like class}}
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value}};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{using }\mbox{\hyperlink{namespacetoml_a8f6621cf10ba95c9069e3b248eb9c01d}{character}} = char;}
+\DoxyCodeLine{22 \textcolor{keyword}{using }\mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{key}} = std::string;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#if !defined(\_\_clang\_\_) \&\& defined(\_\_GNUC\_\_) \&\& \_\_GNUC\_\_ <= 4}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#  pragma GCC diagnostic push}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#  pragma GCC diagnostic ignored "{}-\/Wshadow"{}}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{using }\mbox{\hyperlink{namespacetoml_a536c45fdc142655af40475187d5a6702}{boolean}}        = bool;}
+\DoxyCodeLine{30 \textcolor{keyword}{using }\mbox{\hyperlink{namespacetoml_ad9642acd2a70ea10c7c6c1b53a3caac9}{integer}}        = std::int64\_t;}
+\DoxyCodeLine{31 \textcolor{keyword}{using }\mbox{\hyperlink{namespacetoml_a54f4b85eab8f0d6e6f0149c5ba338f6a}{floating}}       = double; \textcolor{comment}{// "{}float"{} is a keyword, cannot use it here.}}
+\DoxyCodeLine{32 \textcolor{comment}{// the following stuffs are structs defined here, so aliases are not needed.}}
+\DoxyCodeLine{33 \textcolor{comment}{// -\/ string}}
+\DoxyCodeLine{34 \textcolor{comment}{// -\/ offset\_datetime}}
+\DoxyCodeLine{35 \textcolor{comment}{// -\/ offset\_datetime}}
+\DoxyCodeLine{36 \textcolor{comment}{// -\/ local\_datetime}}
+\DoxyCodeLine{37 \textcolor{comment}{// -\/ local\_date}}
+\DoxyCodeLine{38 \textcolor{comment}{// -\/ local\_time}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#if defined(\_\_GNUC\_\_) \&\& !defined(\_\_clang\_\_)}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#  pragma GCC diagnostic pop}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{comment}{// default toml::value and default array/table. these are defined after defining}}
+\DoxyCodeLine{45 \textcolor{comment}{// basic\_value itself.}}
+\DoxyCodeLine{46 \textcolor{comment}{// using value = basic\_value<discard\_comments, std::unordered\_map, std::vector>;}}
+\DoxyCodeLine{47 \textcolor{comment}{// using array = typename value::array\_type;}}
+\DoxyCodeLine{48 \textcolor{comment}{// using table = typename value::table\_type;}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{comment}{// to avoid warnings about `value\_t::integer` is "{}shadowing"{} toml::integer in}}
+\DoxyCodeLine{51 \textcolor{comment}{// GCC -\/Wshadow=global.}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#if defined(\_\_GNUC\_\_) \&\& !defined(\_\_clang\_\_)}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#  pragma GCC diagnostic push}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#  if 7 <= \_\_GNUC\_\_}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#    pragma GCC diagnostic ignored "{}-\/Wshadow=global"{}}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#  else }\textcolor{comment}{// gcc-\/6 or older}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#    pragma GCC diagnostic ignored "{}-\/Wshadow"{}}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#  endif}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{60 \textcolor{keyword}{enum class} \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaa}{value\_t}} : std::uint8\_t}
+\DoxyCodeLine{61 \{}
+\DoxyCodeLine{62     \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaaa2e4822a98337283e39f7b60acf85ec9}{empty}}           =  0,}
+\DoxyCodeLine{63     \textcolor{keywordtype}{boolean}         =  1,}
+\DoxyCodeLine{64     \mbox{\hyperlink{namespacetoml_ad9642acd2a70ea10c7c6c1b53a3caac9}{integer}}         =  2,}
+\DoxyCodeLine{65     \mbox{\hyperlink{namespacetoml_a54f4b85eab8f0d6e6f0149c5ba338f6a}{floating}}        =  3,}
+\DoxyCodeLine{66     \textcolor{keywordtype}{string}          =  4,}
+\DoxyCodeLine{67     \mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}} =  5,}
+\DoxyCodeLine{68     \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}  =  6,}
+\DoxyCodeLine{69     \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}      =  7,}
+\DoxyCodeLine{70     \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}      =  8,}
+\DoxyCodeLine{71     \mbox{\hyperlink{namespacetoml_a4db748c68f34deac79e0b45535cfb3b6}{array}}           =  9,}
+\DoxyCodeLine{72     \mbox{\hyperlink{namespacetoml_af7d788a576baa570efd4793cd5df8ac7}{table}}           = 10,}
+\DoxyCodeLine{73 \};}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#if defined(\_\_GNUC\_\_) \&\& !defined(\_\_clang\_\_)}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#  pragma GCC diagnostic pop}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{keyword}{template}<\textcolor{keyword}{typename} \textcolor{keywordtype}{char}T, \textcolor{keyword}{typename} traits>}
+\DoxyCodeLine{79 \textcolor{keyword}{inline} std::basic\_ostream<charT, traits>\&}
+\DoxyCodeLine{80 \mbox{\hyperlink{namespacetoml_a11b17eff44b8e4b0b49c85cc34e241c7}{operator<<}}(std::basic\_ostream<charT, traits>\& os, \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaa}{value\_t}} t)}
+\DoxyCodeLine{81 \{}
+\DoxyCodeLine{82     \textcolor{keywordflow}{switch}(t)}
+\DoxyCodeLine{83     \{}
+\DoxyCodeLine{84         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaa84e2c64f38f78ba3ea5c905ab5a2da27}{value\_t::boolean}}         : os << \textcolor{stringliteral}{"{}boolean"{}};         \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{85         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaa157db7df530023575515d366c9b672e8}{value\_t::integer}}         : os << \textcolor{stringliteral}{"{}integer"{}};         \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{86         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaa374515b23d6f106696387776a6077d17}{value\_t::floating}}        : os << \textcolor{stringliteral}{"{}floating"{}};        \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{87         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaab45cffe084dd3d20d928bee85e7b0f21}{value\_t::string}}          : os << \textcolor{stringliteral}{"{}string"{}};          \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{88         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaa3453afefc0169f713370ff6bea1dc9a5}{value\_t::offset\_datetime}} : os << \textcolor{stringliteral}{"{}offset\_datetime"{}}; \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{89         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaa4786c634d28e7c1aa109efdd9e11ba32}{value\_t::local\_datetime}}  : os << \textcolor{stringliteral}{"{}local\_datetime"{}};  \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{90         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaaa9647613bc34fa481cf7bfd71e46511f}{value\_t::local\_date}}      : os << \textcolor{stringliteral}{"{}local\_date"{}};      \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{91         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaad118bc9b5fdddd0a0c91b99a41bb9501}{value\_t::local\_time}}      : os << \textcolor{stringliteral}{"{}local\_time"{}};      \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{92         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaaf1f713c9e000f5d3f280adbd124df4f5}{value\_t::array}}           : os << \textcolor{stringliteral}{"{}array"{}};           \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{93         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaaaab9e1de16f38176f86d7a92ba337a8d}{value\_t::table}}           : os << \textcolor{stringliteral}{"{}table"{}};           \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{94         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaaa2e4822a98337283e39f7b60acf85ec9}{value\_t::empty}}           : os << \textcolor{stringliteral}{"{}empty"{}};           \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{95         default                       : os << \textcolor{stringliteral}{"{}unknown"{}};         \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{96     \}}
+\DoxyCodeLine{97 \}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{keyword}{template}<\textcolor{keyword}{typename} charT = char,}
+\DoxyCodeLine{100          \textcolor{keyword}{typename} traits = std::char\_traits<charT>,}
+\DoxyCodeLine{101          \textcolor{keyword}{typename} alloc = std::allocator<charT>>}
+\DoxyCodeLine{102 \textcolor{keyword}{inline} std::basic\_string<charT, traits, alloc> \mbox{\hyperlink{namespacetoml_aaf1e28f553918a844120bf20679de5c7}{stringize}}(\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaa}{value\_t}} t)}
+\DoxyCodeLine{103 \{}
+\DoxyCodeLine{104     std::basic\_ostringstream<charT, traits, alloc> oss;}
+\DoxyCodeLine{105     oss << t;}
+\DoxyCodeLine{106     \textcolor{keywordflow}{return} oss.str();}
+\DoxyCodeLine{107 \}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{keyword}{namespace }detail}
+\DoxyCodeLine{110 \{}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{comment}{// helper to define a type that represents a value\_t value.}}
+\DoxyCodeLine{113 \textcolor{keyword}{template}<value\_t V>}
+\DoxyCodeLine{114 \textcolor{keyword}{using }\mbox{\hyperlink{namespacetoml_1_1detail_a0aae3b0a945ae7e58004d1b7b42a50d2}{value\_t\_constant}} = std::integral\_constant<value\_t, V>;}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{comment}{// meta-\/function that convertes from value\_t to the exact toml type that corresponds to.}}
+\DoxyCodeLine{117 \textcolor{comment}{// It takes toml::basic\_value type because array and table types depend on it.}}
+\DoxyCodeLine{118 \textcolor{keyword}{template}<value\_t t, \textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type}{enum\_to\_type}}                      \{\textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type_a9db5d0ac11cd8c7bec762330ece5457d}{type}} = void                      ;\};}
+\DoxyCodeLine{119 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type}{enum\_to\_type}}<\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaa}{value\_t}}::\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaaa2e4822a98337283e39f7b60acf85ec9}{empty}}          , Value>\{\textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1empty_00_01_value_01_4_a5fb8f54b29bbf47d0a7603e13512ed6f}{type}} = void                      ;\};}
+\DoxyCodeLine{120 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type}{enum\_to\_type}}<\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaa}{value\_t}}::\mbox{\hyperlink{namespacetoml_a536c45fdc142655af40475187d5a6702}{boolean}}        , Value>\{\textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1boolean_00_01_value_01_4_ac6b04ff8aa6ed26115eaa69abd3ce0ec}{type}} = \mbox{\hyperlink{namespacetoml_a536c45fdc142655af40475187d5a6702}{boolean}}                   ;\};}
+\DoxyCodeLine{121 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type}{enum\_to\_type}}<\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaa}{value\_t}}::\mbox{\hyperlink{namespacetoml_ad9642acd2a70ea10c7c6c1b53a3caac9}{integer}}        , Value>\{\textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1integer_00_01_value_01_4_a052154dc908f501bbd4e27fcda8b18af}{type}} = \mbox{\hyperlink{namespacetoml_ad9642acd2a70ea10c7c6c1b53a3caac9}{integer}}                   ;\};}
+\DoxyCodeLine{122 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type}{enum\_to\_type}}<\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaa}{value\_t}}::\mbox{\hyperlink{namespacetoml_a54f4b85eab8f0d6e6f0149c5ba338f6a}{floating}}       , Value>\{\textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1floating_00_01_value_01_4_ae0af2c23e9ee2413417e3143b7f94c8e}{type}} = \mbox{\hyperlink{namespacetoml_a54f4b85eab8f0d6e6f0149c5ba338f6a}{floating}}                  ;\};}
+\DoxyCodeLine{123 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type}{enum\_to\_type}}<\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaa}{value\_t}}::\mbox{\hyperlink{structtoml_1_1string}{string}}         , Value>\{\textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1string}{type}} = \mbox{\hyperlink{structtoml_1_1string}{string}}                    ;\};}
+\DoxyCodeLine{124 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type}{enum\_to\_type}}<\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaa}{value\_t}}::\mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}, Value>\{\textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1offset__datetime}{type}} = \mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}           ;\};}
+\DoxyCodeLine{125 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type}{enum\_to\_type}}<\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaa}{value\_t}}::\mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}} , Value>\{\textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1local__datetime}{type}} = \mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}}            ;\};}
+\DoxyCodeLine{126 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type}{enum\_to\_type}}<\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaa}{value\_t}}::\mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}     , Value>\{\textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1local__date}{type}} = \mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}                ;\};}
+\DoxyCodeLine{127 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type}{enum\_to\_type}}<\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaa}{value\_t}}::\mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}     , Value>\{\textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1local__time}{type}} = \mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}                ;\};}
+\DoxyCodeLine{128 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type}{enum\_to\_type}}<\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaa}{value\_t}}::\mbox{\hyperlink{namespacetoml_a4db748c68f34deac79e0b45535cfb3b6}{array}}          , Value>\{\textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1array_00_01_value_01_4_a9f06e4cea1032992d22f433915ae02a4}{type}} = \textcolor{keyword}{typename} Value::array\_type;\};}
+\DoxyCodeLine{129 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type}{enum\_to\_type}}<\mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaa}{value\_t}}::\mbox{\hyperlink{namespacetoml_af7d788a576baa570efd4793cd5df8ac7}{table}}          , Value>\{\textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1enum__to__type_3_01value__t_1_1table_00_01_value_01_4_ad8d5e34dff04a6f0aaa676331f5478f6}{type}} = \textcolor{keyword}{typename} Value::table\_type;\};}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 \textcolor{comment}{// meta-\/function that converts from an exact toml type to the enum that corresponds to.}}
+\DoxyCodeLine{132 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} Value>}
+\DoxyCodeLine{133 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum}{type\_to\_enum}} : std::conditional<}
+\DoxyCodeLine{134     std::is\_same<T, typename Value::array\_type>::value, \textcolor{comment}{// if T == array\_type,}}
+\DoxyCodeLine{135     value\_t\_constant<value\_t::array>,                   \textcolor{comment}{// then value\_t::array}}
+\DoxyCodeLine{136     typename std::conditional<                          \textcolor{comment}{// else...}}
+\DoxyCodeLine{137         std::is\_same<T, typename Value::table\_type>::value, \textcolor{comment}{// if T == table\_type}}
+\DoxyCodeLine{138         value\_t\_constant<value\_t::table>,               \textcolor{comment}{// then value\_t::table}}
+\DoxyCodeLine{139         value\_t\_constant<value\_t::empty>                \textcolor{comment}{// else value\_t::empty}}
+\DoxyCodeLine{140         >::type}
+\DoxyCodeLine{141     >::type \{\};}
+\DoxyCodeLine{142 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum}{type\_to\_enum}}<\mbox{\hyperlink{namespacetoml_a536c45fdc142655af40475187d5a6702}{boolean}}        , Value>: \mbox{\hyperlink{namespacetoml_1_1detail_a0aae3b0a945ae7e58004d1b7b42a50d2}{value\_t\_constant}}<value\_t::boolean        > \{\};}
+\DoxyCodeLine{143 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum}{type\_to\_enum}}<\mbox{\hyperlink{namespacetoml_ad9642acd2a70ea10c7c6c1b53a3caac9}{integer}}        , Value>: \mbox{\hyperlink{namespacetoml_1_1detail_a0aae3b0a945ae7e58004d1b7b42a50d2}{value\_t\_constant}}<value\_t::integer        > \{\};}
+\DoxyCodeLine{144 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum}{type\_to\_enum}}<\mbox{\hyperlink{namespacetoml_a54f4b85eab8f0d6e6f0149c5ba338f6a}{floating}}       , Value>: \mbox{\hyperlink{namespacetoml_1_1detail_a0aae3b0a945ae7e58004d1b7b42a50d2}{value\_t\_constant}}<value\_t::floating       > \{\};}
+\DoxyCodeLine{145 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum}{type\_to\_enum}}<\mbox{\hyperlink{structtoml_1_1string}{string}}         , Value>: \mbox{\hyperlink{namespacetoml_1_1detail_a0aae3b0a945ae7e58004d1b7b42a50d2}{value\_t\_constant}}<value\_t::string         > \{\};}
+\DoxyCodeLine{146 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum}{type\_to\_enum}}<\mbox{\hyperlink{structtoml_1_1offset__datetime}{offset\_datetime}}, Value>: \mbox{\hyperlink{namespacetoml_1_1detail_a0aae3b0a945ae7e58004d1b7b42a50d2}{value\_t\_constant}}<value\_t::offset\_datetime> \{\};}
+\DoxyCodeLine{147 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum}{type\_to\_enum}}<\mbox{\hyperlink{structtoml_1_1local__datetime}{local\_datetime}} , Value>: \mbox{\hyperlink{namespacetoml_1_1detail_a0aae3b0a945ae7e58004d1b7b42a50d2}{value\_t\_constant}}<value\_t::local\_datetime > \{\};}
+\DoxyCodeLine{148 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum}{type\_to\_enum}}<\mbox{\hyperlink{structtoml_1_1local__date}{local\_date}}     , Value>: \mbox{\hyperlink{namespacetoml_1_1detail_a0aae3b0a945ae7e58004d1b7b42a50d2}{value\_t\_constant}}<value\_t::local\_date     > \{\};}
+\DoxyCodeLine{149 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum}{type\_to\_enum}}<\mbox{\hyperlink{structtoml_1_1local__time}{local\_time}}     , Value>: \mbox{\hyperlink{namespacetoml_1_1detail_a0aae3b0a945ae7e58004d1b7b42a50d2}{value\_t\_constant}}<value\_t::local\_time     > \{\};}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 \textcolor{comment}{// meta-\/function that checks the type T is the same as one of the toml::* types.}}
+\DoxyCodeLine{152 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} Value>}
+\DoxyCodeLine{153 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__exact__toml__type}{is\_exact\_toml\_type}} : \mbox{\hyperlink{structtoml_1_1detail_1_1disjunction}{disjunction}}<}
+\DoxyCodeLine{154     std::is\_same<T, boolean        >,}
+\DoxyCodeLine{155     std::is\_same<T, integer        >,}
+\DoxyCodeLine{156     std::is\_same<T, floating       >,}
+\DoxyCodeLine{157     std::is\_same<T, string         >,}
+\DoxyCodeLine{158     std::is\_same<T, offset\_datetime>,}
+\DoxyCodeLine{159     std::is\_same<T, local\_datetime >,}
+\DoxyCodeLine{160     std::is\_same<T, local\_date     >,}
+\DoxyCodeLine{161     std::is\_same<T, local\_time     >,}
+\DoxyCodeLine{162     std::is\_same<T, typename Value::array\_type>,}
+\DoxyCodeLine{163     std::is\_same<T, typename Value::table\_type>}
+\DoxyCodeLine{164     >\{\};}
+\DoxyCodeLine{165 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} V> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__exact__toml__type}{is\_exact\_toml\_type}}<T\&, V>               : \mbox{\hyperlink{structtoml_1_1detail_1_1is__exact__toml__type}{is\_exact\_toml\_type<T, V>}}\{\};}
+\DoxyCodeLine{166 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} V> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__exact__toml__type}{is\_exact\_toml\_type}}<T const\&, V>         : \mbox{\hyperlink{structtoml_1_1detail_1_1is__exact__toml__type}{is\_exact\_toml\_type<T, V>}}\{\};}
+\DoxyCodeLine{167 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} V> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__exact__toml__type}{is\_exact\_toml\_type}}<T volatile\&, V>      : \mbox{\hyperlink{structtoml_1_1detail_1_1is__exact__toml__type}{is\_exact\_toml\_type<T, V>}}\{\};}
+\DoxyCodeLine{168 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} V> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__exact__toml__type}{is\_exact\_toml\_type}}<T const volatile\&, V>: \mbox{\hyperlink{structtoml_1_1detail_1_1is__exact__toml__type}{is\_exact\_toml\_type<T, V>}}\{\};}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170 \} \textcolor{comment}{// detail}}
+\DoxyCodeLine{171 \} \textcolor{comment}{// toml}}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173 \textcolor{preprocessor}{\#endif}\textcolor{comment}{// TOML11\_TYPES\_H}}
+
+\end{DoxyCode}

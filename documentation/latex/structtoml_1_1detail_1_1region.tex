@@ -1,0 +1,328 @@
+\hypertarget{structtoml_1_1detail_1_1region}{}\doxysection{toml\+::detail\+::region Struct Reference}
+\label{structtoml_1_1detail_1_1region}\index{toml::detail::region@{toml::detail::region}}
+
+
+{\ttfamily \#include $<$region.\+hpp$>$}
+
+Inheritance diagram for toml\+::detail\+::region\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{structtoml_1_1detail_1_1region}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}} = typename std\+::vector$<$ char $>$\+::const\+\_\+iterator
+\item 
+using \mbox{\hyperlink{structtoml_1_1detail_1_1region_a4cea85454b69a5a2ae7a337977636644}{source\+\_\+ptr}} = std\+::shared\+\_\+ptr$<$ const std\+::vector$<$ char $>$ $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region_aeff35818a52bc7556699d0d9b97e84be}{region}} ()=delete
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region_aaeadd37e4fabbac71d0f402884a5ec98}{region}} (const \mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}} \&loc)
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region_aa32388d28d71e5b86a8bb4b3f94d8fd1}{region}} (\mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}} \&\&loc)
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region_af7bafe8da6e7c9d014edc3f08213bdfc}{region}} (const \mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}} \&loc, \mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}} f, \mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}} l)
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region_a242906a81999ef6d1c012156193bb6cb}{region}} (\mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}} \&\&loc, \mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}} f, \mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}} l)
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region_a84428838fedbe271a1843da9798ae623}{region}} (const \mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} \&)=default
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region_a864cefe97bd9f64e0323ed253066e57d}{region}} (\mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} \&\&)=default
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} \& \mbox{\hyperlink{structtoml_1_1detail_1_1region_a782c8670065aa3b10d8afa2804e9f459}{operator=}} (const \mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} \&)=default
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} \& \mbox{\hyperlink{structtoml_1_1detail_1_1region_afd6970910aba9c0da2812863eff1ca9b}{operator=}} (\mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} \&\&)=default
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region_a06ca8b284b5526e7101709a0d8b4904f}{$\sim$region}} ()=default
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} \& \mbox{\hyperlink{structtoml_1_1detail_1_1region_a0c275db7ccd4674a9bad7c73fe05227b}{operator+=}} (const \mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} \&other)
+\item 
+bool \mbox{\hyperlink{structtoml_1_1detail_1_1region_a87508e13996dd9305fcbb7a99d7d12d1}{is\+\_\+ok}} () const noexcept override
+\item 
+char \mbox{\hyperlink{structtoml_1_1detail_1_1region_aabbe7b0acd319dc04b4bf1cb685c8274}{front}} () const noexcept override
+\item 
+std\+::string \mbox{\hyperlink{structtoml_1_1detail_1_1region_ab29b9569c262fd0d1068501c05f49ea7}{str}} () const override
+\item 
+std\+::string \mbox{\hyperlink{structtoml_1_1detail_1_1region_a0a02f9cb4afd77d5a09ce5292ef24297}{line}} () const override
+\item 
+std\+::string \mbox{\hyperlink{structtoml_1_1detail_1_1region_acb64ba397c4915b0dc28890da4c6c01a}{line\+\_\+num}} () const override
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{structtoml_1_1detail_1_1region_a5aed78b6f0ba4b17996afe7ac282d089}{size}} () const noexcept override
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{structtoml_1_1detail_1_1region_a5975656927543592fe533b4a0317652c}{before}} () const noexcept override
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{structtoml_1_1detail_1_1region_a35d9eb4ee3b9a461e5f5a6c14cf76ea7}{after}} () const noexcept override
+\item 
+bool \mbox{\hyperlink{structtoml_1_1detail_1_1region_a03d67f7055cad721b1d3254b92b696d3}{contain\+\_\+newline}} () const noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}} \mbox{\hyperlink{structtoml_1_1detail_1_1region_a4ea699e45d31d3d4bba240f6241015d5}{line\+\_\+begin}} () const noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}} \mbox{\hyperlink{structtoml_1_1detail_1_1region_ab8bdfc3c4a6dd890c12aaa7f3302c37f}{line\+\_\+end}} () const noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}} \mbox{\hyperlink{structtoml_1_1detail_1_1region_a29fb4cdafc62298a0f13809e4c8342c8}{begin}} () const noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}} \mbox{\hyperlink{structtoml_1_1detail_1_1region_ae93c08cd5a238ea4bf1a762b4b5ed835}{end}} () const noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}} \mbox{\hyperlink{structtoml_1_1detail_1_1region_a22bf6eebe69a64cd124b99896ea25ac7}{first}} () const noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}} \mbox{\hyperlink{structtoml_1_1detail_1_1region_a9282bb9395b88ce24da0e0c2d59dc787}{last}} () const noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region_a4cea85454b69a5a2ae7a337977636644}{source\+\_\+ptr}} const \& \mbox{\hyperlink{structtoml_1_1detail_1_1region_a547b86430e6d82d771b74e76af122276}{source}} () const \&noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1region_a4cea85454b69a5a2ae7a337977636644}{source\+\_\+ptr}} \&\& \mbox{\hyperlink{structtoml_1_1detail_1_1region_a42267d523b717d79ae463bf57e94e2d7}{source}} () \&\&noexcept
+\item 
+std\+::string \mbox{\hyperlink{structtoml_1_1detail_1_1region_ab2940e58e40a9dc9da8bce16372cefec}{name}} () const override
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{structtoml_1_1detail_1_1region_acf4d7a029b56c38ec3f1dcfa29f2968f}{comments}} () const override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}\label{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}} 
+\index{toml::detail::region@{toml::detail::region}!const\_iterator@{const\_iterator}}
+\index{const\_iterator@{const\_iterator}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{const\_iterator}{const\_iterator}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{toml\+::detail\+::region\+::const\+\_\+iterator}} =  typename std\+::vector$<$char$>$\+::const\+\_\+iterator}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a4cea85454b69a5a2ae7a337977636644}\label{structtoml_1_1detail_1_1region_a4cea85454b69a5a2ae7a337977636644}} 
+\index{toml::detail::region@{toml::detail::region}!source\_ptr@{source\_ptr}}
+\index{source\_ptr@{source\_ptr}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{source\_ptr}{source\_ptr}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{structtoml_1_1detail_1_1region_a4cea85454b69a5a2ae7a337977636644}{toml\+::detail\+::region\+::source\+\_\+ptr}} =  std\+::shared\+\_\+ptr$<$const std\+::vector$<$char$>$ $>$}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_aeff35818a52bc7556699d0d9b97e84be}\label{structtoml_1_1detail_1_1region_aeff35818a52bc7556699d0d9b97e84be}} 
+\index{toml::detail::region@{toml::detail::region}!region@{region}}
+\index{region@{region}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{region()}{region()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily toml\+::detail\+::region\+::region (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_aaeadd37e4fabbac71d0f402884a5ec98}\label{structtoml_1_1detail_1_1region_aaeadd37e4fabbac71d0f402884a5ec98}} 
+\index{toml::detail::region@{toml::detail::region}!region@{region}}
+\index{region@{region}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{region()}{region()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily toml\+::detail\+::region\+::region (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}} \&}]{loc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_aa32388d28d71e5b86a8bb4b3f94d8fd1}\label{structtoml_1_1detail_1_1region_aa32388d28d71e5b86a8bb4b3f94d8fd1}} 
+\index{toml::detail::region@{toml::detail::region}!region@{region}}
+\index{region@{region}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{region()}{region()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily toml\+::detail\+::region\+::region (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}} \&\&}]{loc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_af7bafe8da6e7c9d014edc3f08213bdfc}\label{structtoml_1_1detail_1_1region_af7bafe8da6e7c9d014edc3f08213bdfc}} 
+\index{toml::detail::region@{toml::detail::region}!region@{region}}
+\index{region@{region}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{region()}{region()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily toml\+::detail\+::region\+::region (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}} \&}]{loc,  }\item[{\mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}}}]{f,  }\item[{\mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}}}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a242906a81999ef6d1c012156193bb6cb}\label{structtoml_1_1detail_1_1region_a242906a81999ef6d1c012156193bb6cb}} 
+\index{toml::detail::region@{toml::detail::region}!region@{region}}
+\index{region@{region}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{region()}{region()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily toml\+::detail\+::region\+::region (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1detail_1_1location}{location}} \&\&}]{loc,  }\item[{\mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}}}]{f,  }\item[{\mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}}}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a84428838fedbe271a1843da9798ae623}\label{structtoml_1_1detail_1_1region_a84428838fedbe271a1843da9798ae623}} 
+\index{toml::detail::region@{toml::detail::region}!region@{region}}
+\index{region@{region}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{region()}{region()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily toml\+::detail\+::region\+::region (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a864cefe97bd9f64e0323ed253066e57d}\label{structtoml_1_1detail_1_1region_a864cefe97bd9f64e0323ed253066e57d}} 
+\index{toml::detail::region@{toml::detail::region}!region@{region}}
+\index{region@{region}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{region()}{region()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily toml\+::detail\+::region\+::region (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a06ca8b284b5526e7101709a0d8b4904f}\label{structtoml_1_1detail_1_1region_a06ca8b284b5526e7101709a0d8b4904f}} 
+\index{toml::detail::region@{toml::detail::region}!````~region@{$\sim$region}}
+\index{````~region@{$\sim$region}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{$\sim$region()}{~region()}}
+{\footnotesize\ttfamily toml\+::detail\+::region\+::$\sim$region (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a35d9eb4ee3b9a461e5f5a6c14cf76ea7}\label{structtoml_1_1detail_1_1region_a35d9eb4ee3b9a461e5f5a6c14cf76ea7}} 
+\index{toml::detail::region@{toml::detail::region}!after@{after}}
+\index{after@{after}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{after()}{after()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t toml\+::detail\+::region\+::after (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{structtoml_1_1detail_1_1region__base_a029632182c4df5911f569e8220f7ad84}{toml\+::detail\+::region\+\_\+base}}.
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a5975656927543592fe533b4a0317652c}\label{structtoml_1_1detail_1_1region_a5975656927543592fe533b4a0317652c}} 
+\index{toml::detail::region@{toml::detail::region}!before@{before}}
+\index{before@{before}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{before()}{before()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t toml\+::detail\+::region\+::before (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{structtoml_1_1detail_1_1region__base_a5d9badf7c1617c3dbf220128beed9e69}{toml\+::detail\+::region\+\_\+base}}.
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a29fb4cdafc62298a0f13809e4c8342c8}\label{structtoml_1_1detail_1_1region_a29fb4cdafc62298a0f13809e4c8342c8}} 
+\index{toml::detail::region@{toml::detail::region}!begin@{begin}}
+\index{begin@{begin}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}} toml\+::detail\+::region\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_acf4d7a029b56c38ec3f1dcfa29f2968f}\label{structtoml_1_1detail_1_1region_acf4d7a029b56c38ec3f1dcfa29f2968f}} 
+\index{toml::detail::region@{toml::detail::region}!comments@{comments}}
+\index{comments@{comments}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{comments()}{comments()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ toml\+::detail\+::region\+::comments (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{structtoml_1_1detail_1_1region__base_a628ff6c7e336fc99b9d7c6b884066d55}{toml\+::detail\+::region\+\_\+base}}.
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a03d67f7055cad721b1d3254b92b696d3}\label{structtoml_1_1detail_1_1region_a03d67f7055cad721b1d3254b92b696d3}} 
+\index{toml::detail::region@{toml::detail::region}!contain\_newline@{contain\_newline}}
+\index{contain\_newline@{contain\_newline}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{contain\_newline()}{contain\_newline()}}
+{\footnotesize\ttfamily bool toml\+::detail\+::region\+::contain\+\_\+newline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_ae93c08cd5a238ea4bf1a762b4b5ed835}\label{structtoml_1_1detail_1_1region_ae93c08cd5a238ea4bf1a762b4b5ed835}} 
+\index{toml::detail::region@{toml::detail::region}!end@{end}}
+\index{end@{end}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}} toml\+::detail\+::region\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a22bf6eebe69a64cd124b99896ea25ac7}\label{structtoml_1_1detail_1_1region_a22bf6eebe69a64cd124b99896ea25ac7}} 
+\index{toml::detail::region@{toml::detail::region}!first@{first}}
+\index{first@{first}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{first()}{first()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}} toml\+::detail\+::region\+::first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_aabbe7b0acd319dc04b4bf1cb685c8274}\label{structtoml_1_1detail_1_1region_aabbe7b0acd319dc04b4bf1cb685c8274}} 
+\index{toml::detail::region@{toml::detail::region}!front@{front}}
+\index{front@{front}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{front()}{front()}}
+{\footnotesize\ttfamily char toml\+::detail\+::region\+::front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{structtoml_1_1detail_1_1region__base_a851763061c8dd8e925192f5e71973b2f}{toml\+::detail\+::region\+\_\+base}}.
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a87508e13996dd9305fcbb7a99d7d12d1}\label{structtoml_1_1detail_1_1region_a87508e13996dd9305fcbb7a99d7d12d1}} 
+\index{toml::detail::region@{toml::detail::region}!is\_ok@{is\_ok}}
+\index{is\_ok@{is\_ok}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{is\_ok()}{is\_ok()}}
+{\footnotesize\ttfamily bool toml\+::detail\+::region\+::is\+\_\+ok (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{structtoml_1_1detail_1_1region__base_a04d30cc67ae064dcb5124a6d6c0d8829}{toml\+::detail\+::region\+\_\+base}}.
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a9282bb9395b88ce24da0e0c2d59dc787}\label{structtoml_1_1detail_1_1region_a9282bb9395b88ce24da0e0c2d59dc787}} 
+\index{toml::detail::region@{toml::detail::region}!last@{last}}
+\index{last@{last}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{last()}{last()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}} toml\+::detail\+::region\+::last (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a0a02f9cb4afd77d5a09ce5292ef24297}\label{structtoml_1_1detail_1_1region_a0a02f9cb4afd77d5a09ce5292ef24297}} 
+\index{toml::detail::region@{toml::detail::region}!line@{line}}
+\index{line@{line}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{line()}{line()}}
+{\footnotesize\ttfamily std\+::string toml\+::detail\+::region\+::line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{structtoml_1_1detail_1_1region__base_a94f53e54f87a6b18b673c93c5c16c5b1}{toml\+::detail\+::region\+\_\+base}}.
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a4ea699e45d31d3d4bba240f6241015d5}\label{structtoml_1_1detail_1_1region_a4ea699e45d31d3d4bba240f6241015d5}} 
+\index{toml::detail::region@{toml::detail::region}!line\_begin@{line\_begin}}
+\index{line\_begin@{line\_begin}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{line\_begin()}{line\_begin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}} toml\+::detail\+::region\+::line\+\_\+begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_ab8bdfc3c4a6dd890c12aaa7f3302c37f}\label{structtoml_1_1detail_1_1region_ab8bdfc3c4a6dd890c12aaa7f3302c37f}} 
+\index{toml::detail::region@{toml::detail::region}!line\_end@{line\_end}}
+\index{line\_end@{line\_end}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{line\_end()}{line\_end()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtoml_1_1detail_1_1region_ab344cc4923ef929ba6063543143fcae9}{const\+\_\+iterator}} toml\+::detail\+::region\+::line\+\_\+end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_acb64ba397c4915b0dc28890da4c6c01a}\label{structtoml_1_1detail_1_1region_acb64ba397c4915b0dc28890da4c6c01a}} 
+\index{toml::detail::region@{toml::detail::region}!line\_num@{line\_num}}
+\index{line\_num@{line\_num}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{line\_num()}{line\_num()}}
+{\footnotesize\ttfamily std\+::string toml\+::detail\+::region\+::line\+\_\+num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{structtoml_1_1detail_1_1region__base_ad676f2456819ebd43cc6402f017c3ff8}{toml\+::detail\+::region\+\_\+base}}.
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_ab2940e58e40a9dc9da8bce16372cefec}\label{structtoml_1_1detail_1_1region_ab2940e58e40a9dc9da8bce16372cefec}} 
+\index{toml::detail::region@{toml::detail::region}!name@{name}}
+\index{name@{name}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string toml\+::detail\+::region\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{structtoml_1_1detail_1_1region__base_af1e9c07f9510f553e33277207249b980}{toml\+::detail\+::region\+\_\+base}}.
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a0c275db7ccd4674a9bad7c73fe05227b}\label{structtoml_1_1detail_1_1region_a0c275db7ccd4674a9bad7c73fe05227b}} 
+\index{toml::detail::region@{toml::detail::region}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} \& toml\+::detail\+::region\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a782c8670065aa3b10d8afa2804e9f459}\label{structtoml_1_1detail_1_1region_a782c8670065aa3b10d8afa2804e9f459}} 
+\index{toml::detail::region@{toml::detail::region}!operator=@{operator=}}
+\index{operator=@{operator=}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} \& toml\+::detail\+::region\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_afd6970910aba9c0da2812863eff1ca9b}\label{structtoml_1_1detail_1_1region_afd6970910aba9c0da2812863eff1ca9b}} 
+\index{toml::detail::region@{toml::detail::region}!operator=@{operator=}}
+\index{operator=@{operator=}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} \& toml\+::detail\+::region\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1detail_1_1region}{region}} \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a5aed78b6f0ba4b17996afe7ac282d089}\label{structtoml_1_1detail_1_1region_a5aed78b6f0ba4b17996afe7ac282d089}} 
+\index{toml::detail::region@{toml::detail::region}!size@{size}}
+\index{size@{size}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t toml\+::detail\+::region\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{structtoml_1_1detail_1_1region__base_abb3aa3ca6b0a0cd80e257ceb2a83877c}{toml\+::detail\+::region\+\_\+base}}.
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a42267d523b717d79ae463bf57e94e2d7}\label{structtoml_1_1detail_1_1region_a42267d523b717d79ae463bf57e94e2d7}} 
+\index{toml::detail::region@{toml::detail::region}!source@{source}}
+\index{source@{source}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{source()}{source()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtoml_1_1detail_1_1region_a4cea85454b69a5a2ae7a337977636644}{source\+\_\+ptr}} \&\& toml\+::detail\+::region\+::source (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_a547b86430e6d82d771b74e76af122276}\label{structtoml_1_1detail_1_1region_a547b86430e6d82d771b74e76af122276}} 
+\index{toml::detail::region@{toml::detail::region}!source@{source}}
+\index{source@{source}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{source()}{source()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structtoml_1_1detail_1_1region_a4cea85454b69a5a2ae7a337977636644}{source\+\_\+ptr}} const  \& toml\+::detail\+::region\+::source (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const \&\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1region_ab29b9569c262fd0d1068501c05f49ea7}\label{structtoml_1_1detail_1_1region_ab29b9569c262fd0d1068501c05f49ea7}} 
+\index{toml::detail::region@{toml::detail::region}!str@{str}}
+\index{str@{str}!toml::detail::region@{toml::detail::region}}
+\doxysubsubsection{\texorpdfstring{str()}{str()}}
+{\footnotesize\ttfamily std\+::string toml\+::detail\+::region\+::str (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{structtoml_1_1detail_1_1region__base_a47be03c05f51e0f1521961f4bf91675b}{toml\+::detail\+::region\+\_\+base}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+external/toml/\mbox{\hyperlink{region_8hpp}{region.\+hpp}}\end{DoxyCompactItemize}

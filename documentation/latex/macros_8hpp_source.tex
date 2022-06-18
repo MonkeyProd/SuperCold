@@ -1,0 +1,127 @@
+\hypertarget{macros_8hpp_source}{}\doxysection{macros.\+hpp}
+\label{macros_8hpp_source}\index{external/toml/macros.hpp@{external/toml/macros.hpp}}
+\mbox{\hyperlink{macros_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TOML11\_MACROS\_HPP}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TOML11\_MACROS\_HPP}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TOML11\_STRINGIZE\_AUX(x) \#x}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#define TOML11\_STRINGIZE(x)     TOML11\_STRINGIZE\_AUX(x)}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define TOML11\_CONCATENATE\_AUX(x, y) x\#\#y}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define TOML11\_CONCATENATE(x, y)     TOML11\_CONCATENATE\_AUX(x, y)}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{11 \textcolor{comment}{// TOML11\_DEFINE\_CONVERSION\_NON\_INTRUSIVE}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef TOML11\_WITHOUT\_DEFINE\_NON\_INTRUSIVE}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{16 \textcolor{comment}{// TOML11\_ARGS\_SIZE}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define TOML11\_INDEX\_RSEQ() \(\backslash\)}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{    32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, \(\backslash\)}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{    16, 15, 14, 13, 12, 11, 10,  9,  8,  7,  6,  5,  4,  3,  2,  1, 0}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define TOML11\_ARGS\_SIZE\_IMPL(\(\backslash\)}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{    ARG1,  ARG2,  ARG3,  ARG4,  ARG5,  ARG6,  ARG7,  ARG8,  ARG9,  ARG10, \(\backslash\)}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{    ARG11, ARG12, ARG13, ARG14, ARG15, ARG16, ARG17, ARG18, ARG19, ARG20, \(\backslash\)}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{    ARG21, ARG22, ARG23, ARG24, ARG25, ARG26, ARG27, ARG28, ARG29, ARG30, \(\backslash\)}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{    ARG31, ARG32, N, ...) N}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define TOML11\_ARGS\_SIZE\_AUX(...) TOML11\_ARGS\_SIZE\_IMPL(\_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define TOML11\_ARGS\_SIZE(...) TOML11\_ARGS\_SIZE\_AUX(\_\_VA\_ARGS\_\_, TOML11\_INDEX\_RSEQ())}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{30 \textcolor{comment}{// TOML11\_FOR\_EACH\_VA\_ARGS}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_1( FUNCTOR, ARG1     ) FUNCTOR(ARG1)}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_2( FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_1( FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_3( FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_2( FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_4( FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_3( FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_5( FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_4( FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_6( FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_5( FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_7( FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_6( FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_8( FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_7( FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_9( FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_8( FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_10(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_9( FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_11(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_10(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_12(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_11(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_13(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_12(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_14(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_13(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_15(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_14(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_16(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_15(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_17(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_16(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_18(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_17(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_19(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_18(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_20(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_19(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_21(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_20(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_22(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_21(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_23(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_22(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_24(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_23(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_25(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_24(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_26(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_25(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_27(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_26(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_28(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_27(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_29(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_28(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_30(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_29(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_31(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_30(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_32(FUNCTOR, ARG1, ...) FUNCTOR(ARG1) TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_31(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#define TOML11\_FOR\_EACH\_VA\_ARGS(FUNCTOR, ...)\(\backslash\)}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{    TOML11\_CONCATENATE(TOML11\_FOR\_EACH\_VA\_ARGS\_AUX\_, TOML11\_ARGS\_SIZE(\_\_VA\_ARGS\_\_))(FUNCTOR, \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{69 \textcolor{comment}{// TOML11\_DEFINE\_CONVERSION\_NON\_INTRUSIVE}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{comment}{// use it in the following way.}}
+\DoxyCodeLine{72 \textcolor{comment}{// ```cpp}}
+\DoxyCodeLine{73 \textcolor{comment}{// namespace foo}}
+\DoxyCodeLine{74 \textcolor{comment}{// \{}}
+\DoxyCodeLine{75 \textcolor{comment}{// struct Foo}}
+\DoxyCodeLine{76 \textcolor{comment}{// \{}}
+\DoxyCodeLine{77 \textcolor{comment}{//     std::string s;}}
+\DoxyCodeLine{78 \textcolor{comment}{//     double      d;}}
+\DoxyCodeLine{79 \textcolor{comment}{//     int         i;}}
+\DoxyCodeLine{80 \textcolor{comment}{// \};}}
+\DoxyCodeLine{81 \textcolor{comment}{// \} // foo}}
+\DoxyCodeLine{82 \textcolor{comment}{//}}
+\DoxyCodeLine{83 \textcolor{comment}{// TOML11\_DEFINE\_CONVERSION\_NON\_INTRUSIVE(foo::Foo, s, d, i)}}
+\DoxyCodeLine{84 \textcolor{comment}{// ```}}
+\DoxyCodeLine{85 \textcolor{comment}{// And then you can use `toml::find<foo::Foo>(file, "{}foo"{});`}}
+\DoxyCodeLine{86 \textcolor{comment}{//}}
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#define TOML11\_FIND\_MEMBER\_VARIABLE\_FROM\_VALUE(VAR\_NAME)\(\backslash\)}}
+\DoxyCodeLine{88 \textcolor{preprocessor}{    obj.VAR\_NAME = toml::find<decltype(obj.VAR\_NAME)>(v, TOML11\_STRINGIZE(VAR\_NAME));}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#define TOML11\_ASSIGN\_MEMBER\_VARIABLE\_TO\_VALUE(VAR\_NAME)\(\backslash\)}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{    v[TOML11\_STRINGIZE(VAR\_NAME)] = obj.VAR\_NAME;}}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#define TOML11\_DEFINE\_CONVERSION\_NON\_INTRUSIVE(NAME, ...)\(\backslash\)}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{    namespace toml \{                                                                     \(\backslash\)}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{    template<>                                                                           \(\backslash\)}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{    struct from<NAME>                                                                    \(\backslash\)}}
+\DoxyCodeLine{97 \textcolor{preprocessor}{    \{                                                                                    \(\backslash\)}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{        template<typename C, template<typename ...> class T,                             \(\backslash\)}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{                 template<typename ...> class A>                                         \(\backslash\)}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{        static NAME from\_toml(const basic\_value<C, T, A>\& v)                             \(\backslash\)}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{        \{                                                                                \(\backslash\)}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{            NAME obj;                                                                    \(\backslash\)}}
+\DoxyCodeLine{103 \textcolor{preprocessor}{            TOML11\_FOR\_EACH\_VA\_ARGS(TOML11\_FIND\_MEMBER\_VARIABLE\_FROM\_VALUE, \_\_VA\_ARGS\_\_) \(\backslash\)}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{            return obj;                                                                  \(\backslash\)}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{        \}                                                                                \(\backslash\)}}
+\DoxyCodeLine{106 \textcolor{preprocessor}{    \};                                                                                   \(\backslash\)}}
+\DoxyCodeLine{107 \textcolor{preprocessor}{    template<>                                                                           \(\backslash\)}}
+\DoxyCodeLine{108 \textcolor{preprocessor}{    struct into<NAME>                                                                    \(\backslash\)}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{    \{                                                                                    \(\backslash\)}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{        static value into\_toml(const NAME\& obj)                                          \(\backslash\)}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{        \{                                                                                \(\backslash\)}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{            ::toml::value v = ::toml::table\{\};                                           \(\backslash\)}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{            TOML11\_FOR\_EACH\_VA\_ARGS(TOML11\_ASSIGN\_MEMBER\_VARIABLE\_TO\_VALUE, \_\_VA\_ARGS\_\_) \(\backslash\)}}
+\DoxyCodeLine{114 \textcolor{preprocessor}{            return v;                                                                    \(\backslash\)}}
+\DoxyCodeLine{115 \textcolor{preprocessor}{        \}                                                                                \(\backslash\)}}
+\DoxyCodeLine{116 \textcolor{preprocessor}{    \};                                                                                   \(\backslash\)}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{    \} }\textcolor{comment}{/* toml */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#endif}\textcolor{comment}{// TOML11\_WITHOUT\_DEFINE\_NON\_INTRUSIVE}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#endif}\textcolor{comment}{// TOML11\_MACROS\_HPP}}
+
+\end{DoxyCode}

@@ -1,0 +1,332 @@
+\hypertarget{traits_8hpp_source}{}\doxysection{traits.\+hpp}
+\label{traits_8hpp_source}\index{external/toml/traits.hpp@{external/toml/traits.hpp}}
+\mbox{\hyperlink{traits_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//     Copyright Toru Niina 2017.}}
+\DoxyCodeLine{2 \textcolor{comment}{// Distributed under the MIT License.}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifndef TOML11\_TRAITS\_HPP}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TOML11\_TRAITS\_HPP}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{from_8hpp}{from.hpp}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{into_8hpp}{into.hpp}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{version_8hpp}{version.hpp}}"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <chrono>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <forward\_list>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <tuple>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <type\_traits>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#if TOML11\_CPLUSPLUS\_STANDARD\_VERSION >= 201703L}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#if \_\_has\_include(<string\_view>)}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <string\_view>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// has\_include(<string\_view>)}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// cplusplus   >= C++17}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetoml}{toml}}}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25 \textcolor{keyword}{template}<\textcolor{keyword}{typename} C, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }T, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }A>}
+\DoxyCodeLine{26 \textcolor{keyword}{class }basic\_value;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{namespace }detail}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{31 \textcolor{comment}{// check whether type T is a kind of container/map class}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__iterator__impl}{has\_iterator\_impl}}}
+\DoxyCodeLine{34 \{}
+\DoxyCodeLine{35     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{static} std::true\_type  \mbox{\hyperlink{structtoml_1_1detail_1_1has__iterator__impl_a3fa0efcf1d739740edc44d259a62ab38}{check}}(\textcolor{keyword}{typename} T::iterator*);}
+\DoxyCodeLine{36     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{static} std::false\_type \mbox{\hyperlink{structtoml_1_1detail_1_1has__iterator__impl_af33c063bd5b1d984e7c9be27dad0e189}{check}}(...);}
+\DoxyCodeLine{37 \};}
+\DoxyCodeLine{38 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__value__type__impl}{has\_value\_type\_impl}}}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{static} std::true\_type  \mbox{\hyperlink{structtoml_1_1detail_1_1has__value__type__impl_a7ea04684daf5397eedde830378d1badc}{check}}(\textcolor{keyword}{typename} T::value\_type*);}
+\DoxyCodeLine{41     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{static} std::false\_type \mbox{\hyperlink{structtoml_1_1detail_1_1has__value__type__impl_a5e9b700ec22ae508a0f08c75b38d1bcc}{check}}(...);}
+\DoxyCodeLine{42 \};}
+\DoxyCodeLine{43 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__key__type__impl}{has\_key\_type\_impl}}}
+\DoxyCodeLine{44 \{}
+\DoxyCodeLine{45     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{static} std::true\_type  \mbox{\hyperlink{structtoml_1_1detail_1_1has__key__type__impl_aa76b96d045894e23efd71f2b0cff8b32}{check}}(\textcolor{keyword}{typename} T::key\_type*);}
+\DoxyCodeLine{46     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{static} std::false\_type \mbox{\hyperlink{structtoml_1_1detail_1_1has__key__type__impl_afc3126ce7ed5381a1723716b632846b4}{check}}(...);}
+\DoxyCodeLine{47 \};}
+\DoxyCodeLine{48 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__mapped__type__impl}{has\_mapped\_type\_impl}}}
+\DoxyCodeLine{49 \{}
+\DoxyCodeLine{50     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{static} std::true\_type  \mbox{\hyperlink{structtoml_1_1detail_1_1has__mapped__type__impl_a4c74c54280e4ded1f8d1b2db557b969f}{check}}(\textcolor{keyword}{typename} T::mapped\_type*);}
+\DoxyCodeLine{51     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{static} std::false\_type \mbox{\hyperlink{structtoml_1_1detail_1_1has__mapped__type__impl_a2a01d0545a881acc3d4c1d5c9885a73e}{check}}(...);}
+\DoxyCodeLine{52 \};}
+\DoxyCodeLine{53 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__reserve__method__impl}{has\_reserve\_method\_impl}}}
+\DoxyCodeLine{54 \{}
+\DoxyCodeLine{55     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{static} std::false\_type \mbox{\hyperlink{structtoml_1_1detail_1_1has__reserve__method__impl_a1cf7e771ace33da83b0c51070ba4c5a3}{check}}(...);}
+\DoxyCodeLine{56     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{static} std::true\_type  \mbox{\hyperlink{structtoml_1_1detail_1_1has__reserve__method__impl_acb1ce22bfc9031d509c1c7ae067a1593}{check}}(}
+\DoxyCodeLine{57         \textcolor{keyword}{decltype}(std::declval<T>().reserve(std::declval<std::size\_t>()))*);}
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__push__back__method__impl}{has\_push\_back\_method\_impl}}}
+\DoxyCodeLine{60 \{}
+\DoxyCodeLine{61     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{static} std::false\_type \mbox{\hyperlink{structtoml_1_1detail_1_1has__push__back__method__impl_a6481c413a9a2ddaa07d0e4e490363703}{check}}(...);}
+\DoxyCodeLine{62     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{static} std::true\_type  \mbox{\hyperlink{structtoml_1_1detail_1_1has__push__back__method__impl_a6aa616c8cd936a896d4e91c57834574a}{check}}(}
+\DoxyCodeLine{63         \textcolor{keyword}{decltype}(std::declval<T>().push\_back(std::declval<typename T::value\_type>()))*);}
+\DoxyCodeLine{64 \};}
+\DoxyCodeLine{65 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__comparable__impl}{is\_comparable\_impl}}}
+\DoxyCodeLine{66 \{}
+\DoxyCodeLine{67     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{static} std::false\_type \mbox{\hyperlink{structtoml_1_1detail_1_1is__comparable__impl_a14290c321d4e9483b4384667b2cc1d77}{check}}(...);}
+\DoxyCodeLine{68     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{static} std::true\_type  \mbox{\hyperlink{structtoml_1_1detail_1_1is__comparable__impl_a72f790d36a7f54edb07c73d91e390964}{check}}(}
+\DoxyCodeLine{69         \textcolor{keyword}{decltype}(std::declval<T>() < std::declval<T>())*);}
+\DoxyCodeLine{70 \};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__from__toml__method__impl}{has\_from\_toml\_method\_impl}}}
+\DoxyCodeLine{73 \{}
+\DoxyCodeLine{74     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{75              \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }Tb, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }A>}
+\DoxyCodeLine{76     \textcolor{keyword}{static} std::true\_type  \mbox{\hyperlink{structtoml_1_1detail_1_1has__from__toml__method__impl_a669f1090d8e39928d3cf9d06c04d6547}{check}}(}
+\DoxyCodeLine{77         \textcolor{keyword}{decltype}(std::declval<T>().from\_toml(}
+\DoxyCodeLine{78                 std::declval<\mbox{\hyperlink{classtoml_1_1basic__value}{::toml::basic\_value<C, Tb, A>}}>()))*);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{81              \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }Tb, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }A>}
+\DoxyCodeLine{82     \textcolor{keyword}{static} std::false\_type \mbox{\hyperlink{structtoml_1_1detail_1_1has__from__toml__method__impl_ad2548f76f2157dcade39f7a5097db3b7}{check}}(...);}
+\DoxyCodeLine{83 \};}
+\DoxyCodeLine{84 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__into__toml__method__impl}{has\_into\_toml\_method\_impl}}}
+\DoxyCodeLine{85 \{}
+\DoxyCodeLine{86     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{87     \textcolor{keyword}{static} std::true\_type  \mbox{\hyperlink{structtoml_1_1detail_1_1has__into__toml__method__impl_addc3818b667e90780bf3caf1a3adb392}{check}}(\textcolor{keyword}{decltype}(std::declval<T>().into\_toml())*);}
+\DoxyCodeLine{88     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{89     \textcolor{keyword}{static} std::false\_type \mbox{\hyperlink{structtoml_1_1detail_1_1has__into__toml__method__impl_a436c95617e43235119f72d1bef7cdce4}{check}}(...);}
+\DoxyCodeLine{90 \};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__specialized__from__impl}{has\_specialized\_from\_impl}}}
+\DoxyCodeLine{93 \{}
+\DoxyCodeLine{94     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{95     \textcolor{keyword}{static} std::false\_type \mbox{\hyperlink{structtoml_1_1detail_1_1has__specialized__from__impl_a508f43fdfba0c81188f26d40cdc86851}{check}}(...);}
+\DoxyCodeLine{96     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, std::\textcolor{keywordtype}{size\_t} S = sizeof(::toml::from<T>)>}
+\DoxyCodeLine{97     \textcolor{keyword}{static} std::true\_type \mbox{\hyperlink{structtoml_1_1detail_1_1has__specialized__from__impl_a53bdb6c5af33482b9f887cc554695cdf}{check}}(\mbox{\hyperlink{structtoml_1_1from}{::toml::from<T>}}*);}
+\DoxyCodeLine{98 \};}
+\DoxyCodeLine{99 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__specialized__into__impl}{has\_specialized\_into\_impl}}}
+\DoxyCodeLine{100 \{}
+\DoxyCodeLine{101     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{102     \textcolor{keyword}{static} std::false\_type \mbox{\hyperlink{structtoml_1_1detail_1_1has__specialized__into__impl_a626d5c9028d44efe77c5351518f8a79d}{check}}(...);}
+\DoxyCodeLine{103     \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, std::\textcolor{keywordtype}{size\_t} S = sizeof(::toml::\textcolor{keywordtype}{int}o<T>)>}
+\DoxyCodeLine{104     \textcolor{keyword}{static} std::true\_type \mbox{\hyperlink{structtoml_1_1detail_1_1has__specialized__into__impl_a6062a28438249533028da26ba2863641}{check}}(\mbox{\hyperlink{structtoml_1_1from}{::toml::from<T>}}*);}
+\DoxyCodeLine{105 \};}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 }
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#ifdef \_\_INTEL\_COMPILER}}
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#define decltype(...) std::enable\_if<true, decltype(\_\_VA\_ARGS\_\_)>::type}}
+\DoxyCodeLine{112 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{115 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__iterator}{has\_iterator}}    : decltype(has\_iterator\_impl::check<T>(nullptr))\{\};}
+\DoxyCodeLine{116 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{117 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__value__type}{has\_value\_type}}  : decltype(has\_value\_type\_impl::check<T>(nullptr))\{\};}
+\DoxyCodeLine{118 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{119 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__key__type}{has\_key\_type}}    : decltype(has\_key\_type\_impl::check<T>(nullptr))\{\};}
+\DoxyCodeLine{120 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{121 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__mapped__type}{has\_mapped\_type}} : decltype(has\_mapped\_type\_impl::check<T>(nullptr))\{\};}
+\DoxyCodeLine{122 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{123 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__reserve__method}{has\_reserve\_method}} : decltype(has\_reserve\_method\_impl::check<T>(nullptr))\{\};}
+\DoxyCodeLine{124 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{125 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__push__back__method}{has\_push\_back\_method}} : decltype(has\_push\_back\_method\_impl::check<T>(nullptr))\{\};}
+\DoxyCodeLine{126 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{127 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__comparable}{is\_comparable}} : decltype(is\_comparable\_impl::check<T>(nullptr))\{\};}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{130          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }Tb, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }A>}
+\DoxyCodeLine{131 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__from__toml__method}{has\_from\_toml\_method}}}
+\DoxyCodeLine{132 : decltype(has\_from\_toml\_method\_impl::check<T, C, Tb, A>(nullptr))\{\};}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{135 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__into__toml__method}{has\_into\_toml\_method}}}
+\DoxyCodeLine{136 : decltype(has\_into\_toml\_method\_impl::check<T>(nullptr))\{\};}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{139 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__specialized__from}{has\_specialized\_from}} : decltype(has\_specialized\_from\_impl::check<T>(nullptr))\{\};}
+\DoxyCodeLine{140 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{141 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1has__specialized__into}{has\_specialized\_into}} : decltype(has\_specialized\_into\_impl::check<T>(nullptr))\{\};}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#ifdef \_\_INTEL\_COMPILER}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#undef decltype}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{148 \textcolor{comment}{// C++17 and/or/not}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#if TOML11\_CPLUSPLUS\_STANDARD\_VERSION >= 201703L}}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152 \textcolor{keyword}{using }std::conjunction;}
+\DoxyCodeLine{153 \textcolor{keyword}{using }std::disjunction;}
+\DoxyCodeLine{154 \textcolor{keyword}{using }std::negation;}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1conjunction}{conjunction}} : std::true\_type\{\};}
+\DoxyCodeLine{159 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>   \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1conjunction_3_01_t_01_4}{conjunction<T>}} : T\{\};}
+\DoxyCodeLine{160 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} ... Ts>}
+\DoxyCodeLine{161 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1conjunction}{conjunction}}<T, Ts...> :}
+\DoxyCodeLine{162     std::conditional<static\_cast<bool>(T::value), conjunction<Ts...>, T>::type}
+\DoxyCodeLine{163 \{\};}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165 \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1disjunction}{disjunction}} : std::false\_type\{\};}
+\DoxyCodeLine{166 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>   \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1disjunction_3_01_t_01_4}{disjunction<T>}} : T \{\};}
+\DoxyCodeLine{167 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} ... Ts>}
+\DoxyCodeLine{168 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1disjunction}{disjunction}}<T, Ts...> :}
+\DoxyCodeLine{169     std::conditional<static\_cast<bool>(T::value), T, disjunction<Ts...>>::type}
+\DoxyCodeLine{170 \{\};}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{173 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1negation}{negation}} : std::integral\_constant<bool, !static\_cast<bool>(T::value)>\{\};}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{178 \textcolor{comment}{// type checkers}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__std__pair}{is\_std\_pair}} : std::false\_type\{\};}
+\DoxyCodeLine{181 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T1, \textcolor{keyword}{typename} T2>}
+\DoxyCodeLine{182 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__std__pair}{is\_std\_pair}}<std::pair<T1, T2>> : std::true\_type\{\};}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__std__tuple}{is\_std\_tuple}} : std::false\_type\{\};}
+\DoxyCodeLine{185 \textcolor{keyword}{template}<\textcolor{keyword}{typename} ... Ts>}
+\DoxyCodeLine{186 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__std__tuple}{is\_std\_tuple}}<std::tuple<Ts...>> : std::true\_type\{\};}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__std__forward__list}{is\_std\_forward\_list}} : std::false\_type\{\};}
+\DoxyCodeLine{189 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{190 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__std__forward__list}{is\_std\_forward\_list}}<std::forward\_list<T>> : std::true\_type\{\};}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__chrono__duration}{is\_chrono\_duration}}: std::false\_type\{\};}
+\DoxyCodeLine{193 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Rep, \textcolor{keyword}{typename} Period>}
+\DoxyCodeLine{194 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__chrono__duration}{is\_chrono\_duration}}<std::chrono::duration<Rep, Period>>: std::true\_type\{\};}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{197 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__map}{is\_map}} : \mbox{\hyperlink{structtoml_1_1detail_1_1conjunction}{conjunction}}< \textcolor{comment}{// map satisfies all the following conditions}}
+\DoxyCodeLine{198     has\_iterator<T>,         \textcolor{comment}{// has T::iterator}}
+\DoxyCodeLine{199     has\_value\_type<T>,       \textcolor{comment}{// has T::value\_type}}
+\DoxyCodeLine{200     has\_key\_type<T>,         \textcolor{comment}{// has T::key\_type}}
+\DoxyCodeLine{201     has\_mapped\_type<T>       \textcolor{comment}{// has T::mapped\_type}}
+\DoxyCodeLine{202     >\{\};}
+\DoxyCodeLine{203 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__map}{is\_map}}<T\&>                : \mbox{\hyperlink{structtoml_1_1detail_1_1is__map}{is\_map<T>}}\{\};}
+\DoxyCodeLine{204 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__map}{is\_map}}<T const\&>          : \mbox{\hyperlink{structtoml_1_1detail_1_1is__map}{is\_map<T>}}\{\};}
+\DoxyCodeLine{205 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__map}{is\_map}}<T volatile\&>       : \mbox{\hyperlink{structtoml_1_1detail_1_1is__map}{is\_map<T>}}\{\};}
+\DoxyCodeLine{206 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__map}{is\_map}}<T const volatile\&> : \mbox{\hyperlink{structtoml_1_1detail_1_1is__map}{is\_map<T>}}\{\};}
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{209 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__container}{is\_container}} : \mbox{\hyperlink{structtoml_1_1detail_1_1conjunction}{conjunction}}<}
+\DoxyCodeLine{210     negation<is\_map<T>>,                         \textcolor{comment}{// not a map}}
+\DoxyCodeLine{211     negation<std::is\_same<T, std::string>>,      \textcolor{comment}{// not a std::string}}
+\DoxyCodeLine{212 \#if TOML11\_CPLUSPLUS\_STANDARD\_VERSION >= 201703L}
+\DoxyCodeLine{213 \textcolor{preprocessor}{\#if \_\_has\_include(<string\_view>)}}
+\DoxyCodeLine{214     \mbox{\hyperlink{structtoml_1_1detail_1_1negation}{negation}}<std::is\_same<T, std::string\_view>>, \textcolor{comment}{// not a std::string\_view}}
+\DoxyCodeLine{215 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// has\_include(<string\_view>)}}
+\DoxyCodeLine{216 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{217     \mbox{\hyperlink{structtoml_1_1detail_1_1has__iterator}{has\_iterator}}<T>,                             \textcolor{comment}{// has T::iterator}}
+\DoxyCodeLine{218     \mbox{\hyperlink{structtoml_1_1detail_1_1has__value__type}{has\_value\_type}}<T>                            \textcolor{comment}{// has T::value\_type}}
+\DoxyCodeLine{219     >\{\};}
+\DoxyCodeLine{220 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__container}{is\_container}}<T\&>                : \mbox{\hyperlink{structtoml_1_1detail_1_1is__container}{is\_container<T>}}\{\};}
+\DoxyCodeLine{221 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__container}{is\_container}}<T const\&>          : \mbox{\hyperlink{structtoml_1_1detail_1_1is__container}{is\_container<T>}}\{\};}
+\DoxyCodeLine{222 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__container}{is\_container}}<T volatile\&>       : \mbox{\hyperlink{structtoml_1_1detail_1_1is__container}{is\_container<T>}}\{\};}
+\DoxyCodeLine{223 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__container}{is\_container}}<T const volatile\&> : \mbox{\hyperlink{structtoml_1_1detail_1_1is__container}{is\_container<T>}}\{\};}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{226 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__basic__value}{is\_basic\_value}}: std::false\_type\{\};}
+\DoxyCodeLine{227 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__basic__value}{is\_basic\_value}}<T\&>                : \mbox{\hyperlink{structtoml_1_1detail_1_1is__basic__value}{is\_basic\_value<T>}}\{\};}
+\DoxyCodeLine{228 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__basic__value}{is\_basic\_value}}<T const\&>          : \mbox{\hyperlink{structtoml_1_1detail_1_1is__basic__value}{is\_basic\_value<T>}}\{\};}
+\DoxyCodeLine{229 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__basic__value}{is\_basic\_value}}<T volatile\&>       : \mbox{\hyperlink{structtoml_1_1detail_1_1is__basic__value}{is\_basic\_value<T>}}\{\};}
+\DoxyCodeLine{230 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__basic__value}{is\_basic\_value}}<T const volatile\&> : \mbox{\hyperlink{structtoml_1_1detail_1_1is__basic__value}{is\_basic\_value<T>}}\{\};}
+\DoxyCodeLine{231 \textcolor{keyword}{template}<\textcolor{keyword}{typename} C, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{232 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__basic__value}{is\_basic\_value}}<::\mbox{\hyperlink{classtoml_1_1basic__value}{toml::basic\_value}}<C, M, V>>: std::true\_type\{\};}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{235 \textcolor{comment}{// C++14 index\_sequence}}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237 \textcolor{preprocessor}{\#if TOML11\_CPLUSPLUS\_STANDARD\_VERSION >= 201402L}}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239 \textcolor{keyword}{using }std::index\_sequence;}
+\DoxyCodeLine{240 \textcolor{keyword}{using }\mbox{\hyperlink{namespacetoml_1_1detail_ae291022c5ae9ba855f2e9dfb79926729}{std::make\_index\_sequence}};}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244 \textcolor{keyword}{template}<std::size\_t ... Ns> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1index__sequence}{index\_sequence}}\{\};}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{246 \textcolor{keyword}{template}<\textcolor{keyword}{typename} IS, std::\textcolor{keywordtype}{size\_t} N> \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1push__back__index__sequence}{push\_back\_index\_sequence}}\{\};}
+\DoxyCodeLine{247 \textcolor{keyword}{template}<std::size\_t N, std::size\_t ... Ns>}
+\DoxyCodeLine{248 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1push__back__index__sequence}{push\_back\_index\_sequence}}<\mbox{\hyperlink{structtoml_1_1detail_1_1index__sequence}{index\_sequence}}<Ns...>, N>}
+\DoxyCodeLine{249 \{}
+\DoxyCodeLine{250     \textcolor{keyword}{typedef} \mbox{\hyperlink{structtoml_1_1detail_1_1index__sequence}{index\_sequence}}<Ns..., N> \mbox{\hyperlink{structtoml_1_1detail_1_1push__back__index__sequence_3_01index__sequence_3_01_ns_8_8_8_01_4_00_01_n_01_4_a5dbb29551a64b374c8767d2fc2c87206}{type}};}
+\DoxyCodeLine{251 \};}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{253 \textcolor{keyword}{template}<std::\textcolor{keywordtype}{size\_t} N>}
+\DoxyCodeLine{254 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1index__sequence__maker}{index\_sequence\_maker}}}
+\DoxyCodeLine{255 \{}
+\DoxyCodeLine{256     \textcolor{keyword}{typedef} \textcolor{keyword}{typename} \mbox{\hyperlink{structtoml_1_1detail_1_1push__back__index__sequence}{push\_back\_index\_sequence}}<}
+\DoxyCodeLine{257         \textcolor{keyword}{typename} \mbox{\hyperlink{structtoml_1_1detail_1_1index__sequence__maker}{index\_sequence\_maker}}<N-\/1>\mbox{\hyperlink{structtoml_1_1detail_1_1index__sequence__maker_a69ea22419bc58b1bbb9e05e3cacdcf62}{::type}}, N>\mbox{\hyperlink{structtoml_1_1detail_1_1index__sequence__maker_a69ea22419bc58b1bbb9e05e3cacdcf62}{::type}} \mbox{\hyperlink{structtoml_1_1detail_1_1index__sequence__maker_a69ea22419bc58b1bbb9e05e3cacdcf62}{type}};}
+\DoxyCodeLine{258 \};}
+\DoxyCodeLine{259 \textcolor{keyword}{template}<>}
+\DoxyCodeLine{260 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1index__sequence__maker}{index\_sequence\_maker}}<0>}
+\DoxyCodeLine{261 \{}
+\DoxyCodeLine{262     \textcolor{keyword}{typedef} \mbox{\hyperlink{structtoml_1_1detail_1_1index__sequence}{index\_sequence<0>}} \mbox{\hyperlink{structtoml_1_1detail_1_1index__sequence__maker_3_010_01_4_afad47e104b053821b98bfadc4da4b5d3}{type}};}
+\DoxyCodeLine{263 \};}
+\DoxyCodeLine{264 \textcolor{keyword}{template}<std::\textcolor{keywordtype}{size\_t} N>}
+\DoxyCodeLine{265 \textcolor{keyword}{using }\mbox{\hyperlink{namespacetoml_1_1detail_ae291022c5ae9ba855f2e9dfb79926729}{make\_index\_sequence}} = \textcolor{keyword}{typename} \mbox{\hyperlink{structtoml_1_1detail_1_1index__sequence__maker}{index\_sequence\_maker}}<N-\/1>::type;}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// cplusplus >= 2014}}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{270 \textcolor{comment}{// C++14 enable\_if\_t}}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272 \textcolor{preprocessor}{\#if TOML11\_CPLUSPLUS\_STANDARD\_VERSION >= 201402L}}
+\DoxyCodeLine{273 }
+\DoxyCodeLine{274 \textcolor{keyword}{using }\mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{std::enable\_if\_t}};}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{276 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{277 }
+\DoxyCodeLine{278 \textcolor{keyword}{template}<\textcolor{keywordtype}{bool} B, \textcolor{keyword}{typename} T>}
+\DoxyCodeLine{279 \textcolor{keyword}{using }\mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{enable\_if\_t}} = \textcolor{keyword}{typename} std::enable\_if<B, T>::type;}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{281 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// cplusplus >= 2014}}
+\DoxyCodeLine{282 }
+\DoxyCodeLine{283 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{284 \textcolor{comment}{// return\_type\_of\_t}}
+\DoxyCodeLine{285 }
+\DoxyCodeLine{286 \textcolor{preprocessor}{\#if TOML11\_CPLUSPLUS\_STANDARD\_VERSION >= 201703L \&\& defined(\_\_cpp\_lib\_is\_invocable) \&\& \_\_cpp\_lib\_is\_invocable>=201703}}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{288 \textcolor{keyword}{template}<\textcolor{keyword}{typename} F, \textcolor{keyword}{typename} ... Args>}
+\DoxyCodeLine{289 \textcolor{keyword}{using }\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{return\_type\_of\_t}} = std::invoke\_result\_t<F, Args...>;}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{292 \textcolor{comment}{// result\_of is deprecated after C++17}}
+\DoxyCodeLine{293 \textcolor{keyword}{template}<\textcolor{keyword}{typename} F, \textcolor{keyword}{typename} ... Args>}
+\DoxyCodeLine{294 \textcolor{keyword}{using }\mbox{\hyperlink{namespacetoml_1_1detail_a727c7ef6533c345fb5521b6b60ff3295}{return\_type\_of\_t}} = \textcolor{keyword}{typename} std::result\_of<F(Args...)>::type;}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{296 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{297 }
+\DoxyCodeLine{298 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{299 \textcolor{comment}{// is\_string\_literal}}
+\DoxyCodeLine{300 \textcolor{comment}{//}}
+\DoxyCodeLine{301 \textcolor{comment}{// to use this, pass `typename remove\_reference<T>::type` to T.}}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{303 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{304 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1is__string__literal}{is\_string\_literal}}:}
+\DoxyCodeLine{305 \mbox{\hyperlink{structtoml_1_1detail_1_1disjunction}{disjunction}}<}
+\DoxyCodeLine{306     std::is\_same<const char*, T>,}
+\DoxyCodeLine{307     conjunction<}
+\DoxyCodeLine{308         std::is\_array<T>,}
+\DoxyCodeLine{309         std::is\_same<const char, typename std::remove\_extent<T>::type>}
+\DoxyCodeLine{310         >}
+\DoxyCodeLine{311     >\{\};}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{313 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{314 \textcolor{comment}{// C++20 remove\_cvref\_t}}
+\DoxyCodeLine{315 }
+\DoxyCodeLine{316 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{317 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1remove__cvref}{remove\_cvref}}}
+\DoxyCodeLine{318 \{}
+\DoxyCodeLine{319     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1remove__cvref_a3a65dbc417324f1b74537d76dda3fb2e}{type}} = \textcolor{keyword}{typename} std::remove\_cv<}
+\DoxyCodeLine{320         \textcolor{keyword}{typename} std::remove\_reference<T>::type>\mbox{\hyperlink{structtoml_1_1detail_1_1remove__cvref_a3a65dbc417324f1b74537d76dda3fb2e}{::type}};}
+\DoxyCodeLine{321 \};}
+\DoxyCodeLine{322 }
+\DoxyCodeLine{323 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{324 \textcolor{keyword}{using }\mbox{\hyperlink{namespacetoml_1_1detail_aa9c03935999599ba21fb299c66c409e6}{remove\_cvref\_t}} = \textcolor{keyword}{typename} \mbox{\hyperlink{structtoml_1_1detail_1_1remove__cvref_a3a65dbc417324f1b74537d76dda3fb2e}{remove\_cvref<T>::type}};}
+\DoxyCodeLine{325 }
+\DoxyCodeLine{326 \}\textcolor{comment}{// detail}}
+\DoxyCodeLine{327 \}\textcolor{comment}{//toml}}
+\DoxyCodeLine{328 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TOML\_TRAITS}}
+
+\end{DoxyCode}

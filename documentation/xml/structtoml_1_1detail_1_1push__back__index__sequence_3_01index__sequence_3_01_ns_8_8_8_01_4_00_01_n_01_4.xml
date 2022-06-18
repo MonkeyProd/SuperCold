@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1detail_1_1push__back__index__sequence_3_01index__sequence_3_01_ns_8_8_8_01_4_00_01_n_01_4" kind="struct" language="C++" prot="public">
+    <compoundname>toml::detail::push_back_index_sequence&lt; index_sequence&lt; Ns... &gt;, N &gt;</compoundname>
+    <includes refid="traits_8hpp" local="no">traits.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>std::size_t</type>
+        <declname>N</declname>
+        <defname>N</defname>
+      </param>
+      <param>
+        <type>std::size_t ...</type>
+        <declname>Ns</declname>
+        <defname>Ns</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structtoml_1_1detail_1_1push__back__index__sequence_3_01index__sequence_3_01_ns_8_8_8_01_4_00_01_n_01_4_1a5dbb29551a64b374c8767d2fc2c87206" prot="public" static="no">
+        <type><ref refid="structtoml_1_1detail_1_1index__sequence" kindref="compound">index_sequence</ref>&lt; Ns..., N &gt;</type>
+        <definition>typedef index_sequence&lt;Ns..., N&gt; toml::detail::push_back_index_sequence&lt; index_sequence&lt; Ns... &gt;, N &gt;::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>toml::detail::push_back_index_sequence&lt; index_sequence&lt; Ns... &gt;, N &gt;::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/traits.hpp" line="250" column="28" bodyfile="external/toml/traits.hpp" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/traits.hpp" line="248" column="1" bodyfile="external/toml/traits.hpp" bodystart="249" bodyend="251"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1detail_1_1push__back__index__sequence_3_01index__sequence_3_01_ns_8_8_8_01_4_00_01_n_01_4_1a5dbb29551a64b374c8767d2fc2c87206" prot="public" virt="non-virtual"><scope>toml::detail::push_back_index_sequence&lt; index_sequence&lt; Ns... &gt;, N &gt;</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

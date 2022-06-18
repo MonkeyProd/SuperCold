@@ -1,0 +1,43 @@
+\hypertarget{_simplex_noise_8hpp_source}{}\doxysection{Simplex\+Noise.\+hpp}
+\label{_simplex_noise_8hpp_source}\index{external/SimplexNoise/SimplexNoise.hpp@{external/SimplexNoise/SimplexNoise.hpp}}
+\mbox{\hyperlink{_simplex_noise_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <cstddef>} \textcolor{comment}{// size\_t}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_simplex_noise}{SimplexNoise}}}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \textcolor{comment}{// 1D Perlin simplex noise}}
+\DoxyCodeLine{21     \textcolor{keyword}{static} \textcolor{keywordtype}{float} \mbox{\hyperlink{class_simplex_noise_ac7bd445e9b5e2d5aecb30c5f5840528c}{noise}}(\textcolor{keywordtype}{float} x);}
+\DoxyCodeLine{22     \textcolor{comment}{// 2D Perlin simplex noise}}
+\DoxyCodeLine{23     \textcolor{keyword}{static} \textcolor{keywordtype}{float} \mbox{\hyperlink{class_simplex_noise_ac7bd445e9b5e2d5aecb30c5f5840528c}{noise}}(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y);}
+\DoxyCodeLine{24     \textcolor{comment}{// 3D Perlin simplex noise}}
+\DoxyCodeLine{25     \textcolor{keyword}{static} \textcolor{keywordtype}{float} \mbox{\hyperlink{class_simplex_noise_ac7bd445e9b5e2d5aecb30c5f5840528c}{noise}}(\textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, \textcolor{keywordtype}{float} z);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{comment}{// Fractal/Fractional Brownian Motion (fBm) noise summation}}
+\DoxyCodeLine{28     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_simplex_noise_a868146cbed0ee0137b641b5b828a4c75}{fractal}}(\textcolor{keywordtype}{size\_t} octaves, \textcolor{keywordtype}{float} x) \textcolor{keyword}{const};}
+\DoxyCodeLine{29     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_simplex_noise_a868146cbed0ee0137b641b5b828a4c75}{fractal}}(\textcolor{keywordtype}{size\_t} octaves, \textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y) \textcolor{keyword}{const};}
+\DoxyCodeLine{30     \textcolor{keywordtype}{float} \mbox{\hyperlink{class_simplex_noise_a868146cbed0ee0137b641b5b828a4c75}{fractal}}(\textcolor{keywordtype}{size\_t} octaves, \textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, \textcolor{keywordtype}{float} z) \textcolor{keyword}{const};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{40     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_simplex_noise_a6981510da521395c25be9e9ad2fdbda0}{SimplexNoise}}(\textcolor{keywordtype}{float} frequency = 1.0f,}
+\DoxyCodeLine{41                           \textcolor{keywordtype}{float} amplitude = 1.0f,}
+\DoxyCodeLine{42                           \textcolor{keywordtype}{float} lacunarity = 2.0f,}
+\DoxyCodeLine{43                           \textcolor{keywordtype}{float} persistence = 0.5f) : mFrequency(frequency),}
+\DoxyCodeLine{44                                                       mAmplitude(amplitude),}
+\DoxyCodeLine{45                                                       mLacunarity(lacunarity),}
+\DoxyCodeLine{46                                                       mPersistence(persistence)}
+\DoxyCodeLine{47     \{}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{keyword}{private}:}
+\DoxyCodeLine{51     \textcolor{comment}{// Parameters of Fractional Brownian Motion (fBm) : sum of N "{}octaves"{} of noise}}
+\DoxyCodeLine{52     \textcolor{keywordtype}{float} mFrequency;   }
+\DoxyCodeLine{53     \textcolor{keywordtype}{float} mAmplitude;   }
+\DoxyCodeLine{54     \textcolor{keywordtype}{float} mLacunarity;  }
+\DoxyCodeLine{55     \textcolor{keywordtype}{float} mPersistence; }
+\DoxyCodeLine{56 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="struct_settings_manager" kind="struct" language="C++" prot="public">
+    <compoundname>SettingsManager</compoundname>
+    <includes refid="_settings_manager_8hpp" local="no">SettingsManager.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_settings_manager_1a15ccfc6f931cf2f2397404af3f736c37" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacetoml_1a34e466167cc683c477838accdebb2578" kindref="member">toml::value</ref></type>
+        <definition>toml::value SettingsManager::PlayerSettings</definition>
+        <argsstring></argsstring>
+        <name>PlayerSettings</name>
+        <qualifiedname>SettingsManager::PlayerSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SettingsManager/SettingsManager.hpp" line="13" column="13" bodyfile="SettingsManager/SettingsManager.hpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_settings_manager_1a893b9700ce887c2ed882734a79103e2e" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacetoml_1a34e466167cc683c477838accdebb2578" kindref="member">toml::value</ref></type>
+        <definition>toml::value SettingsManager::PlayerSpritesSettings</definition>
+        <argsstring></argsstring>
+        <name>PlayerSpritesSettings</name>
+        <qualifiedname>SettingsManager::PlayerSpritesSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SettingsManager/SettingsManager.hpp" line="14" column="13" bodyfile="SettingsManager/SettingsManager.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_settings_manager_1ae4e520284c80862d1cdaa65bb9babe33" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacetoml_1a34e466167cc683c477838accdebb2578" kindref="member">toml::value</ref></type>
+        <definition>toml::value SettingsManager::SpriteSettings</definition>
+        <argsstring></argsstring>
+        <name>SpriteSettings</name>
+        <qualifiedname>SettingsManager::SpriteSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SettingsManager/SettingsManager.hpp" line="15" column="13" bodyfile="SettingsManager/SettingsManager.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_settings_manager_1a3f7cbe2df5252425dad51a14717aa5ed" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacetoml_1a34e466167cc683c477838accdebb2578" kindref="member">toml::value</ref></type>
+        <definition>toml::value SettingsManager::TileIndexes</definition>
+        <argsstring></argsstring>
+        <name>TileIndexes</name>
+        <qualifiedname>SettingsManager::TileIndexes</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SettingsManager/SettingsManager.hpp" line="16" column="13" bodyfile="SettingsManager/SettingsManager.hpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_settings_manager_1a4a6dcaf49011e8ffcf59bad2dadd6ee3" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacetoml_1a34e466167cc683c477838accdebb2578" kindref="member">toml::value</ref></type>
+        <definition>toml::value SettingsManager::TileMapSettings</definition>
+        <argsstring></argsstring>
+        <name>TileMapSettings</name>
+        <qualifiedname>SettingsManager::TileMapSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SettingsManager/SettingsManager.hpp" line="17" column="13" bodyfile="SettingsManager/SettingsManager.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_settings_manager_1a3a40f202005ee4e41fe21aa3bb1325c6" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacetoml_1a34e466167cc683c477838accdebb2578" kindref="member">toml::value</ref></type>
+        <definition>toml::value SettingsManager::SoundSettings</definition>
+        <argsstring></argsstring>
+        <name>SoundSettings</name>
+        <qualifiedname>SettingsManager::SoundSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SettingsManager/SettingsManager.hpp" line="18" column="13" bodyfile="SettingsManager/SettingsManager.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_settings_manager_1a215f392c415ffc5683eadddaaf5cf9df" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacetoml_1a34e466167cc683c477838accdebb2578" kindref="member">toml::value</ref></type>
+        <definition>toml::value SettingsManager::WorldGenSettings</definition>
+        <argsstring></argsstring>
+        <name>WorldGenSettings</name>
+        <qualifiedname>SettingsManager::WorldGenSettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SettingsManager/SettingsManager.hpp" line="19" column="13" bodyfile="SettingsManager/SettingsManager.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_settings_manager_1acafe44796fd170428ec15650a828f952" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacetoml_1a34e466167cc683c477838accdebb2578" kindref="member">toml::value</ref></type>
+        <definition>toml::value SettingsManager::EnemySettings</definition>
+        <argsstring></argsstring>
+        <name>EnemySettings</name>
+        <qualifiedname>SettingsManager::EnemySettings</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SettingsManager/SettingsManager.hpp" line="20" column="13" bodyfile="SettingsManager/SettingsManager.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_settings_manager_1a2119526925795063fb9caa66369378f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SettingsManager::SettingsManager</definition>
+        <argsstring>(std::string settingsPath=&quot;../src/settings.toml&quot;)</argsstring>
+        <name>SettingsManager</name>
+        <qualifiedname>SettingsManager::SettingsManager</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>settingsPath</declname>
+          <defval>&quot;../src/settings.toml&quot;</defval>
+        </param>
+        <briefdescription>
+<para>Структура содержащий все настройки игры </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>settingsPath</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>путь к файлу настроек игры (toml) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SettingsManager/SettingsManager.hpp" line="12" column="1" bodyfile="SettingsManager/SettingsManager.cpp" bodystart="3" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_settings_manager_1a18c3e03920b6891fc5d212b2b97c367a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T SettingsManager::get</definition>
+        <argsstring>(toml::value settingsType, std::string key)</argsstring>
+        <name>get</name>
+        <qualifiedname>SettingsManager::get</qualifiedname>
+        <param>
+          <type><ref refid="namespacetoml_1a34e466167cc683c477838accdebb2578" kindref="member">toml::value</ref></type>
+          <declname>settingsType</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Метод, возращающий настройку по ключу </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>settingsType</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>интересующий список настроек </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ключ(название) настройки </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>тип настройки </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SettingsManager/SettingsManager.hpp" line="28" column="15" bodyfile="SettingsManager/SettingsManager.hpp" bodystart="28" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="SettingsManager/SettingsManager.hpp" line="6" column="1" bodyfile="SettingsManager/SettingsManager.hpp" bodystart="6" bodyend="31"/>
+    <listofallmembers>
+      <member refid="struct_settings_manager_1acafe44796fd170428ec15650a828f952" prot="public" virt="non-virtual"><scope>SettingsManager</scope><name>EnemySettings</name></member>
+      <member refid="struct_settings_manager_1a18c3e03920b6891fc5d212b2b97c367a" prot="public" virt="non-virtual"><scope>SettingsManager</scope><name>get</name></member>
+      <member refid="struct_settings_manager_1a15ccfc6f931cf2f2397404af3f736c37" prot="public" virt="non-virtual"><scope>SettingsManager</scope><name>PlayerSettings</name></member>
+      <member refid="struct_settings_manager_1a893b9700ce887c2ed882734a79103e2e" prot="public" virt="non-virtual"><scope>SettingsManager</scope><name>PlayerSpritesSettings</name></member>
+      <member refid="struct_settings_manager_1a2119526925795063fb9caa66369378f4" prot="public" virt="non-virtual"><scope>SettingsManager</scope><name>SettingsManager</name></member>
+      <member refid="struct_settings_manager_1a3a40f202005ee4e41fe21aa3bb1325c6" prot="public" virt="non-virtual"><scope>SettingsManager</scope><name>SoundSettings</name></member>
+      <member refid="struct_settings_manager_1ae4e520284c80862d1cdaa65bb9babe33" prot="public" virt="non-virtual"><scope>SettingsManager</scope><name>SpriteSettings</name></member>
+      <member refid="struct_settings_manager_1a3f7cbe2df5252425dad51a14717aa5ed" prot="public" virt="non-virtual"><scope>SettingsManager</scope><name>TileIndexes</name></member>
+      <member refid="struct_settings_manager_1a4a6dcaf49011e8ffcf59bad2dadd6ee3" prot="public" virt="non-virtual"><scope>SettingsManager</scope><name>TileMapSettings</name></member>
+      <member refid="struct_settings_manager_1a215f392c415ffc5683eadddaaf5cf9df" prot="public" virt="non-virtual"><scope>SettingsManager</scope><name>WorldGenSettings</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

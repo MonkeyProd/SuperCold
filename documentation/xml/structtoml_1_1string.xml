@@ -1,0 +1,439 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="structtoml_1_1string" kind="struct" language="C++" prot="public">
+    <compoundname>toml::string</compoundname>
+    <includes refid="string_8hpp" local="no">string.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structtoml_1_1string_1a18fe37d79cc0714a21301b29eaf946c1" prot="public" static="no" mutable="no">
+        <type><ref refid="namespacetoml_1a54c05bb4b385f96d45e3807a92c1d19a" kindref="member">string_t</ref></type>
+        <definition>string_t toml::string::kind</definition>
+        <argsstring></argsstring>
+        <name>kind</name>
+        <qualifiedname>toml::string::kind</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="73" column="17" bodyfile="external/toml/string.hpp" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structtoml_1_1string_1a5274c75c1109869cf58054277c3d7ebe" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string toml::string::str</definition>
+        <argsstring></argsstring>
+        <name>str</name>
+        <qualifiedname>toml::string::str</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="74" column="17" bodyfile="external/toml/string.hpp" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structtoml_1_1string_1a5f3999cc1ecc7a7677fef95f662500f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::string::string</definition>
+        <argsstring>()=default</argsstring>
+        <name>string</name>
+        <qualifiedname>toml::string::string</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="31" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1a2f55dc01f6f320de416eb17c45379ebf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::string::~string</definition>
+        <argsstring>()=default</argsstring>
+        <name>~string</name>
+        <qualifiedname>toml::string::~string</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="32" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1ac9ee59aa2badcb4af232e2c23c41d9c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::string::string</definition>
+        <argsstring>(const string &amp;s)=default</argsstring>
+        <name>string</name>
+        <qualifiedname>toml::string::string</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1string" kindref="compound">string</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="33" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1a283b03aafc980b95234d455a2312eaf8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>toml::string::string</definition>
+        <argsstring>(string &amp;&amp;s)=default</argsstring>
+        <name>string</name>
+        <qualifiedname>toml::string::string</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1string" kindref="compound">string</ref> &amp;&amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="34" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1abb79c08ca519611f2bc734ec91f83a2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1string" kindref="compound">string</ref> &amp;</type>
+        <definition>string &amp; toml::string::operator=</definition>
+        <argsstring>(const string &amp;s)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::string::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1string" kindref="compound">string</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="35" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1a5781bc882f3a60fcfd695825a4c55361" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structtoml_1_1string" kindref="compound">string</ref> &amp;</type>
+        <definition>string &amp; toml::string::operator=</definition>
+        <argsstring>(string &amp;&amp;s)=default</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::string::operator=</qualifiedname>
+        <param>
+          <type><ref refid="structtoml_1_1string" kindref="compound">string</ref> &amp;&amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="36" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1a95296f0fc36bcd35863a34bee5ec56ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::string::string</definition>
+        <argsstring>(const std::string &amp;s)</argsstring>
+        <name>string</name>
+        <qualifiedname>toml::string::string</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="38" column="5" bodyfile="external/toml/string.hpp" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1a81362490c9ff0407f7e6c5dcff577cb6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::string::string</definition>
+        <argsstring>(const std::string &amp;s, string_t k)</argsstring>
+        <name>string</name>
+        <qualifiedname>toml::string::string</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacetoml_1a54c05bb4b385f96d45e3807a92c1d19a" kindref="member">string_t</ref></type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="39" column="5" bodyfile="external/toml/string.hpp" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1ae119387bc15a2623894654e855e25209" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::string::string</definition>
+        <argsstring>(const char *s)</argsstring>
+        <name>string</name>
+        <qualifiedname>toml::string::string</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="40" column="5" bodyfile="external/toml/string.hpp" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1a178448dbe5454516827e1fb340c717bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::string::string</definition>
+        <argsstring>(const char *s, string_t k)</argsstring>
+        <name>string</name>
+        <qualifiedname>toml::string::string</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacetoml_1a54c05bb4b385f96d45e3807a92c1d19a" kindref="member">string_t</ref></type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="41" column="5" bodyfile="external/toml/string.hpp" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1a2505f06503d6995ece949b5ad6e94ec5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::string::string</definition>
+        <argsstring>(std::string &amp;&amp;s)</argsstring>
+        <name>string</name>
+        <qualifiedname>toml::string::string</qualifiedname>
+        <param>
+          <type>std::string &amp;&amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="43" column="5" bodyfile="external/toml/string.hpp" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1a5fa2846cf94e6d4ff48e9e63bf67b0f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::string::string</definition>
+        <argsstring>(std::string &amp;&amp;s, string_t k)</argsstring>
+        <name>string</name>
+        <qualifiedname>toml::string::string</qualifiedname>
+        <param>
+          <type>std::string &amp;&amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type><ref refid="namespacetoml_1a54c05bb4b385f96d45e3807a92c1d19a" kindref="member">string_t</ref></type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="44" column="5" bodyfile="external/toml/string.hpp" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1a59c4284332dcd926f87249fc9e84cf81" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1string" kindref="compound">string</ref> &amp;</type>
+        <definition>string &amp; toml::string::operator=</definition>
+        <argsstring>(const std::string &amp;s)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::string::operator=</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="46" column="12" bodyfile="external/toml/string.hpp" bodystart="46" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1a0ebb5e8d76ed9ac14e7a9dcd929db558" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1string" kindref="compound">string</ref> &amp;</type>
+        <definition>string &amp; toml::string::operator=</definition>
+        <argsstring>(std::string &amp;&amp;s)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>toml::string::operator=</qualifiedname>
+        <param>
+          <type>std::string &amp;&amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="48" column="12" bodyfile="external/toml/string.hpp" bodystart="48" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1a40e079c62c857e40679ecae48ad07307" prot="public" static="no" const="no" explicit="no" inline="yes" refqual="lvalue" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::string::operator std::string &amp;</definition>
+        <argsstring>() &amp;noexcept</argsstring>
+        <name>operator std::string &amp;</name>
+        <qualifiedname>toml::string::string &amp;</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="51" column="5" bodyfile="external/toml/string.hpp" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1a9a381a48662b5595f595f9a460a09b5e" prot="public" static="no" const="yes" explicit="no" inline="yes" refqual="lvalue" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::string::operator std::string const &amp;</definition>
+        <argsstring>() const &amp;noexcept</argsstring>
+        <name>operator std::string const &amp;</name>
+        <qualifiedname>toml::string::string const &amp;</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="52" column="5" bodyfile="external/toml/string.hpp" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1afc69b396b1d714fbf933041466ab9d38" prot="public" static="no" const="no" explicit="no" inline="yes" refqual="rvalue" noexcept="yes" virt="non-virtual">
+        <type></type>
+        <definition>toml::string::operator std::string &amp;&amp;</definition>
+        <argsstring>() &amp;&amp;noexcept</argsstring>
+        <name>operator std::string &amp;&amp;</name>
+        <qualifiedname>toml::string::string &amp;&amp;</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="53" column="5" bodyfile="external/toml/string.hpp" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1a911acfd5e9656b26bc0fab6e179ebfde" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1string" kindref="compound">string</ref> &amp;</type>
+        <definition>string &amp; toml::string::operator+=</definition>
+        <argsstring>(const char *rhs)</argsstring>
+        <name>operator+=</name>
+        <qualifiedname>toml::string::operator+=</qualifiedname>
+        <param>
+          <type>const char *</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="55" column="12" bodyfile="external/toml/string.hpp" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1a3015cd54e087aea2ec279293db070092" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1string" kindref="compound">string</ref> &amp;</type>
+        <definition>string &amp; toml::string::operator+=</definition>
+        <argsstring>(const char rhs)</argsstring>
+        <name>operator+=</name>
+        <qualifiedname>toml::string::operator+=</qualifiedname>
+        <param>
+          <type>const char</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="56" column="12" bodyfile="external/toml/string.hpp" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1a00b4c3bb56be07a86100962459a065ce" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1string" kindref="compound">string</ref> &amp;</type>
+        <definition>string &amp; toml::string::operator+=</definition>
+        <argsstring>(const std::string &amp;rhs)</argsstring>
+        <name>operator+=</name>
+        <qualifiedname>toml::string::operator+=</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="57" column="12" bodyfile="external/toml/string.hpp" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="structtoml_1_1string_1ab588509f5ca98c850a105b434d9a0297" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structtoml_1_1string" kindref="compound">string</ref> &amp;</type>
+        <definition>string &amp; toml::string::operator+=</definition>
+        <argsstring>(const string &amp;rhs)</argsstring>
+        <name>operator+=</name>
+        <qualifiedname>toml::string::operator+=</qualifiedname>
+        <param>
+          <type>const <ref refid="structtoml_1_1string" kindref="compound">string</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="external/toml/string.hpp" line="58" column="12" bodyfile="external/toml/string.hpp" bodystart="58" bodyend="58"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="external/toml/string.hpp" line="29" column="1" bodyfile="external/toml/string.hpp" bodystart="30" bodyend="75"/>
+    <listofallmembers>
+      <member refid="structtoml_1_1string_1a18fe37d79cc0714a21301b29eaf946c1" prot="public" virt="non-virtual"><scope>toml::string</scope><name>kind</name></member>
+      <member refid="structtoml_1_1string_1a40e079c62c857e40679ecae48ad07307" prot="public" virt="non-virtual"><scope>toml::string</scope><name>operator std::string &amp;</name></member>
+      <member refid="structtoml_1_1string_1afc69b396b1d714fbf933041466ab9d38" prot="public" virt="non-virtual"><scope>toml::string</scope><name>operator std::string &amp;&amp;</name></member>
+      <member refid="structtoml_1_1string_1a9a381a48662b5595f595f9a460a09b5e" prot="public" virt="non-virtual"><scope>toml::string</scope><name>operator std::string const &amp;</name></member>
+      <member refid="structtoml_1_1string_1a911acfd5e9656b26bc0fab6e179ebfde" prot="public" virt="non-virtual"><scope>toml::string</scope><name>operator+=</name></member>
+      <member refid="structtoml_1_1string_1a3015cd54e087aea2ec279293db070092" prot="public" virt="non-virtual"><scope>toml::string</scope><name>operator+=</name></member>
+      <member refid="structtoml_1_1string_1a00b4c3bb56be07a86100962459a065ce" prot="public" virt="non-virtual"><scope>toml::string</scope><name>operator+=</name></member>
+      <member refid="structtoml_1_1string_1ab588509f5ca98c850a105b434d9a0297" prot="public" virt="non-virtual"><scope>toml::string</scope><name>operator+=</name></member>
+      <member refid="structtoml_1_1string_1abb79c08ca519611f2bc734ec91f83a2c" prot="public" virt="non-virtual"><scope>toml::string</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1string_1a5781bc882f3a60fcfd695825a4c55361" prot="public" virt="non-virtual"><scope>toml::string</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1string_1a59c4284332dcd926f87249fc9e84cf81" prot="public" virt="non-virtual"><scope>toml::string</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1string_1a0ebb5e8d76ed9ac14e7a9dcd929db558" prot="public" virt="non-virtual"><scope>toml::string</scope><name>operator=</name></member>
+      <member refid="structtoml_1_1string_1a5274c75c1109869cf58054277c3d7ebe" prot="public" virt="non-virtual"><scope>toml::string</scope><name>str</name></member>
+      <member refid="structtoml_1_1string_1a5f3999cc1ecc7a7677fef95f662500f6" prot="public" virt="non-virtual"><scope>toml::string</scope><name>string</name></member>
+      <member refid="structtoml_1_1string_1ac9ee59aa2badcb4af232e2c23c41d9c4" prot="public" virt="non-virtual"><scope>toml::string</scope><name>string</name></member>
+      <member refid="structtoml_1_1string_1a283b03aafc980b95234d455a2312eaf8" prot="public" virt="non-virtual"><scope>toml::string</scope><name>string</name></member>
+      <member refid="structtoml_1_1string_1a95296f0fc36bcd35863a34bee5ec56ae" prot="public" virt="non-virtual"><scope>toml::string</scope><name>string</name></member>
+      <member refid="structtoml_1_1string_1a81362490c9ff0407f7e6c5dcff577cb6" prot="public" virt="non-virtual"><scope>toml::string</scope><name>string</name></member>
+      <member refid="structtoml_1_1string_1ae119387bc15a2623894654e855e25209" prot="public" virt="non-virtual"><scope>toml::string</scope><name>string</name></member>
+      <member refid="structtoml_1_1string_1a178448dbe5454516827e1fb340c717bf" prot="public" virt="non-virtual"><scope>toml::string</scope><name>string</name></member>
+      <member refid="structtoml_1_1string_1a2505f06503d6995ece949b5ad6e94ec5" prot="public" virt="non-virtual"><scope>toml::string</scope><name>string</name></member>
+      <member refid="structtoml_1_1string_1a5fa2846cf94e6d4ff48e9e63bf67b0f3" prot="public" virt="non-virtual"><scope>toml::string</scope><name>string</name></member>
+      <member refid="structtoml_1_1string_1a2f55dc01f6f320de416eb17c45379ebf" prot="public" virt="non-virtual"><scope>toml::string</scope><name>~string</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

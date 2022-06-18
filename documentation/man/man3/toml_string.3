@@ -1,0 +1,143 @@
+.TH "toml::string" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::string
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <string\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBstring\fP ()=default"
+.br
+.ti -1c
+.RI "\fB~string\fP ()=default"
+.br
+.ti -1c
+.RI "\fBstring\fP (const \fBstring\fP &s)=default"
+.br
+.ti -1c
+.RI "\fBstring\fP (\fBstring\fP &&s)=default"
+.br
+.ti -1c
+.RI "\fBstring\fP & \fBoperator=\fP (const \fBstring\fP &s)=default"
+.br
+.ti -1c
+.RI "\fBstring\fP & \fBoperator=\fP (\fBstring\fP &&s)=default"
+.br
+.ti -1c
+.RI "\fBstring\fP (const std::string &s)"
+.br
+.ti -1c
+.RI "\fBstring\fP (const std::string &s, \fBstring_t\fP k)"
+.br
+.ti -1c
+.RI "\fBstring\fP (const char *s)"
+.br
+.ti -1c
+.RI "\fBstring\fP (const char *s, \fBstring_t\fP k)"
+.br
+.ti -1c
+.RI "\fBstring\fP (std::string &&s)"
+.br
+.ti -1c
+.RI "\fBstring\fP (std::string &&s, \fBstring_t\fP k)"
+.br
+.ti -1c
+.RI "\fBstring\fP & \fBoperator=\fP (const std::string &s)"
+.br
+.ti -1c
+.RI "\fBstring\fP & \fBoperator=\fP (std::string &&s)"
+.br
+.ti -1c
+.RI "\fBoperator std::string &\fP () &noexcept"
+.br
+.ti -1c
+.RI "\fBoperator std::string const &\fP () const &noexcept"
+.br
+.ti -1c
+.RI "\fBoperator std::string &&\fP () &&noexcept"
+.br
+.ti -1c
+.RI "\fBstring\fP & \fBoperator+=\fP (const char *rhs)"
+.br
+.ti -1c
+.RI "\fBstring\fP & \fBoperator+=\fP (const char rhs)"
+.br
+.ti -1c
+.RI "\fBstring\fP & \fBoperator+=\fP (const std::string &rhs)"
+.br
+.ti -1c
+.RI "\fBstring\fP & \fBoperator+=\fP (const \fBstring\fP &rhs)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBstring_t\fP \fBkind\fP"
+.br
+.ti -1c
+.RI "std::string \fBstr\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "toml::string::string ()\fC [default]\fP"
+
+.SS "toml::string::~string ()\fC [default]\fP"
+
+.SS "toml::string::string (const \fBstring\fP & s)\fC [default]\fP"
+
+.SS "toml::string::string (\fBstring\fP && s)\fC [default]\fP"
+
+.SS "toml::string::string (const std::string & s)\fC [inline]\fP"
+
+.SS "toml::string::string (const std::string & s, \fBstring_t\fP k)\fC [inline]\fP"
+
+.SS "toml::string::string (const char * s)\fC [inline]\fP"
+
+.SS "toml::string::string (const char * s, \fBstring_t\fP k)\fC [inline]\fP"
+
+.SS "toml::string::string (std::string && s)\fC [inline]\fP"
+
+.SS "toml::string::string (std::string && s, \fBstring_t\fP k)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "toml::string::operator std::string & () &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "toml::string::operator std::string && () &&\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "toml::string::operator std::string const & () const &\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBstring\fP & toml::string::operator+= (const char * rhs)\fC [inline]\fP"
+
+.SS "\fBstring\fP & toml::string::operator+= (const char rhs)\fC [inline]\fP"
+
+.SS "\fBstring\fP & toml::string::operator+= (const std::string & rhs)\fC [inline]\fP"
+
+.SS "\fBstring\fP & toml::string::operator+= (const \fBstring\fP & rhs)\fC [inline]\fP"
+
+.SS "\fBstring\fP & toml::string::operator= (const std::string & s)\fC [inline]\fP"
+
+.SS "\fBstring\fP & toml::string::operator= (const \fBstring\fP & s)\fC [default]\fP"
+
+.SS "\fBstring\fP & toml::string::operator= (std::string && s)\fC [inline]\fP"
+
+.SS "\fBstring\fP & toml::string::operator= (\fBstring\fP && s)\fC [default]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBstring_t\fP toml::string::kind"
+
+.SS "std::string toml::string::str"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

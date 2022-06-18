@@ -1,0 +1,16 @@
+.TH "toml::detail::is_exact_toml_type< T, Value >" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::detail::is_exact_toml_type< T, Value >
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <types\&.hpp>\fP
+.PP
+Inherits \fBtoml::detail::disjunction< std::is_same< T, boolean >, std::is_same< T, integer >, std::is_same< T, floating >, std::is_same< T, string >, std::is_same< T, offset_datetime >, std::is_same< T, local_datetime >, std::is_same< T, local_date >, std::is_same< T, local_time >, std::is_same< T, Value::array_type >, std::is_same< T, Value::table_type > >\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

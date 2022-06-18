@@ -1,0 +1,92 @@
+.TH "toml::source_location" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+toml::source_location
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <source_location\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsource_location\fP ()"
+.br
+.ti -1c
+.RI "\fBsource_location\fP (const \fBdetail::region_base\fP *reg)"
+.br
+.ti -1c
+.RI "\fBsource_location\fP (const \fBdetail::region\fP &reg)"
+.br
+.ti -1c
+.RI "\fBsource_location\fP (const \fBdetail::location\fP &loc)"
+.br
+.ti -1c
+.RI "\fB~source_location\fP ()=default"
+.br
+.ti -1c
+.RI "\fBsource_location\fP (\fBsource_location\fP const &)=default"
+.br
+.ti -1c
+.RI "\fBsource_location\fP (\fBsource_location\fP &&)=default"
+.br
+.ti -1c
+.RI "\fBsource_location\fP & \fBoperator=\fP (\fBsource_location\fP const &)=default"
+.br
+.ti -1c
+.RI "\fBsource_location\fP & \fBoperator=\fP (\fBsource_location\fP &&)=default"
+.br
+.ti -1c
+.RI "std::uint_least32_t \fBline\fP () const noexcept"
+.br
+.ti -1c
+.RI "std::uint_least32_t \fBcolumn\fP () const noexcept"
+.br
+.ti -1c
+.RI "std::uint_least32_t \fBregion\fP () const noexcept"
+.br
+.ti -1c
+.RI "std::string const & \fBfile_name\fP () const noexcept"
+.br
+.ti -1c
+.RI "std::string const & \fBline_str\fP () const noexcept"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "toml::source_location::source_location ()\fC [inline]\fP"
+
+.SS "toml::source_location::source_location (const \fBdetail::region_base\fP * reg)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "toml::source_location::source_location (const \fBdetail::region\fP & reg)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "toml::source_location::source_location (const \fBdetail::location\fP & loc)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SS "toml::source_location::~source_location ()\fC [default]\fP"
+
+.SS "toml::source_location::source_location (\fBsource_location\fP const &)\fC [default]\fP"
+
+.SS "toml::source_location::source_location (\fBsource_location\fP &&)\fC [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "std::uint_least32_t toml::source_location::column () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "std::string const  & toml::source_location::file_name () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "std::uint_least32_t toml::source_location::line () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "std::string const  & toml::source_location::line_str () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+.SS "\fBsource_location\fP & toml::source_location::operator= (\fBsource_location\fP &&)\fC [default]\fP"
+
+.SS "\fBsource_location\fP & toml::source_location::operator= (\fBsource_location\fP const &)\fC [default]\fP"
+
+.SS "std::uint_least32_t toml::source_location::region () const\fC [inline]\fP, \fC [noexcept]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

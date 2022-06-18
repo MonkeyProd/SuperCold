@@ -1,0 +1,218 @@
+.TH "GameObject" 3 "Sat Jun 18 2022" "Version 1.0" "SuperCold" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GameObject
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <GameObject\&.hpp>\fP
+.PP
+Inherits sf::Drawable, and sf::Transformable\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGameObject\fP ()"
+.br
+.ti -1c
+.RI "\fBGameObject\fP (const sf::Vector2f &cordinates, std::vector< sf::Sprite > &sprites_array, bool \fBisCollider\fP=false, float scale=1, sf::Vector2f boxCollider={0, 0})"
+.br
+.RI "Класс игрового объекта "
+.ti -1c
+.RI "\fBGameObject\fP (const sf::Vector2f &cordinates, const sf::Sprite &sprite, bool \fBisCollider\fP=false, float scale=1, sf::Vector2f boxCollider={0, 0})"
+.br
+.RI "Класс игрового объекта "
+.ti -1c
+.RI "virtual void \fBdraw\fP (sf::RenderTarget &surface, sf::RenderStates states) const"
+.br
+.ti -1c
+.RI "void \fBnextState\fP ()"
+.br
+.RI "Метод меняющий спрайт анимации игрового объекта на следующий "
+.ti -1c
+.RI "bool \fBisCollider\fP () const"
+.br
+.RI "Метод, возращающий bool - является ли игровой объекта коллайдером "
+.ti -1c
+.RI "void \fBresetAnimation\fP ()"
+.br
+.RI "Метод сброса анимации до начального спрайта "
+.ti -1c
+.RI "bool \fBcheck_collision\fP (\fBGameObject\fP &other) const"
+.br
+.RI "Метод, возрающий bool - пересеклись ли два игровых объекта "
+.ti -1c
+.RI "bool \fBcheck_collision\fP (sf::FloatRect &otherFloatRect) const"
+.br
+.RI "Метод, возрающий bool - пересеклись ли игровой объект и FloatRect\&. "
+.ti -1c
+.RI "sf::FloatRect \fBgetGameObjectRect\fP () const"
+.br
+.RI "Метод, возрающий FloatRect игрового объекта "
+.ti -1c
+.RI "bool \fBisLastAnimationState\fP () const"
+.br
+.RI "Метод, возрающий bool - является ли текущий спрайт последним в анимации "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "float \fBm_scale\fP"
+.br
+.ti -1c
+.RI "bool \fBstopAtEnd\fP = false"
+.br
+.ti -1c
+.RI "std::vector< sf::Sprite > \fBm_sprites_array\fP"
+.br
+.ti -1c
+.RI "sf::Sprite \fBm_sprite\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBGameObject\fP class have animation state which says what sprite index use to draw 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "GameObject::GameObject ()"
+
+.SS "GameObject::GameObject (const sf::Vector2f & cordinates, std::vector< sf::Sprite > & sprites_array, bool isCollider = \fCfalse\fP, float scale = \fC1\fP, sf::Vector2f boxCollider = \fC{0, 0}\fP)"
+
+.PP
+Класс игрового объекта 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcordinates\fP положение игрвого объекта 
+.br
+\fIsprites_array\fP вектор спрайтов(для анимации) 
+.br
+\fIisCollider\fP bool - является ли игровой объект коллайдером 
+.br
+\fIscale\fP коэффициент увеличения спрайта игрового объекта 
+.br
+\fIboxCollider\fP размеры квадрата коллизии игрового объекта 
+.RE
+.PP
+
+.SS "GameObject::GameObject (const sf::Vector2f & cordinates, const sf::Sprite & sprite, bool isCollider = \fCfalse\fP, float scale = \fC1\fP, sf::Vector2f boxCollider = \fC{0, 0}\fP)"
+
+.PP
+Класс игрового объекта 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcordinates\fP положение игрвого объекта 
+.br
+\fIsprite\fP спрайт игрового объекта 
+.br
+\fIisCollider\fP bool - является ли игровой объект коллайдером 
+.br
+\fIscale\fP коэффициент увеличения спрайта игрового объекта 
+.br
+\fIboxCollider\fP размеры квадрата коллизии игрового объекта 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "bool GameObject::check_collision (\fBGameObject\fP & other) const"
+
+.PP
+Метод, возрающий bool - пересеклись ли два игровых объекта 
+.PP
+\fBParameters\fP
+.RS 4
+\fIother\fP игровой объект с которым проверяем пересечение 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true есть пересечение 
+.PP
+false нет пересечения 
+.RE
+.PP
+
+.SS "bool GameObject::check_collision (sf::FloatRect & otherFloatRect) const"
+
+.PP
+Метод, возрающий bool - пересеклись ли игровой объект и FloatRect\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIotherFloatRect\fP FloatRect с которым проверяем пересечение 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true пересечение есть 
+.PP
+false пересечения нет 
+.RE
+.PP
+
+.SS "void GameObject::draw (sf::RenderTarget & surface, sf::RenderStates states) const\fC [virtual]\fP"
+
+.SS "sf::FloatRect GameObject::getGameObjectRect () const"
+
+.PP
+Метод, возрающий FloatRect игрового объекта 
+.PP
+\fBReturns\fP
+.RS 4
+sf::FloatRect 
+.RE
+.PP
+
+.SS "bool GameObject::isCollider () const"
+
+.PP
+Метод, возращающий bool - является ли игровой объекта коллайдером 
+.PP
+\fBReturns\fP
+.RS 4
+true является 
+.PP
+false не является 
+.RE
+.PP
+
+.SS "bool GameObject::isLastAnimationState () const"
+
+.PP
+Метод, возрающий bool - является ли текущий спрайт последним в анимации 
+.PP
+\fBReturns\fP
+.RS 4
+true да, является 
+.PP
+false нет, не является 
+.RE
+.PP
+
+.SS "void GameObject::nextState ()"
+
+.PP
+Метод меняющий спрайт анимации игрового объекта на следующий 
+.SS "void GameObject::resetAnimation ()"
+
+.PP
+Метод сброса анимации до начального спрайта 
+.SH "Member Data Documentation"
+.PP 
+.SS "float GameObject::m_scale"
+
+.SS "sf::Sprite GameObject::m_sprite"
+
+.SS "std::vector<sf::Sprite> GameObject::m_sprites_array"
+
+.SS "bool GameObject::stopAtEnd = false"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for SuperCold from the source code\&.

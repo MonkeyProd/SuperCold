@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="class_tile_map" kind="class" language="C++" prot="public">
+    <compoundname>TileMap</compoundname>
+    <includes refid="_tile_map_8hpp" local="no">TileMap.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_tile_map_1a1787e2c4846f4f9ae1785936268c1a5e" prot="private" static="no" mutable="no">
+        <type>sf::Texture &amp;</type>
+        <definition>sf::Texture&amp; TileMap::m_tileset</definition>
+        <argsstring></argsstring>
+        <name>m_tileset</name>
+        <qualifiedname>TileMap::m_tileset</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="TileMap/TileMap.hpp" line="6" column="13" bodyfile="TileMap/TileMap.hpp" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tile_map_1a36bdb1b1e089342537773482aefae97a" prot="private" static="no" mutable="no">
+        <type>sf::Vector2u</type>
+        <definition>sf::Vector2u TileMap::m_tile_size</definition>
+        <argsstring></argsstring>
+        <name>m_tile_size</name>
+        <qualifiedname>TileMap::m_tile_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="TileMap/TileMap.hpp" line="7" column="14" bodyfile="TileMap/TileMap.hpp" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_tile_map_1ab4aa74258fcfe2c7926fb93a4e3f6153" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; sf::Sprite &gt;</type>
+        <definition>std::vector&lt;sf::Sprite&gt; TileMap::m_sprites</definition>
+        <argsstring></argsstring>
+        <name>m_sprites</name>
+        <qualifiedname>TileMap::m_sprites</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="TileMap/TileMap.hpp" line="8" column="13" bodyfile="TileMap/TileMap.hpp" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_tile_map_1aaf23f8a8753dd90bcd128eebe45a281f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TileMap::TileMap</definition>
+        <argsstring>(sf::Texture &amp;tileset, const sf::Vector2u &amp;tile_size)</argsstring>
+        <name>TileMap</name>
+        <qualifiedname>TileMap::TileMap</qualifiedname>
+        <param>
+          <type>sf::Texture &amp;</type>
+          <declname>tileset</declname>
+        </param>
+        <param>
+          <type>const sf::Vector2u &amp;</type>
+          <declname>tile_size</declname>
+        </param>
+        <briefdescription>
+<para>Класс, создающий вектор спрайтов из текстуры </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tileset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>ссылка на текстуру </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tile_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>размер тайлов в текстуре </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="TileMap/TileMap.hpp" line="16" column="1" bodyfile="TileMap/TileMap.cpp" bodystart="3" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_tile_map_1a299610cfb1a703eec0a432e8bc4f3d28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; sf::Sprite &gt;</type>
+        <definition>std::vector&lt; sf::Sprite &gt; TileMap::get_sprites</definition>
+        <argsstring>()</argsstring>
+        <name>get_sprites</name>
+        <qualifiedname>TileMap::get_sprites</qualifiedname>
+        <briefdescription>
+<para>Метод, возращающий созданный вектор спрайтов </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="TileMap/TileMap.hpp" line="21" column="13" bodyfile="TileMap/TileMap.cpp" bodystart="20" bodyend="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="TileMap/TileMap.hpp" line="5" column="1" bodyfile="TileMap/TileMap.hpp" bodystart="5" bodyend="22"/>
+    <listofallmembers>
+      <member refid="class_tile_map_1a299610cfb1a703eec0a432e8bc4f3d28" prot="public" virt="non-virtual"><scope>TileMap</scope><name>get_sprites</name></member>
+      <member refid="class_tile_map_1ab4aa74258fcfe2c7926fb93a4e3f6153" prot="private" virt="non-virtual"><scope>TileMap</scope><name>m_sprites</name></member>
+      <member refid="class_tile_map_1a36bdb1b1e089342537773482aefae97a" prot="private" virt="non-virtual"><scope>TileMap</scope><name>m_tile_size</name></member>
+      <member refid="class_tile_map_1a1787e2c4846f4f9ae1785936268c1a5e" prot="private" virt="non-virtual"><scope>TileMap</scope><name>m_tileset</name></member>
+      <member refid="class_tile_map_1aaf23f8a8753dd90bcd128eebe45a281f" prot="public" virt="non-virtual"><scope>TileMap</scope><name>TileMap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

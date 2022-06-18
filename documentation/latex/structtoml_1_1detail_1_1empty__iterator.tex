@@ -1,0 +1,224 @@
+\hypertarget{structtoml_1_1detail_1_1empty__iterator}{}\doxysection{toml\+::detail\+::empty\+\_\+iterator\texorpdfstring{$<$}{<} T, is\+\_\+const \texorpdfstring{$>$}{>} Struct Template Reference}
+\label{structtoml_1_1detail_1_1empty__iterator}\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+
+
+{\ttfamily \#include $<$comments.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a9f1a4cc97e6da5a390a021e7e224646f}{value\+\_\+type}} = T
+\item 
+using \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_afd8d138a3f8470c84e5555e5d0002600}{reference\+\_\+type}} = typename std\+::conditional$<$ is\+\_\+const, T const  \&, T \& $>$\+::type
+\item 
+using \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_ac4841e4b798384b9e40a28c701189eec}{pointer\+\_\+type}} = typename std\+::conditional$<$ is\+\_\+const, T const  $\ast$, T $\ast$ $>$\+::type
+\item 
+using \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{difference\+\_\+type}} = std\+::ptrdiff\+\_\+t
+\item 
+using \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_ad4f2954ecc081e138e9ec964fa9e7af6}{iterator\+\_\+category}} = std\+::random\+\_\+access\+\_\+iterator\+\_\+tag
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a6055dee805e8bd637dfece2e8321c241}{empty\+\_\+iterator}} ()=default
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a78d89516d755c2951faa1ea5ffd12363}{$\sim$empty\+\_\+iterator}} ()=default
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a5418dc2fa747e49f0c6cc38781d431fd}{empty\+\_\+iterator}} (\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} const \&)=default
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_acebda47ed2afc471843b58c20ba4e508}{empty\+\_\+iterator}} (\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \&\&)=default
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \& \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_abcdf95298c996aa5c2cd2c3ec033df70}{operator=}} (\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} const \&)=default
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \& \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a561cceecac787eb4bab60319081cd057}{operator=}} (\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \&\&)=default
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_afd8d138a3f8470c84e5555e5d0002600}{reference\+\_\+type}} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a0234cede9e0dff0e30ae7a8c9ff998e7}{operator$\ast$}} () const noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_ac4841e4b798384b9e40a28c701189eec}{pointer\+\_\+type}} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a5642bc998d18cd25d9d12c6dce3a985d}{operator-\/$>$}} () const noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_afd8d138a3f8470c84e5555e5d0002600}{reference\+\_\+type}} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a4bc711805315504bac8a65459bce2dc4}{operator\mbox{[}$\,$\mbox{]}}} (\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{difference\+\_\+type}}) const noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \& \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_aa4af3557a678228c4753e91712e22859}{operator++}} () noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_ab06b83b28b4a223d737e6e76e14b68da}{operator++}} (int) noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \& \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a910a4cd9b59262e0c9d26903f6661d5c}{operator-\/-\/}} () noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_aed57ef076c8d1e0b116d3c1786f39d50}{operator-\/-\/}} (int) noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \& \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_ab4d768294133163ecbe082fdc0ef97f5}{operator+=}} (\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{difference\+\_\+type}}) noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \& \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a9745d6d8f688d4b202bbe1323ebe1bee}{operator-\/=}} (\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{difference\+\_\+type}}) noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a571a62dc3e2a7b4272b91b23ded1f0c8}{operator+}} (\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{difference\+\_\+type}}) const noexcept
+\item 
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a3382f51a45f4410789f85312614eaa57}{operator-\/}} (\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{difference\+\_\+type}}) const noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}\label{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!difference\_type@{difference\_type}}
+\index{difference\_type@{difference\_type}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{difference\_type}{difference\_type}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+using \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::difference\+\_\+type =  std\+::ptrdiff\+\_\+t}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_ad4f2954ecc081e138e9ec964fa9e7af6}\label{structtoml_1_1detail_1_1empty__iterator_ad4f2954ecc081e138e9ec964fa9e7af6}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!iterator\_category@{iterator\_category}}
+\index{iterator\_category@{iterator\_category}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{iterator\_category}{iterator\_category}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+using \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::iterator\+\_\+category =  std\+::random\+\_\+access\+\_\+iterator\+\_\+tag}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_ac4841e4b798384b9e40a28c701189eec}\label{structtoml_1_1detail_1_1empty__iterator_ac4841e4b798384b9e40a28c701189eec}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!pointer\_type@{pointer\_type}}
+\index{pointer\_type@{pointer\_type}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{pointer\_type}{pointer\_type}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+using \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::pointer\+\_\+type =  typename std\+::conditional$<$is\+\_\+const, T const$\ast$, T$\ast$$>$\+::type}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_afd8d138a3f8470c84e5555e5d0002600}\label{structtoml_1_1detail_1_1empty__iterator_afd8d138a3f8470c84e5555e5d0002600}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!reference\_type@{reference\_type}}
+\index{reference\_type@{reference\_type}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{reference\_type}{reference\_type}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+using \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::reference\+\_\+type =  typename std\+::conditional$<$is\+\_\+const, T const\&, T\&$>$\+::type}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_a9f1a4cc97e6da5a390a021e7e224646f}\label{structtoml_1_1detail_1_1empty__iterator_a9f1a4cc97e6da5a390a021e7e224646f}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!value\_type@{value\_type}}
+\index{value\_type@{value\_type}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{value\_type}{value\_type}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+using \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::value\+\_\+type =  T}
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_a6055dee805e8bd637dfece2e8321c241}\label{structtoml_1_1detail_1_1empty__iterator_a6055dee805e8bd637dfece2e8321c241}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!empty\_iterator@{empty\_iterator}}
+\index{empty\_iterator@{empty\_iterator}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{empty\_iterator()}{empty\_iterator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::empty\+\_\+iterator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_a78d89516d755c2951faa1ea5ffd12363}\label{structtoml_1_1detail_1_1empty__iterator_a78d89516d755c2951faa1ea5ffd12363}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!````~empty\_iterator@{$\sim$empty\_iterator}}
+\index{````~empty\_iterator@{$\sim$empty\_iterator}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$empty\_iterator()}{~empty\_iterator()}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::$\sim$\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_a5418dc2fa747e49f0c6cc38781d431fd}\label{structtoml_1_1detail_1_1empty__iterator_a5418dc2fa747e49f0c6cc38781d431fd}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!empty\_iterator@{empty\_iterator}}
+\index{empty\_iterator@{empty\_iterator}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{empty\_iterator()}{empty\_iterator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::empty\+\_\+iterator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$ const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_acebda47ed2afc471843b58c20ba4e508}\label{structtoml_1_1detail_1_1empty__iterator_acebda47ed2afc471843b58c20ba4e508}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!empty\_iterator@{empty\_iterator}}
+\index{empty\_iterator@{empty\_iterator}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{empty\_iterator()}{empty\_iterator()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::empty\+\_\+iterator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_a0234cede9e0dff0e30ae7a8c9ff998e7}\label{structtoml_1_1detail_1_1empty__iterator_a0234cede9e0dff0e30ae7a8c9ff998e7}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_afd8d138a3f8470c84e5555e5d0002600}{reference\+\_\+type}} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::operator$\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_a571a62dc3e2a7b4272b91b23ded1f0c8}\label{structtoml_1_1detail_1_1empty__iterator_a571a62dc3e2a7b4272b91b23ded1f0c8}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::operator+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{difference\+\_\+type}}}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_aa4af3557a678228c4753e91712e22859}\label{structtoml_1_1detail_1_1empty__iterator_aa4af3557a678228c4753e91712e22859}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!operator++@{operator++}}
+\index{operator++@{operator++}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \& \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::operator++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_ab06b83b28b4a223d737e6e76e14b68da}\label{structtoml_1_1detail_1_1empty__iterator_ab06b83b28b4a223d737e6e76e14b68da}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!operator++@{operator++}}
+\index{operator++@{operator++}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{operator++()}{operator++()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::operator++ (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_ab4d768294133163ecbe082fdc0ef97f5}\label{structtoml_1_1detail_1_1empty__iterator_ab4d768294133163ecbe082fdc0ef97f5}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \& \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::operator+= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{difference\+\_\+type}}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_a3382f51a45f4410789f85312614eaa57}\label{structtoml_1_1detail_1_1empty__iterator_a3382f51a45f4410789f85312614eaa57}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::operator-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{difference\+\_\+type}}}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_a910a4cd9b59262e0c9d26903f6661d5c}\label{structtoml_1_1detail_1_1empty__iterator_a910a4cd9b59262e0c9d26903f6661d5c}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \& \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::operator-\/-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_aed57ef076c8d1e0b116d3c1786f39d50}\label{structtoml_1_1detail_1_1empty__iterator_aed57ef076c8d1e0b116d3c1786f39d50}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/-\/()}{operator--()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::operator-\/-\/ (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_a9745d6d8f688d4b202bbe1323ebe1bee}\label{structtoml_1_1detail_1_1empty__iterator_a9745d6d8f688d4b202bbe1323ebe1bee}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \& \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{difference\+\_\+type}}}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_a5642bc998d18cd25d9d12c6dce3a985d}\label{structtoml_1_1detail_1_1empty__iterator_a5642bc998d18cd25d9d12c6dce3a985d}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/$>$()}{operator->()}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_ac4841e4b798384b9e40a28c701189eec}{pointer\+\_\+type}} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::operator-\/$>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_a561cceecac787eb4bab60319081cd057}\label{structtoml_1_1detail_1_1empty__iterator_a561cceecac787eb4bab60319081cd057}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \& \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$ \&\&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_abcdf95298c996aa5c2cd2c3ec033df70}\label{structtoml_1_1detail_1_1empty__iterator_abcdf95298c996aa5c2cd2c3ec033df70}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}} \& \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$ const \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{structtoml_1_1detail_1_1empty__iterator_a4bc711805315504bac8a65459bce2dc4}\label{structtoml_1_1detail_1_1empty__iterator_a4bc711805315504bac8a65459bce2dc4}} 
+\index{toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!toml::detail::empty\_iterator$<$ T, is\_const $>$@{toml::detail::empty\_iterator$<$ T, is\_const $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}}
+{\footnotesize\ttfamily template$<$typename T , bool is\+\_\+const$>$ \\
+\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_afd8d138a3f8470c84e5555e5d0002600}{reference\+\_\+type}} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{toml\+::detail\+::empty\+\_\+iterator}}$<$ T, is\+\_\+const $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{difference\+\_\+type}}}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+external/toml/\mbox{\hyperlink{comments_8hpp}{comments.\+hpp}}\end{DoxyCompactItemize}

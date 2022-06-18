@@ -1,0 +1,1125 @@
+\hypertarget{get_8hpp_source}{}\doxysection{get.\+hpp}
+\label{get_8hpp_source}\index{external/toml/get.hpp@{external/toml/get.hpp}}
+\mbox{\hyperlink{get_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//     Copyright Toru Niina 2017.}}
+\DoxyCodeLine{2 \textcolor{comment}{// Distributed under the MIT License.}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifndef TOML11\_GET\_HPP}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TOML11\_GET\_HPP}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{from_8hpp}{from.hpp}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{result_8hpp}{result.hpp}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{value_8hpp}{value.hpp}}"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetoml}{toml}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{15 \textcolor{comment}{// exact toml::* type}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{18          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{19 detail::enable\_if\_t<detail::is\_exact\_toml\_type<T, basic\_value<C, M, V>>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T> \&}
+\DoxyCodeLine{20 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     \textcolor{keywordflow}{return} v.template cast<detail::type\_to\_enum<T, basic\_value<C, M, V>>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}>();}
+\DoxyCodeLine{23 \}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{26          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{27 detail::enable\_if\_t<detail::is\_exact\_toml\_type<T, basic\_value<C, M, V>>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T> \textcolor{keyword}{const}\&}
+\DoxyCodeLine{28 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \textcolor{keywordflow}{return} v.template cast<detail::type\_to\_enum<T, basic\_value<C, M, V>>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}>();}
+\DoxyCodeLine{31 \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{34          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{35 detail::enable\_if\_t<detail::is\_exact\_toml\_type<T, basic\_value<C, M, V>>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T>}
+\DoxyCodeLine{36 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\&\& v)}
+\DoxyCodeLine{37 \{}
+\DoxyCodeLine{38     \textcolor{keywordflow}{return} T(std::move(v).\textcolor{keyword}{template} cast<\mbox{\hyperlink{structtoml_1_1detail_1_1type__to__enum}{detail::type\_to\_enum}}<T, \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}>());}
+\DoxyCodeLine{39 \}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{42 \textcolor{comment}{// T == toml::value; identity transformation.}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{45          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{46 \textcolor{keyword}{inline} detail::enable\_if\_t<std::is\_same<T, basic\_value<C, M, V>>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T>\&}
+\DoxyCodeLine{47 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{48 \{}
+\DoxyCodeLine{49     \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{50 \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{53          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{54 \textcolor{keyword}{inline} detail::enable\_if\_t<std::is\_same<T, basic\_value<C, M, V>>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T> \textcolor{keyword}{const}\&}
+\DoxyCodeLine{55 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{56 \{}
+\DoxyCodeLine{57     \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{58 \}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{61          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{62 \textcolor{keyword}{inline} detail::enable\_if\_t<std::is\_same<T, basic\_value<C, M, V>>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T>}
+\DoxyCodeLine{63 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\&\& v)}
+\DoxyCodeLine{64 \{}
+\DoxyCodeLine{65     \textcolor{keywordflow}{return} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}(std::move(v));}
+\DoxyCodeLine{66 \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{69 \textcolor{comment}{// T == toml::basic\_value<C2, M2, V2>; basic\_value -\/> basic\_value}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{72          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{73 \textcolor{keyword}{inline} detail::enable\_if\_t<detail::conjunction<detail::is\_basic\_value<T>,}
+\DoxyCodeLine{74     detail::negation<std::is\_same<T, basic\_value<C, M, V>>>}
+\DoxyCodeLine{75     >\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T>}
+\DoxyCodeLine{76 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{77 \{}
+\DoxyCodeLine{78     \textcolor{keywordflow}{return} T(v);}
+\DoxyCodeLine{79 \}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{82 \textcolor{comment}{// integer convertible from toml::Integer}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{85          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{86 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<detail::conjunction<}
+\DoxyCodeLine{87     std::is\_integral<T>,                            \textcolor{comment}{// T is integral}}
+\DoxyCodeLine{88     detail::negation<std::is\_same<T, bool>>,        \textcolor{comment}{// but not bool}}
+\DoxyCodeLine{89     detail::negation<                               \textcolor{comment}{// but not toml::integer}}
+\DoxyCodeLine{90         detail::is\_exact\_toml\_type<T, basic\_value<C, M, V>>>}
+\DoxyCodeLine{91     >\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T>}
+\DoxyCodeLine{92 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{93 \{}
+\DoxyCodeLine{94     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(v.\mbox{\hyperlink{classtoml_1_1basic__value_aca975951282724efbfdb52658a4de470}{as\_integer}}());}
+\DoxyCodeLine{95 \}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{98 \textcolor{comment}{// floating point convertible from toml::Float}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{101          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{102 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<detail::conjunction<}
+\DoxyCodeLine{103     std::is\_floating\_point<T>,                      \textcolor{comment}{// T is floating\_point}}
+\DoxyCodeLine{104     detail::negation<                               \textcolor{comment}{// but not toml::floating}}
+\DoxyCodeLine{105         detail::is\_exact\_toml\_type<T, basic\_value<C, M, V>>>}
+\DoxyCodeLine{106     >\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T>}
+\DoxyCodeLine{107 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{108 \{}
+\DoxyCodeLine{109     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(v.\mbox{\hyperlink{classtoml_1_1basic__value_a2e3042121a3ecaaf09bbfc7b81c3bb04}{as\_floating}}());}
+\DoxyCodeLine{110 \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{113 \textcolor{comment}{// std::string; toml uses its own toml::string, but it should be convertible to}}
+\DoxyCodeLine{114 \textcolor{comment}{// std::string seamlessly}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{117          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{118 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{detail::enable\_if\_t<std::is\_same<T, std::string>::value}}, std::string>\&}
+\DoxyCodeLine{119 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{120 \{}
+\DoxyCodeLine{121     \textcolor{keywordflow}{return} v.\mbox{\hyperlink{classtoml_1_1basic__value_aec4c6cab5956662a54d2ff83db6e32b6}{as\_string}}().\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};}
+\DoxyCodeLine{122 \}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{125          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{126 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{detail::enable\_if\_t<std::is\_same<T, std::string>::value}}, std::string> \textcolor{keyword}{const}\&}
+\DoxyCodeLine{127 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{128 \{}
+\DoxyCodeLine{129     \textcolor{keywordflow}{return} v.\mbox{\hyperlink{classtoml_1_1basic__value_aec4c6cab5956662a54d2ff83db6e32b6}{as\_string}}().\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};}
+\DoxyCodeLine{130 \}}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{133          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{134 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{detail::enable\_if\_t<std::is\_same<T, std::string>::value}}, std::string>}
+\DoxyCodeLine{135 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\&\& v)}
+\DoxyCodeLine{136 \{}
+\DoxyCodeLine{137     \textcolor{keywordflow}{return} std::string(std::move(v.as\_string().str));}
+\DoxyCodeLine{138 \}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{141 \textcolor{comment}{// std::string\_view}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 \textcolor{preprocessor}{\#if defined(TOML11\_USING\_STRING\_VIEW) \&\& TOML11\_USING\_STRING\_VIEW>0}}
+\DoxyCodeLine{144 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{145          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{146 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{detail::enable\_if\_t<std::is\_same<T, std::string\_view>::value}}, std::string\_view>}
+\DoxyCodeLine{147 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} basic\_value<C, M, V>\& v)}
+\DoxyCodeLine{148 \{}
+\DoxyCodeLine{149     \textcolor{keywordflow}{return} std::string\_view(v.as\_string().str);}
+\DoxyCodeLine{150 \}}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{154 \textcolor{comment}{// std::chrono::duration from toml::local\_time.}}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{156 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{157          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{158 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{detail::enable\_if\_t<detail::is\_chrono\_duration<T>::value}}, T>}
+\DoxyCodeLine{159 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{160 \{}
+\DoxyCodeLine{161     \textcolor{keywordflow}{return} std::chrono::duration\_cast<T>(}
+\DoxyCodeLine{162             std::chrono::nanoseconds(v.\mbox{\hyperlink{classtoml_1_1basic__value_af758543d5a6dfe377ecf96c761bcb4b3}{as\_local\_time}}()));}
+\DoxyCodeLine{163 \}}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{166 \textcolor{comment}{// std::chrono::system\_clock::time\_point from toml::datetime variants}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{169          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{170 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<}
+\DoxyCodeLine{171     \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{std::is\_same<std::chrono::system\_clock::time\_point, T>::value}}, T>}
+\DoxyCodeLine{172 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{173 \{}
+\DoxyCodeLine{174     \textcolor{keywordflow}{switch}(v.\mbox{\hyperlink{classtoml_1_1basic__value_ab2dc908989dc98538bfaa7107f9a3fa3}{type}}())}
+\DoxyCodeLine{175     \{}
+\DoxyCodeLine{176         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaaa9647613bc34fa481cf7bfd71e46511f}{value\_t::local\_date}}:}
+\DoxyCodeLine{177         \{}
+\DoxyCodeLine{178             \textcolor{keywordflow}{return} std::chrono::system\_clock::time\_point(v.\mbox{\hyperlink{classtoml_1_1basic__value_ab1d72b0d89ceb4ccd8fc6d2805ff7dff}{as\_local\_date}}());}
+\DoxyCodeLine{179         \}}
+\DoxyCodeLine{180         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaa4786c634d28e7c1aa109efdd9e11ba32}{value\_t::local\_datetime}}:}
+\DoxyCodeLine{181         \{}
+\DoxyCodeLine{182             \textcolor{keywordflow}{return} std::chrono::system\_clock::time\_point(v.\mbox{\hyperlink{classtoml_1_1basic__value_a13d6a5211e94af0f3af5c6a5fb69ea46}{as\_local\_datetime}}());}
+\DoxyCodeLine{183         \}}
+\DoxyCodeLine{184         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetoml_a99b223fe1b911188b415ace2e80d9aaaa3453afefc0169f713370ff6bea1dc9a5}{value\_t::offset\_datetime}}:}
+\DoxyCodeLine{185         \{}
+\DoxyCodeLine{186             \textcolor{keywordflow}{return} std::chrono::system\_clock::time\_point(v.\mbox{\hyperlink{classtoml_1_1basic__value_ab31b634452333d71437751b91f4238a1}{as\_offset\_datetime}}());}
+\DoxyCodeLine{187         \}}
+\DoxyCodeLine{188         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{189         \{}
+\DoxyCodeLine{190             \textcolor{keywordflow}{throw} \mbox{\hyperlink{structtoml_1_1type__error}{type\_error}}(\mbox{\hyperlink{namespacetoml_1_1detail_ada573c450f0429aedaae47101e581ac8}{detail::format\_underline}}(\textcolor{stringliteral}{"{}toml::value: "{}}}
+\DoxyCodeLine{191                 \textcolor{stringliteral}{"{}bad\_cast to std::chrono::system\_clock::time\_point"{}}, \{}
+\DoxyCodeLine{192                     \{v.\mbox{\hyperlink{classtoml_1_1basic__value_a0d39990ac7a3394568165926aed4634a}{location}}(), \mbox{\hyperlink{namespacetoml_adea2ccfef76e94dc32396c306a550c27}{concat\_to\_string}}(\textcolor{stringliteral}{"{}the actual type is "{}}, v.\mbox{\hyperlink{classtoml_1_1basic__value_ab2dc908989dc98538bfaa7107f9a3fa3}{type}}())\}}
+\DoxyCodeLine{193                 \}), v.\mbox{\hyperlink{classtoml_1_1basic__value_a0d39990ac7a3394568165926aed4634a}{location}}());}
+\DoxyCodeLine{194         \}}
+\DoxyCodeLine{195     \}}
+\DoxyCodeLine{196 \}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{199 \textcolor{comment}{// forward declaration to use this recursively. ignore this and go ahead.}}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201 \textcolor{comment}{// array-\/like type with push\_back(value) method}}
+\DoxyCodeLine{202 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{203          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{204 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<detail::conjunction<}
+\DoxyCodeLine{205     detail::is\_container<T>,         \textcolor{comment}{// T is a container}}
+\DoxyCodeLine{206     detail::has\_push\_back\_method<T>, \textcolor{comment}{// T::push\_back(value) works}}
+\DoxyCodeLine{207     detail::negation<                \textcolor{comment}{// but not toml::array}}
+\DoxyCodeLine{208         detail::is\_exact\_toml\_type<T, basic\_value<C, M, V>>>}
+\DoxyCodeLine{209     >\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T>}
+\DoxyCodeLine{210 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} basic\_value<C, M, V>\&);}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212 \textcolor{comment}{// array-\/like type without push\_back(value) method}}
+\DoxyCodeLine{213 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{214          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{215 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<detail::conjunction<}
+\DoxyCodeLine{216     detail::is\_container<T>,                           \textcolor{comment}{// T is a container}}
+\DoxyCodeLine{217     detail::negation<detail::has\_push\_back\_method<T>>, \textcolor{comment}{// w/o push\_back(...)}}
+\DoxyCodeLine{218     detail::negation<detail::has\_specialized\_from<T>>, \textcolor{comment}{// T does not have special conversion}}
+\DoxyCodeLine{219     detail::negation<                                  \textcolor{comment}{// not toml::array}}
+\DoxyCodeLine{220         detail::is\_exact\_toml\_type<T, basic\_value<C, M, V>>>}
+\DoxyCodeLine{221     >\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T>}
+\DoxyCodeLine{222 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} basic\_value<C, M, V>\&);}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224 \textcolor{comment}{// std::pair<T1, T2>}}
+\DoxyCodeLine{225 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{226          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{227 \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{detail::enable\_if\_t<detail::is\_std\_pair<T>::value}}, T>}
+\DoxyCodeLine{228 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} basic\_value<C, M, V>\&);}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230 \textcolor{comment}{// std::tuple<T1, T2, ...>}}
+\DoxyCodeLine{231 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{232          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{233 \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{detail::enable\_if\_t<detail::is\_std\_tuple<T>::value}}, T>}
+\DoxyCodeLine{234 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} basic\_value<C, M, V>\&);}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{236 \textcolor{comment}{// map-\/like classes}}
+\DoxyCodeLine{237 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{238          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{239 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<detail::conjunction<}
+\DoxyCodeLine{240     detail::is\_map<T>, \textcolor{comment}{// T is map}}
+\DoxyCodeLine{241     detail::negation<  \textcolor{comment}{// but not toml::table}}
+\DoxyCodeLine{242         detail::is\_exact\_toml\_type<T, basic\_value<C, M, V>>>}
+\DoxyCodeLine{243     >\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T>}
+\DoxyCodeLine{244 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} basic\_value<C, M, V>\&);}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{246 \textcolor{comment}{// T.from\_toml(v)}}
+\DoxyCodeLine{247 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{248          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{249 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<detail::conjunction<}
+\DoxyCodeLine{250     detail::negation<                         \textcolor{comment}{// not a toml::* type}}
+\DoxyCodeLine{251         detail::is\_exact\_toml\_type<T, basic\_value<C, M, V>>>,}
+\DoxyCodeLine{252     detail::has\_from\_toml\_method<T, C, M, V>, \textcolor{comment}{// but has from\_toml(toml::value)}}
+\DoxyCodeLine{253     std::is\_default\_constructible<T>          \textcolor{comment}{// and default constructible}}
+\DoxyCodeLine{254     >\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T>}
+\DoxyCodeLine{255 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} basic\_value<C, M, V>\&);}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257 \textcolor{comment}{// toml::from<T>::from\_toml(v)}}
+\DoxyCodeLine{258 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{259          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{260 \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{detail::enable\_if\_t<detail::has\_specialized\_from<T>::value}}, T>}
+\DoxyCodeLine{261 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} basic\_value<C, M, V>\&);}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263 \textcolor{comment}{// T(const toml::value\&) and T is not toml::basic\_value,}}
+\DoxyCodeLine{264 \textcolor{comment}{// and it does not have `from<T>` nor `from\_toml`.}}
+\DoxyCodeLine{265 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{266          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{267 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<detail::conjunction<}
+\DoxyCodeLine{268     detail::negation<detail::is\_basic\_value<T>>,}
+\DoxyCodeLine{269     std::is\_constructible<T, const basic\_value<C, M, V>\&>,}
+\DoxyCodeLine{270     detail::negation<detail::has\_from\_toml\_method<T, C, M, V>>,}
+\DoxyCodeLine{271     detail::negation<detail::has\_specialized\_from<T>>}
+\DoxyCodeLine{272     >\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T>}
+\DoxyCodeLine{273 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} basic\_value<C, M, V>\&);}
+\DoxyCodeLine{274 }
+\DoxyCodeLine{275 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{276 \textcolor{comment}{// array-\/like types; most likely STL container, like std::vector, etc.}}
+\DoxyCodeLine{277 }
+\DoxyCodeLine{278 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{279          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{280 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<detail::conjunction<}
+\DoxyCodeLine{281     detail::is\_container<T>,         \textcolor{comment}{// T is a container}}
+\DoxyCodeLine{282     detail::has\_push\_back\_method<T>, \textcolor{comment}{// container.push\_back(elem) works}}
+\DoxyCodeLine{283     detail::negation<                \textcolor{comment}{// but not toml::array}}
+\DoxyCodeLine{284         detail::is\_exact\_toml\_type<T, basic\_value<C, M, V>>>}
+\DoxyCodeLine{285     >\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T>}
+\DoxyCodeLine{286 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{287 \{}
+\DoxyCodeLine{288     \textcolor{keyword}{using }value\_type = \textcolor{keyword}{typename} T::value\_type;}
+\DoxyCodeLine{289     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& ary = v.\mbox{\hyperlink{classtoml_1_1basic__value_a0be5e35d9160ba668fb82846aa31b853}{as\_array}}();}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291     T container;}
+\DoxyCodeLine{292     \mbox{\hyperlink{namespacetoml_a43b2eee284e11d113543783cd1e44026}{try\_reserve}}(container, ary.size());}
+\DoxyCodeLine{293 }
+\DoxyCodeLine{294     \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& elem : ary)}
+\DoxyCodeLine{295     \{}
+\DoxyCodeLine{296         container.push\_back(get<value\_type>(elem));}
+\DoxyCodeLine{297     \}}
+\DoxyCodeLine{298     \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{299 \}}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{301 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{302 \textcolor{comment}{// std::forward\_list does not have push\_back, insert, or emplace.}}
+\DoxyCodeLine{303 \textcolor{comment}{// It has insert\_after, emplace\_after, push\_front.}}
+\DoxyCodeLine{304 }
+\DoxyCodeLine{305 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{306          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{307 \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{detail::enable\_if\_t<detail::is\_std\_forward\_list<T>::value}}, T>}
+\DoxyCodeLine{308 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{309 \{}
+\DoxyCodeLine{310     \textcolor{keyword}{using }value\_type = \textcolor{keyword}{typename} T::value\_type;}
+\DoxyCodeLine{311     T container;}
+\DoxyCodeLine{312     \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& elem : v.\mbox{\hyperlink{classtoml_1_1basic__value_a0be5e35d9160ba668fb82846aa31b853}{as\_array}}())}
+\DoxyCodeLine{313     \{}
+\DoxyCodeLine{314         container.push\_front(get<value\_type>(elem));}
+\DoxyCodeLine{315     \}}
+\DoxyCodeLine{316     container.reverse();}
+\DoxyCodeLine{317     \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{318 \}}
+\DoxyCodeLine{319 }
+\DoxyCodeLine{320 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{321 \textcolor{comment}{// array-\/like types, without push\_back(). most likely [std|boost]::array.}}
+\DoxyCodeLine{322 }
+\DoxyCodeLine{323 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{324          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{325 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<detail::conjunction<}
+\DoxyCodeLine{326     detail::is\_container<T>,                           \textcolor{comment}{// T is a container}}
+\DoxyCodeLine{327     detail::negation<detail::has\_push\_back\_method<T>>, \textcolor{comment}{// w/o push\_back}}
+\DoxyCodeLine{328     detail::negation<detail::has\_specialized\_from<T>>, \textcolor{comment}{// T does not have special conversion}}
+\DoxyCodeLine{329     detail::negation<                                  \textcolor{comment}{// T is not toml::array}}
+\DoxyCodeLine{330         detail::is\_exact\_toml\_type<T, basic\_value<C, M, V>>>}
+\DoxyCodeLine{331     >\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T>}
+\DoxyCodeLine{332 \mbox{\hyperlink{namespacetoml_a2e4b27fae0d9dc6b824e77b12112f313}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{333 \{}
+\DoxyCodeLine{334     \textcolor{keyword}{using }value\_type = \textcolor{keyword}{typename} T::value\_type;}
+\DoxyCodeLine{335     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& ar = v.\mbox{\hyperlink{classtoml_1_1basic__value_a0be5e35d9160ba668fb82846aa31b853}{as\_array}}();}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{337     T container;}
+\DoxyCodeLine{338     \textcolor{keywordflow}{if}(ar.size() != container.size())}
+\DoxyCodeLine{339     \{}
+\DoxyCodeLine{340         \textcolor{keywordflow}{throw} std::out\_of\_range(\mbox{\hyperlink{namespacetoml_1_1detail_ada573c450f0429aedaae47101e581ac8}{detail::format\_underline}}(\mbox{\hyperlink{namespacetoml_adea2ccfef76e94dc32396c306a550c27}{concat\_to\_string}}(}
+\DoxyCodeLine{341             \textcolor{stringliteral}{"{}toml::get: specified container size is "{}}, container.size(),}
+\DoxyCodeLine{342             \textcolor{stringliteral}{"{} but there are "{}}, ar.size(), \textcolor{stringliteral}{"{} elements in toml array."{}}), \{}
+\DoxyCodeLine{343                 \{v.location(), \textcolor{stringliteral}{"{}here"{}}\}}
+\DoxyCodeLine{344             \}));}
+\DoxyCodeLine{345     \}}
+\DoxyCodeLine{346     \textcolor{keywordflow}{for}(std::size\_t i=0; i<ar.size(); ++i)}
+\DoxyCodeLine{347     \{}
+\DoxyCodeLine{348         container[i] = ::toml::get<value\_type>(ar[i]);}
+\DoxyCodeLine{349     \}}
+\DoxyCodeLine{350     \textcolor{keywordflow}{return} container;}
+\DoxyCodeLine{351 \}}
+\DoxyCodeLine{352 }
+\DoxyCodeLine{353 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{354 \textcolor{comment}{// std::pair.}}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{356 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{357          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{358 \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{detail::enable\_if\_t<detail::is\_std\_pair<T>::value}}, T>}
+\DoxyCodeLine{359 \mbox{\hyperlink{namespacetoml_a0178f381bdc520b67d66d37548771b9e}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{360 \{}
+\DoxyCodeLine{361     \textcolor{keyword}{using }first\_type  = \textcolor{keyword}{typename} T::first\_type;}
+\DoxyCodeLine{362     \textcolor{keyword}{using }second\_type = \textcolor{keyword}{typename} T::second\_type;}
+\DoxyCodeLine{363 }
+\DoxyCodeLine{364     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& ar = v.\mbox{\hyperlink{classtoml_1_1basic__value_a0be5e35d9160ba668fb82846aa31b853}{as\_array}}();}
+\DoxyCodeLine{365     \textcolor{keywordflow}{if}(ar.size() != 2)}
+\DoxyCodeLine{366     \{}
+\DoxyCodeLine{367         \textcolor{keywordflow}{throw} std::out\_of\_range(\mbox{\hyperlink{namespacetoml_1_1detail_ada573c450f0429aedaae47101e581ac8}{detail::format\_underline}}(\mbox{\hyperlink{namespacetoml_adea2ccfef76e94dc32396c306a550c27}{concat\_to\_string}}(}
+\DoxyCodeLine{368             \textcolor{stringliteral}{"{}toml::get: specified std::pair but there are "{}}, ar.size(),}
+\DoxyCodeLine{369             \textcolor{stringliteral}{"{} elements in toml array."{}}), \{\{v.location(), \textcolor{stringliteral}{"{}here"{}}\}\}));}
+\DoxyCodeLine{370     \}}
+\DoxyCodeLine{371     \textcolor{keywordflow}{return} std::make\_pair(::toml::get<first\_type >(ar.at(0)),}
+\DoxyCodeLine{372                           ::toml::get<second\_type>(ar.at(1)));}
+\DoxyCodeLine{373 \}}
+\DoxyCodeLine{374 }
+\DoxyCodeLine{375 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{376 \textcolor{comment}{// std::tuple.}}
+\DoxyCodeLine{377 }
+\DoxyCodeLine{378 \textcolor{keyword}{namespace }detail}
+\DoxyCodeLine{379 \{}
+\DoxyCodeLine{380 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} Array, std::size\_t ... I>}
+\DoxyCodeLine{381 T \mbox{\hyperlink{namespacetoml_1_1detail_abff645e8280dd4d9dc6bc27368527b84}{get\_tuple\_impl}}(\textcolor{keyword}{const} Array\& a, \mbox{\hyperlink{structtoml_1_1detail_1_1index__sequence}{index\_sequence<I...>}})}
+\DoxyCodeLine{382 \{}
+\DoxyCodeLine{383     \textcolor{keywordflow}{return} std::make\_tuple(}
+\DoxyCodeLine{384         \mbox{\hyperlink{namespacetoml_a0178f381bdc520b67d66d37548771b9e}{::toml::get}}<\textcolor{keyword}{typename} std::tuple\_element<I, T>::type>(a.at(I))...);}
+\DoxyCodeLine{385 \}}
+\DoxyCodeLine{386 \} \textcolor{comment}{// detail}}
+\DoxyCodeLine{387 }
+\DoxyCodeLine{388 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{389          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{390 \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{detail::enable\_if\_t<detail::is\_std\_tuple<T>::value}}, T>}
+\DoxyCodeLine{391 \mbox{\hyperlink{namespacetoml_a0178f381bdc520b67d66d37548771b9e}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{392 \{}
+\DoxyCodeLine{393     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& ar = v.\mbox{\hyperlink{classtoml_1_1basic__value_a0be5e35d9160ba668fb82846aa31b853}{as\_array}}();}
+\DoxyCodeLine{394     \textcolor{keywordflow}{if}(ar.size() != \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{std::tuple\_size<T>::value}})}
+\DoxyCodeLine{395     \{}
+\DoxyCodeLine{396         \textcolor{keywordflow}{throw} std::out\_of\_range(\mbox{\hyperlink{namespacetoml_1_1detail_ada573c450f0429aedaae47101e581ac8}{detail::format\_underline}}(\mbox{\hyperlink{namespacetoml_adea2ccfef76e94dc32396c306a550c27}{concat\_to\_string}}(}
+\DoxyCodeLine{397             \textcolor{stringliteral}{"{}toml::get: specified std::tuple with "{}},}
+\DoxyCodeLine{398             \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{std::tuple\_size<T>::value}}, \textcolor{stringliteral}{"{} elements, but there are "{}}, ar.size(),}
+\DoxyCodeLine{399             \textcolor{stringliteral}{"{} elements in toml array."{}}), \{\{v.location(), \textcolor{stringliteral}{"{}here"{}}\}\}));}
+\DoxyCodeLine{400     \}}
+\DoxyCodeLine{401     \textcolor{keywordflow}{return} detail::get\_tuple\_impl<T>(ar,}
+\DoxyCodeLine{402             \mbox{\hyperlink{namespacetoml_1_1detail_ae291022c5ae9ba855f2e9dfb79926729}{detail::make\_index\_sequence}}<\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{std::tuple\_size<T>::value}}>\{\});}
+\DoxyCodeLine{403 \}}
+\DoxyCodeLine{404 }
+\DoxyCodeLine{405 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{406 \textcolor{comment}{// map-\/like types; most likely STL map, like std::map or std::unordered\_map.}}
+\DoxyCodeLine{407 }
+\DoxyCodeLine{408 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{409          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{410 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<detail::conjunction<}
+\DoxyCodeLine{411     detail::is\_map<T>, \textcolor{comment}{// T is map}}
+\DoxyCodeLine{412     detail::negation<  \textcolor{comment}{// but not toml::array}}
+\DoxyCodeLine{413         detail::is\_exact\_toml\_type<T, basic\_value<C, M, V>>>}
+\DoxyCodeLine{414     >\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T>}
+\DoxyCodeLine{415 \mbox{\hyperlink{namespacetoml_a0178f381bdc520b67d66d37548771b9e}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{416 \{}
+\DoxyCodeLine{417     \textcolor{keyword}{using }key\_type    = \textcolor{keyword}{typename} T::key\_type;}
+\DoxyCodeLine{418     \textcolor{keyword}{using }mapped\_type = \textcolor{keyword}{typename} T::mapped\_type;}
+\DoxyCodeLine{419     \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{std::is\_convertible<std::string, key\_type>::value}},}
+\DoxyCodeLine{420                   \textcolor{stringliteral}{"{}toml::get only supports map type of which key\_type is "{}}}
+\DoxyCodeLine{421                   \textcolor{stringliteral}{"{}convertible from std::string."{}});}
+\DoxyCodeLine{422     T map;}
+\DoxyCodeLine{423     \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& kv : v.\mbox{\hyperlink{classtoml_1_1basic__value_a7b113a731815356acb870bfe37b15e1b}{as\_table}}())}
+\DoxyCodeLine{424     \{}
+\DoxyCodeLine{425         map.emplace(key\_type(kv.first), get<mapped\_type>(kv.second));}
+\DoxyCodeLine{426     \}}
+\DoxyCodeLine{427     \textcolor{keywordflow}{return} map;}
+\DoxyCodeLine{428 \}}
+\DoxyCodeLine{429 }
+\DoxyCodeLine{430 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{431 \textcolor{comment}{// user-\/defined, but compatible types.}}
+\DoxyCodeLine{432 }
+\DoxyCodeLine{433 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{434          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{435 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<detail::conjunction<}
+\DoxyCodeLine{436     detail::negation<                         \textcolor{comment}{// not a toml::* type}}
+\DoxyCodeLine{437         detail::is\_exact\_toml\_type<T, basic\_value<C, M, V>>>,}
+\DoxyCodeLine{438     detail::has\_from\_toml\_method<T, C, M, V>, \textcolor{comment}{// but has from\_toml(toml::value) memfn}}
+\DoxyCodeLine{439     std::is\_default\_constructible<T>          \textcolor{comment}{// and default constructible}}
+\DoxyCodeLine{440     >\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T>}
+\DoxyCodeLine{441 \mbox{\hyperlink{namespacetoml_a0178f381bdc520b67d66d37548771b9e}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{442 \{}
+\DoxyCodeLine{443     T ud;}
+\DoxyCodeLine{444     ud.from\_toml(v);}
+\DoxyCodeLine{445     \textcolor{keywordflow}{return} ud;}
+\DoxyCodeLine{446 \}}
+\DoxyCodeLine{447 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{448          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{449 \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{detail::enable\_if\_t<detail::has\_specialized\_from<T>::value}}, T>}
+\DoxyCodeLine{450 \mbox{\hyperlink{namespacetoml_a0178f381bdc520b67d66d37548771b9e}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{451 \{}
+\DoxyCodeLine{452     return ::toml::from<T>::from\_toml(v);}
+\DoxyCodeLine{453 \}}
+\DoxyCodeLine{454 }
+\DoxyCodeLine{455 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{456          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{457 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<detail::conjunction<}
+\DoxyCodeLine{458     detail::negation<detail::is\_basic\_value<T>>,                \textcolor{comment}{// T is not a toml::value}}
+\DoxyCodeLine{459     std::is\_constructible<T, const basic\_value<C, M, V>\&>,      \textcolor{comment}{// T is constructible from toml::value}}
+\DoxyCodeLine{460     detail::negation<detail::has\_from\_toml\_method<T, C, M, V>>, \textcolor{comment}{// and T does not have T.from\_toml(v);}}
+\DoxyCodeLine{461     detail::negation<detail::has\_specialized\_from<T>>           \textcolor{comment}{// and T does not have toml::from<T>\{\};}}
+\DoxyCodeLine{462     >\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T>}
+\DoxyCodeLine{463 \mbox{\hyperlink{namespacetoml_a0178f381bdc520b67d66d37548771b9e}{get}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v)}
+\DoxyCodeLine{464 \{}
+\DoxyCodeLine{465     \textcolor{keywordflow}{return} T(v);}
+\DoxyCodeLine{466 \}}
+\DoxyCodeLine{467 }
+\DoxyCodeLine{468 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{469 \textcolor{comment}{// find}}
+\DoxyCodeLine{470 }
+\DoxyCodeLine{471 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{472 \textcolor{comment}{// these overloads do not require to set T. and returns value itself.}}
+\DoxyCodeLine{473 \textcolor{keyword}{template}<\textcolor{keyword}{typename} C,}
+\DoxyCodeLine{474          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{475 \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}} \textcolor{keyword}{const}\& \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{key}}\& ky)}
+\DoxyCodeLine{476 \{}
+\DoxyCodeLine{477     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& tab = v.\mbox{\hyperlink{classtoml_1_1basic__value_a7b113a731815356acb870bfe37b15e1b}{as\_table}}();}
+\DoxyCodeLine{478     \textcolor{keywordflow}{if}(tab.count(ky) == 0)}
+\DoxyCodeLine{479     \{}
+\DoxyCodeLine{480         \mbox{\hyperlink{namespacetoml_1_1detail_aeeb2c5b93a35ab7ab068c8479e5dd54f}{detail::throw\_key\_not\_found\_error}}(v, ky);}
+\DoxyCodeLine{481     \}}
+\DoxyCodeLine{482     \textcolor{keywordflow}{return} tab.at(ky);}
+\DoxyCodeLine{483 \}}
+\DoxyCodeLine{484 \textcolor{keyword}{template}<\textcolor{keyword}{typename} C,}
+\DoxyCodeLine{485          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{486 \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{find}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{key}}\& ky)}
+\DoxyCodeLine{487 \{}
+\DoxyCodeLine{488     \textcolor{keyword}{auto}\& tab = v.\mbox{\hyperlink{classtoml_1_1basic__value_a7b113a731815356acb870bfe37b15e1b}{as\_table}}();}
+\DoxyCodeLine{489     \textcolor{keywordflow}{if}(tab.count(ky) == 0)}
+\DoxyCodeLine{490     \{}
+\DoxyCodeLine{491         \mbox{\hyperlink{namespacetoml_1_1detail_aeeb2c5b93a35ab7ab068c8479e5dd54f}{detail::throw\_key\_not\_found\_error}}(v, ky);}
+\DoxyCodeLine{492     \}}
+\DoxyCodeLine{493     \textcolor{keywordflow}{return} tab.at(ky);}
+\DoxyCodeLine{494 \}}
+\DoxyCodeLine{495 \textcolor{keyword}{template}<\textcolor{keyword}{typename} C,}
+\DoxyCodeLine{496          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{497 \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}} \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{find}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\&\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{key}}\& ky)}
+\DoxyCodeLine{498 \{}
+\DoxyCodeLine{499     \textcolor{keyword}{typename} \mbox{\hyperlink{classtoml_1_1basic__value_a7852d8026935a2590211d675ee97568f}{basic\_value<C, M, V>::table\_type}} tab = std::move(v).as\_table();}
+\DoxyCodeLine{500     \textcolor{keywordflow}{if}(tab.\mbox{\hyperlink{classtoml_1_1basic__value_a6854d91dd03053b3838ee111897d282a}{count}}(ky) == 0)}
+\DoxyCodeLine{501     \{}
+\DoxyCodeLine{502         \mbox{\hyperlink{namespacetoml_1_1detail_aeeb2c5b93a35ab7ab068c8479e5dd54f}{detail::throw\_key\_not\_found\_error}}(v, ky);}
+\DoxyCodeLine{503     \}}
+\DoxyCodeLine{504     \textcolor{keywordflow}{return} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}(std::move(tab.\mbox{\hyperlink{classtoml_1_1basic__value_ad497266e16a1aa285d224dcf51fa622a}{at}}(ky)));}
+\DoxyCodeLine{505 \}}
+\DoxyCodeLine{506 }
+\DoxyCodeLine{507 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{508 \textcolor{comment}{// find(value, idx)}}
+\DoxyCodeLine{509 \textcolor{keyword}{template}<\textcolor{keyword}{typename} C,}
+\DoxyCodeLine{510          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{511 basic\_value<C, M, V> \textcolor{keyword}{const}\&}
+\DoxyCodeLine{512 \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, \textcolor{keyword}{const} std::size\_t idx)}
+\DoxyCodeLine{513 \{}
+\DoxyCodeLine{514     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& ary = v.\mbox{\hyperlink{classtoml_1_1basic__value_a0be5e35d9160ba668fb82846aa31b853}{as\_array}}();}
+\DoxyCodeLine{515     \textcolor{keywordflow}{if}(ary.size() <= idx)}
+\DoxyCodeLine{516     \{}
+\DoxyCodeLine{517         \textcolor{keywordflow}{throw} std::out\_of\_range(\mbox{\hyperlink{namespacetoml_1_1detail_ada573c450f0429aedaae47101e581ac8}{detail::format\_underline}}(\mbox{\hyperlink{namespacetoml_adea2ccfef76e94dc32396c306a550c27}{concat\_to\_string}}(}
+\DoxyCodeLine{518             \textcolor{stringliteral}{"{}index "{}}, idx, \textcolor{stringliteral}{"{} is out of range"{}}), \{\{v.\mbox{\hyperlink{classtoml_1_1basic__value_a0d39990ac7a3394568165926aed4634a}{location}}(), \textcolor{stringliteral}{"{}in this array"{}}\}\}));}
+\DoxyCodeLine{519     \}}
+\DoxyCodeLine{520     \textcolor{keywordflow}{return} ary.at(idx);}
+\DoxyCodeLine{521 \}}
+\DoxyCodeLine{522 \textcolor{keyword}{template}<\textcolor{keyword}{typename} C,}
+\DoxyCodeLine{523          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{524 \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{find}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, \textcolor{keyword}{const} std::size\_t idx)}
+\DoxyCodeLine{525 \{}
+\DoxyCodeLine{526     \textcolor{keyword}{auto}\& ary = v.\mbox{\hyperlink{classtoml_1_1basic__value_a0be5e35d9160ba668fb82846aa31b853}{as\_array}}();}
+\DoxyCodeLine{527     \textcolor{keywordflow}{if}(ary.size() <= idx)}
+\DoxyCodeLine{528     \{}
+\DoxyCodeLine{529         \textcolor{keywordflow}{throw} std::out\_of\_range(\mbox{\hyperlink{namespacetoml_1_1detail_ada573c450f0429aedaae47101e581ac8}{detail::format\_underline}}(\mbox{\hyperlink{namespacetoml_adea2ccfef76e94dc32396c306a550c27}{concat\_to\_string}}(}
+\DoxyCodeLine{530             \textcolor{stringliteral}{"{}index "{}}, idx, \textcolor{stringliteral}{"{} is out of range"{}}), \{\{v.\mbox{\hyperlink{classtoml_1_1basic__value_a0d39990ac7a3394568165926aed4634a}{location}}(), \textcolor{stringliteral}{"{}in this array"{}}\}\}));}
+\DoxyCodeLine{531     \}}
+\DoxyCodeLine{532     \textcolor{keywordflow}{return} ary.at(idx);}
+\DoxyCodeLine{533 \}}
+\DoxyCodeLine{534 \textcolor{keyword}{template}<\textcolor{keyword}{typename} C,}
+\DoxyCodeLine{535          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{536 \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}} \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{find}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\&\& v, \textcolor{keyword}{const} std::size\_t idx)}
+\DoxyCodeLine{537 \{}
+\DoxyCodeLine{538     \textcolor{keyword}{auto}\& ary = v.as\_array();}
+\DoxyCodeLine{539     \textcolor{keywordflow}{if}(ary.size() <= idx)}
+\DoxyCodeLine{540     \{}
+\DoxyCodeLine{541         \textcolor{keywordflow}{throw} std::out\_of\_range(\mbox{\hyperlink{namespacetoml_1_1detail_ada573c450f0429aedaae47101e581ac8}{detail::format\_underline}}(\mbox{\hyperlink{namespacetoml_adea2ccfef76e94dc32396c306a550c27}{concat\_to\_string}}(}
+\DoxyCodeLine{542             \textcolor{stringliteral}{"{}index "{}}, idx, \textcolor{stringliteral}{"{} is out of range"{}}), \{\{v.location(), \textcolor{stringliteral}{"{}in this array"{}}\}\}));}
+\DoxyCodeLine{543     \}}
+\DoxyCodeLine{544     \textcolor{keywordflow}{return} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}(std::move(ary.at(idx)));}
+\DoxyCodeLine{545 \}}
+\DoxyCodeLine{546 }
+\DoxyCodeLine{547 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{548 \textcolor{comment}{// find<T>(value, key);}}
+\DoxyCodeLine{549 }
+\DoxyCodeLine{550 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{551          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{552 \textcolor{keyword}{decltype}(::toml::get<T>(std::declval<basic\_value<C, M, V> \textcolor{keyword}{const}\&>()))}
+\DoxyCodeLine{553 \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{key}}\& ky)}
+\DoxyCodeLine{554 \{}
+\DoxyCodeLine{555     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& tab = v.\mbox{\hyperlink{classtoml_1_1basic__value_a7b113a731815356acb870bfe37b15e1b}{as\_table}}();}
+\DoxyCodeLine{556     \textcolor{keywordflow}{if}(tab.count(ky) == 0)}
+\DoxyCodeLine{557     \{}
+\DoxyCodeLine{558         \mbox{\hyperlink{namespacetoml_1_1detail_aeeb2c5b93a35ab7ab068c8479e5dd54f}{detail::throw\_key\_not\_found\_error}}(v, ky);}
+\DoxyCodeLine{559     \}}
+\DoxyCodeLine{560     return ::toml::get<T>(tab.at(ky));}
+\DoxyCodeLine{561 \}}
+\DoxyCodeLine{562 }
+\DoxyCodeLine{563 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{564          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{565 \textcolor{keyword}{decltype}(::toml::get<T>(std::declval<basic\_value<C, M, V>\&>()))}
+\DoxyCodeLine{566 \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{find}}(basic\_value<C, M, V>\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{key}}\& ky)}
+\DoxyCodeLine{567 \{}
+\DoxyCodeLine{568     \textcolor{keyword}{auto}\& tab = v.as\_table();}
+\DoxyCodeLine{569     \textcolor{keywordflow}{if}(tab.count(ky) == 0)}
+\DoxyCodeLine{570     \{}
+\DoxyCodeLine{571         \mbox{\hyperlink{namespacetoml_1_1detail_aeeb2c5b93a35ab7ab068c8479e5dd54f}{detail::throw\_key\_not\_found\_error}}(v, ky);}
+\DoxyCodeLine{572     \}}
+\DoxyCodeLine{573     return ::toml::get<T>(tab.at(ky));}
+\DoxyCodeLine{574 \}}
+\DoxyCodeLine{575 }
+\DoxyCodeLine{576 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{577          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{578 \textcolor{keyword}{decltype}(::toml::get<T>(std::declval<basic\_value<C, M, V>\&\&>()))}
+\DoxyCodeLine{579 \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{find}}(basic\_value<C, M, V>\&\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{key}}\& ky)}
+\DoxyCodeLine{580 \{}
+\DoxyCodeLine{581     \textcolor{keyword}{typename} basic\_value<C, M, V>::table\_type tab = std::move(v).as\_table();}
+\DoxyCodeLine{582     \textcolor{keywordflow}{if}(tab.count(ky) == 0)}
+\DoxyCodeLine{583     \{}
+\DoxyCodeLine{584         \mbox{\hyperlink{namespacetoml_1_1detail_aeeb2c5b93a35ab7ab068c8479e5dd54f}{detail::throw\_key\_not\_found\_error}}(v, ky);}
+\DoxyCodeLine{585     \}}
+\DoxyCodeLine{586     return ::toml::get<T>(std::move(tab.at(ky)));}
+\DoxyCodeLine{587 \}}
+\DoxyCodeLine{588 }
+\DoxyCodeLine{589 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{590 \textcolor{comment}{// find<T>(value, idx)}}
+\DoxyCodeLine{591 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{592          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{593 \textcolor{keyword}{decltype}(::toml::get<T>(std::declval<basic\_value<C, M, V> \textcolor{keyword}{const}\&>()))}
+\DoxyCodeLine{594 \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{find}}(\textcolor{keyword}{const} basic\_value<C, M, V>\& v, \textcolor{keyword}{const} std::size\_t idx)}
+\DoxyCodeLine{595 \{}
+\DoxyCodeLine{596     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& ary = v.as\_array();}
+\DoxyCodeLine{597     \textcolor{keywordflow}{if}(ary.size() <= idx)}
+\DoxyCodeLine{598     \{}
+\DoxyCodeLine{599         \textcolor{keywordflow}{throw} std::out\_of\_range(\mbox{\hyperlink{namespacetoml_1_1detail_ada573c450f0429aedaae47101e581ac8}{detail::format\_underline}}(\mbox{\hyperlink{namespacetoml_adea2ccfef76e94dc32396c306a550c27}{concat\_to\_string}}(}
+\DoxyCodeLine{600             \textcolor{stringliteral}{"{}index "{}}, idx, \textcolor{stringliteral}{"{} is out of range"{}}), \{\{v.location(), \textcolor{stringliteral}{"{}in this array"{}}\}\}));}
+\DoxyCodeLine{601     \}}
+\DoxyCodeLine{602     return ::toml::get<T>(ary.at(idx));}
+\DoxyCodeLine{603 \}}
+\DoxyCodeLine{604 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{605          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{606 \textcolor{keyword}{decltype}(::toml::get<T>(std::declval<basic\_value<C, M, V>\&>()))}
+\DoxyCodeLine{607 \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{find}}(basic\_value<C, M, V>\& v, \textcolor{keyword}{const} std::size\_t idx)}
+\DoxyCodeLine{608 \{}
+\DoxyCodeLine{609     \textcolor{keyword}{auto}\& ary = v.as\_array();}
+\DoxyCodeLine{610     \textcolor{keywordflow}{if}(ary.size() <= idx)}
+\DoxyCodeLine{611     \{}
+\DoxyCodeLine{612         \textcolor{keywordflow}{throw} std::out\_of\_range(\mbox{\hyperlink{namespacetoml_1_1detail_ada573c450f0429aedaae47101e581ac8}{detail::format\_underline}}(\mbox{\hyperlink{namespacetoml_adea2ccfef76e94dc32396c306a550c27}{concat\_to\_string}}(}
+\DoxyCodeLine{613             \textcolor{stringliteral}{"{}index "{}}, idx, \textcolor{stringliteral}{"{} is out of range"{}}), \{\{v.location(), \textcolor{stringliteral}{"{}in this array"{}}\}\}));}
+\DoxyCodeLine{614     \}}
+\DoxyCodeLine{615     return ::toml::get<T>(ary.at(idx));}
+\DoxyCodeLine{616 \}}
+\DoxyCodeLine{617 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{618          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{619 \textcolor{keyword}{decltype}(::toml::get<T>(std::declval<basic\_value<C, M, V>\&\&>()))}
+\DoxyCodeLine{620 \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{find}}(basic\_value<C, M, V>\&\& v, \textcolor{keyword}{const} std::size\_t idx)}
+\DoxyCodeLine{621 \{}
+\DoxyCodeLine{622     \textcolor{keyword}{typename} basic\_value<C, M, V>::array\_type ary = std::move(v).as\_array();}
+\DoxyCodeLine{623     \textcolor{keywordflow}{if}(ary.size() <= idx)}
+\DoxyCodeLine{624     \{}
+\DoxyCodeLine{625         \textcolor{keywordflow}{throw} std::out\_of\_range(\mbox{\hyperlink{namespacetoml_1_1detail_ada573c450f0429aedaae47101e581ac8}{detail::format\_underline}}(\mbox{\hyperlink{namespacetoml_adea2ccfef76e94dc32396c306a550c27}{concat\_to\_string}}(}
+\DoxyCodeLine{626             \textcolor{stringliteral}{"{}index "{}}, idx, \textcolor{stringliteral}{"{} is out of range"{}}), \{\{v.location(), \textcolor{stringliteral}{"{}in this array"{}}\}\}));}
+\DoxyCodeLine{627     \}}
+\DoxyCodeLine{628     return ::toml::get<T>(std::move(ary.at(idx)));}
+\DoxyCodeLine{629 \}}
+\DoxyCodeLine{630 }
+\DoxyCodeLine{631 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{632 \textcolor{comment}{// toml::find(toml::value, toml::key, Ts\&\& ... keys)}}
+\DoxyCodeLine{633 }
+\DoxyCodeLine{634 \textcolor{keyword}{namespace }detail}
+\DoxyCodeLine{635 \{}
+\DoxyCodeLine{636 \textcolor{comment}{// It suppresses warnings by -\/Wsign-\/conversion. Let's say we have the following}}
+\DoxyCodeLine{637 \textcolor{comment}{// code.}}
+\DoxyCodeLine{638 \textcolor{comment}{// ```cpp}}
+\DoxyCodeLine{639 \textcolor{comment}{// const auto x = toml::find<std::string>(data, "{}array"{}, 0);}}
+\DoxyCodeLine{640 \textcolor{comment}{// ```}}
+\DoxyCodeLine{641 \textcolor{comment}{// Here, the type of literal number `0` is `int`. `int` is a signed integer.}}
+\DoxyCodeLine{642 \textcolor{comment}{// `toml::find` takes `std::size\_t` as an index. So it causes implicit sign}}
+\DoxyCodeLine{643 \textcolor{comment}{// conversion and `-\/Wsign-\/conversion` warns about it. Using `0u` instead of `0`}}
+\DoxyCodeLine{644 \textcolor{comment}{// suppresses the warning, but it makes user code messy.}}
+\DoxyCodeLine{645 \textcolor{comment}{//     To suppress this warning, we need to be aware of type conversion caused}}
+\DoxyCodeLine{646 \textcolor{comment}{// by `toml::find(v, key1, key2, ... keys)`. But the thing is that the types of}}
+\DoxyCodeLine{647 \textcolor{comment}{// keys can be any combination of \{string-\/like, size\_t-\/like\}. Of course we can't}}
+\DoxyCodeLine{648 \textcolor{comment}{// write down all the combinations. Thus we need to use some function that}}
+\DoxyCodeLine{649 \textcolor{comment}{// recognize the type of argument and cast it into `std::string` or}}
+\DoxyCodeLine{650 \textcolor{comment}{// `std::size\_t` depending on the context.}}
+\DoxyCodeLine{651 \textcolor{comment}{//     `key\_cast` does the job. It has 2 overloads. One is invoked when the}}
+\DoxyCodeLine{652 \textcolor{comment}{// argument type is an integer and cast the argument into `std::size\_t`. The}}
+\DoxyCodeLine{653 \textcolor{comment}{// other is invoked when the argument type is not an integer, possibly one of}}
+\DoxyCodeLine{654 \textcolor{comment}{// std::string, const char[N] or const char*, and construct std::string from}}
+\DoxyCodeLine{655 \textcolor{comment}{// the argument.}}
+\DoxyCodeLine{656 \textcolor{comment}{//     `toml::find(v, k1, k2, ... ks)` uses `key\_cast` before passing `ks` to}}
+\DoxyCodeLine{657 \textcolor{comment}{// `toml::find(v, k)` to suppress -\/Wsign-\/conversion.}}
+\DoxyCodeLine{658 }
+\DoxyCodeLine{659 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{660 enable\_if\_t<conjunction<std::is\_integral<remove\_cvref\_t<T>>,}
+\DoxyCodeLine{661             negation<std::is\_same<remove\_cvref\_t<T>, \textcolor{keywordtype}{bool}>>>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, std::size\_t>}
+\DoxyCodeLine{662 \mbox{\hyperlink{namespacetoml_1_1detail_ad4438aabaa3c4a6dbd0c4d051e41b858}{key\_cast}}(T\&\& v) \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{663 \{}
+\DoxyCodeLine{664     \textcolor{keywordflow}{return} std::size\_t(v);}
+\DoxyCodeLine{665 \}}
+\DoxyCodeLine{666 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{667 enable\_if\_t<negation<conjunction<std::is\_integral<remove\_cvref\_t<T>>,}
+\DoxyCodeLine{668             negation<std::is\_same<remove\_cvref\_t<T>, \textcolor{keywordtype}{bool}>>>>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, std::string>}
+\DoxyCodeLine{669 \mbox{\hyperlink{namespacetoml_1_1detail_ad4438aabaa3c4a6dbd0c4d051e41b858}{key\_cast}}(T\&\& v) \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{670 \{}
+\DoxyCodeLine{671     \textcolor{keywordflow}{return} std::string(std::forward<T>(v));}
+\DoxyCodeLine{672 \}}
+\DoxyCodeLine{673 \} \textcolor{comment}{// detail}}
+\DoxyCodeLine{674 }
+\DoxyCodeLine{675 \textcolor{keyword}{template}<\textcolor{keyword}{typename} C,}
+\DoxyCodeLine{676          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V,}
+\DoxyCodeLine{677          \textcolor{keyword}{typename} Key1, \textcolor{keyword}{typename} Key2, \textcolor{keyword}{typename} ... Keys>}
+\DoxyCodeLine{678 \textcolor{keyword}{const} basic\_value<C, M, V>\&}
+\DoxyCodeLine{679 \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{find}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, Key1\&\& k1, Key2\&\& k2, Keys\&\& ... keys)}
+\DoxyCodeLine{680 \{}
+\DoxyCodeLine{681     \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{return ::toml::find}}(\mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{::toml::find}}(v, \mbox{\hyperlink{namespacetoml_1_1detail_ad4438aabaa3c4a6dbd0c4d051e41b858}{detail::key\_cast}}(k1)),}
+\DoxyCodeLine{682             \mbox{\hyperlink{namespacetoml_1_1detail_ad4438aabaa3c4a6dbd0c4d051e41b858}{detail::key\_cast}}(k2), std::forward<Keys>(keys)...);}
+\DoxyCodeLine{683 \}}
+\DoxyCodeLine{684 \textcolor{keyword}{template}<\textcolor{keyword}{typename} C,}
+\DoxyCodeLine{685          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V,}
+\DoxyCodeLine{686          \textcolor{keyword}{typename} Key1, \textcolor{keyword}{typename} Key2, \textcolor{keyword}{typename} ... Keys>}
+\DoxyCodeLine{687 basic\_value<C, M, V>\&}
+\DoxyCodeLine{688 \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{find}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, Key1\&\& k1, Key2\&\& k2, Keys\&\& ... keys)}
+\DoxyCodeLine{689 \{}
+\DoxyCodeLine{690     \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{return ::toml::find}}(\mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{::toml::find}}(v, \mbox{\hyperlink{namespacetoml_1_1detail_ad4438aabaa3c4a6dbd0c4d051e41b858}{detail::key\_cast}}(k1)),}
+\DoxyCodeLine{691             \mbox{\hyperlink{namespacetoml_1_1detail_ad4438aabaa3c4a6dbd0c4d051e41b858}{detail::key\_cast}}(k2), std::forward<Keys>(keys)...);}
+\DoxyCodeLine{692 \}}
+\DoxyCodeLine{693 \textcolor{keyword}{template}<\textcolor{keyword}{typename} C,}
+\DoxyCodeLine{694          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V,}
+\DoxyCodeLine{695          \textcolor{keyword}{typename} Key1, \textcolor{keyword}{typename} Key2, \textcolor{keyword}{typename} ... Keys>}
+\DoxyCodeLine{696 basic\_value<C, M, V>}
+\DoxyCodeLine{697 \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{find}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\&\& v, Key1\&\& k1, Key2\&\& k2, Keys\&\& ... keys)}
+\DoxyCodeLine{698 \{}
+\DoxyCodeLine{699     \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{return ::toml::find}}(\mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{::toml::find}}(std::move(v), std::forward<Key1>(k1)),}
+\DoxyCodeLine{700             \mbox{\hyperlink{namespacetoml_1_1detail_ad4438aabaa3c4a6dbd0c4d051e41b858}{detail::key\_cast}}(k2), std::forward<Keys>(keys)...);}
+\DoxyCodeLine{701 \}}
+\DoxyCodeLine{702 }
+\DoxyCodeLine{703 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{704          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V,}
+\DoxyCodeLine{705          \textcolor{keyword}{typename} Key1, \textcolor{keyword}{typename} Key2, \textcolor{keyword}{typename} ... Keys>}
+\DoxyCodeLine{706 \textcolor{keyword}{decltype}(::toml::get<T>(std::declval<\textcolor{keyword}{const} basic\_value<C, M, V>\&>()))}
+\DoxyCodeLine{707 \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{find}}(\textcolor{keyword}{const} basic\_value<C, M, V>\& v, Key1\&\& k1, Key2\&\& k2, Keys\&\& ... keys)}
+\DoxyCodeLine{708 \{}
+\DoxyCodeLine{709     return ::toml::find<T>(\mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{::toml::find}}(v, \mbox{\hyperlink{namespacetoml_1_1detail_ad4438aabaa3c4a6dbd0c4d051e41b858}{detail::key\_cast}}(k1)),}
+\DoxyCodeLine{710             \mbox{\hyperlink{namespacetoml_1_1detail_ad4438aabaa3c4a6dbd0c4d051e41b858}{detail::key\_cast}}(k2), std::forward<Keys>(keys)...);}
+\DoxyCodeLine{711 \}}
+\DoxyCodeLine{712 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{713          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V,}
+\DoxyCodeLine{714          \textcolor{keyword}{typename} Key1, \textcolor{keyword}{typename} Key2, \textcolor{keyword}{typename} ... Keys>}
+\DoxyCodeLine{715 \textcolor{keyword}{decltype}(::toml::get<T>(std::declval<basic\_value<C, M, V>\&>()))}
+\DoxyCodeLine{716 \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{find}}(basic\_value<C, M, V>\& v, Key1\&\& k1, Key2\&\& k2, Keys\&\& ... keys)}
+\DoxyCodeLine{717 \{}
+\DoxyCodeLine{718     return ::toml::find<T>(\mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{::toml::find}}(v, \mbox{\hyperlink{namespacetoml_1_1detail_ad4438aabaa3c4a6dbd0c4d051e41b858}{detail::key\_cast}}(k1)),}
+\DoxyCodeLine{719             \mbox{\hyperlink{namespacetoml_1_1detail_ad4438aabaa3c4a6dbd0c4d051e41b858}{detail::key\_cast}}(k2), std::forward<Keys>(keys)...);}
+\DoxyCodeLine{720 \}}
+\DoxyCodeLine{721 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{722          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V,}
+\DoxyCodeLine{723          \textcolor{keyword}{typename} Key1, \textcolor{keyword}{typename} Key2, \textcolor{keyword}{typename} ... Keys>}
+\DoxyCodeLine{724 \textcolor{keyword}{decltype}(::toml::get<T>(std::declval<basic\_value<C, M, V>\&\&>()))}
+\DoxyCodeLine{725 \mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{find}}(basic\_value<C, M, V>\&\& v, Key1\&\& k1, Key2\&\& k2, Keys\&\& ... keys)}
+\DoxyCodeLine{726 \{}
+\DoxyCodeLine{727     return ::toml::find<T>(\mbox{\hyperlink{namespacetoml_acf855f0adf051797079a57130604f628}{::toml::find}}(std::move(v), \mbox{\hyperlink{namespacetoml_1_1detail_ad4438aabaa3c4a6dbd0c4d051e41b858}{detail::key\_cast}}(k1)),}
+\DoxyCodeLine{728             \mbox{\hyperlink{namespacetoml_1_1detail_ad4438aabaa3c4a6dbd0c4d051e41b858}{detail::key\_cast}}(k2), std::forward<Keys>(keys)...);}
+\DoxyCodeLine{729 \}}
+\DoxyCodeLine{730 }
+\DoxyCodeLine{731 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{732 \textcolor{comment}{// get\_or(value, fallback)}}
+\DoxyCodeLine{733 }
+\DoxyCodeLine{734 \textcolor{keyword}{template}<\textcolor{keyword}{typename} C,}
+\DoxyCodeLine{735          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{736 basic\_value<C, M, V> \textcolor{keyword}{const}\&}
+\DoxyCodeLine{737 \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, \textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\&)}
+\DoxyCodeLine{738 \{}
+\DoxyCodeLine{739     \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{740 \}}
+\DoxyCodeLine{741 \textcolor{keyword}{template}<\textcolor{keyword}{typename} C,}
+\DoxyCodeLine{742          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{743 basic\_value<C, M, V>\&}
+\DoxyCodeLine{744 \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\&)}
+\DoxyCodeLine{745 \{}
+\DoxyCodeLine{746     \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{747 \}}
+\DoxyCodeLine{748 \textcolor{keyword}{template}<\textcolor{keyword}{typename} C,}
+\DoxyCodeLine{749          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{750 basic\_value<C, M, V>}
+\DoxyCodeLine{751 \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\&\& v, \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\&\&)}
+\DoxyCodeLine{752 \{}
+\DoxyCodeLine{753     \textcolor{keywordflow}{return} v;}
+\DoxyCodeLine{754 \}}
+\DoxyCodeLine{755 }
+\DoxyCodeLine{756 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{757 \textcolor{comment}{// specialization for the exact toml types (return type becomes lvalue ref)}}
+\DoxyCodeLine{758 }
+\DoxyCodeLine{759 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{760          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{761 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<}
+\DoxyCodeLine{762     detail::is\_exact\_toml\_type<T, basic\_value<C, M, V>>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T> \textcolor{keyword}{const}\&}
+\DoxyCodeLine{763 \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, \textcolor{keyword}{const} T\& opt)}
+\DoxyCodeLine{764 \{}
+\DoxyCodeLine{765     \textcolor{keywordflow}{try}}
+\DoxyCodeLine{766     \{}
+\DoxyCodeLine{767         \textcolor{keywordflow}{return} get<detail::remove\_cvref\_t<T>>(v);}
+\DoxyCodeLine{768     \}}
+\DoxyCodeLine{769     \textcolor{keywordflow}{catch}(...)}
+\DoxyCodeLine{770     \{}
+\DoxyCodeLine{771         \textcolor{keywordflow}{return} opt;}
+\DoxyCodeLine{772     \}}
+\DoxyCodeLine{773 \}}
+\DoxyCodeLine{774 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{775          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{776 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<}
+\DoxyCodeLine{777     detail::is\_exact\_toml\_type<T, basic\_value<C, M, V>>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T>\&}
+\DoxyCodeLine{778 \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, T\& opt)}
+\DoxyCodeLine{779 \{}
+\DoxyCodeLine{780     \textcolor{keywordflow}{try}}
+\DoxyCodeLine{781     \{}
+\DoxyCodeLine{782         \textcolor{keywordflow}{return} get<detail::remove\_cvref\_t<T>>(v);}
+\DoxyCodeLine{783     \}}
+\DoxyCodeLine{784     \textcolor{keywordflow}{catch}(...)}
+\DoxyCodeLine{785     \{}
+\DoxyCodeLine{786         \textcolor{keywordflow}{return} opt;}
+\DoxyCodeLine{787     \}}
+\DoxyCodeLine{788 \}}
+\DoxyCodeLine{789 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{790          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{791 detail::enable\_if\_t<detail::is\_exact\_toml\_type<detail::remove\_cvref\_t<T>,}
+\DoxyCodeLine{792     basic\_value<C, M, V>>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, detail::remove\_cvref\_t<T>>}
+\DoxyCodeLine{793 \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\&\& v, T\&\& opt)}
+\DoxyCodeLine{794 \{}
+\DoxyCodeLine{795     \textcolor{keywordflow}{try}}
+\DoxyCodeLine{796     \{}
+\DoxyCodeLine{797         \textcolor{keywordflow}{return} get<detail::remove\_cvref\_t<T>>(std::move(v));}
+\DoxyCodeLine{798     \}}
+\DoxyCodeLine{799     \textcolor{keywordflow}{catch}(...)}
+\DoxyCodeLine{800     \{}
+\DoxyCodeLine{801         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1detail_aa9c03935999599ba21fb299c66c409e6}{detail::remove\_cvref\_t<T>}}(std::forward<T>(opt));}
+\DoxyCodeLine{802     \}}
+\DoxyCodeLine{803 \}}
+\DoxyCodeLine{804 }
+\DoxyCodeLine{805 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{806 \textcolor{comment}{// specialization for std::string (return type becomes lvalue ref)}}
+\DoxyCodeLine{807 }
+\DoxyCodeLine{808 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{809          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{810 detail::enable\_if\_t<std::is\_same<detail::remove\_cvref\_t<T>, std::string>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}},}
+\DoxyCodeLine{811     std::string> \textcolor{keyword}{const}\&}
+\DoxyCodeLine{812 \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, \textcolor{keyword}{const} T\& opt)}
+\DoxyCodeLine{813 \{}
+\DoxyCodeLine{814     \textcolor{keywordflow}{try}}
+\DoxyCodeLine{815     \{}
+\DoxyCodeLine{816         \textcolor{keywordflow}{return} v.\mbox{\hyperlink{classtoml_1_1basic__value_aec4c6cab5956662a54d2ff83db6e32b6}{as\_string}}().\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};}
+\DoxyCodeLine{817     \}}
+\DoxyCodeLine{818     \textcolor{keywordflow}{catch}(...)}
+\DoxyCodeLine{819     \{}
+\DoxyCodeLine{820         \textcolor{keywordflow}{return} opt;}
+\DoxyCodeLine{821     \}}
+\DoxyCodeLine{822 \}}
+\DoxyCodeLine{823 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{824          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{825 \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{detail::enable\_if\_t<std::is\_same<T, std::string>::value}}, std::string>\&}
+\DoxyCodeLine{826 \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, T\& opt)}
+\DoxyCodeLine{827 \{}
+\DoxyCodeLine{828     \textcolor{keywordflow}{try}}
+\DoxyCodeLine{829     \{}
+\DoxyCodeLine{830         \textcolor{keywordflow}{return} v.\mbox{\hyperlink{classtoml_1_1basic__value_aec4c6cab5956662a54d2ff83db6e32b6}{as\_string}}().\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}};}
+\DoxyCodeLine{831     \}}
+\DoxyCodeLine{832     \textcolor{keywordflow}{catch}(...)}
+\DoxyCodeLine{833     \{}
+\DoxyCodeLine{834         \textcolor{keywordflow}{return} opt;}
+\DoxyCodeLine{835     \}}
+\DoxyCodeLine{836 \}}
+\DoxyCodeLine{837 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{838          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{839 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<}
+\DoxyCodeLine{840     std::is\_same<detail::remove\_cvref\_t<T>, std::string>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, std::string>}
+\DoxyCodeLine{841 \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\&\& v, T\&\& opt)}
+\DoxyCodeLine{842 \{}
+\DoxyCodeLine{843     \textcolor{keywordflow}{try}}
+\DoxyCodeLine{844     \{}
+\DoxyCodeLine{845         \textcolor{keywordflow}{return} std::move(v.as\_string().str);}
+\DoxyCodeLine{846     \}}
+\DoxyCodeLine{847     \textcolor{keywordflow}{catch}(...)}
+\DoxyCodeLine{848     \{}
+\DoxyCodeLine{849         \textcolor{keywordflow}{return} std::string(std::forward<T>(opt));}
+\DoxyCodeLine{850     \}}
+\DoxyCodeLine{851 \}}
+\DoxyCodeLine{852 }
+\DoxyCodeLine{853 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{854 \textcolor{comment}{// specialization for string literal}}
+\DoxyCodeLine{855 }
+\DoxyCodeLine{856 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{857          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{858 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<detail::is\_string\_literal<}
+\DoxyCodeLine{859     \textcolor{keyword}{typename} std::remove\_reference<T>::type>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, std::string>}
+\DoxyCodeLine{860 \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, T\&\& opt)}
+\DoxyCodeLine{861 \{}
+\DoxyCodeLine{862     \textcolor{keywordflow}{try}}
+\DoxyCodeLine{863     \{}
+\DoxyCodeLine{864         \textcolor{keywordflow}{return} std::move(v.\mbox{\hyperlink{classtoml_1_1basic__value_aec4c6cab5956662a54d2ff83db6e32b6}{as\_string}}().\mbox{\hyperlink{structtoml_1_1string_a5274c75c1109869cf58054277c3d7ebe}{str}});}
+\DoxyCodeLine{865     \}}
+\DoxyCodeLine{866     \textcolor{keywordflow}{catch}(...)}
+\DoxyCodeLine{867     \{}
+\DoxyCodeLine{868         \textcolor{keywordflow}{return} std::string(std::forward<T>(opt));}
+\DoxyCodeLine{869     \}}
+\DoxyCodeLine{870 \}}
+\DoxyCodeLine{871 }
+\DoxyCodeLine{872 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{873 \textcolor{comment}{// others (require type conversion and return type cannot be lvalue reference)}}
+\DoxyCodeLine{874 }
+\DoxyCodeLine{875 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{876          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{877 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<detail::conjunction<}
+\DoxyCodeLine{878     detail::negation<detail::is\_exact\_toml\_type<detail::remove\_cvref\_t<T>,}
+\DoxyCodeLine{879         basic\_value<C, M, V>>>,}
+\DoxyCodeLine{880     detail::negation<std::is\_same<std::string, detail::remove\_cvref\_t<T>>>,}
+\DoxyCodeLine{881     detail::negation<detail::is\_string\_literal<}
+\DoxyCodeLine{882         \textcolor{keyword}{typename} std::remove\_reference<T>::type>>}
+\DoxyCodeLine{883     >\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, detail::remove\_cvref\_t<T>>}
+\DoxyCodeLine{884 \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, T\&\& opt)}
+\DoxyCodeLine{885 \{}
+\DoxyCodeLine{886     \textcolor{keywordflow}{try}}
+\DoxyCodeLine{887     \{}
+\DoxyCodeLine{888         \textcolor{keywordflow}{return} get<detail::remove\_cvref\_t<T>>(v);}
+\DoxyCodeLine{889     \}}
+\DoxyCodeLine{890     \textcolor{keywordflow}{catch}(...)}
+\DoxyCodeLine{891     \{}
+\DoxyCodeLine{892         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1detail_aa9c03935999599ba21fb299c66c409e6}{detail::remove\_cvref\_t<T>}}(std::forward<T>(opt));}
+\DoxyCodeLine{893     \}}
+\DoxyCodeLine{894 \}}
+\DoxyCodeLine{895 }
+\DoxyCodeLine{896 \textcolor{comment}{// ===========================================================================}}
+\DoxyCodeLine{897 \textcolor{comment}{// find\_or(value, key, fallback)}}
+\DoxyCodeLine{898 }
+\DoxyCodeLine{899 \textcolor{keyword}{template}<\textcolor{keyword}{typename} C,}
+\DoxyCodeLine{900          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{901 basic\_value<C, M, V> \textcolor{keyword}{const}\&}
+\DoxyCodeLine{902 \mbox{\hyperlink{namespacetoml_ac1041238bb8c4958d4e9fc3fd9cc3e13}{find\_or}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{key}}\& ky,}
+\DoxyCodeLine{903         \textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& opt)}
+\DoxyCodeLine{904 \{}
+\DoxyCodeLine{905     \textcolor{keywordflow}{if}(!v.\mbox{\hyperlink{classtoml_1_1basic__value_a93c66a2b01a1022e57fc21ad5a781c1a}{is\_table}}()) \{\textcolor{keywordflow}{return} opt;\}}
+\DoxyCodeLine{906     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& tab = v.\mbox{\hyperlink{classtoml_1_1basic__value_a7b113a731815356acb870bfe37b15e1b}{as\_table}}();}
+\DoxyCodeLine{907     \textcolor{keywordflow}{if}(tab.count(ky) == 0) \{\textcolor{keywordflow}{return} opt;\}}
+\DoxyCodeLine{908     \textcolor{keywordflow}{return} tab.\mbox{\hyperlink{classtoml_1_1basic__value_ad497266e16a1aa285d224dcf51fa622a}{at}}(ky);}
+\DoxyCodeLine{909 \}}
+\DoxyCodeLine{910 }
+\DoxyCodeLine{911 \textcolor{keyword}{template}<\textcolor{keyword}{typename} C,}
+\DoxyCodeLine{912          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{913 basic\_value<C, M, V>\&}
+\DoxyCodeLine{914 \mbox{\hyperlink{namespacetoml_ac1041238bb8c4958d4e9fc3fd9cc3e13}{find\_or}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml::key}}\& ky, \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& opt)}
+\DoxyCodeLine{915 \{}
+\DoxyCodeLine{916     \textcolor{keywordflow}{if}(!v.\mbox{\hyperlink{classtoml_1_1basic__value_a93c66a2b01a1022e57fc21ad5a781c1a}{is\_table}}()) \{\textcolor{keywordflow}{return} opt;\}}
+\DoxyCodeLine{917     \textcolor{keyword}{auto}\& tab = v.\mbox{\hyperlink{classtoml_1_1basic__value_a7b113a731815356acb870bfe37b15e1b}{as\_table}}();}
+\DoxyCodeLine{918     \textcolor{keywordflow}{if}(tab.count(ky) == 0) \{\textcolor{keywordflow}{return} opt;\}}
+\DoxyCodeLine{919     \textcolor{keywordflow}{return} tab.\mbox{\hyperlink{classtoml_1_1basic__value_ad497266e16a1aa285d224dcf51fa622a}{at}}(ky);}
+\DoxyCodeLine{920 \}}
+\DoxyCodeLine{921 }
+\DoxyCodeLine{922 \textcolor{keyword}{template}<\textcolor{keyword}{typename} C,}
+\DoxyCodeLine{923          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{924 basic\_value<C, M, V>}
+\DoxyCodeLine{925 \mbox{\hyperlink{namespacetoml_ac1041238bb8c4958d4e9fc3fd9cc3e13}{find\_or}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\&\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml::key}}\& ky, \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\&\& opt)}
+\DoxyCodeLine{926 \{}
+\DoxyCodeLine{927     \textcolor{keywordflow}{if}(!v.is\_table()) \{\textcolor{keywordflow}{return} opt;\}}
+\DoxyCodeLine{928     \textcolor{keyword}{auto} tab = std::move(v).as\_table();}
+\DoxyCodeLine{929     \textcolor{keywordflow}{if}(tab.count(ky) == 0) \{\textcolor{keywordflow}{return} opt;\}}
+\DoxyCodeLine{930     \textcolor{keywordflow}{return} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}(std::move(tab.at(ky)));}
+\DoxyCodeLine{931 \}}
+\DoxyCodeLine{932 }
+\DoxyCodeLine{933 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{934 \textcolor{comment}{// exact types (return type can be a reference)}}
+\DoxyCodeLine{935 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{936          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{937 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<}
+\DoxyCodeLine{938     detail::is\_exact\_toml\_type<T, basic\_value<C, M, V>>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T> \textcolor{keyword}{const}\&}
+\DoxyCodeLine{939 \mbox{\hyperlink{namespacetoml_ac1041238bb8c4958d4e9fc3fd9cc3e13}{find\_or}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{key}}\& ky, \textcolor{keyword}{const} T\& opt)}
+\DoxyCodeLine{940 \{}
+\DoxyCodeLine{941     \textcolor{keywordflow}{if}(!v.\mbox{\hyperlink{classtoml_1_1basic__value_a93c66a2b01a1022e57fc21ad5a781c1a}{is\_table}}()) \{\textcolor{keywordflow}{return} opt;\}}
+\DoxyCodeLine{942     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& tab = v.\mbox{\hyperlink{classtoml_1_1basic__value_a7b113a731815356acb870bfe37b15e1b}{as\_table}}();}
+\DoxyCodeLine{943     \textcolor{keywordflow}{if}(tab.count(ky) == 0) \{\textcolor{keywordflow}{return} opt;\}}
+\DoxyCodeLine{944     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(tab.at(ky), opt);}
+\DoxyCodeLine{945 \}}
+\DoxyCodeLine{946 }
+\DoxyCodeLine{947 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{948          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{949 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<}
+\DoxyCodeLine{950     detail::is\_exact\_toml\_type<T, basic\_value<C, M, V>>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, T>\&}
+\DoxyCodeLine{951 \mbox{\hyperlink{namespacetoml_ac1041238bb8c4958d4e9fc3fd9cc3e13}{find\_or}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml::key}}\& ky, T\& opt)}
+\DoxyCodeLine{952 \{}
+\DoxyCodeLine{953     \textcolor{keywordflow}{if}(!v.\mbox{\hyperlink{classtoml_1_1basic__value_a93c66a2b01a1022e57fc21ad5a781c1a}{is\_table}}()) \{\textcolor{keywordflow}{return} opt;\}}
+\DoxyCodeLine{954     \textcolor{keyword}{auto}\& tab = v.\mbox{\hyperlink{classtoml_1_1basic__value_a7b113a731815356acb870bfe37b15e1b}{as\_table}}();}
+\DoxyCodeLine{955     \textcolor{keywordflow}{if}(tab.count(ky) == 0) \{\textcolor{keywordflow}{return} opt;\}}
+\DoxyCodeLine{956     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(tab.at(ky), opt);}
+\DoxyCodeLine{957 \}}
+\DoxyCodeLine{958 }
+\DoxyCodeLine{959 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{960          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{961 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<}
+\DoxyCodeLine{962     detail::is\_exact\_toml\_type<T, basic\_value<C, M, V>>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}},}
+\DoxyCodeLine{963     detail::remove\_cvref\_t<T>>}
+\DoxyCodeLine{964 \mbox{\hyperlink{namespacetoml_ac1041238bb8c4958d4e9fc3fd9cc3e13}{find\_or}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\&\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml::key}}\& ky, T\&\& opt)}
+\DoxyCodeLine{965 \{}
+\DoxyCodeLine{966     \textcolor{keywordflow}{if}(!v.is\_table()) \{\textcolor{keywordflow}{return} std::forward<T>(opt);\}}
+\DoxyCodeLine{967     \textcolor{keyword}{auto} tab = std::move(v).as\_table();}
+\DoxyCodeLine{968     \textcolor{keywordflow}{if}(tab.count(ky) == 0) \{\textcolor{keywordflow}{return} std::forward<T>(opt);\}}
+\DoxyCodeLine{969     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(std::move(tab.at(ky)), std::forward<T>(opt));}
+\DoxyCodeLine{970 \}}
+\DoxyCodeLine{971 }
+\DoxyCodeLine{972 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{973 \textcolor{comment}{// std::string (return type can be a reference)}}
+\DoxyCodeLine{974 }
+\DoxyCodeLine{975 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{976          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{977 \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{detail::enable\_if\_t<std::is\_same<T, std::string>::value}}, std::string> \textcolor{keyword}{const}\&}
+\DoxyCodeLine{978 \mbox{\hyperlink{namespacetoml_ac1041238bb8c4958d4e9fc3fd9cc3e13}{find\_or}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{key}}\& ky, \textcolor{keyword}{const} T\& opt)}
+\DoxyCodeLine{979 \{}
+\DoxyCodeLine{980     \textcolor{keywordflow}{if}(!v.\mbox{\hyperlink{classtoml_1_1basic__value_a93c66a2b01a1022e57fc21ad5a781c1a}{is\_table}}()) \{\textcolor{keywordflow}{return} opt;\}}
+\DoxyCodeLine{981     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& tab = v.\mbox{\hyperlink{classtoml_1_1basic__value_a7b113a731815356acb870bfe37b15e1b}{as\_table}}();}
+\DoxyCodeLine{982     \textcolor{keywordflow}{if}(tab.count(ky) == 0) \{\textcolor{keywordflow}{return} opt;\}}
+\DoxyCodeLine{983     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(tab.at(ky), opt);}
+\DoxyCodeLine{984 \}}
+\DoxyCodeLine{985 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{986          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{987 \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{detail::enable\_if\_t<std::is\_same<T, std::string>::value}}, std::string>\&}
+\DoxyCodeLine{988 \mbox{\hyperlink{namespacetoml_ac1041238bb8c4958d4e9fc3fd9cc3e13}{find\_or}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml::key}}\& ky, T\& opt)}
+\DoxyCodeLine{989 \{}
+\DoxyCodeLine{990     \textcolor{keywordflow}{if}(!v.\mbox{\hyperlink{classtoml_1_1basic__value_a93c66a2b01a1022e57fc21ad5a781c1a}{is\_table}}()) \{\textcolor{keywordflow}{return} opt;\}}
+\DoxyCodeLine{991     \textcolor{keyword}{auto}\& tab = v.\mbox{\hyperlink{classtoml_1_1basic__value_a7b113a731815356acb870bfe37b15e1b}{as\_table}}();}
+\DoxyCodeLine{992     \textcolor{keywordflow}{if}(tab.count(ky) == 0) \{\textcolor{keywordflow}{return} opt;\}}
+\DoxyCodeLine{993     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(tab.at(ky), opt);}
+\DoxyCodeLine{994 \}}
+\DoxyCodeLine{995 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{996          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{997 \mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{detail::enable\_if\_t<std::is\_same<T, std::string>::value}}, std::string>}
+\DoxyCodeLine{998 \mbox{\hyperlink{namespacetoml_ac1041238bb8c4958d4e9fc3fd9cc3e13}{find\_or}}(\mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\&\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml::key}}\& ky, T\&\& opt)}
+\DoxyCodeLine{999 \{}
+\DoxyCodeLine{1000     \textcolor{keywordflow}{if}(!v.is\_table()) \{\textcolor{keywordflow}{return} std::forward<T>(opt);\}}
+\DoxyCodeLine{1001     \textcolor{keyword}{auto} tab = std::move(v).as\_table();}
+\DoxyCodeLine{1002     \textcolor{keywordflow}{if}(tab.count(ky) == 0) \{\textcolor{keywordflow}{return} std::forward<T>(opt);\}}
+\DoxyCodeLine{1003     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(std::move(tab.at(ky)), std::forward<T>(opt));}
+\DoxyCodeLine{1004 \}}
+\DoxyCodeLine{1005 }
+\DoxyCodeLine{1006 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1007 \textcolor{comment}{// string literal (deduced as std::string)}}
+\DoxyCodeLine{1008 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{1009          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{1010 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<}
+\DoxyCodeLine{1011     detail::is\_string\_literal<typename std::remove\_reference<T>::type>\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}},}
+\DoxyCodeLine{1012     std::string>}
+\DoxyCodeLine{1013 \mbox{\hyperlink{namespacetoml_ac1041238bb8c4958d4e9fc3fd9cc3e13}{find\_or}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml::key}}\& ky, T\&\& opt)}
+\DoxyCodeLine{1014 \{}
+\DoxyCodeLine{1015     \textcolor{keywordflow}{if}(!v.\mbox{\hyperlink{classtoml_1_1basic__value_a93c66a2b01a1022e57fc21ad5a781c1a}{is\_table}}()) \{\textcolor{keywordflow}{return} std::string(opt);\}}
+\DoxyCodeLine{1016     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& tab = v.\mbox{\hyperlink{classtoml_1_1basic__value_a7b113a731815356acb870bfe37b15e1b}{as\_table}}();}
+\DoxyCodeLine{1017     \textcolor{keywordflow}{if}(tab.count(ky) == 0) \{\textcolor{keywordflow}{return} std::string(opt);\}}
+\DoxyCodeLine{1018     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(tab.at(ky), std::forward<T>(opt));}
+\DoxyCodeLine{1019 \}}
+\DoxyCodeLine{1020 }
+\DoxyCodeLine{1021 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1022 \textcolor{comment}{// others (require type conversion and return type cannot be lvalue reference)}}
+\DoxyCodeLine{1023 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{1024          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{1025 \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<detail::conjunction<}
+\DoxyCodeLine{1026     \textcolor{comment}{// T is not an exact toml type}}
+\DoxyCodeLine{1027     detail::negation<detail::is\_exact\_toml\_type<}
+\DoxyCodeLine{1028         detail::remove\_cvref\_t<T>, basic\_value<C, M, V>>>,}
+\DoxyCodeLine{1029     \textcolor{comment}{// T is not std::string}}
+\DoxyCodeLine{1030     detail::negation<std::is\_same<std::string, detail::remove\_cvref\_t<T>>>,}
+\DoxyCodeLine{1031     \textcolor{comment}{// T is not a string literal}}
+\DoxyCodeLine{1032     detail::negation<detail::is\_string\_literal<}
+\DoxyCodeLine{1033         \textcolor{keyword}{typename} std::remove\_reference<T>::type>>}
+\DoxyCodeLine{1034     >\mbox{\hyperlink{namespacetoml_a34e466167cc683c477838accdebb2578}{::value}}, detail::remove\_cvref\_t<T>>}
+\DoxyCodeLine{1035 \mbox{\hyperlink{namespacetoml_ac1041238bb8c4958d4e9fc3fd9cc3e13}{find\_or}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml::key}}\& ky, T\&\& opt)}
+\DoxyCodeLine{1036 \{}
+\DoxyCodeLine{1037     \textcolor{keywordflow}{if}(!v.\mbox{\hyperlink{classtoml_1_1basic__value_a93c66a2b01a1022e57fc21ad5a781c1a}{is\_table}}()) \{\textcolor{keywordflow}{return} std::forward<T>(opt);\}}
+\DoxyCodeLine{1038     \textcolor{keyword}{const} \textcolor{keyword}{auto}\& tab = v.\mbox{\hyperlink{classtoml_1_1basic__value_a7b113a731815356acb870bfe37b15e1b}{as\_table}}();}
+\DoxyCodeLine{1039     \textcolor{keywordflow}{if}(tab.count(ky) == 0) \{\textcolor{keywordflow}{return} std::forward<T>(opt);\}}
+\DoxyCodeLine{1040     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_a386281b6a2b481fde83769796beccd16}{get\_or}}(tab.at(ky), std::forward<T>(opt));}
+\DoxyCodeLine{1041 \}}
+\DoxyCodeLine{1042 }
+\DoxyCodeLine{1043 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1044 \textcolor{comment}{// recursive find-\/or with type deduction (find\_or(value, keys, opt))}}
+\DoxyCodeLine{1045 }
+\DoxyCodeLine{1046 \textcolor{keyword}{template}<\textcolor{keyword}{typename} Value, \textcolor{keyword}{typename} ... Ks,}
+\DoxyCodeLine{1047          \textcolor{keyword}{typename} \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<(\textcolor{keyword}{sizeof}...(Ks) > 1), std::nullptr\_t> = \textcolor{keyword}{nullptr}>}
+\DoxyCodeLine{1048          \textcolor{comment}{// here we need to add SFINAE in the template parameter to avoid}}
+\DoxyCodeLine{1049          \textcolor{comment}{// infinite recursion in type deduction on gcc}}
+\DoxyCodeLine{1050 \textcolor{keyword}{auto} \mbox{\hyperlink{namespacetoml_ac1041238bb8c4958d4e9fc3fd9cc3e13}{find\_or}}(Value\&\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml::key}}\& ky, Ks\&\& ... keys)}
+\DoxyCodeLine{1051     -\/> \textcolor{keyword}{decltype}(\mbox{\hyperlink{namespacetoml_ac1041238bb8c4958d4e9fc3fd9cc3e13}{find\_or}}(std::forward<Value>(v), ky, \mbox{\hyperlink{namespacetoml_1_1detail_a9381dda5d5adbfc55bdb38355ac9969f}{detail::last\_one}}(std::forward<Ks>(keys)...)))}
+\DoxyCodeLine{1052 \{}
+\DoxyCodeLine{1053     \textcolor{keywordflow}{if}(!v.is\_table())}
+\DoxyCodeLine{1054     \{}
+\DoxyCodeLine{1055         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1detail_a9381dda5d5adbfc55bdb38355ac9969f}{detail::last\_one}}(std::forward<Ks>(keys)...);}
+\DoxyCodeLine{1056     \}}
+\DoxyCodeLine{1057     \textcolor{keyword}{auto}\&\& tab = std::forward<Value>(v).as\_table();}
+\DoxyCodeLine{1058     \textcolor{keywordflow}{if}(tab.count(ky) == 0)}
+\DoxyCodeLine{1059     \{}
+\DoxyCodeLine{1060         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1detail_a9381dda5d5adbfc55bdb38355ac9969f}{detail::last\_one}}(std::forward<Ks>(keys)...);}
+\DoxyCodeLine{1061     \}}
+\DoxyCodeLine{1062     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_ac1041238bb8c4958d4e9fc3fd9cc3e13}{find\_or}}(std::forward<\textcolor{keyword}{decltype}(tab)>(tab).at(ky), std::forward<Ks>(keys)...);}
+\DoxyCodeLine{1063 \}}
+\DoxyCodeLine{1064 }
+\DoxyCodeLine{1065 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{1066 \textcolor{comment}{// recursive find\_or with explicit type specialization, find\_or<int>(value, keys...)}}
+\DoxyCodeLine{1067 }
+\DoxyCodeLine{1068 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} Value, \textcolor{keyword}{typename} ... Ks,}
+\DoxyCodeLine{1069          \textcolor{keyword}{typename} \mbox{\hyperlink{namespacetoml_1_1detail_a14996ca4a7fd04f10bacfb9f59c0fa6b}{detail::enable\_if\_t}}<(\textcolor{keyword}{sizeof}...(Ks) > 1), std::nullptr\_t> = \textcolor{keyword}{nullptr}>}
+\DoxyCodeLine{1070          \textcolor{comment}{// here we need to add SFINAE in the template parameter to avoid}}
+\DoxyCodeLine{1071          \textcolor{comment}{// infinite recursion in type deduction on gcc}}
+\DoxyCodeLine{1072 \textcolor{keyword}{auto} \mbox{\hyperlink{namespacetoml_ac1041238bb8c4958d4e9fc3fd9cc3e13}{find\_or}}(Value\&\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml::key}}\& ky, Ks\&\& ... keys)}
+\DoxyCodeLine{1073     -\/> \textcolor{keyword}{decltype}(find\_or<T>(std::forward<Value>(v), ky, \mbox{\hyperlink{namespacetoml_1_1detail_a9381dda5d5adbfc55bdb38355ac9969f}{detail::last\_one}}(std::forward<Ks>(keys)...)))}
+\DoxyCodeLine{1074 \{}
+\DoxyCodeLine{1075     \textcolor{keywordflow}{if}(!v.is\_table())}
+\DoxyCodeLine{1076     \{}
+\DoxyCodeLine{1077         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1detail_a9381dda5d5adbfc55bdb38355ac9969f}{detail::last\_one}}(std::forward<Ks>(keys)...);}
+\DoxyCodeLine{1078     \}}
+\DoxyCodeLine{1079     \textcolor{keyword}{auto}\&\& tab = std::forward<Value>(v).as\_table();}
+\DoxyCodeLine{1080     \textcolor{keywordflow}{if}(tab.count(ky) == 0)}
+\DoxyCodeLine{1081     \{}
+\DoxyCodeLine{1082         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_1_1detail_a9381dda5d5adbfc55bdb38355ac9969f}{detail::last\_one}}(std::forward<Ks>(keys)...);}
+\DoxyCodeLine{1083     \}}
+\DoxyCodeLine{1084     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_ac1041238bb8c4958d4e9fc3fd9cc3e13}{find\_or}}(std::forward<\textcolor{keyword}{decltype}(tab)>(tab).at(ky), std::forward<Ks>(keys)...);}
+\DoxyCodeLine{1085 \}}
+\DoxyCodeLine{1086 }
+\DoxyCodeLine{1087 \textcolor{comment}{// ============================================================================}}
+\DoxyCodeLine{1088 \textcolor{comment}{// expect}}
+\DoxyCodeLine{1089 }
+\DoxyCodeLine{1090 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{1091          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{1092 \mbox{\hyperlink{structtoml_1_1result}{result<T, std::string>}} \mbox{\hyperlink{namespacetoml_a09489518c2b4f07d78dbee504f905e38}{expect}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v) \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{1093 \{}
+\DoxyCodeLine{1094     \textcolor{keywordflow}{try}}
+\DoxyCodeLine{1095     \{}
+\DoxyCodeLine{1096         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_a6e429ce41fe363c8d981d8c929fd26f6}{ok}}(get<T>(v));}
+\DoxyCodeLine{1097     \}}
+\DoxyCodeLine{1098     \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} std::exception\& e)}
+\DoxyCodeLine{1099     \{}
+\DoxyCodeLine{1100         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_aaa49b96abbd03a5fd434e4098839efaf}{err}}(e.what());}
+\DoxyCodeLine{1101     \}}
+\DoxyCodeLine{1102 \}}
+\DoxyCodeLine{1103 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keyword}{typename} C,}
+\DoxyCodeLine{1104          \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }M, \textcolor{keyword}{template}<\textcolor{keyword}{typename} ...> \textcolor{keyword}{class }V>}
+\DoxyCodeLine{1105 result<T, std::string>}
+\DoxyCodeLine{1106 \mbox{\hyperlink{namespacetoml_a09489518c2b4f07d78dbee504f905e38}{expect}}(\textcolor{keyword}{const} \mbox{\hyperlink{classtoml_1_1basic__value}{basic\_value<C, M, V>}}\& v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacetoml_ab00c292fbb2e761ef69fdafd6b813348}{toml::key}}\& k) \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{1107 \{}
+\DoxyCodeLine{1108     \textcolor{keywordflow}{try}}
+\DoxyCodeLine{1109     \{}
+\DoxyCodeLine{1110         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_a6e429ce41fe363c8d981d8c929fd26f6}{ok}}(find<T>(v, k));}
+\DoxyCodeLine{1111     \}}
+\DoxyCodeLine{1112     \textcolor{keywordflow}{catch}(\textcolor{keyword}{const} std::exception\& e)}
+\DoxyCodeLine{1113     \{}
+\DoxyCodeLine{1114         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacetoml_aaa49b96abbd03a5fd434e4098839efaf}{err}}(e.what());}
+\DoxyCodeLine{1115     \}}
+\DoxyCodeLine{1116 \}}
+\DoxyCodeLine{1117 }
+\DoxyCodeLine{1118 \} \textcolor{comment}{// toml}}
+\DoxyCodeLine{1119 \textcolor{preprocessor}{\#endif}\textcolor{comment}{// TOML11\_GET}}
+
+\end{DoxyCode}

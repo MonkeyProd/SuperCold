@@ -1,0 +1,478 @@
+\hypertarget{comments_8hpp_source}{}\doxysection{comments.\+hpp}
+\label{comments_8hpp_source}\index{external/toml/comments.hpp@{external/toml/comments.hpp}}
+\mbox{\hyperlink{comments_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//     Copyright Toru Niina 2019.}}
+\DoxyCodeLine{2 \textcolor{comment}{// Distributed under the MIT License.}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifndef TOML11\_COMMENTS\_HPP}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define TOML11\_COMMENTS\_HPP}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <initializer\_list>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <iterator>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <type\_traits>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <utility>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifdef TOML11\_PRESERVE\_COMMENTS\_BY\_DEFAULT}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#  define TOML11\_DEFAULT\_COMMENT\_STRATEGY ::toml::preserve\_comments}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#  define TOML11\_DEFAULT\_COMMENT\_STRATEGY ::toml::discard\_comments}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{// This file provides mainly two classes, `preserve\_comments` and `discard\_comments`.}}
+\DoxyCodeLine{20 \textcolor{comment}{// Those two are a container that have the same interface as `std::vector<std::string>`}}
+\DoxyCodeLine{21 \textcolor{comment}{// but bahaves in the opposite way. `preserve\_comments` is just the same as}}
+\DoxyCodeLine{22 \textcolor{comment}{// `std::vector<std::string>` and each `std::string` corresponds to a comment line.}}
+\DoxyCodeLine{23 \textcolor{comment}{// Conversely, `discard\_comments` discards all the strings and ignores everything}}
+\DoxyCodeLine{24 \textcolor{comment}{// assigned in it. `discard\_comments` is always empty and you will encounter an}}
+\DoxyCodeLine{25 \textcolor{comment}{// error whenever you access to the element.}}
+\DoxyCodeLine{26 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetoml}{toml}}}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28 \textcolor{keyword}{struct }discard\_comments; \textcolor{comment}{// forward decl}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{comment}{// use it in the following way}}
+\DoxyCodeLine{31 \textcolor{comment}{//}}
+\DoxyCodeLine{32 \textcolor{comment}{// const toml::basic\_value<toml::preserve\_comments> data =}}
+\DoxyCodeLine{33 \textcolor{comment}{//     toml::parse<toml::preserve\_comments>("{}example.toml"{});}}
+\DoxyCodeLine{34 \textcolor{comment}{//}}
+\DoxyCodeLine{35 \textcolor{comment}{// the interface is almost the same as std::vector<std::string>.}}
+\DoxyCodeLine{36 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}}
+\DoxyCodeLine{37 \{}
+\DoxyCodeLine{38     \textcolor{comment}{// `container\_type` is not provided in discard\_comments.}}
+\DoxyCodeLine{39     \textcolor{comment}{// do not use this inner-\/type in a generic code.}}
+\DoxyCodeLine{40     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1preserve__comments_a958304a897076e6206283fd0f422ebfc}{container\_type}}         = std::vector<std::string>;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1preserve__comments_a01c58656f8dbc24f6d27aff2945d4564}{size\_type}}              = container\_type::size\_type;}
+\DoxyCodeLine{43     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1preserve__comments_ac2d35222da6c1df611efc0039be93b50}{difference\_type}}        = container\_type::difference\_type;}
+\DoxyCodeLine{44     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1preserve__comments_ac249454b4d33db2affb27cd3eca6c2f4}{value\_type}}             = container\_type::value\_type;}
+\DoxyCodeLine{45     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1preserve__comments_ac0fffa7271db275e03ec35c883312664}{reference}}              = container\_type::reference;}
+\DoxyCodeLine{46     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1preserve__comments_a94c3891c3837eda329ced48bc6e98a09}{const\_reference}}        = container\_type::const\_reference;}
+\DoxyCodeLine{47     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1preserve__comments_a8fcf5e025621afc3dd0eb790b3b7e2ca}{pointer}}                = container\_type::pointer;}
+\DoxyCodeLine{48     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1preserve__comments_aa10a7504138c5ac6c0633cb4799952ab}{const\_pointer}}          = container\_type::const\_pointer;}
+\DoxyCodeLine{49     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}}               = container\_type::iterator;}
+\DoxyCodeLine{50     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1preserve__comments_a5c47eddf1c6c94896a89c1b22386e50e}{const\_iterator}}         = container\_type::const\_iterator;}
+\DoxyCodeLine{51     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1preserve__comments_aabe8c72931b72d6f5b6e24065585b0a5}{reverse\_iterator}}       = container\_type::reverse\_iterator;}
+\DoxyCodeLine{52     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1preserve__comments_a4a88e018ddfd1d28ed2ee7438643cbec}{const\_reverse\_iterator}} = container\_type::const\_reverse\_iterator;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \mbox{\hyperlink{structtoml_1_1preserve__comments_a828b6deb460f0947c0643c484869e6c1}{preserve\_comments}}()  = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{55     \mbox{\hyperlink{structtoml_1_1preserve__comments_a9de5cb09a9aaacc3c13b68f769e2a444}{\string~preserve\_comments}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{56     \mbox{\hyperlink{structtoml_1_1preserve__comments_a03fa685d6e6eb3b0212ed4f16a648695}{preserve\_comments}}(\mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}} \textcolor{keyword}{const}\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{57     \mbox{\hyperlink{structtoml_1_1preserve__comments_a4b72ff0a0b9c1a4d768a5e6438877b33}{preserve\_comments}}(\mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}} \&\&)     = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{58     \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& \mbox{\hyperlink{structtoml_1_1preserve__comments_a2bf030800397db46f08a854ac9783343}{operator=}}(\mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}} \textcolor{keyword}{const}\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{59     \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& \mbox{\hyperlink{structtoml_1_1preserve__comments_a2586250eb79e94dbb512687d44306a0d}{operator=}}(\mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}} \&\&)     = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1preserve__comments_aca16c0b5218090fa69ef0392e5efa930}{preserve\_comments}}(\textcolor{keyword}{const} std::vector<std::string>\& c): comments(c)\{\}}
+\DoxyCodeLine{62     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1preserve__comments_affa28a588193d35446104b6bd492ba02}{preserve\_comments}}(std::vector<std::string>\&\& c)}
+\DoxyCodeLine{63         : comments(std::move(c))}
+\DoxyCodeLine{64     \{\}}
+\DoxyCodeLine{65     \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& \mbox{\hyperlink{structtoml_1_1preserve__comments_a22bb4bf92f4dba759f44e3131c2dd913}{operator=}}(\textcolor{keyword}{const} std::vector<std::string>\& c)}
+\DoxyCodeLine{66     \{}
+\DoxyCodeLine{67         comments = c;}
+\DoxyCodeLine{68         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{69     \}}
+\DoxyCodeLine{70     \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& \mbox{\hyperlink{structtoml_1_1preserve__comments_a7b5eb1dda49b0c57a62ab60a02582335}{operator=}}(std::vector<std::string>\&\& c)}
+\DoxyCodeLine{71     \{}
+\DoxyCodeLine{72         comments = std::move(c);}
+\DoxyCodeLine{73         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{74     \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1preserve__comments_adb20ab0eb39bb01885658bd38c1f16c7}{preserve\_comments}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\&) \{\}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1preserve__comments_adaec16186cdd2fbeb46c9e1c13cf80c2}{preserve\_comments}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_a01c58656f8dbc24f6d27aff2945d4564}{size\_type}} n): comments(n) \{\}}
+\DoxyCodeLine{79     \mbox{\hyperlink{structtoml_1_1preserve__comments_a60a4204324216837f736d31d52c010fd}{preserve\_comments}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_a01c58656f8dbc24f6d27aff2945d4564}{size\_type}} n, \textcolor{keyword}{const} std::string\& x): comments(n, x) \{\}}
+\DoxyCodeLine{80     \mbox{\hyperlink{structtoml_1_1preserve__comments_a8910449f5da48ce7aba07a443c75e018}{preserve\_comments}}(std::initializer\_list<std::string> x): comments(x) \{\}}
+\DoxyCodeLine{81     \textcolor{keyword}{template}<\textcolor{keyword}{typename} InputIterator>}
+\DoxyCodeLine{82     \mbox{\hyperlink{structtoml_1_1preserve__comments_ae31b32e6e2f87ddc1274aea7851e521b}{preserve\_comments}}(InputIterator first, InputIterator last)}
+\DoxyCodeLine{83         : comments(first, last)}
+\DoxyCodeLine{84     \{\}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keyword}{template}<\textcolor{keyword}{typename} InputIterator>}
+\DoxyCodeLine{87     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1preserve__comments_ac9be30bf2bf55439eea7c7e1ab602c48}{assign}}(InputIterator first, InputIterator last) \{comments.assign(first, last);\}}
+\DoxyCodeLine{88     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1preserve__comments_aebe3ffc53fd3b40651ee48cbae051fff}{assign}}(std::initializer\_list<std::string> ini)  \{comments.assign(ini);\}}
+\DoxyCodeLine{89     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1preserve__comments_a380c9788fbc8adabd9aa6a407b8f41e6}{assign}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_a01c58656f8dbc24f6d27aff2945d4564}{size\_type}} n, \textcolor{keyword}{const} std::string\& val)     \{comments.assign(n, val);\}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     \textcolor{comment}{// Related to the issue \#97.}}
+\DoxyCodeLine{92     \textcolor{comment}{//}}
+\DoxyCodeLine{93     \textcolor{comment}{// It is known that `std::vector::insert` and `std::vector::erase` in}}
+\DoxyCodeLine{94     \textcolor{comment}{// the standard library implementation included in GCC 4.8.5 takes}}
+\DoxyCodeLine{95     \textcolor{comment}{// `std::vector::iterator` instead of `std::vector::const\_iterator`.}}
+\DoxyCodeLine{96     \textcolor{comment}{// Because of the const-\/correctness, we cannot convert a `const\_iterator` to}}
+\DoxyCodeLine{97     \textcolor{comment}{// an `iterator`. It causes compilation error in GCC 4.8.5.}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#if defined(\_\_GNUC\_\_) \&\& defined(\_\_GNUC\_MINOR\_\_) \&\& defined(\_\_GNUC\_PATCHLEVEL\_\_) \&\& !defined(\_\_clang\_\_)}}
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#  if (\_\_GNUC\_\_ * 10000 + \_\_GNUC\_MINOR\_\_ * 100 + \_\_GNUC\_PATCHLEVEL\_\_) <= 40805}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#    define TOML11\_WORKAROUND\_GCC\_4\_8\_X\_STANDARD\_LIBRARY\_IMPLEMENTATION}}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#  endif}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#ifdef TOML11\_WORKAROUND\_GCC\_4\_8\_X\_STANDARD\_LIBRARY\_IMPLEMENTATION}}
+\DoxyCodeLine{105     \mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a9680126f62827e04384df7db9598b056}{insert}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} p, \textcolor{keyword}{const} std::string\& x)}
+\DoxyCodeLine{106     \{}
+\DoxyCodeLine{107         \textcolor{keywordflow}{return} comments.insert(p, x);}
+\DoxyCodeLine{108     \}}
+\DoxyCodeLine{109     \mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a9680126f62827e04384df7db9598b056}{insert}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} p, std::string\&\&      x)}
+\DoxyCodeLine{110     \{}
+\DoxyCodeLine{111         \textcolor{keywordflow}{return} comments.insert(p, std::move(x));}
+\DoxyCodeLine{112     \}}
+\DoxyCodeLine{113     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1preserve__comments_a9680126f62827e04384df7db9598b056}{insert}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} p, \mbox{\hyperlink{structtoml_1_1preserve__comments_a01c58656f8dbc24f6d27aff2945d4564}{size\_type}} n, \textcolor{keyword}{const} std::string\& x)}
+\DoxyCodeLine{114     \{}
+\DoxyCodeLine{115         \textcolor{keywordflow}{return} comments.insert(p, n, x);}
+\DoxyCodeLine{116     \}}
+\DoxyCodeLine{117     \textcolor{keyword}{template}<\textcolor{keyword}{typename} InputIterator>}
+\DoxyCodeLine{118     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1preserve__comments_a9680126f62827e04384df7db9598b056}{insert}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} p, InputIterator first, InputIterator last)}
+\DoxyCodeLine{119     \{}
+\DoxyCodeLine{120         \textcolor{keywordflow}{return} comments.insert(p, first, last);}
+\DoxyCodeLine{121     \}}
+\DoxyCodeLine{122     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1preserve__comments_a9680126f62827e04384df7db9598b056}{insert}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} p, std::initializer\_list<std::string> ini)}
+\DoxyCodeLine{123     \{}
+\DoxyCodeLine{124         \textcolor{keywordflow}{return} comments.insert(p, ini);}
+\DoxyCodeLine{125     \}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127     \textcolor{keyword}{template}<\textcolor{keyword}{typename} ... Ts>}
+\DoxyCodeLine{128     \mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a77add5549f81db74d00bd5c2a45dcd07}{emplace}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} p, Ts\&\& ... args)}
+\DoxyCodeLine{129     \{}
+\DoxyCodeLine{130         \textcolor{keywordflow}{return} comments.emplace(p, std::forward<Ts>(args)...);}
+\DoxyCodeLine{131     \}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133     \mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a1882e37548fceae20666723981076eb1}{erase}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} pos) \{\textcolor{keywordflow}{return} comments.erase(pos);\}}
+\DoxyCodeLine{134     \mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a1882e37548fceae20666723981076eb1}{erase}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} first, \mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} last)}
+\DoxyCodeLine{135     \{}
+\DoxyCodeLine{136         \textcolor{keywordflow}{return} comments.erase(first, last);}
+\DoxyCodeLine{137     \}}
+\DoxyCodeLine{138 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{139     \mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a9680126f62827e04384df7db9598b056}{insert}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_a5c47eddf1c6c94896a89c1b22386e50e}{const\_iterator}} p, \textcolor{keyword}{const} std::string\& x)}
+\DoxyCodeLine{140     \{}
+\DoxyCodeLine{141         \textcolor{keywordflow}{return} comments.insert(p, x);}
+\DoxyCodeLine{142     \}}
+\DoxyCodeLine{143     \mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_ae6ead07c4900c09fcc21f8656c587b28}{insert}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_a5c47eddf1c6c94896a89c1b22386e50e}{const\_iterator}} p, std::string\&\&      x)}
+\DoxyCodeLine{144     \{}
+\DoxyCodeLine{145         \textcolor{keywordflow}{return} comments.insert(p, std::move(x));}
+\DoxyCodeLine{146     \}}
+\DoxyCodeLine{147     \mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a4bcfd3958ae852cf251b4cd2c32f7e12}{insert}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_a5c47eddf1c6c94896a89c1b22386e50e}{const\_iterator}} p, \mbox{\hyperlink{structtoml_1_1preserve__comments_a01c58656f8dbc24f6d27aff2945d4564}{size\_type}} n, \textcolor{keyword}{const} std::string\& x)}
+\DoxyCodeLine{148     \{}
+\DoxyCodeLine{149         \textcolor{keywordflow}{return} comments.insert(p, n, x);}
+\DoxyCodeLine{150     \}}
+\DoxyCodeLine{151     \textcolor{keyword}{template}<\textcolor{keyword}{typename} InputIterator>}
+\DoxyCodeLine{152     \mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_aa227b8186816daf1cbc2434d21fc72a2}{insert}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_a5c47eddf1c6c94896a89c1b22386e50e}{const\_iterator}} p, InputIterator first, InputIterator last)}
+\DoxyCodeLine{153     \{}
+\DoxyCodeLine{154         \textcolor{keywordflow}{return} comments.insert(p, first, last);}
+\DoxyCodeLine{155     \}}
+\DoxyCodeLine{156     \mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a471386e6a81f61e2a3687fba24d45a85}{insert}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_a5c47eddf1c6c94896a89c1b22386e50e}{const\_iterator}} p, std::initializer\_list<std::string> ini)}
+\DoxyCodeLine{157     \{}
+\DoxyCodeLine{158         \textcolor{keywordflow}{return} comments.insert(p, ini);}
+\DoxyCodeLine{159     \}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161     \textcolor{keyword}{template}<\textcolor{keyword}{typename} ... Ts>}
+\DoxyCodeLine{162     \mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a77add5549f81db74d00bd5c2a45dcd07}{emplace}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_a5c47eddf1c6c94896a89c1b22386e50e}{const\_iterator}} p, Ts\&\& ... args)}
+\DoxyCodeLine{163     \{}
+\DoxyCodeLine{164         \textcolor{keywordflow}{return} comments.emplace(p, std::forward<Ts>(args)...);}
+\DoxyCodeLine{165     \}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167     \mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a1882e37548fceae20666723981076eb1}{erase}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_a5c47eddf1c6c94896a89c1b22386e50e}{const\_iterator}} pos) \{\textcolor{keywordflow}{return} comments.erase(pos);\}}
+\DoxyCodeLine{168     \mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a090e5b53a3b3632ed60adc20467d5e77}{erase}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_a5c47eddf1c6c94896a89c1b22386e50e}{const\_iterator}} first, \mbox{\hyperlink{structtoml_1_1preserve__comments_a5c47eddf1c6c94896a89c1b22386e50e}{const\_iterator}} last)}
+\DoxyCodeLine{169     \{}
+\DoxyCodeLine{170         \textcolor{keywordflow}{return} comments.erase(first, last);}
+\DoxyCodeLine{171     \}}
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1preserve__comments_a955455f3bd0bc1a3cc0d46b66f0c510a}{swap}}(\mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& other) \{comments.swap(other.comments);\}}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1preserve__comments_a2f64fab30d5b486a0e00d66e5fa121a9}{push\_back}}(\textcolor{keyword}{const} std::string\& v) \{comments.push\_back(v);\}}
+\DoxyCodeLine{177     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1preserve__comments_a61fbb3c12237b80f35f8f9b7a6709a67}{push\_back}}(std::string\&\&      v) \{comments.push\_back(std::move(v));\}}
+\DoxyCodeLine{178     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1preserve__comments_a7010964e10b2c378c598213b118e3bd8}{pop\_back}}()                      \{comments.pop\_back();\}}
+\DoxyCodeLine{179 }
+\DoxyCodeLine{180     \textcolor{keyword}{template}<\textcolor{keyword}{typename} ... Ts>}
+\DoxyCodeLine{181     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1preserve__comments_ae330c4a1cd658f732f1650ae19379fd6}{emplace\_back}}(Ts\&\& ... args) \{comments.emplace\_back(std::forward<Ts>(args)...);\}}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1preserve__comments_a80c46e6967dd58b53e44449337bdffb5}{clear}}() \{comments.clear();\}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185     \mbox{\hyperlink{structtoml_1_1preserve__comments_a01c58656f8dbc24f6d27aff2945d4564}{size\_type}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a8f2472b2ad8b228f17923b4fef6f5478}{size}}()     const noexcept \{\textcolor{keywordflow}{return} comments.size();\}}
+\DoxyCodeLine{186     \mbox{\hyperlink{structtoml_1_1preserve__comments_a01c58656f8dbc24f6d27aff2945d4564}{size\_type}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a3719c9c1eb6a79c8261e2d6f7c5cfa4c}{max\_size}}() const noexcept \{\textcolor{keywordflow}{return} comments.max\_size();\}}
+\DoxyCodeLine{187     \mbox{\hyperlink{structtoml_1_1preserve__comments_a01c58656f8dbc24f6d27aff2945d4564}{size\_type}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a0f7faf83d7a456802f43e76a5d2535aa}{capacity}}() const noexcept \{\textcolor{keywordflow}{return} comments.capacity();\}}
+\DoxyCodeLine{188     \textcolor{keywordtype}{bool}      \mbox{\hyperlink{structtoml_1_1preserve__comments_aa88bd393934225c37173994d4dbd0606}{empty}}()    const noexcept \{\textcolor{keywordflow}{return} comments.empty();\}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1preserve__comments_a3de6cc5635f6a4e6d157bcd6279091a0}{reserve}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_a01c58656f8dbc24f6d27aff2945d4564}{size\_type}} n)                      \{comments.reserve(n);\}}
+\DoxyCodeLine{191     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1preserve__comments_a8afa1bc9741b532ea5fa9b528c167156}{resize}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_a01c58656f8dbc24f6d27aff2945d4564}{size\_type}} n)                       \{comments.resize(n);\}}
+\DoxyCodeLine{192     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1preserve__comments_abfdfbd222e99e9d5ace4c639607c1c00}{resize}}(\mbox{\hyperlink{structtoml_1_1preserve__comments_a01c58656f8dbc24f6d27aff2945d4564}{size\_type}} n, \textcolor{keyword}{const} std::string\& c) \{comments.resize(n, c);\}}
+\DoxyCodeLine{193     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1preserve__comments_a7548c7235e95ac1967792473016f3f3b}{shrink\_to\_fit}}()                           \{comments.shrink\_to\_fit();\}}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195     \mbox{\hyperlink{structtoml_1_1preserve__comments_ac0fffa7271db275e03ec35c883312664}{reference}}       \mbox{\hyperlink{structtoml_1_1preserve__comments_a508bec08e117370c96eadc3165a6ab8f}{operator[]}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments_a01c58656f8dbc24f6d27aff2945d4564}{size\_type}} n)       \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} comments[n];\}}
+\DoxyCodeLine{196     \mbox{\hyperlink{structtoml_1_1preserve__comments_a94c3891c3837eda329ced48bc6e98a09}{const\_reference}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a0cc6221fafdc8c36e0dddf1d19713151}{operator[]}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments_a01c58656f8dbc24f6d27aff2945d4564}{size\_type}} n) \textcolor{keyword}{const} \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} comments[n];\}}
+\DoxyCodeLine{197     \mbox{\hyperlink{structtoml_1_1preserve__comments_ac0fffa7271db275e03ec35c883312664}{reference}}       \mbox{\hyperlink{structtoml_1_1preserve__comments_a0914654cdb9fb06f1738e1f6f531b3a7}{at}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments_a01c58656f8dbc24f6d27aff2945d4564}{size\_type}} n)       \{\textcolor{keywordflow}{return} comments.at(n);\}}
+\DoxyCodeLine{198     \mbox{\hyperlink{structtoml_1_1preserve__comments_a94c3891c3837eda329ced48bc6e98a09}{const\_reference}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a6ba503e50ce207ea14d415f2323779ff}{at}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments_a01c58656f8dbc24f6d27aff2945d4564}{size\_type}} n)\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} comments.at(n);\}}
+\DoxyCodeLine{199     \mbox{\hyperlink{structtoml_1_1preserve__comments_ac0fffa7271db275e03ec35c883312664}{reference}}       \mbox{\hyperlink{structtoml_1_1preserve__comments_a0742322445379b4396d7c0360d9f1025}{front}}()       noexcept \{\textcolor{keywordflow}{return} comments.front();\}}
+\DoxyCodeLine{200     \mbox{\hyperlink{structtoml_1_1preserve__comments_a94c3891c3837eda329ced48bc6e98a09}{const\_reference}} \mbox{\hyperlink{structtoml_1_1preserve__comments_ae7855315a5fd090f692e62e4b77a1e84}{front}}() const noexcept \{\textcolor{keywordflow}{return} comments.front();\}}
+\DoxyCodeLine{201     \mbox{\hyperlink{structtoml_1_1preserve__comments_ac0fffa7271db275e03ec35c883312664}{reference}}       \mbox{\hyperlink{structtoml_1_1preserve__comments_afa7e9dc9780057d1ef7e28840a343452}{back}}()        noexcept \{\textcolor{keywordflow}{return} comments.back();\}}
+\DoxyCodeLine{202     \mbox{\hyperlink{structtoml_1_1preserve__comments_a94c3891c3837eda329ced48bc6e98a09}{const\_reference}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a9fd9aab4e1a153be47c3c5d310d8e350}{back}}()  const noexcept \{\textcolor{keywordflow}{return} comments.back();\}}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204     \mbox{\hyperlink{structtoml_1_1preserve__comments_a8fcf5e025621afc3dd0eb790b3b7e2ca}{pointer}}         \mbox{\hyperlink{structtoml_1_1preserve__comments_a46022433008d38032c25b4e1703a6dcf}{data}}()        noexcept \{\textcolor{keywordflow}{return} comments.data();\}}
+\DoxyCodeLine{205     \mbox{\hyperlink{structtoml_1_1preserve__comments_aa10a7504138c5ac6c0633cb4799952ab}{const\_pointer}}   \mbox{\hyperlink{structtoml_1_1preserve__comments_aff2ebcb87e3fd406e09c234f720bbbf3}{data}}()  const noexcept \{\textcolor{keywordflow}{return} comments.data();\}}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207     \mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}}       \mbox{\hyperlink{structtoml_1_1preserve__comments_ab375a0516a1c472ce91ae77be2913398}{begin}}()        noexcept \{\textcolor{keywordflow}{return} comments.begin();\}}
+\DoxyCodeLine{208     \mbox{\hyperlink{structtoml_1_1preserve__comments_ad036489a2ef356bd3d3f1d726b78a824}{iterator}}       \mbox{\hyperlink{structtoml_1_1preserve__comments_ac2d8060632b0bb6943fea6f4e3789775}{end}}()          noexcept \{\textcolor{keywordflow}{return} comments.end();\}}
+\DoxyCodeLine{209     \mbox{\hyperlink{structtoml_1_1preserve__comments_a5c47eddf1c6c94896a89c1b22386e50e}{const\_iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a07d744fb7a10f944d3a21734f04c01fa}{begin}}()  const noexcept \{\textcolor{keywordflow}{return} comments.begin();\}}
+\DoxyCodeLine{210     \mbox{\hyperlink{structtoml_1_1preserve__comments_a5c47eddf1c6c94896a89c1b22386e50e}{const\_iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_ab8fd05c4315b5bd648c9cd82541f298c}{end}}()    const noexcept \{\textcolor{keywordflow}{return} comments.end();\}}
+\DoxyCodeLine{211     \mbox{\hyperlink{structtoml_1_1preserve__comments_a5c47eddf1c6c94896a89c1b22386e50e}{const\_iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a12888ff1791016b32ac94c3809e041e9}{cbegin}}() const noexcept \{\textcolor{keywordflow}{return} comments.cbegin();\}}
+\DoxyCodeLine{212     \mbox{\hyperlink{structtoml_1_1preserve__comments_a5c47eddf1c6c94896a89c1b22386e50e}{const\_iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_af854d62f3224726e2088c82d59010d7d}{cend}}()   const noexcept \{\textcolor{keywordflow}{return} comments.cend();\}}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214     \mbox{\hyperlink{structtoml_1_1preserve__comments_aabe8c72931b72d6f5b6e24065585b0a5}{reverse\_iterator}}       \mbox{\hyperlink{structtoml_1_1preserve__comments_a8ef5e1c5fd9187d5a8f4191eec122306}{rbegin}}()        noexcept \{\textcolor{keywordflow}{return} comments.rbegin();\}}
+\DoxyCodeLine{215     \mbox{\hyperlink{structtoml_1_1preserve__comments_aabe8c72931b72d6f5b6e24065585b0a5}{reverse\_iterator}}       \mbox{\hyperlink{structtoml_1_1preserve__comments_a1a9dc5190cb5e5b8c677e76acb1895c3}{rend}}()          noexcept \{\textcolor{keywordflow}{return} comments.rend();\}}
+\DoxyCodeLine{216     \mbox{\hyperlink{structtoml_1_1preserve__comments_a4a88e018ddfd1d28ed2ee7438643cbec}{const\_reverse\_iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a68f7cbb4878f521f0fbab443b95bf477}{rbegin}}()  const noexcept \{\textcolor{keywordflow}{return} comments.rbegin();\}}
+\DoxyCodeLine{217     \mbox{\hyperlink{structtoml_1_1preserve__comments_a4a88e018ddfd1d28ed2ee7438643cbec}{const\_reverse\_iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_af6d7caa4caf2aa517bf196eb86c106d9}{rend}}()    const noexcept \{\textcolor{keywordflow}{return} comments.rend();\}}
+\DoxyCodeLine{218     \mbox{\hyperlink{structtoml_1_1preserve__comments_a4a88e018ddfd1d28ed2ee7438643cbec}{const\_reverse\_iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a907281a276285e0bc057025148653a6d}{crbegin}}() const noexcept \{\textcolor{keywordflow}{return} comments.crbegin();\}}
+\DoxyCodeLine{219     \mbox{\hyperlink{structtoml_1_1preserve__comments_a4a88e018ddfd1d28ed2ee7438643cbec}{const\_reverse\_iterator}} \mbox{\hyperlink{structtoml_1_1preserve__comments_a9b213f5ccd7324be5f9d8e519b2d1db1}{crend}}()   const noexcept \{\textcolor{keywordflow}{return} comments.crend();\}}
+\DoxyCodeLine{220 }
+\DoxyCodeLine{221     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{structtoml_1_1preserve__comments_a974a87c1ec33a3de217da5ed67ac4451}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\&);}
+\DoxyCodeLine{222     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{structtoml_1_1preserve__comments_adde9235a0ca2a9534d68e788f199a8a0}{operator!=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\&);}
+\DoxyCodeLine{223     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{structtoml_1_1preserve__comments_addc7a4efcec49f9c549ef73d31e8316e}{operator< }}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\&);}
+\DoxyCodeLine{224     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{structtoml_1_1preserve__comments_ae3232f5662b4a1d57d6936b88f820eb0}{operator<=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\&);}
+\DoxyCodeLine{225     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{structtoml_1_1preserve__comments_af26ecd1e4b07203990d82b2cf8272eef}{operator> }}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\&);}
+\DoxyCodeLine{226     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{structtoml_1_1preserve__comments_af7361e1288f31858dcf5544ee2ad91b7}{operator>=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\&);}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228     \textcolor{keyword}{friend} \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1preserve__comments_a955455f3bd0bc1a3cc0d46b66f0c510a}{swap}}(\mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\&, std::vector<std::string>\&);}
+\DoxyCodeLine{229     \textcolor{keyword}{friend} \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1preserve__comments_a955455f3bd0bc1a3cc0d46b66f0c510a}{swap}}(std::vector<std::string>\&, \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\&);}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231   \textcolor{keyword}{private}:}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233     \mbox{\hyperlink{structtoml_1_1preserve__comments_a958304a897076e6206283fd0f422ebfc}{container\_type}} comments;}
+\DoxyCodeLine{234 \};}
+\DoxyCodeLine{235 }
+\DoxyCodeLine{236 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_ae9ac58857cfdda9535ef98266b65304b}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& rhs) \{\textcolor{keywordflow}{return} lhs.comments == rhs.comments;\}}
+\DoxyCodeLine{237 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a03e338a600f118cd5c5d3e7fee31f6c6}{operator!=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& rhs) \{\textcolor{keywordflow}{return} lhs.comments != rhs.comments;\}}
+\DoxyCodeLine{238 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_acbb3a32f389eaf9e5097d2b23df77b4e}{operator< }}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& rhs) \{\textcolor{keywordflow}{return} lhs.comments <  rhs.comments;\}}
+\DoxyCodeLine{239 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a17f8791df6efda2a712efa14c334c33d}{operator<=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& rhs) \{\textcolor{keywordflow}{return} lhs.comments <= rhs.comments;\}}
+\DoxyCodeLine{240 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a993726b0c054cbf5b20674f14690d6ed}{operator> }}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& rhs) \{\textcolor{keywordflow}{return} lhs.comments >  rhs.comments;\}}
+\DoxyCodeLine{241 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a6b51fe3d00e083b549644d994bd547c7}{operator>=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& lhs, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& rhs) \{\textcolor{keywordflow}{return} lhs.comments >= rhs.comments;\}}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespacetoml_a9a68dfa1ac6b1762835738786dbb3cf2}{swap}}(\mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& lhs, \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& rhs)}
+\DoxyCodeLine{244 \{}
+\DoxyCodeLine{245     lhs.\mbox{\hyperlink{structtoml_1_1preserve__comments_a955455f3bd0bc1a3cc0d46b66f0c510a}{swap}}(rhs);}
+\DoxyCodeLine{246     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{247 \}}
+\DoxyCodeLine{248 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespacetoml_a9a68dfa1ac6b1762835738786dbb3cf2}{swap}}(\mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& lhs, std::vector<std::string>\& rhs)}
+\DoxyCodeLine{249 \{}
+\DoxyCodeLine{250     lhs.comments.swap(rhs);}
+\DoxyCodeLine{251     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{252 \}}
+\DoxyCodeLine{253 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespacetoml_a9a68dfa1ac6b1762835738786dbb3cf2}{swap}}(std::vector<std::string>\& lhs, \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& rhs)}
+\DoxyCodeLine{254 \{}
+\DoxyCodeLine{255     lhs.swap(rhs.comments);}
+\DoxyCodeLine{256     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{257 \}}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259 \textcolor{keyword}{template}<\textcolor{keyword}{typename} \textcolor{keywordtype}{char}T, \textcolor{keyword}{typename} traits>}
+\DoxyCodeLine{260 std::basic\_ostream<charT, traits>\&}
+\DoxyCodeLine{261 \mbox{\hyperlink{namespacetoml_a11b17eff44b8e4b0b49c85cc34e241c7}{operator<<}}(std::basic\_ostream<charT, traits>\& os, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\& com)}
+\DoxyCodeLine{262 \{}
+\DoxyCodeLine{263     \textcolor{keywordflow}{for}(\textcolor{keyword}{const} \textcolor{keyword}{auto}\& c : com)}
+\DoxyCodeLine{264     \{}
+\DoxyCodeLine{265         os << \textcolor{charliteral}{'\#'} << c << \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{266     \}}
+\DoxyCodeLine{267     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{268 \}}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270 \textcolor{keyword}{namespace }detail}
+\DoxyCodeLine{271 \{}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273 \textcolor{comment}{// To provide the same interface with `preserve\_comments`, `discard\_comments`}}
+\DoxyCodeLine{274 \textcolor{comment}{// should have an iterator. But it does not contain anything, so we need to}}
+\DoxyCodeLine{275 \textcolor{comment}{// add an iterator that points nothing.}}
+\DoxyCodeLine{276 \textcolor{comment}{//}}
+\DoxyCodeLine{277 \textcolor{comment}{// It always points null, so DO NOT unwrap this iterator. It always crashes}}
+\DoxyCodeLine{278 \textcolor{comment}{// your program.}}
+\DoxyCodeLine{279 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{bool} is\_const>}
+\DoxyCodeLine{280 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator}}}
+\DoxyCodeLine{281 \{}
+\DoxyCodeLine{282     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a9f1a4cc97e6da5a390a021e7e224646f}{value\_type}}        = T;}
+\DoxyCodeLine{283     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_afd8d138a3f8470c84e5555e5d0002600}{reference\_type}}    = \textcolor{keyword}{typename} std::conditional<is\_const, T const\&, T\&>::type;}
+\DoxyCodeLine{284     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_ac4841e4b798384b9e40a28c701189eec}{pointer\_type}}      = \textcolor{keyword}{typename} std::conditional<is\_const, T const*, T*>::type;}
+\DoxyCodeLine{285     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{difference\_type}}   = std::ptrdiff\_t;}
+\DoxyCodeLine{286     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_ad4f2954ecc081e138e9ec964fa9e7af6}{iterator\_category}} = std::random\_access\_iterator\_tag;}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{288     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a6055dee805e8bd637dfece2e8321c241}{empty\_iterator}}()  = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{289     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a78d89516d755c2951faa1ea5ffd12363}{\string~empty\_iterator}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{290     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a5418dc2fa747e49f0c6cc38781d431fd}{empty\_iterator}}(\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator}} \textcolor{keyword}{const}\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{291     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_acebda47ed2afc471843b58c20ba4e508}{empty\_iterator}}(\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator}} \&\&)     = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{292     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator}}\& \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_abcdf95298c996aa5c2cd2c3ec033df70}{operator=}}(\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator}} \textcolor{keyword}{const}\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{293     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator}}\& \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a561cceecac787eb4bab60319081cd057}{operator=}}(\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator}} \&\&)     = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{294 }
+\DoxyCodeLine{295     \textcolor{comment}{// DO NOT call these operators.}}
+\DoxyCodeLine{296     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_afd8d138a3f8470c84e5555e5d0002600}{reference\_type}} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a0234cede9e0dff0e30ae7a8c9ff998e7}{operator*}}()  const noexcept \{std::terminate();\}}
+\DoxyCodeLine{297     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_ac4841e4b798384b9e40a28c701189eec}{pointer\_type}}   \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a5642bc998d18cd25d9d12c6dce3a985d}{operator-\/>}}() const noexcept \{\textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};\}}
+\DoxyCodeLine{298     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_afd8d138a3f8470c84e5555e5d0002600}{reference\_type}} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a4bc711805315504bac8a65459bce2dc4}{operator[]}}(\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{difference\_type}}) \textcolor{keyword}{const} \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a0234cede9e0dff0e30ae7a8c9ff998e7}{operator*}}();\}}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300     \textcolor{comment}{// These operators do nothing.}}
+\DoxyCodeLine{301     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator}}\& \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_aa4af3557a678228c4753e91712e22859}{operator++}}()    noexcept \{\textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{302     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator}}  \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_ab06b83b28b4a223d737e6e76e14b68da}{operator++}}(\textcolor{keywordtype}{int}) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{303     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator}}\& \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a910a4cd9b59262e0c9d26903f6661d5c}{operator-\/-\/}}()    noexcept \{\textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{304     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator}}  \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_aed57ef076c8d1e0b116d3c1786f39d50}{operator-\/-\/}}(\textcolor{keywordtype}{int}) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{306     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator}}\& \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_ab4d768294133163ecbe082fdc0ef97f5}{operator+=}}(\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{difference\_type}}) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{307     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator}}\& \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a9745d6d8f688d4b202bbe1323ebe1bee}{operator-\/=}}(\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{difference\_type}}) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{308 }
+\DoxyCodeLine{309     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator}}  \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a571a62dc3e2a7b4272b91b23ded1f0c8}{operator+}}(\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{difference\_type}}) \textcolor{keyword}{const} \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{310     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator}}  \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a3382f51a45f4410789f85312614eaa57}{operator-\/}}(\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{difference\_type}}) \textcolor{keyword}{const} \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{311 \};}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{313 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{bool} C>}
+\DoxyCodeLine{314 \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_1_1detail_af32e4e42a39aa2b9fc2bd8e9d3f97cd8}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator<T, C>}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator<T, C>}}\&) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} \textcolor{keyword}{true};\}}
+\DoxyCodeLine{315 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{bool} C>}
+\DoxyCodeLine{316 \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_1_1detail_aa4437dc0ba9e506dec5d6922504fccb5}{operator!=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator<T, C>}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator<T, C>}}\&) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{317 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{bool} C>}
+\DoxyCodeLine{318 \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_1_1detail_a020cb01199da9b349b09e05f732e4694}{operator< }}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator<T, C>}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator<T, C>}}\&) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{319 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{bool} C>}
+\DoxyCodeLine{320 \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_1_1detail_adb0f553fbf0b2ddb642de75f9a2f1b84}{operator<=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator<T, C>}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator<T, C>}}\&) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} \textcolor{keyword}{true};\}}
+\DoxyCodeLine{321 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{bool} C>}
+\DoxyCodeLine{322 \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_1_1detail_ab0aa1507d1ed1b957274d535fe27c42b}{operator> }}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator<T, C>}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator<T, C>}}\&) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{323 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{bool} C>}
+\DoxyCodeLine{324 \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_1_1detail_af42e8bbe713ac03abc32455bde9bcd03}{operator>=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator<T, C>}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator<T, C>}}\&) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} \textcolor{keyword}{true};\}}
+\DoxyCodeLine{325 }
+\DoxyCodeLine{326 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{bool} C>}
+\DoxyCodeLine{327 \textcolor{keyword}{typename} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{empty\_iterator<T, C>::difference\_type}}}
+\DoxyCodeLine{328 \mbox{\hyperlink{namespacetoml_1_1detail_a04271fbec74a060a51131962bd435cf3}{operator-\/}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator<T, C>}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator<T, C>}}\&) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} 0;\}}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{bool} C>}
+\DoxyCodeLine{331 empty\_iterator<T, C>}
+\DoxyCodeLine{332 \mbox{\hyperlink{namespacetoml_1_1detail_a5b66ed4b1104ca9dadeebd46820a535b}{operator+}}(\textcolor{keyword}{typename} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{empty\_iterator<T, C>::difference\_type}}, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator<T, C>}}\& rhs) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} rhs;\}}
+\DoxyCodeLine{333 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T, \textcolor{keywordtype}{bool} C>}
+\DoxyCodeLine{334 empty\_iterator<T, C>}
+\DoxyCodeLine{335 \mbox{\hyperlink{namespacetoml_1_1detail_a5b66ed4b1104ca9dadeebd46820a535b}{operator+}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{empty\_iterator<T, C>}}\& lhs, \textcolor{keyword}{typename} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator_a52043ae567fbca9752a880c764f17b3b}{empty\_iterator<T, C>::difference\_type}}) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} lhs;\}}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{337 \} \textcolor{comment}{// detail}}
+\DoxyCodeLine{338 }
+\DoxyCodeLine{339 \textcolor{comment}{// The default comment type. It discards all the comments. It requires only one}}
+\DoxyCodeLine{340 \textcolor{comment}{// byte to contain, so the memory footprint is smaller than preserve\_comments.}}
+\DoxyCodeLine{341 \textcolor{comment}{//}}
+\DoxyCodeLine{342 \textcolor{comment}{// It just ignores `push\_back`, `insert`, `erase`, and any other modifications.}}
+\DoxyCodeLine{343 \textcolor{comment}{// IT always returns size() == 0, the iterator taken by `begin()` is always the}}
+\DoxyCodeLine{344 \textcolor{comment}{// same as that of `end()`, and accessing through `operator[]` or iterators}}
+\DoxyCodeLine{345 \textcolor{comment}{// always causes a segmentation fault. DO NOT access to the element of this.}}
+\DoxyCodeLine{346 \textcolor{comment}{//}}
+\DoxyCodeLine{347 \textcolor{comment}{// Why this is chose as the default type is because the last version (2.x.y)}}
+\DoxyCodeLine{348 \textcolor{comment}{// does not contain any comments in a value. To minimize the impact on the}}
+\DoxyCodeLine{349 \textcolor{comment}{// efficiency, this is chosen as a default.}}
+\DoxyCodeLine{350 \textcolor{comment}{//}}
+\DoxyCodeLine{351 \textcolor{comment}{// To reduce the memory footprint, later we can try empty base optimization (EBO).}}
+\DoxyCodeLine{352 \textcolor{keyword}{struct }\mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}}
+\DoxyCodeLine{353 \{}
+\DoxyCodeLine{354     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1discard__comments_a56ea098784a9d1e3a9ecb8ba69fb9462}{size\_type}}              = std::size\_t;}
+\DoxyCodeLine{355     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1discard__comments_ace384cea962939ee8daa86457e2b0177}{difference\_type}}        = std::ptrdiff\_t;}
+\DoxyCodeLine{356     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1discard__comments_a2c2e958054df31f5997f2fc43c829fb0}{value\_type}}             = std::string;}
+\DoxyCodeLine{357     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1discard__comments_aaebf4059da8e84eabf6c1129e36f54c3}{reference}}              = std::string\&;}
+\DoxyCodeLine{358     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1discard__comments_a0333a4066d6853fe0f3b62c5bfc300ce}{const\_reference}}        = std::string \textcolor{keyword}{const}\&;}
+\DoxyCodeLine{359     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1discard__comments_ab86fa50599b11437a54243bb84370ae0}{pointer}}                = std::string*;}
+\DoxyCodeLine{360     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1discard__comments_af10fea60bfc0bb44af3bc4cb0677067d}{const\_pointer}}          = std::string \textcolor{keyword}{const}*;}
+\DoxyCodeLine{361     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}}               = \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{detail::empty\_iterator<std::string, false>}};}
+\DoxyCodeLine{362     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}}         = \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{detail::empty\_iterator<std::string, true>}};}
+\DoxyCodeLine{363     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{reverse\_iterator}}       = \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{detail::empty\_iterator<std::string, false>}};}
+\DoxyCodeLine{364     \textcolor{keyword}{using }\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_reverse\_iterator}} = \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{detail::empty\_iterator<std::string, true>}};}
+\DoxyCodeLine{365 }
+\DoxyCodeLine{366     \mbox{\hyperlink{structtoml_1_1discard__comments_a42663a637d1ab9bab824e9177d01beb0}{discard\_comments}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{367     \mbox{\hyperlink{structtoml_1_1discard__comments_ab86cf5cd7850df0a111cc1c4b3429741}{\string~discard\_comments}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{368     \mbox{\hyperlink{structtoml_1_1discard__comments_a4efeb706722ac083ad93c3762e06cb73}{discard\_comments}}(\mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}} \textcolor{keyword}{const}\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{369     \mbox{\hyperlink{structtoml_1_1discard__comments_a221030bb500d414371e8c5795f1bb948}{discard\_comments}}(\mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}} \&\&)     = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{370     \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\& \mbox{\hyperlink{structtoml_1_1discard__comments_a363af56d64004b9c763a94fe93436e82}{operator=}}(\mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}} \textcolor{keyword}{const}\&) = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{371     \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\& \mbox{\hyperlink{structtoml_1_1discard__comments_aa4de88dab919efdf9d88155e187dbaea}{operator=}}(\mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}} \&\&)     = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{372 }
+\DoxyCodeLine{373     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1discard__comments_a33bd9ec9ac858c32968f4e3ac30c44d3}{discard\_comments}}(\textcolor{keyword}{const} std::vector<std::string>\&) \textcolor{keyword}{noexcept} \{\}}
+\DoxyCodeLine{374     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1discard__comments_a1cddf47097c920eaceac0b38b467207a}{discard\_comments}}(std::vector<std::string>\&\&)      noexcept \{\}}
+\DoxyCodeLine{375     \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\& \mbox{\hyperlink{structtoml_1_1discard__comments_a9f39751a26bc84ebba27c2c96f363a2d}{operator=}}(\textcolor{keyword}{const} std::vector<std::string>\&) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{376     \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\& \mbox{\hyperlink{structtoml_1_1discard__comments_a981d88263764f923214a337c097f2ea1}{operator=}}(std::vector<std::string>\&\&)      noexcept \{\textcolor{keywordflow}{return} *\textcolor{keyword}{this};\}}
+\DoxyCodeLine{377 }
+\DoxyCodeLine{378     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1discard__comments_af9f1d2a30636f723bcf912a41c7e0d0e}{discard\_comments}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1preserve__comments}{preserve\_comments}}\&)        \textcolor{keyword}{noexcept} \{\}}
+\DoxyCodeLine{379 }
+\DoxyCodeLine{380     \textcolor{keyword}{explicit} \mbox{\hyperlink{structtoml_1_1discard__comments_ad66a95b8cb49d9455ae208317ed0f11d}{discard\_comments}}(\mbox{\hyperlink{structtoml_1_1discard__comments_a56ea098784a9d1e3a9ecb8ba69fb9462}{size\_type}}) \textcolor{keyword}{noexcept} \{\}}
+\DoxyCodeLine{381     \mbox{\hyperlink{structtoml_1_1discard__comments_a6ee1d03607a11fc31837661b6f20e54a}{discard\_comments}}(\mbox{\hyperlink{structtoml_1_1discard__comments_a56ea098784a9d1e3a9ecb8ba69fb9462}{size\_type}}, \textcolor{keyword}{const} std::string\&) \textcolor{keyword}{noexcept} \{\}}
+\DoxyCodeLine{382     \mbox{\hyperlink{structtoml_1_1discard__comments_a2f6188656c0f15bb37fef9f023b59705}{discard\_comments}}(std::initializer\_list<std::string>) \textcolor{keyword}{noexcept} \{\}}
+\DoxyCodeLine{383     \textcolor{keyword}{template}<\textcolor{keyword}{typename} InputIterator>}
+\DoxyCodeLine{384     \mbox{\hyperlink{structtoml_1_1discard__comments_ae26136d55e7129e9bdabaf04c8bd4c1f}{discard\_comments}}(InputIterator, InputIterator) \textcolor{keyword}{noexcept} \{\}}
+\DoxyCodeLine{385 }
+\DoxyCodeLine{386     \textcolor{keyword}{template}<\textcolor{keyword}{typename} InputIterator>}
+\DoxyCodeLine{387     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1discard__comments_a87c511fb659ee1454dffd0f96631a3f8}{assign}}(InputIterator, InputIterator)       \textcolor{keyword}{noexcept} \{\}}
+\DoxyCodeLine{388     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1discard__comments_ae2a8e8b7acc25bb5dfcdb467e5492676}{assign}}(std::initializer\_list<std::string>) \textcolor{keyword}{noexcept} \{\}}
+\DoxyCodeLine{389     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1discard__comments_a8167e1820abb50574544836643f93a04}{assign}}(\mbox{\hyperlink{structtoml_1_1discard__comments_a56ea098784a9d1e3a9ecb8ba69fb9462}{size\_type}}, \textcolor{keyword}{const} std::string\&)      \textcolor{keyword}{noexcept} \{\}}
+\DoxyCodeLine{390 }
+\DoxyCodeLine{391     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}} \mbox{\hyperlink{structtoml_1_1discard__comments_ab32391def59713e7e99517c3d07ab60a}{insert}}(\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}}, \textcolor{keyword}{const} std::string\&)                 \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}}\{\};\}}
+\DoxyCodeLine{392     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}} \mbox{\hyperlink{structtoml_1_1discard__comments_ad868e3c5d73b970a037d19b06ce374f2}{insert}}(\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}}, std::string\&\&)                      \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}}\{\};\}}
+\DoxyCodeLine{393     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}} \mbox{\hyperlink{structtoml_1_1discard__comments_a89e16a0e5ad65ef56df2334417b89baa}{insert}}(\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}}, \mbox{\hyperlink{structtoml_1_1discard__comments_a56ea098784a9d1e3a9ecb8ba69fb9462}{size\_type}}, \textcolor{keyword}{const} std::string\&)      \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}}\{\};\}}
+\DoxyCodeLine{394     \textcolor{keyword}{template}<\textcolor{keyword}{typename} InputIterator>}
+\DoxyCodeLine{395     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}} \mbox{\hyperlink{structtoml_1_1discard__comments_af0bc07b4d771c436258270971593fb43}{insert}}(\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}}, InputIterator, InputIterator)       \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}}\{\};\}}
+\DoxyCodeLine{396     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}} \mbox{\hyperlink{structtoml_1_1discard__comments_a8d18a7114f93b4484f50e246d0ab5cc3}{insert}}(\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}}, std::initializer\_list<std::string>) \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}}\{\};\}}
+\DoxyCodeLine{397 }
+\DoxyCodeLine{398     \textcolor{keyword}{template}<\textcolor{keyword}{typename} ... Ts>}
+\DoxyCodeLine{399     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}} \mbox{\hyperlink{structtoml_1_1discard__comments_adcab0832a954d33ef1faf3991aad7f9c}{emplace}}(\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}}, Ts\&\& ...)     \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}}\{\};\}}
+\DoxyCodeLine{400     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}} \mbox{\hyperlink{structtoml_1_1discard__comments_a11709634f00e1df4a8ac217f5ee8fcd7}{erase}}(\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}})                 \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}}\{\};\}}
+\DoxyCodeLine{401     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}} \mbox{\hyperlink{structtoml_1_1discard__comments_aae028ac78ca649ca71783f342a76bd75}{erase}}(\mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}}, \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}}) \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}}\{\};\}}
+\DoxyCodeLine{402 }
+\DoxyCodeLine{403     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1discard__comments_aebeadd8a52403f084105bc1a70420453}{swap}}(\mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\&) \{\textcolor{keywordflow}{return};\}}
+\DoxyCodeLine{404 }
+\DoxyCodeLine{405     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1discard__comments_ada1fe49d35200627884297734121b71e}{push\_back}}(\textcolor{keyword}{const} std::string\&) \{\textcolor{keywordflow}{return};\}}
+\DoxyCodeLine{406     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1discard__comments_a73930f5a3618c5f8903647c9446966ff}{push\_back}}(std::string\&\&     ) \{\textcolor{keywordflow}{return};\}}
+\DoxyCodeLine{407     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1discard__comments_ad4cd1784382bb79f7c767adc3a72a044}{pop\_back}}()                    \{\textcolor{keywordflow}{return};\}}
+\DoxyCodeLine{408 }
+\DoxyCodeLine{409     \textcolor{keyword}{template}<\textcolor{keyword}{typename} ... Ts>}
+\DoxyCodeLine{410     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1discard__comments_ae3cb0474333c677ad03cfc2adc5919f6}{emplace\_back}}(Ts\&\& ...) \{\textcolor{keywordflow}{return};\}}
+\DoxyCodeLine{411 }
+\DoxyCodeLine{412     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1discard__comments_aba10675773e02669c1c323006ab0a39e}{clear}}() \{\textcolor{keywordflow}{return};\}}
+\DoxyCodeLine{413 }
+\DoxyCodeLine{414     \mbox{\hyperlink{structtoml_1_1discard__comments_a56ea098784a9d1e3a9ecb8ba69fb9462}{size\_type}} \mbox{\hyperlink{structtoml_1_1discard__comments_a3a3382348b3bd1fb1f2d6574960a8001}{size}}()     const noexcept \{\textcolor{keywordflow}{return} 0;\}}
+\DoxyCodeLine{415     \mbox{\hyperlink{structtoml_1_1discard__comments_a56ea098784a9d1e3a9ecb8ba69fb9462}{size\_type}} \mbox{\hyperlink{structtoml_1_1discard__comments_a02805c0e2a42eaff92adb3e862133308}{max\_size}}() const noexcept \{\textcolor{keywordflow}{return} 0;\}}
+\DoxyCodeLine{416     \mbox{\hyperlink{structtoml_1_1discard__comments_a56ea098784a9d1e3a9ecb8ba69fb9462}{size\_type}} \mbox{\hyperlink{structtoml_1_1discard__comments_a8714b45fd25f7740a1e791d94ff8645d}{capacity}}() const noexcept \{\textcolor{keywordflow}{return} 0;\}}
+\DoxyCodeLine{417     \textcolor{keywordtype}{bool}      \mbox{\hyperlink{structtoml_1_1discard__comments_a12fa292c8fd8a7669e666e957ab3b998}{empty}}()    const noexcept \{\textcolor{keywordflow}{return} \textcolor{keyword}{true};\}}
+\DoxyCodeLine{418 }
+\DoxyCodeLine{419     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1discard__comments_a6b0551510cbd487e6ad283fbb7b27f99}{reserve}}(\mbox{\hyperlink{structtoml_1_1discard__comments_a56ea098784a9d1e3a9ecb8ba69fb9462}{size\_type}})                    \{\textcolor{keywordflow}{return};\}}
+\DoxyCodeLine{420     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1discard__comments_a09c3d6f96f89ee0ad2e74a05fa9c25f7}{resize}}(\mbox{\hyperlink{structtoml_1_1discard__comments_a56ea098784a9d1e3a9ecb8ba69fb9462}{size\_type}})                     \{\textcolor{keywordflow}{return};\}}
+\DoxyCodeLine{421     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1discard__comments_a6be3907c469b84d9d2fa532a3a5d2c01}{resize}}(\mbox{\hyperlink{structtoml_1_1discard__comments_a56ea098784a9d1e3a9ecb8ba69fb9462}{size\_type}}, \textcolor{keyword}{const} std::string\&) \{\textcolor{keywordflow}{return};\}}
+\DoxyCodeLine{422     \textcolor{keywordtype}{void} \mbox{\hyperlink{structtoml_1_1discard__comments_a364056118aae025b1afa0fd704a12854}{shrink\_to\_fit}}()                       \{\textcolor{keywordflow}{return};\}}
+\DoxyCodeLine{423 }
+\DoxyCodeLine{424     \textcolor{comment}{// DO NOT access to the element of this container. This container is always}}
+\DoxyCodeLine{425     \textcolor{comment}{// empty, so accessing through operator[], front/back, data causes address}}
+\DoxyCodeLine{426     \textcolor{comment}{// error.}}
+\DoxyCodeLine{427 }
+\DoxyCodeLine{428     \mbox{\hyperlink{structtoml_1_1discard__comments_aaebf4059da8e84eabf6c1129e36f54c3}{reference}}       \mbox{\hyperlink{structtoml_1_1discard__comments_a094add2b8544cec13501aed3a9994a17}{operator[]}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments_a56ea098784a9d1e3a9ecb8ba69fb9462}{size\_type}})       \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} *\mbox{\hyperlink{structtoml_1_1discard__comments_a95f0e294de7e0116e589b0decc4ca96d}{data}}();\}}
+\DoxyCodeLine{429     \mbox{\hyperlink{structtoml_1_1discard__comments_a0333a4066d6853fe0f3b62c5bfc300ce}{const\_reference}} \mbox{\hyperlink{structtoml_1_1discard__comments_a8c2d6626f4efa7f488a28e13ad717c98}{operator[]}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments_a56ea098784a9d1e3a9ecb8ba69fb9462}{size\_type}}) \textcolor{keyword}{const} \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} *\mbox{\hyperlink{structtoml_1_1discard__comments_a95f0e294de7e0116e589b0decc4ca96d}{data}}();\}}
+\DoxyCodeLine{430     \mbox{\hyperlink{structtoml_1_1discard__comments_aaebf4059da8e84eabf6c1129e36f54c3}{reference}}       \mbox{\hyperlink{structtoml_1_1discard__comments_a7baa29b39d1960a392cb71ec4ecbdb49}{at}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments_a56ea098784a9d1e3a9ecb8ba69fb9462}{size\_type}})       \{\textcolor{keywordflow}{throw} std::out\_of\_range(\textcolor{stringliteral}{"{}toml::discard\_comment is always empty."{}});\}}
+\DoxyCodeLine{431     \mbox{\hyperlink{structtoml_1_1discard__comments_a0333a4066d6853fe0f3b62c5bfc300ce}{const\_reference}} \mbox{\hyperlink{structtoml_1_1discard__comments_a4f615bfca432e0389630b7ddb0142957}{at}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments_a56ea098784a9d1e3a9ecb8ba69fb9462}{size\_type}})\textcolor{keyword}{ const }\{\textcolor{keywordflow}{throw} std::out\_of\_range(\textcolor{stringliteral}{"{}toml::discard\_comment is always empty."{}});\}}
+\DoxyCodeLine{432     \mbox{\hyperlink{structtoml_1_1discard__comments_aaebf4059da8e84eabf6c1129e36f54c3}{reference}}       \mbox{\hyperlink{structtoml_1_1discard__comments_affec86e3c4720f176e1fb3769c58a9da}{front}}()       noexcept \{\textcolor{keywordflow}{return} *\mbox{\hyperlink{structtoml_1_1discard__comments_a95f0e294de7e0116e589b0decc4ca96d}{data}}();\}}
+\DoxyCodeLine{433     \mbox{\hyperlink{structtoml_1_1discard__comments_a0333a4066d6853fe0f3b62c5bfc300ce}{const\_reference}} \mbox{\hyperlink{structtoml_1_1discard__comments_a3ff5b4d3b124970303e54e605e314e8f}{front}}() const noexcept \{\textcolor{keywordflow}{return} *\mbox{\hyperlink{structtoml_1_1discard__comments_a95f0e294de7e0116e589b0decc4ca96d}{data}}();\}}
+\DoxyCodeLine{434     \mbox{\hyperlink{structtoml_1_1discard__comments_aaebf4059da8e84eabf6c1129e36f54c3}{reference}}       \mbox{\hyperlink{structtoml_1_1discard__comments_a93482ee700acdac84cc90363b83fa79d}{back}}()        noexcept \{\textcolor{keywordflow}{return} *\mbox{\hyperlink{structtoml_1_1discard__comments_a95f0e294de7e0116e589b0decc4ca96d}{data}}();\}}
+\DoxyCodeLine{435     \mbox{\hyperlink{structtoml_1_1discard__comments_a0333a4066d6853fe0f3b62c5bfc300ce}{const\_reference}} \mbox{\hyperlink{structtoml_1_1discard__comments_a4308122f4784ad30322e47e5e909e157}{back}}()  const noexcept \{\textcolor{keywordflow}{return} *\mbox{\hyperlink{structtoml_1_1discard__comments_a95f0e294de7e0116e589b0decc4ca96d}{data}}();\}}
+\DoxyCodeLine{436 }
+\DoxyCodeLine{437     \mbox{\hyperlink{structtoml_1_1discard__comments_ab86fa50599b11437a54243bb84370ae0}{pointer}}         \mbox{\hyperlink{structtoml_1_1discard__comments_a95f0e294de7e0116e589b0decc4ca96d}{data}}()        noexcept \{\textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};\}}
+\DoxyCodeLine{438     \mbox{\hyperlink{structtoml_1_1discard__comments_af10fea60bfc0bb44af3bc4cb0677067d}{const\_pointer}}   \mbox{\hyperlink{structtoml_1_1discard__comments_afb30e4a2bb7e616e8dd8ba2a097899dd}{data}}()  const noexcept \{\textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};\}}
+\DoxyCodeLine{439 }
+\DoxyCodeLine{440     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}}       \mbox{\hyperlink{structtoml_1_1discard__comments_a9f6d7dfdcc0e670b633b832eccd77e2a}{begin}}()        noexcept \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}}\{\};\}}
+\DoxyCodeLine{441     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}}       \mbox{\hyperlink{structtoml_1_1discard__comments_a7f45f81179c1702e12b759ce2de818cc}{end}}()          noexcept \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}}\{\};\}}
+\DoxyCodeLine{442     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}} \mbox{\hyperlink{structtoml_1_1discard__comments_a941831a98a8dce7bdf8600e73942683f}{begin}}()  const noexcept \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}}\{\};\}}
+\DoxyCodeLine{443     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}} \mbox{\hyperlink{structtoml_1_1discard__comments_abddcba08307e3047710ae02dbb8e5dd9}{end}}()    const noexcept \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}}\{\};\}}
+\DoxyCodeLine{444     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}} \mbox{\hyperlink{structtoml_1_1discard__comments_a965ecbc676ffb7e8130c5b82ea0a2380}{cbegin}}() const noexcept \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}}\{\};\}}
+\DoxyCodeLine{445     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}} \mbox{\hyperlink{structtoml_1_1discard__comments_a7e307d3097df07ed2dc219f50bdeeba7}{cend}}()   const noexcept \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}}\{\};\}}
+\DoxyCodeLine{446 }
+\DoxyCodeLine{447     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{reverse\_iterator}}       \mbox{\hyperlink{structtoml_1_1discard__comments_a8363d829cd239f5c56c87c492bf85bd3}{rbegin}}()        noexcept \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}}\{\};\}}
+\DoxyCodeLine{448     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{reverse\_iterator}}       \mbox{\hyperlink{structtoml_1_1discard__comments_a94e7560f7d1247536689b9f89f239eb5}{rend}}()          noexcept \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{iterator}}\{\};\}}
+\DoxyCodeLine{449     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_reverse\_iterator}} \mbox{\hyperlink{structtoml_1_1discard__comments_ac2eb159f70facf530e774608c41af354}{rbegin}}()  const noexcept \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}}\{\};\}}
+\DoxyCodeLine{450     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_reverse\_iterator}} \mbox{\hyperlink{structtoml_1_1discard__comments_a26333b47ad4a3a0b34fd9ab217dc913c}{rend}}()    const noexcept \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}}\{\};\}}
+\DoxyCodeLine{451     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_reverse\_iterator}} \mbox{\hyperlink{structtoml_1_1discard__comments_a1a0c08e19a02cbda17c8de758843877d}{crbegin}}() const noexcept \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}}\{\};\}}
+\DoxyCodeLine{452     \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_reverse\_iterator}} \mbox{\hyperlink{structtoml_1_1discard__comments_a5ceb534f93a634f8121462949976777b}{crend}}()   const noexcept \{\textcolor{keywordflow}{return} \mbox{\hyperlink{structtoml_1_1detail_1_1empty__iterator}{const\_iterator}}\{\};\}}
+\DoxyCodeLine{453 \};}
+\DoxyCodeLine{454 }
+\DoxyCodeLine{455 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_ae9ac58857cfdda9535ef98266b65304b}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\&) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} \textcolor{keyword}{true};\}}
+\DoxyCodeLine{456 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a03e338a600f118cd5c5d3e7fee31f6c6}{operator!=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\&) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{457 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_acbb3a32f389eaf9e5097d2b23df77b4e}{operator< }}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\&) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{458 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a17f8791df6efda2a712efa14c334c33d}{operator<=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\&) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} \textcolor{keyword}{true};\}}
+\DoxyCodeLine{459 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a993726b0c054cbf5b20674f14690d6ed}{operator> }}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\&) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} \textcolor{keyword}{false};\}}
+\DoxyCodeLine{460 \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespacetoml_a6b51fe3d00e083b549644d994bd547c7}{operator>=}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\&) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return} \textcolor{keyword}{true};\}}
+\DoxyCodeLine{461 }
+\DoxyCodeLine{462 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespacetoml_a9a68dfa1ac6b1762835738786dbb3cf2}{swap}}(\textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\&, \textcolor{keyword}{const} \mbox{\hyperlink{structtoml_1_1discard__comments}{discard\_comments}}\&) \textcolor{keyword}{noexcept} \{\textcolor{keywordflow}{return};\}}
+\DoxyCodeLine{463 }
+\DoxyCodeLine{464 \textcolor{keyword}{template}<\textcolor{keyword}{typename} \textcolor{keywordtype}{char}T, \textcolor{keyword}{typename} traits>}
+\DoxyCodeLine{465 std::basic\_ostream<charT, traits>\&}
+\DoxyCodeLine{466 \mbox{\hyperlink{namespacetoml_a11b17eff44b8e4b0b49c85cc34e241c7}{operator<<}}(std::basic\_ostream<charT, traits>\& os, \textcolor{keyword}{const} discard\_comments\&)}
+\DoxyCodeLine{467 \{}
+\DoxyCodeLine{468     \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{469 \}}
+\DoxyCodeLine{470 }
+\DoxyCodeLine{471 \} \textcolor{comment}{// toml11}}
+\DoxyCodeLine{472 \textcolor{preprocessor}{\#endif}\textcolor{comment}{// TOML11\_COMMENTS\_HPP}}
+
+\end{DoxyCode}

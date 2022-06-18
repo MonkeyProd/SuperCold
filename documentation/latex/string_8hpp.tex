@@ -1,0 +1,88 @@
+\hypertarget{string_8hpp}{}\doxysection{external/toml/string.hpp File Reference}
+\label{string_8hpp}\index{external/toml/string.hpp@{external/toml/string.hpp}}
+{\ttfamily \#include \char`\"{}version.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtoml_1_1string}{toml\+::string}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetoml}{toml}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19a}{toml\+::string\+\_\+t}} \+: std\+::uint8\+\_\+t \{ \mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19aaf17aaabc20bfe045075927934fed52d2}{toml\+::basic}} = 0
+, \mbox{\hyperlink{namespacetoml_a54c05bb4b385f96d45e3807a92c1d19aaf0d674f1e0ed4292267f149c5983db02}{toml\+::literal}} = 1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacetoml_af821f04e104f9c2e5756665f41034fe7}{toml\+::operator==}} (const string \&lhs, const string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_afb120775858495e35f6b59da44c7787d}{toml\+::operator!=}} (const string \&lhs, const string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_af85352b3f7004847a00443445138fc43}{toml\+::operator$<$}} (const string \&lhs, const string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_aa7ed10ecccc5696b44b4441544e0e308}{toml\+::operator$>$}} (const string \&lhs, const string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a4cb1a47db77c94b694f8145dcfae1779}{toml\+::operator$<$=}} (const string \&lhs, const string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a8652ec20b891953069da410fa7791ec6}{toml\+::operator$>$=}} (const string \&lhs, const string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_aae82eafb51a70ad17ce35283b8cd6714}{toml\+::operator==}} (const string \&lhs, const std\+::string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a578428e2dc3aa70d1cf1251bd93a1803}{toml\+::operator!=}} (const string \&lhs, const std\+::string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a6b37318113399e23d0304f18f1069918}{toml\+::operator$<$}} (const string \&lhs, const std\+::string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a31998ba2b47944dbdcbac1543a45fc5c}{toml\+::operator$>$}} (const string \&lhs, const std\+::string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a1a1a7d070d20a09cd84a2a807e84e0d6}{toml\+::operator$<$=}} (const string \&lhs, const std\+::string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a54380480644f00f716bd2bca5e63c41b}{toml\+::operator$>$=}} (const string \&lhs, const std\+::string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_adacb7fb70084b050e3a485f27289e558}{toml\+::operator==}} (const std\+::string \&lhs, const string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_ad18a8fed349896b341331b72a23ca22f}{toml\+::operator!=}} (const std\+::string \&lhs, const string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a19668462b83acdadcbf3445bb94367c2}{toml\+::operator$<$}} (const std\+::string \&lhs, const string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a99d56c1f6e7db4d9852cf0e46c8bdb4b}{toml\+::operator$>$}} (const std\+::string \&lhs, const string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_aba7bde36fb62bb1df706d5e287e3364a}{toml\+::operator$<$=}} (const std\+::string \&lhs, const string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_add030e687868f6307a6cf4feb20a9e1c}{toml\+::operator$>$=}} (const std\+::string \&lhs, const string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_add3621d234992f20be3cefab53bf00c5}{toml\+::operator==}} (const string \&lhs, const char $\ast$rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a6c25df0b8dafad3e1b446cba9bec213d}{toml\+::operator!=}} (const string \&lhs, const char $\ast$rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_aad9b8d3edd9e3ef9cdbca0a474d348f8}{toml\+::operator$<$}} (const string \&lhs, const char $\ast$rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a3788c78d0856a6c16f258374a44fe02b}{toml\+::operator$>$}} (const string \&lhs, const char $\ast$rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a066ee1ee5722a807301a4b2f41f28c82}{toml\+::operator$<$=}} (const string \&lhs, const char $\ast$rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_ae797da48aa857cfb159c29cf27b08e32}{toml\+::operator$>$=}} (const string \&lhs, const char $\ast$rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_adf39cb23af02997f63b15bad450f6077}{toml\+::operator==}} (const char $\ast$lhs, const string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a6b138db76a3b39c56414d568a37a369b}{toml\+::operator!=}} (const char $\ast$lhs, const string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a914c3f5d73230b8613ff7e8be6b2a658}{toml\+::operator$<$}} (const char $\ast$lhs, const string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a53027f33d9549afe21860e0d5b9b2ea5}{toml\+::operator$>$}} (const char $\ast$lhs, const string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_ae041e5af9dab098d3b5ae3aaa5b2a76d}{toml\+::operator$<$=}} (const char $\ast$lhs, const string \&rhs)
+\item 
+bool \mbox{\hyperlink{namespacetoml_a0b32ded32cc74616034c25bfa65a133c}{toml\+::operator$>$=}} (const char $\ast$lhs, const string \&rhs)
+\item 
+{\footnotesize template$<$typename charT , typename traits $>$ }\\std\+::basic\+\_\+ostream$<$ charT, traits $>$ \& \mbox{\hyperlink{namespacetoml_a7301e424470596120ee1f2ca29f29a25}{toml\+::operator$<$$<$}} (std\+::basic\+\_\+ostream$<$ charT, traits $>$ \&os, const string \&s)
+\end{DoxyCompactItemize}

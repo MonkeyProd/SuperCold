@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.4" xml:lang="en-US">
+  <compounddef id="dir_6cf7da4091de90e9619f8abe9c860175" kind="dir">
+    <compoundname>SpriteContoller</compoundname>
+    <innerfile refid="_sprite_controller_8cpp">SpriteController.cpp</innerfile>
+    <innerfile refid="_sprite_controller_8hpp">SpriteController.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="SpriteContoller/"/>
+  </compounddef>
+</doxygen>
