@@ -85,6 +85,9 @@ class Player : public sf::Drawable, public sf::Transformable {
 
 	/**
 	 * @brief Метод, возращающий bool - статус смерти игрока
+	 *
+	 * @return true мертв
+	 * @return false жив
 	 */
 	bool isDead() const;
 
@@ -95,11 +98,13 @@ class Player : public sf::Drawable, public sf::Transformable {
 
 	/**
 	 * @brief Метод, возращающий положение игрока
+	 * @return sf::Vector2f позиция
 	 */
 	sf::Vector2f getPlayerPosition() const;
 
 	/**
 	 * @brief Метод, возращающий скорость игрока
+	 * @return sf::Vector2f скорость
 	 */
 	sf::Vector2f getPlayerVelocity() const;
 
@@ -107,19 +112,32 @@ class Player : public sf::Drawable, public sf::Transformable {
 	 * @brief Метод, возращающий FloatRect - положение игрока в следующий момент
 	 * времени(необходим для проверки коллизии)
 	 * @param deltaTime deltaTime
+	 * @return sf::FloatRect
 	 */
 	sf::FloatRect getNextPosition(sf::Time deltaTime) const;
 
+	/**
+	 * @brief отрисовка игрока на поверхность
+	 *
+	 * @param surface поверхность
+	 * @param states состояние
+	 */
 	virtual void draw(sf::RenderTarget &surface, sf::RenderStates states) const;
 
 	/**
+	 * @brief
+	 */
+
+	/**
 	 * @brief Метод, возращающий GameObject игрока
+	 *
+	 * @return GameObject&
 	 */
 	GameObject &get_playerObject();
 
 	/**
 	 * @brief Нанести урон игроку
-	 * 
+	 *
 	 * @param hp количество урона
 	 */
 	void getHit(int hp);

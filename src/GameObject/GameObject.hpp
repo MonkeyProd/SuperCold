@@ -57,8 +57,11 @@ class GameObject : public sf::Drawable, public sf::Transformable {
 	 * @brief Метод меняющий спрайт анимации игрового объекта на следующий
 	 */
 	void nextState();
+
 	/**
 	 * @brief Метод, возращающий bool - является ли игровой объекта коллайдером
+	 * @return true является
+	 * @return false не является
 	 */
 	bool isCollider() const;
 
@@ -71,6 +74,8 @@ class GameObject : public sf::Drawable, public sf::Transformable {
 	 * @brief Метод, возрающий bool - пересеклись ли два игровых объекта
 	 *
 	 * @param other игровой объект с которым проверяем пересечение
+	 * @return true есть пересечение
+	 * @return false нет пересечения
 	 */
 	bool check_collision(GameObject &other) const;
 
@@ -78,17 +83,24 @@ class GameObject : public sf::Drawable, public sf::Transformable {
 	 * @brief Метод, возрающий bool - пересеклись ли игровой объект и FloatRect
 	 *
 	 * @param otherFloatRect FloatRect с которым проверяем пересечение
+	 * @return true пересечение есть
+	 * @return false пересечения нет
 	 */
 	bool check_collision(sf::FloatRect &otherFloatRect) const;
 
 	/**
 	 * @brief Метод, возрающий FloatRect игрового объекта
+	 *
+	 * @return sf::FloatRect
 	 */
 	sf::FloatRect getGameObjectRect() const;
 
 	/**
-	 * @brief Метод, возрающий bool - является ли текущий спрайт последним в
+	 * @brief  Метод, возрающий bool - является ли текущий спрайт последним в
 	 * анимации
+	 *
+	 * @return true да, является
+	 * @return false нет, не является
 	 */
 	bool isLastAnimationState() const;
 };
