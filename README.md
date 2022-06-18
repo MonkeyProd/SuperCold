@@ -1,4 +1,4 @@
-# SuperCold
+![](https://tokei.rs/b1/github/MonkeyProd/SuperCold)
 
 ### _Простая игра написанная на SFML_
 
