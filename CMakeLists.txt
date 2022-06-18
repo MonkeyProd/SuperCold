@@ -7,7 +7,7 @@ enable_testing()
 
 include_directories(src/Assets)
 
-file(GLOB game_src "src/**/*.cpp" "src/Game/Utils/debug.cpp" "src/main.cpp" "src/settings.toml")
+file(GLOB game_src "src/**/*.cpp" "src/Game/Utils/debug.cpp" "src/main.cpp" "src/settings.toml" "src/external/SimplexNoise/*.cpp")
 
 add_executable(sfml_game ${game_src})
 
