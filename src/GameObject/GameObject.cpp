@@ -30,7 +30,6 @@ void GameObject::resetAnimation() { animation_state = 0; }
 void GameObject::draw(sf::RenderTarget &surface,
                       sf::RenderStates states) const {
 	states.transform *= getTransform();
-	surface.draw(debugRectangle(getGameObjectRect()));
 	surface.draw(m_sprite, states);
 }
 
