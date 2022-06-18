@@ -18,6 +18,7 @@ EyeEnemy::EyeEnemy(sf::Vector2f startPosition,
 	hitSound.setBuffer(m_sbuffer);
 	hitSound.setPitch(2);
 	hitSound.setVolume(40);
+	m_canAttack = true;
 }
 
 GameObject &EyeEnemy::getEnemyObject() { return m_EyeEnemyObject; }
@@ -65,22 +66,21 @@ void EyeEnemy::moveTowards(sf::Vector2f position, sf::Time deltaTime) {
 		if (std::sqrt(moveTo.x * moveTo.x + moveTo.y * moveTo.y) <=
 		    m_attack_distance) {
 			m_EyeEnemyObject.m_sprites_array = m_attackSprites;
-			m_canAttack = false;
-			attackTime += deltaTime;
-			if (attackTime.asSeconds() > 2) {
-				attackTime = sf::Time();
-				m_canAttack = true;
-			}
 		} else {
 			m_EyeEnemyObject.m_sprites_array = m_moveSprites;
 			moveTo /= std::sqrt(moveTo.x * moveTo.x + moveTo.y * moveTo.y);
 			move(moveTo * m_speed * deltaTime.asSeconds());
 			m_EyeEnemyObject.move(moveTo * m_speed * deltaTime.asSeconds());
 		}
+		if (attackTime.asSeconds() > 2) {
+			attackTime = sf::Time();
+			m_canAttack = true;
+		}
 	} else {
 		if (m_EyeEnemyObject.isLastAnimationState())
 			isHitted = false;
 	}
+	attackTime += deltaTime;
 }
 
 void EyeEnemy::draw(sf::RenderTarget &surface, sf::RenderStates states) const {
@@ -100,3 +100,5 @@ void EyeEnemy::draw(sf::RenderTarget &surface, sf::RenderStates states) const {
 }
 
 bool EyeEnemy::canAttack() const { return m_canAttack; }
+
+void EyeEnemy::attacked() { m_canAttack = false; }

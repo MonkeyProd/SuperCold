@@ -119,8 +119,13 @@ class Player : public sf::Drawable, public sf::Transformable {
 
 	/**
 	 * @brief Нанести урон игроку
-	 * 
+	 *
 	 * @param hp количество урона
 	 */
 	void getHit(int hp);
+
+	/**
+	 * @brief Метод меняющий спрайт анимации игрока на следующий
+	 */
+	void nextState();
 };

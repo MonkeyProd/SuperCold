@@ -103,11 +103,13 @@ void Game::update(sf::Time deltatime) {
 		bool canEnemyMove = true;
 		sf::FloatRect enemyRect = object.getNextPosition(
 		    deltatime, player.get_playerObject().getPosition());
-		auto toPlayer = object.getPosition() - player.getPosition();
-		auto dist_sq = toPlayer.x*toPlayer.x+toPlayer.y*toPlayer.y;
+		sf::Vector2f toPlayer = (player.get_playerObject().getPosition() -
+		                         object.getEnemyObject().getPosition());
+		auto dist_sq = toPlayer.x * toPlayer.x + toPlayer.y * toPlayer.y;
 		auto dist = std::sqrt(dist_sq);
-		if(dist < attack_distance and object.canAttack()){
-			player.getHit(difficulty*3);
+		if (dist < attack_distance and object.canAttack()) {
+			player.getHit(difficulty * 3);
+			object.attacked();
 		}
 		for (auto &object_t : enemies) {
 			if (&object != &object_t and (not object_t.getDead())) {
@@ -186,7 +188,7 @@ void Game::updateAnimations(sf::Time deltatime) {
 	for (auto &object : enemies) {
 		object.getEnemyObject().nextState();
 	}
-	player.get_playerObject().nextState();
+	player.nextState();
 }
 
 /**

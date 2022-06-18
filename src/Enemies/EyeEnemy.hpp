@@ -96,4 +96,6 @@ class EyeEnemy : public sf::Drawable, public sf::Transformable {
 	 * @return false атака невозможна
 	 */
 	bool canAttack() const;
+
+	void attacked();
 };

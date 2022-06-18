@@ -110,17 +110,18 @@ void Player::draw(sf::RenderTarget &surface, sf::RenderStates states) const {
 		surface.draw(currenthealth);
 	}
 
-	if (getting_hit) {
-		getting_hit = false;
-		m_playerObject.m_sprite.setColor(sf::Color::Red);
-	} else {
-		m_playerObject.m_sprite.setColor(sf::Color::White);
-	}
-
 	surface.draw(m_playerObject);
 }
 
 void Player::getHit(int hp) {
 	health -= hp;
 	getting_hit = true;
+}
+
+void Player::nextState() {
+	m_playerObject.nextState();
+	if (getting_hit) {
+		getting_hit = false;
+		m_playerObject.m_sprite.setColor(sf::Color::Red);
+	}
 }
