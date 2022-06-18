@@ -3,6 +3,9 @@
 
 #include "../GameObject/GameObject.hpp"
 #include "cmath"
+#include <../external/PriorityQueue/PriorityQueue.hpp>
+#include <algorithm>
+#include <map>
 
 class EyeEnemy : public sf::Drawable, public sf::Transformable {
 	GameObject m_EyeEnemyObject;
@@ -12,6 +15,8 @@ class EyeEnemy : public sf::Drawable, public sf::Transformable {
 	float m_attack_distance;
 	bool isHitted = false;
 	bool isDead = false;
+	sf::Time attackTime;
+	bool m_canAttack;
 	sf::Vector2f m_velocity;
 	std::vector<sf::Sprite> m_moveSprites;
 	std::vector<sf::Sprite> m_attackSprites;
@@ -83,4 +88,12 @@ class EyeEnemy : public sf::Drawable, public sf::Transformable {
 	 * @brief Метод возращающий статус смерти врага
 	 */
 	bool getDead() const;
+
+	/**
+	 * @brief проверка возможности атаковать
+	 *
+	 * @return true атака возможна
+	 * @return false атака невозможна
+	 */
+	bool canAttack() const;
 };

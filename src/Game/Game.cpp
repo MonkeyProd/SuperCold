@@ -97,12 +97,20 @@ void Game::update(sf::Time deltatime) {
 	if (canMove)
 		player.movePlayer(deltatime);
 
+	auto attack_distance =
+	    toml::find<float>(settingsManager.EnemySettings, "attack_distance");
 	for (auto &object : enemies) {
 		bool canEnemyMove = true;
 		sf::FloatRect enemyRect = object.getNextPosition(
 		    deltatime, player.get_playerObject().getPosition());
+		auto toPlayer = object.getPosition() - player.getPosition();
+		auto dist_sq = toPlayer.x*toPlayer.x+toPlayer.y*toPlayer.y;
+		auto dist = std::sqrt(dist_sq);
+		if(dist < attack_distance and object.canAttack()){
+			player.getHit(difficulty*3);
+		}
 		for (auto &object_t : enemies) {
-			if (&object != &object_t) {
+			if (&object != &object_t and (not object_t.getDead())) {
 				if (object_t.getEnemyObject().check_collision(enemyRect)) {
 					canEnemyMove = false;
 					break;
@@ -152,12 +160,15 @@ void Game::update(sf::Time deltatime) {
 		}
 	}
 
+	bulletLayer.erase(std::remove_if(bulletLayer.begin(), bulletLayer.end(),
+	                                 [](Bullet &b) { return not b.isExist; }),
+	                  bulletLayer.end());
+
 	sf::Vector2i currentPlayerPos(player.getPlayerPosition());
 	currentPlayerPos /= 64;
 	auto delta = currentPlayerPos - previousPlayerPosition;
 	if (fabs(delta.x) > 1.0f or fabs(delta.y) > 1.0f) {
 		auto sprites = spriteController.spriteArrays["world"];
-		std::cout << "updating world" << std::endl;
 		drawLayer.clear();
 		previousPlayerPosition =
 		    sf::Vector2i(player.getPlayerPosition() / 64.0f);
@@ -285,6 +296,7 @@ void Game::draw_world(std::vector<sf::Sprite> sprites) {
 				        true,
 				        8,
 				        {60, 60}};
+				drawLayer.push_back(tile);
 			} else if (normalized > floor_end) {
 				rectt.setFillColor(sf::Color(0, 250, 0)); // floor
 				tile = {sf::Vector2f(x * size, y * size),
@@ -292,8 +304,8 @@ void Game::draw_world(std::vector<sf::Sprite> sprites) {
 				        false,
 				        8,
 				        {60, 60}};
+				drawLayer.push_back(tile);
 			}
-			drawLayer.push_back(tile);
 		}
 	}
 }
@@ -301,13 +313,17 @@ void Game::draw_world(std::vector<sf::Sprite> sprites) {
 void Game::new_wave() {
 	enemies.clear();
 	player.resetHealth();
+	auto speed = toml::find<float>(settingsManager.EnemySettings, "speed");
+	auto attack_distance =
+	    toml::find<float>(settingsManager.EnemySettings, "attack_distance");
 	for (int i = 0; i < difficulty; i++) {
 		EyeEnemy enemy(
 		    {(float)(rand() % 1300) + 200, (float)(rand() % 1300) + 200},
 		    spriteController.spriteArrays["enemy_move"],
 		    spriteController.spriteArrays["enemy_attack"],
 		    spriteController.spriteArrays["enemy_hit"],
-		    spriteController.spriteArrays["enemy_death"], 70, 110,
+		    spriteController.spriteArrays["enemy_death"], speed,
+		    attack_distance,
 		    toml::find<std::string>(settingsManager.SoundSettings, "enemy_hit"),
 		    difficulty * 30);
 

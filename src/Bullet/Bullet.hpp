@@ -5,6 +5,7 @@
 class Bullet : public sf::Drawable, public sf::Transformable {
 	GameObject m_bulletObject;
 	sf::Vector2f m_velocity;
+	sf::Time m_lifetime;
 
   public:
 	bool isExist = true;

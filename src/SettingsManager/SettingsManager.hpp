@@ -17,6 +17,7 @@ struct SettingsManager {
 	toml::value TileMapSettings;
 	toml::value SoundSettings;
 	toml::value WorldGenSettings;
+	toml::value EnemySettings;
 
 	/**
 	 * @brief Метод, возращающий настройку по ключу

@@ -5,7 +5,7 @@ Player::Player(sf::Vector2f startPosition, sf::Vector2f velocity,
                float speed, int p_health)
     : m_velocity(velocity), m_position(startPosition),
       m_playerSprites(playerSprites), m_speed(speed), isLookRight(true),
-      health(p_health), initial_health(p_health) {
+      health(p_health), initial_health(p_health), getting_hit(false) {
 	GameObject playerObject({startPosition.x - 8, startPosition.y - 8},
 	                        m_playerSprites["player_forward"], false, 4,
 	                        {60, 60});
@@ -109,5 +109,18 @@ void Player::draw(sf::RenderTarget &surface, sf::RenderStates states) const {
 		currenthealth.setPosition(getPosition() + offset);
 		surface.draw(currenthealth);
 	}
+
+	if (getting_hit) {
+		getting_hit = false;
+		m_playerObject.m_sprite.setColor(sf::Color::Red);
+	} else {
+		m_playerObject.m_sprite.setColor(sf::Color::White);
+	}
+
 	surface.draw(m_playerObject);
+}
+
+void Player::getHit(int hp) {
+	health -= hp;
+	getting_hit = true;
 }

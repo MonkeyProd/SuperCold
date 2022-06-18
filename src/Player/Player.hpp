@@ -18,7 +18,7 @@ class Player : public sf::Drawable, public sf::Transformable {
 	sf::SoundBuffer m_sbuffer;
 	sf::Sound m_footstepsSound;
 
-	GameObject m_playerObject;
+	mutable GameObject m_playerObject;
 	float m_speed;
 	bool isLookRight;
 	bool isMoveHorizontal = false;
@@ -26,6 +26,7 @@ class Player : public sf::Drawable, public sf::Transformable {
 	bool isStepping = false;
 	int health;
 	int initial_health;
+	mutable bool getting_hit;
 
   public:
 	enum HorizontalDirection { Left, Right };
@@ -115,4 +116,11 @@ class Player : public sf::Drawable, public sf::Transformable {
 	 * @brief Метод, возращающий GameObject игрока
 	 */
 	GameObject &get_playerObject();
+
+	/**
+	 * @brief Нанести урон игроку
+	 * 
+	 * @param hp количество урона
+	 */
+	void getHit(int hp);
 };

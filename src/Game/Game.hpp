@@ -2,6 +2,7 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <algorithm>
 
 #include "../Bullet/Bullet.hpp"
 #include "../Enemies/EyeEnemy.hpp"

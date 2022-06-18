@@ -5,6 +5,11 @@ title = "SuperColdSettings"
 speed              = 150.0
 run_speed          = 350.0
 
+# Настройки врагов
+[enemy]
+speed           = 70.0
+attack_distance = 110.0
+
 # Количество тайлов по х и у в текстуре мира
 [tilemap]
 size               = [10, 10]
