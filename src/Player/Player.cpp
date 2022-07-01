@@ -118,6 +118,8 @@ void Player::getHit(int hp) {
 	getting_hit = true;
 }
 
+int Player::getHealth() const { return health; }
+
 void Player::nextState() {
 	m_playerObject.nextState();
 	if (getting_hit) {

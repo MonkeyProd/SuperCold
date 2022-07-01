@@ -6,6 +6,11 @@
 #include "../SpriteContoller/SpriteController.hpp"
 
 class Player : public sf::Drawable, public sf::Transformable {
+#ifdef TESTING
+  public:
+#else
+  private:
+#endif
 	using spritesMap = std::map<std::string, std::vector<sf::Sprite>>;
 
 	sf::Vector2f m_velocity;
@@ -141,6 +146,13 @@ class Player : public sf::Drawable, public sf::Transformable {
 	 * @param hp количество урона
 	 */
 	void getHit(int hp);
+
+	/**
+	 * @brief Получить текущее количество здоровья
+	 *
+	 * @return int здоровье
+	 */
+	int getHealth() const;
 
 	/**
 	 * @brief Метод меняющий спрайт анимации игрока на следующий

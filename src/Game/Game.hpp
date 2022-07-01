@@ -14,7 +14,11 @@
 #include "../external/SimplexNoise/SimplexNoise.hpp"
 
 class Game {
+#ifdef TESTING
+  public:
+#else
   private:
+#endif
 	unsigned int WINDOW_SIZE_H;
 	unsigned int WINDOW_SIZE_W;
 	uint8_t FPS;
